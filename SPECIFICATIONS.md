@@ -56,6 +56,7 @@ emmoni/
 │   ├── migrations/          # dbmate: AAAAMMDDHHMMSS_descricao.sql
 │   ├── schema.sql           # dump gerado pelo dbmate (commitado, nunca editado à mão)
 │   ├── checks/              # consultas de qualidade (seção 8)
+│   ├── catalog.yaml         # bancas, órgãos e cargos reais (seção 4.1, decisão 0005)
 │   ├── taxonomy/            # disciplinas e assuntos em YAML (seção 4.4)
 │   └── seed/seed.sql        # dados de exemplo para o front-end
 ├── ingest/                  # pacote Python
@@ -129,6 +130,9 @@ agency     (id, slug unique, name, short_name, career, level government_level,
 position   (id, agency_id, slug, name, education_level)    -- unique (agency_id, slug)
 ```
 
+O catálogo real é **curado em `db/catalog.yaml`** e carregado por `emmoni catalog load`
+(idempotente, por slug). Manifestos só citam slugs que existem nele (decisão 0005).
+
 ### 4.2 Concurso, prova e origem
 
 ```sql
@@ -164,7 +168,8 @@ create type question_type   as enum ('multiple_choice', 'true_false', 'essay');
 create type answer_status   as enum ('valid', 'changed', 'annulled');  -- após recursos
 create type publish_status  as enum ('draft', 'review', 'published');  -- também em exam
 
-passage (id uuid, exam_id, body_md, source_page, ...)
+passage (id uuid, exam_id, body_md, source_page,
+         source_key text null)                  -- rótulo na prova ("2A1-I"); unique (exam_id, source_key)
 
 question (
   id               uuid primary key,
@@ -182,6 +187,7 @@ question (
   source_page      smallint not null,
   extracted_by     text not null,               -- ex.: 'cebraspe-parser@1 + claude-sonnet-5-5'
   publish_status   publish_status not null default 'draft',
+  review_reasons   text[] not null default '{}', -- motivos da etapa validate (decisão 0005)
   search_vector    tsvector not null,           -- mantido por trigger (seção 4.5)
   unique (exam_id, number)
 )
@@ -465,9 +471,15 @@ exams:
 | `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo LLM dentro da taxonomia, com `confidence`. Confiança < 0,6 → `review`. |
 | `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of`. |
 
+No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
+rotulado ou a situação hipotética vira texto-base. O `load` grava `review` quando há motivo de
+revisão, `published` quando não há motivo e há assunto, e `draft` quando falta assunto. A prova só é
+publicada depois da amostragem (decisão 0005).
+
 Comandos:
 
 ```
+emmoni catalog load                 # db/catalog.yaml → banco
 emmoni crawl <fonte>|--all          # descobre documentos e propõe manifestos
 emmoni manifests pending|show|approve|reject
 emmoni ingest <manifest>            # todas as etapas
@@ -513,6 +525,7 @@ emmoni coverage                     # gera docs/coverage.md
 | `make db-up` / `db-down` / `db-reset` | Sobe, para ou recria do zero o Postgres do docker compose. |
 | `make install` | `uv sync --frozen`. |
 | `make migrate` | `dbmate up` + atualiza `db/schema.sql`. |
+| `make catalog` | Carrega `db/catalog.yaml` e a taxonomia (dados reais, sem o seed). |
 | `make seed` | Carrega taxonomia e `db/seed/seed.sql`; copia as imagens do seed para `data/assets/`. |
 | `make seed-build` | Regenera `db/seed/seed.sql` a partir de `scripts/build_seed.py`. |
 | `make test` | pytest contra `emmoni_test` recriado do zero (migrações + seed). |

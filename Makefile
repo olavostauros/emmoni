@@ -20,7 +20,7 @@ export EMMONI_DB_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DAT
 UV     ?= uv
 DBMATE ?= dbmate --wait
 
-.PHONY: help db-up db-down db-reset install migrate seed seed-build test test-db migrations-roundtrip \
+.PHONY: help db-up db-down db-reset install migrate catalog seed seed-build test test-db migrations-roundtrip \
         lint format check bench gates
 
 help:
@@ -41,6 +41,10 @@ install: ## Instala o ambiente Python
 
 migrate: ## Aplica as migrações e atualiza db/schema.sql
 	$(DBMATE) --url "$(DATABASE_URL_OWNER)" up
+
+catalog: install ## Carrega db/catalog.yaml e a taxonomia no banco de desenvolvimento
+	$(UV) run emmoni catalog load
+	$(UV) run emmoni taxonomy load
 
 # Taxonomia + seed num banco: $(call load_seed,<url como emmoni_ingest>)
 define load_seed

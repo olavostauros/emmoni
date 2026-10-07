@@ -1,6 +1,6 @@
 # Contrato com o front-end
 
-**Versão 1.0** · 2026-10-07
+**Versão 1.1** · 2026-10-07
 
 Este documento é tudo o que o agente de front-end precisa para trabalhar com o banco do emmoni.
 Ele descreve o esquema `api` do PostgreSQL: o que existe, o formato de cada resposta e como os
@@ -115,10 +115,10 @@ Um objeto por questão, com estes campos (todos sempre presentes; alguns podem s
 | `id` | uuid | Identificador estável. Use nas URLs. |
 | `number` | int | Número da questão na prova (caderno de referência). |
 | `type` | text | `multiple_choice`, `true_false` ou `essay`. |
-| `statement_md` | text | Enunciado ([formato](content-format.md)). |
+| `statement_md` | text | Enunciado ([formato](content-format.md)). Em certo/errado do Cebraspe, o primeiro parágrafo é o **comando** do grupo ("Com relação a X, julgue os itens a seguir."), repetido em cada item do grupo. |
 | `options` | lista | `[{"letter": "A", "body_md": "..."}]`, em ordem. Vazia em `true_false`. |
 | `answer` | text \| null | **Gabarito definitivo**: letra (`A`–`E`) ou `C`/`E` (certo/errado). `null` se anulada. |
-| `answer_preliminary` | text \| null | Gabarito preliminar, antes dos recursos. |
+| `answer_preliminary` | text \| null | Gabarito preliminar, antes dos recursos. `null` também quando a banca não publica mais o preliminar; nesse caso `answer_status` só distingue `annulled` de `valid` (uma alteração por recurso não é detectável). |
 | `answer_status` | text | `valid`, `changed` (alterado após recurso) ou `annulled` (anulada). |
 | `passage_id` | uuid \| null | Texto-base compartilhado com outras questões. |
 | `passage_md` | text \| null | Conteúdo do texto-base (repetido em cada questão que o usa). |
@@ -172,3 +172,4 @@ Para montar a árvore de assuntos: `api.topic` ordenada por `path`, ligando cada
 | Versão | Data | Mudança |
 |---|---|---|
 | 1.0 | 2026-10-07 | Primeira versão. |
+| 1.1 | 2026-10-07 | Sem mudança de interface. Documenta o comando no início do enunciado (Cebraspe) e `answer_preliminary` nulo quando o preliminar não está disponível. |

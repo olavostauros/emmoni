@@ -1,0 +1,18 @@
+subject: contabilidade-geral
+name: Contabilidade Geral
+topics:
+  - slug: patrimonio
+    name: Patrimônio e equação patrimonial
+  - slug: fatos-contabeis
+    name: Fatos contábeis
+  - slug: escrituracao
+    name: Escrituração contábil
+  - slug: demonstracoes-contabeis
+    name: Demonstrações contábeis
+    children:
+      - {slug: balanco-patrimonial, name: Balanço patrimonial}
+      - {slug: dre, name: Demonstração do resultado do exercício}
+  - slug: pronunciamentos-cpc
+    name: Pronunciamentos do CPC
+  - slug: contabilidade-publica
+    name: Contabilidade aplicada ao setor público

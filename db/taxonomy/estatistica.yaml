@@ -1,0 +1,19 @@
+subject: estatistica
+name: Estatística
+topics:
+  - slug: estatistica-descritiva
+    name: Estatística descritiva
+    children:
+      - {slug: medidas-de-posicao, name: Medidas de posição}
+      - {slug: medidas-de-dispersao, name: Medidas de dispersão}
+  - slug: probabilidade
+    name: Probabilidade
+  - slug: variaveis-aleatorias
+    name: Variáveis aleatórias e distribuições
+  - slug: inferencia
+    name: Inferência estatística
+    children:
+      - {slug: estimacao, name: Estimação}
+      - {slug: testes-de-hipoteses, name: Testes de hipóteses}
+  - slug: correlacao-e-regressao
+    name: Correlação e regressão

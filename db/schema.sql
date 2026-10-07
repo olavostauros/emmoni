@@ -844,6 +844,7 @@ CREATE TABLE public.question (
     search_vector tsvector DEFAULT ''::tsvector NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    review_reasons text[] DEFAULT '{}'::text[] NOT NULL,
     CONSTRAINT question_answer_format CHECK (
 CASE type
     WHEN 'true_false'::public.question_type THEN ((COALESCE(answer_preliminary, 'C'::text) = ANY (ARRAY['C'::text, 'E'::text])) AND (COALESCE(answer_final, 'C'::text) = ANY (ARRAY['C'::text, 'E'::text])))
@@ -863,6 +864,13 @@ END),
     CONSTRAINT question_statement_hash_check CHECK ((statement_hash ~ '^[0-9a-f]{64}$'::text)),
     CONSTRAINT question_statement_md_check CHECK ((statement_md <> ''::text))
 );
+
+
+--
+-- Name: COLUMN question.review_reasons; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON COLUMN public.question.review_reasons IS 'Motivos da etapa validate para a questão ficar em review (vazio = sem pendências).';
 
 
 --
@@ -1047,7 +1055,9 @@ CREATE TABLE public.passage (
     source_page smallint NOT NULL,
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
+    source_key text,
     CONSTRAINT passage_body_md_check CHECK ((body_md <> ''::text)),
+    CONSTRAINT passage_source_key_check CHECK ((source_key <> ''::text)),
     CONSTRAINT passage_source_page_check CHECK ((source_page > 0))
 );
 
@@ -1624,6 +1634,14 @@ ALTER TABLE ONLY public.exam_position
 
 ALTER TABLE ONLY public.passage_asset
     ADD CONSTRAINT passage_asset_pkey PRIMARY KEY (passage_id, asset_id);
+
+
+--
+-- Name: passage passage_exam_source_key; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.passage
+    ADD CONSTRAINT passage_exam_source_key UNIQUE (exam_id, source_key);
 
 
 --
@@ -2235,4 +2253,5 @@ INSERT INTO public.schema_migrations (version) VALUES
     ('20261007100300'),
     ('20261007100400'),
     ('20261007100500'),
-    ('20261007100600');
+    ('20261007100600'),
+    ('20261007200000');

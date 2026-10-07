@@ -1,0 +1,27 @@
+# Catálogo curado: bancas, órgãos e cargos (SPECIFICATIONS.md §4.1, decisão 0005).
+# Carregado por `emmoni catalog load` (idempotente, por slug). Os manifestos só podem citar
+# slugs que existem aqui. Registros que saem do arquivo não são apagados do banco.
+
+exam_boards:
+  - slug: cebraspe
+    name: Centro Brasileiro de Pesquisa em Avaliação e Seleção e de Promoção de Eventos
+    short_name: Cebraspe
+
+agencies:
+  - slug: pf
+    name: Polícia Federal
+    short_name: PF
+    career: pf
+    level: federal
+    positions:
+      - {slug: delegado, name: Delegado de Polícia Federal, education_level: superior}
+      - {slug: agente, name: Agente de Polícia Federal, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia Federal, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista Policial Federal, education_level: superior}
+  - slug: prf
+    name: Polícia Rodoviária Federal
+    short_name: PRF
+    career: prf
+    level: federal
+    positions:
+      - {slug: policial-rodoviario-federal, name: Policial Rodoviário Federal, education_level: superior}

@@ -4,7 +4,7 @@ import argparse
 from collections.abc import Sequence
 from pathlib import Path
 
-from ingest import checks, db, taxonomy
+from ingest import catalog, checks, db, manifest, pipeline, taxonomy
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -19,11 +19,25 @@ def main(argv: Sequence[str] | None = None) -> int:
     tax_load = tax_commands.add_parser("load", help="carrega db/taxonomy/*.yaml no banco")
     tax_load.add_argument("--dir", type=Path, default=taxonomy.TAXONOMY_DIR)
 
+    cat = commands.add_parser("catalog", help="catálogo de bancas, órgãos e cargos")
+    cat_commands = cat.add_subparsers(dest="catalog_command", required=True)
+    cat_load = cat_commands.add_parser("load", help="carrega db/catalog.yaml no banco")
+    cat_load.add_argument("--file", type=Path, default=catalog.CATALOG_FILE)
+
+    ingest = commands.add_parser("ingest", help="ingere as provas de um manifesto")
+    ingest.add_argument("manifest", help="slug do concurso (pf-2021) ou caminho do YAML")
+    ingest.add_argument("--exam", help="só esta prova (slug)")
+    ingest.add_argument("--step", choices=pipeline.STEPS, help="só esta etapa")
+
     args = parser.parse_args(argv)
     if args.command == "check":
         return _check(args.checks_dir)
     if args.command == "taxonomy":
         return _taxonomy_load(args.dir)
+    if args.command == "catalog":
+        return _catalog_load(args.file)
+    if args.command == "ingest":
+        return _ingest(args.manifest, args.exam, args.step)
     parser.error(f"comando desconhecido: {args.command}")
 
 
@@ -50,4 +64,21 @@ def _taxonomy_load(directory: Path) -> int:
     print(f"taxonomy: {report.subjects} disciplina(s), {report.topics} assunto(s)")
     for path in report.orphans:
         print(f"  aviso: {path} está no banco mas não nos arquivos")
+    return 0
+
+
+def _catalog_load(path: Path) -> int:
+    loaded = catalog.load(path)
+    with db.connect() as conn:
+        boards, agencies, positions = catalog.sync(conn, loaded)
+    print(f"catalog: {boards} banca(s), {agencies} órgão(s), {positions} cargo(s)")
+    return 0
+
+
+def _ingest(name: str, exam_slug: str | None, step: str | None) -> int:
+    loaded = manifest.load(manifest.resolve(name))
+    exams = [loaded.exam(exam_slug)] if exam_slug else loaded.exams
+    for exam in exams:
+        print(f"{loaded.contest}/{exam.slug}")
+        pipeline.ExamRun(loaded, exam).run(step)
     return 0

@@ -10,3 +10,9 @@ topics:
     name: Lógica de argumentação
   - slug: sequencias
     name: Sequências numéricas
+  - slug: analise-combinatoria
+    name: Análise combinatória
+  - slug: conjuntos
+    name: Conjuntos
+  - slug: probabilidade
+    name: Probabilidade
