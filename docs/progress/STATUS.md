@@ -1,6 +1,6 @@
 # Status — atualizado em 2026-10-07
 
-**Marco atual:** M2 — Primeira ingestão (SPECIFICATIONS.md §10) — falta classificar e aprovar
+**Marco atual:** M2 — Primeira ingestão (SPECIFICATIONS.md §10) — falta classificar (pelo agente) e aprovar
 **Últimos marcos concluídos:** M0 — Fundação · M1 — Esquema e contrato (2026-10-07)
 
 ## Feito neste marco
@@ -11,16 +11,18 @@
 - Fila de revisão e amostragem: amostras geradas em `data/review/` para as 18 provas.
 
 ## Em andamento
-- Classificação por assunto: etapa pronta e testada, falta credencial da API.
+- Classificação por assunto: etapa reescrita **sem Claude API** (decisão 0006). O agente classifica
+  lendo `classify-tasks.json` e escrevendo `classify-answers.json` no staging de cada prova.
+  Nenhuma prova classificada ainda; PRF 2018 já tem o arquivo de tarefas gerado (120 questões).
 
 ## Próximos passos
-1. Com credencial: `emmoni ingest <concurso> --step classify` e `--step load` para cada concurso.
+1. Por prova: `emmoni ingest <concurso> --step classify` → o agente responde
+   `classify-answers.json` → `--step classify` de novo → `--step load`. Começar pelo PRF 2018.
 2. Aprovação humana das amostras (`emmoni review approve <concurso>/<prova>`) → M2 pronto.
 3. Etapa `structure` (LLM) e exportação de imagens para as 210 questões em revisão.
 4. M3 — crawler do Cebraspe (o cliente HTTP e o conhecimento da API já existem).
 
 ## Bloqueios e perguntas em aberto
-- **Credencial da Claude API** (`ANTHROPIC_API_KEY` no `.env` ou `ant auth login`).
 - **Amostragem humana** das provas: só uma pessoa pode aprovar.
 - DPF 2014 (API do Cebraspe dá erro 500) e concursos anteriores a 2014 (`cespe.unb.br`, fora das
   fontes — incluir exige decisão).

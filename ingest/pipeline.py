@@ -4,8 +4,9 @@ Cada etapa lê e grava em `data/staging/<concurso>/<prova>/` e pode ser rerodada
 
     fetch → extract → segment → answer-key → validate → classify → load
 
-`classify` precisa de credencial da Claude API (ou das respostas já no cache); sem ela a etapa é
-pulada com aviso e o `load` carrega as questões sem assunto (`draft`).
+`classify` não chama API nenhuma: grava `classify-tasks.json` com o que falta classificar, o agente
+responde em `classify-answers.json` e a etapa, rerodada, valida e grava `topics.json`. Questões sem
+resposta entram no `load` sem assunto (`draft`).
 """
 
 import json
@@ -134,18 +135,23 @@ class ExamRun:
     def classify(self) -> None:
         validated = Validated.model_validate_json(self.path("questions.json").read_bytes())
         subjects = {s.slug: s for s in taxonomy.load_dir(taxonomy.TAXONOMY_DIR)}
-        cache = self.data / "staging" / "llm-cache"
-        try:
-            caller = classify_step.anthropic_caller() if _has_credentials() else None
-            result = classify_step.classify(validated, subjects, cache, caller)
-        except RuntimeError as error:
-            self.log(f"  classify: pulado — {error}")
-            return
+        answers = classify_step.read_answers(self.path(classify_step.ANSWERS_FILE))
+        result, pending = classify_step.classify(validated, subjects, answers)
         write(self.path("topics.json"), result)
+        tasks_path = self.path(classify_step.TASKS_FILE)
+        if pending:
+            write(tasks_path, classify_step.tasks_document(pending))
+        elif tasks_path.exists():
+            tasks_path.unlink()
         self.log(
             f"  classify: {len(result.topics)} classificadas, {len(result.review)} para revisão,"
             f" {len(result.suggestions)} sugestões de assunto ({result.model})"
         )
+        if pending:
+            self.log(
+                f"  classify: {len(pending)} questões aguardam resposta do agente em"
+                f" {tasks_path} → {classify_step.ANSWERS_FILE}"
+            )
 
     def load(self) -> LoadReport:
         validated = Validated.model_validate_json(self.path("questions.json").read_bytes())
@@ -195,10 +201,3 @@ class ExamRun:
         }
         for name in [step] if step else STEPS:
             steps[name]()
-
-
-def _has_credentials() -> bool:
-    """Chave ou token da Claude API no ambiente (o SDK também aceita perfil do `ant auth login`)."""
-    import os
-
-    return bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"))

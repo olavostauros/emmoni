@@ -14,11 +14,11 @@ e atualize este arquivo no mesmo commit.
 | Banco de dados | **PostgreSQL 17** | Busca textual em português (`tsvector`), `unaccent`, `pg_trgm`, `ltree`, JSONB, restrições fortes. |
 | Extensões | `unaccent`, `pg_trgm`, `ltree`, `pgcrypto` | Busca sem acento, busca aproximada, taxonomia hierárquica, UUIDs/hashes. |
 | Migrações | **dbmate** (SQL puro, `-- migrate:up` / `-- migrate:down`) | Independente de linguagem; o agente de front-end lê o mesmo SQL. |
-| Ingestão | **Python 3.12**, gerenciado com **uv** | Ecossistema de PDF/OCR e SDK de LLM. |
+| Ingestão | **Python 3.12**, gerenciado com **uv** | Ecossistema de PDF/OCR. |
 | PDF | **PyMuPDF** (texto, layout, imagens); **ocrmypdf + Tesseract `por`** como fallback para PDFs escaneados | |
 | Crawling | **httpx** (HTTP/2, retries, requisições condicionais), **selectolax** (HTML), `urllib.robotparser`; **Playwright** só para fontes marcadas `js: true` | Leve por padrão; navegador só quando o site exige JavaScript. |
-| Extração estruturada | **Claude API** (SDK `anthropic`), saída em JSON validado por schema | Modelo configurável por `EMMONI_LLM_MODEL` (padrão `claude-sonnet-5-5`). |
-| Validação em Python | **pydantic v2** | Mesmo modelo para a saída do LLM, o staging e a carga. |
+| Classificação e estruturação por LLM | **O próprio agente** que opera o repositório, por arquivos de tarefa e resposta no staging (decisão 0006) | Sem SDK, sem credencial, sem custo por token. A resposta é validada por pydantic e pela taxonomia. |
+| Validação em Python | **pydantic v2** | Mesmo modelo para as respostas do agente, o staging e a carga. |
 | Acesso ao banco | **psycopg 3** (SQL explícito, sem ORM) | O esquema é o produto; nada de esquema implícito em ORM. |
 | Testes | **pytest** contra um Postgres descartável (docker compose, banco `emmoni_test`) | |
 | Qualidade de código | **ruff** (lint + format), **mypy** em modo estrito no pacote `ingest` | |
@@ -33,7 +33,7 @@ tem padrões de desenvolvimento para todas as URLs do banco, então um repositó
 |---|---|
 | `DATABASE_URL` / `DATABASE_URL_OWNER` | Banco `emmoni` como `emmoni_ingest` / `emmoni_owner` (migrações). |
 | `DATABASE_URL_TEST`, `_TEST_OWNER`, `_TEST_WEB` | Banco `emmoni_test`, um por papel. |
-| `ANTHROPIC_API_KEY`, `EMMONI_LLM_MODEL` | Extração estruturada (padrão `claude-sonnet-5-5`). |
+| `EMMONI_CLASSIFIER` | Identificador de quem classifica, gravado em `topics.json` (padrão `agent`). |
 | `EMMONI_DATA_DIR` | Raiz de `raw/`, `staging/`, `assets/`, `crawl/`. |
 | `EMMONI_CRAWL_CONTACT` | Contato no `User-Agent` do crawler. |
 
@@ -466,10 +466,10 @@ exams:
 | `fetch` | manifesto → `data/raw/<sha256>.pdf` + `source_document` | Não baixa de novo se o sha256 já existe. Respeita `robots.txt`, 1 requisição/s por host, `User-Agent` identificado. |
 | `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR se a página não tiver texto; imagens exportadas para `data/assets/<sha256>.<ext>`. |
 | `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras. |
-| `structure` | questões brutas → `questions.json` | LLM só onde as regras falham (tabelas, fórmulas, layout em colunas). Saída validada por pydantic; inválido → retry uma vez → `review`. |
+| `structure` | questões brutas → `questions.json` | Agente só onde as regras falham (tabelas, fórmulas, layout em colunas), pelo mesmo mecanismo de tarefas/respostas do `classify`. Saída validada por pydantic; inválida → `review`. |
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |
 | `validate` | `questions.json` | Numeração contínua, alternativas compatíveis com o tipo, gabarito válido, enunciado não vazio, imagens resolvidas. Falha → questão fica `review`, com motivo registrado. |
-| `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo LLM dentro da taxonomia, com `confidence`. Confiança < 0,6 → `review`. |
+| `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo agente dentro da taxonomia, com `confidence`. Grava `classify-tasks.json` com o que falta; lê `classify-answers.json`. Confiança < 0,6 ou assunto de outra disciplina → `review`; sem resposta → `draft`. |
 | `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of` (questões em `review` ficam fora: o conteúdo extraído está incompleto). |
 
 No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
@@ -495,16 +495,23 @@ emmoni coverage                     # gera docs/coverage.md
 
 ### 7.4 Uso do LLM
 
-- Prompts versionados em `ingest/prompts/`, com o nome da versão gravado em `extracted_by`.
-- Saída sempre por **tool use / JSON schema**, nunca texto livre.
-- Respostas cacheadas em `data/staging/llm-cache/<sha256>.json` pelo hash (prompt + entrada +
-  modelo): reprocessar não gasta tokens à toa.
-- `classify` (`ingest/classify.py`, prompt `ingest/prompts/classify@1.md`): saída por
-  `output_config.format` (JSON schema) com `enum` dos assuntos da disciplina, esforço `low`.
-  `tool_choice` forçado não é usado (o `claude-sonnet-5-5` o rejeita). Sem credencial da API e sem
-  cache, a etapa é pulada com aviso e as questões ficam `draft`. Sugestões de assunto novo vão para
-  `topics.json`, para curadoria da taxonomia.
-- O LLM **nunca** decide gabarito: o gabarito vem só dos PDFs oficiais de gabarito.
+O LLM é **o agente que opera o repositório** (Claude Code ou equivalente), não um serviço chamado
+pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
+
+- Prompts versionados em `ingest/prompts/`, com o nome da versão gravado em `topics.json` /
+  `extracted_by`. O prompt é a instrução que a etapa entrega ao agente no arquivo de tarefas.
+- Cada etapa que precisa do agente grava um arquivo de **tarefas** no staging da prova e lê um
+  arquivo de **respostas** escrito pelo agente; a etapa valida as respostas (pydantic + regras) e
+  nunca aceita texto livre. Rerodar a etapa com as mesmas respostas é idempotente.
+- `classify` (`ingest/classify.py`, prompt `ingest/prompts/classify@1.md`):
+  `classify-tasks.json` traz, por questão, a disciplina, os assuntos permitidos (`allowed_topics`),
+  o texto-base e o enunciado; `classify-answers.json` traz `{número: {topics: [{path, confidence}],
+  suggested_topic}}`. Só entram assuntos da disciplina da questão; no máximo 3. Sugestões de assunto
+  novo vão para `topics.json`, para curadoria da taxonomia. `EMMONI_CLASSIFIER` identifica quem
+  respondeu.
+- Fluxo: `emmoni ingest <concurso> --step classify` → agente lê as tarefas e grava as respostas →
+  `--step classify` de novo → `--step load`.
+- O agente **nunca** decide gabarito: o gabarito vem só dos PDFs oficiais de gabarito.
 
 ---
 
@@ -559,7 +566,7 @@ Testes obrigatórios:
 - **Cortesia**: testes do cliente HTTP comprovam que URL proibida no `robots.txt`, domínio fora da
   lista e domínio da denylist **não** geram requisição, e que o limite por host é respeitado.
 - Nenhum teste acessa a rede (fixtures e servidor HTTP local).
-- Testes não chamam a API do LLM: usam respostas gravadas.
+- Testes da classificação usam arquivos de resposta gravados; nenhum teste depende de LLM.
 
 ---
 
