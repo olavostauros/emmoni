@@ -484,7 +484,9 @@ emmoni crawl <fonte>|--all          # descobre documentos e propõe manifestos
 emmoni manifests pending|show|approve|reject
 emmoni ingest <manifest>            # todas as etapas
 emmoni ingest <manifest> --step <s> # uma etapa
-emmoni review list|show|approve     # fila de questões em review
+emmoni review list|show [<concurso>/<prova>]   # fila de questões em review, com motivos
+emmoni review sample <concurso>/<prova> [--n 10] # amostra em HTML, ao lado da página do PDF
+emmoni review approve <concurso>/<prova>        # publica a prova (exige amostra)
 emmoni taxonomy load
 emmoni check                        # seção 8
 emmoni coverage                     # gera docs/coverage.md
@@ -508,8 +510,10 @@ emmoni coverage                     # gera docs/coverage.md
 - Checks mínimos: questão publicada sem gabarito final e não anulada; múltipla escolha com < 4
   alternativas; buraco na numeração de uma prova; `asset:` sem asset; duplicatas publicadas
   não marcadas; questão publicada sem assunto; texto-base sem questões.
-- Amostragem manual: para cada prova nova, `emmoni review sample --exam <slug> --n 10` mostra 10
-  questões lado a lado com a página do PDF; a prova só vai para `published` após aprovação.
+- Amostragem manual: para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
+  (de forma determinística) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
+  com cada questão ao lado da página do PDF; a prova só vai para `published` após aprovação humana
+  (`emmoni review approve`, que registra quem aprovou em `sample.json`).
 - `emmoni coverage` gera `docs/coverage.md`: questões publicadas por banca × órgão × ano e por
   disciplina, provas de manifestos ainda não ingeridas, propostas pendentes de aprovação e, por
   fonte, a última execução do crawler e os hosts que bloquearam.

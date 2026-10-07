@@ -4,7 +4,7 @@ import argparse
 from collections.abc import Sequence
 from pathlib import Path
 
-from ingest import catalog, checks, db, manifest, pipeline, taxonomy
+from ingest import catalog, checks, db, fetch, manifest, pipeline, review, taxonomy
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -29,7 +29,22 @@ def main(argv: Sequence[str] | None = None) -> int:
     ingest.add_argument("--exam", help="só esta prova (slug)")
     ingest.add_argument("--step", choices=pipeline.STEPS, help="só esta etapa")
 
+    rev = commands.add_parser("review", help="fila de revisão e amostragem")
+    rev_commands = rev.add_subparsers(dest="review_command", required=True)
+    rev_list = rev_commands.add_parser("list", help="questões em revisão e seus motivos")
+    rev_list.add_argument("exam", nargs="?", help="<concurso>/<prova>")
+    rev_show = rev_commands.add_parser("show", help="mostra questões de uma prova")
+    rev_show.add_argument("exam", help="<concurso>/<prova>")
+    rev_show.add_argument("numbers", nargs="+", type=int)
+    rev_sample = rev_commands.add_parser("sample", help="gera a amostra para conferência")
+    rev_sample.add_argument("exam", help="<concurso>/<prova>")
+    rev_sample.add_argument("--n", type=int, default=10)
+    rev_approve = rev_commands.add_parser("approve", help="publica a prova após a amostragem")
+    rev_approve.add_argument("exam", help="<concurso>/<prova>")
+
     args = parser.parse_args(argv)
+    if args.command == "review":
+        return _review(args)
     if args.command == "check":
         return _check(args.checks_dir)
     if args.command == "taxonomy":
@@ -81,4 +96,40 @@ def _ingest(name: str, exam_slug: str | None, step: str | None) -> int:
     for exam in exams:
         print(f"{loaded.contest}/{exam.slug}")
         pipeline.ExamRun(loaded, exam).run(step)
+    return 0
+
+
+def _review(args: argparse.Namespace) -> int:
+    try:
+        ref = review.ExamRef.parse(args.exam) if args.exam else None
+        with db.connect() as conn:
+            if args.review_command == "list":
+                rows = review.list_review(conn, ref)
+                for exam, number, reasons in rows:
+                    print(f"{exam} {number:>4}  {'; '.join(reasons)}")
+                print(f"review: {len(rows)} questão(ões)")
+            elif args.review_command == "show":
+                assert ref is not None
+                for q in review.show(conn, ref, args.numbers):
+                    print(
+                        f"--- {ref} questão {q.number} (página {q.source_page}, {q.publish_status})"
+                    )
+                    if q.passage_md:
+                        print(f"[texto-base]\n{q.passage_md}\n")
+                    print(q.statement_md)
+                    print(f"gabarito: {q.answer_final} ({q.answer_status}) · {q.subject}")
+                    for reason in q.review_reasons:
+                        print(f"  motivo: {reason}")
+            elif args.review_command == "sample":
+                assert ref is not None
+                page = review.write_sample(conn, ref, args.n, fetch.data_dir())
+                print(f"amostra: {page}")
+            elif args.review_command == "approve":
+                assert ref is not None
+                published, left = review.approve(conn, ref, fetch.data_dir())
+                conn.commit()
+                print(f"{ref} publicada: {published} questão(ões) visíveis, {left} fora")
+    except review.ReviewError as error:
+        print(f"review: {error}")
+        return 1
     return 0
