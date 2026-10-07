@@ -16,18 +16,17 @@ from pydantic import BaseModel
 
 ITALIC = 2
 BOLD = 16
-# Fração da largura da página que separa as colunas, e folga para considerar a linha "de um lado".
+# Folga, em pontos, para considerar que a linha está de um lado do meio da página.
 COLUMN_SLACK = 12.0
-REPEATED_SHARE = 0.5
-MARGIN_SHARE = 0.08
+REPEATED_SHARE = 0.5  # linha presente em mais da metade das páginas = cabeçalho/rodapé
+MARGIN_SHARE = 0.08  # faixa de cima e de baixo da página onde ficam cabeçalho e rodapé
 SCRIPT_DROP = 1.5  # pontos a menos que a fonte da linha: índice ou expoente
-ITEM_NUMBER = re.compile(
-    r"^\d{1,3}$"
-)  # faixa de cima e de baixo da página onde ficam cabeçalho e rodapé
+ITEM_NUMBER = re.compile(r"^\d{1,3}$")
+ORDINAL = re.compile(r"^[oaº]s?\.?$")  # "n.os", "1.a": abreviatura sobrescrita, não índice
 FULL_WIDTH_SHARE = 0.8  # desenho mais largo que isso é moldura/faixa, não figura
-MIN_RULE = 40.0
+MIN_RULE = 40.0  # régua horizontal mais curta que isso costuma ser sublinhado
 SEPARATOR_SHARE = 0.4  # régua com ~ a largura da coluna
-TABLE_ROW_GAP = 40.0  # réguas largas mais próximas que isso = linhas de tabela  # régua horizontal mais curta que isso costuma ser sublinhado  # linha presente em mais da metade das páginas = cabeçalho/rodapé
+TABLE_ROW_GAP = 40.0  # réguas largas mais próximas que isso = linhas de tabela
 
 
 class Line(BaseModel):
@@ -138,7 +137,14 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
         column = 0
     sizes = Counter(round(float(s["size"]), 1) for s in spans for _ in s["text"])
     main = sizes.most_common(1)[0][0]
-    scripts = any(float(s["size"]) < main - SCRIPT_DROP and s["text"].strip(" \xa0") for s in spans)
+    # O número do item no começo da linha costuma vir em corpo menor: não é índice.
+    body = spans[1:] if ITEM_NUMBER.match(spans[0]["text"].strip(" \xa0")) else spans
+    scripts = any(
+        float(s["size"]) < main - SCRIPT_DROP
+        and s["text"].strip(" \xa0")
+        and not ORDINAL.match(s["text"].strip(" \xa0"))
+        for s in body
+    )
     return Line(
         text=markdown,
         plain=plain,

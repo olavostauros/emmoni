@@ -1,6 +1,7 @@
 # PF 2018 — Banca: Cebraspe. Fonte: https://www.cebraspe.org.br/concursos/PF_18 (API: eventos/PF_18).
 # Cargos policiais: 1 Delegado, 12 Agente, 13 Escrivão, 14 Papiloscopista. Peritos (cargos 2–11)
-# ficam para depois.
+# ficam para depois. Data de aplicação ainda não conferida em edital (applied_on omitido).
+# Disciplinas por faixa conferidas lendo os itens (o caderno não traz cabeçalhos de disciplina).
 contest: pf-2018
 name: PF 2018
 agency: pf
@@ -15,6 +16,17 @@ exams:
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF012__PAG_9.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF012__PAG_9.PDF
+    subjects_by_range:
+      - {from: 1, to: 24, subject: lingua-portuguesa}
+      - {from: 25, to: 28, subject: direito-administrativo}
+      - {from: 29, to: 32, subject: direito-constitucional}
+      - {from: 33, to: 34, subject: direito-penal}
+      - {from: 35, to: 37, subject: direito-processual-penal}
+      - {from: 38, to: 40, subject: legislacao-penal-especial}
+      - {from: 41, to: 50, subject: estatistica}
+      - {from: 51, to: 60, subject: raciocinio-logico}
+      - {from: 61, to: 96, subject: informatica}
+      - {from: 97, to: 120, subject: contabilidade-geral}
   - slug: escrivao
     name: Escrivão de Polícia Federal — prova objetiva
     positions: [escrivao]
@@ -22,6 +34,18 @@ exams:
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF013__PAG_8.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF013__PAG_8.PDF
+    subjects_by_range:
+      - {from: 1, to: 24, subject: lingua-portuguesa}
+      - {from: 25, to: 28, subject: direito-administrativo}
+      - {from: 29, to: 32, subject: direito-constitucional}
+      - {from: 33, to: 34, subject: direito-penal}
+      - {from: 35, to: 37, subject: direito-processual-penal}
+      - {from: 38, to: 40, subject: legislacao-penal-especial}
+      - {from: 41, to: 50, subject: estatistica}
+      - {from: 51, to: 60, subject: raciocinio-logico}
+      - {from: 61, to: 96, subject: informatica}
+      - {from: 97, to: 108, subject: contabilidade-geral}
+      - {from: 109, to: 120, subject: arquivologia}
   - slug: papiloscopista
     name: Papiloscopista Policial Federal — prova objetiva
     positions: [papiloscopista]
@@ -29,6 +53,20 @@ exams:
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF014__PAG_9.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF014__PAG_9.PDF
+    subjects_by_range:
+      - {from: 1, to: 24, subject: lingua-portuguesa}
+      - {from: 25, to: 28, subject: direito-administrativo}
+      - {from: 29, to: 32, subject: direito-constitucional}
+      - {from: 33, to: 34, subject: direito-penal}
+      - {from: 35, to: 37, subject: direito-processual-penal}
+      - {from: 38, to: 40, subject: legislacao-penal-especial}
+      - {from: 41, to: 50, subject: estatistica}
+      - {from: 51, to: 60, subject: raciocinio-logico}
+      - {from: 61, to: 96, subject: informatica}
+      - {from: 97, to: 102, subject: arquivologia}
+      - {from: 103, to: 108, subject: biologia}
+      - {from: 109, to: 114, subject: fisica}
+      - {from: 115, to: 120, subject: quimica}
   - slug: delegado
     name: Delegado de Polícia Federal — prova objetiva
     positions: [delegado]
@@ -36,3 +74,19 @@ exams:
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF001__PAG_8.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF001__PAG_8.PDF
+    subjects_by_range:
+      - {from: 1, to: 15, subject: direito-administrativo}
+      - {from: 16, to: 30, subject: direito-constitucional}
+      - {from: 31, to: 33, subject: direito-civil}               # LINDB
+      - {from: 34, to: 36, subject: direito-administrativo}      # improbidade
+      - {from: 37, to: 39, subject: direito-civil}               # direito empresarial
+      - {from: 40, to: 46, subject: direito-internacional}
+      - {from: 47, to: 60, subject: direito-penal}
+      - {from: 61, to: 74, subject: legislacao-penal-especial}
+      - {from: 75, to: 88, subject: direito-processual-penal}
+      - {from: 89, to: 102, subject: legislacao-penal-especial}  # legislação processual extravagante
+      - {from: 103, to: 105, subject: criminologia}
+      - {from: 106, to: 113, subject: direito-previdenciario}    # 111–113: crime previdenciário
+      - {from: 114, to: 116, subject: direito-tributario}
+      - {from: 117, to: 118, subject: direito-financeiro}
+      - {from: 119, to: 120, subject: direito-tributario}
