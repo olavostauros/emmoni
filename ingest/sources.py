@@ -30,6 +30,8 @@ class Source(BaseModel):
     max_depth: int = Field(ge=0)
     recrawl: Recrawl
     auto_approve: bool = False
+    # Tipos além de PDF e HTML, para fontes cujo site carrega a lista por API (decisão 0004).
+    extra_content_types: list[str] = []
 
 
 class SourceList(BaseModel):

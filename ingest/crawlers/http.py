@@ -215,7 +215,9 @@ class PoliteClient:
         if response.status_code != 200:
             raise CrawlError(f"{url}: HTTP {response.status_code}")
         content_type = response.headers.get("content-type", "").split(";")[0].strip().lower()
-        if content_type not in ALLOWED_TYPES:
+        source = self.sources.source_for(url)
+        extra = source.extra_content_types if source else []
+        if content_type not in ALLOWED_TYPES and content_type not in extra:
             raise CrawlError(f"{url}: tipo {content_type!r} não aceito")
         return Response(url, 200, response.content, content_type, etag, last_modified)
 

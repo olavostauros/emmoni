@@ -7,7 +7,9 @@ dependencies = [
   "httpx>=0.28",
   "psycopg[binary]>=3.2",
   "pydantic>=2.9",
+  "pymupdf>=1.24",
   "pyyaml>=6.0.3",
+  "selectolax>=0.3",
 ]
 
 [project.scripts]

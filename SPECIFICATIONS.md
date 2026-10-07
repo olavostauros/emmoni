@@ -375,6 +375,7 @@ O crawler encontra provas novas e **propõe** manifestos; ele não ingere nada.
   max_depth: 3
   recrawl: {listing: 1d, contest_open: 3d, contest_closed: never}
   auto_approve: false
+  extra_content_types: []        # opcional; ex.: [application/json] (decisão 0004)
 ```
 
 **Bloqueadas por padrão** (lista `denylist` no mesmo arquivo, checada antes de qualquer requisição):
@@ -399,6 +400,8 @@ crawler é obrigado a usar):
 - Só `https`. Redirecionamentos seguidos à mão: o destino passa pelas mesmas checagens. `robots.txt`
   pela RFC 9309 (4xx → sem restrições; 5xx ou falha → tudo proibido). A etapa `fetch` usa o mesmo
   cliente (decisão 0003).
+- Tipos além de PDF e HTML só por fonte, no campo `extra_content_types` de `sources.yaml` (ex.: a API
+  JSON do Cebraspe, decisão 0004).
 
 **Classificação do que foi encontrado:**
 

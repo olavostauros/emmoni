@@ -176,10 +176,10 @@ def test_conditional_request_and_not_modified() -> None:
 
 def test_rejects_other_content_types_and_large_bodies() -> None:
     client, _, _ = make_client(
-        lambda r: httpx.Response(200, content=b"{}", headers={"content-type": "application/json"})
+        lambda r: httpx.Response(200, content=b"x", headers={"content-type": "text/plain"})
     )
     with pytest.raises(CrawlError, match="não aceito"):
-        client.get(f"{BASE}/concursos/a.json")
+        client.get(f"{BASE}/concursos/a.txt")
 
     big = {"content-type": "application/pdf", "content-length": str(60 * 1024 * 1024)}
     client, _, _ = make_client(lambda r: httpx.Response(200, content=b"x", headers=big))
@@ -190,3 +190,11 @@ def test_rejects_other_content_types_and_large_bodies() -> None:
 def test_placeholder_contact_is_refused() -> None:
     with pytest.raises(CrawlError, match="EMMONI_CRAWL_CONTACT"):
         PoliteClient(sources.load(), "contato@exemplo.com")
+
+
+def test_extra_content_types_are_per_source() -> None:
+    client, _, _ = make_client(
+        lambda r: httpx.Response(200, content=b"[]", headers={"content-type": "application/json"})
+    )
+    response = client.get("https://apis.cebraspe.org.br/cebraspe/eventos/PF_21")
+    assert response.content_type == "application/json"

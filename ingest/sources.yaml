@@ -3,18 +3,21 @@
 # docs/decisions/ no mesmo commit.
 
 sources:
-  # Decisão 0003.
+  # Decisões 0003 e 0004.
   - slug: cebraspe
     kind: exam_board
     base_url: https://www.cebraspe.org.br/concursos/
     allowed_prefixes:
       - https://www.cebraspe.org.br/concursos/
       - https://cdn.cebraspe.org.br/
+      - https://apis.cebraspe.org.br/cebraspe/eventos
     crawler: cebraspe
     js: false
     max_depth: 3
     recrawl: {listing: 1d, contest_open: 3d, contest_closed: never}
     auto_approve: false
+    # O site de concursos é uma aplicação React que lê uma API JSON (decisão 0004).
+    extra_content_types: [application/json, application/javascript, text/javascript]
 
 # Agregadores de questões e cursinhos: nunca acessados, nem para "conferir" (AGENTS.md).
 # Vale para o domínio e todos os subdomínios. Checada antes de qualquer requisição.
