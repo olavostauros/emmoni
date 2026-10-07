@@ -1,0 +1,813 @@
+{
+ "idEvento": 3231,
+ "eventoNomeAbreviado": "PF 25",
+ "eventoNomeCompleto": "PF 25",
+ "eventoTotalVagas": "1000",
+ "eventoSalarioMaximo": 26800,
+ "strEventoSalarioMaximo": "R$ 26.800,00",
+ "eventoURL": "PF_25",
+ "eventoStatus": "Abertura",
+ "eventoTipo": "concursos",
+ "eventoAno": 2025,
+ "periodoInscricao": "De 26/05/2025 até 17/06/2025 às 18:00, horário oficial de Brasília/DF",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: Delegado de Polícia Federal"
+  },
+  {
+   "idArea": "02",
+   "area": "Cargo 2: Perito Criminal Federal – Área 1: Contábil-Financeira"
+  },
+  {
+   "idArea": "03",
+   "area": "Cargo 3: Perito Criminal Federal – Área 2: Engenharia Elétrica/Eletrônica"
+  },
+  {
+   "idArea": "04",
+   "area": "Cargo 4: Perito Criminal Federal – Área 3: Informática Forense"
+  },
+  {
+   "idArea": "05",
+   "area": "Cargo 5: Perito Criminal Federal – Área 5: Geologia Forense"
+  },
+  {
+   "idArea": "06",
+   "area": "Cargo 6: Perito Criminal Federal – Área 7: Engenharia Civil"
+  },
+  {
+   "idArea": "07",
+   "area": "Cargo 7: Perito Criminal Federal – Área 11: Engenharia Cartográfica"
+  },
+  {
+   "idArea": "08",
+   "area": "Cargo 8: Perito Criminal Federal – Área 12: Medicina Legal"
+  },
+  {
+   "idArea": "09",
+   "area": "Cargo 9: Perito Criminal Federal – Área 16: Física Forense"
+  },
+  {
+   "idArea": "10",
+   "area": "Cargo 10: Perito Criminal Federal – Área 17: Engenharia de Minas"
+  },
+  {
+   "idArea": "11",
+   "area": "Cargo 11: Perito Criminal Federal – Área 19: Genética Forense"
+  },
+  {
+   "idArea": "12",
+   "area": "Cargo 12: Perito Criminal Federal – Área 20: Engenharia Ambiental"
+  },
+  {
+   "idArea": "13",
+   "area": "Cargo 13: Perito Criminal Federal – Área 21: Antropologia Forense"
+  },
+  {
+   "idArea": "14",
+   "area": "Cargo 14: Perito Criminal Federal – Área 22: Meio Ambiente"
+  },
+  {
+   "idArea": "15",
+   "area": "Cargo 15: Escrivão de Polícia Federal"
+  },
+  {
+   "idArea": "16",
+   "area": "Cargo 16: Agente de Polícia Federal"
+  },
+  {
+   "idArea": "17",
+   "area": "Cargo 17: Papiloscopista Policial Federal"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "23/09/2026 18:15",
+   "nomeArquivo": "D7AF05794B28C9DBAFDF1D46B1B148C94C28864B26BCD9906183BA28CEBBDFF8.html",
+   "descricaoArquivo": "Edital nº 48 - Retificação do caput do Edital nº 45 – PF – Policial, de 1º de setembro de 2026 – VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-09-23T18:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "23/09/2026 18:15",
+   "nomeArquivo": "676C6FE86DDB7AF71388896F5FF6B811A849FF69CB2A575FBE97336B5F6D5E12.pdf",
+   "descricaoArquivo": "Edital nº 48 - Retificação do caput do Edital nº 45 – PF – Policial, de 1º de setembro de 2026",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-09-23T18:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "27/02/2026 16:25",
+   "nomeArquivo": "D36790E1F39ED92082CAE4A6B256E05F0A44628B82B479AA12119F4F1C66E21B.html",
+   "descricaoArquivo": "Edital nº 24 – Relação final dos candidatos que compareceram ao primeiro momento da avaliação psicológica e o resultado final no procedimento de heteroidentificação complementar à autodeclaração dos candidatos negros, exceto para o cargo de Agente de Polícia Federal; o resultado final dos candidatos aprovados conforme subitem 14.1 do edital de abertura e a convocação para avaliação de títulos, somente para os cargos de Delegado de Polícia Federal e Perito Criminal Federal; bem como o resultado final na primeira etapa no concurso público – VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-02-27T16:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "27/02/2026 16:25",
+   "nomeArquivo": "16B4BE4B74E9AAF75C64A2059B12669319FBF3A9273C06C79C6072F7AC069454.pdf",
+   "descricaoArquivo": "Edital nº 24 – Relação final dos candidatos que compareceram ao primeiro momento da avaliação psicológica e o resultado final no procedimento de heteroidentificação complementar à autodeclaração dos candidatos negros, exceto para o cargo de Agente de Polícia Federal; o resultado final dos candidatos aprovados conforme subitem 14.1 do edital de abertura e a convocação para avaliação de títulos, somente para os cargos de Delegado de Polícia Federal e Perito Criminal Federal; bem como o resultado final na primeira etapa no concurso público",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-02-27T16:25:00"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "27/07/2026 14:00",
+   "nomeArquivo": "CDC7CFAADFFCABACF7DEEF6B1C4EC87CEAC22995AD7BC9550D017C17FE24E431.pdf",
+   "descricaoArquivo": "PROVA ORAL - CARGO DELEGADO (APLICADO DIA 19/7/2026) SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-07-27T14:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "15/12/2025 17:45",
+   "nomeArquivo": "25884E2722C53188F09613E726AA9C1D798AC0810765EE9928BBC06C1D72276C.pdf",
+   "descricaoArquivo": "PROVA ORAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-12-15T17:45:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "2FFD50E84784D30C2B2B3D92EE2237059B94820D0DE2FAA9F8417ECC69FD93A9.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTAS – PROVA DISCURSIVA – CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "A42D73A37D7C3C84265EBA68F0A8DD2ED24B7FDF2000A0D0C52DE4DB78A1DCC2.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 2 ",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "E6F9E8AEDA4323C0F950613F7DD0FF7C50FD53F7EE3C0876EB074028BEF48D39.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "D2D4C6C3DCB37954F7268220891582B67F81A41042156DFD8140D313792EAD8D.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "935D90E4167DF7A6595EF6C8F7A647B9CA1FC137B0B72615C93D08823B91654C.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "30828DE83D445ED1F69232D50CA6359C3AEB5913C14E26F8D58BA750EF52F391.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "B37BAB34751C90BB427B8CC44158900FDEA3E84854322B4FD1C7D7272E64064D.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "4FD66C442BA3EA12353908299508FFB5BA2B7181C422C2D3BD4F4857942A481A.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 8",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "E4D673BB1BE75A3DA7BFC0535E3BCB56871D67EB6E73B7B3B73D44BA36F9B2F7.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "73B0463D22FCF7D013D7945CD32AD82B9B5EF58D98807447D916EFB11DA06A20.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 10",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "AD155BD7190891A177C95548CB1CD3D5AE95DC56A048BED7E19B1521E9C40D34.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "43A4403686A3EE44B6E37615E24C443AB3A65AD66DA753A9CDCCB1CF30D8F566.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "FAACDE198E7674C65ED18A99C0AD2B2EC764A9453D222A91221979AFC1F1261F.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "B8FA5ADE70FDEB33C20269D16BB2884BEDD077B7D4BA99E5F52A9670D21487F8.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "BED10DDD2DF199141E039D379B67D1684667657D930051363CA8D882BCB62BFD.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 15",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "0CDC7006A4690BB16A65E4064E3E743A8D9286BDF53D68B7A4DFFB4D93BE2F80.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 16",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 15:00",
+   "nomeArquivo": "D6636F8BFD248E2B2E6D70908EF1B69278611FDD9AFA4270C126426875D182D2.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T15:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "5A49198A6084706823226C79C28FFDBB1129FD5D938C9919AD9C1FC97E54701A.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS PARA TODOS OS CARGOS DE PERITO CRIMINAL FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "D0F881898A969B6733B878291FC1201E6CFE079281391E04B7EE322628BC888C.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS – BLOCO I – PARA OS CARGOS 15, 16 E 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "A78F5BA07173AF0B8A5E611A1D7AAB166B7BD473E5D7AC2220F0F1B7DDB641E9.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS – BLOCO II – PARA OS CARGOS 15, 16 E 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "D202E48A0B1EBF5039E398F0B49D0186DD625DFF53498E36EE4D88DE4501E3A8.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "B918D6A805194D299F15922339CA17D2C3921BF015DFD2B258EEFFE487A53F22.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "2957F96327337126177C0FC57B9996A02B966EAE7A1419F7CEE9D4C686F77B6E.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "C3612023C0E2243979FBA27DE2DD60A80FA5FCD9054B4D9664D9E51356E599EE.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "9E550CE72E70B14514C5A47A7A0F3CD30B56607FF45010612931D046BBA96D23.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "69579E7D6152E8A1DDCEFA1B6C4A6DCBDAAB69B934E5C17D04FC88BA150BED2B.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "69E40522AFDEB12F65A8F018C256D678CAF9787CB383C19E8AD49838B87DDE32.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "A4317E37ECE8E8AA749DB4D62EEEE09EE11BBEFE4CAD3F6DCA02B0B5B85050EB.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 8",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "DAC7F9CA42277AEBFF4D7B97F7A953DBAEE67FAF37C5FBD06493B01E7E4148B4.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "A20B3AA111033AF8554D1FD0FAC6456DB5C0B7B9D86783FB9896D4603D5C2524.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 10",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "8C568F1F09BC80CF9149D2DFC247EC5784C5E01825928048D37A80F3F7A60D77.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "643F5923E964CA1EFCA681AAED5B653BA0136E288E0BF3E23DB9F3F053D1F77E.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "2B1B28107AE0168F6AF795DF71CF83536A1AD39CBC1B405DA6BF3D261A1867CF.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "281353E4B98F8BC1C8109000C6D0BC06D2C00D30E8523F484883219764A65855.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "570C8865F7DDA1651ED10E330A6297A95466A2393EEEC633290FE754912D6143.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 15",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "CDC24D454696C9FE260E6C50FE758707F322649AEE24B6FB664FDDA10E307BCF.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 16",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "20/08/2025 10:10",
+   "nomeArquivo": "448F54940D877880045A494008870FC0B25C57C9D7233ECD0CDC29B942A683AD.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS – CARGO 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-20T10:10:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "02/08/2025 19:00",
+   "nomeArquivo": "106_PF_017_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-02T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_CB1_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS BÁSICOS PARA TODOS OS CARGOS DE PERITO CRIMINAL FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_CB2_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS BÁSICOS – BLOCO I – PARA OS CARGOS 15, 16 E 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_CG1_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS BÁSICOS – BLOCO II – PARA OS CARGOS 15, 16 E 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_001_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_002_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_003_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_004_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_005_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_006_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_007_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_008_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 8",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_009_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_010_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 10",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_011_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_012_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_013_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_014_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_015_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 15",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/08/2025 19:00",
+   "nomeArquivo": "106_PF_016_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS – CARGO 16",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-08-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 1.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 2.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 3.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 4.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 5.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 6.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 7.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 8.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 8",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 9.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 10.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 10",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 11.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 12.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 13.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 14.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 15.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 15",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 16.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 16",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "29/07/2025 19:00",
+   "nomeArquivo": "PROVA DISCURSIVA – CARGO 17.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 17",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-07-29T19:00:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

@@ -1,6 +1,7 @@
 # Catálogo curado: bancas, órgãos e cargos (SPECIFICATIONS.md §4.1, decisão 0005).
 # Carregado por `emmoni catalog load` (idempotente, por slug). Os manifestos só podem citar
 # slugs que existem aqui. Registros que saem do arquivo não são apagados do banco.
+# `aliases`: como as fontes escrevem o órgão nas URLs/nomes de evento (crawler, decisão 0007).
 
 exam_boards:
   - slug: cebraspe
@@ -13,6 +14,7 @@ agencies:
     short_name: PF
     career: pf
     level: federal
+    aliases: [PF, DPF]
     positions:
       - {slug: delegado, name: Delegado de Polícia Federal, education_level: superior}
       - {slug: agente, name: Agente de Polícia Federal, education_level: superior}
@@ -23,5 +25,17 @@ agencies:
     short_name: PRF
     career: prf
     level: federal
+    aliases: [PRF]
     positions:
       - {slug: policial-rodoviario-federal, name: Policial Rodoviário Federal, education_level: superior}
+  - slug: pcdf
+    name: Polícia Civil do Distrito Federal
+    short_name: PCDF
+    career: policia_civil
+    level: distrital
+    state: DF
+    aliases: [PC_DF, PCDF]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}

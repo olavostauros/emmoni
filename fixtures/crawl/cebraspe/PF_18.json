@@ -1,0 +1,729 @@
+{
+ "idEvento": 1599,
+ "eventoNomeAbreviado": "PF 2018",
+ "eventoNomeCompleto": "POLÍCIA FEDERAL",
+ "eventoTotalVagas": "500",
+ "eventoSalarioMaximo": 22672,
+ "strEventoSalarioMaximo": "R$ 22.672,00",
+ "eventoURL": "PF_18",
+ "eventoStatus": "Encerrado",
+ "eventoTipo": "concursos",
+ "eventoAno": 2018,
+ "periodoInscricao": "De 09/08/2018 até 15/08/2018 às 15:00, horário oficial de Brasília/DF",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: Delegado de Polícia Federal"
+  },
+  {
+   "idArea": "02",
+   "area": "Cargo 2: Perito Criminal Federal/Área 1"
+  },
+  {
+   "idArea": "03",
+   "area": "Cargo 3: Perito Criminal Federal/Área 2"
+  },
+  {
+   "idArea": "04",
+   "area": "Cargo 4: Perito Criminal Federal/Área 3"
+  },
+  {
+   "idArea": "05",
+   "area": "Cargo 5: Perito Criminal Federal/Área 4 (*)(**)"
+  },
+  {
+   "idArea": "06",
+   "area": "Cargo 6: Perito Criminal Federal/Área 5 (*)(**)"
+  },
+  {
+   "idArea": "07",
+   "area": "Cargo 7: Perito Criminal Federal/Área 6 (**)"
+  },
+  {
+   "idArea": "08",
+   "area": "Cargo 8: Perito Criminal Federal/Área 7"
+  },
+  {
+   "idArea": "09",
+   "area": "Cargo 9: Perito Criminal Federal/Área 9 (**)"
+  },
+  {
+   "idArea": "10",
+   "area": "Cargo 10: Perito Criminal Federal/Área 12 (*)(**)"
+  },
+  {
+   "idArea": "11",
+   "area": "Cargo 11: Perito Criminal Federal/Área 14 (**)"
+  },
+  {
+   "idArea": "12",
+   "area": "Cargo 12: Agente de Polícia Federal"
+  },
+  {
+   "idArea": "13",
+   "area": "Cargo 13: Escrivão de Polícia Federal"
+  },
+  {
+   "idArea": "14",
+   "area": "Cargo 14: Papiloscopista Policial Federal"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "06/05/2026 17:06",
+   "nomeArquivo": "DEDE673D878BD8DB64109B90BA905F3EC33FFC5B2CB1D15AE9A2581A414502BF.html",
+   "descricaoArquivo": "Edital nº 3 - Retificação das datas constantes dos subitens 5.1 e 10.1 do Edital nº 2 – PF, concursos anteriores – de 30 de abril de 2026 – VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-05-06T17:06:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "06/05/2026 17:06",
+   "nomeArquivo": "1CA5762B21B857B5B6FBA64E7467C83D8DB9179EF66A6538C0D98FDCD5E17D92.pdf",
+   "descricaoArquivo": "Edital nº 3 - Retificação das datas constantes dos subitens 5.1 e 10.1 do Edital nº 2 – PF, concursos anteriores – de 30 de abril de 2026",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-05-06T17:06:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "17/04/2019 17:00",
+   "nomeArquivo": "ED_28_PF_18_EXCLUSAO_DE_CAND_RECURSO_PER_MED_REABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 28 - Exclusão de candidato sub judice da convocação para o envio de documentação para matrícula no curso de formação, e reabertura do prazo para interposição de recursos contra o resultado provisório na perícia médica",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2019-04-17T17:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "06/08/2018 17:28",
+   "nomeArquivo": "ED_6_DPF_2018___RETIFICA____O_E_REABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 6 - Retificações e reabertura das inscrições",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-08-06T17:28:00"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "05/02/2024 17:15",
+   "nomeArquivo": "960_PF_DL_SUBJUDICE_ORAL_COMPADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL – 04/02/2024 – MALOTE 1 – SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2024-02-05T17:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/11/2020 11:00",
+   "nomeArquivo": "MALOTE01_PF_ORAL_COM_PADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL – 25/10/2020 – MALOTE 1 – SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2020-11-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "12/08/2019 18:00",
+   "nomeArquivo": "P_MALOTE01_DPF_ORAL_COMPADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL – 4/8/2019 – MALOTE 1 – SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2019-08-12T18:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "17/06/2019 11:45",
+   "nomeArquivo": "P_476_MALOTE01_DGPPF_ORAL.PDF",
+   "descricaoArquivo": "PROVA ORAL – 16/6/2019 – MALOTE 1 – SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2019-06-17T11:45:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "06/05/2019 12:30",
+   "nomeArquivo": "P_467_MALOTE01_DGPPF_ORAL_COMPADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL - 28/4/2019 - MALOTE 1 - SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2019-05-06T12:30:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "20/03/2019 09:45",
+   "nomeArquivo": "SUB_JUDICE_P_MALOTE01_DGPPF_ORAL.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 1 - SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2019-03-20T09:45:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/12/2018 16:12",
+   "nomeArquivo": "MALOTE03_DGPPF_ORAL.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-12-19T16:12:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/12/2018 16:12",
+   "nomeArquivo": "P_MALOTE01_DGPPF_ORAL.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-12-19T16:12:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/12/2018 16:12",
+   "nomeArquivo": "P_MALOTE04_DGPPF_ORAL.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-12-19T16:12:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/12/2018 16:12",
+   "nomeArquivo": "P_MALOTE02_DGPPF_ORAL.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-12-19T16:12:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "24/10/2018 16:45",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF004_ATUALIZADO.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-24T16:45:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_14.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_13.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_12.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_11_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRAO_DE_RESPOSTAS_CARGO_10_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 10",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_09_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_08_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 8",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_07_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_06_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_05_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_04_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRAO_DE_RESPOSTAS_CARGO_03_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_02_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "PF_18_PADRO_DE_RESPOSTAS_CARGO_01_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF014__PAG_9.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF013__PAG_8.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF012__PAG_9.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF011__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF010__PAG_3.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 10",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF009__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF008__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 8",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF007__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF006__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF005__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF003__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF002__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPF001__PAG_8.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2018 11:00",
+   "nomeArquivo": "GAB_DEFINITIVO_408_DGPPFCB1__PAG_4.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS BÁSICOS PARA OS CARGOS DE 2 A 11",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-10-11T11:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF014__PAG_9.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF013__PAG_8.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF012__PAG_9.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF011__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 11/ÁREA 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF010__PAG_3.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 10/ÁREA 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF009__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 9/ÁREA 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF008__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 8/ÁREA 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF007__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 7/ÁREA 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF006__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 6/ÁREA 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF005__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 5/ÁREA 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF003__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 3/ÁREA 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF002__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 2/ÁREA 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF001__PAG_8.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPFCB1__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS BÁSICOS PARA O CARGO 2 - TODAS AS ÁREAS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC014_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC013_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC012_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 13",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC011_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 11/ÁREA 14",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC010_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 10/ÁREA 12",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC009_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 9/ÁREA 9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC008_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 8/ÁREA 7",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC007_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 7/ÁREA 6",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC006_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 6/ÁREA 5",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC005_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 5/ÁREA 4",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC004_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 4/ÁREA 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC003_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 3/ÁREA 2",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC002_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 2/ÁREA 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "408_DGP_PF_DISC001_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 1",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "18/09/2018 19:00",
+   "nomeArquivo": "MATRIZ_408_DGPPF004__PAG_4.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 4 - ÁREA 3",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2018-09-18T19:00:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

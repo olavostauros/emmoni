@@ -4,7 +4,21 @@ import argparse
 from collections.abc import Sequence
 from pathlib import Path
 
-from ingest import catalog, checks, db, fetch, manifest, pipeline, review, taxonomy
+from ingest import (
+    catalog,
+    checks,
+    crawl,
+    db,
+    fetch,
+    manifest,
+    pipeline,
+    proposals,
+    review,
+    taxonomy,
+)
+from ingest import sources as sources_module
+from ingest.crawlers.http import PoliteClient
+from ingest.crawlers.registry import CRAWLERS
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -42,7 +56,31 @@ def main(argv: Sequence[str] | None = None) -> int:
     rev_approve = rev_commands.add_parser("approve", help="publica a prova após a amostragem")
     rev_approve.add_argument("exam", help="<concurso>/<prova>")
 
+    crawl_cmd = commands.add_parser("crawl", help="descobre provas nas fontes e propõe manifestos")
+    crawl_cmd.add_argument("source", nargs="?", help="slug da fonte (ingest/sources.yaml)")
+    crawl_cmd.add_argument("--all", action="store_true", help="todas as fontes")
+    crawl_cmd.add_argument(
+        "--force", action="store_true", help="ignora next_fetch_at e busca tudo de novo"
+    )
+
+    man = commands.add_parser(
+        "manifests", help="propostas do crawler: pendentes, aprovar, rejeitar"
+    )
+    man_commands = man.add_subparsers(dest="manifests_command", required=True)
+    man_commands.add_parser("pending", help="lista as propostas pendentes")
+    man_show = man_commands.add_parser("show", help="mostra uma proposta")
+    man_show.add_argument("slug")
+    man_approve = man_commands.add_parser("approve", help="move a proposta para os aprovados")
+    man_approve.add_argument("slug")
+    man_reject = man_commands.add_parser("reject", help="rejeita a proposta (com motivo)")
+    man_reject.add_argument("slug")
+    man_reject.add_argument("--reason", required=True)
+
     args = parser.parse_args(argv)
+    if args.command == "crawl":
+        return _crawl(args.source, args.all, args.force)
+    if args.command == "manifests":
+        return _manifests(args)
     if args.command == "review":
         return _review(args)
     if args.command == "check":
@@ -131,5 +169,54 @@ def _review(args: argparse.Namespace) -> int:
                 print(f"{ref} publicada: {published} questão(ões) visíveis, {left} fora")
     except review.ReviewError as error:
         print(f"review: {error}")
+        return 1
+    return 0
+
+
+def _crawl(source_slug: str | None, all_sources: bool, force: bool) -> int:
+    listed = sources_module.load()
+    if all_sources == bool(source_slug):
+        print("crawl: informe uma fonte ou --all")
+        return 2
+    chosen = listed.sources if all_sources else [s for s in listed.sources if s.slug == source_slug]
+    if not chosen:
+        print(f"crawl: fonte {source_slug!r} não está em ingest/sources.yaml")
+        return 2
+    known = catalog.load()
+    failed = 0
+    with db.connect() as conn:
+        for source in chosen:
+            report = crawl.run_source(
+                source,
+                CRAWLERS[source.crawler],
+                known,
+                conn,
+                data_dir=fetch.data_dir(),
+                manifests_dir=manifest.MANIFESTS_DIR,
+                client_factory=lambda: PoliteClient.from_env(listed),
+                force=force,
+            )
+            conn.commit()
+            print("\n".join(report.lines()))
+            failed += bool(report.blocked)  # erros pontuais ficam no relatório
+    return 1 if failed else 0
+
+
+def _manifests(args: argparse.Namespace) -> int:
+    try:
+        if args.manifests_command == "pending":
+            paths = proposals.list_pending()
+            for path in paths:
+                loaded = manifest.load(path)
+                print(f"{loaded.contest:<24} {len(loaded.exams)} prova(s)  {loaded.name}")
+            print(f"manifests: {len(paths)} proposta(s) pendente(s)")
+        elif args.manifests_command == "show":
+            print(proposals.pending_path(args.slug).read_text(encoding="utf-8"), end="")
+        elif args.manifests_command == "approve":
+            print(f"aprovado: {proposals.approve(args.slug)}")
+        elif args.manifests_command == "reject":
+            print(f"rejeitado: {proposals.reject(args.slug, args.reason)}")
+    except (proposals.ProposalError, FileNotFoundError) as error:
+        print(f"manifests: {error}")
         return 1
     return 0

@@ -1,11 +1,14 @@
 """Catálogo curado de bancas, órgãos e cargos (`db/catalog.yaml`, decisão 0005)."""
 
 from pathlib import Path
-from typing import Literal
+from typing import TYPE_CHECKING, Literal
 
 import psycopg
 import yaml
 from pydantic import BaseModel, ConfigDict
+
+if TYPE_CHECKING:
+    from ingest.manifest import Manifest
 
 CATALOG_FILE = Path(__file__).resolve().parent.parent / "db" / "catalog.yaml"
 
@@ -45,6 +48,9 @@ class Agency(_Strict):
     career: Career
     level: Literal["federal", "estadual", "distrital", "municipal"]
     state: str | None = None
+    # Como as fontes escrevem o órgão nas URLs e nos nomes de evento (ex.: PF_21, DPF_14, PC_DF_20):
+    # prefixos em maiúsculas, com `_` separando as partes. Só o crawler usa (decisão 0007).
+    aliases: list[str] = []
     positions: list[Position] = []
 
 
@@ -55,6 +61,28 @@ class Catalog(_Strict):
 
 def load(path: Path = CATALOG_FILE) -> Catalog:
     return Catalog.model_validate(yaml.safe_load(path.read_text(encoding="utf-8")))
+
+
+def agency_by_slug(catalog: Catalog, slug: str) -> Agency | None:
+    return next((a for a in catalog.agencies if a.slug == slug), None)
+
+
+def manifest_problems(catalog: Catalog, manifest: "Manifest") -> list[str]:
+    """Slugs do manifesto que não existem no catálogo (banca, órgão, cargos)."""
+    problems = []
+    if manifest.exam_board not in {b.slug for b in catalog.exam_boards}:
+        problems.append(f"banca {manifest.exam_board!r} não está no catálogo")
+    agency = agency_by_slug(catalog, manifest.agency)
+    if agency is None:
+        return [*problems, f"órgão {manifest.agency!r} não está no catálogo"]
+    known = {p.slug for p in agency.positions}
+    for exam in manifest.exams:
+        for position in exam.positions:
+            if position not in known:
+                problems.append(
+                    f"prova {exam.slug}: cargo {position!r} não existe em {agency.slug}"
+                )
+    return problems
 
 
 def sync(conn: psycopg.Connection[tuple[object, ...]], catalog: Catalog) -> tuple[int, int, int]:

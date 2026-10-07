@@ -63,12 +63,13 @@ emmoni/
 │   ├── sources.yaml         # fontes permitidas para crawling (seção 7.1)
 │   ├── crawlers/            # um módulo por fonte: cebraspe.py, fgv.py, ...
 │   ├── manifests/           # um YAML por concurso aprovado (seção 7.2)
-│   │   └── _pending/        # manifestos propostos pelo crawler, aguardando aprovação
+│   │   ├── _pending/        # manifestos propostos pelo crawler, aguardando aprovação
+│   │   └── _rejected/       # propostas rejeitadas, com o motivo (decisão 0007)
 │   ├── parsers/             # um módulo por banca: cebraspe.py, fgv.py, ...
 │   ├── cli.py               # comando `emmoni`
 │   └── ...
 ├── scripts/                 # scripts de apoio chamados pelo Makefile
-├── fixtures/                # PDFs e páginas HTML de amostra para testes
+├── fixtures/                # PDFs (pdf/) e respostas gravadas das fontes (crawl/<fonte>/) para testes
 ├── tests/
 └── data/                    # ignorado pelo git: raw/, staging/, assets/, crawl/
 ```
@@ -131,7 +132,10 @@ position   (id, agency_id, slug, name, education_level)    -- unique (agency_id,
 ```
 
 O catálogo real é **curado em `db/catalog.yaml`** e carregado por `emmoni catalog load`
-(idempotente, por slug). Manifestos só citam slugs que existem nele (decisão 0005).
+(idempotente, por slug). Manifestos só citam slugs que existem nele (decisão 0005). Cada órgão
+pode ter `aliases` — os prefixos com que as fontes o escrevem nas URLs e nomes de evento (`PF`,
+`DPF`, `PC_DF`) —, usados só pelo crawler para reconhecer o órgão; não vão para o banco
+(decisão 0007).
 
 ### 4.2 Concurso, prova e origem
 
@@ -281,6 +285,11 @@ crawl.discovered_document (
 )
 ```
 
+A página de cada concurso encontrado também é uma linha de `discovered_document` (`guessed_kind`
+nulo; `guessed` com órgão, ano e fase): é nela que ficam o `out_of_scope` com motivo dos concursos
+não policiais e o `pending` dos órgãos ainda fora do catálogo (decisão 0007). Os status são
+derivados a cada execução dos diretórios de manifestos e de `source_document` (`ingested`).
+
 ## 5. Formato do conteúdo
 
 `statement_md`, `body_md` das alternativas e dos textos-base usam **Markdown restrito**,
@@ -414,25 +423,41 @@ crawler é obrigado a usar):
 1. **Regras** primeiro: padrões de texto do link, nome do arquivo e título da página
    (`gabarito definitivo`, `caderno de prova`, `prova objetiva`, `edital de abertura`...) →
    `guessed_kind`.
-2. **Escopo**: o órgão é casado com o catálogo `agency` (carreiras policiais). Concurso fora do
-   escopo do MISSION.md → `out_of_scope` com motivo. Órgão policial que não existe no catálogo →
-   proposto como novo `agency` no relatório, não criado automaticamente.
+2. **Escopo**: o órgão é casado com o catálogo `agency` pelos `aliases` (seção 4.1); os cargos,
+   com `position` do órgão. Concurso fora do escopo do MISSION.md → `out_of_scope` com motivo.
+   Órgão policial que não existe no catálogo → proposto como novo `agency` no relatório, não
+   criado automaticamente (o detalhe do concurso só é lido depois que o órgão entra no catálogo).
+   Prova cujo cargo não está no catálogo fica fora da proposta, com o motivo registrado.
 3. **LLM** só quando as regras não resolvem: recebe título da página, texto do link e trecho ao redor,
    responde por JSON schema com confiança por campo (seção 7.4).
 
 **Proposta:** quando um concurso tem ao menos prova + um gabarito identificados, o crawler escreve
 `ingest/manifests/_pending/<contest-slug>.yaml` no formato da seção 7.2, mais um bloco `evidence`
-(URL da página, texto do link e confiança de cada campo). Documentos que chegarem depois (ex.: o
-gabarito definitivo) atualizam o manifesto, pendente ou aprovado, e reabrem a ingestão daquela prova.
+(URL da página, texto do link e confiança de cada campo). A proposta pendente é **do crawler**: é
+reescrita quando a fonte muda (e só então; não tem data). O manifesto aprovado é curado à mão e
+**nunca** é reescrito pelo crawler: documento que chegar depois (ex.: o gabarito definitivo) para
+um concurso aprovado aparece no relatório e em `discovered_document` como `pending`, e a pessoa
+edita o manifesto e reroda a ingestão daquela prova (decisão 0007).
 
-**Aprovação:** `emmoni manifests approve <slug>` move para `ingest/manifests/`. Enquanto
+**Aprovação:** `emmoni manifests approve <slug>` valida a proposta (modelo da seção 7.2 e slugs do
+catálogo) e a move para `ingest/manifests/`. `emmoni manifests reject <slug> --reason "..."` move
+para `ingest/manifests/_rejected/` com o motivo, e o crawler não volta a propor o concurso. Os três
+diretórios ficam no git. Enquanto
 `auto_approve: false` (padrão), toda proposta passa por revisão humana. Ligar `auto_approve` numa
 fonte exige decisão registrada e só vale para propostas em que todos os campos vieram de regras ou
 têm confiança ≥ 0,9.
 
-**Agendamento:** `emmoni crawl --all` roda uma vez por dia, por um timer do systemd ou cron
-documentado em `docs/operations.md`. O comando respeita `next_fetch_at`, então rodar com mais
-frequência não aumenta a carga nos sites. Isso garante o critério de "até 7 dias" do MISSION.md.
+**Estado e cache:** `crawl.page` guarda, por URL, `etag`, `last_modified`, `content_sha256`,
+`http_status` e `next_fetch_at` (calculado de `recrawl` da fonte: `listing` para a listagem,
+`contest_open`/`contest_closed` para a página do concurso; `never` = busca uma vez). O corpo fica em
+`data/crawl/<fonte>/<sha256>`; página que não venceu é relida do cache, sem rede, de modo que uma
+regra nova se aplica sem recrawl. Erro HTTP agenda nova tentativa em 1 dia. `--force` ignora
+`next_fetch_at`.
+
+**Agendamento:** `emmoni crawl --all` (ou `make crawl`) roda uma vez por dia, por um timer do
+systemd ou cron documentado em `docs/operations.md`. O comando respeita `next_fetch_at`, então
+rodar com mais frequência não aumenta a carga nos sites. Isso garante o critério de "até 7 dias"
+do MISSION.md.
 
 ### 7.2 Manifesto
 
@@ -481,8 +506,8 @@ Comandos:
 
 ```
 emmoni catalog load                 # db/catalog.yaml → banco
-emmoni crawl <fonte>|--all          # descobre documentos e propõe manifestos
-emmoni manifests pending|show|approve|reject
+emmoni crawl <fonte>|--all [--force]   # descobre documentos e propõe manifestos
+emmoni manifests pending|show <slug>|approve <slug>|reject <slug> --reason "..."
 emmoni ingest <manifest>            # todas as etapas
 emmoni ingest <manifest> --step <s> # uma etapa
 emmoni review list|show [<concurso>/<prova>]   # fila de questões em review, com motivos
@@ -550,6 +575,7 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 | `make migrations-roundtrip` | up → rollback de todas → up em banco vazio; falha se sobrar esquema, privilégio padrão ou configuração do banco. |
 | `make lint` | ruff check, ruff format --check, mypy, `build_seed.py --check`. |
 | `make check` | `emmoni check`. |
+| `make crawl` | `emmoni crawl --all` (operação diária, `docs/operations.md`). |
 | `make bench` | Mede as funções do contrato (seção 6). |
 | `make gates` | db-up + migrate + lint + migrations-roundtrip + test + check. **Obrigatório passar antes de entregar.** |
 
@@ -562,8 +588,9 @@ Testes obrigatórios:
   que `emmoni_web` não consegue ler tabelas fora de `api`.
 - **Idempotência**: rodar `load` duas vezes produz o mesmo estado; rodar `crawl` duas vezes sobre
   as mesmas páginas não cria propostas novas.
-- **Crawlers**: cada crawler tem páginas HTML gravadas em `fixtures/html/<fonte>/` com o resultado
-  esperado (documentos encontrados e manifesto proposto).
+- **Crawlers**: cada crawler tem respostas gravadas da fonte (HTML ou JSON) em
+  `fixtures/crawl/<fonte>/` com o resultado esperado (documentos encontrados e manifesto proposto);
+  para o Cebraspe, as propostas geradas a partir das fixtures reproduzem os manifestos manuais do M2.
 - **Cortesia**: testes do cliente HTTP comprovam que URL proibida no `robots.txt`, domínio fora da
   lista e domínio da denylist **não** geram requisição, e que o limite por host é respeitado.
 - Nenhum teste acessa a rede (fixtures e servidor HTTP local).

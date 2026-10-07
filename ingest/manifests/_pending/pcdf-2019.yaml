@@ -1,0 +1,60 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcdf-2019` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcdf-2019
+name: POLÍCIA CIVIL DO DISTRITO FEDERAL
+agency: pcdf
+exam_board: cebraspe
+year: 2019
+source_url: https://www.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO
+exams:
+- slug: objetiva
+  name: PROVA OBJETIVA
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/MATRIZ_519_PCDF_001_00_BONECA_COMJUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/GAB_DEFINITIVO_MATRIZ_519_PCDF_001_00.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO
+    link_text: PC_DF_19_ESCRIVAO
+    event: PC_DF_19_ESCRIVAO
+    agency:
+      value: pcdf
+      confidence: 1.0
+      rule: prefixo PC_DF da URL do evento
+    year:
+      value: 2019
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    objetiva:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA DA CARREIRA
+          DE POLICIA CIVIL DO DISTRITO FEDERAL'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/MATRIZ_519_PCDF_001_00_BONECA_COMJUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/GAB_DEFINITIVO_MATRIZ_519_PCDF_001_00.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped:
+  - label: CONHECIMENTOS BASICOS
+    url: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/GAB_DEFINITIVO_MATRIZ_519_PCDF_CB1_00.PDF
+    reason: gabarito sem prova correspondente

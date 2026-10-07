@@ -1,0 +1,86 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_DF_20_AGENTE.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcdf-2020` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcdf-2020
+name: POLÍCIA CIVIL DO DISTRITO FEDERAL
+agency: pcdf
+exam_board: cebraspe
+year: 2020
+source_url: https://www.cebraspe.org.br/concursos/PC_DF_20_AGENTE
+exams:
+- slug: conhecimentos-especificos
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_001_COMJUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_001_00.PDF
+- slug: conhecimentos-basicos
+  name: PROVA OBJETIVA - CONHECIMENTOS BÁSICOS
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_CB1_COMJUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_CB1_00.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_DF_20_AGENTE
+    link_text: PC_DF_20_AGENTE
+    event: PC_DF_20_AGENTE
+    agency:
+      value: pcdf
+      confidence: 1.0
+      rule: prefixo PC_DF da URL do evento
+    year:
+      value: 2020
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA DA CARREIRA
+          DE POLICIA CIVIL DO DISTRITO FEDERAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_001_COMJUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_001_00.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-basicos:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA DA CARREIRA
+          DE POLICIA CIVIL DO DISTRITO FEDERAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_CB1_COMJUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS BÁSICOS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_CB1_00.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS BÁSICOS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

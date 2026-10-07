@@ -2,6 +2,7 @@
 
 import datetime
 from pathlib import Path
+from typing import Any
 
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, model_validator
@@ -59,6 +60,9 @@ class Manifest(_Strict):
     notice_number: str | None = None
     source_url: str | None = None  # página oficial do concurso, para conferência
     exams: list[Exam] = Field(min_length=1)
+    # Preenchido pelo crawler nas propostas (SPECIFICATIONS.md §7.1): de onde veio cada campo e com
+    # que confiança. O pipeline ignora; pode ficar no manifesto aprovado ou ser apagado.
+    evidence: dict[str, Any] = {}
 
     @model_validator(mode="after")
     def _unique_exams(self) -> "Manifest":

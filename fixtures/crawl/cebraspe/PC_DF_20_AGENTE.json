@@ -1,0 +1,164 @@
+{
+ "idEvento": 1742,
+ "eventoNomeAbreviado": "PC_DF_20_AGENTE",
+ "eventoNomeCompleto": "POLÍCIA CIVIL DO DISTRITO FEDERAL",
+ "eventoTotalVagas": "600",
+ "eventoSalarioMaximo": 8698.78,
+ "strEventoSalarioMaximo": "R$ 8.698,78",
+ "eventoURL": "PC_DF_20_AGENTE",
+ "eventoStatus": "Encerrado",
+ "eventoTipo": "concursos",
+ "eventoAno": 2020,
+ "periodoInscricao": "",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Agente de Polícia da Carreira de Polícia Civil do Distrito Federal"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "13/08/2026 10:40",
+   "nomeArquivo": "3F9F4C10DCDCD4EC7D2B92AF1023504848A4AC18B2294E1B31A08AFFB64BF796.pdf",
+   "descricaoArquivo": "Edital nº 94 - Inclusão de candidato no resultado final na primeira etapa do concurso, bem como a sua exclusão da condição sub judice, passando a figurar como regular no resultado final no curso de formação profissional (CFP) e no resultado final no concurso público.",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-08-13T10:40:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "03/08/2026 11:20",
+   "nomeArquivo": "FA0FFD4A34C7E666C919276716A980164766352C9079B677A5F19A1E1BA1028A.html",
+   "descricaoArquivo": "Edital nº 93 – Exclusão de candidata da condição sub judice, passando a figurar como regular no concurso - em VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-08-03T11:20:01"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "01/07/2022 11:50",
+   "nomeArquivo": "COMUNICADO_REABERTURA_RECURSO.PDF",
+   "descricaoArquivo": "Comunicado - Reabertura dos recursos",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-07-01T11:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "01/12/2021 15:50",
+   "nomeArquivo": "ED_12_2020_PC_DF_AGENTE_20_NOVO__CRONOGRAMA.PDF",
+   "descricaoArquivo": "Edital nº 12 – Reabertura do prazo para a interposição de recursos contra o resultado provisório na prova discursiva e novo cronograma das atividades",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-12-01T15:50:00"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "17/06/2026 18:53",
+   "nomeArquivo": "621CF5B9675FBEB606C267A4D08E52B61DF517132AAF6CCF84124AAB84E71064.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL – 2ª TURMA (SUB JUDICE)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-06-17T18:53:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "08/06/2026 19:00",
+   "nomeArquivo": "C0C18BEB0E75A9CBA54C3CC8AFF1DB4593E08F8307D52BAFEB7F0FEC6BE7EE97.pdf",
+   "descricaoArquivo": "PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL – 2ª TURMA (SUB JUDICE)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-06-08T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "13/09/2023 16:26",
+   "nomeArquivo": "GAB_DEFINITIVO_881_PCDF_AGENTE_CF_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2023-09-13T16:26:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "02/09/2023 18:00",
+   "nomeArquivo": "881_PCDF_AGENTE_CF_001_01.PDF",
+   "descricaoArquivo": "PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2023-09-02T18:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "16/08/2022 09:30",
+   "nomeArquivo": "ED_23_2020_PC_DF_AGENTE_20_RES_PROV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 23 - Resultado provisório na prova de capacidade física",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-08-16T09:30:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "28/10/2021 21:00",
+   "nomeArquivo": "PC_DF_20_AGENTE_PADRO_DE_RESPOSTA_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITVO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-28T21:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "08/10/2021 12:00",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_CB1_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS BÁSICOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-08T12:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "08/10/2021 12:00",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_001_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-08T12:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "24/08/2021 22:30",
+   "nomeArquivo": "PCDF_AGENTE_CB1_COMJUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS BÁSICOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-08-24T22:30:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "24/08/2021 22:15",
+   "nomeArquivo": "PCDF_AGENTE_001_COMJUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-08-24T22:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "24/08/2021 22:15",
+   "nomeArquivo": "550_PCDF_AGENTE_DISC_NS.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-08-24T22:15:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

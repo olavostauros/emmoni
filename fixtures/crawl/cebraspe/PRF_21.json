@@ -1,0 +1,245 @@
+{
+ "idEvento": 1777,
+ "eventoNomeAbreviado": "PRF 2021",
+ "eventoNomeCompleto": "POLÍCIA RODOVIÁRIA FEDERAL",
+ "eventoTotalVagas": "1500",
+ "eventoSalarioMaximo": null,
+ "strEventoSalarioMaximo": "R$ ",
+ "eventoURL": "PRF_21",
+ "eventoStatus": "Encerrado",
+ "eventoTipo": "concursos",
+ "eventoAno": 2021,
+ "periodoInscricao": "",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: POLICIAL RODOVIÁRIO FEDERAL - Subsídio inicial de R$ 9.899,88."
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "19/06/2026 10:00",
+   "nomeArquivo": "763E25636BF5FB11533273184FD817627BFB0D04B62810175968E04EA0BD4393.pdf",
+   "descricaoArquivo": "Edital nº 119 – Prorrogação da validade do concurso público.",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-06-19T10:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "26/05/2026 18:36",
+   "nomeArquivo": "11EC26D56C6437D7E1B28A18489C872FACC3D486FDEDF36F90977BC32F9F7A8E.pdf",
+   "descricaoArquivo": "Comunicado – Atualização da FIP – 5ª Turma – Atualizado",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-05-26T18:36:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "08/05/2025 19:15",
+   "nomeArquivo": "PRF_2021_Comunicado_reabertura_recurso_prov_objetiva.pdf",
+   "descricaoArquivo": "Comunicado – Reabertura do prazo de interposição de recurso contra os gabaritos oficiais preliminares das provas objetivas do CFP",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-05-08T19:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "15/07/2021 16:58",
+   "nomeArquivo": "ED_20_PRF_2021_TORNA_SEM_EFEITO_REABRE_ENVIO_DOCS.PDF",
+   "descricaoArquivo": "Edital nº 20 - Torna sem efeito os resultados provisórios na apresentação de documentos e no preenchimento da Ficha de Informações Pessoais (FIP) e torna pública a reabertura do prazo",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-07-15T16:58:00"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "17/06/2025 16:35",
+   "nomeArquivo": "Gab_Definitivo_085_PRFCF_001_01.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CURSO DE FORMAÇÃO POLICIAL - 1ª PROVA (3ª TURMA)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-06-17T16:35:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "17/06/2025 16:35",
+   "nomeArquivo": "Gab_Definitivo_091_PRFCF2_001_01.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CURSO DE FORMAÇÃO POLICIAL - 2ª PROVA (3ª TURMA)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-06-17T16:35:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "11/06/2025 19:00",
+   "nomeArquivo": "091_PRFCF2_001_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CURSO DE FORMAÇÃO POLICIAL - 2ª PROVA (3ª TURMA)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-06-11T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "07/05/2025 19:00",
+   "nomeArquivo": "085_PRFCF_001_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA – CURSO DE FORMAÇÃO POLICIAL - 1ª PROVA (3ª TURMA)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2025-05-07T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "10/10/2022 14:30",
+   "nomeArquivo": "GAB_DEFINITIVO_746_PRF_21_CFP_2_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CURSO DE FORMAÇÃO - 18/9",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-10-10T14:30:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/09/2022 19:00",
+   "nomeArquivo": "746_PRF_21_CFP_2_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CURSO DE FORMAÇÃO - 18/9/2022",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-09-19T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/06/2022 17:15",
+   "nomeArquivo": "699_PRF_CF_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CURSO DE FORMAÇÃO (VAGAS REMANESCENTES DA PRIMEIRA TURMA)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-06-19T17:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "19/06/2022 17:15",
+   "nomeArquivo": "GAB_PRELIMINAR_699_PRF_CF_001_01.PDF",
+   "descricaoArquivo": "GABARITO PRELIMINAR - PROVA OBJETIVA - CURSO DE FORMAÇÃO (VAGAS REMANESCENTES DA PRIMEIRA TURMA)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-06-19T17:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "07/12/2021 07:48",
+   "nomeArquivo": "633_PRF_CF_001.PDF",
+   "descricaoArquivo": "2.ª PROVA OBJETIVA - CURSO DE FORMAÇÃO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-12-07T07:48:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "06/12/2021 08:00",
+   "nomeArquivo": "GAB_PRELIMINAR_633_PRF_001_00.PDF",
+   "descricaoArquivo": "GABARITO PRELIMINAR - 2.ª PROVA OBJETIVA - CURSO DE FORMAÇÃO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-12-06T08:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "14/11/2021 21:00",
+   "nomeArquivo": "GAB_PRELIMINAR_632_PRF_001_01.PDF",
+   "descricaoArquivo": "GABARITO PRELIMINAR - 1.ª PROVA OBJETIVA - CURSO DE FORMAÇÃO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-11-14T21:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "14/11/2021 21:00",
+   "nomeArquivo": "632_PRF_CF_001_01.PDF",
+   "descricaoArquivo": "1.ª PROVA OBJETIVA - CURSO DE FORMAÇÃO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-11-14T21:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "31/05/2021 10:50",
+   "nomeArquivo": "578_PRF_ING_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - ITENS DE 1 A 8 - LÍNGUA INGLESA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-31T10:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "31/05/2021 10:50",
+   "nomeArquivo": "578_PRF_ESP_02.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - ITENS DE 1 A 8 - LÍNGUA ESPANHOLA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-31T10:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "31/05/2021 10:50",
+   "nomeArquivo": "578_PRF_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - ITENS DE 9 A 120",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-31T10:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "31/05/2021 10:50",
+   "nomeArquivo": "GAB_DEFINITIVO_578_PRF_ING_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - ITENS DE 1 A 8 - LÍNGUA INGLESA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-31T10:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "31/05/2021 10:50",
+   "nomeArquivo": "GAB_DEFINITIVO_578_PRF_ESP_02.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - ITENS DE 1 A 8 - LÍNGUA ESPANHOLA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-31T10:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "31/05/2021 10:50",
+   "nomeArquivo": "GAB_DEFINITIVO_578_PRF_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - ITENS DE 9 A 120",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-31T10:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "28/05/2021 10:00",
+   "nomeArquivo": "PRF_21_PADRAO_DE_RESPOSTA_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-28T10:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/05/2021 19:00",
+   "nomeArquivo": "PRF_21_PROVA_DISCURSIVA.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-11T19:00:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

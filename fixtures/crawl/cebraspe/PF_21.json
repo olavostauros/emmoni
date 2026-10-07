@@ -1,0 +1,239 @@
+{
+ "idEvento": 1776,
+ "eventoNomeAbreviado": "PF 2021",
+ "eventoNomeCompleto": "POLÍCIA FEDERAL",
+ "eventoTotalVagas": "1500",
+ "eventoSalarioMaximo": 23692.74,
+ "strEventoSalarioMaximo": "R$ 23.692,74",
+ "eventoURL": "PF_21",
+ "eventoStatus": "Encerrado",
+ "eventoTipo": "concursos",
+ "eventoAno": 2021,
+ "periodoInscricao": "De 30/03/2021 até 01/04/2021 às 18:00, horário oficial de Brasília/DF",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: Delegado de Polícia Federal"
+  },
+  {
+   "idArea": "02",
+   "area": "Cargo 2: Agente de Polícia Federal"
+  },
+  {
+   "idArea": "03",
+   "area": "Cargo 3: Escrivão de Polícia Federal"
+  },
+  {
+   "idArea": "04",
+   "area": "Cargo 4: Papiloscopista Policial Federal"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "05/08/2026 17:56",
+   "nomeArquivo": "D99987ADFE0C3B1BABD78AEB55D554056FBAA9D25BE3B8B863456A2BA9B9EC22.html",
+   "descricaoArquivo": "Edital nº 4 – Convocação de candidatos sub judice para matrícula no CFP e para a atualização da Ficha de Informações Confidenciais – FIC, referentes aos concursos públicos regidos pelo Edital nº 1/2012 – DGP/DPF, de 14 de março de 2012, e suas alterações, e pelo Edital nº 1 – DGP/PF, de 15 de janeiro de 2021 – Vlibras.",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-08-05T17:56:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "05/08/2026 17:55",
+   "nomeArquivo": "3183068855B20D8A63585E5BF28624A662F922E1791FE6948C68763A4713C13C.pdf",
+   "descricaoArquivo": "Edital nº 4 – Convocação de candidatos sub judice para matrícula no CFP e para a atualização da Ficha de Informações Confidenciais – FIC, referentes aos concursos públicos regidos pelo Edital nº 1/2012 – DGP/DPF, de 14 de março de 2012, e suas alterações, e pelo Edital nº 1 – DGP/PF, de 15 de janeiro de 2021 .",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-08-05T17:55:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "20/05/2021 18:38",
+   "nomeArquivo": "PF_COMUNICADO_ABERTURA_PORTES.PDF",
+   "descricaoArquivo": "Comunicado - Abertura dos Portões",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-20T18:38:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "20/04/2021 09:08",
+   "nomeArquivo": "PF_2021_REL_FINAL_PCD_REABERTURA.PDF",
+   "descricaoArquivo": "Relação final dos candidatos com a inscrição deferida para concorrer na condição de pessoa com  deficiência, após a reabertura de que trata o Edital nº 7 – DGP/PF, de 26 de março de 2021",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-04-20T09:08:00"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "27/07/2026 17:00",
+   "nomeArquivo": "B46611F19D70F07B019A795D3367C491A414D10BDA1A195E23AFF756A8FE9CE4.pdf",
+   "descricaoArquivo": "PROVA ORAL - CARGO DELEGADO (APLICADO DIA 19/7/2026) SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-07-27T17:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "12/08/2024 13:00",
+   "nomeArquivo": "999_PF_ORAL_001_COMPADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL E PADRÃO DE RESPOSTAS - CARGO DELEGADO (APLICADO EM 11/08/2024) SUB JUDICE",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2024-08-12T13:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "24/01/2023 15:05",
+   "nomeArquivo": "794_PF_21_ORAL_SUBJUDICE_001_COMPADRO.PDF",
+   "descricaoArquivo": "PROVA ORAL E PADRÃO DE RESPOSTAS SUB JUDICE - DELEGADO (APLICADO EM 22/01/23)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2023-01-24T15:05:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/10/2022 17:30",
+   "nomeArquivo": "753_DGP_PF_ORAL_001_COMPADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL E PADRÃO DE RESPOSTAS SUB JUDICE - CARGO DE DELEGADO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-10-11T17:30:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "25/10/2021 17:15",
+   "nomeArquivo": "616_PF_DELEGADO_ORAL_COM_PADRO.PDF",
+   "descricaoArquivo": "PROVA ORAL E PADRÃO DE RESPOSTAS - CARGO DE DELEGADO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-25T17:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "25/10/2021 17:15",
+   "nomeArquivo": "PF_ESCRIVO_617.PDF",
+   "descricaoArquivo": "PROVA DE DIGITAÇÃO - CARGO DE ESCRIVÃO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-25T17:15:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "14/06/2021 16:00",
+   "nomeArquivo": "PF_21_PADRO_DE_RESPOSTA_DEFINITIVO_COMPLETO_VF.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - DELEGADO DE POLÍCIA FEDERAL - ATUALIZADO EM 14/6/2021",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-14T16:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 12:00",
+   "nomeArquivo": "PF_DISC_PADRO_DE_RESPOSTA_DEFINITIVO__DEMAIS_CARGOS.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - DEMAIS CARGOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T12:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "CARGO_1_DELEGADO_DE_POLCIA_FEDERAL.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CARGO 1: DELEGADO DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "CARGO_2_AGENTE_DE_POLCIA_FEDERAL.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CARGO 2: AGENTE DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "CARGO_3_ESCRIVO_DE_POLCIA_FEDERAL.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CARGO 3: ESCRIVÃO DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "CARGO_4_PAPILOSCOPISTA_POLICIAL_FEDERAL.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CARGO 4: PAPILOSCOPISTA DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_577_PF_001_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CARGO 1: DELEGADO DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CARGO 2: AGENTE DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_577_PF_003_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CARGO 3: ESCRIVÃO DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "11/06/2021 11:25",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_577_PF_004_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CARGO 4: PAPILOSCOPISTA DE POLÍCIA FEDERAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-06-11T11:25:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "25/05/2021 19:00",
+   "nomeArquivo": "PF_21_PROVA_DISCURSIVA_DEMAIS_CARGOS.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - demais cargos",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-25T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "25/05/2021 19:00",
+   "nomeArquivo": "PF_21_PROVA_DISCURSIVA_DELEGADO.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - Delegado de Polícia Federal",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-05-25T19:00:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

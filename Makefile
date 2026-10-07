@@ -21,7 +21,7 @@ UV     ?= uv
 DBMATE ?= dbmate --wait
 
 .PHONY: help db-up db-down db-reset install migrate catalog seed seed-build test test-db migrations-roundtrip \
-        lint format check bench gates
+        lint format check crawl bench gates
 
 help:
 	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/'
@@ -83,6 +83,9 @@ format: install ## Formata o código
 
 check: install ## Checks de qualidade dos dados
 	$(UV) run emmoni check
+
+crawl: install ## Descobre provas nas fontes e propõe manifestos (docs/operations.md)
+	$(UV) run emmoni crawl --all
 
 bench: install ## Mede as funções do contrato com 100 mil questões (banco emmoni_bench)
 	$(DBMATE) --url "$(BENCH_URL_OWNER)" drop

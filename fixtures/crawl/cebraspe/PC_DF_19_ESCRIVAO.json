@@ -1,0 +1,155 @@
+{
+ "idEvento": 1705,
+ "eventoNomeAbreviado": "PC_DF_19_ESCRIVAO",
+ "eventoNomeCompleto": "POLÍCIA CIVIL DO DISTRITO FEDERAL",
+ "eventoTotalVagas": "300",
+ "eventoSalarioMaximo": 8698.78,
+ "strEventoSalarioMaximo": "R$ 8.698,78",
+ "eventoURL": "PC_DF_19_ESCRIVAO",
+ "eventoStatus": "Encerrado",
+ "eventoTipo": "concursos",
+ "eventoAno": 2019,
+ "periodoInscricao": "",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Escrivão de Polícia da Carreira de Polícia Civil do Distrito Federal"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "01/07/2026 14:50",
+   "nomeArquivo": "51F4C90B7B6C3AE88ECFA0B3522504328F620145A47CE93736D96E3EE67E728A.html",
+   "descricaoArquivo": "Edital nº 70 – Exclusão de candidatos da condição sub judice, passando os referidos candidatos a figurarem como regulares, resultado final no curso de formação profissional (CFP) dos candidatos constantes do Edital nº 69 – PCDF, de 11 de junho de 2026, bem como a inclusão dos referidos candidatos no resultado final no concurso público, divulgado por meio dos subitens 2.1 e 2.1.1 do Edital nº 52 – PCDF, de 27 de julho de 2023, e suas alterações - em VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-07-01T14:50:01"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/07/2026 14:50",
+   "nomeArquivo": "1703579BD7A7FBB49A3BA2522D369EEEB1045911C94EDEA195E4BB682A87EEB0.pdf",
+   "descricaoArquivo": "Edital nº 70 – Exclusão de candidatos da condição sub judice, passando os referidos candidatos a figurarem como regulares, resultado final no curso de formação profissional (CFP) dos candidatos constantes do Edital nº 69 – PCDF, de 11 de junho de 2026, bem como a inclusão dos referidos candidatos no resultado final no concurso público, divulgado por meio dos subitens 2.1 e 2.1.1 do Edital nº 52 – PCDF, de 27 de julho de 2023, e suas alterações",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-07-01T14:50:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "16/08/2022 15:32",
+   "nomeArquivo": "ED_31_2019_PCDF_ESCRIVAO_19_REABERTURA_SINDICANCIA.PDF",
+   "descricaoArquivo": "Edital nº 31 - Reabertura do período para o envio dos documentos para fins da sindicância de vida pregressa e investigação social",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-08-16T15:32:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "25/11/2021 09:19",
+   "nomeArquivo": "ED_18_2019_PCDF_ESCRIVAO_19_REABERTURA_PRAZO_RECURSO_CRONOGRAMA.PDF",
+   "descricaoArquivo": "Edital nº 18 - Reabertura do  prazo para a interposição de recursos contra o resultado provisório na prova discursiva e o cronograma previsto das próximas atividades do concurso",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-11-25T09:19:00"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "12/06/2026 16:18",
+   "nomeArquivo": "F2B555BE684B43F9F1B042C7774422894DEBADFA33E1758F25F9D1B90204D29C.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL – 2ª TURMA (SUB JUDICE)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-06-12T16:18:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "01/06/2026 19:00",
+   "nomeArquivo": "E914F36DE417FB3F580EAE122C61B68F54CFB86888E691CAAC23C840B4A3F20D.pdf",
+   "descricaoArquivo": "PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL – 2ª TURMA (SUB JUDICE)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-06-01T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "13/07/2023 09:17",
+   "nomeArquivo": "GAB_DEFINITIVO_865_PCDF_ESCRIVAO_CF_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2023-07-13T09:17:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "26/06/2023 19:00",
+   "nomeArquivo": "865_PCDF_ESCRIVAO_CF_001_01.PDF",
+   "descricaoArquivo": "PROVA DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO PROFISSIONAL",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2023-06-26T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "23/03/2022 19:00",
+   "nomeArquivo": "PC_DF_ESCRIVAO_DIGITAO.PDF",
+   "descricaoArquivo": "PROVA DE DIGITAÇÃO - CARGO DE ESCRIVÃO",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2022-03-23T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "04/11/2021 10:00",
+   "nomeArquivo": "PC_DF_19_ESCRIVAO_PADRO_DE_RESPOSTA_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-11-04T10:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "08/10/2021 12:00",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_519_PCDF_CB1_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS BÁSICOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-08T12:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "08/10/2021 12:00",
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_519_PCDF_001_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-10-08T12:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "23/08/2021 19:00",
+   "nomeArquivo": "MATRIZ_519_PCDF_001_00_BONECA_COMJUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-08-23T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_pdf",
+   "dataArquivo": "23/08/2021 19:00",
+   "nomeArquivo": "519_PCDF_DISC01_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2021-08-23T19:00:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

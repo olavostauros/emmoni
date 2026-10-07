@@ -1,40 +1,44 @@
 # Status — atualizado em 2026-10-07
 
-**Marco atual:** M2 — Primeira ingestão (SPECIFICATIONS.md §10) — **pronto** (18 provas aprovadas)
-**Próximo marco:** M3 — Crawling
-**Últimos marcos concluídos:** M0 — Fundação · M1 — Esquema e contrato · M2 — Primeira ingestão (2026-10-07)
+**Marco atual:** M3 — Crawling (SPECIFICATIONS.md §10) — **pronto**
+**Próximo marco:** M4 — Taxonomia e classificação
+**Últimos marcos concluídos:** M0 — Fundação · M1 — Esquema e contrato · M2 — Primeira ingestão · M3 — Crawling (2026-10-07)
 
 ## Feito neste marco
-- Fontes permitidas e cliente HTTP de cortesia; leitura do Cebraspe pela API JSON (0003, 0004).
-- Pipeline completo `fetch → extract → segment → answer-key → validate → classify → load` (0005).
-- Classificação por assunto feita **pelo agente**, por arquivos de tarefas/respostas (0006), sem
-  Claude API. As respostas (`classify-answers.json`) são versionadas no git.
-- 5 concursos, 18 provas, 1.496 questões no banco de desenvolvimento: PF 2025, PF 2021, PF 2018,
-  PRF 2021, PRF 2018 (cargos policiais). `emmoni check` limpo.
-- Amostras das 18 provas conferidas por humano e **aprovadas** (`emmoni review approve`) em
-  2026-10-07. As questões `published` já aparecem no esquema `api`.
-- `subjects_by_range` do PRF 2018 corrigido (Q103–105 → Direito Processual Penal); PF 2021 Q31–33
-  já estava certo.
+- Crawler do Cebraspe pela API JSON (`ingest/crawlers/cebraspe.py`), orquestração com estado em
+  `crawl.page` e cache em `data/crawl/` (`ingest/crawl.py`), propostas e aprovação
+  (`ingest/proposals.py`, `emmoni manifests`), `emmoni crawl` / `make crawl` (decisão 0007).
+- Execução real: os 5 concursos de PF e PRF do M2 foram redescobertos com 36/36 documentos dos
+  manifestos manuais; 3 concursos novos propostos (PCDF 2019, 2020 e 2026). PCDF entrou no
+  catálogo.
+- 51 testes novos com fixtures JSON em `fixtures/crawl/cebraspe/`; `docs/operations.md` com o
+  agendamento diário.
 
 ## Em andamento
 - Nada em execução.
 
 ## Próximos passos
-1. M3 — crawler do Cebraspe (o cliente HTTP e o conhecimento da API já existem). Critério: redescobrir
-   PF e PRF já ingeridos e propor pelo menos um concurso policial novo.
+1. Humano decide sobre as 3 propostas pendentes de PCDF (`emmoni manifests pending|approve|reject`).
+   Ingerir exige calibrar o parser do Cebraspe nos cadernos da PCDF e preencher `subjects_by_range`.
 2. M4 — crescer a taxonomia a partir de `docs/progress/2026-10-07-sugestoes-de-assuntos.md`
    (728 sugestões; 462 questões em `review` só por falta de assunto) e reclassificar. Ao reclassificar,
    as duplicatas entre cargos hoje escondidas pelo `review` passam a ser marcadas (eram 161 antes
    da classificação, hoje 105).
-3. Etapa `structure` e exportação de imagens para as 210 questões com problema de extração.
+3. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
+4. Etapa `structure` e exportação de imagens para as 210 questões com problema de extração.
 
 ## Bloqueios e perguntas em aberto
+- Órgãos policiais que o Cebraspe lista e não estão no catálogo (PC de 10 estados, PM de 8, CBM,
+  DEPEN, SEAP, SDS/PE): cada um entra por commit em `db/catalog.yaml` com `aliases`; o crawler
+  então busca o detalhe e propõe. Decidir a ordem (M5 prevê outras bancas; os órgãos podem vir antes).
+- PCDF 2019: um caderno com dois gabaritos definitivos (básicos e específicos); o manifesto aceita
+  um gabarito por prova. Mudar o modelo ou juntar os PDFs à mão na aprovação.
 - Decidir (M4) se questão sem assunto adequado deve ser `draft` em vez de `review`: hoje ela sai
   da deduplicação junto com as de extração incompleta.
-- O registro de aprovação (`data/review/<concurso>/<prova>/sample.json`, com quem e quando) está
-  no `.gitignore`: a aprovação só existe no banco de desenvolvimento. Decidir se vale versionar.
-- DPF 2014 (API do Cebraspe dá erro 500) e concursos anteriores a 2014 (`cespe.unb.br`, fora das
-  fontes — incluir exige decisão).
+- O registro de aprovação de provas (`data/review/<concurso>/<prova>/sample.json`) está no
+  `.gitignore`: a aprovação só existe no banco de desenvolvimento. Decidir se vale versionar.
+- DPF 2014 (API do Cebraspe dá erro 500, tentado de novo diariamente) e concursos anteriores a
+  2014 (`cespe.unb.br`, fora das fontes — incluir exige decisão).
 - `emmoni coverage` previsto na especificação, ainda não implementado.
 - Folga pequena em `facet_counts` sem filtros (281/300 ms), prevista na decisão 0002.
 
@@ -43,5 +47,6 @@
 - Reais: 1.496 carregadas · 824 `published` (105 delas duplicatas entre cargos do PF 2021, ocultas
   no `api`) · 672 em revisão (462 só por classificação, 210 por extração) · 0 `draft`
 - Provas ingeridas: 18 (18 aprovadas)
-- Propostas do crawler pendentes: 0
+- Propostas do crawler pendentes: 3 (pcdf-2019, pcdf-2020, pcdf-2026)
+- Concursos vistos pelo crawler no Cebraspe: 498 (440 fora do escopo, 49 de órgãos candidatos)
 - Contrato do front-end: **v1.1**

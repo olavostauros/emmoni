@@ -1,0 +1,101 @@
+{
+ "idEvento": 3310,
+ "eventoNomeAbreviado": "PC DF 26 DELEGADO",
+ "eventoNomeCompleto": "PC DF 26 DELEGADO",
+ "eventoTotalVagas": "50",
+ "eventoSalarioMaximo": 26690.15,
+ "strEventoSalarioMaximo": "R$ 26.690,15",
+ "eventoURL": "PC_DF_26_DELEGADO",
+ "eventoStatus": "Abertura",
+ "eventoTipo": "concursos",
+ "eventoAno": 2026,
+ "periodoInscricao": "De 07/05/2026 até 25/05/2026 às 18:00, horário oficial de Brasília/DF",
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "DELEGADO DE POLÍCIA DO DISTRITO FEDERAL"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "02/10/2026 15:45",
+   "nomeArquivo": "68F22A7E970600BC04638401CC6C0726381ECA4B6F60B213FC5221CE5045AA44.html",
+   "descricaoArquivo": "Comunicado – Prorrogação do período de agendamento para assistir a prova oral - em VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-10-02T15:45:01"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "02/10/2026 15:45",
+   "nomeArquivo": "FE02579CAEA257ADF7F2D27357F0ACC672D3A5014C9E80A7A0E22501D8665BD7.pdf",
+   "descricaoArquivo": "Comunicado – Prorrogação do período de agendamento para assistir a prova oral",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-10-02T15:45:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.html",
+   "dataArquivo": "04/02/2026 14:15",
+   "nomeArquivo": "6EED00494ECF8F0FBFFC8DE4D77C0825927108FF44F23557F6788FA808B61EC4.html",
+   "descricaoArquivo": "Edital nº 1 - Abertura - atualizado conforme retificações - em VLibras",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-02-04T14:15:20"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "04/02/2026 14:15",
+   "nomeArquivo": "0D616074EFE30F97B69C0B62003B1A66CA3330166AC50F786225B864E24A5443.pdf",
+   "descricaoArquivo": "Edital nº 1 - Abertura - atualizado conforme retificações ",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-02-04T14:15:15"
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "02/09/2026 10:00",
+   "nomeArquivo": "36640AF4FE123A064E3020F97373A4101716B94F99325C64E8C9F57AACA99B7E.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTAS – PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-09-02T10:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "10/08/2026 14:32",
+   "nomeArquivo": "793E15AB2B5B357F2DD614A0ACAEE093B9DFE97618931164855D005CDFF89841.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – PROVA OBJETIVA (P1)",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-08-10T14:32:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "07/07/2026 19:00",
+   "nomeArquivo": "B7FE9DD999164CDBF489CB9BA6AEBDB71557DFE872BCA5C82D4C04D8C26ADF9A.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-07-07T19:00:00"
+  },
+  {
+   "tipoExtensaoArquivo": "_.pdf",
+   "dataArquivo": "07/07/2026 19:00",
+   "nomeArquivo": "710BA7293977732DDD213CAE2E329E52507C348D3E446135F8978861CDA880F1.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS ",
+   "isDataValid": true,
+   "isGuid": false,
+   "dataArquivoObj": "2026-07-07T19:00:00"
+  }
+ ],
+ "aplicativos": null,
+ "isInscricaoAberta": false,
+ "isDBCriado": 0,
+ "tituloCargos": "Cargos",
+ "tituloCardCargos": "Cargo",
+ "areaCandidato": false
+}

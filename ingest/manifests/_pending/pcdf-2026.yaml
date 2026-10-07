@@ -1,0 +1,57 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_DF_26_DELEGADO.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcdf-2026` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcdf-2026
+name: PC DF 26 DELEGADO
+agency: pcdf
+exam_board: cebraspe
+year: 2026
+source_url: https://www.cebraspe.org.br/concursos/PC_DF_26_DELEGADO
+exams:
+- slug: p1
+  name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_DF_26_DELEGADO/arquivos/710BA7293977732DDD213CAE2E329E52507C348D3E446135F8978861CDA880F1.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_26_DELEGADO/arquivos/793E15AB2B5B357F2DD614A0ACAEE093B9DFE97618931164855D005CDFF89841.pdf
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_DF_26_DELEGADO
+    link_text: PC DF 26 DELEGADO
+    event: PC_DF_26_DELEGADO
+    agency:
+      value: pcdf
+      confidence: 1.0
+      rule: prefixo PC_DF da URL do evento
+    year:
+      value: 2026
+      confidence: 1.0
+      rule: eventoAno
+    phase: Em Andamento
+  exams:
+    p1:
+      positions:
+        value:
+        - delegado
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Delegado de Polícia' aparece em 'DELEGADO DE POLICIA DO DISTRITO
+          FEDERAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_26_DELEGADO/arquivos/710BA7293977732DDD213CAE2E329E52507C348D3E446135F8978861CDA880F1.pdf
+          link_text: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS
+          value: exam
+          confidence: 1.0
+          rule: caderno de prova publicado junto com o gabarito preliminar
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_DF_26_DELEGADO/arquivos/793E15AB2B5B357F2DD614A0ACAEE093B9DFE97618931164855D005CDFF89841.pdf
+          link_text: GABARITO DEFINITIVO – PROVA OBJETIVA (P1)
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

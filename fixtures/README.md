@@ -17,3 +17,12 @@ Trechos de documentos oficiais do Cebraspe, usados só para testar o parser. A p
 
 Snapshots da saída dos parsers. Para regenerar depois de uma mudança intencional no parser:
 `UPDATE_SNAPSHOTS=1 uv run pytest tests/test_parser_cebraspe.py` — e revise o diff antes de commitar.
+
+## `crawl/cebraspe/`
+
+Respostas da API JSON do Cebraspe (decisão 0004) gravadas em 2026-10-07 pelo cliente de cortesia,
+para testar o crawler sem rede. `listing.json` é `eventos/tipo/concursos/` reduzido aos eventos
+com prefixo policial (PF, PRF, DPF, PC, PM, CBM, DEPEN, SEAP, SDS) e a alguns outros, para testar
+o escopo. Os demais arquivos são `eventos/<eventoURL>` com `aplicativos` removido e
+`arquivosEdital` reduzido a quatro entradas; `arquivosGabarito` e `eventoCargos` estão completos.
+`DPF_14_AGENTE` não tem fixture de propósito: a API real responde 500 e o teste cobre esse caso.
