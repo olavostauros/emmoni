@@ -1,0 +1,12 @@
+subject: direito-administrativo
+name: Direito Administrativo
+topics:
+  - slug: atos-administrativos
+    name: Atos administrativos
+    children:
+      - {slug: atributos, name: Atributos do ato administrativo}
+  - slug: poderes-administrativos
+    name: Poderes administrativos
+    children:
+      - {slug: poder-de-policia, name: Poder de polícia}
+      - {slug: poder-disciplinar, name: Poder disciplinar}

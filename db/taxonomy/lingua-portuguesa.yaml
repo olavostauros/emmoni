@@ -1,0 +1,25 @@
+subject: lingua-portuguesa
+name: Língua Portuguesa
+topics:
+  - slug: interpretacao-de-texto
+    name: Interpretação de texto
+  - slug: coesao-e-coerencia
+    name: Coesão e coerência
+    children:
+      - {slug: referenciacao, name: Referenciação}
+      - {slug: conectivos, name: Conectivos}
+  - slug: concordancia
+    name: Concordância
+    children:
+      - {slug: verbal, name: Concordância verbal}
+      - {slug: nominal, name: Concordância nominal}
+  - slug: crase
+    name: Crase
+  - slug: pontuacao
+    name: Pontuação
+  - slug: ortografia
+    name: Ortografia
+  - slug: sintaxe
+    name: Sintaxe
+    children:
+      - {slug: termos-da-oracao, name: Termos da oração}

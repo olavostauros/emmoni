@@ -1,0 +1,12 @@
+subject: raciocinio-logico
+name: Raciocínio Lógico
+topics:
+  - slug: logica-proposicional
+    name: Lógica proposicional
+    children:
+      - {slug: negacao, name: Negação de proposições}
+      - {slug: equivalencias, name: Equivalências lógicas}
+  - slug: logica-de-argumentacao
+    name: Lógica de argumentação
+  - slug: sequencias
+    name: Sequências numéricas

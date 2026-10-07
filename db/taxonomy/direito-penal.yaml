@@ -1,0 +1,23 @@
+subject: direito-penal
+name: Direito Penal
+topics:
+  - slug: aplicacao-da-lei-penal
+    name: Aplicação da lei penal
+    children:
+      - {slug: tempo-do-crime, name: Tempo do crime}
+      - {slug: lei-penal-no-tempo, name: Lei penal no tempo}
+  - slug: teoria-do-crime
+    name: Teoria do crime
+    children:
+      - {slug: iter-criminis, name: "Iter criminis, tentativa e desistência"}
+      - {slug: excludentes-de-ilicitude, name: Excludentes de ilicitude}
+      - {slug: dolo-e-culpa, name: Dolo e culpa}
+  - slug: crimes-contra-a-pessoa
+    name: Crimes contra a pessoa
+    children:
+      - {slug: homicidio, name: Homicídio}
+  - slug: crimes-contra-o-patrimonio
+    name: Crimes contra o patrimônio
+    children:
+      - {slug: furto, name: Furto}
+      - {slug: roubo, name: Roubo}

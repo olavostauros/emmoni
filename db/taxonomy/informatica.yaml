@@ -1,0 +1,20 @@
+subject: informatica
+name: Informática
+topics:
+  - slug: planilhas-eletronicas
+    name: Planilhas eletrônicas
+  - slug: seguranca-da-informacao
+    name: Segurança da informação
+    children:
+      - {slug: malware, name: Códigos maliciosos}
+      - {slug: golpes-e-ataques, name: Golpes e ataques}
+      - {slug: mecanismos-de-protecao, name: Mecanismos de proteção}
+  - slug: redes-e-internet
+    name: Redes e internet
+    children:
+      - {slug: protocolos, name: Protocolos}
+      - {slug: correio-eletronico, name: Correio eletrônico}
+  - slug: sistemas-operacionais
+    name: Sistemas operacionais
+    children:
+      - {slug: windows, name: Windows}

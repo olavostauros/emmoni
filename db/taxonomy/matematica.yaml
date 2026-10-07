@@ -1,0 +1,11 @@
+subject: matematica
+name: Matemática
+topics:
+  - slug: porcentagem
+    name: Porcentagem
+  - slug: razao-e-proporcao
+    name: Razão e proporção
+  - slug: estatistica-basica
+    name: Estatística básica
+    children:
+      - {slug: media, name: Média}

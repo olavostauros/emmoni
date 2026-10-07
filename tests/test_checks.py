@@ -1,5 +1,6 @@
 """`emmoni check` e o runner de checks (SPECIFICATIONS.md §8)."""
 
+from collections.abc import Iterator
 from pathlib import Path
 
 import psycopg
@@ -7,6 +8,7 @@ import pytest
 from psycopg.errors import ReadOnlySqlTransaction
 
 from ingest import checks, cli
+from tests import factories as f
 
 Conn = psycopg.Connection[tuple[object, ...]]
 
@@ -31,8 +33,86 @@ def test_checks_cannot_write(ingest: Conn, tmp_path: Path) -> None:
         checks.run_checks(ingest, tmp_path)
 
 
-def test_repository_checks_pass_on_empty_database(ingest: Conn) -> None:
-    assert all(result.ok for result in checks.run_checks(ingest))
+def test_repository_checks_pass_on_seed(ingest: Conn) -> None:
+    assert [r.name for r in checks.run_checks(ingest) if not r.ok] == []
+
+
+# Cada check do repositório pega a violação que descreve.
+
+
+@pytest.fixture
+def tx(ingest: Conn) -> Iterator[Conn]:
+    with ingest.transaction(force_rollback=True):
+        yield ingest
+
+
+def failing(tx: Conn) -> set[str]:
+    with tx.cursor() as cur:
+        return {r.name for r in checks.run_with_cursor(cur) if not r.ok}
+
+
+def seed_question(tx: Conn, contest: str, number: int) -> str:
+    return str(
+        f.scalar(
+            tx,
+            "select q.id from question q join exam e on e.id = q.exam_id"
+            " join contest c on c.id = e.contest_id where c.slug = %s and q.number = %s",
+            (contest, number),
+        )
+    )
+
+
+def test_check_multiple_choice_options(tx: Conn) -> None:
+    qid = seed_question(tx, "seed-pmsp-2024", 1)  # A-D, gabarito C
+    tx.execute("delete from question_option where question_id = %s and letter = 'B'", (qid,))
+    assert failing(tx) == {"010_multiple_choice_options"}
+
+
+def test_check_numbering_gaps(tx: Conn) -> None:
+    tx.execute("delete from question where id = %s", (seed_question(tx, "seed-pmsp-2024", 5),))
+    assert failing(tx) == {"020_numbering_gaps"}
+
+
+def test_check_missing_assets(tx: Conn) -> None:
+    tx.execute("delete from question_asset")
+    assert failing(tx) == {"030_missing_assets"}
+
+
+def test_check_unmarked_duplicates(tx: Conn) -> None:
+    a, b = seed_question(tx, "seed-pf-2025", 11), seed_question(tx, "seed-pf-2025", 12)
+    tx.execute(
+        "update question set statement_hash = (select statement_hash from question where id = %s)"
+        " where id = %s",
+        (a, b),
+    )
+    assert failing(tx) == {"040_unmarked_duplicates"}
+    tx.execute("update question set duplicate_of = %s where id = %s", (a, b))
+    assert "040_unmarked_duplicates" not in failing(tx)
+
+
+def test_check_published_without_topic(tx: Conn) -> None:
+    tx.execute(
+        "delete from question_topic where question_id = %s", (seed_question(tx, "seed-pf-2025", 1),)
+    )
+    assert failing(tx) == {"050_published_without_topic"}
+
+
+def test_check_passage_without_questions(tx: Conn) -> None:
+    tx.execute(
+        "insert into passage (exam_id, body_md, source_page)"
+        " select exam_id, 'texto solto', 1 from question where id = %s",
+        (seed_question(tx, "seed-pf-2025", 1),),
+    )
+    assert failing(tx) == {"060_passage_without_questions"}
+
+
+def test_check_position_agency_mismatch(tx: Conn) -> None:
+    tx.execute(
+        "insert into exam_position (exam_id, position_id)"
+        " select q.exam_id, p.id from question q, position p where q.id = %s and p.slug = 'soldado'",
+        (seed_question(tx, "seed-pf-2025", 1),),
+    )
+    assert failing(tx) == {"070_position_agency_mismatch"}
 
 
 def test_cli_exit_code(

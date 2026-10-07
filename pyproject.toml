@@ -5,6 +5,7 @@ description = "Banco de questões de concursos para carreiras policiais"
 requires-python = ">=3.12"
 dependencies = [
   "psycopg[binary]>=3.2",
+  "pyyaml>=6.0.3",
 ]
 
 [project.scripts]
@@ -15,6 +16,7 @@ dev = [
   "mypy>=1.11",
   "pytest>=8.3",
   "ruff>=0.6",
+  "types-pyyaml>=6.0.12.20260906",
 ]
 
 [build-system]
@@ -30,6 +32,8 @@ target-version = "py312"
 
 [tool.ruff.lint]
 select = ["E", "F", "I", "UP", "B", "SIM"]
+# O comprimento das linhas fica com o `ruff format`; SQL e textos longos em strings são aceitos.
+ignore = ["E501"]
 
 [tool.mypy]
 strict = true

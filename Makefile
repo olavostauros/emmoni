@@ -11,13 +11,16 @@ DATABASE_URL_OWNER      ?= $(call db_url,emmoni_owner,emmoni)
 DATABASE_URL_TEST       ?= $(call db_url,emmoni_ingest,emmoni_test)
 DATABASE_URL_TEST_OWNER ?= $(call db_url,emmoni_owner,emmoni_test)
 DATABASE_URL_TEST_WEB   ?= $(call db_url,emmoni_web,emmoni_test)
+BENCH_URL_OWNER  ?= $(call db_url,emmoni_owner,emmoni_bench)
+BENCH_URL_INGEST ?= $(call db_url,emmoni_ingest,emmoni_bench)
+BENCH_URL_WEB    ?= $(call db_url,emmoni_web,emmoni_bench)
 
 export EMMONI_DB_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB
 
 UV     ?= uv
 DBMATE ?= dbmate --wait
 
-.PHONY: help db-up db-down db-reset install migrate seed test test-db migrations-roundtrip \
+.PHONY: help db-up db-down db-reset install migrate seed seed-build test test-db migrations-roundtrip \
         lint format check bench gates
 
 help:
@@ -39,14 +42,26 @@ install: ## Instala o ambiente Python
 migrate: ## Aplica as migrações e atualiza db/schema.sql
 	$(DBMATE) --url "$(DATABASE_URL_OWNER)" up
 
-seed: ## Carrega taxonomia e seed (a partir do M1)
-	@echo "seed: nada para carregar ainda (chega no M1)"
+# Taxonomia + seed num banco: $(call load_seed,<url como emmoni_ingest>)
+define load_seed
+	DATABASE_URL="$(1)" $(UV) run emmoni taxonomy load
+	psql "$(1)" -v ON_ERROR_STOP=1 -q -f db/seed/seed.sql
+endef
+
+seed: install ## Carrega taxonomia e seed no banco de desenvolvimento e copia os assets
+	$(call load_seed,$(DATABASE_URL))
+	mkdir -p data/assets
+	for f in db/seed/assets/*; do cp "$$f" "data/assets/$$(sha256sum "$$f" | cut -d' ' -f1).$${f##*.}"; done
+
+seed-build: install ## Regenera db/seed/seed.sql a partir de scripts/build_seed.py
+	$(UV) run python scripts/build_seed.py
 
 test-db: ## Recria o banco de testes do zero
 	$(DBMATE) --url "$(DATABASE_URL_TEST_OWNER)" drop
 	$(DBMATE) --url "$(DATABASE_URL_TEST_OWNER)" --no-dump-schema up
 
-test: install test-db ## Roda os testes contra o banco de testes recriado
+test: install test-db ## Roda os testes contra o banco de testes recriado (com seed)
+	$(call load_seed,$(DATABASE_URL_TEST))
 	$(UV) run pytest
 
 migrations-roundtrip: ## up → down de tudo → up, no banco de testes
@@ -56,6 +71,7 @@ lint: install ## ruff + mypy
 	$(UV) run ruff check .
 	$(UV) run ruff format --check .
 	$(UV) run mypy
+	$(UV) run python scripts/build_seed.py --check
 
 format: install ## Formata o código
 	$(UV) run ruff check --fix .
@@ -64,8 +80,11 @@ format: install ## Formata o código
 check: install ## Checks de qualidade dos dados
 	$(UV) run emmoni check
 
-bench: ## Mede as funções do contrato (a partir do M1)
-	@echo "bench: nada para medir ainda (chega no M1)"
+bench: install ## Mede as funções do contrato com 100 mil questões (banco emmoni_bench)
+	$(DBMATE) --url "$(BENCH_URL_OWNER)" drop
+	$(DBMATE) --url "$(BENCH_URL_OWNER)" --no-dump-schema up
+	$(call load_seed,$(BENCH_URL_INGEST))
+	$(UV) run python scripts/bench.py "$(BENCH_URL_OWNER)" "$(BENCH_URL_WEB)"
 
 gates: db-up migrate lint migrations-roundtrip test check ## Obrigatório antes de entregar
 	@echo "gates: ok"

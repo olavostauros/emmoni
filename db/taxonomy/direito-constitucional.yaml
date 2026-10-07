@@ -1,0 +1,13 @@
+subject: direito-constitucional
+name: Direito Constitucional
+topics:
+  - slug: direitos-e-garantias-fundamentais
+    name: Direitos e garantias fundamentais
+    children:
+      - {slug: direitos-individuais, name: Direitos e deveres individuais e coletivos}
+      - {slug: direitos-sociais, name: Direitos sociais}
+      - {slug: remedios-constitucionais, name: Remédios constitucionais}
+  - slug: seguranca-publica
+    name: Segurança pública
+    children:
+      - {slug: orgaos-policiais, name: Órgãos policiais}

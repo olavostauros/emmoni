@@ -1,0 +1,9 @@
+subject: direito-processual-penal
+name: Direito Processual Penal
+topics:
+  - slug: inquerito-policial
+    name: Inquérito policial
+  - slug: prisao
+    name: Prisão
+    children:
+      - {slug: prisao-em-flagrante, name: Prisão em flagrante}

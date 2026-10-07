@@ -104,6 +104,9 @@ pelo front-end.
 
 ## 4. Modelo de dados
 
+O DDL de verdade está em `db/migrations/` (e no dump `db/schema.sql`); os esboços abaixo resumem
+e não repetem cada detalhe. Se divergirem, valem as migrações, e este texto deve ser corrigido.
+
 Todas as tabelas têm `created_at timestamptz not null default now()` e, quando mutáveis,
 `updated_at` mantido por trigger. Chaves primárias: `bigint generated always as identity` para
 catálogos; `uuid` (`gen_random_uuid()`) para `question` e `passage`, que são expostos em URLs.
@@ -117,9 +120,12 @@ create type career as enum (
 );
 create type government_level as enum ('federal', 'estadual', 'distrital', 'municipal');
 
+create type education_level as enum ('fundamental', 'medio', 'superior');
+create domain slug as text check (value ~ '^[a-z0-9]+(-[a-z0-9]+)*$');
+
 exam_board (id, slug unique, name, short_name)            -- Cebraspe, FGV, Vunesp...
 agency     (id, slug unique, name, short_name, career, level government_level,
-            state char(2) null)                            -- UF; null para federal
+            state text null)                               -- UF; null se e só se federal
 position   (id, agency_id, slug, name, education_level)    -- unique (agency_id, slug)
 ```
 
@@ -135,13 +141,18 @@ source_document (id, kind, url, sha256 unique, local_path, page_count,
 contest (id, slug unique, agency_id, exam_board_id, year smallint, notice_number,
          name)                                   -- "PF 2021 — Agente"
 
-exam    (id, contest_id, slug, applied_on date, shift text null,
+exam    (id, contest_id, slug, name, applied_on date, shift text null,
          canonical_booklet text,                  -- caderno usado como referência
-         exam_document_id, status)                -- unique (contest_id, slug)
+         exam_document_id, answer_key_preliminary_document_id,
+         answer_key_final_document_id,
+         publish_status)                          -- unique (contest_id, slug)
 
 exam_position (exam_id, position_id)              -- uma prova pode servir vários cargos
                                                   -- pk (exam_id, position_id)
 ```
+
+`exam.publish_status` é a aprovação da prova pela amostragem (seção 8): uma questão só aparece no
+contrato se ela **e** a prova estiverem `published`.
 
 Cadernos com ordem diferente: só o **caderno canônico** gera questões. Outros cadernos, se
 necessários, entram em `booklet_mapping (exam_id, booklet, original_number, question_id)`.
@@ -151,7 +162,7 @@ necessários, entram em `booklet_mapping (exam_id, booklet, original_number, que
 ```sql
 create type question_type   as enum ('multiple_choice', 'true_false', 'essay');
 create type answer_status   as enum ('valid', 'changed', 'annulled');  -- após recursos
-create type publish_status  as enum ('draft', 'review', 'published');
+create type publish_status  as enum ('draft', 'review', 'published');  -- também em exam
 
 passage (id uuid, exam_id, body_md, source_page, ...)
 
@@ -166,16 +177,16 @@ question (
   answer_preliminary text null,                 -- 'A'..'E' ou 'C'/'E'
   answer_final       text null,
   answer_status    answer_status not null default 'valid',
-  statement_hash   text not null,               -- sha256 do enunciado normalizado
+  statement_hash   text not null,               -- sha256 da questão normalizada (seção 5)
   duplicate_of     uuid null references question,
   source_page      smallint not null,
   extracted_by     text not null,               -- ex.: 'cebraspe-parser@1 + claude-sonnet-5-5'
   publish_status   publish_status not null default 'draft',
-  search_vector    tsvector generated always as (...) stored,
+  search_vector    tsvector not null,           -- mantido por trigger (seção 4.5)
   unique (exam_id, number)
 )
 
-question_option (question_id uuid, letter char(1), body_md text,
+question_option (question_id uuid, letter text check ('A'..'E'), body_md text,
                  primary key (question_id, letter))   -- só para multiple_choice
 
 asset (id, sha256 unique, mime_type, width, height, alt_text, storage_key)
@@ -188,7 +199,10 @@ Restrições obrigatórias (no banco, não só na ingestão):
 - `multiple_choice` → gabaritos em `('A'..'E')`; a letra precisa existir em `question_option`
   (verificado por trigger de constraint diferida).
 - `answer_status = 'annulled'` → `answer_final is null`.
-- `answer_status = 'changed'` → `answer_final is distinct from answer_preliminary`.
+- `answer_status = 'changed'` → os dois gabaritos preenchidos e diferentes; `valid` → iguais
+  quando os dois existem.
+- `essay` → sem gabarito.
+- O texto-base precisa ser da mesma prova da questão (FK composta `(passage_id, exam_id)`).
 - `publish_status = 'published'` exige `answer_final` preenchido **ou** questão anulada, e
   `subject_id` preenchido.
 
@@ -196,22 +210,28 @@ Restrições obrigatórias (no banco, não só na ingestão):
 
 ```sql
 subject (id, slug unique, name)                          -- Língua Portuguesa, Direito Penal...
-topic   (id, subject_id, slug, name, path ltree unique)  -- direito_penal.crimes_contra_pessoa.homicidio
+topic   (id, subject_id, name, path ltree unique)        -- direito_penal.crimes_contra_pessoa.homicidio
+topic_ancestor (topic_id, ancestor_id)                   -- fecho transitivo, mantido por trigger
 question_topic (question_id, topic_id, origin text,      -- 'manual' | 'llm' | 'rule'
                 confidence real null,
                 primary key (question_id, topic_id))
 ```
 
+O identificador público de um assunto é o **`path`**: o primeiro rótulo é o slug da disciplina com
+`-` trocado por `_`, e os seguintes são os slugs dos ancestrais (triggers garantem isso e que o pai
+existe). O `path` é **imutável**; renomear um assunto muda só o `name`. `topic_ancestor` liga cada
+assunto a si mesmo e a todos os ancestrais; é o que torna baratas as contagens com subassuntos.
+
 A taxonomia é **curada em `db/taxonomy/*.yaml`** e carregada por `emmoni taxonomy load`
-(idempotente, por slug). O LLM de classificação só escolhe entre assuntos existentes; nunca cria
+(idempotente, por slug/path; assuntos que saem dos arquivos são apenas avisados, nunca apagados). O LLM de classificação só escolhe entre assuntos existentes; nunca cria
 assuntos novos — sugere-os num relatório para revisão.
 
 ### 4.5 Busca textual
 
 - Configuração de busca `pt_unaccent` (dicionário `portuguese` + `unaccent`).
-- `question.search_vector` = enunciado (peso A) + alternativas e texto-base (peso B). Como
-  alternativas e texto-base estão em outras tabelas, o vetor é mantido por trigger (não generated)
-  se necessário — documentar a escolha em `docs/decisions/`.
+- `question.search_vector` = enunciado (peso A) + alternativas e texto-base (peso B), depois de
+  `md_plain()` tirar a marcação. Como alternativas e texto-base moram em outras tabelas, o vetor é
+  mantido por trigger: mudar uma alternativa ou um texto-base recalcula as questões afetadas.
 - Índices: GIN em `search_vector`; GIN `gin_trgm_ops` em `statement_md` para busca por trecho;
   btree nos filtros (`exam_id`, `subject_id`, `publish_status`); GIST em `topic.path`.
 
@@ -268,8 +288,10 @@ especificado em `docs/content-format.md`:
 - Normalização: Unicode NFC, hifenização de fim de linha do PDF removida, espaços colapsados,
   aspas e travessões preservados.
 
-`statement_hash` = sha256 do enunciado após: NFC → minúsculas → remover acentos → remover markdown
-e pontuação → colapsar espaços.
+`statement_hash` = sha256 de **enunciado + alternativas (em ordem) + texto-base**, cada parte
+normalizada: NFC → minúsculas → remover acentos → remover markdown e pontuação → colapsar espaços;
+imagens valem pelo sha256. Só o enunciado não basta: enunciados genéricos ("Assinale a alternativa
+correta") se repetem entre questões diferentes. Implementação: `ingest/content.py`.
 
 ---
 
@@ -277,17 +299,18 @@ e pontuação → colapsar espaços.
 
 O front-end **só** acessa o esquema `api`, com o papel `emmoni_web`. Tabelas internas podem mudar
 livremente; o esquema `api` é o contrato e é versionado em `docs/contract.md` (versão semântica;
-mudança incompatível = versão maior + nota de migração).
+mudança incompatível = versão maior + nota de migração). **O `docs/contract.md` é a referência
+para o front-end**: formatos de resposta, filtros, erros e garantias. Esta seção fixa os requisitos.
 
-Objetos mínimos do esquema `api`:
+Objetos mínimos do esquema `api` (as funções devolvem `jsonb`):
 
 | Objeto | Descrição |
 |---|---|
 | `api.question` (view) | Questões `published`, com banca, órgão, cargos, concurso, ano, disciplina, assuntos, gabarito final, status do gabarito, origem. Alternativas como `jsonb` (`[{letter, body_md}]`). |
 | `api.passage` (view) | Textos-base. |
-| `api.exam_board`, `api.agency`, `api.position`, `api.subject`, `api.topic` (views) | Catálogos para montar filtros, com contagem de questões publicadas. |
-| `api.search_questions(filters jsonb, query text, page_size int, cursor text)` | Busca com filtros e texto; retorna página + `next_cursor`. Paginação por **keyset**, nunca `offset`. |
-| `api.facet_counts(filters jsonb, query text)` | Contagens por banca, órgão, cargo, ano, disciplina, assunto, tipo — para os filtros do site. |
+| `api.exam_board`, `api.agency`, `api.position`, `api.subject`, `api.topic`, `api.exam` (views) | Catálogos para montar filtros e páginas de prova, com contagem de questões publicadas. |
+| `api.search_questions(filters jsonb, query text, page_size int, cursor text)` | Busca com filtros e texto; retorna `{total, items, next_cursor}`. Paginação por **keyset**, nunca `offset`. Ordem: ano decrescente, concurso, prova, número (sem relevância na v1). |
+| `api.facet_counts(filters jsonb, query text)` | Contagens por banca, órgão, carreira, cargo, ano, disciplina, assunto, tipo — **disjuntivas** (cada faceta ignora o próprio filtro). |
 | `api.get_question(id uuid)` | Uma questão completa. |
 | `api.asset_url(sha256 text)` | Resolve `asset:` para caminho público. |
 
@@ -307,13 +330,23 @@ Formato de `filters` (todos opcionais, valores por **slug**; listas = OU, chaves
 }
 ```
 
+Implementação: views rodam com as permissões do dono; as funções são `SECURITY DEFINER` com
+`search_path` fixo, validam toda entrada (erro `22023` para filtro desconhecido ou mal formado) e só
+interpolam valores do usuário com `%L`. A montagem do SQL fica em funções internas de `public`
+(`search_condition`, `search_from`, `question_docs`), inacessíveis ao `emmoni_web`.
+
 Requisitos de desempenho (com ≥ 100 mil questões publicadas, máquina de desenvolvimento):
-`search_questions` p95 < 150 ms; `facet_counts` p95 < 300 ms. Medidos por `make bench`.
+`search_questions` p95 < 150 ms; `facet_counts` p95 < 300 ms. Medidos por `make bench`, que cria
+o banco descartável `emmoni_bench`, multiplica o seed até ~100 mil questões e falha se uma meta não
+for atingida.
 
 O **seed** (`db/seed/seed.sql`) deve cobrir: ≥ 3 bancas, ≥ 4 órgãos, ≥ 60 questões publicadas,
 ambos os tipos (`multiple_choice` e `true_false`), questões com texto-base compartilhado, com imagem,
 com tabela, anuladas e com gabarito alterado. Dados do seed são marcados com `contest.slug` prefixado
-por `seed-` e podem ser fictícios.
+por `seed-` e podem ser fictícios. O `seed.sql` é **gerado** por `scripts/build_seed.py`
+(`make seed-build`); o lint falha se o arquivo estiver desatualizado. As imagens do seed ficam em
+`db/seed/assets/` e o `make seed` as copia para `data/assets/<sha256>.<ext>`, que é o
+`storage_key` padrão de um asset (URL pública = `setting.asset_base_url` + `storage_key`).
 
 ---
 
@@ -474,10 +507,11 @@ emmoni coverage                     # gera docs/coverage.md
 | `make db-up` / `db-down` / `db-reset` | Sobe, para ou recria do zero o Postgres do docker compose. |
 | `make install` | `uv sync --frozen`. |
 | `make migrate` | `dbmate up` + atualiza `db/schema.sql`. |
-| `make seed` | Carrega taxonomia e `db/seed/seed.sql`. |
+| `make seed` | Carrega taxonomia e `db/seed/seed.sql`; copia as imagens do seed para `data/assets/`. |
+| `make seed-build` | Regenera `db/seed/seed.sql` a partir de `scripts/build_seed.py`. |
 | `make test` | pytest contra `emmoni_test` recriado do zero (migrações + seed). |
 | `make migrations-roundtrip` | up → rollback de todas → up em banco vazio; falha se sobrar esquema, privilégio padrão ou configuração do banco. |
-| `make lint` | ruff check, ruff format --check, mypy. |
+| `make lint` | ruff check, ruff format --check, mypy, `build_seed.py --check`. |
 | `make check` | `emmoni check`. |
 | `make bench` | Mede as funções do contrato (seção 6). |
 | `make gates` | db-up + migrate + lint + migrations-roundtrip + test + check. **Obrigatório passar antes de entregar.** |
