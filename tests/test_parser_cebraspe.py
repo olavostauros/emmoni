@@ -149,3 +149,55 @@ def test_out_of_sequence_number_is_not_an_item() -> None:
     questions = cebraspe.segment([page]).questions
     assert [q.number for q in questions] == [1]
     assert questions[0].flags == ["orphan_text"]  # a linha não some em silêncio
+
+
+def test_free_space_and_bold_title_end_the_item() -> None:
+    page = _page(
+        [
+            _line("Julgue o item seguinte.", 28, 50),
+            _line("**1** O ciclo de Krebs ocorre nos ribossomos.", 28, 70),
+            _line("Espaço livre", 300, 90),
+            _line("**Título do texto seguinte**", 42, 110),  # recuo dentro da faixa de continuação
+            _line("Corpo do texto.", 57, 130),
+            _line("Com base no texto, julgue o item.", 28, 150),
+            _line("**2** Item do texto.", 28, 170),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    first, second = segmented.questions
+    assert first.statement_md.endswith("ribossomos.")
+    passage = next(p for p in segmented.passages if p.key == second.passage_key)
+    assert passage.body_md.startswith("**Título do texto seguinte**")
+
+
+def test_pf_2018_line_numbered_passage_without_marker() -> None:
+    """PF 2018: sem "PROVA OBJETIVA" com tracinhos, texto com numeração de linhas na margem."""
+    segmented = cebraspe.segment(extract(FIXTURES / "pdf/cebraspe/pf-2018-agente-p1.pdf"))
+    assert [q.number for q in segmented.questions] == list(range(1, 12))
+    body = segmented.passages[0].body_md
+    assert body.startswith("Imagine uma operação de busca na selva.")
+    assert "facão. Assim eram feitas" in body  # número de linha "4" removido no meio do texto
+    assert body.count("\n\n") == 6
+    assert segmented.questions[0].statement_md.endswith(
+        "Infere-se do texto que o Nudetective foi desenvolvido especificamente para o combate à"
+        " pornografia infantil."
+    )
+
+
+def test_item_completing_an_unfinished_opening() -> None:
+    page = _page(
+        [
+            _line("Considere que W tenha média 10 e desvio padrão 4.", 28, 50),
+            _line("Nessa situação hipotética,", 28, 62, x1=140),
+            _line("1 se W1 e W2 forem independentes, a soma terá média 20.", 28, 74),
+            _line("2 P(W > 10) = 0,5.", 28, 86, x1=150),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    first, second = segmented.questions
+    assert first.statement_md == (
+        "Nessa situação hipotética, se W1 e W2 forem independentes, a soma terá média 20."
+    )
+    assert second.statement_md == "Nessa situação hipotética, P(W > 10) = 0,5."
+    assert first.passage_key == "g1"
+    assert "no_command" not in first.flags

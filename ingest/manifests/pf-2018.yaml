@@ -1,0 +1,38 @@
+# PF 2018 — Banca: Cebraspe. Fonte: https://www.cebraspe.org.br/concursos/PF_18 (API: eventos/PF_18).
+# Cargos policiais: 1 Delegado, 12 Agente, 13 Escrivão, 14 Papiloscopista. Peritos (cargos 2–11)
+# ficam para depois.
+contest: pf-2018
+name: PF 2018
+agency: pf
+exam_board: cebraspe
+year: 2018
+source_url: https://www.cebraspe.org.br/concursos/PF_18
+exams:
+  - slug: agente
+    name: Agente de Polícia Federal — prova objetiva
+    positions: [agente]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF012__PAG_9.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF012__PAG_9.PDF
+  - slug: escrivao
+    name: Escrivão de Polícia Federal — prova objetiva
+    positions: [escrivao]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF013__PAG_8.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF013__PAG_8.PDF
+  - slug: papiloscopista
+    name: Papiloscopista Policial Federal — prova objetiva
+    positions: [papiloscopista]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF014__PAG_9.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF014__PAG_9.PDF
+  - slug: delegado
+    name: Delegado de Polícia Federal — prova objetiva
+    positions: [delegado]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF001__PAG_8.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF001__PAG_8.PDF

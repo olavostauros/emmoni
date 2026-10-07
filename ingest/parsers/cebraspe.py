@@ -13,6 +13,7 @@ mapeados, layout especial) é marcado em `flags` e a questão vai para revisão.
 """
 
 import re
+from collections import Counter
 from dataclasses import dataclass, field
 
 from ingest.extract import Figure, Line, Page
@@ -20,8 +21,8 @@ from ingest.staging import AnswerKey, AnswerMark, RawPassage, RawQuestion, Segme
 
 PARSER = "cebraspe-parser@1"
 
-START = re.compile(r"^-+ ?PROVA OBJETIVA ?-+$")
-STOP = re.compile(r"^-+ ?PROVA DISCURSIVA ?-+$")
+START = re.compile(r"^-* ?PROVA OBJETIVA ?-*$")
+STOP = re.compile(r"^-* ?PROVA DISCURSIVA ?-*$")
 SKIP = re.compile(r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+)$", re.I)
 ITEM = re.compile(r"^(\d{1,3})\s+\S")
 ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?\s+")
@@ -34,13 +35,17 @@ SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 BROKEN_MATH = re.compile(r"[଀-୿ഀ-ൿሀ-፿\U0001D400-\U0001D7FF]")
 
 SENTENCE_STOP = (".", ":", ";", "?", "!")
+SENTENCE_STOP_FULL = (".", "?", "!")
+LINE_NUMBER = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?\s+")
+LINE_NUMBER_GAP = 8.0
 ITEM_INDENT = 6.0  # número do item fica na margem da coluna
 HANGING_MIN = 8.0  # continuação do item tem recuo (~18)
 HANGING_MAX = 24.0
 PARAGRAPH_INDENT = 15.0  # primeira linha de parágrafo de texto-base
 PARAGRAPH_INDENT_AT = 29.0  # recuo típico de parágrafo (a continuação de item fica em ~18)
 SHORT_LINE = 40.0  # linha que termina antes disso da margem direita quebra de propósito
-ODD_INDENT = 30.0  # recuo maior que isso dentro de item = layout especial (código, tabela)
+ODD_INDENT = 30.0
+CITATION_SIZE = 9.0  # letra menor que isso: citação da fonte do texto  # recuo maior que isso dentro de item = layout especial (código, tabela)
 
 
 @dataclass
@@ -80,8 +85,20 @@ def segment(pages: list[Page]) -> Segmented:
 
     for entry in stream:
         line = entry.line
+        # Item só começa logo depois de outro item ou depois de um comando: assim os números de
+        # linha dos textos-base ("1", "4", "7"...) e listas numeradas não viram itens.
+        ready = (item is not None and not lead.entries) or (
+            bool(lead.entries)
+            and not _inside_labeled_text(lead)
+            and (
+                any(COMMAND.search(e.line.plain) for e in lead.entries)
+                # "Nessa situação hipotética, 48 se W1..." — o item completa a frase da abertura.
+                or not lead.entries[-1].line.plain.rstrip().endswith((".", "?", "!"))
+            )
+        )
         starts_item = (
-            (match := ITEM.match(line.plain)) is not None
+            ready
+            and (match := ITEM.match(line.plain)) is not None
             and int(match.group(1)) == expected
             and line.x0 <= entry.left + ITEM_INDENT
         )
@@ -106,12 +123,25 @@ def segment(pages: list[Page]) -> Segmented:
     return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
 
 
+def _inside_labeled_text(lead: _Unit) -> bool:
+    """A abertura tem um "Texto X" e ainda não chegou ao comando: números são de linha."""
+    inside = False
+    for entry in lead.entries:
+        if TEXT_LABEL.match(entry.line.plain):
+            inside = True
+        elif COMMAND.search(entry.line.plain):
+            inside = False
+    return inside
+
+
 def _continues(item: _Unit, entry: _Entry) -> bool:
     """Linha com recuo continua o item, salvo recuo de parágrafo depois de frase terminada."""
     indent = entry.line.x0 - entry.left
-    if indent <= HANGING_MIN:
-        return False
     last = item.entries[-1]
+    if indent <= HANGING_MIN:
+        # Só continua se a frase claramente segue (linha começa com minúscula).
+        unfinished = not last.line.plain.rstrip().endswith((".", "?", "!", ":"))
+        return unfinished and entry.line.plain[:1].islower() and indent < 0
     moved = last.page != entry.page or last.line.column != entry.line.column
     if moved and indent > HANGING_MAX:
         return False  # em coluna nova, só o recuo típico de continuação prende ao item
@@ -123,20 +153,30 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
     starts_paragraph = abs(indent - PARAGRAPH_INDENT_AT) < 4 and entry.line.plain[:1].isupper()
     if starts_paragraph and previous.endswith((".", "?", "!", ":")):
         return False
-    # Depois de frase terminada, linha fora do recuo de continuação (título centralizado de texto-
-    # base, por exemplo) abre a próxima abertura. Depois de ":" pode vir fórmula ou tabela do item.
-    return not (indent > HANGING_MAX and previous.endswith((".", "?", "!")))
+    # Primeira linha de parágrafo com recuo maior que o de costume (varia entre provas): longa,
+    # começando com maiúscula, depois de frase terminada. Fórmula centralizada é curta e fica.
+    new_paragraph = indent > HANGING_MAX and entry.line.plain[:1].isupper() and not entry.short
+    return not (new_paragraph and sentence_done)
 
 
 def _stream(pages: list[Page]) -> list[_Entry]:
     """Linhas da prova objetiva em ordem de leitura, com figuras atribuídas às linhas vizinhas."""
     stream: list[_Entry] = []
     gap = False
+    # Sem o marcador "PROVA OBJETIVA", começa do início; instruções numeradas da capa não viram
+    # itens porque item só começa depois de um comando ("julgue").
     started = not any(START.search(line.plain) for page in pages for line in page.lines)
     for page in pages:
+        middle = page.width / 2
         lefts = {
-            column: min((line.x0 for line in page.lines if line.column == column), default=0.0)
-            for column in (0, 1, 2)
+            0: min((line.x0 for line in page.lines if line.column == 0), default=0.0),
+            1: min((line.x0 for line in page.lines if line.column == 1), default=0.0),
+            # Linhas que começam um pouco antes do meio também vão para a coluna 2, mas a margem
+            # da coluna é medida só com as que começam depois do meio.
+            2: min(
+                (line.x0 for line in page.lines if line.column == 2 and line.x0 >= middle),
+                default=min((line.x0 for line in page.lines if line.column == 2), default=0.0),
+            ),
         }
         rights = {
             column: max((line.x1 for line in page.lines if line.column == column), default=0.0)
@@ -168,16 +208,13 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             gap = False
             if BROKEN_MATH.search(line.plain):
                 entry.flags.add("formula")
-            if line.x0 > entry.left + ODD_INDENT and not _is_passage_indent(line, entry.left):
-                entry.flags.add("layout")
+            if line.x0 > entry.left + ODD_INDENT and entry.short and line.size >= CITATION_SIZE:
+                entry.flags.add("layout")  # linha recuada e curta: código, tabela, fórmula
+            if line.scripts:
+                entry.flags.add("formula")  # índices/expoentes que o texto puro achata
             entries.append(entry)
         stream.extend(_with_figures(page, entries, skipped))
     return stream
-
-
-def _is_passage_indent(line: Line, left: float) -> bool:
-    """Recuo esperado: primeira linha de parágrafo ou citação da fonte (letra pequena)."""
-    return abs(line.x0 - left - PARAGRAPH_INDENT_AT) < 4 or line.size < 9
 
 
 def _with_figures(page: Page, entries: list[_Entry], skipped: list[Line]) -> list[_Entry]:
@@ -227,8 +264,7 @@ def _open_group(
         *texts, (last_label, last_entries) = labeled
     else:
         texts, last_label, last_entries, prefix = [], None, prefix, []
-    paragraphs = _paragraphs(last_entries)
-    situation, command = _split_command(paragraphs)
+    situation, command = _split_command(_text_paragraphs(last_entries))
     if not command:
         for entry in last_entries:
             entry.flags.add("no_command")
@@ -238,7 +274,7 @@ def _open_group(
 
     for label, entries in texts:
         if label and entries:
-            _add_passage(passages, label, _paragraphs(entries), entries)
+            _add_passage(passages, label, _text_paragraphs(entries), entries)
     if last_label:
         # O último texto rotulado termina onde começa o comando.
         if situation:
@@ -279,7 +315,12 @@ def _question(
         e.line.text for e in item.entries[1:]
     ]
     body = _join(text_lines)
-    statement = f"{command}\n\n{body}" if command else body
+    if not command:
+        statement = body
+    elif command.rstrip().endswith(SENTENCE_STOP_FULL):
+        statement = f"{command}\n\n{body}"
+    else:
+        statement = f"{command} {body}"  # o item completa a frase do comando
     flags = item.flags | group_flags
     if any(e.short and not e.line.plain.endswith(SENTENCE_STOP) for e in item.entries[:-1]):
         flags.add("layout")  # quebras de linha com significado (código, versos, listas)
@@ -295,11 +336,49 @@ def _question(
     )
 
 
-def _paragraphs(entries: list[_Entry]) -> list[str]:
+def _text_paragraphs(entries: list[_Entry]) -> list[str]:
+    """Parágrafos de um texto rotulado, sem a numeração de linhas da margem."""
+    stripped, numbered = _strip_line_numbers(entries)
+    return _paragraphs(stripped, base=_base_x(stripped) if numbered else None)
+
+
+def _strip_line_numbers(entries: list[_Entry]) -> tuple[list[_Entry], bool]:
+    """Tira a numeração de linhas da margem dos textos-base (1, 4, 7...).
+
+    Só quando o corpo do texto fica recuado em relação à margem da coluna e o número está à
+    esquerda dele; um parágrafo que começa com número ("2020 foi...") fica intacto."""
+    base = _base_x(entries)
+    stripped = []
+    numbered = False
+    for entry in entries:
+        match = LINE_NUMBER.match(entry.line.text)
+        if match and entry.line.x0 < base - LINE_NUMBER_GAP:
+            line = entry.line.model_copy(
+                update={
+                    "text": entry.line.text[match.end() :],
+                    "plain": LINE_NUMBER.sub("", entry.line.plain, count=1),
+                    "x0": base,
+                }
+            )
+            entry = _Entry(entry.page, line, entry.left, entry.short, entry.after_gap, entry.flags)
+            numbered = True
+        stripped.append(entry)
+    return stripped, numbered
+
+
+def _base_x(entries: list[_Entry]) -> float:
+    """Margem do corpo do texto: o x0 mais comum."""
+    counts = Counter(round(entry.line.x0) for entry in entries)
+    return float(counts.most_common(1)[0][0]) if counts else 0.0
+
+
+def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
+    """Junta linhas em parágrafos. `base` é a margem do corpo do texto quando ela não coincide
+    com a da coluna (textos com numeração de linhas)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
     for entry in entries:
-        indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
+        indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
         new = (
             previous is None
@@ -329,6 +408,10 @@ def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:
             before = " ".join(sentences[:index]).strip()
             command = " ".join(sentences[index:]).strip()
             return [*rest, before] if before else rest, command
+    if not last.rstrip().endswith(SENTENCE_STOP_FULL):
+        # Sem "julgue": frase inacabada no fim ("Nessa situação hipotética,") que cada item completa.
+        before = " ".join(sentences[:-1]).strip()
+        return [*rest, before] if before else rest, sentences[-1].strip()
     return paragraphs, ""
 
 

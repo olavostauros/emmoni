@@ -19,7 +19,11 @@ BOLD = 16
 # Fração da largura da página que separa as colunas, e folga para considerar a linha "de um lado".
 COLUMN_SLACK = 12.0
 REPEATED_SHARE = 0.5
-MARGIN_SHARE = 0.08  # faixa de cima e de baixo da página onde ficam cabeçalho e rodapé
+MARGIN_SHARE = 0.08
+SCRIPT_DROP = 1.5  # pontos a menos que a fonte da linha: índice ou expoente
+ITEM_NUMBER = re.compile(
+    r"^\d{1,3}$"
+)  # faixa de cima e de baixo da página onde ficam cabeçalho e rodapé
 FULL_WIDTH_SHARE = 0.8  # desenho mais largo que isso é moldura/faixa, não figura
 MIN_RULE = 40.0
 SEPARATOR_SHARE = 0.4  # régua com ~ a largura da coluna
@@ -35,6 +39,7 @@ class Line(BaseModel):
     y1: float
     column: int  # 0 = largura total, 1 = esquerda, 2 = direita
     size: float  # tamanho da fonte predominante
+    scripts: bool = False  # trechos em fonte bem menor no meio da linha (índices, expoentes)
 
 
 class Figure(BaseModel):
@@ -123,13 +128,17 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
     x0, y0, x1, y1 = (float(v) for v in raw["bbox"])
     plain = _clean("".join(s["text"] for s in raw["spans"]))
     markdown = _clean("".join(_markdown(s) for s in raw["spans"]))
-    if x1 <= middle + COLUMN_SLACK:
-        column = 1
+    if x0 >= middle:
+        column = 2  # começa na metade direita (vale para números estreitos de item)
+    elif x1 <= middle + COLUMN_SLACK:
+        column = 1  # inclui o fim de linha da esquerda que encosta no meio ("a")
     elif x0 >= middle - COLUMN_SLACK:
         column = 2
     else:
         column = 0
     sizes = Counter(round(float(s["size"]), 1) for s in spans for _ in s["text"])
+    main = sizes.most_common(1)[0][0]
+    scripts = any(float(s["size"]) < main - SCRIPT_DROP and s["text"].strip(" \xa0") for s in spans)
     return Line(
         text=markdown,
         plain=plain,
@@ -138,7 +147,8 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
         x1=x1,
         y1=y1,
         column=column,
-        size=sizes.most_common(1)[0][0],
+        size=main,
+        scripts=scripts,
     )
 
 
@@ -212,6 +222,11 @@ def _merge(row: list[Line]) -> Line:
         y1=max(line.y1 for line in row),
         column=row[0].column,
         size=main.size,
+        scripts=any(line.scripts for line in row)
+        or any(
+            line.size < main.size - SCRIPT_DROP and not ITEM_NUMBER.match(line.plain)
+            for line in row
+        ),
     )
 
 
