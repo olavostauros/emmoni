@@ -24,11 +24,11 @@ PARSER = "cebraspe-parser@1"
 START = re.compile(r"^-* ?PROVA OBJETIVA ?-*$")
 STOP = re.compile(r"^-* ?PROVA DISCURSIVA ?-*$")
 SKIP = re.compile(r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+)$", re.I)
-ITEM = re.compile(r"^(\d{1,3})\s+\S")
-ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?\s+")
+ITEM = re.compile(r"^(\d{1,3})(?:\s+\S|$)")  # número sozinho: item que é só figura
+ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
 TEXT_LABEL = re.compile(r"^Texto\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")
 TEXT_REF = re.compile(r"\btexto\s+([0-9][\w.]*-[IVX]+|[0-9][A-Z0-9.]+)", re.I)
-COMMAND = re.compile(r"\bjulg", re.I)
+COMMAND = re.compile(r"\b(julg|judge|juzg)", re.I)  # português, inglês, espanhol
 SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
@@ -36,7 +36,9 @@ BROKEN_MATH = re.compile(r"[଀-୿ഀ-ൿሀ-፿\U0001D400-\U0001D7FF]")
 
 SENTENCE_STOP = (".", ":", ";", "?", "!")
 SENTENCE_STOP_FULL = (".", "?", "!")
-LINE_NUMBER = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?\s+")
+LINE_NUMBER = re.compile(
+    r"^(?:[*\\/t]{0,10}?)\d{1,3}\*{0,2}\s+"
+)  # "*4* ", "*\\t/**1* " (glifo decorativo)
 LINE_NUMBER_GAP = 8.0
 ITEM_INDENT = 6.0  # número do item fica na margem da coluna
 HANGING_MIN = 8.0  # continuação do item tem recuo (~18)
@@ -67,11 +69,12 @@ class _Unit:
         return set().union(*(entry.flags for entry in self.entries)) if self.entries else set()
 
 
-def segment(pages: list[Page]) -> Segmented:
+def segment(pages: list[Page], first: int = 1) -> Segmented:
+    """`first`: número do primeiro item do caderno (PRF 2021: caderno que começa no item 9)."""
     stream = _stream(pages)
     passages: dict[str, RawPassage] = {}
     questions: list[RawQuestion] = []
-    expected = 1
+    expected = first
     lead = _Unit()
     item: _Unit | None = None
     group_command = ""
@@ -124,14 +127,18 @@ def segment(pages: list[Page]) -> Segmented:
 
 
 def _inside_labeled_text(lead: _Unit) -> bool:
-    """A abertura tem um "Texto X" e ainda não chegou ao comando: números são de linha."""
+    """A abertura está dentro de um texto-base que ainda não chegou ao comando: números na margem
+    são de linha. Texto-base = rótulo "Texto X" ou duas ou mais linhas numeradas (1, 4, 7...)."""
     inside = False
+    numbered = 0
     for entry in lead.entries:
         if TEXT_LABEL.match(entry.line.plain):
             inside = True
-        elif COMMAND.search(entry.line.plain):
-            inside = False
-    return inside
+        elif COMMAND.search(entry.line.plain) or entry.line.size < CITATION_SIZE:
+            inside, numbered = False, 0  # comando ou citação da fonte encerram o texto
+        elif LINE_NUMBER.match(entry.line.text):
+            numbered += 1
+    return inside or numbered >= 2
 
 
 def _continues(item: _Unit, entry: _Entry) -> bool:
@@ -315,6 +322,7 @@ def _question(
         e.line.text for e in item.entries[1:]
     ]
     body = _join(text_lines)
+    empty = not body.strip()
     if not command:
         statement = body
     elif command.rstrip().endswith(SENTENCE_STOP_FULL):
@@ -322,6 +330,8 @@ def _question(
     else:
         statement = f"{command} {body}"  # o item completa a frase do comando
     flags = item.flags | group_flags
+    if empty:
+        flags.add("empty_item")  # o item é só uma figura
     if any(e.short and not e.line.plain.endswith(SENTENCE_STOP) for e in item.entries[:-1]):
         flags.add("layout")  # quebras de linha com significado (código, versos, listas)
     if re.search(r"sublinhad", statement, re.I) and "<u>" not in statement:
@@ -450,6 +460,9 @@ def parse_answer_key(pages: list[Page]) -> AnswerKey:
     for page in pages:
         for line in page.lines:
             tokens = [t for t in line.plain.split() if t not in ("Item", "Gabarito")]
+            # Células vazias da grade vêm preenchidas com "0" ("119 120 0 0", "C E 0 0").
+            while len(tokens) > 1 and tokens[-1] == "0":
+                tokens.pop()
             if tokens and all(KEY_NUMBER.match(t) for t in tokens):
                 numbers = [int(t) for t in tokens]
                 previous = numbers if numbers[0] > 0 and _consecutive(numbers) else None

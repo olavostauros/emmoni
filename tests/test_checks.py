@@ -73,6 +73,12 @@ def test_check_numbering_gaps(tx: Conn) -> None:
     assert failing(tx) == {"020_numbering_gaps"}
 
 
+def test_check_numbering_may_start_after_one(tx: Conn) -> None:
+    """Caderno que começa no meio (PRF 2021: itens 9 a 120) não é buraco."""
+    tx.execute("delete from question where id = %s", (seed_question(tx, "seed-pmsp-2024", 1),))
+    assert failing(tx) == set()
+
+
 def test_check_missing_assets(tx: Conn) -> None:
     tx.execute("delete from question_asset")
     assert failing(tx) == {"030_missing_assets"}

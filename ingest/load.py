@@ -123,7 +123,9 @@ def load_exam(
             question_id = row[0]
             _options(conn, question_id, question.options)
             _topics(conn, question_id, assigned)
-            duplicates += _mark_duplicate(conn, question_id, digest)
+            # Em revisão o conteúdo extraído está incompleto (figura, fórmula): o hash não serve
+            # para dizer que é a mesma questão.
+            duplicates += _mark_duplicate(conn, question_id, None if status == "review" else digest)
         removed = conn.execute(
             "delete from question where exam_id = %s and number <> all(%s)", (exam_id, numbers)
         ).rowcount
@@ -259,11 +261,15 @@ def _topics(conn: Conn, question_id: object, assigned: list[TopicAssignment]) ->
         )
 
 
-def _mark_duplicate(conn: Conn, question_id: object, digest: str) -> int:
+def _mark_duplicate(conn: Conn, question_id: object, digest: str | None) -> int:
     """Mesma questão já carregada de outra prova → `duplicate_of` aponta para a mais antiga."""
+    if digest is None:
+        conn.execute("update question set duplicate_of = null where id = %s", (question_id,))
+        return 0
     row = conn.execute(
         """select id from question
             where statement_hash = %s and id <> %s and duplicate_of is null
+              and publish_status <> 'review'
             order by created_at, id limit 1""",
         (digest, question_id),
     ).fetchone()

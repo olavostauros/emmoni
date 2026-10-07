@@ -1,0 +1,9 @@
+subject: legislacao-de-transito
+name: Legislação de Trânsito
+topics:
+  - {slug: ctb, name: "Código de Trânsito Brasileiro"}
+  - {slug: crimes-de-transito, name: "Crimes de trânsito"}
+  - {slug: infracoes-e-penalidades, name: "Infrações, penalidades e medidas administrativas"}
+  - {slug: resolucoes-contran, name: "Resoluções do CONTRAN"}
+  - {slug: sinalizacao, name: "Sinalização de trânsito"}
+  - {slug: sistema-nacional-de-transito, name: "Sistema Nacional de Trânsito"}

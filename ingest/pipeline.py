@@ -96,7 +96,9 @@ class ExamRun:
         return _pages.validate_json(self.path(f"pages.{kind}.json").read_bytes())
 
     def segment(self) -> None:
-        segmented: Segmented = self.parser.segment(self._read_pages("exam"))
+        segmented: Segmented = self.parser.segment(
+            self._read_pages("exam"), first=self.exam.first_number
+        )
         write(self.path("segmented.json"), segmented)
         flagged = sum(1 for q in segmented.questions if q.flags)
         self.log(

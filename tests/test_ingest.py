@@ -260,3 +260,33 @@ def test_load_refuses_exam_level_problems(tx: Conn) -> None:
     )
     with pytest.raises(LoadError, match="numeração"):
         load_exam(tx, m, m.exams[0], _documents(tx), validated)
+
+
+def test_validate_exam_starting_after_one() -> None:
+    """PRF 2021: o caderno principal vai do item 9 ao 120."""
+    exam = _manifest().exams[0].model_copy(update={"first_number": 9})
+    exam.subjects_by_range = []
+    seg = _segmented(_tf(9), _tf(10))
+    assert validate(exam, seg, None, AnswerKey(answers={9: "C", 10: "E"})).exam_reasons == []
+    shifted = validate(exam, _segmented(_tf(1), _tf(2)), None, AnswerKey(answers={1: "C", 2: "E"}))
+    assert any("a partir de 9" in reason for reason in shifted.exam_reasons)
+
+
+def test_review_questions_are_not_deduplicated(
+    tx: Conn, real_exam: tuple[Segmented, AnswerKey]
+) -> None:
+    """Conteúdo em revisão está incompleto (figura, fórmula): não serve para dizer que é igual."""
+    catalog.sync(tx, catalog.load())
+    m = _manifest()
+    validated = validate(m.exams[0], real_exam[0], None, real_exam[1])
+    flagged = validated.model_copy(
+        update={
+            "questions": [
+                q.model_copy(update={"review_reasons": ["figura ou tabela não extraída"]})
+                for q in validated.questions
+            ]
+        }
+    )
+    load_exam(tx, m, m.exams[0], _documents(tx), validated)
+    other = m.model_copy(update={"contest": "zz-pf-2021-copia"})
+    assert load_exam(tx, other, m.exams[0], _documents_again(tx), flagged).duplicates == 0

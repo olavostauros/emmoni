@@ -1,0 +1,50 @@
+# PRF 2021 — Banca: Cebraspe. Fonte: https://www.cebraspe.org.br/concursos/PRF_21 (API: eventos/PRF_21).
+# A prova objetiva tem os itens 9 a 120 num caderno e os itens 1 a 8 em cadernos de língua
+# estrangeira (inglês ou espanhol, à escolha do candidato). Provas do curso de formação ficam fora.
+contest: prf-2021
+name: PRF 2021
+agency: prf
+exam_board: cebraspe
+year: 2021
+source_url: https://www.cebraspe.org.br/concursos/PRF_21
+exams:
+  - slug: policial
+    name: Policial Rodoviário Federal — prova objetiva (itens 9 a 120)
+    positions: [policial-rodoviario-federal]
+    canonical_booklet: "único"
+    first_number: 9
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/578_PRF_001_01.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/GAB_DEFINITIVO_578_PRF_001_01.PDF
+    subjects_by_range:
+      - {from: 9, to: 26, subject: lingua-portuguesa}            # 22–26: redação oficial
+      - {from: 27, to: 32, subject: matematica}
+      - {from: 33, to: 39, subject: informatica}
+      - {from: 40, to: 44, subject: fisica}
+      - {from: 45, to: 50, subject: etica-no-servico-publico}
+      - {from: 51, to: 55, subject: geopolitica}
+      - {from: 56, to: 85, subject: legislacao-de-transito}
+      - {from: 86, to: 92, subject: direito-administrativo}       # 91–92: carreira de PRF
+      - {from: 93, to: 99, subject: direito-constitucional}
+      - {from: 100, to: 104, subject: direito-penal}
+      - {from: 105, to: 109, subject: direito-processual-penal}
+      - {from: 110, to: 115, subject: legislacao-penal-especial}
+      - {from: 116, to: 120, subject: direitos-humanos}
+  - slug: lingua-inglesa
+    name: Policial Rodoviário Federal — língua inglesa (itens 1 a 8)
+    positions: [policial-rodoviario-federal]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/578_PRF_ING_01.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/GAB_DEFINITIVO_578_PRF_ING_01.PDF
+    subjects_by_range:
+      - {from: 1, to: 8, subject: lingua-inglesa}
+  - slug: lingua-espanhola
+    name: Policial Rodoviário Federal — língua espanhola (itens 1 a 8)
+    positions: [policial-rodoviario-federal]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/578_PRF_ESP_02.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/GAB_DEFINITIVO_578_PRF_ESP_02.PDF
+    subjects_by_range:
+      - {from: 1, to: 8, subject: lingua-espanhola}

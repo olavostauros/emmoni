@@ -20,8 +20,10 @@ BOLD = 16
 COLUMN_SLACK = 12.0
 REPEATED_SHARE = 0.5  # linha presente em mais da metade das páginas = cabeçalho/rodapé
 MARGIN_SHARE = 0.08  # faixa de cima e de baixo da página onde ficam cabeçalho e rodapé
+MIN_SIZE = 3.0  # corpo menor que isso é marca invisível de diagramação
 SCRIPT_DROP = 1.5  # pontos a menos que a fonte da linha: índice ou expoente
 ITEM_NUMBER = re.compile(r"^\d{1,3}$")
+LEADING_MARK = re.compile(r"^[\d\\/t*¦.]*$")
 ORDINAL = re.compile(r"^[oaº]s?\.?$")  # "n.os", "1.a": abreviatura sobrescrita, não índice
 FULL_WIDTH_SHARE = 0.8  # desenho mais largo que isso é moldura/faixa, não figura
 MIN_RULE = 40.0  # régua horizontal mais curta que isso costuma ser sublinhado
@@ -122,8 +124,8 @@ def _box(rect: Any) -> dict[str, float]:
 
 def _line(raw: dict[str, Any], middle: float) -> Line | None:
     spans = [s for s in raw["spans"] if s["text"].strip(" \xa0")]
-    if not spans:
-        return None
+    if not spans or max(float(s["size"]) for s in spans) < MIN_SIZE:
+        return None  # texto invisível (marcas de diagramação em corpo 1)
     x0, y0, x1, y1 = (float(v) for v in raw["bbox"])
     plain = _clean("".join(s["text"] for s in raw["spans"]))
     markdown = _clean("".join(_markdown(s) for s in raw["spans"]))
@@ -138,7 +140,9 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
     sizes = Counter(round(float(s["size"]), 1) for s in spans for _ in s["text"])
     main = sizes.most_common(1)[0][0]
     # O número do item no começo da linha costuma vir em corpo menor: não é índice.
-    body = spans[1:] if ITEM_NUMBER.match(spans[0]["text"].strip(" \xa0")) else spans
+    body = list(spans)
+    while body and LEADING_MARK.match(body[0]["text"].strip(" \xa0")):
+        body.pop(0)  # número do item ou de linha, glifo decorativo
     scripts = any(
         float(s["size"]) < main - SCRIPT_DROP
         and s["text"].strip(" \xa0")
@@ -230,7 +234,7 @@ def _merge(row: list[Line]) -> Line:
         size=main.size,
         scripts=any(line.scripts for line in row)
         or any(
-            line.size < main.size - SCRIPT_DROP and not ITEM_NUMBER.match(line.plain)
+            line.size < main.size - SCRIPT_DROP and not LEADING_MARK.match(line.plain)
             for line in row
         ),
     )

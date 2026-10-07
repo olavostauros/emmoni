@@ -201,3 +201,16 @@ def test_item_completing_an_unfinished_opening() -> None:
     assert second.statement_md == "Nessa situação hipotética, P(W > 10) = 0,5."
     assert first.passage_key == "g1"
     assert "no_command" not in first.flags
+
+
+def test_segment_can_start_after_one_and_accepts_figure_only_items() -> None:
+    page = _page(
+        [
+            _line("Com base nas figuras, julgue os itens.", 28, 50),
+            _line("**9**", 28, 70, x1=40),  # item que é só figura
+            _line("**10** Texto do item.", 28, 160),
+        ]
+    )
+    questions = cebraspe.segment([page], first=9).questions
+    assert [q.number for q in questions] == [9, 10]
+    assert "empty_item" in questions[0].flags

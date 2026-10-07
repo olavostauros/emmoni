@@ -39,6 +39,7 @@ class Exam(_Strict):
     applied_on: datetime.date | None = None
     shift: str | None = None
     canonical_booklet: str | None = None
+    first_number: int = Field(default=1, gt=0)  # caderno que começa no meio (PRF 2021: item 9)
     documents: Documents
     subjects_by_range: list[SubjectRange] = []
 

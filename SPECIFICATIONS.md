@@ -450,6 +450,7 @@ exams:
     positions: [agente]
     applied_on: 2021-05-23
     canonical_booklet: "1"
+    first_number: 1                # opcional; caderno que começa no meio (PRF 2021: 9)
     documents:
       exam: https://.../prova_agente.pdf
       answer_key_preliminary: https://.../gabarito_preliminar.pdf
@@ -469,7 +470,7 @@ exams:
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |
 | `validate` | `questions.json` | Numeração contínua, alternativas compatíveis com o tipo, gabarito válido, enunciado não vazio, imagens resolvidas. Falha → questão fica `review`, com motivo registrado. |
 | `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo LLM dentro da taxonomia, com `confidence`. Confiança < 0,6 → `review`. |
-| `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of`. |
+| `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of` (questões em `review` ficam fora: o conteúdo extraído está incompleto). |
 
 No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
 rotulado ou a situação hipotética vira texto-base. O `load` grava `review` quando há motivo de

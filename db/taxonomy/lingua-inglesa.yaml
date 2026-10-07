@@ -1,0 +1,5 @@
+subject: lingua-inglesa
+name: Língua Inglesa
+topics:
+  - {slug: compreensao-de-texto, name: "Compreensão de texto"}
+  - {slug: vocabulario, name: "Vocabulário e aspectos linguísticos"}

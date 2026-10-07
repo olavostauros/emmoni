@@ -1,0 +1,6 @@
+subject: direitos-humanos
+name: Direitos Humanos
+topics:
+  - {slug: teoria-geral, name: "Teoria geral dos direitos humanos"}
+  - {slug: tratados-internacionais, name: "Tratados internacionais de direitos humanos"}
+  - {slug: sistema-interamericano, name: "Sistema interamericano de direitos humanos"}

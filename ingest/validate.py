@@ -21,6 +21,7 @@ FLAG_REASONS = {
     "underline": "enunciado cita sublinhado, mas o sublinhado não foi extraído",
     "no_command": "grupo de itens sem comando reconhecido",
     "orphan_text": "texto solto depois do último item (pode ser continuação perdida)",
+    "empty_item": "item sem texto (só figura)",
 }
 
 
@@ -53,10 +54,13 @@ def validate(
 ) -> Validated:
     exam_reasons: list[str] = []
     numbers = [q.number for q in segmented.questions]
-    if numbers != list(range(1, len(numbers) + 1)):
-        exam_reasons.append(f"numeração não contínua: {numbers[:5]}...")
+    expected = list(range(exam.first_number, exam.first_number + len(numbers)))
+    if not numbers or numbers != expected:
+        exam_reasons.append(
+            f"numeração não contínua a partir de {exam.first_number}: {numbers[:5]}..."
+        )
     for name, key in (("preliminar", preliminary), ("definitivo", final)):
-        if key is not None and sorted(key.answers) != list(range(1, len(numbers) + 1)):
+        if key is not None and sorted(key.answers) != expected:
             exam_reasons.append(
                 f"gabarito {name} com {len(key.answers)} itens para {len(numbers)} questões"
             )

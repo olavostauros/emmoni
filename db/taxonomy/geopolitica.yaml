@@ -1,0 +1,6 @@
+subject: geopolitica
+name: Geopolítica
+topics:
+  - {slug: transportes, name: "Rede de transportes"}
+  - {slug: urbanizacao, name: "Urbanização e metrópoles"}
+  - {slug: globalizacao, name: "Globalização e território"}
