@@ -1,0 +1,7 @@
+subject: biologia
+name: Biologia
+topics:
+  - {slug: bioquimica, name: "Bioquímica e composição da matéria viva"}
+  - {slug: citologia, name: "Citologia"}
+  - {slug: genetica, name: "Genética"}
+  - {slug: embriologia, name: "Embriologia"}

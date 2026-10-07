@@ -1,0 +1,5 @@
+subject: criminologia
+name: Criminologia
+topics:
+  - {slug: escolas-criminologicas, name: "Escolas criminológicas"}
+  - {slug: vitimologia, name: "Vitimologia"}

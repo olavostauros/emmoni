@@ -1,0 +1,6 @@
+subject: direito-internacional
+name: Direito Internacional
+topics:
+  - {slug: migracao-e-extradicao, name: "Migração, extradição e expulsão"}
+  - {slug: cooperacao-internacional, name: "Cooperação jurídica internacional"}
+  - {slug: tratados, name: "Tratados e convenções internacionais"}

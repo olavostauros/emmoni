@@ -1,0 +1,7 @@
+subject: fisica
+name: Física
+topics:
+  - {slug: ondulatoria, name: "Ondulatória"}
+  - {slug: eletricidade, name: "Eletricidade e eletrostática"}
+  - {slug: optica, name: "Óptica"}
+  - {slug: mecanica, name: "Mecânica"}

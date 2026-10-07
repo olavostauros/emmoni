@@ -1,0 +1,7 @@
+subject: direito-civil
+name: Direito Civil
+topics:
+  - {slug: pessoas-e-domicilio, name: "Pessoas e domicílio"}
+  - {slug: responsabilidade-civil, name: "Responsabilidade civil"}
+  - {slug: direito-de-empresa, name: "Direito de empresa e sociedades"}
+  - {slug: contratos, name: "Contratos"}

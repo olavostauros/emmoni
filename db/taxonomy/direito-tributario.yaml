@@ -1,0 +1,6 @@
+subject: direito-tributario
+name: Direito Tributário
+topics:
+  - {slug: principios-tributarios, name: "Princípios tributários"}
+  - {slug: tributos, name: "Espécies tributárias"}
+  - {slug: credito-tributario, name: "Crédito tributário"}

@@ -1,0 +1,6 @@
+subject: direito-previdenciario
+name: Direito Previdenciário
+topics:
+  - {slug: seguridade-social, name: "Seguridade social e custeio"}
+  - {slug: segurados, name: "Segurados e dependentes"}
+  - {slug: beneficios, name: "Benefícios"}

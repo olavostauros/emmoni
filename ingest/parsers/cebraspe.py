@@ -49,6 +49,7 @@ class _Entry:
     line: Line
     left: float  # margem esquerda da coluna desta linha
     short: bool = False  # termina bem antes da margem direita da coluna
+    after_gap: bool = False  # veio depois de um "Espaço livre" ou de um título de bloco
     flags: set[str] = field(default_factory=set)
 
 
@@ -114,14 +115,23 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
     moved = last.page != entry.page or last.line.column != entry.line.column
     if moved and indent > HANGING_MAX:
         return False  # em coluna nova, só o recuo típico de continuação prende ao item
-    previous = last.line.plain
+    previous = last.line.plain.rstrip()
+    sentence_done = previous.endswith((".", "?", "!"))
+    title = entry.line.text.startswith("**") and entry.line.text.endswith("**")
+    if sentence_done and (entry.after_gap or title):
+        return False  # "Espaço livre" ou título em negrito encerram o item
     starts_paragraph = abs(indent - PARAGRAPH_INDENT_AT) < 4 and entry.line.plain[:1].isupper()
-    return not (starts_paragraph and previous.rstrip().endswith((".", "?", "!", ":")))
+    if starts_paragraph and previous.endswith((".", "?", "!", ":")):
+        return False
+    # Depois de frase terminada, linha fora do recuo de continuação (título centralizado de texto-
+    # base, por exemplo) abre a próxima abertura. Depois de ":" pode vir fórmula ou tabela do item.
+    return not (indent > HANGING_MAX and previous.endswith((".", "?", "!")))
 
 
 def _stream(pages: list[Page]) -> list[_Entry]:
     """Linhas da prova objetiva em ordem de leitura, com figuras atribuídas às linhas vizinhas."""
     stream: list[_Entry] = []
+    gap = False
     started = not any(START.search(line.plain) for page in pages for line in page.lines)
     for page in pages:
         lefts = {
@@ -144,6 +154,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 return stream
             if SKIP.match(line.plain):
                 skipped.append(line)
+                gap = True
                 continue
             if any(_contains(image, line) for image in images):
                 continue  # rótulos de gráfico desenhados sobre a imagem
@@ -152,7 +163,9 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 line,
                 lefts[line.column],
                 short=line.x1 < rights[line.column] - SHORT_LINE,
+                after_gap=gap,
             )
+            gap = False
             if BROKEN_MATH.search(line.plain):
                 entry.flags.add("formula")
             if line.x0 > entry.left + ODD_INDENT and not _is_passage_indent(line, entry.left):
@@ -287,12 +300,22 @@ def _paragraphs(entries: list[_Entry]) -> list[str]:
     previous: _Entry | None = None
     for entry in entries:
         indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
-        new = previous is None or indented or abs(entry.line.size - previous.line.size) >= 1
+        title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
+        new = (
+            previous is None
+            or (indented and not title_goes_on)
+            or abs(entry.line.size - previous.line.size) >= 1
+        )
         if new:
             paragraphs.append([])
         paragraphs[-1].append(entry.line.text)
         previous = entry
     return [_join(lines) for lines in paragraphs]
+
+
+def _is_title(entry: _Entry) -> bool:
+    text = entry.line.text
+    return text.startswith("**") and text.endswith("**")
 
 
 def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:

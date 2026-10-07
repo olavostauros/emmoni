@@ -1,7 +1,9 @@
 # PF 2021 — Edital nº 1 – DGP/PF, de 15 de janeiro de 2021. Banca: Cebraspe.
 # Fonte: https://www.cebraspe.org.br/concursos/PF_21 (API: eventos/PF_21).
-# Data e turno: Edital nº 9 (ED_9_DPF_2021_LOCAIS_E_NOVO_CRONOGRAMA.PDF), item 1: provas dos cargos
-# exceto Delegado em 23/5/2021, às 14 h.
+# Data e turno: Edital nº 9 (ED_9_DPF_2021_LOCAIS_E_NOVO_CRONOGRAMA.PDF), itens 1 e 2: Delegado em
+# 23/5/2021 às 8 h; demais cargos em 23/5/2021 às 14 h.
+# Escrivão e Papiloscopista repetem a maior parte dos itens 1–96 do Agente; o load marca esses itens
+# como duplicatas (duplicate_of) do Agente.
 # O gabarito preliminar não está mais publicado no site; só o definitivo.
 contest: pf-2021
 name: PF 2021
@@ -33,3 +35,72 @@ exams:
       - {from: 49, to: 60, subject: raciocinio-logico}
       - {from: 61, to: 96, subject: informatica}               # Bloco II
       - {from: 97, to: 120, subject: contabilidade-geral}      # Bloco III
+  - slug: delegado
+    name: Delegado de Polícia Federal — prova objetiva
+    positions: [delegado]
+    applied_on: 2021-05-23
+    shift: manhã
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/CARGO_1_DELEGADO_DE_POLCIA_FEDERAL.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_001_00.PDF
+    subjects_by_range:
+      - {from: 1, to: 15, subject: direito-administrativo}
+      - {from: 16, to: 30, subject: direito-constitucional}
+      - {from: 31, to: 33, subject: direito-civil}               # domicílio, resp. civil, sociedades
+      - {from: 34, to: 36, subject: direito-processual-civil}
+      - {from: 37, to: 39, subject: direito-civil}               # sociedade em comum
+      - {from: 40, to: 46, subject: direito-internacional}       # migração; Convenção de Palermo
+      - {from: 47, to: 51, subject: legislacao-penal-especial}
+      - {from: 52, to: 74, subject: direito-penal}
+      - {from: 75, to: 85, subject: legislacao-penal-especial}   # lavagem, SFN, ordem tributária
+      - {from: 86, to: 102, subject: direito-processual-penal}
+      - {from: 103, to: 105, subject: criminologia}
+      - {from: 106, to: 113, subject: direito-previdenciario}
+      - {from: 114, to: 115, subject: direito-financeiro}
+      - {from: 116, to: 120, subject: direito-tributario}
+  - slug: escrivao
+    name: Escrivão de Polícia Federal — prova objetiva
+    positions: [escrivao]
+    applied_on: 2021-05-23
+    shift: tarde
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/CARGO_3_ESCRIVO_DE_POLCIA_FEDERAL.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_003_00.PDF
+    subjects_by_range:
+      - {from: 1, to: 24, subject: lingua-portuguesa}
+      - {from: 25, to: 27, subject: direito-administrativo}
+      - {from: 28, to: 30, subject: direito-constitucional}
+      - {from: 31, to: 31, subject: direito-processual-penal}
+      - {from: 32, to: 32, subject: direito-penal}
+      - {from: 33, to: 33, subject: direito-processual-penal}
+      - {from: 34, to: 36, subject: legislacao-penal-especial}
+      - {from: 37, to: 48, subject: estatistica}
+      - {from: 49, to: 60, subject: raciocinio-logico}
+      - {from: 61, to: 96, subject: informatica}
+      - {from: 97, to: 114, subject: contabilidade-geral}
+      - {from: 115, to: 120, subject: arquivologia}
+  - slug: papiloscopista
+    name: Papiloscopista Policial Federal — prova objetiva
+    positions: [papiloscopista]
+    applied_on: 2021-05-23
+    shift: tarde
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/CARGO_4_PAPILOSCOPISTA_POLICIAL_FEDERAL.PDF
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_004_00.PDF
+    subjects_by_range:
+      - {from: 1, to: 24, subject: lingua-portuguesa}
+      - {from: 25, to: 27, subject: direito-administrativo}
+      - {from: 28, to: 30, subject: direito-constitucional}
+      - {from: 31, to: 31, subject: direito-processual-penal}
+      - {from: 32, to: 32, subject: direito-penal}
+      - {from: 33, to: 33, subject: direito-processual-penal}
+      - {from: 34, to: 36, subject: legislacao-penal-especial}
+      - {from: 37, to: 48, subject: estatistica}
+      - {from: 49, to: 60, subject: raciocinio-logico}
+      - {from: 61, to: 96, subject: informatica}
+      - {from: 97, to: 104, subject: biologia}
+      - {from: 105, to: 112, subject: fisica}
+      - {from: 113, to: 120, subject: quimica}

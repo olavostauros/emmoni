@@ -1,0 +1,5 @@
+subject: direito-financeiro
+name: Direito Financeiro
+topics:
+  - {slug: orcamento-publico, name: "Orçamento público"}
+  - {slug: receita-e-despesa, name: "Receita e despesa pública"}

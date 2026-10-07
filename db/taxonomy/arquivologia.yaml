@@ -1,0 +1,5 @@
+subject: arquivologia
+name: Arquivologia
+topics:
+  - {slug: principios-arquivisticos, name: "Princípios arquivísticos"}
+  - {slug: gestao-de-documentos, name: "Gestão de documentos"}

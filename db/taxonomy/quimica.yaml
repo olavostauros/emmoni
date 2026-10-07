@@ -1,0 +1,6 @@
+subject: quimica
+name: Química
+topics:
+  - {slug: tabela-periodica, name: "Tabela periódica"}
+  - {slug: ligacoes-quimicas, name: "Ligações e interações químicas"}
+  - {slug: reacoes-quimicas, name: "Reações e estequiometria"}
