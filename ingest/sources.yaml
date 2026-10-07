@@ -1,0 +1,32 @@
+# Fontes permitidas para crawling e download (SPECIFICATIONS.md §7.1).
+# Nenhum domínio fora desta lista é acessado. Incluir ou remover domínio exige decisão em
+# docs/decisions/ no mesmo commit.
+
+sources:
+  # Decisão 0003.
+  - slug: cebraspe
+    kind: exam_board
+    base_url: https://www.cebraspe.org.br/concursos/
+    allowed_prefixes:
+      - https://www.cebraspe.org.br/concursos/
+      - https://cdn.cebraspe.org.br/
+    crawler: cebraspe
+    js: false
+    max_depth: 3
+    recrawl: {listing: 1d, contest_open: 3d, contest_closed: never}
+    auto_approve: false
+
+# Agregadores de questões e cursinhos: nunca acessados, nem para "conferir" (AGENTS.md).
+# Vale para o domínio e todos os subdomínios. Checada antes de qualquer requisição.
+denylist:
+  - qconcursos.com
+  - tecconcursos.com.br
+  - grancursosonline.com.br
+  - gran.com.br
+  - estrategiaconcursos.com.br
+  - estrategia.com
+  - direcaoconcursos.com.br
+  - aprovaconcursos.com.br
+  - questoesestrategicas.com.br
+  - pciconcursos.com.br
+  - folhadirigida.com.br

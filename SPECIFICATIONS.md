@@ -396,6 +396,9 @@ crawler é obrigado a usar):
   User-Agent, resolver captcha, fazer login, acessar área paga.
 - Limites por execução: `max_depth` da fonte, 2.000 páginas por fonte, PDFs até 50 MB, só
   `application/pdf` e `text/html`.
+- Só `https`. Redirecionamentos seguidos à mão: o destino passa pelas mesmas checagens. `robots.txt`
+  pela RFC 9309 (4xx → sem restrições; 5xx ou falha → tudo proibido). A etapa `fetch` usa o mesmo
+  cliente (decisão 0003).
 
 **Classificação do que foi encontrado:**
 
