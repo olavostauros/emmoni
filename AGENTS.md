@@ -1,0 +1,114 @@
+# AGENTS.md — emmoni
+
+Instruções para agentes que trabalham neste repositório. Antes de começar, leia:
+
+1. [MISSION.md](MISSION.md) — o que é o emmoni e qual é a missão atual (o **porquê**).
+2. [SPECIFICATIONS.md](SPECIFICATIONS.md) — stack, modelo de dados, contrato, pipeline, testes e
+   marcos (o **o quê**). É a fonte de verdade técnica.
+3. Este arquivo — como trabalhar (o **como**).
+
+Em caso de conflito: o SPECIFICATIONS.md manda nas decisões técnicas; este arquivo manda no processo.
+
+## Divisão de trabalho
+
+| Agente | Responsabilidade |
+|---|---|
+| **Banco de dados** (missão atual) | Esquema, migrações, ingestão das provas, qualidade dos dados, contrato e seed para o front-end. |
+| **Front-end** | O site que os concurseiros usam. Consome o contrato publicado pelo agente de banco de dados. |
+
+Regras de fronteira:
+
+- O agente de banco de dados **não** escreve código do site. O agente de front-end **não** altera
+  esquema nem migrações — pede a mudança.
+- A interface entre os dois é o esquema `api` do banco, acessado com o papel `emmoni_web`,
+  documentado em `docs/contract.md`, mais o **seed** (SPECIFICATIONS.md §6). Mudança incompatível no
+  contrato = nova versão maior + nota de migração no `docs/contract.md`.
+
+## Idioma
+
+- Documentação, comentários e mensagens de commit em **português**.
+- Identificadores no código e no esquema em **inglês**, `snake_case`, seguindo **o glossário do
+  SPECIFICATIONS.md §3** (`exam_board` = banca, `answer_key` = gabarito etc.). Não invente sinônimos.
+- Dados voltados ao usuário (nomes de bancas, disciplinas, assuntos) ficam em português.
+
+## Domínio — o que o agente precisa saber
+
+- **Banca**: organizadora da prova (Cebraspe, FGV, Vunesp, FCC, IBFC, Instituto AOCP, IDECAN, etc.).
+- **Órgão**: quem contrata (PF, PRF, PC-SP, PM-MG...). **Cargo**: o posto disputado (agente, escrivão...).
+- **Concurso → Prova → Questão**: um concurso (edital/ano) tem uma ou mais provas (por cargo, por
+  tipo/caderno); cada prova tem questões numeradas.
+- **Tipos de questão**:
+  - múltipla escolha com 4 ou 5 alternativas (A–D / A–E);
+  - **certo/errado** (estilo Cebraspe), sem alternativas — o gabarito é `C` ou `E`;
+  - discursivas e peças ficam fora do núcleo inicial, mas o modelo deve aceitá-las no futuro.
+- **Gabarito preliminar vs. definitivo**: após recursos, questões podem ter gabarito alterado ou ser
+  **anuladas**. Guarde os dois e o status final.
+- **Cadernos/tipos de prova**: a mesma prova pode ter versões com ordem de questões diferente
+  (tipo 1, tipo 2...). Normalize para uma versão canônica e não duplique questões.
+- **Texto-base**: um texto (ou imagem, tabela) pode servir a várias questões em sequência.
+  Modele isso como entidade própria, não copie o texto em cada questão.
+- **Disciplina → assunto**: taxonomia hierárquica (ex.: Direito Penal → Crimes contra a pessoa →
+  Homicídio). Uma questão pode ter mais de um assunto.
+
+## Fontes e direitos
+
+- Fonte preferencial: **PDFs oficiais** de provas e gabaritos publicados pelas bancas e órgãos.
+- Toda questão guarda a origem: URL/arquivo do documento, página e número original da questão.
+- **Não** copie comentários, resoluções ou classificações de sites concorrentes de questões.
+  Extraia das fontes oficiais.
+- Guarde os PDFs originais (ou seus hashes e URLs) para permitir reprocessamento.
+
+### Crawling
+
+O agente **faz crawling** dos sites oficiais para descobrir provas (SPECIFICATIONS.md §7.1).
+Regras inegociáveis:
+
+- Só acessa domínios da lista de fontes permitidas (`ingest/sources.yaml`). Domínio novo entra na
+  lista por commit, com decisão registrada — nunca "de passagem" durante uma execução.
+- **Nunca** acessa sites agregadores de questões (QConcursos, TEC Concursos, Gran, Estratégia e
+  similares), nem para "conferir".
+- Respeita `robots.txt` e `Crawl-delay`; no máximo 1 requisição/s por host; `User-Agent` próprio
+  com contato.
+- Recebeu 403, 429 ou captcha: recua e para naquele host. **Não** contorna bloqueio (sem trocar IP
+  ou User-Agent, sem resolver captcha, sem login, sem paywall).
+- O crawler **propõe** manifestos em `ingest/manifests/_pending/`; a ingestão só processa manifestos
+  aprovados.
+- Testes de crawler usam HTML gravado em `fixtures/`, nunca a rede.
+
+## Princípios de engenharia
+
+- **Idempotência**: rodar a ingestão de novo não gera duplicatas. Use chaves naturais e um hash do
+  enunciado normalizado para deduplicar.
+- **Rastreabilidade acima de volume**: uma questão sem origem ou sem gabarito não entra como publicada.
+  Use um status (`rascunho`, `revisar`, `publicada`) em vez de descartar silenciosamente.
+- **Extração assistida por LLM é permitida**, mas o resultado é validado por regras (número de
+  alternativas, gabarito válido para o tipo, numeração contínua na prova) e por amostragem manual.
+  Registre qual modelo/versão extraiu cada questão.
+- **Migrações** sempre versionadas e reversíveis quando possível; nunca edite uma migração já aplicada.
+- **Testes** para o esquema (restrições), para os parsers de cada banca (com PDFs de amostra
+  pequenos em `fixtures/`) e para as consultas do contrato.
+- Preserve a formatação relevante do enunciado (itálico, sublinhado, tabelas, fórmulas) em um
+  formato definido (ex.: Markdown restrito) e documente esse formato no contrato.
+
+## Fluxo de trabalho
+
+1. Ler `MISSION.md`, `SPECIFICATIONS.md`, este arquivo, `docs/progress/STATUS.md` e
+   `docs/contract.md` (quando existir). O `STATUS.md` diz onde a última sessão parou.
+2. Seguir os **marcos do SPECIFICATIONS.md §10 em ordem** (M0 → M6). Não comece um marco antes de o
+   anterior cumprir seu critério de "pronto". O M1 (esquema, contrato e seed) destrava o agente de
+   front-end — ele tem prioridade sobre volume de questões.
+3. Dentro de um marco, trabalhar em incrementos pequenos e verticais: uma prova completa
+   (PDF → banco → consulta no esquema `api`) antes de ampliar.
+4. Rodar `make gates` antes de entregar. Não entregue com gates falhando; se algo foi pulado, diga.
+5. Atualizar `docs/contract.md` e o seed sempre que o esquema `api` mudar.
+6. Registrar decisões de arquitetura em `docs/decisions/NNNN-titulo.md` (contexto, decisão,
+   consequências — curto).
+7. **Antes de encerrar a sessão**, registrar o progresso em `docs/progress/`: atualizar o
+   `STATUS.md` e criar `AAAA-MM-DD-<assunto>.md` no formato de `docs/progress/README.md`.
+   Inclua o resultado do `make gates` e o que ficou sem verificar.
+
+## Estrutura e tecnologia
+
+A estrutura do repositório, a stack e os comandos estão no SPECIFICATIONS.md (§1, §2 e §9).
+Para mudar qualquer especificação: escreva a decisão em `docs/decisions/` e atualize o
+SPECIFICATIONS.md **no mesmo commit**. Nunca deixe o código divergir da especificação em silêncio.

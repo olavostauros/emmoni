@@ -1,0 +1,503 @@
+# SPECIFICATIONS — emmoni
+
+Especificações técnicas para cumprir o [MISSION.md](MISSION.md). As regras de trabalho estão no
+[AGENTS.md](AGENTS.md). Em caso de conflito, **este documento manda nas decisões técnicas** e o
+AGENTS.md manda no processo. Para mudar uma especificação: registre a decisão em `docs/decisions/`
+e atualize este arquivo no mesmo commit.
+
+---
+
+## 1. Stack
+
+| Camada | Escolha | Motivo |
+|---|---|---|
+| Banco de dados | **PostgreSQL 17** | Busca textual em português (`tsvector`), `unaccent`, `pg_trgm`, `ltree`, JSONB, restrições fortes. |
+| Extensões | `unaccent`, `pg_trgm`, `ltree`, `pgcrypto` | Busca sem acento, busca aproximada, taxonomia hierárquica, UUIDs/hashes. |
+| Migrações | **dbmate** (SQL puro, `-- migrate:up` / `-- migrate:down`) | Independente de linguagem; o agente de front-end lê o mesmo SQL. |
+| Ingestão | **Python 3.12**, gerenciado com **uv** | Ecossistema de PDF/OCR e SDK de LLM. |
+| PDF | **PyMuPDF** (texto, layout, imagens); **ocrmypdf + Tesseract `por`** como fallback para PDFs escaneados | |
+| Crawling | **httpx** (HTTP/2, retries, requisições condicionais), **selectolax** (HTML), `urllib.robotparser`; **Playwright** só para fontes marcadas `js: true` | Leve por padrão; navegador só quando o site exige JavaScript. |
+| Extração estruturada | **Claude API** (SDK `anthropic`), saída em JSON validado por schema | Modelo configurável por `EMMONI_LLM_MODEL` (padrão `claude-sonnet-5-5`). |
+| Validação em Python | **pydantic v2** | Mesmo modelo para a saída do LLM, o staging e a carga. |
+| Acesso ao banco | **psycopg 3** (SQL explícito, sem ORM) | O esquema é o produto; nada de esquema implícito em ORM. |
+| Testes | **pytest** contra um Postgres descartável (docker compose, banco `emmoni_test`) | |
+| Qualidade de código | **ruff** (lint + format), **mypy** em modo estrito no pacote `ingest` | |
+| Ambiente local | **docker compose** (serviço `db`), **Makefile** como ponto de entrada | |
+
+Variáveis de ambiente (documentadas em `.env.example`, nunca commitar `.env`):
+
+```
+DATABASE_URL=postgres://emmoni_ingest:...@localhost:5432/emmoni?sslmode=disable
+DATABASE_URL_TEST=postgres://...@localhost:5432/emmoni_test?sslmode=disable
+ANTHROPIC_API_KEY=...
+EMMONI_LLM_MODEL=claude-sonnet-5-5
+EMMONI_DATA_DIR=./data
+EMMONI_CRAWL_CONTACT=contato@exemplo.com   # vai no User-Agent do crawler
+```
+
+---
+
+## 2. Estrutura do repositório
+
+```
+emmoni/
+├── MISSION.md  AGENTS.md  SPECIFICATIONS.md
+├── Makefile  docker-compose.yml  .env.example  pyproject.toml
+├── docs/
+│   ├── contract.md          # contrato com o front-end (seção 6)
+│   ├── content-format.md    # formato do conteúdo das questões (seção 5)
+│   ├── coverage.md          # relatório de cobertura gerado (seção 8)
+│   ├── progress/            # STATUS.md + um registro por sessão (ver docs/progress/README.md)
+│   └── decisions/           # NNNN-titulo.md, uma decisão por arquivo
+├── db/
+│   ├── migrations/          # dbmate: AAAAMMDDHHMMSS_descricao.sql
+│   ├── schema.sql           # dump gerado pelo dbmate (commitado, nunca editado à mão)
+│   ├── checks/              # consultas de qualidade (seção 8)
+│   ├── taxonomy/            # disciplinas e assuntos em YAML (seção 4.4)
+│   └── seed/seed.sql        # dados de exemplo para o front-end
+├── ingest/                  # pacote Python
+│   ├── sources.yaml         # fontes permitidas para crawling (seção 7.1)
+│   ├── crawlers/            # um módulo por fonte: cebraspe.py, fgv.py, ...
+│   ├── manifests/           # um YAML por concurso aprovado (seção 7.2)
+│   │   └── _pending/        # manifestos propostos pelo crawler, aguardando aprovação
+│   ├── parsers/             # um módulo por banca: cebraspe.py, fgv.py, ...
+│   ├── cli.py               # comando `emmoni`
+│   └── ...
+├── fixtures/                # PDFs e páginas HTML de amostra para testes
+├── tests/
+└── data/                    # ignorado pelo git: raw/, staging/, assets/, crawl/
+```
+
+---
+
+## 3. Convenções de nomes
+
+Identificadores do esquema e do código em **inglês, `snake_case`**, tabelas no **singular**.
+Glossário obrigatório (use sempre estes nomes):
+
+| Domínio (pt) | Esquema (en) |
+|---|---|
+| Banca | `exam_board` |
+| Órgão | `agency` |
+| Cargo | `position` |
+| Carreira (PF, PRF, PC, PM...) | `career` (enum) |
+| Concurso | `contest` |
+| Prova | `exam` |
+| Caderno / tipo de prova | `booklet` |
+| Questão | `question` |
+| Alternativa | `question_option` |
+| Gabarito | `answer_key` (colunas `answer_*`) |
+| Texto-base | `passage` |
+| Disciplina | `subject` |
+| Assunto | `topic` |
+| Documento de origem (PDF) | `source_document` |
+
+Textos voltados ao usuário (nomes de bancas, disciplinas etc.) ficam em português nos **dados**.
+Todo registro de catálogo tem um `slug` estável (`cebraspe`, `pf`, `lingua-portuguesa`) usado em URLs
+pelo front-end.
+
+---
+
+## 4. Modelo de dados
+
+Todas as tabelas têm `created_at timestamptz not null default now()` e, quando mutáveis,
+`updated_at` mantido por trigger. Chaves primárias: `bigint generated always as identity` para
+catálogos; `uuid` (`gen_random_uuid()`) para `question` e `passage`, que são expostos em URLs.
+
+### 4.1 Catálogo
+
+```sql
+create type career as enum (
+  'pf', 'prf', 'policia_civil', 'policia_militar', 'bombeiro_militar',
+  'policia_penal', 'policia_legislativa', 'guarda_municipal', 'outra'
+);
+create type government_level as enum ('federal', 'estadual', 'distrital', 'municipal');
+
+exam_board (id, slug unique, name, short_name)            -- Cebraspe, FGV, Vunesp...
+agency     (id, slug unique, name, short_name, career, level government_level,
+            state char(2) null)                            -- UF; null para federal
+position   (id, agency_id, slug, name, education_level)    -- unique (agency_id, slug)
+```
+
+### 4.2 Concurso, prova e origem
+
+```sql
+create type document_kind as enum
+  ('exam', 'answer_key_preliminary', 'answer_key_final', 'notice', 'appeal_result');
+
+source_document (id, kind, url, sha256 unique, local_path, page_count,
+                 fetched_at, ocr_applied boolean)
+
+contest (id, slug unique, agency_id, exam_board_id, year smallint, notice_number,
+         name)                                   -- "PF 2021 — Agente"
+
+exam    (id, contest_id, slug, applied_on date, shift text null,
+         canonical_booklet text,                  -- caderno usado como referência
+         exam_document_id, status)                -- unique (contest_id, slug)
+
+exam_position (exam_id, position_id)              -- uma prova pode servir vários cargos
+                                                  -- pk (exam_id, position_id)
+```
+
+Cadernos com ordem diferente: só o **caderno canônico** gera questões. Outros cadernos, se
+necessários, entram em `booklet_mapping (exam_id, booklet, original_number, question_id)`.
+
+### 4.3 Questões
+
+```sql
+create type question_type   as enum ('multiple_choice', 'true_false', 'essay');
+create type answer_status   as enum ('valid', 'changed', 'annulled');  -- após recursos
+create type publish_status  as enum ('draft', 'review', 'published');
+
+passage (id uuid, exam_id, body_md, source_page, ...)
+
+question (
+  id               uuid primary key,
+  exam_id          bigint not null references exam,
+  number           smallint not null,           -- número no caderno canônico
+  type             question_type not null,
+  subject_id       bigint references subject,   -- disciplina (do cabeçalho da prova)
+  passage_id       uuid null references passage,
+  statement_md     text not null,               -- enunciado (seção 5)
+  answer_preliminary text null,                 -- 'A'..'E' ou 'C'/'E'
+  answer_final       text null,
+  answer_status    answer_status not null default 'valid',
+  statement_hash   text not null,               -- sha256 do enunciado normalizado
+  duplicate_of     uuid null references question,
+  source_page      smallint not null,
+  extracted_by     text not null,               -- ex.: 'cebraspe-parser@1 + claude-sonnet-5-5'
+  publish_status   publish_status not null default 'draft',
+  search_vector    tsvector generated always as (...) stored,
+  unique (exam_id, number)
+)
+
+question_option (question_id uuid, letter char(1), body_md text,
+                 primary key (question_id, letter))   -- só para multiple_choice
+
+asset (id, sha256 unique, mime_type, width, height, alt_text, storage_key)
+question_asset / passage_asset (owner_id, asset_id, position)
+```
+
+Restrições obrigatórias (no banco, não só na ingestão):
+
+- `true_false` → gabaritos em `('C','E')` e **nenhuma** linha em `question_option`.
+- `multiple_choice` → gabaritos em `('A'..'E')`; a letra precisa existir em `question_option`
+  (verificado por trigger de constraint diferida).
+- `answer_status = 'annulled'` → `answer_final is null`.
+- `answer_status = 'changed'` → `answer_final is distinct from answer_preliminary`.
+- `publish_status = 'published'` exige `answer_final` preenchido **ou** questão anulada, e
+  `subject_id` preenchido.
+
+### 4.4 Taxonomia
+
+```sql
+subject (id, slug unique, name)                          -- Língua Portuguesa, Direito Penal...
+topic   (id, subject_id, slug, name, path ltree unique)  -- direito_penal.crimes_contra_pessoa.homicidio
+question_topic (question_id, topic_id, origin text,      -- 'manual' | 'llm' | 'rule'
+                confidence real null,
+                primary key (question_id, topic_id))
+```
+
+A taxonomia é **curada em `db/taxonomy/*.yaml`** e carregada por `emmoni taxonomy load`
+(idempotente, por slug). O LLM de classificação só escolhe entre assuntos existentes; nunca cria
+assuntos novos — sugere-os num relatório para revisão.
+
+### 4.5 Busca textual
+
+- Configuração de busca `pt_unaccent` (dicionário `portuguese` + `unaccent`).
+- `question.search_vector` = enunciado (peso A) + alternativas e texto-base (peso B). Como
+  alternativas e texto-base estão em outras tabelas, o vetor é mantido por trigger (não generated)
+  se necessário — documentar a escolha em `docs/decisions/`.
+- Índices: GIN em `search_vector`; GIN `gin_trgm_ops` em `statement_md` para busca por trecho;
+  btree nos filtros (`exam_id`, `subject_id`, `publish_status`); GIST em `topic.path`.
+
+### 4.6 Papéis do banco
+
+| Papel | Permissões |
+|---|---|
+| `emmoni_owner` | Dono do esquema; usado só pelas migrações. |
+| `emmoni_ingest` | Leitura/escrita nas tabelas; usado pela ingestão. |
+| `emmoni_web` | **Somente leitura**, e somente no esquema `api` (seção 6). Usado pelo front-end. |
+
+---
+
+### 4.7 Estado do crawler
+
+Esquema separado `crawl`, **fora** do contrato (o front-end não vê):
+
+```sql
+create type discovery_status as enum
+  ('pending', 'proposed', 'approved', 'rejected', 'out_of_scope', 'ingested');
+
+crawl.page (url primary key, source_slug, last_fetched_at, http_status, etag,
+            last_modified, content_sha256, next_fetch_at)
+
+crawl.discovered_document (
+  id, url unique, source_slug,
+  found_on_url,            -- página onde o link foi encontrado (evidência)
+  link_text,
+  guessed_kind document_kind null,
+  guessed_contest_slug text null,
+  guessed jsonb,           -- órgão, cargo, ano, banca + confiança de cada campo
+  status discovery_status not null default 'pending',
+  status_reason text null, -- ex.: 'fora do escopo: concurso de prefeitura (não policial)'
+  first_seen_at, last_seen_at
+)
+```
+
+## 5. Formato do conteúdo
+
+`statement_md`, `body_md` das alternativas e dos textos-base usam **Markdown restrito**,
+especificado em `docs/content-format.md`:
+
+- CommonMark + tabelas GFM.
+- Itálico `*x*`, negrito `**x**`, sublinhado `<u>x</u>` (única tag HTML permitida).
+- Fórmulas em LaTeX: `$...$` inline, `$$...$$` em bloco.
+- Imagens: `![texto alternativo](asset:<sha256>)` — o front-end resolve `asset:` para uma URL.
+- Proibido: HTML arbitrário, links externos, cabeçalhos (`#`).
+- Normalização: Unicode NFC, hifenização de fim de linha do PDF removida, espaços colapsados,
+  aspas e travessões preservados.
+
+`statement_hash` = sha256 do enunciado após: NFC → minúsculas → remover acentos → remover markdown
+e pontuação → colapsar espaços.
+
+---
+
+## 6. Contrato com o front-end
+
+O front-end **só** acessa o esquema `api`, com o papel `emmoni_web`. Tabelas internas podem mudar
+livremente; o esquema `api` é o contrato e é versionado em `docs/contract.md` (versão semântica;
+mudança incompatível = versão maior + nota de migração).
+
+Objetos mínimos do esquema `api`:
+
+| Objeto | Descrição |
+|---|---|
+| `api.question` (view) | Questões `published`, com banca, órgão, cargos, concurso, ano, disciplina, assuntos, gabarito final, status do gabarito, origem. Alternativas como `jsonb` (`[{letter, body_md}]`). |
+| `api.passage` (view) | Textos-base. |
+| `api.exam_board`, `api.agency`, `api.position`, `api.subject`, `api.topic` (views) | Catálogos para montar filtros, com contagem de questões publicadas. |
+| `api.search_questions(filters jsonb, query text, page_size int, cursor text)` | Busca com filtros e texto; retorna página + `next_cursor`. Paginação por **keyset**, nunca `offset`. |
+| `api.facet_counts(filters jsonb, query text)` | Contagens por banca, órgão, cargo, ano, disciplina, assunto, tipo — para os filtros do site. |
+| `api.get_question(id uuid)` | Uma questão completa. |
+| `api.asset_url(sha256 text)` | Resolve `asset:` para caminho público. |
+
+Formato de `filters` (todos opcionais, valores por **slug**; listas = OU, chaves diferentes = E):
+
+```json
+{
+  "exam_board": ["cebraspe"],
+  "agency": ["pf", "prf"],
+  "position": ["agente"],
+  "career": ["pf"],
+  "year": {"from": 2018, "to": 2024},
+  "subject": ["lingua-portuguesa"],
+  "topic": ["direito_penal.crimes_contra_pessoa"],   // inclui descendentes
+  "type": ["true_false"],
+  "include_annulled": false
+}
+```
+
+Requisitos de desempenho (com ≥ 100 mil questões publicadas, máquina de desenvolvimento):
+`search_questions` p95 < 150 ms; `facet_counts` p95 < 300 ms. Medidos por `make bench`.
+
+O **seed** (`db/seed/seed.sql`) deve cobrir: ≥ 3 bancas, ≥ 4 órgãos, ≥ 60 questões publicadas,
+ambos os tipos (`multiple_choice` e `true_false`), questões com texto-base compartilhado, com imagem,
+com tabela, anuladas e com gabarito alterado. Dados do seed são marcados com `contest.slug` prefixado
+por `seed-` e podem ser fictícios.
+
+---
+
+## 7. Pipeline de ingestão
+
+Comando único: `emmoni` (definido em `pyproject.toml`). Cada etapa grava seu resultado em disco,
+pode ser rerodada isoladamente e é **idempotente**.
+
+```
+crawl ─► propose ─► [aprovação] ─► manifest ─► fetch ─► extract ─► segment ─► structure ─► answer-key ─► validate ─► classify ─► load
+```
+
+### 7.1 Descoberta (crawler)
+
+O crawler encontra provas novas e **propõe** manifestos; ele não ingere nada.
+
+**Fontes permitidas** — `ingest/sources.yaml` é a única lista de domínios que o crawler pode acessar:
+
+```yaml
+- slug: cebraspe
+  kind: exam_board               # exam_board | agency
+  base_url: https://www.cebraspe.org.br/concursos/
+  allowed_prefixes: [https://www.cebraspe.org.br/concursos/, https://cdn.cebraspe.org.br/]
+  crawler: cebraspe              # módulo em ingest/crawlers/
+  js: false
+  max_depth: 3
+  recrawl: {listing: 1d, contest_open: 3d, contest_closed: never}
+  auto_approve: false
+```
+
+**Bloqueadas por padrão** (lista `denylist` no mesmo arquivo, checada antes de qualquer requisição):
+agregadores de questões e cursinhos — qconcursos.com, tecconcursos.com.br, grancursosonline.com.br,
+estrategiaconcursos.com.br e similares. Incluir domínio novo em qualquer das listas exige registro em
+`docs/decisions/`.
+
+**Regras de cortesia** (implementadas num cliente HTTP único, `ingest/crawlers/http.py`, que todo
+crawler é obrigado a usar):
+
+- `robots.txt` buscado e cacheado por 24 h por host; URL proibida não é acessada; `Crawl-delay`
+  respeitado.
+- No máximo **1 requisição/s por host** e **1 conexão simultânea por host**.
+- `User-Agent: emmoni-bot/<versão> (+<EMMONI_CRAWL_CONTACT>)`.
+- Requisições condicionais (`ETag`, `If-Modified-Since`); página sem mudança (`content_sha256`
+  igual) não é reprocessada.
+- 429/503 → backoff exponencial respeitando `Retry-After`, até 3 tentativas. 403, captcha ou
+  bloqueio → para aquele host na execução e registra. **Proibido** contornar: trocar IP ou
+  User-Agent, resolver captcha, fazer login, acessar área paga.
+- Limites por execução: `max_depth` da fonte, 2.000 páginas por fonte, PDFs até 50 MB, só
+  `application/pdf` e `text/html`.
+
+**Classificação do que foi encontrado:**
+
+1. **Regras** primeiro: padrões de texto do link, nome do arquivo e título da página
+   (`gabarito definitivo`, `caderno de prova`, `prova objetiva`, `edital de abertura`...) →
+   `guessed_kind`.
+2. **Escopo**: o órgão é casado com o catálogo `agency` (carreiras policiais). Concurso fora do
+   escopo do MISSION.md → `out_of_scope` com motivo. Órgão policial que não existe no catálogo →
+   proposto como novo `agency` no relatório, não criado automaticamente.
+3. **LLM** só quando as regras não resolvem: recebe título da página, texto do link e trecho ao redor,
+   responde por JSON schema com confiança por campo (seção 7.4).
+
+**Proposta:** quando um concurso tem ao menos prova + um gabarito identificados, o crawler escreve
+`ingest/manifests/_pending/<contest-slug>.yaml` no formato da seção 7.2, mais um bloco `evidence`
+(URL da página, texto do link e confiança de cada campo). Documentos que chegarem depois (ex.: o
+gabarito definitivo) atualizam o manifesto, pendente ou aprovado, e reabrem a ingestão daquela prova.
+
+**Aprovação:** `emmoni manifests approve <slug>` move para `ingest/manifests/`. Enquanto
+`auto_approve: false` (padrão), toda proposta passa por revisão humana. Ligar `auto_approve` numa
+fonte exige decisão registrada e só vale para propostas em que todos os campos vieram de regras ou
+têm confiança ≥ 0,9.
+
+**Agendamento:** `emmoni crawl --all` roda uma vez por dia, por um timer do systemd ou cron
+documentado em `docs/operations.md`. O comando respeita `next_fetch_at`, então rodar com mais
+frequência não aumenta a carga nos sites. Isso garante o critério de "até 7 dias" do MISSION.md.
+
+### 7.2 Manifesto
+
+Cada concurso aprovado é descrito por um YAML em `ingest/manifests/<contest-slug>.yaml`
+(escrito à mão ou aprovado a partir de uma proposta do crawler):
+
+```yaml
+contest: pf-2021
+agency: pf
+exam_board: cebraspe
+year: 2021
+notice_number: "1/2021"
+exams:
+  - slug: agente
+    positions: [agente]
+    applied_on: 2021-05-23
+    canonical_booklet: "1"
+    documents:
+      exam: https://.../prova_agente.pdf
+      answer_key_preliminary: https://.../gabarito_preliminar.pdf
+      answer_key_final: https://.../gabarito_definitivo.pdf
+    subjects_by_range:            # opcional: mapa número → disciplina
+      - {from: 1, to: 20, subject: lingua-portuguesa}
+```
+
+### 7.3 Etapas
+
+| Etapa | Entrada → saída | Detalhes |
+|---|---|---|
+| `fetch` | manifesto → `data/raw/<sha256>.pdf` + `source_document` | Não baixa de novo se o sha256 já existe. Respeita `robots.txt`, 1 requisição/s por host, `User-Agent` identificado. |
+| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR se a página não tiver texto; imagens exportadas para `data/assets/<sha256>.<ext>`. |
+| `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras. |
+| `structure` | questões brutas → `questions.json` | LLM só onde as regras falham (tabelas, fórmulas, layout em colunas). Saída validada por pydantic; inválido → retry uma vez → `review`. |
+| `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |
+| `validate` | `questions.json` | Numeração contínua, alternativas compatíveis com o tipo, gabarito válido, enunciado não vazio, imagens resolvidas. Falha → questão fica `review`, com motivo registrado. |
+| `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo LLM dentro da taxonomia, com `confidence`. Confiança < 0,6 → `review`. |
+| `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of`. |
+
+Comandos:
+
+```
+emmoni crawl <fonte>|--all          # descobre documentos e propõe manifestos
+emmoni manifests pending|show|approve|reject
+emmoni ingest <manifest>            # todas as etapas
+emmoni ingest <manifest> --step <s> # uma etapa
+emmoni review list|show|approve     # fila de questões em review
+emmoni taxonomy load
+emmoni check                        # seção 8
+emmoni coverage                     # gera docs/coverage.md
+```
+
+### 7.4 Uso do LLM
+
+- Prompts versionados em `ingest/prompts/`, com o nome da versão gravado em `extracted_by`.
+- Saída sempre por **tool use / JSON schema**, nunca texto livre.
+- Respostas cacheadas em `data/staging/` pelo hash (prompt + entrada + modelo): reprocessar não
+  gasta tokens à toa.
+- O LLM **nunca** decide gabarito: o gabarito vem só dos PDFs oficiais de gabarito.
+
+---
+
+## 8. Qualidade e cobertura
+
+- `db/checks/NNN_<nome>.sql`: cada arquivo é uma consulta que retorna as linhas que **violam** uma
+  regra. `emmoni check` roda todas; qualquer linha numa questão `published` = falha (código de
+  saída ≠ 0).
+- Checks mínimos: questão publicada sem gabarito final e não anulada; múltipla escolha com < 4
+  alternativas; buraco na numeração de uma prova; `asset:` sem asset; duplicatas publicadas
+  não marcadas; questão publicada sem assunto; texto-base sem questões.
+- Amostragem manual: para cada prova nova, `emmoni review sample --exam <slug> --n 10` mostra 10
+  questões lado a lado com a página do PDF; a prova só vai para `published` após aprovação.
+- `emmoni coverage` gera `docs/coverage.md`: questões publicadas por banca × órgão × ano e por
+  disciplina, provas de manifestos ainda não ingeridas, propostas pendentes de aprovação e, por
+  fonte, a última execução do crawler e os hosts que bloquearam.
+
+---
+
+## 9. Testes e gates
+
+`make` é a interface:
+
+| Alvo | O que faz |
+|---|---|
+| `make db-up` | Sobe o Postgres do docker compose. |
+| `make migrate` | `dbmate up` + atualiza `db/schema.sql`. |
+| `make seed` | Carrega taxonomia e `db/seed/seed.sql`. |
+| `make test` | pytest contra `emmoni_test` recriado do zero (migrações + seed). |
+| `make lint` | ruff check, ruff format --check, mypy. |
+| `make check` | `emmoni check`. |
+| `make bench` | Mede as funções do contrato (seção 6). |
+| `make gates` | lint + test + check. **Obrigatório passar antes de entregar.** |
+
+Testes obrigatórios:
+
+- **Esquema**: cada restrição da seção 4.3 tem um teste que tenta violá-la e espera erro.
+- **Migrações**: `up` → `down` → `up` em banco vazio funciona.
+- **Parsers**: cada parser de banca tem PDFs de `fixtures/` com saída esperada (snapshot JSON).
+- **Contrato**: testes para cada função do esquema `api`, rodando como `emmoni_web`, incluindo
+  que `emmoni_web` não consegue ler tabelas fora de `api`.
+- **Idempotência**: rodar `load` duas vezes produz o mesmo estado; rodar `crawl` duas vezes sobre
+  as mesmas páginas não cria propostas novas.
+- **Crawlers**: cada crawler tem páginas HTML gravadas em `fixtures/html/<fonte>/` com o resultado
+  esperado (documentos encontrados e manifesto proposto).
+- **Cortesia**: testes do cliente HTTP comprovam que URL proibida no `robots.txt`, domínio fora da
+  lista e domínio da denylist **não** geram requisição, e que o limite por host é respeitado.
+- Nenhum teste acessa a rede (fixtures e servidor HTTP local).
+- Testes não chamam a API do LLM: usam respostas gravadas.
+
+---
+
+## 10. Marcos
+
+A ordem prioriza destravar o agente de front-end cedo.
+
+| Marco | Entrega | Pronto quando |
+|---|---|---|
+| **M0 — Fundação** | docker compose, Makefile, dbmate, extensões, papéis, pyproject | `make gates` passa em repositório limpo. |
+| **M1 — Esquema e contrato** | Seção 4 completa, esquema `api`, `docs/contract.md` v1.0, `docs/content-format.md`, seed | Agente de front-end consegue desenvolver só com `make db-up migrate seed`. |
+| **M2 — Primeira ingestão** | Pipeline completo para **Cebraspe + PF e PRF** (provas dos últimos 5 concursos) | Questões publicadas, `emmoni check` limpo, amostragem aprovada. |
+| **M3 — Crawling** | `http.py` com as regras de cortesia, `sources.yaml`, crawler do Cebraspe, propostas e aprovação de manifestos | O crawler descobre sozinho os concursos de PF e PRF já ingeridos no M2 (comparação com os manifestos manuais) e propõe pelo menos um concurso policial novo; testes de cortesia passando. |
+| **M4 — Taxonomia e classificação** | Taxonomia das disciplinas mais cobradas em carreiras policiais; classificação por assunto | ≥ 90% das questões publicadas com assunto; amostragem de 50 classificações com ≥ 90% de acerto. |
+| **M5 — Mais bancas** | Crawler **e** parser para FGV, Vunesp, IBFC, Instituto AOCP, IDECAN, FCC; sites de órgãos (polícias civis e militares) quando a banca não publica | Cada crawler e parser com fixtures e testes; cobertura em `docs/coverage.md`. |
+| **M6 — Escala** | ≥ 100 mil questões publicadas | Metas de desempenho da seção 6 atendidas em `make bench`. |
