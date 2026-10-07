@@ -4,7 +4,8 @@ Cada etapa lê e grava em `data/staging/<concurso>/<prova>/` e pode ser rerodada
 
     fetch → extract → segment → answer-key → validate → classify → load
 
-`classify` é opcional nesta versão: usa `topics.json` se existir (decisão 0005).
+`classify` precisa de credencial da Claude API (ou das respostas já no cache); sem ela a etapa é
+pulada com aviso e o `load` carrega as questões sem assunto (`draft`).
 """
 
 import json
@@ -14,7 +15,8 @@ from types import ModuleType
 
 from pydantic import TypeAdapter
 
-from ingest import db, fetch
+from ingest import classify as classify_step
+from ingest import db, fetch, taxonomy
 from ingest.crawlers.http import PoliteClient
 from ingest.extract import Page, extract
 from ingest.load import DocumentIds, LoadReport, TopicAssignment, load_exam
@@ -24,12 +26,11 @@ from ingest.sources import load as load_sources
 from ingest.staging import AnswerKey, Segmented, write
 from ingest.validate import Validated, validate
 
-STEPS = ("fetch", "extract", "segment", "answer-key", "validate", "load")
+STEPS = ("fetch", "extract", "segment", "answer-key", "validate", "classify", "load")
 PARSERS: dict[str, ModuleType] = {"cebraspe": cebraspe}
 KEY_KINDS = ("answer_key_preliminary", "answer_key_final")
 
 _pages = TypeAdapter(list[Page])
-_topics = TypeAdapter(dict[int, list[TopicAssignment]])
 
 
 class ExamRun:
@@ -130,6 +131,22 @@ class ExamRun:
         for reason in validated.exam_reasons:
             self.log(f"  ERRO na prova: {reason}")
 
+    def classify(self) -> None:
+        validated = Validated.model_validate_json(self.path("questions.json").read_bytes())
+        subjects = {s.slug: s for s in taxonomy.load_dir(taxonomy.TAXONOMY_DIR)}
+        cache = self.data / "staging" / "llm-cache"
+        try:
+            caller = classify_step.anthropic_caller() if _has_credentials() else None
+            result = classify_step.classify(validated, subjects, cache, caller)
+        except RuntimeError as error:
+            self.log(f"  classify: pulado — {error}")
+            return
+        write(self.path("topics.json"), result)
+        self.log(
+            f"  classify: {len(result.topics)} classificadas, {len(result.review)} para revisão,"
+            f" {len(result.suggestions)} sugestões de assunto ({result.model})"
+        )
+
     def load(self) -> LoadReport:
         validated = Validated.model_validate_json(self.path("questions.json").read_bytes())
         docs = self._documents_json()
@@ -139,8 +156,16 @@ class ExamRun:
 
         exam_doc = doc_id("exam")
         assert exam_doc is not None
+        topics: dict[int, list[TopicAssignment]] = {}
+        extra: dict[int, str] = {}
         topics_path = self.path("topics.json")
-        topics = _topics.validate_json(topics_path.read_bytes()) if topics_path.exists() else {}
+        if topics_path.exists():
+            classified = classify_step.Classified.model_validate_json(topics_path.read_bytes())
+            topics = {
+                n: [TopicAssignment(t.path, t.origin, t.confidence) for t in assigned]
+                for n, assigned in classified.topics.items()
+            }
+            extra = classified.review
         with db.connect() as conn:
             report = load_exam(
                 conn,
@@ -149,6 +174,7 @@ class ExamRun:
                 DocumentIds(exam_doc, doc_id("answer_key_preliminary"), doc_id("answer_key_final")),
                 validated,
                 topics,
+                extra,
             )
         self.log(
             f"  load: {report.questions} questões — {report.published} publicáveis,"
@@ -164,7 +190,15 @@ class ExamRun:
             "segment": self.segment,
             "answer-key": self.answer_key,
             "validate": self.validate,
+            "classify": self.classify,
             "load": self.load,
         }
         for name in [step] if step else STEPS:
             steps[name]()
+
+
+def _has_credentials() -> bool:
+    """Chave ou token da Claude API no ambiente (o SDK também aceita perfil do `ant auth login`)."""
+    import os
+
+    return bool(os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("ANTHROPIC_AUTH_TOKEN"))

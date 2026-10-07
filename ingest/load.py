@@ -56,8 +56,11 @@ def load_exam(
     documents: DocumentIds,
     validated: Validated,
     topics: dict[int, list[TopicAssignment]] | None = None,
+    extra_reasons: dict[int, str] | None = None,
 ) -> LoadReport:
+    """`extra_reasons`: motivos de revisão de etapas posteriores ao validate (classify)."""
     topics = topics or {}
+    extra_reasons = extra_reasons or {}
     if validated.exam_reasons:
         raise LoadError("; ".join(validated.exam_reasons))
     with conn.transaction():
@@ -78,7 +81,10 @@ def load_exam(
             )
             options = [option.body_md for option in question.options]
             assigned = topics.get(question.number, [])
-            if question.review_reasons:
+            reasons = list(question.review_reasons)
+            if question.number in extra_reasons:
+                reasons.append(extra_reasons[question.number])
+            if reasons:
                 status = "review"
             elif assigned:
                 status = "published"
@@ -116,7 +122,7 @@ def load_exam(
                     question.page,
                     question.extracted_by,
                     status,
-                    question.review_reasons,
+                    reasons,
                 ),
             ).fetchone()
             assert row is not None

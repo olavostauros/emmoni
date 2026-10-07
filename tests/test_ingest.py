@@ -290,3 +290,18 @@ def test_review_questions_are_not_deduplicated(
     load_exam(tx, m, m.exams[0], _documents(tx), validated)
     other = m.model_copy(update={"contest": "zz-pf-2021-copia"})
     assert load_exam(tx, other, m.exams[0], _documents_again(tx), flagged).duplicates == 0
+
+
+def test_load_applies_reasons_from_classify(
+    tx: Conn, real_exam: tuple[Segmented, AnswerKey]
+) -> None:
+    catalog.sync(tx, catalog.load())
+    m = _manifest()
+    validated = validate(m.exams[0], real_exam[0], None, real_exam[1])
+    load_exam(tx, m, m.exams[0], _documents(tx), validated, {}, {5: "confiança baixa"})
+    row = tx.execute(
+        """select q.publish_status, q.review_reasons from question q
+             join exam e on e.id = q.exam_id join contest c on c.id = e.contest_id
+            where c.slug = 'zz-pf-2021' and q.number = 5"""
+    ).fetchone()
+    assert row == ("review", ["confiança baixa"])

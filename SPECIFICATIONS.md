@@ -497,8 +497,13 @@ emmoni coverage                     # gera docs/coverage.md
 
 - Prompts versionados em `ingest/prompts/`, com o nome da versão gravado em `extracted_by`.
 - Saída sempre por **tool use / JSON schema**, nunca texto livre.
-- Respostas cacheadas em `data/staging/` pelo hash (prompt + entrada + modelo): reprocessar não
-  gasta tokens à toa.
+- Respostas cacheadas em `data/staging/llm-cache/<sha256>.json` pelo hash (prompt + entrada +
+  modelo): reprocessar não gasta tokens à toa.
+- `classify` (`ingest/classify.py`, prompt `ingest/prompts/classify@1.md`): saída por
+  `output_config.format` (JSON schema) com `enum` dos assuntos da disciplina, esforço `low`.
+  `tool_choice` forçado não é usado (o `claude-sonnet-5-5` o rejeita). Sem credencial da API e sem
+  cache, a etapa é pulada com aviso e as questões ficam `draft`. Sugestões de assunto novo vão para
+  `topics.json`, para curadoria da taxonomia.
 - O LLM **nunca** decide gabarito: o gabarito vem só dos PDFs oficiais de gabarito.
 
 ---
