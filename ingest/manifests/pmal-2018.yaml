@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_AL_18_SOLDADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmal-2018` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmal-2018: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmal-2018
 name: POLÍCIA MILITAR DO ESTADO DE ALAGOAS
 agency: pmal
@@ -16,6 +13,19 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/MATRIZ_410_PMAL001__PAG_7.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/GAB_DEFINITIVO_410_PMAL001__PAG_7.PDF
+  subjects_by_range:
+  - {from: 1, to: 22, subject: lingua-portuguesa}
+  - {from: 23, to: 32, subject: informatica}
+  - {from: 33, to: 42, subject: historia}
+  - {from: 43, to: 52, subject: geografia}
+  - {from: 53, to: 62, subject: atualidades}
+  - {from: 63, to: 72, subject: direito-administrativo}
+  - {from: 73, to: 82, subject: direito-constitucional}
+  - {from: 83, to: 92, subject: direito-processual-penal}
+  - {from: 93, to: 102, subject: direitos-humanos}
+  - {from: 103, to: 110, subject: legislacao-institucional}
+  - {from: 111, to: 113, subject: direito-penal}
+  - {from: 114, to: 120, subject: matematica}
 evidence:
   source: cebraspe
   contest:

@@ -63,13 +63,8 @@ def approved_documents(manifests_dir: Path = MANIFESTS_DIR) -> dict[str, tuple[s
     for path in sorted(manifests_dir.glob("*.yaml")):
         loaded = manifest_module.load(path)
         for exam in loaded.exams:
-            docs = exam.documents
-            for kind, url in (
-                ("exam", docs.exam),
-                ("answer_key_preliminary", docs.answer_key_preliminary),
-                ("answer_key_final", docs.answer_key_final),
-            ):
-                if url:
+            for kind in ("exam", "answer_key_preliminary", "answer_key_final"):
+                for url in exam.documents.urls(kind):
                     found[url] = (loaded.contest, exam.slug, kind)
     return found
 

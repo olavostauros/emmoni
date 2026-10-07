@@ -281,11 +281,8 @@ def run(tx: Conn, tmp_path: Path) -> tuple[Runner, FakeSite, Path]:
     return runner, site, manifests_dir
 
 
-def _pairs(loaded: manifest.Manifest) -> set[tuple[str, str | None, str | None]]:
-    return {
-        (e.documents.exam, e.documents.answer_key_final, e.documents.answer_key_preliminary)
-        for e in loaded.exams
-    }
+def _by_exam(loaded: manifest.Manifest) -> dict[str, manifest.Exam]:
+    return {e.documents.exam: e for e in loaded.exams}
 
 
 def test_proposals_reproduce_the_manual_manifests(run: tuple[Runner, FakeSite, Path]) -> None:
@@ -296,7 +293,20 @@ def test_proposals_reproduce_the_manual_manifests(run: tuple[Runner, FakeSite, P
     for path in MANUAL:
         proposed = manifest.load(manifests_dir / "_pending" / path.name)
         manual = manifest.load(path)
-        assert _pairs(proposed) == _pairs(manual), path.stem
+        proposed_exams, manual_exams = _by_exam(proposed), _by_exam(manual)
+        # O manifesto curado pode excluir provas (PM/MA 2017: oficiais de saúde, decisão 0009),
+        # nunca ter prova que o crawler não achou.
+        assert set(manual_exams) <= set(proposed_exams), path.stem
+        for url, exam in manual_exams.items():
+            # O manifesto curado pode ter gabaritos a mais (PCDF 2019: dois PDFs para um caderno,
+            # decisão 0009); o crawler acha ao menos um, e nunca um que não esteja no manifesto.
+            found = {
+                kind: set(proposed_exams[url].documents.urls(kind))
+                for kind in ("answer_key_preliminary", "answer_key_final")
+            }
+            assert any(found.values()), (path.stem, url)
+            for kind, urls in found.items():
+                assert urls <= set(exam.documents.urls(kind)), (path.stem, url, kind)
         assert (proposed.agency, proposed.year) == (manual.agency, manual.year)
         assert {e.slug for e in proposed.exams if not e.positions} == set()
 
@@ -384,7 +394,8 @@ def test_approved_manifests_are_recognized_not_rewritten(
     assert set(report.approved) == {path.stem for path in MANUAL}
     for slug, (found, total, new) in report.approved.items():
         assert found == total, slug
-        assert new == [], slug
+        if slug != "pmma-2017":  # provas excluídas na curadoria aparecem como documentos novos
+            assert new == [], slug
     assert not (manifests_dir / "_pending" / "pf-2021.yaml").exists()
     assert {p.name: p.read_text() for p in manifests_dir.glob("*.yaml")} == before
     status = scalar(

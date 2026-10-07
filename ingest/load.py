@@ -8,7 +8,7 @@ há ao menos um assunto; senão `draft` (aguardando classificação). A **prova*
 aqui: isso só acontece depois da amostragem (`emmoni review approve`).
 """
 
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 import psycopg
 
@@ -20,11 +20,15 @@ from ingest.validate import Validated
 Conn = psycopg.Connection[tuple[object, ...]]
 
 
+EMPTY_OPTION = "*(alternativa sem texto extraído: figura ou fórmula)*"
+
+
 @dataclass(frozen=True)
 class DocumentIds:
     exam: int
-    answer_key_preliminary: int | None
+    answer_key_preliminary: int | None  # primeiro PDF de cada tipo (colunas históricas de exam)
     answer_key_final: int | None
+    all: list[tuple[str, int]] = field(default_factory=list)  # (tipo, id) de todos → exam_document
 
 
 @dataclass(frozen=True)
@@ -199,6 +203,22 @@ def _exam(
             documents.answer_key_final,
         ),
     )
+    conn.execute("delete from exam_document where exam_id = %s", (exam_id,))
+    linked = documents.all or [
+        (kind, doc_id)
+        for kind, doc_id in (
+            ("exam", documents.exam),
+            ("answer_key_preliminary", documents.answer_key_preliminary),
+            ("answer_key_final", documents.answer_key_final),
+        )
+        if doc_id is not None
+    ]
+    for position, (kind, doc_id) in enumerate(linked, start=1):
+        conn.execute(
+            """insert into exam_document (exam_id, source_document_id, kind, position)
+               values (%s, %s, %s, %s) on conflict do nothing""",
+            (exam_id, doc_id, kind, position),
+        )
     conn.execute("delete from exam_position where exam_id = %s", (exam_id,))
     for slug in exam.positions:
         position = _one(
@@ -248,7 +268,8 @@ def _options(conn: Conn, question_id: object, options: list[RawOption]) -> None:
     for option in options:
         conn.execute(
             "insert into question_option (question_id, letter, body_md) values (%s, %s, %s)",
-            (question_id, option.letter, option.body_md),
+            # Alternativa só com figura: placeholder explícito; a questão fica em review (validate).
+            (question_id, option.letter, option.body_md.strip() or EMPTY_OPTION),
         )
 
 

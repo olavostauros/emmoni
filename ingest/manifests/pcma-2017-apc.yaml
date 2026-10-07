@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_MA_17_APC.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcma-2017-apc` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcma-2017-apc: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcma-2017-apc
 name: Polícia Civil do Estado do Maranhão
 agency: pcma
@@ -13,23 +10,56 @@ exams:
   name: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 1: ESCRIVÃO DE POLÍCIA'
   positions:
   - escrivao
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_001_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 24, subject: direito-administrativo}
+  - {from: 25, to: 25, subject: legislacao-estadual}
+  - {from: 26, to: 26, subject: direito-administrativo}
+  - {from: 27, to: 27, subject: legislacao-estadual}
+  - {from: 28, to: 29, subject: direito-administrativo}
+  - {from: 30, to: 37, subject: direito-constitucional}
+  - {from: 38, to: 46, subject: direito-penal}
+  - {from: 47, to: 55, subject: direito-processual-penal}
+  - {from: 56, to: 57, subject: legislacao-penal-especial}
+  - {from: 58, to: 58, subject: legislacao-de-transito}
+  - {from: 59, to: 60, subject: legislacao-penal-especial}
 - slug: conhecimentos-especificos-cargo-2-investigador-de-policia
   name: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 2: INVESTIGADOR DE POLÍCIA'
   positions:
   - investigador
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_002_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 22, subject: direito-administrativo}
+  - {from: 23, to: 23, subject: legislacao-estadual}
+  - {from: 24, to: 26, subject: direito-administrativo}
+  - {from: 27, to: 29, subject: legislacao-estadual}
+  - {from: 30, to: 37, subject: direito-constitucional}
+  - {from: 38, to: 46, subject: direito-penal}
+  - {from: 47, to: 55, subject: direito-processual-penal}
+  - {from: 56, to: 58, subject: legislacao-penal-especial}
+  - {from: 59, to: 59, subject: legislacao-de-transito}
+  - {from: 60, to: 60, subject: legislacao-penal-especial}
 - slug: conhecimentos-especificos-cargo-5-perito-criminal
   name: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 5: PERITO CRIMINAL'
   positions:
   - perito-criminal
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_005_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_005_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 27, subject: fisica}
+  - {from: 28, to: 34, subject: quimica}
+  - {from: 35, to: 41, subject: biologia}
+  - {from: 42, to: 47, subject: contabilidade-geral}
+  - {from: 48, to: 53, subject: psicologia}
+  - {from: 54, to: 60, subject: servico-social}
 - slug: conhecimentos-gerais-cargo-1-escrivao-de-policia
   name: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 1: ESCRIVÃO DE POLÍCIA'
   positions:
@@ -37,6 +67,15 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 5, subject: lingua-portuguesa}
+  - {from: 6, to: 6, subject: redacao-oficial}
+  - {from: 7, to: 8, subject: atualidades}
+  - {from: 9, to: 10, subject: administracao-geral}
+  - {from: 11, to: 11, subject: etica-no-servico-publico}
+  - {from: 12, to: 12, subject: arquivologia}
+  - {from: 13, to: 17, subject: informatica}
+  - {from: 18, to: 20, subject: raciocinio-logico}
 - slug: conhecimentos-gerais-cargo-2-investigador-de-policia
   name: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 2: INVESTIGADOR DE POLÍCIA'
   positions:
@@ -44,6 +83,13 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG2_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 5, subject: lingua-portuguesa}
+  - {from: 6, to: 7, subject: administracao-geral}
+  - {from: 8, to: 10, subject: etica-no-servico-publico}
+  - {from: 11, to: 12, subject: atualidades}
+  - {from: 13, to: 17, subject: informatica}
+  - {from: 18, to: 20, subject: raciocinio-logico}
 - slug: conhecimentos-gerais-cargo-5-perito-criminal
   name: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 5: PERITO CRIMINAL'
   positions:
@@ -51,6 +97,15 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG4_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG4_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 4, subject: lingua-portuguesa}
+  - {from: 5, to: 6, subject: legislacao-estadual}
+  - {from: 7, to: 8, subject: direito-constitucional}
+  - {from: 9, to: 10, subject: direito-penal}
+  - {from: 11, to: 13, subject: direito-processual-penal}
+  - {from: 14, to: 15, subject: criminalistica}
+  - {from: 16, to: 17, subject: informatica}
+  - {from: 18, to: 20, subject: matematica}
 evidence:
   source: cebraspe
   contest:

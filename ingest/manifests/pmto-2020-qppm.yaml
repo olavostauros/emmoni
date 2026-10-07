@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_TO_20_QPPM.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmto-2020-qppm` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmto-2020-qppm: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmto-2020-qppm
 name: POLÍCIA MILITAR DO ESTADO DO TOCANTINS
 agency: pmto
@@ -16,6 +13,24 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPPM/arquivos/MATRIZ_573PMTO001.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPPM/arquivos/GAB_DEFINITIVO_MATRIZ_573PMTO001.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 1, to: 20, subject: lingua-portuguesa}
+  - {from: 21, to: 21, subject: geografia}
+  - {from: 22, to: 22, subject: atualidades}
+  - {from: 23, to: 23, subject: historia}
+  - {from: 24, to: 26, subject: geografia}
+  - {from: 27, to: 27, subject: historia}
+  - {from: 28, to: 30, subject: geografia}
+  - {from: 31, to: 35, subject: informatica}
+  - {from: 36, to: 36, subject: direito-constitucional}
+  - {from: 37, to: 37, subject: direito-administrativo}
+  - {from: 38, to: 39, subject: direito-constitucional}
+  - {from: 40, to: 40, subject: direito-administrativo}
+  - {from: 41, to: 42, subject: direito-penal}
+  - {from: 43, to: 43, subject: legislacao-penal-especial}
+  - {from: 44, to: 45, subject: direitos-humanos}
+  - {from: 46, to: 55, subject: legislacao-institucional}
+  - {from: 56, to: 60, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

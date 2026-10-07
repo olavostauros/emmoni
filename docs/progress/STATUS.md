@@ -1,6 +1,6 @@
 # Status — atualizado em 2026-10-07
 
-**Marco atual:** M3 — Crawling (SPECIFICATIONS.md §10) — **pronto**
+**Marco atual:** M3 — Crawling — **pronto**; ingestão dos 36 manifestos aprovados feita (decisão 0009)
 **Próximo marco:** M4 — Taxonomia e classificação
 **Últimos marcos concluídos:** M0 — Fundação · M1 — Esquema e contrato · M2 — Primeira ingestão · M3 — Crawling (2026-10-07)
 
@@ -21,9 +21,8 @@
 - Nada em execução.
 
 ## Próximos passos
-1. Ingerir os 36 manifestos aprovados em 2026-10-07 (PCDF, PC/PM/CBM estaduais, DEPEN): um por
-   vez, calibrando o parser do Cebraspe em cada caderno e preenchendo `name`, `first_number` e
-   `subjects_by_range` (os manifestos aprovados vieram das propostas sem ajuste).
+1. M4 — classificar por assunto as 3.732 questões `draft` (só falta assunto) e revisar as 1.693
+   em `review`; depois amostragem humana (`emmoni review sample/approve`) das 103 provas novas.
 2. M4 — crescer a taxonomia a partir de `docs/progress/2026-10-07-sugestoes-de-assuntos.md`
    (728 sugestões; 462 questões em `review` só por falta de assunto) e reclassificar. Ao reclassificar,
    as duplicatas entre cargos hoje escondidas pelo `review` passam a ser marcadas (eram 161 antes
@@ -32,6 +31,7 @@
 4. Etapa `structure` e exportação de imagens para as 210 questões com problema de extração.
 
 ## Bloqueios e perguntas em aberto
+- OCR (PDFs digitalizados) e itens sem gabarito legível: ver decisão 0009, adendo.
 - Proposta pendente que deixa de ser proposta (regra mudou) não é removida de `_pending/` pelo
   crawler: `pmto-2020-qps` ficou e foi rejeitada à mão. Decidir se o crawler apaga ou marca.
 - SDS/PE (2016) continua fora do catálogo: a secretaria organizou concursos de PC-PE e de
@@ -48,10 +48,11 @@
 - Folga pequena em `facet_counts` sem filtros (281/300 ms), prevista na decisão 0002.
 
 ## Números
-- Questões visíveis no esquema `api`: 784 (65 do seed + 719 reais)
-- Reais: 1.496 carregadas · 824 `published` (105 delas duplicatas entre cargos do PF 2021, ocultas
-  no `api`) · 672 em revisão (462 só por classificação, 210 por extração) · 0 `draft`
-- Provas ingeridas: 18 (18 aprovadas na amostragem)
+- Questões visíveis no esquema `api`: 784 (65 do seed + 719 reais) — nenhuma prova nova publicada
+- Reais: 6.249 carregadas (39 concursos, 108 provas) · 824 `published` · 1.693 `review` ·
+  3.732 `draft` (sem assunto) · 226 duplicatas marcadas
+- Provas ingeridas: 108 (18 aprovadas na amostragem; 103 novas sem amostragem; 4 provas não
+  carregadas: DEPEN 2020, CBM/AL 2017 básicos cargo 1, PCDF 2020 básicos, PM/TO 2020 QPE)
 - Propostas do crawler pendentes: 0 · manifestos aprovados: 41 (5 ingeridos) · rejeitados: 1
 - Concursos vistos pelo crawler no Cebraspe: 498 (440 fora do escopo, 49 de órgãos candidatos)
-- Contrato do front-end: **v1.1**
+- Contrato do front-end: **v1.1** (tabela `exam_document` é interna, fora do `api`)

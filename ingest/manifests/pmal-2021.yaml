@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_AL_21.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmal-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmal-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmal-2021
 name: POLÍCIA MILITAR DO ESTADO DE ALAGOAS
 agency: pmal
@@ -16,6 +13,26 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/596_PMAL_001_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/GAB_DEFINITIVO_MATRIZ_596_PMAL_001_00_PAG_6.PDF
+  subjects_by_range:
+  - {from: 1, to: 24, subject: lingua-portuguesa}
+  - {from: 25, to: 36, subject: lingua-inglesa}
+  - {from: 37, to: 50, subject: informatica}
+  - {from: 51, to: 55, subject: sociologia}
+  - {from: 56, to: 60, subject: filosofia}
+  - {from: 61, to: 65, subject: historia}
+  - {from: 66, to: 70, subject: geografia}
+  - {from: 71, to: 75, subject: biologia}
+  - {from: 76, to: 80, subject: fisica}
+  - {from: 81, to: 85, subject: quimica}
+  - {from: 86, to: 90, subject: matematica}
+  - {from: 91, to: 91, subject: legislacao-institucional}
+  - {from: 92, to: 93, subject: direito-penal}
+  - {from: 94, to: 95, subject: legislacao-institucional}
+  - {from: 96, to: 100, subject: direito-penal}
+  - {from: 101, to: 105, subject: direitos-humanos}
+  - {from: 106, to: 110, subject: direito-processual-penal}
+  - {from: 111, to: 115, subject: direito-constitucional}
+  - {from: 116, to: 120, subject: direito-administrativo}
 - slug: soldado
   name: PROVA OBJETIVA - CARGO 2
   positions:
@@ -23,6 +40,19 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/596_PMAL_002_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/GAB_DEFINITIVO_MATRIZ_596_PMAL_002_00_PAG_5.PDF
+  subjects_by_range:
+  - {from: 1, to: 24, subject: lingua-portuguesa}
+  - {from: 25, to: 38, subject: informatica}
+  - {from: 39, to: 50, subject: matematica}
+  - {from: 51, to: 65, subject: historia}
+  - {from: 66, to: 80, subject: geografia}
+  - {from: 81, to: 85, subject: legislacao-institucional}
+  - {from: 86, to: 88, subject: direito-penal}
+  - {from: 89, to: 90, subject: legislacao-institucional}
+  - {from: 91, to: 100, subject: direito-administrativo}
+  - {from: 101, to: 110, subject: direito-constitucional}
+  - {from: 111, to: 115, subject: direito-processual-penal}
+  - {from: 116, to: 120, subject: direitos-humanos}
 evidence:
   source: cebraspe
   contest:

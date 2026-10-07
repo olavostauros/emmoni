@@ -1,0 +1,5 @@
+subject: primeiros-socorros
+name: Primeiros Socorros
+topics:
+  - {slug: suporte-basico-de-vida, name: "Suporte básico de vida"}
+  - {slug: atendimento-pre-hospitalar, name: "Atendimento pré-hospitalar"}

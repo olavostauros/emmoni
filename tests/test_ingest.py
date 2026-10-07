@@ -35,8 +35,9 @@ def test_manifests_are_valid_and_use_known_slugs(path: Path) -> None:
     for exam in loaded.exams:
         assert set(exam.positions) <= positions
         assert {r.subject for r in exam.subjects_by_range} <= subjects
-        for url in (exam.documents.exam, exam.documents.answer_key_final):
-            assert url is None or url.startswith("https://")
+        for kind in ("exam", "answer_key_preliminary", "answer_key_final"):
+            for url in exam.documents.urls(kind):
+                assert url.startswith("https://")
 
 
 def test_manifest_requires_an_answer_key() -> None:

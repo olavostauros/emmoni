@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_PA_23_CFO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve cbmpa-2023-cfo` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# cbmpa-2023-cfo: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: cbmpa-2023-cfo
 name: Oficiais do Corpo de Bombeiros Militar (CFO/BM/2023)
 agency: cbmpa
@@ -16,6 +13,17 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_PA_23_CFO/arquivos/927_CBM_PA_CFO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_PA_23_CFO/arquivos/GAB_DEFINITIVO_927_CBM_PA_CFO_001_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 10, subject: lingua-portuguesa}
+  - {from: 11, to: 15, subject: lingua-inglesa}
+  - {from: 16, to: 22, subject: matematica}
+  - {from: 23, to: 25, subject: raciocinio-logico}
+  - {from: 26, to: 32, subject: biologia}
+  - {from: 33, to: 39, subject: fisica}
+  - {from: 40, to: 46, subject: quimica}
+  - {from: 47, to: 53, subject: direito-administrativo}
+  - {from: 54, to: 54, subject: direito-constitucional}
+  - {from: 55, to: 60, subject: legislacao-penal-militar}
 evidence:
   source: cebraspe
   contest:

@@ -1,0 +1,5 @@
+subject: seguranca-publica
+name: Segurança Pública
+topics:
+  - {slug: politicas-de-seguranca, name: "Políticas de segurança pública"}
+  - {slug: sistema-de-seguranca-publica, name: "Sistema Único de Segurança Pública"}

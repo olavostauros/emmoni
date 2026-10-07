@@ -97,6 +97,14 @@ def validate(
             pre = None
         if fin is None and status != "annulled":
             reasons.append("sem gabarito definitivo")
+        if question.type == "multiple_choice":
+            # Marca sem alternativa correspondente (parser achou menos alternativas): não vai para
+            # o banco, que exige gabarito entre as alternativas; o motivo já deixa a questão em review.
+            letters = {option.letter for option in question.options}
+            if fin is not None and fin not in letters:
+                fin = None
+            if pre is not None and pre not in letters:
+                pre = None
 
         staged.append(
             StagedQuestion(
@@ -130,6 +138,9 @@ def _answer_problems(
         problems.append("certo/errado com alternativas")
     if qtype == "multiple_choice" and len(options) not in (4, 5):
         problems.append(f"múltipla escolha com {len(options)} alternativas")
+    empty = [option.letter for option in options if not option.body_md.strip()]
+    if empty:
+        problems.append(f"alternativa sem texto (só figura ou fórmula): {', '.join(empty)}")
     for mark in marks:
         if mark is None or mark == "X":
             continue

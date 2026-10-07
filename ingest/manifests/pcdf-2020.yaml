@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_DF_20_AGENTE.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcdf-2020` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# PCDF 2020 — Agente. Proposta do crawler aprovada em 2026-10-07; cadernos "com justificativa".
 contest: pcdf-2020
 name: POLÍCIA CIVIL DO DISTRITO FEDERAL
 agency: pcdf
@@ -10,14 +7,24 @@ year: 2020
 source_url: https://www.cebraspe.org.br/concursos/PC_DF_20_AGENTE
 exams:
 - slug: conhecimentos-especificos
-  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
+  name: Agente de Polícia — conhecimentos específicos
   positions:
   - agente
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_001_COMJUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_001_00.PDF
+  subjects_by_range:   # faixas conferidas lendo os itens (2026-10-07)
+  - {from: 51, to: 56, subject: direito-administrativo}
+  - {from: 57, to: 60, subject: direito-constitucional}
+  - {from: 61, to: 68, subject: direito-penal}
+  - {from: 69, to: 76, subject: direito-processual-penal}
+  - {from: 77, to: 82, subject: direitos-humanos}
+  - {from: 83, to: 96, subject: informatica}
+  - {from: 97, to: 108, subject: estatistica}
+  - {from: 109, to: 120, subject: contabilidade-geral}
 - slug: conhecimentos-basicos
-  name: PROVA OBJETIVA - CONHECIMENTOS BÁSICOS
+  name: Agente de Polícia — conhecimentos básicos
   positions:
   - agente
   documents:

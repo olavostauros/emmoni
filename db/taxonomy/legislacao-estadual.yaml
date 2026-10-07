@@ -1,0 +1,6 @@
+subject: legislacao-estadual
+name: Legislação Estadual
+topics:
+  - {slug: constituicao-estadual, name: "Constituição estadual"}
+  - {slug: estatuto-dos-servidores, name: "Estatuto dos servidores estaduais"}
+  - {slug: lei-organica-da-policia-civil, name: "Lei orgânica da Polícia Civil"}

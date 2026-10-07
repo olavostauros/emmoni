@@ -1,0 +1,5 @@
+subject: saude-publica
+name: Saúde Pública
+topics:
+  - {slug: sus, name: "Sistema Único de Saúde"}
+  - {slug: vigilancia-sanitaria, name: "Vigilância sanitária e epidemiológica"}

@@ -1,0 +1,6 @@
+subject: medicina-legal
+name: Medicina Legal
+topics:
+  - {slug: traumatologia-forense, name: "Traumatologia forense"}
+  - {slug: tanatologia-forense, name: "Tanatologia forense"}
+  - {slug: sexologia-forense, name: "Sexologia forense"}

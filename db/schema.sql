@@ -1422,6 +1422,26 @@ ALTER TABLE public.exam_board ALTER COLUMN id ADD GENERATED ALWAYS AS IDENTITY (
 
 
 --
+-- Name: exam_document; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE public.exam_document (
+    exam_id bigint NOT NULL,
+    source_document_id bigint NOT NULL,
+    kind public.document_kind NOT NULL,
+    "position" smallint DEFAULT 1 NOT NULL,
+    CONSTRAINT exam_document_position_check CHECK (("position" > 0))
+);
+
+
+--
+-- Name: TABLE exam_document; Type: COMMENT; Schema: public; Owner: -
+--
+
+COMMENT ON TABLE public.exam_document IS 'Todos os PDFs de uma prova (caderno e gabaritos), inclusive quando um tipo tem mais de um.';
+
+
+--
 -- Name: exam_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
 
@@ -1610,6 +1630,14 @@ ALTER TABLE ONLY public.exam_board
 
 ALTER TABLE ONLY public.exam
     ADD CONSTRAINT exam_contest_id_slug_key UNIQUE (contest_id, slug);
+
+
+--
+-- Name: exam_document exam_document_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.exam_document
+    ADD CONSTRAINT exam_document_pkey PRIMARY KEY (exam_id, source_document_id);
 
 
 --
@@ -1814,6 +1842,13 @@ CREATE INDEX contest_agency_idx ON public.contest USING btree (agency_id);
 --
 
 CREATE INDEX contest_exam_board_idx ON public.contest USING btree (exam_board_id);
+
+
+--
+-- Name: exam_document_source_document_idx; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX exam_document_source_document_idx ON public.exam_document USING btree (source_document_id);
 
 
 --
@@ -2083,6 +2118,22 @@ ALTER TABLE ONLY public.exam
 
 
 --
+-- Name: exam_document exam_document_exam_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.exam_document
+    ADD CONSTRAINT exam_document_exam_id_fkey FOREIGN KEY (exam_id) REFERENCES public.exam(id) ON DELETE CASCADE;
+
+
+--
+-- Name: exam_document exam_document_source_document_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.exam_document
+    ADD CONSTRAINT exam_document_source_document_id_fkey FOREIGN KEY (source_document_id) REFERENCES public.source_document(id);
+
+
+--
 -- Name: exam exam_exam_document_id_fkey; Type: FK CONSTRAINT; Schema: public; Owner: -
 --
 
@@ -2254,4 +2305,5 @@ INSERT INTO public.schema_migrations (version) VALUES
     ('20261007100400'),
     ('20261007100500'),
     ('20261007100600'),
-    ('20261007200000');
+    ('20261007200000'),
+    ('20261007210000');

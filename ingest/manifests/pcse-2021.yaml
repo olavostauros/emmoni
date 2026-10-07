@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_SE_21.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcse-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcse-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcse-2021
 name: POLÍCIA CIVIL DO ESTADO DE SERGIPE
 agency: pcse
@@ -13,16 +10,47 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
   positions:
   - agente
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_001_01.PDF
+  subjects_by_range:
+  - {from: 31, to: 35, subject: legislacao-estadual}
+  - {from: 36, to: 40, subject: direito-administrativo}
+  - {from: 41, to: 50, subject: direito-constitucional}
+  - {from: 51, to: 55, subject: direito-processual-penal}
+  - {from: 56, to: 58, subject: direito-penal}
+  - {from: 59, to: 62, subject: direito-processual-penal}
+  - {from: 63, to: 70, subject: legislacao-penal-especial}
+  - {from: 71, to: 78, subject: estatistica}
+  - {from: 79, to: 86, subject: contabilidade-geral}
+  - {from: 87, to: 94, subject: informatica}
+  - {from: 95, to: 95, subject: medicina-legal}
+  - {from: 96, to: 96, subject: legislacao-penal-especial}
+  - {from: 97, to: 100, subject: medicina-legal}
 - slug: conhecimentos-especificos-cargo-2
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 2
   positions:
   - escrivao
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_002_01.PDF
+  subjects_by_range:
+  - {from: 31, to: 33, subject: legislacao-estadual}
+  - {from: 34, to: 38, subject: direito-administrativo}
+  - {from: 39, to: 46, subject: direito-constitucional}
+  - {from: 47, to: 50, subject: direito-processual-penal}
+  - {from: 51, to: 52, subject: direito-penal}
+  - {from: 53, to: 56, subject: direito-processual-penal}
+  - {from: 57, to: 64, subject: legislacao-penal-especial}
+  - {from: 65, to: 70, subject: estatistica}
+  - {from: 71, to: 78, subject: contabilidade-geral}
+  - {from: 79, to: 84, subject: informatica}
+  - {from: 85, to: 85, subject: medicina-legal}
+  - {from: 86, to: 86, subject: legislacao-penal-especial}
+  - {from: 87, to: 90, subject: medicina-legal}
+  - {from: 91, to: 100, subject: arquivologia}
 - slug: conhecimentos-gerais
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS
   positions:
@@ -31,6 +59,13 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_CG1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 10, subject: lingua-portuguesa}
+  - {from: 11, to: 14, subject: historia}
+  - {from: 15, to: 18, subject: geografia}
+  - {from: 19, to: 22, subject: etica-no-servico-publico}
+  - {from: 23, to: 26, subject: direitos-humanos}
+  - {from: 27, to: 30, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

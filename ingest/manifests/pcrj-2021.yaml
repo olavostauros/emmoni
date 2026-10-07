@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcrj-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcrj-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcrj-2021
 name: POLÍCIA CIVIL DO ESTADO DO RIO DE JANEIRO
 agency: pcrj
@@ -16,6 +13,25 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/662_PCRJ_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/GAB_DEFINITIVO_662_PCRJ_001_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 1, subject: direito-penal}
+  - {from: 2, to: 2, subject: legislacao-penal-especial}
+  - {from: 3, to: 9, subject: direito-penal}
+  - {from: 10, to: 13, subject: legislacao-penal-especial}
+  - {from: 14, to: 14, subject: direito-penal}
+  - {from: 15, to: 15, subject: legislacao-penal-especial}
+  - {from: 16, to: 16, subject: direito-penal}
+  - {from: 17, to: 17, subject: legislacao-penal-especial}
+  - {from: 18, to: 18, subject: direito-penal}
+  - {from: 19, to: 19, subject: legislacao-penal-especial}
+  - {from: 20, to: 20, subject: direito-penal}
+  - {from: 21, to: 40, subject: direito-processual-penal}
+  - {from: 41, to: 60, subject: direito-administrativo}
+  - {from: 61, to: 80, subject: direito-constitucional}
+  - {from: 81, to: 88, subject: direito-civil}
+  - {from: 89, to: 89, subject: direito-do-consumidor}
+  - {from: 90, to: 90, subject: direito-civil}
+  - {from: 91, to: 100, subject: medicina-legal}
 evidence:
   source: cebraspe
   contest:

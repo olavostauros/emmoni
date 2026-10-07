@@ -1,0 +1,5 @@
+subject: redacao-oficial
+name: Redação Oficial
+topics:
+  - {slug: manual-de-redacao, name: "Manual de Redação da Presidência"}
+  - {slug: comunicacoes-oficiais, name: "Comunicações oficiais"}

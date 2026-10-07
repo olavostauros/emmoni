@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_AL_17_SOLDADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmal-2017` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmal-2017: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmal-2017
 name: Polícia Militar do Estado de Alagoas
 agency: pmal
@@ -13,9 +10,20 @@ exams:
   name: Caderno de provas - Conhecimentos Específicos - soldado combatente
   positions:
   - soldado
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/343_PMAL_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/Gab_Definitivo_343_PMAL_001_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 55, subject: legislacao-institucional}
+  - {from: 56, to: 60, subject: direito-penal}
+  - {from: 61, to: 70, subject: direitos-humanos}
+  - {from: 71, to: 80, subject: direito-processual-penal}
+  - {from: 81, to: 90, subject: direito-constitucional}
+  - {from: 91, to: 100, subject: direito-administrativo}
+  - {from: 101, to: 106, subject: matematica}
+  - {from: 107, to: 113, subject: historia}
+  - {from: 114, to: 120, subject: geografia}
 - slug: conhecimentos-basicos-soldado-combatente
   name: Caderno de provas - Conhecimentos Básicos - soldado combatente
   positions:
@@ -23,6 +31,10 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/343_PMAL_CB1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/Gab_Definitivo_343_PMAL_CB1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 29, subject: lingua-portuguesa}
+  - {from: 30, to: 39, subject: atualidades}
+  - {from: 40, to: 50, subject: informatica}
 evidence:
   source: cebraspe
   contest:

@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/DEPEN_20.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve depen-2020` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# depen-2020: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: depen-2020
 name: DEPEN 2020
 agency: depen
@@ -13,9 +10,28 @@ exams:
   name: PROVA OBJETIVA - CARGO 8
   positions:
   - agente
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_008_00.PDF
-    answer_key_final: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_008_00.PDF
+    answer_key_final:   # específicos (31–80) e complementares de nível superior (81–120)
+    - https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_008_00.PDF
+    - https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG1_00.PDF
+  subjects_by_range:
+  - {from: 31, to: 36, subject: direito-constitucional}
+  - {from: 37, to: 44, subject: direito-administrativo}
+  - {from: 45, to: 54, subject: direito-penal}
+  - {from: 55, to: 62, subject: direito-processual-penal}
+  - {from: 63, to: 67, subject: direitos-humanos}
+  - {from: 68, to: 70, subject: execucao-penal}
+  - {from: 71, to: 72, subject: direitos-humanos}
+  - {from: 73, to: 80, subject: legislacao-penal-especial}
+  - {from: 81, to: 82, subject: seguranca-publica}
+  - {from: 83, to: 85, subject: execucao-penal}
+  - {from: 86, to: 89, subject: seguranca-publica}
+  - {from: 90, to: 98, subject: execucao-penal}
+  - {from: 99, to: 100, subject: seguranca-publica}
+  - {from: 101, to: 102, subject: execucao-penal}
+  - {from: 103, to: 120, subject: legislacao-institucional}
 evidence:
   source: cebraspe
   contest:

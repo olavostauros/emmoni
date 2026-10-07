@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve cbmal-2017` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# cbmal-2017: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: cbmal-2017
 name: Corpo de Bombeiros Militar do Estado de Alagoas
 agency: cbmal
@@ -13,30 +10,64 @@ exams:
   name: 'Caderno de provas - Conhecimentos Específicos - cargo 1: oficial combatente'
   positions:
   - oficial
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_001_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 60, subject: legislacao-institucional}
+  - {from: 61, to: 66, subject: fisica}
+  - {from: 67, to: 72, subject: quimica}
+  - {from: 73, to: 78, subject: biologia}
+  - {from: 79, to: 88, subject: historia}
+  - {from: 89, to: 98, subject: geografia}
+  - {from: 99, to: 109, subject: direito-administrativo}
+  - {from: 110, to: 120, subject: direito-constitucional}
 - slug: conhecimentos-especificos-cargo-2-soldado-combatente
   name: 'Caderno de provas - Conhecimentos Específicos - cargo 2: soldado combatente'
   positions:
   - soldado
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_002_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_002_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 66, subject: legislacao-institucional}
+  - {from: 67, to: 84, subject: fisica}
+  - {from: 85, to: 102, subject: quimica}
+  - {from: 103, to: 120, subject: biologia}
 - slug: conhecimentos-basicos-cargo-1-oficial-combatente
   name: 'Caderno de provas - Conhecimentos Básicos - cargo 1: oficial combatente'
   positions:
   - oficial
+  first_number: 6
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_CB1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_CB1_01.PDF
+  subjects_by_range:
+  - {from: 6, to: 19, subject: lingua-portuguesa}
+  - {from: 20, to: 22, subject: etica-no-servico-publico}
+  - {from: 23, to: 27, subject: direitos-humanos}
+  - {from: 28, to: 35, subject: atualidades}
+  - {from: 36, to: 40, subject: informatica}
+  - {from: 41, to: 47, subject: matematica}
+  - {from: 48, to: 48, subject: raciocinio-logico}
 - slug: conhecimentos-basicos-cargo-2-soldado-combatente
   name: 'Caderno de provas - Conhecimentos Básicos - cargo 2: soldado combatente'
   positions:
   - soldado
+  first_number: 6
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_CB2_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_CB2_01.PDF
+  subjects_by_range:
+  - {from: 6, to: 19, subject: lingua-portuguesa}
+  - {from: 20, to: 23, subject: direitos-humanos}
+  - {from: 24, to: 27, subject: etica-no-servico-publico}
+  - {from: 28, to: 35, subject: atualidades}
+  - {from: 36, to: 40, subject: informatica}
+  - {from: 41, to: 47, subject: matematica}
+  - {from: 48, to: 50, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

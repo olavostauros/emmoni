@@ -228,6 +228,12 @@ def classify_file(description: str, name: str) -> tuple[str | None, str]:
     if any(m in d for m in _FINAL):
         return "answer_key_final", "descrição contém 'GABARITO DEFINITIVO'"
     preliminary = any(m in d for m in _PRELIMINARY)
+    n = normalize(name)
+    if n.startswith("GAB_PRELIMINAR") and not preliminary:
+        # PCES 2022: descrição "PROVA OBJETIVA - ..." num arquivo GAB_PRELIMINAR_*.PDF.
+        return "answer_key_preliminary", "nome do arquivo começa com GAB_PRELIMINAR"
+    if n.startswith("GAB_DEFINITIVO"):
+        return "answer_key_final", "nome do arquivo começa com GAB_DEFINITIVO"
     if preliminary and "PROVA OBJETIVA" in d and not d.startswith("GABARITO"):
         return "exam", "caderno de prova publicado junto com o gabarito preliminar"
     if preliminary:

@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_RO_22.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve cbmro-2022` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# cbmro-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: cbmro-2022
 name: Corpo de Bombeiros Militar do Estado de Rondônia - CBM/RO
 agency: cbmro
@@ -16,6 +13,20 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_RO_22/arquivos/734_CBM_RO_OFICIAL_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_RO_22/arquivos/GAB_DEFINITIVO_734_CBM_RO_OFICIAL_002_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 15, subject: lingua-portuguesa}
+  - {from: 16, to: 27, subject: matematica}
+  - {from: 28, to: 30, subject: estatistica}
+  - {from: 31, to: 31, subject: historia}
+  - {from: 32, to: 34, subject: geografia}
+  - {from: 35, to: 35, subject: historia}
+  - {from: 36, to: 36, subject: geografia}
+  - {from: 37, to: 37, subject: historia}
+  - {from: 38, to: 38, subject: geografia}
+  - {from: 39, to: 40, subject: historia}
+  - {from: 41, to: 50, subject: informatica}
+  - {from: 51, to: 75, subject: engenharia}
+  - {from: 76, to: 100, subject: defesa-civil-e-prevencao-de-incendios}
 evidence:
   source: cebraspe
   contest:

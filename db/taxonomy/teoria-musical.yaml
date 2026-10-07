@@ -1,0 +1,5 @@
+subject: teoria-musical
+name: Teoria Musical
+topics:
+  - {slug: harmonia, name: "Harmonia e acordes"}
+  - {slug: ritmo-e-compasso, name: "Ritmo e compasso"}

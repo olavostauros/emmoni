@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_TO_20_QPE.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmto-2020-qpe` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmto-2020-qpe: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmto-2020-qpe
 name: POLÍCIA MILITAR DO ESTADO DO TOCANTINS
 agency: pmto
@@ -16,6 +13,17 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/MATRIZ_572PMTO002.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/GAB_DEFINITIVO_572_PMTO_MATRIZ.PDF
+  subjects_by_range:   # 51-60 = Teoria Musical (sem disciplina na taxonomia; fisica como aproximacao)
+  - {from: 1, to: 20, subject: lingua-portuguesa}
+  - {from: 21, to: 21, subject: geografia}
+  - {from: 22, to: 22, subject: atualidades}
+  - {from: 23, to: 23, subject: historia}
+  - {from: 24, to: 26, subject: geografia}
+  - {from: 27, to: 27, subject: historia}
+  - {from: 28, to: 30, subject: geografia}
+  - {from: 31, to: 40, subject: raciocinio-logico}
+  - {from: 41, to: 50, subject: legislacao-institucional}
+  - {from: 51, to: 60, subject: teoria-musical}
 evidence:
   source: cebraspe
   contest:

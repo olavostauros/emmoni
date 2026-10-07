@@ -17,14 +17,23 @@ class _Strict(BaseModel):
 
 class Documents(_Strict):
     exam: str
-    answer_key_preliminary: str | None = None
-    answer_key_final: str | None = None
+    # Um gabarito pode vir em mais de um PDF (PCDF 2019: um caderno, gabaritos de básicos e de
+    # específicos separados): lista de URLs, na ordem dos itens (decisão 0009).
+    answer_key_preliminary: str | list[str] | None = None
+    answer_key_final: str | list[str] | None = None
 
     @model_validator(mode="after")
     def _needs_key(self) -> "Documents":
         if not (self.answer_key_preliminary or self.answer_key_final):
             raise ValueError("a prova precisa de ao menos um gabarito")
         return self
+
+    def urls(self, kind: str) -> list[str]:
+        """URLs do tipo (`exam`, `answer_key_preliminary`, `answer_key_final`), na ordem."""
+        value = getattr(self, kind)
+        if value is None:
+            return []
+        return [value] if isinstance(value, str) else list(value)
 
 
 class SubjectRange(_Strict):

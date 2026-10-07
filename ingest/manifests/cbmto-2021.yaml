@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_TO_21.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve cbmto-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# cbmto-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: cbmto-2021
 name: CORPO DE BOMBEIROS MILITAR DO TOCANTINS
 agency: cbmto
@@ -17,6 +14,14 @@ exams:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_001_00.PDF
     answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_001_00.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_DEFINITIVO_MATRIZ_581_CBMTO_001_00.PDF
+  subjects_by_range:
+  - {from: 1, to: 10, subject: lingua-portuguesa}
+  - {from: 11, to: 15, subject: matematica}
+  - {from: 16, to: 25, subject: fisica}
+  - {from: 26, to: 35, subject: quimica}
+  - {from: 36, to: 45, subject: legislacao-institucional}
+  - {from: 46, to: 47, subject: historia}
+  - {from: 48, to: 50, subject: geografia}
 - slug: soldado
   name: PROVA OBJETIVA - CARGO 2
   positions:
@@ -25,6 +30,14 @@ exams:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_002_00.PDF
     answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_002_00.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_DEFINITIVO_MATRIZ_581_CBMTO_002_00.PDF
+  subjects_by_range:
+  - {from: 1, to: 8, subject: lingua-portuguesa}
+  - {from: 9, to: 10, subject: redacao-oficial}
+  - {from: 11, to: 20, subject: matematica}
+  - {from: 21, to: 21, subject: historia}
+  - {from: 22, to: 30, subject: geografia}
+  - {from: 31, to: 40, subject: informatica}
+  - {from: 41, to: 50, subject: legislacao-institucional}
 evidence:
   source: cebraspe
   contest:

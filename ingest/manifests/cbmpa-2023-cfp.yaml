@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_PA_23_CFP.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve cbmpa-2023-cfp` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# cbmpa-2023-cfp: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: cbmpa-2023-cfp
 name: Praças do Corpo de Bombeiros Militar (CFP/BM/2023)
 agency: cbmpa
@@ -16,6 +13,18 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_PA_23_CFP/arquivos/928_CBM_PA_CFP_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_PA_23_CFP/arquivos/GAB_DEFINITIVO_928_CBM_PA_CFP_001_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 10, subject: lingua-portuguesa}
+  - {from: 11, to: 20, subject: matematica}
+  - {from: 21, to: 30, subject: biologia}
+  - {from: 31, to: 40, subject: quimica}
+  - {from: 41, to: 50, subject: fisica}
+  - {from: 51, to: 54, subject: direito-constitucional}
+  - {from: 55, to: 55, subject: direito-administrativo}
+  - {from: 56, to: 56, subject: direito-eleitoral}
+  - {from: 57, to: 57, subject: direito-administrativo}
+  - {from: 58, to: 59, subject: legislacao-penal-militar}
+  - {from: 60, to: 60, subject: direito-administrativo}
 evidence:
   source: cebraspe
   contest:

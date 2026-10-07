@@ -1,0 +1,4 @@
+subject: psicologia
+name: Psicologia
+topics:
+  - {slug: psicologia-geral, name: "Psicologia geral"}

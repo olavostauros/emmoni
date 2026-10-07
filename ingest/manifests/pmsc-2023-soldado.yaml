@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_SC_23_SOLDADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmsc-2023-soldado` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmsc-2023-soldado: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmsc-2023-soldado
 name: POLÍCIA MILITAR DE SANTA CATARINA
 agency: pmsc
@@ -16,6 +13,15 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_SC_23_SOLDADO/arquivos/862_PMSC_SOLDADO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_SC_23_SOLDADO/arquivos/GAB_DEFINITIVO_862_PMSC_SOLDADO_001_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 1, to: 8, subject: direito-constitucional}
+  - {from: 9, to: 16, subject: direito-penal}
+  - {from: 17, to: 24, subject: direito-processual-penal}
+  - {from: 25, to: 32, subject: legislacao-institucional}
+  - {from: 33, to: 39, subject: lingua-portuguesa}
+  - {from: 40, to: 42, subject: redacao-oficial}
+  - {from: 43, to: 50, subject: informatica}
+  - {from: 51, to: 58, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

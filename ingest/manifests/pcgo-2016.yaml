@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_GO_16.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcgo-2016` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcgo-2016: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcgo-2016
 name: Polícia Civil do Estado de Goiás
 agency: pcgo
@@ -13,16 +10,30 @@ exams:
   name: 'Caderno de provas - Conhecimentos Específicos - cargo 1: agente de polícia substituto'
   positions:
   - agente
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_001_01.pdf
+  subjects_by_range:
+  - {from: 51, to: 55, subject: direito-constitucional}
+  - {from: 56, to: 60, subject: direito-administrativo}
+  - {from: 61, to: 63, subject: direito-penal}
+  - {from: 64, to: 65, subject: legislacao-penal-especial}
+  - {from: 66, to: 70, subject: direito-processual-penal}
 - slug: conhecimentos-especificos-cargo-2-escrivao-de-policia-substituto
   name: 'Caderno de provas - Conhecimentos Específicos - cargo 2: escrivão de polícia substituto'
   positions:
   - escrivao
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_002_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_002_01.pdf
+  subjects_by_range:
+  - {from: 51, to: 55, subject: direito-constitucional}
+  - {from: 56, to: 60, subject: direito-administrativo}
+  - {from: 61, to: 64, subject: direito-penal}
+  - {from: 65, to: 65, subject: legislacao-penal-especial}
+  - {from: 66, to: 70, subject: direito-processual-penal}
 - slug: conhecimentos-basicos-cargo-1-agente-de-policia-substituto
   name: 'Caderno de provas - Conhecimentos Básicos - cargo 1: agente de polícia substituto'
   positions:
@@ -30,6 +41,13 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CB1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CB1_01.pdf
+  subjects_by_range:
+  - {from: 1, to: 8, subject: lingua-portuguesa}
+  - {from: 9, to: 9, subject: historia}
+  - {from: 10, to: 10, subject: geografia}
+  - {from: 11, to: 13, subject: historia}
+  - {from: 14, to: 14, subject: geografia}
+  - {from: 15, to: 20, subject: informatica}
 - slug: conhecimentos-basicos-cargo-2-escrivao-de-policia-substituto
   name: 'Caderno de provas - Conhecimentos Básicos - cargo 2: escrivão de polícia substituto'
   positions:
@@ -37,20 +55,47 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CB1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CB1_01.pdf
+  subjects_by_range:
+  - {from: 1, to: 8, subject: lingua-portuguesa}
+  - {from: 9, to: 9, subject: historia}
+  - {from: 10, to: 10, subject: geografia}
+  - {from: 11, to: 13, subject: historia}
+  - {from: 14, to: 14, subject: geografia}
+  - {from: 15, to: 20, subject: informatica}
 - slug: conhecimentos-gerais-cargo-1-agente-de-policia-substituto
   name: 'Caderno de provas - Conhecimentos Gerais - cargo 1: agente de polícia substituto'
   positions:
   - agente
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CG1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CG1_01.pdf
+  subjects_by_range:
+  - {from: 21, to: 26, subject: legislacao-penal-especial}
+  - {from: 27, to: 27, subject: direito-eleitoral}
+  - {from: 28, to: 30, subject: legislacao-penal-especial}
+  - {from: 31, to: 31, subject: direito-eleitoral}
+  - {from: 32, to: 32, subject: legislacao-penal-especial}
+  - {from: 33, to: 33, subject: direitos-humanos}
+  - {from: 34, to: 44, subject: legislacao-penal-especial}
+  - {from: 45, to: 50, subject: legislacao-estadual}
 - slug: conhecimentos-gerais-cargo-2-escrivao-de-policia-substituto
   name: 'Caderno de provas - Conhecimentos Gerais - cargo 2: escrivão de polícia substituto'
   positions:
   - escrivao
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CG1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CG1_01.pdf
+  subjects_by_range:
+  - {from: 21, to: 26, subject: legislacao-penal-especial}
+  - {from: 27, to: 27, subject: direito-eleitoral}
+  - {from: 28, to: 30, subject: legislacao-penal-especial}
+  - {from: 31, to: 31, subject: direito-eleitoral}
+  - {from: 32, to: 32, subject: legislacao-penal-especial}
+  - {from: 33, to: 33, subject: direitos-humanos}
+  - {from: 34, to: 44, subject: legislacao-penal-especial}
+  - {from: 45, to: 50, subject: legislacao-estadual}
 evidence:
   source: cebraspe
   contest:

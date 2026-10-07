@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_PA_23_CFP.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmpa-2023-cfp` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmpa-2023-cfp: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmpa-2023-cfp
 name: Praças da Polícia Militar do Pará
 agency: pmpa
@@ -13,9 +10,19 @@ exams:
   name: PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS
   positions:
   - soldado
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/916_PMPA_CFP_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/GAB_DEFINITIVO_916_PMPA_CFP_001_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 21, to: 23, subject: direito-constitucional}
+  - {from: 24, to: 27, subject: direito-administrativo}
+  - {from: 28, to: 32, subject: direito-penal}
+  - {from: 33, to: 37, subject: direito-processual-penal}
+  - {from: 38, to: 47, subject: legislacao-penal-militar}
+  - {from: 48, to: 52, subject: legislacao-penal-especial}
+  - {from: 53, to: 55, subject: legislacao-institucional}
+  - {from: 56, to: 60, subject: direitos-humanos}
 - slug: conhecimentos-basicos
   name: PROVA OBJETIVA – CONHECIMENTOS BÁSICOS
   positions:
@@ -23,6 +30,10 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/916_PMPA_CFP_CB1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/GAB_DEFINITIVO_916_PMPA_CFP_CB1_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 1, to: 10, subject: lingua-portuguesa}
+  - {from: 11, to: 15, subject: informatica}
+  - {from: 16, to: 20, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

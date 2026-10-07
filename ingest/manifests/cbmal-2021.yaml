@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_AL_21.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve cbmal-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# cbmal-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: cbmal-2021
 name: CORPO DE BOMBEIROS MILITAR DO ESTADO DE ALAGOAS
 agency: cbmal
@@ -16,6 +13,23 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_21/arquivos/595_CBMAL_001_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_21/arquivos/GAB_DEFINITIVO_MATRIZ_595_CBMAL_001_PAG_8.PDF
+  subjects_by_range:
+  - {from: 1, to: 15, subject: lingua-portuguesa}
+  - {from: 16, to: 20, subject: lingua-inglesa}
+  - {from: 21, to: 25, subject: informatica}
+  - {from: 26, to: 40, subject: matematica}
+  - {from: 41, to: 45, subject: raciocinio-logico}
+  - {from: 46, to: 55, subject: atualidades}
+  - {from: 56, to: 59, subject: direitos-humanos}
+  - {from: 60, to: 60, subject: etica-no-servico-publico}
+  - {from: 61, to: 65, subject: legislacao-institucional}
+  - {from: 66, to: 75, subject: fisica}
+  - {from: 76, to: 85, subject: quimica}
+  - {from: 86, to: 90, subject: biologia}
+  - {from: 91, to: 95, subject: historia}
+  - {from: 96, to: 100, subject: geografia}
+  - {from: 101, to: 110, subject: direito-administrativo}
+  - {from: 111, to: 120, subject: direito-constitucional}
 - slug: soldado
   name: PROVA OBJETIVA - CARGO 2
   positions:
@@ -23,6 +37,21 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_21/arquivos/595_CBMAL_002_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_21/arquivos/GAB_DEFINITIVO_MATRIZ_595_CBMAL_002_PAG_7.PDF
+  subjects_by_range:
+  - {from: 1, to: 11, subject: lingua-portuguesa}
+  - {from: 12, to: 15, subject: redacao-oficial}
+  - {from: 16, to: 30, subject: lingua-portuguesa}
+  - {from: 31, to: 40, subject: lingua-inglesa}
+  - {from: 41, to: 50, subject: informatica}
+  - {from: 51, to: 77, subject: matematica}
+  - {from: 78, to: 80, subject: estatistica}
+  - {from: 81, to: 90, subject: raciocinio-logico}
+  - {from: 91, to: 100, subject: atualidades}
+  - {from: 101, to: 105, subject: direitos-humanos}
+  - {from: 106, to: 108, subject: etica-no-servico-publico}
+  - {from: 109, to: 109, subject: direitos-humanos}
+  - {from: 110, to: 110, subject: etica-no-servico-publico}
+  - {from: 111, to: 120, subject: legislacao-institucional}
 evidence:
   source: cebraspe
   contest:

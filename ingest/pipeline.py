@@ -24,7 +24,7 @@ from ingest.load import DocumentIds, LoadReport, TopicAssignment, load_exam
 from ingest.manifest import Exam, Manifest
 from ingest.parsers import cebraspe
 from ingest.sources import load as load_sources
-from ingest.staging import AnswerKey, Segmented, write
+from ingest.staging import AnswerKey, AnswerMark, Segmented, write
 from ingest.validate import Validated, validate
 
 STEPS = ("fetch", "extract", "segment", "answer-key", "validate", "classify", "load")
@@ -48,14 +48,14 @@ class ExamRun:
     def path(self, name: str) -> Path:
         return self.dir / name
 
-    def documents(self) -> dict[str, str]:
-        docs = self.exam.documents
-        found = {
-            "exam": docs.exam,
-            "answer_key_preliminary": docs.answer_key_preliminary,
-            "answer_key_final": docs.answer_key_final,
-        }
-        return {kind: url for kind, url in found.items() if url}
+    def documents(self) -> dict[str, tuple[str, str]]:
+        """Slot → (tipo, URL). Um tipo com vários PDFs ganha slots `answer_key_final`,
+        `answer_key_final#2`... (decisão 0009)."""
+        found: dict[str, tuple[str, str]] = {}
+        for kind in ("exam", *KEY_KINDS):
+            for index, url in enumerate(self.exam.documents.urls(kind), start=1):
+                found[kind if index == 1 else f"{kind}#{index}"] = (kind, url)
+        return found
 
     # --- etapas ---------------------------------------------------------------------------------
 
@@ -65,14 +65,14 @@ class ExamRun:
         recorded: dict[str, dict[str, object]] = {}
         try:
             with db.connect() as conn:
-                for kind, url in self.documents().items():
+                for slot, (kind, url) in self.documents().items():
                     if url not in store.index and client is None:
                         client = PoliteClient.from_env(load_sources())
                     doc = store.get(url, client)
                     doc_id = fetch.record(conn, kind, doc)
                     conn.commit()
-                    recorded[kind] = {"url": url, "sha256": doc.sha256, "id": doc_id}
-                    self.log(f"  fetch {kind}: {'baixado' if doc.downloaded else 'em disco'} {url}")
+                    recorded[slot] = {"url": url, "sha256": doc.sha256, "id": doc_id, "kind": kind}
+                    self.log(f"  fetch {slot}: {'baixado' if doc.downloaded else 'em disco'} {url}")
         finally:
             if client is not None:
                 client.close()
@@ -108,11 +108,19 @@ class ExamRun:
             f" {flagged} com pendências"
         )
 
+    def _slots(self, kind: str) -> list[str]:
+        return [slot for slot in self._documents_json() if slot.split("#")[0] == kind]
+
     def answer_key(self) -> None:
         for kind in KEY_KINDS:
-            if kind not in self._documents_json():
+            slots = self._slots(kind)
+            if not slots:
                 continue
-            key: AnswerKey = self.parser.parse_answer_key(self._read_pages(kind))
+            answers: dict[int, AnswerMark] = {}
+            for slot in slots:  # vários PDFs do mesmo tipo: itens disjuntos, união na ordem
+                parsed: AnswerKey = self.parser.parse_answer_key(self._read_pages(slot))
+                answers.update(parsed.answers)
+            key = AnswerKey(answers=dict(sorted(answers.items())))
             write(self.path(f"{kind}.json"), key)
             annulled = [n for n, mark in key.answers.items() if mark == "X"]
             self.log(f"  answer-key {kind}: {len(key.answers)} itens, anulados {annulled}")
@@ -162,6 +170,10 @@ class ExamRun:
 
         exam_doc = doc_id("exam")
         assert exam_doc is not None
+        all_docs = [
+            (str(entry.get("kind", slot.split("#")[0])), int(str(entry["id"])))
+            for slot, entry in docs.items()
+        ]
         topics: dict[int, list[TopicAssignment]] = {}
         extra: dict[int, str] = {}
         topics_path = self.path("topics.json")
@@ -177,7 +189,9 @@ class ExamRun:
                 conn,
                 self.manifest,
                 self.exam,
-                DocumentIds(exam_doc, doc_id("answer_key_preliminary"), doc_id("answer_key_final")),
+                DocumentIds(
+                    exam_doc, doc_id("answer_key_preliminary"), doc_id("answer_key_final"), all_docs
+                ),
                 validated,
                 topics,
                 extra,

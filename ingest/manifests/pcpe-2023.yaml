@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_PE_23.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcpe-2023` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcpe-2023: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcpe-2023
 name: POLÍCIA CIVIL DE PERNAMBUCO (PC/PE)
 agency: pcpe
@@ -13,16 +10,33 @@ exams:
   name: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
   positions:
   - agente
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE001_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE001_00.PDF
+  subjects_by_range:
+  - {from: 21, to: 28, subject: lingua-portuguesa}
+  - {from: 29, to: 32, subject: redacao-oficial}
+  - {from: 33, to: 38, subject: informatica}
+  - {from: 39, to: 41, subject: matematica}
+  - {from: 42, to: 45, subject: raciocinio-logico}
+  - {from: 46, to: 53, subject: contabilidade-geral}
+  - {from: 54, to: 60, subject: estatistica}
 - slug: p2-cargo-3
   name: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
   positions:
   - escrivao
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE002_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE002_00.PDF
+  subjects_by_range:
+  - {from: 21, to: 31, subject: lingua-portuguesa}
+  - {from: 32, to: 32, subject: redacao-oficial}
+  - {from: 33, to: 38, subject: informatica}
+  - {from: 39, to: 43, subject: matematica}
+  - {from: 44, to: 50, subject: estatistica}
+  - {from: 51, to: 60, subject: arquivologia}
 - slug: p1-cargo-1
   name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
   positions:
@@ -30,6 +44,16 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB1_00.PDF
+  subjects_by_range:
+  - {from: 1, to: 4, subject: legislacao-estadual}
+  - {from: 5, to: 7, subject: direito-constitucional}
+  - {from: 8, to: 10, subject: direito-administrativo}
+  - {from: 11, to: 11, subject: direito-penal}
+  - {from: 12, to: 12, subject: legislacao-penal-especial}
+  - {from: 13, to: 13, subject: direito-penal}
+  - {from: 14, to: 14, subject: legislacao-de-transito}
+  - {from: 15, to: 15, subject: direito-penal}
+  - {from: 16, to: 20, subject: direito-processual-penal}
 - slug: p1-cargo-3
   name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
   positions:
@@ -37,6 +61,15 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB2_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB2_00.PDF
+  subjects_by_range:
+  - {from: 1, to: 4, subject: legislacao-estadual}
+  - {from: 5, to: 6, subject: direito-constitucional}
+  - {from: 7, to: 7, subject: legislacao-estadual}
+  - {from: 8, to: 10, subject: direito-administrativo}
+  - {from: 11, to: 11, subject: legislacao-penal-especial}
+  - {from: 12, to: 14, subject: direito-penal}
+  - {from: 15, to: 15, subject: legislacao-penal-especial}
+  - {from: 16, to: 20, subject: direito-processual-penal}
 - slug: p1-cargo-2-atualizado
   name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 2_ATUALIZADO
   positions:
@@ -44,6 +77,25 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_955PC_PE_DELEGADO001_00_COM_JUSTIFICATIVAS_ATUALIZADO.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_955PC_PE_DELEGADO001_00.PDF
+  subjects_by_range:
+  - {from: 1, to: 5, subject: direito-constitucional}
+  - {from: 6, to: 6, subject: direitos-humanos}
+  - {from: 7, to: 11, subject: direito-constitucional}
+  - {from: 12, to: 12, subject: legislacao-estadual}
+  - {from: 13, to: 24, subject: direito-administrativo}
+  - {from: 25, to: 38, subject: direito-penal}
+  - {from: 39, to: 52, subject: direito-processual-penal}
+  - {from: 53, to: 56, subject: legislacao-penal-especial}
+  - {from: 57, to: 57, subject: legislacao-de-transito}
+  - {from: 58, to: 62, subject: legislacao-penal-especial}
+  - {from: 63, to: 67, subject: legislacao-estadual}
+  - {from: 68, to: 73, subject: medicina-legal}
+  - {from: 74, to: 78, subject: criminologia}
+  - {from: 79, to: 81, subject: direito-civil}
+  - {from: 82, to: 84, subject: direito-empresarial}
+  - {from: 85, to: 90, subject: direito-processual-civil}
+  - {from: 91, to: 95, subject: direito-tributario}
+  - {from: 96, to: 100, subject: direito-ambiental}
 evidence:
   source: cebraspe
   contest:

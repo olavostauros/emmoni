@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_AL_22_DELEGADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcal-2022` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcal-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcal-2022
 name: PC_AL_22_DELEGADO
 agency: pcal
@@ -13,9 +10,21 @@ exams:
   name: PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS (P2)
   positions:
   - delegado
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_AL_22_DELEGADO/arquivos/705_DELEGADO_PC_AL_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_AL_22_DELEGADO/arquivos/GAB_DEFINITIVO_705_DELEGADO_PC_AL_001_01.PDF
+  subjects_by_range:
+  - {from: 31, to: 42, subject: direito-penal}
+  - {from: 43, to: 54, subject: direito-processual-penal}
+  - {from: 55, to: 68, subject: direito-constitucional}
+  - {from: 69, to: 82, subject: direito-administrativo}
+  - {from: 83, to: 96, subject: direito-civil}
+  - {from: 97, to: 98, subject: legislacao-estadual}
+  - {from: 99, to: 99, subject: legislacao-penal-especial}
+  - {from: 100, to: 100, subject: direitos-humanos}
+  - {from: 101, to: 108, subject: legislacao-penal-especial}
+  - {from: 109, to: 120, subject: medicina-legal}
 - slug: conhecimentos-gerais-p1
   name: PROVA OBJETIVA – CONHECIMENTOS GERAIS (P1)
   positions:
@@ -23,6 +32,9 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_AL_22_DELEGADO/arquivos/705_DELEGADO_PC_AL_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_AL_22_DELEGADO/arquivos/GAB_DEFINITIVO_705_DELEGADO_PC_AL_CG1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 20, subject: lingua-portuguesa}
+  - {from: 21, to: 30, subject: informatica}
 evidence:
   source: cebraspe
   contest:

@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_DF_25_CFO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmdf-2025` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmdf-2025: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmdf-2025
 name: PM DF 25 CFO
 agency: pmdf
@@ -16,13 +13,32 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_DF_25_CFO/arquivos/337DECAC06D244D3DFDF2269644D44FDB33CCFFA7FABB0CB9EC8A5E044FB48A1.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_DF_25_CFO/arquivos/A96422546BECE1549DF7D22DB41B62D73693B46A4796413A1F9CAA4DE6F8DE83.pdf
+  subjects_by_range:
+  - {from: 1, to: 8, subject: lingua-portuguesa}
+  - {from: 9, to: 12, subject: lingua-inglesa}
+  - {from: 13, to: 16, subject: legislacao-institucional}
+  - {from: 17, to: 17, subject: legislacao-estadual}
+  - {from: 18, to: 18, subject: legislacao-institucional}
+  - {from: 19, to: 21, subject: geografia}
+  - {from: 22, to: 30, subject: direitos-humanos}
+  - {from: 31, to: 36, subject: criminologia}
+  - {from: 37, to: 40, subject: raciocinio-logico}
 - slug: p2
   name: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS
   positions:
   - oficial
+  first_number: 41
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_DF_25_CFO/arquivos/B66B3302CAE22A39004125DC8158C5F6406471EE44C4F694EC73E44B2CCEDB84.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_DF_25_CFO/arquivos/685494F9EF71F1305C3826D04333FEB1FA7676647783FD56F4522FD13CDBD5FD.pdf
+  subjects_by_range:
+  - {from: 41, to: 44, subject: administracao-geral}
+  - {from: 45, to: 49, subject: direito-constitucional}
+  - {from: 50, to: 54, subject: direito-administrativo}
+  - {from: 55, to: 59, subject: direito-penal}
+  - {from: 60, to: 64, subject: direito-processual-penal}
+  - {from: 65, to: 70, subject: legislacao-penal-especial}
+  - {from: 71, to: 80, subject: legislacao-penal-militar}
 evidence:
   source: cebraspe
   contest:

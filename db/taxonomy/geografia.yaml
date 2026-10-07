@@ -1,0 +1,5 @@
+subject: geografia
+name: Geografia
+topics:
+  - {slug: geografia-do-brasil, name: "Geografia do Brasil"}
+  - {slug: geografia-regional, name: "Geografia regional"}

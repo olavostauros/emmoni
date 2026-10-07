@@ -154,6 +154,8 @@ exam    (id, contest_id, slug, name, applied_on date, shift text null,
          canonical_booklet text,                  -- caderno usado como referência
          exam_document_id, answer_key_preliminary_document_id,
          answer_key_final_document_id,
+exam_document (exam_id, source_document_id, kind document_kind, position)
+            -- todos os PDFs da prova; um tipo pode ter vários (decisão 0009)
          publish_status)                          -- unique (contest_id, slug)
 
 exam_position (exam_id, position_id)              -- uma prova pode servir vários cargos
@@ -480,7 +482,7 @@ exams:
     documents:
       exam: https://.../prova_agente.pdf
       answer_key_preliminary: https://.../gabarito_preliminar.pdf
-      answer_key_final: https://.../gabarito_definitivo.pdf
+      answer_key_final: https://.../gabarito_definitivo.pdf   # ou lista de URLs (decisão 0009)
     subjects_by_range:            # opcional: mapa número → disciplina
       - {from: 1, to: 20, subject: lingua-portuguesa}
 ```

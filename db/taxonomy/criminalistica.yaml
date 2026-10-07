@@ -1,0 +1,6 @@
+subject: criminalistica
+name: Criminalística
+topics:
+  - {slug: local-de-crime, name: "Local de crime e cadeia de custódia"}
+  - {slug: balistica-forense, name: "Balística forense"}
+  - {slug: papiloscopia, name: "Papiloscopia e identificação"}

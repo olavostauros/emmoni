@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_CE_25_DELEGADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcce-2025` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcce-2025: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcce-2025
 name: Concurso Público de Delegado de Polícia Civil
 agency: pcce
@@ -16,6 +13,28 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_CE_25_DELEGADO/arquivos/084_PC_CE_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_CE_25_DELEGADO/arquivos/Gab_Definitivo_084_PC_CE_001_01.pdf
+  subjects_by_range:
+  - {from: 1, to: 1, subject: legislacao-estadual}
+  - {from: 2, to: 2, subject: direito-constitucional}
+  - {from: 3, to: 3, subject: legislacao-estadual}
+  - {from: 4, to: 4, subject: direito-internacional}
+  - {from: 5, to: 5, subject: legislacao-estadual}
+  - {from: 6, to: 9, subject: direito-constitucional}
+  - {from: 10, to: 10, subject: direito-internacional}
+  - {from: 11, to: 19, subject: direito-administrativo}
+  - {from: 20, to: 20, subject: seguranca-publica}
+  - {from: 21, to: 30, subject: direito-penal}
+  - {from: 31, to: 40, subject: direito-processual-penal}
+  - {from: 41, to: 49, subject: legislacao-penal-especial}
+  - {from: 50, to: 57, subject: medicina-legal}
+  - {from: 58, to: 66, subject: criminologia}
+  - {from: 67, to: 69, subject: direito-civil}
+  - {from: 70, to: 70, subject: direito-empresarial}
+  - {from: 71, to: 71, subject: direito-civil}
+  - {from: 72, to: 75, subject: direito-empresarial}
+  - {from: 76, to: 84, subject: direito-processual-civil}
+  - {from: 85, to: 92, subject: direito-tributario}
+  - {from: 93, to: 100, subject: direito-ambiental}
 evidence:
   source: cebraspe
   contest:

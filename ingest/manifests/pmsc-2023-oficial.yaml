@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_SC_23_OFICIAL.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmsc-2023-oficial` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmsc-2023-oficial: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmsc-2023-oficial
 name: POLÍCIA MILITAR DE SANTA CATARINA
 agency: pmsc
@@ -16,6 +13,20 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_SC_23_OFICIAL/arquivos/860_PMSC_OFICIAL_OBJ_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_SC_23_OFICIAL/arquivos/GAB_DEFINITIVO_860_PMSC_OFICIAL_OBJ_001_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 1, to: 7, subject: direito-constitucional}
+  - {from: 8, to: 14, subject: direito-administrativo}
+  - {from: 15, to: 17, subject: direito-penal}
+  - {from: 18, to: 18, subject: legislacao-penal-especial}
+  - {from: 19, to: 21, subject: direito-penal}
+  - {from: 22, to: 28, subject: direito-processual-penal}
+  - {from: 29, to: 42, subject: legislacao-penal-militar}
+  - {from: 43, to: 48, subject: direito-civil}
+  - {from: 49, to: 55, subject: legislacao-institucional}
+  - {from: 56, to: 63, subject: lingua-portuguesa}
+  - {from: 64, to: 70, subject: raciocinio-logico}
+  - {from: 71, to: 75, subject: lingua-inglesa}
+  - {from: 76, to: 80, subject: informatica}
 evidence:
   source: cebraspe
   contest:

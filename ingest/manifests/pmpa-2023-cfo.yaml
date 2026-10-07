@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_PA_23_CFO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmpa-2023-cfo` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmpa-2023-cfo: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmpa-2023-cfo
 name: Oficiais da Polícia Militar do Pará
 agency: pmpa
@@ -13,9 +10,20 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS (P2)
   positions:
   - oficial
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/915_PMPA_CFO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/GAB_DEFINITIVO_915_PMPA_CFO_001_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 21, to: 23, subject: direito-civil}
+  - {from: 24, to: 27, subject: direito-administrativo}
+  - {from: 28, to: 30, subject: direito-constitucional}
+  - {from: 31, to: 34, subject: direito-penal}
+  - {from: 35, to: 38, subject: direito-processual-penal}
+  - {from: 39, to: 43, subject: legislacao-penal-especial}
+  - {from: 44, to: 52, subject: legislacao-penal-militar}
+  - {from: 53, to: 55, subject: legislacao-institucional}
+  - {from: 56, to: 60, subject: direitos-humanos}
 - slug: conhecimentos-basicos-p1
   name: PROVA OBJETIVA - CONHECIMENTOS BÁSICOS (P1)
   positions:
@@ -23,6 +31,9 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/915_PMPA_CFO_CB1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/GAB_DEFINITIVO_915_PMPA_CFO_CB1_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 1, to: 12, subject: lingua-portuguesa}
+  - {from: 13, to: 20, subject: informatica}
 evidence:
   source: cebraspe
   contest:

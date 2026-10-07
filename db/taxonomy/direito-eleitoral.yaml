@@ -1,0 +1,5 @@
+subject: direito-eleitoral
+name: Direito Eleitoral
+topics:
+  - {slug: crimes-eleitorais, name: "Crimes eleitorais"}
+  - {slug: justica-eleitoral, name: "Justiça Eleitoral"}

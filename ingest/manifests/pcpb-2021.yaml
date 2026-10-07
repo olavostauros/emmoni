@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_PB_21.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcpb-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcpb-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcpb-2021
 name: POLÍCIA CIVIL DO ESTADO DA PARAÍBA
 agency: pcpb
@@ -13,86 +10,141 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
   positions:
   - delegado
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_001_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 29, subject: direito-constitucional}
+  - {from: 30, to: 40, subject: direito-penal}
+  - {from: 41, to: 51, subject: direito-processual-penal}
+  - {from: 52, to: 62, subject: legislacao-penal-especial}
+  - {from: 63, to: 71, subject: medicina-legal}
+  - {from: 72, to: 73, subject: direito-processual-penal}
+  - {from: 74, to: 80, subject: criminologia}
 - slug: conhecimentos-especificos-cargo-4
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 4
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_004_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_004_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 80, subject: criminalistica}
 - slug: conhecimentos-especificos-cargo-5
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 5
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_005_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_005_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 70, subject: biologia}
+  - {from: 71, to: 80, subject: criminalistica}
 - slug: conhecimentos-especificos-cargo-6
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 6
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_006_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_006_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 72, subject: engenharia}
+  - {from: 73, to: 80, subject: criminalistica}
 - slug: conhecimentos-especificos-cargo-7
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 7
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_007_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_007_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 74, subject: informatica}
+  - {from: 75, to: 80, subject: criminalistica}
 - slug: conhecimentos-especificos-cargo-8
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 8
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_008_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_008_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 80, subject: medicina-legal}
 - slug: conhecimentos-especificos-cargo-9
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 9
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_009_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_009_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 80, subject: medicina-legal}
 - slug: conhecimentos-especificos-cargo-10
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 10
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_010_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_010_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 80, subject: medicina-legal}
 - slug: conhecimentos-especificos-cargo-11
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 11
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_011_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_011_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 80, subject: medicina-legal}
 - slug: conhecimentos-especificos-cargo-12
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 12
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_012_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_012_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 64, subject: quimica}
+  - {from: 65, to: 65, subject: legislacao-penal-especial}
+  - {from: 66, to: 68, subject: quimica}
+  - {from: 69, to: 69, subject: legislacao-penal-especial}
+  - {from: 70, to: 74, subject: quimica}
+  - {from: 75, to: 76, subject: legislacao-penal-especial}
+  - {from: 77, to: 80, subject: biologia}
 - slug: conhecimentos-especificos-cargo-13
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 13
   positions:
   - perito-criminal
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_013_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_013_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 80, subject: quimica}
 - slug: conhecimentos-complementares-para-os-cargos-de-4-a-13
   name: PROVA OBJETIVA - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 4 A 13
   positions:
   - perito-criminal
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CC1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CC1_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 27, subject: criminalistica}
+  - {from: 28, to: 34, subject: medicina-legal}
+  - {from: 35, to: 39, subject: direito-administrativo}
+  - {from: 40, to: 45, subject: direito-penal}
+  - {from: 46, to: 50, subject: direito-processual-penal}
 - slug: conhecimentos-gerais-para-o-cargo-de-delegado
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE DELEGADO
   positions:
@@ -100,6 +152,13 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 6, subject: lingua-portuguesa}
+  - {from: 7, to: 9, subject: informatica}
+  - {from: 10, to: 12, subject: direito-civil}
+  - {from: 13, to: 16, subject: direito-administrativo}
+  - {from: 17, to: 19, subject: direito-financeiro}
+  - {from: 20, to: 20, subject: direito-tributario}
 - slug: conhecimentos-gerais-para-os-cargos-de-4-a-13
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 4 A 13
   positions:
@@ -107,13 +166,24 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG2_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 8, subject: lingua-portuguesa}
+  - {from: 9, to: 14, subject: informatica}
+  - {from: 15, to: 20, subject: raciocinio-logico}
 - slug: conhecimentos-especificos-para-o-cargo-de-escrivao-de-policia
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
   positions:
   - escrivao
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_002_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 30, subject: direito-penal}
+  - {from: 31, to: 40, subject: direito-processual-penal}
+  - {from: 41, to: 52, subject: legislacao-penal-especial}
+  - {from: 53, to: 66, subject: informatica}
+  - {from: 67, to: 80, subject: arquivologia}
 - slug: conhecimentos-gerais-para-o-cargo-de-escrivao-de-policia
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
   positions:
@@ -121,27 +191,57 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_CG1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 6, subject: lingua-portuguesa}
+  - {from: 7, to: 8, subject: redacao-oficial}
+  - {from: 9, to: 11, subject: raciocinio-logico}
+  - {from: 12, to: 14, subject: estatistica}
+  - {from: 15, to: 17, subject: direito-constitucional}
+  - {from: 18, to: 18, subject: direito-administrativo}
+  - {from: 19, to: 20, subject: legislacao-estadual}
 - slug: conhecimentos-especificos-cargo-3
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 3
   positions:
   - agente
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_003_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_003_01_VF.PDF
+  subjects_by_range:
+  - {from: 21, to: 32, subject: direito-penal}
+  - {from: 33, to: 44, subject: direito-processual-penal}
+  - {from: 45, to: 56, subject: legislacao-penal-especial}
+  - {from: 57, to: 68, subject: informatica}
+  - {from: 69, to: 80, subject: contabilidade-geral}
 - slug: conhecimentos-especificos-cargo-15
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 15
   positions:
   - papiloscopista
+  first_number: 51
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_015_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_015_01.PDF
+  subjects_by_range:
+  - {from: 51, to: 60, subject: arquivologia}
+  - {from: 61, to: 70, subject: medicina-legal}
+  - {from: 71, to: 80, subject: criminalistica}
 - slug: conhecimentos-complementares-para-os-cargos-de-14-a-17
   name: PROVA OBJETIVA - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 14 A 17
   positions:
   - papiloscopista
+  first_number: 21
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CC1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CC1_01.PDF
+  subjects_by_range:
+  - {from: 21, to: 21, subject: direito-administrativo}
+  - {from: 22, to: 22, subject: legislacao-estadual}
+  - {from: 23, to: 26, subject: direito-administrativo}
+  - {from: 27, to: 27, subject: legislacao-estadual}
+  - {from: 28, to: 35, subject: direito-penal}
+  - {from: 36, to: 42, subject: direito-processual-penal}
+  - {from: 43, to: 46, subject: direito-constitucional}
+  - {from: 47, to: 50, subject: direitos-humanos}
 - slug: conhecimentos-gerais-para-o-cargo-de-agente-de-investigacao
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE AGENTE DE INVESTIGAÇÃO
   positions:
@@ -149,6 +249,15 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG1_01_VF.PDF
+  subjects_by_range:
+  - {from: 1, to: 6, subject: lingua-portuguesa}
+  - {from: 7, to: 8, subject: redacao-oficial}
+  - {from: 9, to: 11, subject: raciocinio-logico}
+  - {from: 12, to: 14, subject: estatistica}
+  - {from: 15, to: 17, subject: direito-constitucional}
+  - {from: 18, to: 18, subject: legislacao-estadual}
+  - {from: 19, to: 19, subject: direito-administrativo}
+  - {from: 20, to: 20, subject: direito-constitucional}
 - slug: conhecimentos-gerais-para-os-cargos-de-14-a-17
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 14 A 17
   positions:
@@ -156,6 +265,10 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG2_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 8, subject: lingua-portuguesa}
+  - {from: 9, to: 14, subject: informatica}
+  - {from: 15, to: 20, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

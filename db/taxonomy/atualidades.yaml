@@ -1,0 +1,5 @@
+subject: atualidades
+name: Atualidades
+topics:
+  - {slug: politica-e-economia, name: "Política e economia"}
+  - {slug: sociedade-e-cultura, name: "Sociedade e cultura"}

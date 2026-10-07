@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_RO_22.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pmro-2022` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pmro-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pmro-2022
 name: POLÍCIA MILITAR DO ESTADO DE RONDÔNIA
 agency: pmro
@@ -16,6 +13,25 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_RO_22/arquivos/731_SESDEC_PM_RO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_RO_22/arquivos/GAB_DEFINITIVO_731_SESDEC_PM_RO_001_01.PDF
+  subjects_by_range:   # faixas conferidas lendo as questoes (2026-10-07)
+  - {from: 1, to: 7, subject: direito-constitucional}
+  - {from: 8, to: 8, subject: legislacao-estadual}
+  - {from: 9, to: 9, subject: direito-constitucional}
+  - {from: 10, to: 10, subject: legislacao-estadual}
+  - {from: 11, to: 15, subject: direito-penal}
+  - {from: 16, to: 16, subject: legislacao-penal-especial}
+  - {from: 17, to: 20, subject: direito-penal}
+  - {from: 21, to: 30, subject: direito-processual-penal}
+  - {from: 31, to: 45, subject: legislacao-penal-especial}
+  - {from: 46, to: 60, subject: direito-administrativo}
+  - {from: 61, to: 85, subject: legislacao-penal-militar}
+  - {from: 86, to: 86, subject: historia}
+  - {from: 87, to: 87, subject: geografia}
+  - {from: 88, to: 89, subject: historia}
+  - {from: 90, to: 90, subject: geografia}
+  - {from: 91, to: 94, subject: historia}
+  - {from: 95, to: 95, subject: geografia}
+  - {from: 96, to: 100, subject: legislacao-institucional}
 evidence:
   source: cebraspe
   contest:

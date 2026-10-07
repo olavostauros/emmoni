@@ -1,0 +1,6 @@
+subject: engenharia
+name: Engenharia
+topics:
+  - {slug: engenharia-civil, name: "Engenharia civil"}
+  - {slug: seguranca-do-trabalho, name: "Segurança do trabalho"}
+  - {slug: geoprocessamento, name: "Sensoriamento remoto e geoprocessamento"}

@@ -1,7 +1,5 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcdf-2019` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# PCDF 2019 — Escrivão. Caderno único ("boneca" com justificativas, itens 1–120) e dois gabaritos
+# definitivos: básicos (1–50) e específicos (51–120). Aprovado em 2026-10-07.
 contest: pcdf-2019
 name: POLÍCIA CIVIL DO DISTRITO FEDERAL
 agency: pcdf
@@ -10,12 +8,27 @@ year: 2019
 source_url: https://www.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO
 exams:
 - slug: objetiva
-  name: PROVA OBJETIVA
+  name: Escrivão de Polícia — prova objetiva
   positions:
   - escrivao
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/MATRIZ_519_PCDF_001_00_BONECA_COMJUSTIFICATIVA.PDF
-    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/GAB_DEFINITIVO_MATRIZ_519_PCDF_001_00.PDF
+    answer_key_final:
+    - https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/GAB_DEFINITIVO_MATRIZ_519_PCDF_CB1_00.PDF
+    - https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/GAB_DEFINITIVO_MATRIZ_519_PCDF_001_00.PDF
+  subjects_by_range:
+  - {from: 1, to: 22, subject: lingua-portuguesa}
+  - {from: 23, to: 32, subject: lingua-inglesa}
+  - {from: 33, to: 38, subject: geografia}
+  - {from: 39, to: 44, subject: legislacao-estadual}
+  - {from: 45, to: 47, subject: direito-administrativo}
+  - {from: 48, to: 50, subject: legislacao-estadual}
+  - {from: 51, to: 61, subject: direito-constitucional}
+  - {from: 62, to: 73, subject: direito-penal}
+  - {from: 74, to: 85, subject: direito-processual-penal}
+  - {from: 86, to: 92, subject: direitos-humanos}
+  - {from: 93, to: 108, subject: informatica}
+  - {from: 109, to: 120, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

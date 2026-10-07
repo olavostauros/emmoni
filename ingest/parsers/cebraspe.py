@@ -15,22 +15,35 @@ mapeados, layout especial) é marcado em `flags` e a questão vai para revisão.
 import re
 from collections import Counter
 from dataclasses import dataclass, field
+from typing import Literal, cast
 
 from ingest.extract import Figure, Line, Page
-from ingest.staging import AnswerKey, AnswerMark, RawPassage, RawQuestion, Segmented
+from ingest.staging import AnswerKey, AnswerMark, RawOption, RawPassage, RawQuestion, Segmented
 
 PARSER = "cebraspe-parser@1"
 
-START = re.compile(r"^-* ?PROVA OBJETIVA ?-*$")
-STOP = re.compile(r"^-* ?PROVA DISCURSIVA ?-*$")
+START = re.compile(r"^-* ?PROVA OBJETIVA( P\d)? ?-*$")  # "-- PROVA OBJETIVA P1 --" (2025)
+STOP = re.compile(r"^-* ?PROVA DISCURSIVA( P\d)? ?-*$")
+# Título de seção que abre a prova quando não há "PROVA OBJETIVA" (CBM/AL e PM/AL 2017).
+SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
     r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*)$", re.I
 )
 ITEM = re.compile(r"^(\d{1,3})(?:\s+\S|$)")  # número sozinho: item que é só figura
+# Provas de múltipla escolha do Cebraspe: título "Questão N" (ou "QUESTÃO N"), enunciado,
+# alternativas "A ...", "B ..." na margem com continuação recuada.
+# "Questão 7", "QUESTÃO 21 E" (2017, lixo), "QUESTÃO 1 <PMDF064CG1A01E1035>" (2025, código).
+QUESTION_TITLE = re.compile(r"^QUEST[ÃA]O\s+(\d{1,3})(?:\s+(?:\S{1,2}|<[^>]*>))?\s*$", re.I)
+OPTION = re.compile(r"^([A-E])(?:\s+\S|$)")
+OPTION_MD = re.compile(r"^(?:\*\*)?[A-E](?:\*\*)?(?:\s+|$)")
+ROMAN_ITEM = re.compile(r"^(?:[IVX]+|[a-e]\))\s+\S")
 ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
 TEXT_LABEL = re.compile(r"^Texto\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")
 TEXT_REF = re.compile(r"\btexto\s+([0-9][\w.]*-[IVX]+|[0-9][A-Z0-9.]+)", re.I)
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
+# Cadernos "com justificativa" (PCDF 2020, PF 2025...): depois de cada item vem a justificativa
+# oficial do gabarito, às vezes grudada na última linha do item ("...administrativo.JUSTIFICATIVA").
+JUSTIFICATION = re.compile(r"JUSTIFICATIVA\b|\bITEM ANULADO\b")  # sempre em maiúsculas
 SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
@@ -76,6 +89,8 @@ class _Unit:
 def segment(pages: list[Page], first: int = 1) -> Segmented:
     """`first`: número do primeiro item do caderno (PRF 2021: caderno que começa no item 9)."""
     stream = _stream(pages)
+    if any(QUESTION_TITLE.match(entry.line.plain) for entry in stream):
+        return _segment_choice(stream, first)
     passages: dict[str, RawPassage] = {}
     questions: list[RawQuestion] = []
     expected = first
@@ -130,6 +145,179 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
 
 
+# --- múltipla escolha --------------------------------------------------------------------------
+
+
+def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
+    """Provas de múltipla escolha: cada questão vai do título "Questão N" ao próximo título.
+    O que sobra depois da última alternativa (texto rotulado, instrução) abre o grupo seguinte."""
+    passages: dict[str, RawPassage] = {}
+    questions: list[RawQuestion] = []
+    expected = first
+    lead = _Unit()
+    block: list[_Entry] = []
+    number = 0
+    group_passage: str | None = None
+    group_flags: set[str] = set()
+
+    def close() -> None:
+        nonlocal lead
+        if not block:
+            return
+        question, rest = _choice_question(number, block, group_passage, group_flags)
+        questions.append(question)
+        lead = _Unit(rest)
+
+    skipping = False  # justificativas das alternativas (PMDF 2025), até o próximo título
+    for entry in stream:
+        match = QUESTION_TITLE.match(entry.line.plain)
+        if match and int(match.group(1)) == expected:
+            close()
+            if lead.entries:
+                # Antes da primeira questão, texto sem rótulo é a capa (instruções): não é texto-base.
+                cover = not questions and not any(
+                    TEXT_LABEL.match(e.line.plain) for e in lead.entries
+                )
+                group_passage, group_flags = (
+                    (None, set()) if cover else _open_group_choice(lead, expected, passages)
+                )
+                lead = _Unit()
+            block = []
+            number = expected
+            expected += 1
+            skipping = False
+        elif skipping:
+            continue
+        elif number and JUSTIFICATION.match(entry.line.plain):
+            skipping = True
+        elif number:
+            block.append(entry)
+        else:
+            lead.entries.append(entry)
+    close()
+    if lead.entries and questions:
+        questions[-1].flags = sorted({*questions[-1].flags, "orphan_text"})
+    return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
+
+
+def _at_margin(entry: _Entry) -> bool:
+    return entry.line.x0 <= entry.left + ITEM_INDENT
+
+
+def _find_options(block: list[_Entry]) -> list[int] | None:
+    """Índices das linhas que começam as alternativas, procurando de trás para a frente a
+    sequência A..E (ou A..D) na margem da coluna."""
+    for last in ("E", "D"):
+        letters = [chr(c) for c in range(ord("A"), ord(last) + 1)]
+        starts: list[int] = []
+        position = len(block)
+        for letter in reversed(letters):
+            found = next(
+                (
+                    i
+                    for i in range(position - 1, -1, -1)
+                    if _at_margin(block[i])
+                    and (m := OPTION.match(block[i].line.plain))
+                    and m.group(1) == letter
+                ),
+                None,
+            )
+            if found is None:
+                break
+            starts.append(found)
+            position = found
+        if len(starts) == len(letters):
+            return sorted(starts)
+    return None
+
+
+def _choice_question(
+    number: int, block: list[_Entry], passage: str | None, group_flags: set[str]
+) -> tuple[RawQuestion, list[_Entry]]:
+    starts = _find_options(block)
+    flags: set[str] = set(group_flags)
+    options: list[RawOption] = []
+    if starts is None:
+        statement_entries, rest = block, []
+        flags.add("no_options")
+    else:
+        statement_entries = block[: starts[0]]
+        # A última alternativa termina na primeira linha de margem depois dela: o que vem a
+        # seguir é a abertura do próximo grupo (texto rotulado, instrução).
+        end = len(block)
+        for i in range(starts[-1] + 1, len(block)):
+            if _at_margin(block[i]) and not block[i].line.plain[:1].islower():
+                end = i
+                break
+        rest = block[end:]
+        bounds = [*starts, end]
+        for letter_index, (start, stop) in enumerate(zip(bounds, bounds[1:], strict=False)):
+            lines = [OPTION_MD.sub("", block[start].line.text, count=1)] + [
+                e.line.text for e in block[start + 1 : stop]
+            ]
+            letter = cast(Literal["A", "B", "C", "D", "E"], chr(ord("A") + letter_index))
+            options.append(RawOption(letter=letter, body_md=_join(lines)))
+            flags |= set().union(*(e.flags for e in block[start:stop]))
+    flags |= set().union(*(e.flags for e in statement_entries)) if statement_entries else set()
+    statement = "\n\n".join(_choice_paragraphs(statement_entries))
+    if not statement.strip():
+        flags.add("empty_item")
+    if re.search(r"sublinhad", statement, re.I) and "<u>" not in statement:
+        flags.add("underline")
+    page = block[0].page if block else 0
+    return (
+        RawQuestion(
+            number=number,
+            type="multiple_choice",
+            statement_md=statement,
+            options=options,
+            passage_key=passage,
+            page=page,
+            flags=sorted(flags),
+        ),
+        rest,
+    )
+
+
+def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
+    """Parágrafos do enunciado: recuo de primeira linha, linha curta anterior ou item
+    enumerado (I, II, III; a), b)...) começam parágrafo novo."""
+    paragraphs: list[list[str]] = []
+    previous: _Entry | None = None
+    for entry in entries:
+        indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
+        enumerated = _at_margin(entry) and ROMAN_ITEM.match(entry.line.plain) is not None
+        new = previous is None or indented or previous.short or enumerated
+        if new:
+            paragraphs.append([])
+        paragraphs[-1].append(entry.line.text)
+        previous = entry
+    return [_join(lines) for lines in paragraphs if lines]
+
+
+def _open_group_choice(
+    lead: _Unit, first: int, passages: dict[str, RawPassage]
+) -> tuple[str | None, set[str]]:
+    """Abertura entre questões de múltipla escolha: textos rotulados viram textos-base; texto sem
+    rótulo vira texto-base anônimo ("g<primeira questão>"). Não há comando a separar."""
+    segments: list[tuple[str | None, list[_Entry]]] = [(None, [])]
+    for entry in lead.entries:
+        match = TEXT_LABEL.match(entry.line.plain)
+        if match:
+            segments.append((match.group(1), []))
+        else:
+            segments[-1][1].append(entry)
+    key: str | None = None
+    flags: set[str] = set()
+    for label, entries in segments:
+        if not entries:
+            continue
+        key = label or f"g{first}"
+        _add_passage(passages, key, _text_paragraphs(entries), entries)
+        flags = set().union(*(e.flags for e in entries))
+    return key, flags
+
+
 def _inside_labeled_text(lead: _Unit) -> bool:
     """A abertura está dentro de um texto-base que ainda não chegou ao comando: números na margem
     são de linha. Texto-base = rótulo "Texto X" ou duas ou mais linhas numeradas (1, 4, 7...)."""
@@ -174,9 +362,16 @@ def _stream(pages: list[Page]) -> list[_Entry]:
     """Linhas da prova objetiva em ordem de leitura, com figuras atribuídas às linhas vizinhas."""
     stream: list[_Entry] = []
     gap = False
+    in_justification = False
     # Sem o marcador "PROVA OBJETIVA", começa do início; instruções numeradas da capa não viram
     # itens porque item só começa depois de um comando ("julgue").
     started = not any(START.search(line.plain) for page in pages for line in page.lines)
+    if started and any(
+        line.column == 0 and SECTION_START.search(line.plain)
+        for page in pages
+        for line in page.lines
+    ):
+        started = False  # cadernos de 2017 sem "PROVA OBJETIVA": começa no título da seção
     for page in pages:
         middle = page.width / 2
         lefts = {
@@ -199,7 +394,9 @@ def _stream(pages: list[Page]) -> list[_Entry]:
         start_y = 0.0  # figuras acima do marcador são cabeçalho da prova
         for line in page.lines:
             if not started:
-                started = line.column == 0 and bool(START.search(line.plain))
+                started = line.column == 0 and bool(
+                    START.search(line.plain) or SECTION_START.search(line.plain)
+                )
                 start_y = line.y1
                 continue
             if line.column == 0 and STOP.search(line.plain):
@@ -209,8 +406,20 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 skipped.append(line)
                 gap = True
                 continue
-            if any(_contains(image, line) for image in images):
-                continue  # rótulos de gráfico desenhados sobre a imagem
+            if any(_contains(image, line) for image in images) and not QUESTION_TITLE.match(
+                line.plain
+            ):
+                continue  # rótulos de gráfico desenhados sobre a imagem (título de questão não)
+            if in_justification:
+                if line.x0 > lefts[line.column] + ITEM_INDENT:
+                    continue  # continuação da justificativa, recuada como continuação de item
+                in_justification = False  # linha na margem: próximo item ou comando
+            cut = JUSTIFICATION.search(line.plain)
+            if cut is not None:
+                in_justification = True
+                if not line.plain[: cut.start()].strip():
+                    continue
+                line = _before(line, cut.start())
             entry = _Entry(
                 page.number,
                 line,
@@ -230,15 +439,34 @@ def _stream(pages: list[Page]) -> list[_Entry]:
     return stream
 
 
+def _before(line: Line, index: int) -> Line:
+    """A linha até `index` do texto puro (a justificativa grudada no fim do item cai fora)."""
+    plain = line.plain[:index].rstrip()
+    text = line.text
+    marker = JUSTIFICATION.search(text)
+    if marker is not None:
+        text = text[: marker.start()].rstrip()
+        if text.count("**") % 2:
+            text += "**"
+        if text.count("*") % 2:
+            text += "*"
+    return line.model_copy(update={"plain": plain, "text": text})
+
+
 def _with_figures(
     page: Page, entries: list[_Entry], skipped: list[Line], start_y: float = 0.0
 ) -> list[_Entry]:
     """Marca com 'figure' a linha que antecede cada figura (no Cebraspe, o texto que a apresenta
     vem antes dela); se a figura abre a coluna, marca a linha seguinte."""
     middle = page.width / 2
+    titles = [e.line for e in entries if QUESTION_TITLE.match(e.line.plain)]
     for figure in page.figures:
-        if figure.y1 <= start_y or any(_contains(figure, line) for line in skipped):
-            continue  # faixa de fundo de título ("BLOCO II")
+        if (
+            figure.y1 <= start_y
+            or any(_contains(figure, line) for line in skipped)
+            or any(_overlaps(figure, line) for line in titles)
+        ):
+            continue  # faixa de fundo de título ("BLOCO II", "Questão 7")
         column = 1 if figure.x1 <= middle + 12 else 2 if figure.x0 >= middle - 12 else 0
         same = [e for e in entries if column == 0 or e.line.column in (column, 0)]
         above = [e for e in same if e.line.y0 < figure.y0]
@@ -257,6 +485,17 @@ def _contains(figure: Figure, line: Line) -> bool:
         and figure.y0 - 2 <= line.y0
         and line.y1 <= figure.y1 + 2
     )
+
+
+def _overlaps(figure: Figure, line: Line) -> bool:
+    """Figura na altura da linha e na mesma coluna: caixa de fundo, ícones e filetes decorativos
+    do título "Questão N" (PC/RJ 2021 desenha ícones ao lado do título)."""
+    vertical = min(figure.y1, line.y1) - max(figure.y0, line.y0)
+    same_side = figure.x0 < line.x1 + 300 and figure.x1 > line.x0 - 300
+    thin_rule = figure.y1 - figure.y0 <= 3 and (
+        abs(figure.y0 - line.y0) <= 6 or abs(figure.y1 - line.y1) <= 6
+    )  # filete logo acima ou abaixo do título
+    return same_side and (vertical > 0.5 * (line.y1 - line.y0) or thin_rule)
 
 
 def _open_group(
@@ -453,8 +692,9 @@ def _normalize(text: str) -> str:
 
 # --- gabarito ---------------------------------------------------------------------------------
 
-KEY_MARK = re.compile(r"^[CEX]$")
+KEY_MARK = re.compile(r"^[A-EX]$")  # C/E/X (certo/errado) ou A–E/X (múltipla escolha)
 KEY_NUMBER = re.compile(r"^\d{1,3}$")
+KEY_HEADERS = ("Item", "Gabarito", "Questão", "Questao", "QUESTÃO", "ITEM", "GABARITO")
 
 
 def parse_answer_key(pages: list[Page]) -> AnswerKey:
@@ -467,7 +707,9 @@ def parse_answer_key(pages: list[Page]) -> AnswerKey:
     previous: list[int] | None = None
     for page in pages:
         for line in page.lines:
-            tokens = [t for t in line.plain.split() if t not in ("Item", "Gabarito")]
+            # "*E": gabarito preliminar alterado (PM/AL 2017); o asterisco não é parte da marca.
+            tokens = [t.lstrip("*") for t in line.plain.split() if t not in KEY_HEADERS]
+            tokens = [t for t in tokens if t]
             # Células vazias da grade vêm preenchidas com "0" ("119 120 0 0", "C E 0 0").
             while len(tokens) > 1 and tokens[-1] == "0":
                 tokens.pop()

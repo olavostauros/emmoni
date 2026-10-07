@@ -116,6 +116,78 @@ def test_figure_after_item_text_flags_the_item() -> None:
     assert questions[1].flags == []
 
 
+def test_official_justifications_are_dropped() -> None:
+    """Cadernos "com justificativa" (PCDF 2020): a justificativa vem depois de cada item, às vezes
+    grudada na última linha; "ITEM ANULADO." substitui a justificativa dos anulados."""
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50),
+            _line("**1** A penalidade aplicada é incabível, uma vez que não", 28, 70),
+            _line("há previsão legal.", 46, 82, x1=120),
+            _line("JUSTIFICATIVA - ERRADO. A pena é cabível porquanto o", 46, 94),
+            _line("artigo 117 prevê a proibição.", 46, 106, x1=160),
+            _line("**2** A punição configura exercício do poder de", 28, 120),
+            _line("polícia.JUSTIFICATIVA - ERRADO. Configura poder", 46, 132),
+            _line("disciplinar.", 46, 144, x1=100),
+            _line("**3** A variância de X é igual a S. ITEM ANULADO.", 28, 160),
+            _line("Julgue o próximo item.", 28, 200),
+            _line("**4** Texto sem justificativa.", 28, 220),
+        ]
+    )
+    questions = cebraspe.segment([page]).questions
+    assert [q.number for q in questions] == [1, 2, 3, 4]
+    assert questions[0].statement_md.endswith("uma vez que não há previsão legal.")
+    assert questions[1].statement_md.endswith("exercício do poder de polícia.")
+    assert questions[2].statement_md.endswith("A variância de X é igual a S.")
+    assert questions[3].statement_md == "Julgue o próximo item.\n\nTexto sem justificativa."
+    assert not any("JUSTIFICATIVA" in q.statement_md for q in questions)
+
+
+def test_multiple_choice_questions_with_options_and_shared_text() -> None:
+    """Provas de múltipla escolha (PC/CE 2025, PC/RJ 2021): título "Questão N", enunciado,
+    alternativas A–E na margem com continuação recuada; texto rotulado entre questões vira
+    texto-base; a capa (antes da primeira questão) não."""
+    page = _page(
+        [
+            _line("Nas questões a seguir, marque a única opção correta.", 28, 20),
+            _line("Questão 1", 51, 50),
+            _line("Nos termos da Constituição, o Conselho de Segurança", 28, 70),
+            _line("Pública é órgão com funções", 28, 82, x1=150),
+            _line("A deliberativas e fiscalizadoras, e goza de autonomia", 28, 94),
+            _line("administrativa.", 42, 106, x1=100),
+            _line("B consultivas e deliberativas.", 28, 118, x1=150),
+            _line("C consultivas e fiscalizadoras.", 28, 130, x1=150),
+            _line("D A e B estão certas.", 28, 142, x1=120),
+            _line("E nenhuma das anteriores.", 28, 154, x1=140),
+            _line("**Texto 1A1-I**", 28, 180, x1=80),
+            _line("A segurança pública é dever do Estado.", 56, 192, x1=200),
+            _line("Questão 2", 51, 220),
+            _line("Segundo o texto 1A1-I, a segurança pública", 28, 240, x1=200),
+            _line("A é dever do Estado.", 28, 252, x1=120),
+            _line("B é dever da família.", 28, 264, x1=120),
+            _line("C é facultativa.", 28, 276, x1=100),
+            _line("D não existe.", 28, 288, x1=100),
+            _line("E é um mito.", 28, 300, x1=100),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    first, second = segmented.questions
+    assert (first.number, first.type, first.passage_key) == (1, "multiple_choice", None)
+    assert first.statement_md == (
+        "Nos termos da Constituição, o Conselho de Segurança Pública é órgão com funções"
+    )
+    assert [o.letter for o in first.options] == ["A", "B", "C", "D", "E"]
+    assert (
+        first.options[0].body_md
+        == "deliberativas e fiscalizadoras, e goza de autonomia administrativa."
+    )
+    assert first.options[3].body_md == "A e B estão certas."
+    assert first.flags == []  # a capa não é texto-base nem contamina a questão
+    assert second.passage_key == "1A1-I"
+    assert [p.key for p in segmented.passages] == ["1A1-I"]
+    assert second.options[0].body_md == "é dever do Estado."
+
+
 def test_code_lines_flag_layout() -> None:
     page = _page(
         [

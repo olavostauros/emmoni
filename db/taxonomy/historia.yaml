@@ -1,0 +1,5 @@
+subject: historia
+name: História
+topics:
+  - {slug: historia-do-brasil, name: "História do Brasil"}
+  - {slug: historia-regional, name: "História regional"}

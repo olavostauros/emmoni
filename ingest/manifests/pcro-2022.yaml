@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_RO_22.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcro-2022` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcro-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcro-2022
 name: POLÍCIA JUDICIÁRIA CIVIL DO ESTADO DE RONDÔNIA
 agency: pcro
@@ -13,9 +10,29 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 3
   positions:
   - delegado
+  first_number: 11
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/732_PCRO_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_732_PCRO_002_01.PDF
+  subjects_by_range:
+  - {from: 11, to: 16, subject: direito-constitucional}
+  - {from: 17, to: 17, subject: direitos-humanos}
+  - {from: 18, to: 19, subject: legislacao-estadual}
+  - {from: 20, to: 20, subject: direito-constitucional}
+  - {from: 21, to: 35, subject: direito-penal}
+  - {from: 36, to: 55, subject: direito-processual-penal}
+  - {from: 56, to: 60, subject: legislacao-penal-especial}
+  - {from: 61, to: 69, subject: direito-administrativo}
+  - {from: 70, to: 70, subject: legislacao-estadual}
+  - {from: 71, to: 71, subject: direito-administrativo}
+  - {from: 72, to: 72, subject: legislacao-estadual}
+  - {from: 73, to: 75, subject: direito-administrativo}
+  - {from: 76, to: 76, subject: direito-financeiro}
+  - {from: 77, to: 80, subject: direito-tributario}
+  - {from: 81, to: 85, subject: direito-ambiental}
+  - {from: 86, to: 90, subject: medicina-legal}
+  - {from: 91, to: 95, subject: direito-civil}
+  - {from: 96, to: 100, subject: criminologia}
 - slug: conhecimentos-gerais-para-o-cargo-3
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO 3
   positions:
@@ -23,20 +40,60 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/732_PCRO_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_732_PCRO_CG2_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 3, subject: historia}
+  - {from: 4, to: 7, subject: geografia}
+  - {from: 8, to: 9, subject: historia}
+  - {from: 10, to: 10, subject: geografia}
 - slug: conhecimentos-especificos-cargo-1
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
   positions:
   - agente
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_001_01.PDF
+  subjects_by_range:
+  - {from: 31, to: 35, subject: estatistica}
+  - {from: 36, to: 45, subject: informatica}
+  - {from: 46, to: 46, subject: administracao-geral}
+  - {from: 47, to: 47, subject: administracao-publica}
+  - {from: 48, to: 53, subject: administracao-geral}
+  - {from: 54, to: 55, subject: administracao-publica}
+  - {from: 56, to: 65, subject: contabilidade-geral}
+  - {from: 66, to: 68, subject: direito-processual-penal}
+  - {from: 69, to: 70, subject: direito-penal}
+  - {from: 71, to: 73, subject: direito-processual-penal}
+  - {from: 74, to: 75, subject: direito-penal}
+  - {from: 76, to: 77, subject: direitos-humanos}
+  - {from: 78, to: 85, subject: direito-constitucional}
+  - {from: 86, to: 87, subject: legislacao-estadual}
+  - {from: 88, to: 94, subject: direito-administrativo}
+  - {from: 95, to: 95, subject: legislacao-estadual}
+  - {from: 96, to: 100, subject: medicina-legal}
 - slug: conhecimentos-especificos-cargo-4
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 4
   positions:
   - escrivao
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_002_01.PDF
+  subjects_by_range:
+  - {from: 31, to: 35, subject: estatistica}
+  - {from: 36, to: 45, subject: informatica}
+  - {from: 46, to: 46, subject: administracao-geral}
+  - {from: 47, to: 47, subject: administracao-publica}
+  - {from: 48, to: 53, subject: administracao-geral}
+  - {from: 54, to: 55, subject: administracao-publica}
+  - {from: 56, to: 65, subject: contabilidade-geral}
+  - {from: 66, to: 71, subject: direito-processual-penal}
+  - {from: 72, to: 75, subject: direito-penal}
+  - {from: 76, to: 77, subject: direitos-humanos}
+  - {from: 78, to: 85, subject: direito-constitucional}
+  - {from: 86, to: 88, subject: legislacao-estadual}
+  - {from: 89, to: 95, subject: direito-administrativo}
+  - {from: 96, to: 100, subject: medicina-legal}
 - slug: conhecimentos-gerais-para-o-cargo-1
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO 1
   positions:
@@ -44,6 +101,14 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_CG1_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 15, subject: lingua-portuguesa}
+  - {from: 16, to: 20, subject: raciocinio-logico}
+  - {from: 21, to: 21, subject: geografia}
+  - {from: 22, to: 26, subject: historia}
+  - {from: 27, to: 27, subject: geografia}
+  - {from: 28, to: 29, subject: historia}
+  - {from: 30, to: 30, subject: geografia}
 - slug: conhecimentos-gerais-para-o-cargo-4
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO 4
   positions:
@@ -51,6 +116,16 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_CG2_01.PDF
+  subjects_by_range:
+  - {from: 1, to: 15, subject: lingua-portuguesa}
+  - {from: 16, to: 20, subject: raciocinio-logico}
+  - {from: 21, to: 23, subject: geografia}
+  - {from: 24, to: 24, subject: historia}
+  - {from: 25, to: 25, subject: geografia}
+  - {from: 26, to: 26, subject: historia}
+  - {from: 27, to: 28, subject: geografia}
+  - {from: 29, to: 29, subject: historia}
+  - {from: 30, to: 30, subject: geografia}
 evidence:
   source: cebraspe
   contest:

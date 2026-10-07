@@ -1,7 +1,4 @@
-# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_SE_18_DELEGADO.
-# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
-# `emmoni manifests approve pcse-2018` e ajuste o manifesto aprovado (disciplinas por faixa,
-# nomes, `first_number`) antes de ingerir.
+# pcse-2018: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 contest: pcse-2018
 name: Polícia Civil do estado de Sergipe
 agency: pcse
@@ -13,9 +10,33 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
   positions:
   - delegado
+  first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/CONHECIMENTOS_ESPECFICOS_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/GAB_DEFINITIVO_MATRIZ_414_PCSE_001_00.PDF
+  subjects_by_range:
+  - {from: 31, to: 42, subject: direito-administrativo}
+  - {from: 43, to: 52, subject: direito-constitucional}
+  - {from: 53, to: 55, subject: direito-processual-civil}
+  - {from: 56, to: 57, subject: direito-civil}
+  - {from: 58, to: 58, subject: direito-empresarial}
+  - {from: 59, to: 59, subject: direito-do-consumidor}
+  - {from: 60, to: 62, subject: direito-processual-civil}
+  - {from: 63, to: 64, subject: direito-do-consumidor}
+  - {from: 65, to: 65, subject: direito-civil}
+  - {from: 66, to: 67, subject: direito-empresarial}
+  - {from: 68, to: 69, subject: direito-civil}
+  - {from: 70, to: 72, subject: direito-empresarial}
+  - {from: 73, to: 77, subject: direito-processual-penal}
+  - {from: 78, to: 96, subject: direito-penal}
+  - {from: 97, to: 108, subject: legislacao-penal-especial}
+  - {from: 109, to: 116, subject: direito-ambiental}
+  - {from: 117, to: 122, subject: direito-eleitoral}
+  - {from: 123, to: 124, subject: direito-empresarial}
+  - {from: 125, to: 125, subject: direito-tributario}
+  - {from: 126, to: 128, subject: legislacao-penal-especial}
+  - {from: 129, to: 140, subject: criminologia}
+  - {from: 141, to: 150, subject: medicina-legal}
 - slug: conhecimentos-gerais
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS
   positions:
@@ -23,6 +44,11 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/CONHECIMENTOS_GERAIS_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/GAB_DEFINITIVO_MATRIZ_414_PCSE_CG1.PDF
+  subjects_by_range:
+  - {from: 1, to: 14, subject: lingua-portuguesa}
+  - {from: 15, to: 24, subject: legislacao-estadual}
+  - {from: 25, to: 26, subject: historia}
+  - {from: 27, to: 30, subject: geografia}
 evidence:
   source: cebraspe
   contest:
