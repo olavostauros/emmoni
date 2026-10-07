@@ -960,21 +960,31 @@
   "suggested_topic": "Crimes contra a Administração Pública (descaminho)"
  },
  "103": {
-  "topics": [],
-  "suggested_topic": "Prisão em flagrante (processo penal)"
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "104": {
   "topics": [
    {
-    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
-    "confidence": 0.65
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Prisão em flagrante (processo penal)"
+  "suggested_topic": ""
  },
  "105": {
-  "topics": [],
-  "suggested_topic": "Prisão em flagrante (processo penal)"
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "106": {
   "topics": [

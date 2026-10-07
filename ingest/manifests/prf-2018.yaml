@@ -25,7 +25,9 @@ exams:
       - {from: 51, to: 90, subject: legislacao-de-transito}
       - {from: 91, to: 95, subject: direito-administrativo}
       - {from: 96, to: 100, subject: direito-constitucional}
-      - {from: 101, to: 107, subject: direito-penal}
+      - {from: 101, to: 102, subject: direito-penal}             # descaminho
+      - {from: 103, to: 105, subject: direito-processual-penal}  # prisão em flagrante
+      - {from: 106, to: 107, subject: direito-penal}             # legalidade
       - {from: 108, to: 108, subject: legislacao-penal-especial}  # tráfico
       - {from: 109, to: 110, subject: direito-processual-penal}
       - {from: 111, to: 115, subject: legislacao-penal-especial}
