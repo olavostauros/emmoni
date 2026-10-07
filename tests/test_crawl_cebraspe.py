@@ -14,12 +14,17 @@ import pytest
 
 from ingest import catalog, crawl, manifest, sources
 from ingest.crawlers import cebraspe
-from ingest.crawlers.http import PoliteClient
+from ingest.crawlers.http import CrawlError, PoliteClient
 from ingest.sources import Source
 from tests.factories import scalar
 
 FIXTURES = Path(__file__).resolve().parent.parent / "fixtures/crawl/cebraspe"
-MANUAL = sorted(manifest.MANIFESTS_DIR.glob("*.yaml"))
+# Manifestos aprovados cujo evento tem fixture: o crawler deve redescobri-los a partir dela.
+MANUAL = sorted(
+    path
+    for path in manifest.MANIFESTS_DIR.glob("*.yaml")
+    if (FIXTURES / f"{(manifest.load(path).source_url or '').rsplit('/', 1)[-1]}.json").exists()
+)
 Conn = psycopg.Connection[tuple[object, ...]]
 T0 = datetime.datetime(2026, 10, 7, 12, tzinfo=datetime.UTC)
 
@@ -44,6 +49,9 @@ T0 = datetime.datetime(2026, 10, 7, 12, tzinfo=datetime.UTC)
         ("PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA - CARGO 14", None),
         ("PROVA DISCURSIVA - Delegado de Polícia Federal", None),
         ("PROVA DE DIGITAÇÃO - CARGO DE ESCRIVÃO", None),
+        ("Caderno de provas - Conhecimentos Básicos - cargo 2: escrivão de polícia", "exam"),
+        ("PROVA OBJETIVA (P1) - CARGO 2 - SEM EFEITO", None),
+        ("PROVA OBJETIVA - CURSO DE INSTRUÇÃO", None),
         ("Edital nº 23 - Resultado provisório na prova de capacidade física", None),
     ],
 )
@@ -65,6 +73,10 @@ def test_classify_file(description: str, kind: str | None) -> None:
         ("PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS ", "(P1)"),
         ("PROVA OBJETIVA", ""),
         ("GABARITO DEFINITIVO - ITENS DE 9 A 120", "ITENS DE 9 A 120"),
+        (
+            "Caderno de provas - Conhecimentos Básicos - soldado combatente",
+            "CONHECIMENTOS BASICOS - SOLDADO COMBATENTE",
+        ),
     ],
 )
 def test_exam_label(description: str, label: str) -> None:
@@ -86,6 +98,52 @@ def test_cargo_numbers(label: str, numbers: set[int]) -> None:
     assert cebraspe.cargo_numbers(label) == frozenset(numbers)
 
 
+def _agency(slug: str) -> catalog.Agency:
+    found = catalog.agency_by_slug(catalog.load(), slug)
+    assert found is not None
+    return found
+
+
+@pytest.mark.parametrize(
+    ("text", "expected"),
+    [
+        ("Cargo 2: Soldado da Polícia Militar", ("soldado", 1.0)),
+        ("Cargo 1: Aluno-Praça", ("soldado", 0.9)),  # apelido (decisão 0008)
+        ("CARGO DE PRAÇA DA POLÍCIA MILITAR DO ESTADO DO PARÁ", ("soldado", 0.9)),
+        ("Cargo 1: Cadete", ("oficial", 0.9)),
+        ("Curso de Formação de Oficiais", ("oficial", 0.9)),
+        ("Soldado Combatente", ("soldado", 0.8)),  # primeira palavra do nome
+        ("Técnico de Enfermagem", None),
+    ],
+)
+def test_match_position_uses_aliases(text: str, expected: tuple[str, float] | None) -> None:
+    found = cebraspe.match_position(text, _agency("pmpa").positions)
+    assert (found and (found[0].slug, found[1])) == expected
+
+
+def test_shared_exam_goes_to_every_catalog_position() -> None:
+    cargos = {
+        1: "Cargo 1: Agente de Polícia",
+        2: "Cargo 2: Escrivão de Polícia",
+        3: "Cargo 3: Necrotomista",
+    }
+    shared = cebraspe.resolve_positions("CONHECIMENTOS GERAIS", cargos, _agency("pcse"))
+    assert (shared.slugs, shared.unmatched) == (["agente", "escrivao"], ["NECROTOMISTA"])
+    assert shared.evidence["confidence"] == pytest.approx(0.7)
+    everyone = cebraspe.resolve_positions(
+        "CONHECIMENTOS GERAIS PARA TODOS OS CARGOS", cargos, _agency("pcse")
+    )
+    assert everyone.slugs == ["agente", "escrivao"]
+    # Rótulo que nomeia um grupo de cargos fora do catálogo não é "para todos".
+    peritos = cebraspe.resolve_positions(
+        "CONHECIMENTOS BASICOS PARA TODOS OS CARGOS DE PERITO CRIMINAL FEDERAL",
+        {1: "Cargo 1: Delegado de Polícia Federal", 2: "Cargo 2: Perito Criminal Federal"},
+        _agency("pf"),
+    )
+    assert peritos.slugs == []
+    assert cebraspe.resolve_positions("TECNICO DE ENFERMAGEM", cargos, _agency("pcse")).slugs == []
+
+
 def _event(url: str, name: str, year: int | None = None) -> cebraspe._Event:
     return cebraspe._Event(eventoURL=url, eventoNomeAbreviado=name, eventoAno=year)
 
@@ -98,7 +156,10 @@ def _event(url: str, name: str, year: int | None = None) -> cebraspe._Event:
         ("PRF_18", "PRF 2018", 2018, "in_scope", "prf"),
         ("PC_DF_20_AGENTE", "PC_DF_20_AGENTE", 2020, "in_scope", "pcdf"),
         ("PF_25_ADM", "PF 25 ADM", 2025, "out_of_scope", None),  # cargos administrativos
-        ("PC_PE_26", "PC PE 26", 2026, "candidate_agency", None),
+        ("PC_PE_23", "PC PE 23", 2023, "in_scope", "pcpe"),  # decisão 0008
+        ("PM_TO_20_QPE", "PMTO QPE 2020", 2020, "in_scope", "pmto"),
+        ("CBMTO_21", "CBMTO 2021", 2021, "in_scope", "cbmto"),
+        ("DEPEN_20", "DEPEN 20", 2020, "in_scope", "depen"),
         ("SDS_PE_16_CIVIL", "SDS/PE POLÍCIA CIVIL 2016", 2016, "candidate_agency", None),
         ("TJ_CE_25_NOTARIOS", "TJ CE 25 NOTÁRIOS", 2025, "out_of_scope", None),
         ("PRF_XX", "PRF sem ano", None, "out_of_scope", None),
@@ -251,8 +312,33 @@ def test_proposes_new_police_contests_and_reports_candidates(
     assert [e.positions for e in pcdf.exams] == [["agente"], ["agente"]]
     assert pcdf.evidence["contest"]["agency"]["rule"] == "prefixo PC_DF da URL do evento"
     # Órgãos policiais fora do catálogo só vão para o relatório; o detalhe não é buscado.
-    assert {"PC", "PM", "CBM", "DEPEN"} <= set(report.candidate_agencies)
-    assert not any("PC_PE_26" in url for url in site.requested)
+    assert set(report.candidate_agencies) == {"SDS"}
+    assert not any("SDS_PE_16" in url for url in site.requested)
+    # Órgãos estaduais e polícia penal (decisão 0008): propostos a partir das fixtures.
+    # Slugs com sufixo: PM_PA_23_CFO/CFP, CBM_PA_23_CFO/CFP e PM_SC_23_OFICIAL/SOLDADO colidem.
+    assert {
+        "pcgo-2016",
+        "pmal-2017",
+        "pmma-2017",
+        "cbmto-2022",
+        "pmpa-2023-cfp",
+        "cbmpa-2023-cfp",
+        "pcpe-2023",
+        "pcse-2021",
+        "pcal-2021",
+        "depen-2020",
+        "pmsc-2023-soldado",
+        "pcce-2025",
+    } <= set(report.proposed)
+    assert "nenhuma prova" in report.without_proposal["pcal-2026"]  # só o edital até agora
+    pcgo = manifest.load(manifests_dir / "_pending" / "pcgo-2016.yaml")  # 'Caderno de provas'
+    assert len(pcgo.exams) == 6 and all(e.documents.answer_key_final for e in pcgo.exams)
+    cbmto = manifest.load(manifests_dir / "_pending" / "cbmto-2022.yaml")  # cadete, aluno-praça
+    assert {e.positions[0] for e in cbmto.exams} == {"oficial", "soldado"}
+    pcse = manifest.load(manifests_dir / "_pending" / "pcse-2021.yaml")
+    assert pcse.exam("conhecimentos-gerais").positions == ["agente", "escrivao"]
+    pcpe = manifest.load(manifests_dir / "_pending" / "pcpe-2023.yaml")
+    assert not any("sem-efeito" in e.slug for e in pcpe.exams)
     # Fora do escopo: cargos administrativos e órgãos não policiais, com motivo gravado.
     reason = scalar(
         tx,
@@ -334,6 +420,29 @@ def test_recrawl_follows_the_source_policy(run: tuple[Runner, FakeSite, Path]) -
     fetched = {u.rsplit("/", 1)[-1] for u in site.requested if "eventos/" in u}
     assert "PF_25" in fetched
     assert "PF_21" not in fetched  # encerrado: never
+
+
+def test_placeholder_contact_aborts_before_touching_state(tx: Conn, tmp_path: Path) -> None:
+    """Erro de configuração não é erro da página: nada é gravado em crawl.page."""
+    site = FakeSite()
+
+    def bad_client() -> PoliteClient:
+        return PoliteClient(site.listed, "contato@exemplo.com", transport=httpx.MockTransport(site))
+
+    with pytest.raises(CrawlError, match="EMMONI_CRAWL_CONTACT"):
+        crawl.run_source(
+            site.source,
+            cebraspe.crawler,
+            catalog.load(),
+            tx,
+            data_dir=tmp_path / "data",
+            manifests_dir=tmp_path / "manifests",
+            client_factory=bad_client,
+            now=lambda: T0,
+            log=lambda _: None,
+        )
+    assert scalar(tx, "select count(*) from crawl.page") == 0
+    assert site.requested == []
 
 
 def test_blocked_host_stops_without_proposals(tx: Conn, tmp_path: Path) -> None:

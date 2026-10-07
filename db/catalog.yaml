@@ -39,3 +39,308 @@ agencies:
       - {slug: delegado, name: Delegado de Polícia, education_level: superior}
       - {slug: agente, name: Agente de Polícia, education_level: superior}
       - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+
+  # Órgãos estaduais vistos pelo crawler do Cebraspe (decisão 0008). Entram para que o crawler
+  # busque o detalhe dos concursos e proponha manifestos; a ingestão continua manual.
+  - slug: pcal
+    name: Polícia Civil do Estado de Alagoas
+    short_name: PCAL
+    career: policia_civil
+    level: estadual
+    state: AL
+    aliases: [PC_AL, PCAL]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcce
+    name: Polícia Civil do Estado do Ceará
+    short_name: PCCE
+    career: policia_civil
+    level: estadual
+    state: CE
+    aliases: [PC_CE, PCCE]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pces
+    name: Polícia Civil do Estado do Espírito Santo
+    short_name: PCES
+    career: policia_civil
+    level: estadual
+    state: ES
+    aliases: [PC_ES, PCES]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcgo
+    name: Polícia Civil do Estado de Goiás
+    short_name: PCGO
+    career: policia_civil
+    level: estadual
+    state: GO
+    aliases: [PC_GO, PCGO]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcma
+    name: Polícia Civil do Estado do Maranhão
+    short_name: PCMA
+    career: policia_civil
+    level: estadual
+    state: MA
+    aliases: [PC_MA, PCMA]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcmg
+    name: Polícia Civil do Estado de Minas Gerais
+    short_name: PCMG
+    career: policia_civil
+    level: estadual
+    state: MG
+    aliases: [PC_MG, PCMG]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcpb
+    name: Polícia Civil do Estado da Paraíba
+    short_name: PCPB
+    career: policia_civil
+    level: estadual
+    state: PB
+    aliases: [PC_PB, PCPB]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcpe
+    name: Polícia Civil do Estado de Pernambuco
+    short_name: PCPE
+    career: policia_civil
+    level: estadual
+    state: PE
+    aliases: [PC_PE, PCPE]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcrj
+    name: Polícia Civil do Estado do Rio de Janeiro
+    short_name: PCRJ
+    career: policia_civil
+    level: estadual
+    state: RJ
+    aliases: [PC_RJ, PCRJ]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcro
+    name: Polícia Civil do Estado de Rondônia
+    short_name: PCRO
+    career: policia_civil
+    level: estadual
+    state: RO
+    aliases: [PC_RO, PCRO]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcse
+    name: Polícia Civil do Estado de Sergipe
+    short_name: PCSE
+    career: policia_civil
+    level: estadual
+    state: SE
+    aliases: [PC_SE, PCSE]
+    positions:
+      - {slug: delegado, name: Delegado de Polícia, education_level: superior}
+      - {slug: agente, name: Agente de Polícia, education_level: superior}
+      - {slug: escrivao, name: Escrivão de Polícia, education_level: superior}
+      - {slug: investigador, name: Investigador de Polícia, education_level: superior}
+      - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pmal
+    name: Polícia Militar de Alagoas
+    short_name: PMAL
+    career: policia_militar
+    level: estadual
+    state: AL
+    aliases: [PM_AL, PMAL]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: pmdf
+    name: Polícia Militar do Distrito Federal
+    short_name: PMDF
+    career: policia_militar
+    level: distrital
+    state: DF
+    aliases: [PM_DF, PMDF]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: pmma
+    name: Polícia Militar do Maranhão
+    short_name: PMMA
+    career: policia_militar
+    level: estadual
+    state: MA
+    aliases: [PM_MA, PMMA]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: pmpa
+    name: Polícia Militar do Pará
+    short_name: PMPA
+    career: policia_militar
+    level: estadual
+    state: PA
+    aliases: [PM_PA, PMPA]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: pmro
+    name: Polícia Militar de Rondônia
+    short_name: PMRO
+    career: policia_militar
+    level: estadual
+    state: RO
+    aliases: [PM_RO, PMRO]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: pmsc
+    name: Polícia Militar de Santa Catarina
+    short_name: PMSC
+    career: policia_militar
+    level: estadual
+    state: SC
+    aliases: [PM_SC, PMSC]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: pmto
+    name: Polícia Militar do Tocantins
+    short_name: PMTO
+    career: policia_militar
+    level: estadual
+    state: TO
+    aliases: [PM_TO, PMTO]
+    positions:
+      - {slug: soldado, name: Soldado da Polícia Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial da Polícia Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: cbmal
+    name: Corpo de Bombeiros Militar de Alagoas
+    short_name: CBMAL
+    career: bombeiro_militar
+    level: estadual
+    state: AL
+    aliases: [CBM_AL, CBMAL]
+    positions:
+      - {slug: soldado, name: Soldado Bombeiro Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial Bombeiro Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: cbmma
+    name: Corpo de Bombeiros Militar do Maranhão
+    short_name: CBMMA
+    career: bombeiro_militar
+    level: estadual
+    state: MA
+    aliases: [CBM_MA, CBMMA]
+    positions:
+      - {slug: soldado, name: Soldado Bombeiro Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial Bombeiro Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: cbmpa
+    name: Corpo de Bombeiros Militar do Pará
+    short_name: CBMPA
+    career: bombeiro_militar
+    level: estadual
+    state: PA
+    aliases: [CBM_PA, CBMPA]
+    positions:
+      - {slug: soldado, name: Soldado Bombeiro Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial Bombeiro Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: cbmro
+    name: Corpo de Bombeiros Militar de Rondônia
+    short_name: CBMRO
+    career: bombeiro_militar
+    level: estadual
+    state: RO
+    aliases: [CBM_RO, CBMRO]
+    positions:
+      - {slug: soldado, name: Soldado Bombeiro Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial Bombeiro Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: cbmto
+    name: Corpo de Bombeiros Militar do Tocantins
+    short_name: CBMTO
+    career: bombeiro_militar
+    level: estadual
+    state: TO
+    aliases: [CBM_TO, CBMTO]
+    positions:
+      - {slug: soldado, name: Soldado Bombeiro Militar, education_level: medio, aliases: [PRACA, PRACAS]}
+      - {slug: oficial, name: Oficial Bombeiro Militar, education_level: superior, aliases: [OFICIAIS, CFO, CADETE, ASPIRANTE, TENENTE]}
+  - slug: depen
+    name: Departamento Penitenciário Nacional
+    short_name: DEPEN
+    career: policia_penal
+    level: federal
+    aliases: [DEPEN]
+    positions:
+      - {slug: agente, name: Agente Federal de Execução Penal, education_level: superior}
+  - slug: seapma
+    name: Secretaria de Estado de Administração Penitenciária do Maranhão
+    short_name: SEAP-MA
+    career: policia_penal
+    level: estadual
+    state: MA
+    aliases: [SEAP_MA]
+    positions:
+      - {slug: policial-penal, name: Policial Penal, education_level: superior}

@@ -1,0 +1,111 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/DEPEN_20.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve depen-2020` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: depen-2020
+name: DEPEN 2020
+agency: depen
+exam_board: cebraspe
+year: 2020
+source_url: https://www.cebraspe.org.br/concursos/DEPEN_20
+exams:
+- slug: agente
+  name: PROVA OBJETIVA - CARGO 8
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_008_00.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_008_00.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/DEPEN_20
+    link_text: DEPEN 20
+    event: DEPEN_20
+    agency:
+      value: depen
+      confidence: 1.0
+      rule: prefixo DEPEN da URL do evento
+    year:
+      value: 2020
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    agente:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente Federal de Execução Penal' aparece em 'AGENTE FEDERAL
+          DE EXECUCAO PENAL'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_008_00.PDF
+          link_text: PROVA OBJETIVA - CARGO 8
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_008_00.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 8
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped:
+  - label: CARGO 1
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_001_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: ENFERMAGEM'
+  - label: CARGO 2
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_002_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: MEDICO CLINICO'
+  - label: CARGO 3
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_003_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: MEDICO PSIQUIATRA'
+  - label: CARGO 4
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_004_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: ODONTOLOGIA'
+  - label: CARGO 5
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_005_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: PSICOLOGIA'
+  - label: CARGO 6
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_006_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: SERVICO SOCIAL'
+  - label: CARGO 7
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_007_00.PDF
+    reason: 'cargo fora do catálogo: ESPECIALISTA FEDERAL EM ASSISTENCIA A EXECUCAO PENAL - AREA: TERAPIA OCUPACIONAL'
+  - label: CONHECIMENTOS BASICOS PARA TODOS OS CARGOS DE NIVEL SUPERIOR
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CB1_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS BASICOS PARA O CARGO DE NIVEL MEDIO
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CB2_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 1
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_001_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 2
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_002_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 3
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_003_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 4
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_004_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 5
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_005_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 6
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_006_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 7
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_007_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS COMPLEMENTARES - CARGOS DE NIVEL SUPERIOR
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG1_00.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS COMPLEMENTARES - CARGO DE NIVEL MEDIO
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG2_00.PDF
+    reason: gabarito sem prova correspondente

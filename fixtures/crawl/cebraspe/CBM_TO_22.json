@@ -1,0 +1,302 @@
+{
+ "eventoURL": "CBM_TO_22",
+ "eventoNomeAbreviado": "CBM TO 22",
+ "eventoNomeCompleto": "CORPO DE BOMBEIROS MILITAR DO TOCANTINS",
+ "eventoAno": 2022,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "CARGO 1: CADETE"
+  },
+  {
+   "idArea": "02",
+   "area": "CARGO 2: ALUNO-PRAÇA"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "ED_26_2022_CBMTO_RES_FINAL_AV_SAUDE_E_INVESTIGACAO.PDF",
+   "descricaoArquivo": "Edital nº 26 – Resultado definitivo na avaliação médica e odontológica e na investigação social e da vida pregressa de candidato sub judice.",
+   "dataArquivoObj": "2024-02-22T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_25_2022_CBMTO_RES_FINAL_AV_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 25 – Resultado definitivo na avaliação médica e odontológica e na investigação social e da vida pregressa de candidato sub judice",
+   "dataArquivoObj": "2023-12-27T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_24_2022_CBM_TO_INC_SUB_JUDICE_PSICO_CONV_SAUDE_SAVIO.PDF",
+   "descricaoArquivo": "Edital nº 24 – Inclusão de candidato sub judice e convocação do referido candidato sub judice para a avaliação de saúde, bem como os procedimentos para a realização da fase.",
+   "dataArquivoObj": "2023-12-08T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_23_2022_CBMTO_INC_SUB_JUDICE_INVESTIGAO_SOCIAL.PDF",
+   "descricaoArquivo": "Edital nº 23 – Inclusão de candidatos sub judice no resultado definitivo da investigação social e da vida pregressa.",
+   "dataArquivoObj": "2023-12-06T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_DIRIO.PDF",
+   "descricaoArquivo": "COMUNICADO - Em razão de inconsistências ocorridas na publicação do Edital nº 22 – CBMTO, de 9 de outubro de 2023, na edição n° 6428 do Diário Oficial do Estado do Tocantins, comunica que o referido edital será republicado.",
+   "dataArquivoObj": "2023-10-11T17:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_2022_CBMTO_RES_FINAL_COM_NOTAS_CORRIGIDO.PDF",
+   "descricaoArquivo": "Edital nº 22 – Resultado final do concurso público.",
+   "dataArquivoObj": "2023-10-11T10:46:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_2022_CBMTO_RES_FINAL_INVESTIGAO.PDF",
+   "descricaoArquivo": "Edital nº 21 – Resultado definitivo da investigação social e da vida pregressa.",
+   "dataArquivoObj": "2023-10-11T10:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_2022_CBMTO_RES_PROV_INVESTIGAO.PDF",
+   "descricaoArquivo": "Edital nº 20 - Inclusão de candidato no resultado provisório da investigação social e da vida pregressa.",
+   "dataArquivoObj": "2023-09-20T14:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_2022_CBMTO_RES_PROV_INVESTIGAO.PDF",
+   "descricaoArquivo": "Edital nº 19 - Resultado Provisório da Investigação Social e da Vida Pregressa",
+   "dataArquivoObj": "2023-09-20T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_2022_CBMTO_RES_FINAL_AV_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 18 - Resultado definitivo dos candidatos sub judice na Avaliação Médica e Odontológica.",
+   "dataArquivoObj": "2023-09-19T10:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_2022_CBM_TO_INC_SUB_JUDICE_PSICO_CONV_SAUDE_VARIOS.PDF",
+   "descricaoArquivo": "Edital nº 17 – Inclusão de candidatos sub judice no resultado final na avaliação psicológica, mediante a inclusão dos subitens 1.1.1.2.1.1 e 1.1.1.4.1.1 no Edital nº 12 – CBMTO, de 14 de julho de 2023 e convocação de candidato sub judice para a avaliação de saúde.",
+   "dataArquivoObj": "2023-09-11T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_2022_CBMTO_RES_FINAL_AV_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 16 – Resultado definitivo na avaliação médica e odontológica",
+   "dataArquivoObj": "2023-08-31T16:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_2022_CBMTO_RES_PROV_AV_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 15 – Resultado provisório na avaliação médica e odontológica, referente ao concurso público para o ingresso de bombeiros militares no Curso de Formação de Oficiais (CFO) e no Curso de Formação de Praças (CFP).",
+   "dataArquivoObj": "2023-08-16T16:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_2022_CBM_TO_CONV_SUB_JUDICE_PSICO_DIOGO_HERICK_JEANN_MATHEUS_PEDRO.PDF",
+   "descricaoArquivo": "Edital nº 14 – Convocação de candidatos sub judice para a avaliação psicológica.",
+   "dataArquivoObj": "2023-08-09T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13_2022_CBM_TO_CONVOCA_CANDIDATO_PARA_AVALIAO_DE_SADE.PDF",
+   "descricaoArquivo": "Edital nº 13 – Convocação para avaliação de saúde",
+   "dataArquivoObj": "2023-08-03T16:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_FIS.PDF",
+   "descricaoArquivo": "Comunicado – Informações constantes do Formulário de Investigação Social",
+   "dataArquivoObj": "2023-07-20T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_2022_CBM_TO_RES_FINAL_PSI_CONV_MD.PDF",
+   "descricaoArquivo": "Edital nº 12 – Resultado final na avaliação psicológica e convocação para a avaliação de saúde",
+   "dataArquivoObj": "2023-07-14T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_DATA..PDF",
+   "descricaoArquivo": "Comunicado – Edital de resultado final na avaliação psicológica e convocação para a avaliação de saúde",
+   "dataArquivoObj": "2023-07-13T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_2022_CBM_TO_RES_PROV_PSI.PDF",
+   "descricaoArquivo": "Edital nº 11 – Resultado provisório na avaliação psicológica",
+   "dataArquivoObj": "2023-06-20T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_2022_CBM_TO_INFORMAES_COMP.AVALIAO_SADE.PDF",
+   "descricaoArquivo": "Edita nº 10 - Informações complementares sobre a avaliação de saúde",
+   "dataArquivoObj": "2023-06-15T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FORMULRIO_PARA_INGRESSO_2023.PDF",
+   "descricaoArquivo": "FORMULÁRIO DE INVESTIGAÇÃO SOCIAL",
+   "dataArquivoObj": "2023-05-26T18:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_2022_CBM_TO_RES_FINAL_CAP_FSICA_CONV_PSI.PDF",
+   "descricaoArquivo": "Edital nº 9 – Resultado final na prova de capacidade física e convocação para a avaliação psicológica e entrega do formulário para fins de investigação social e de vida pregressa",
+   "dataArquivoObj": "2023-05-26T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_2022_CBM_TO_RES_PROV_CAP_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 8 – Resultado provisório na prova de capacidade física",
+   "dataArquivoObj": "2023-05-12T10:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_2022_CBM_TO_RES_FINAL_DISC_CONV_CAP_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 7 – Resultado final na prova discursiva e convocação para a prova de capacidade física",
+   "dataArquivoObj": "2023-04-20T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_DATA.PDF",
+   "descricaoArquivo": "Comunicado – Prova de capacidade física",
+   "dataArquivoObj": "2023-04-17T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_TO_22_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2023-04-11T19:52:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_2022_CBM_TO_RES_FINAL_OBJ_PROV_DISC.PDF",
+   "descricaoArquivo": "Edital nº 6 – Resultado final na prova objetiva e resultado provisório na prova discursiva",
+   "dataArquivoObj": "2023-04-04T11:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_PRORROGAO.PDF",
+   "descricaoArquivo": "Comunicado – Prorrogação do prazo para a interposição de recursos",
+   "dataArquivoObj": "2023-03-16T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_TO_22___DEMANDA_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda candidatos por vaga",
+   "dataArquivoObj": "2023-03-06T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_2022_CBM_TO_LOCAIS_E_HORRIOS.PDF",
+   "descricaoArquivo": "Edital nº 5 – Locais de aplicação da prova objetiva e discursiva",
+   "dataArquivoObj": "2023-03-02T10:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_2022_CBM_TO_DEVOLUO.PDF",
+   "descricaoArquivo": "Edital nº 4 – Procedimentos para a solicitação da devolução do valor referente à TSE",
+   "dataArquivoObj": "2023-02-28T11:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_TO_REL_FINAL_INSCRI_DEF.PDF",
+   "descricaoArquivo": "Relação final dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2023-02-24T09:19:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_TO_REL_PROV_INSCRI_DEF.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2023-02-17T12:08:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_DATA_OPORTUNA.PDF",
+   "descricaoArquivo": "Comunicado – Relação provisória dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2023-02-16T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_3_2022_CBM_TO_RET_DATA_PAGAMENTO.PDF",
+   "descricaoArquivo": "Edital nº 3 – Reabertura do prazo para o pagamento da taxa de inscrição",
+   "dataArquivoObj": "2023-02-09T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_DEVOLUO.PDF",
+   "descricaoArquivo": "Comunicado – Devolução da Taxa de Serviços Estaduais – TSE cobrada no boleto de pagamento da inscrição",
+   "dataArquivoObj": "2023-02-03T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBMTO_2022_COMUNICADO_DARE.PDF",
+   "descricaoArquivo": "Comunicado – Documento de Arrecadação de Receita Estadual (DARE)",
+   "dataArquivoObj": "2022-12-21T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_2_2022_CBM_TO_RET_INC_ISENO_TAXA.PDF",
+   "descricaoArquivo": "Edital nº 2 – Inclusão do subitem 5.4.10.2.3 no Edital nº 1, bem como a retificação dos  subitens 5.4.10, 5.4.10.2, 5.4.10.3, 5.4.10.3.1, 6.1.1 e 6.1.2 do referido edital",
+   "dataArquivoObj": "2022-12-21T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_2022_CBM_TO_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2022-12-16T11:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "PADRAORESPOSTA_DEFINITIVO_CARGO1.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA - PROVA DISCURSIVA - CARGO 1",
+   "dataArquivoObj": "2023-04-04T12:44:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PADRAORESPOSTA_DEFINITIVO_CARGO2.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA - PROVA DISCURSIVA - CARGO 2",
+   "dataArquivoObj": "2023-04-04T12:44:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_795_CBM_TO_002_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CARGO 2",
+   "dataArquivoObj": "2023-04-04T12:43:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_795_CBM_TO_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CARGO 1",
+   "dataArquivoObj": "2023-04-04T12:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "795_CBM_TO_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CARGO 1",
+   "dataArquivoObj": "2023-03-17T10:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "795_CBM_TO_002_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CARGO 2",
+   "dataArquivoObj": "2023-03-17T10:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "795_CBM_TO_NS_DISC___CARGO_1.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 1",
+   "dataArquivoObj": "2023-03-14T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "795_CBM_TO_NM_DISC___CARGO_2.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 2",
+   "dataArquivoObj": "2023-03-14T19:00:00",
+   "isGuid": false
+  }
+ ]
+}

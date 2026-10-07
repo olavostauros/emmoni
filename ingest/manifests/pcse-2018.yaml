@@ -1,0 +1,84 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_SE_18_DELEGADO.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcse-2018` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcse-2018
+name: Polícia Civil do estado de Sergipe
+agency: pcse
+exam_board: cebraspe
+year: 2018
+source_url: https://www.cebraspe.org.br/concursos/PC_SE_18_DELEGADO
+exams:
+- slug: conhecimentos-especificos
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/CONHECIMENTOS_ESPECFICOS_MATRIZ.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/GAB_DEFINITIVO_MATRIZ_414_PCSE_001_00.PDF
+- slug: conhecimentos-gerais
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/CONHECIMENTOS_GERAIS_MATRIZ.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/GAB_DEFINITIVO_MATRIZ_414_PCSE_CG1.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_SE_18_DELEGADO
+    link_text: PC/SE DELEGADO 2018
+    event: PC_SE_18_DELEGADO
+    agency:
+      value: pcse
+      confidence: 1.0
+      rule: prefixo PC_SE da URL do evento
+    year:
+      value: 2018
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos:
+      positions:
+        value:
+        - delegado
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Delegado de Polícia' aparece em 'DELEGADO DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/CONHECIMENTOS_ESPECFICOS_MATRIZ.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/GAB_DEFINITIVO_MATRIZ_414_PCSE_001_00.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais:
+      positions:
+        value:
+        - delegado
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Delegado de Polícia' aparece em 'DELEGADO DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/CONHECIMENTOS_GERAIS_MATRIZ.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_18_DELEGADO/arquivos/GAB_DEFINITIVO_MATRIZ_414_PCSE_CG1.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA - CONHECIMENTOS GERAIS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

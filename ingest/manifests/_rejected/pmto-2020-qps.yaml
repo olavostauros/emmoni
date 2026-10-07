@@ -1,0 +1,87 @@
+# Proposta rejeitada; o crawler não volta a propor este concurso.
+contest: pmto-2020-qps
+name: POLÍCIA MILITAR DO ESTADO DO TOCANTINS
+agency: pmto
+exam_board: cebraspe
+year: 2020
+source_url: https://www.cebraspe.org.br/concursos/PM_TO_20_QPS
+exams:
+- slug: tecnico-de-enfermagem
+  name: PROVA OBJETIVA - TÉCNICO DE ENFERMAGEM
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/MATRIZ_574PMTO003.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/GAB_DEFINITIVO_MATRIZ_574PMTO003.PDF
+- slug: tecnico-de-saude-bucal
+  name: PROVA OBJETIVA - TÉCNICO DE SAÚDE BUCAL
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/MATRIZ_574PMTO004.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/GAB_DEFINITIVO_MATRIZ_574PMTO004.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PM_TO_20_QPS
+    link_text: PMTO QPS 2020
+    event: PM_TO_20_QPS
+    agency:
+      value: pmto
+      confidence: 1.0
+      rule: prefixo PM_TO da URL do evento
+    year:
+      value: 2020
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    tecnico-de-enfermagem:
+      positions:
+        value:
+        - soldado
+        confidence: 0.5599999999999999
+        rule: 'prova sem cargo citado: todos os cargos do concurso que estão no catálogo; ''SOLDADO'' (de ''Soldado
+          da Polícia Militar'') aparece em ''ALUNO-SOLDADO DO QPS - TECNICO EM ENFERMAGEM'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/MATRIZ_574PMTO003.PDF
+          link_text: PROVA OBJETIVA - TÉCNICO DE ENFERMAGEM
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/GAB_DEFINITIVO_MATRIZ_574PMTO003.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA - TÉCNICO DE ENFERMAGEM
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    tecnico-de-saude-bucal:
+      positions:
+        value:
+        - soldado
+        confidence: 0.5599999999999999
+        rule: 'prova sem cargo citado: todos os cargos do concurso que estão no catálogo; ''SOLDADO'' (de ''Soldado
+          da Polícia Militar'') aparece em ''ALUNO-SOLDADO DO QPS - TECNICO EM ENFERMAGEM'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/MATRIZ_574PMTO004.PDF
+          link_text: PROVA OBJETIVA - TÉCNICO DE SAÚDE BUCAL
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPS/arquivos/GAB_DEFINITIVO_MATRIZ_574PMTO004.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA - TÉCNICO DE SAÚDE BUCAL
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []
+rejected:
+  reason: 'proposta antiga de regra já corrigida: técnicos de enfermagem e saúde bucal não são cargos policiais'
+  by: olavostauros
+  at: '2026-10-07T22:46:15+00:00'

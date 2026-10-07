@@ -175,9 +175,12 @@ class Fetcher:
     def _fetch(
         self, url: str, policy: Policy, state: _PageState, cached: bytes | None
     ) -> bytes | None:
+        # Erro de configuração (contato do User-Agent) aborta a execução: não é erro da página e
+        # não pode gastar o `next_fetch_at` dela.
+        client = self._client_or_open()
         self.requests += 1
         try:
-            response = self._client_or_open().get(
+            response = client.get(
                 url,
                 etag=state.etag if cached is not None else None,
                 last_modified=state.last_modified if cached is not None else None,

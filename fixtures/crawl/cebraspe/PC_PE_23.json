@@ -1,0 +1,642 @@
+{
+ "eventoURL": "PC_PE_23",
+ "eventoNomeAbreviado": "PC PE 23",
+ "eventoNomeCompleto": "POLÍCIA CIVIL DE PERNAMBUCO (PC/PE)",
+ "eventoAno": 2023,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "CARGO 1: AGENTE DE POLÍCIA"
+  },
+  {
+   "idArea": "02",
+   "area": "CARGO 2: DELEGADO DE POLÍCIA"
+  },
+  {
+   "idArea": "03",
+   "area": "CARGO 3: ESCRIVÃO DE POLÍCIA"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "99294EAEAF263CD58F5574D65B296BC70078C5FD8A651F4794B07E4C399D2C1A.pdf",
+   "descricaoArquivo": "Edital nº 64 - Inclusão de candidatos sub judice.",
+   "dataArquivoObj": "2026-10-02T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "86EE9E04826FAC22FA34558B5C8E55B26A10AC7C355C07E0F5ED2ED1A1BE3639.html",
+   "descricaoArquivo": "Edital nº 63 - Convocação de candidata sub judice para a matrícula no Curso de Formação Profissional - em VLibras",
+   "dataArquivoObj": "2026-09-10T18:15:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5E9A3FCD3C45081475D824A72A26963F9B982DD8E31F18CA32694C25110F6835.pdf",
+   "descricaoArquivo": "Edital nº 63 - Convocação de candidata sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2026-09-10T18:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4B7DF56540963DDA15B0049BFB6D0FF1B1E68AF1EAB25B4F7D3F61090918439D.html",
+   "descricaoArquivo": "Edital nº 62 – Inclusão de candidato no resultado final na segunda etapa – Curso de Formação Profissional – 2ª Turma e no resultado final no concurso público – 2ª Turma, divulgados por meio dos subitens 1.1.3 e 2.1.3 do Edital nº 58 - em VLibras",
+   "dataArquivoObj": "2026-09-04T15:10:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DC66CB67A1539091A6D83B0BE1259B79FF49BD33D350B19C9B18D421B39109EE.pdf",
+   "descricaoArquivo": "Edital nº 62 – Inclusão de candidato no resultado final na segunda etapa – Curso de Formação Profissional – 2ª Turma e no resultado final no concurso público – 2ª Turma, divulgados por meio dos subitens 1.1.3 e 2.1.3 do Edital nº 58",
+   "dataArquivoObj": "2026-09-04T15:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FBD91F18A966B01174CE0348C3D19EACA4FD1CD1A72B034B713B346BB0C0F228.html",
+   "descricaoArquivo": "Edital nº 61 - Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional - em VLibras",
+   "dataArquivoObj": "2026-08-18T18:10:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "D65B3DCD368F6F9E5FD5AB02B32ECD491A2F66EFCD8158AB9E20C0AB63F5CD8E.pdf",
+   "descricaoArquivo": "Edital nº 61 - Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2026-08-18T18:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "6B171BAA64E5FA65E749FDA2338AE87D39C880A1BAC737827C560EA0B56A04E5.pdf",
+   "descricaoArquivo": "Edital nº 60 – Convocação de candidata sub judice, para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-08-04T11:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5AB91DF89ACE63A91AE84D18BB1FAE4700711A47D13DF2066C93A85E7D190FEB.pdf",
+   "descricaoArquivo": "Edital nº 59 - Convocação de candidato sub judice, inscrito sob o nº 10054227, para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-06-30T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "01444C6D5E495164F238DAA0B9D1BF5717E649C860B686A1F0A8F0D352D450DC.html",
+   "descricaoArquivo": "Edital nº 58 - Resultado final na segunda etapa – Curso de Formação Profissional – 2ª Turma e o resultado final no concurso público – 2ª Turma - em VLibras",
+   "dataArquivoObj": "2026-06-12T18:05:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "18F28CDFFD30DA3FD381EC6029D7BAF681B010791A0584B7DB4AAD2B1EE9C1D0.pdf",
+   "descricaoArquivo": "Edital nº 58 - Resultado final na segunda etapa – Curso de Formação Profissional – 2ª Turma e o resultado final no concurso público – 2ª Turma",
+   "dataArquivoObj": "2026-06-12T18:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "2DCD9B5B1C983861E8DA9F56131E641E40CFE7F1EA8F0D1652EA5E4F31285829.html",
+   "descricaoArquivo": "Edital nº 57 - Substitui o cronograma constante no Edital nº 56 SAD/SDS/PE, tornando-o sem efeito - em VLibras",
+   "dataArquivoObj": "2026-06-09T12:16:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5DC4B0997E9A28716ECA70AF185CC1E34E987E78E5D9E0BF3D9457BA3A03F8DA.pdf",
+   "descricaoArquivo": "Edital nº 57 - Substitui o cronograma constante no Edital nº 56 SAD/SDS/PE, tornando-o sem efeito",
+   "dataArquivoObj": "2026-06-09T12:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EAADDFE0EF3F2DC5710D17EC6053696E3E18DC6BE1E443D84AF4563A300583DC.html",
+   "descricaoArquivo": "Edital nº 56 - Cronograma do concurso público para provimento de vagas nos cargos de Delegado de Polícia, Escrivão de Polícia e Agente de Polícia, do Grupo Ocupacional Policial Civil da Secretaria de Defesa Social do Estado de Pernambuco (SDS/PE) – referente à Turma 2 - em VLibras",
+   "dataArquivoObj": "2026-06-05T12:06:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "6D50A97F4F7B95414EF1AD23BA9A7A1DACA8C74F76B6FE1ED63689DD4B8FE37F.pdf",
+   "descricaoArquivo": "Edital nº 56 - Cronograma do concurso público para provimento de vagas nos cargos de Delegado de Polícia, Escrivão de Polícia e Agente de Polícia, do Grupo Ocupacional Policial Civil da Secretaria de Defesa Social do Estado de Pernambuco (SDS/PE) – referente à Turma 2",
+   "dataArquivoObj": "2026-06-05T12:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A75128FEF5ADAE5C7C47934257BFA32CC1D1BA8D1FE73E12E973C4049CCA8CED.pdf",
+   "descricaoArquivo": "Edital nº 55 - Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-05-21T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "555DAE6A6121173646216CB8ADEA00E42C884F985870A766967E1509617C1EAD.undefined",
+   "descricaoArquivo": "Edital nº 54 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional - em Vlibras.",
+   "dataArquivoObj": "2026-04-24T16:46:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "66C9EB6FC3D94E3FEBD5F9A74BE5BFFA2870ECC2FC8991EA72A49AD8662E67AE.pdf",
+   "descricaoArquivo": "Edital nº 54 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-04-24T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FEEF4610C6DD3F4456901D438359AAB7535729605FEC1EE256B54D29E3FE9F5D.html",
+   "descricaoArquivo": "Edital nº 53 – Convocação de candidata sub judice, para a matrícula no Curso de Formação Profissional - em Vlibras.",
+   "dataArquivoObj": "2026-04-15T09:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "47F2E938E649E01F17134BF4B667C00E66FD80F673E98D47AEFDABBAD90DCB40.pdf",
+   "descricaoArquivo": "Edital nº 53 – Convocação de candidata sub judice, para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-04-15T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DACD382EDB599DA82AC94C8214F320EED8F97A467F259AFA39E14F6185D30A9B.html",
+   "descricaoArquivo": "Edital nº 52 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional  - em Vlibras.",
+   "dataArquivoObj": "2026-04-15T09:21:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "9BBD4640600CAEB0C5DFAE5DCACBEC2C990B2694D549C64470F73E40FA8E1A9E.pdf",
+   "descricaoArquivo": "Edital nº 52 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-04-15T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "B0EEF67B35B14E0DA23E751C7A88EDD48FFE83FA69E28ABEFD5C3F1E86F7159B.html",
+   "descricaoArquivo": "Edital nº 51 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional - em VLibras",
+   "dataArquivoObj": "2026-03-26T16:15:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "92B5760226E41F6A2DEF9E81FF11DB391B56E67804C150AB80CC16460A7A7FDD.pdf",
+   "descricaoArquivo": "Edital nº 51 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2026-03-26T16:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "6EE86C820645523BE92CBF6520BE76C0487B66DC5C6D7FF8263BB8070F17C6C2.pdf",
+   "descricaoArquivo": "Edital nº 50 – Convocação de candidato sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2026-03-12T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "7117A5EC59897C6CAEED3AFDA1384C5A4665EF17CC5A2BFE9C9EFBA5D90516E7.pdf",
+   "descricaoArquivo": "Edital nº 49 – Convocação de candidato sub judice, para a matrícula no Curso de Formação Profissional.",
+   "dataArquivoObj": "2026-02-27T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "8CA0FCC2D55D739E8B3020E29D9407E69ED8A4D261478868653B10442619C7D6.pdf",
+   "descricaoArquivo": "Edital nº 48 – Convocação de candidata sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2026-02-12T18:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EC533C99621C70F695815E8BBBD6008AEF23760FC8E0F1DE4C7EF11EE26866F4.pdf",
+   "descricaoArquivo": "Edital nº 47 – Convocação de candidata sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2026-01-29T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C3D0397856290F0D6390413B90B59C9E3D74C6A05969D931C7D3563FF31C98E3.pdf",
+   "descricaoArquivo": "Edital nº 46 – Convocação de candidata sub judice para a matrícula no Curso de Formação Profissional",
+   "dataArquivoObj": "2025-12-30T18:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C721A5EA0FD561A03671C1BE88E4ADFBD435403304F738B34C2609701789B9AF.pdf",
+   "descricaoArquivo": "Edital nº 45 – Matrícula no Curso de Formação Profissional – 2ª Turma",
+   "dataArquivoObj": "2025-12-26T15:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4070FF329422C440228F01C9ADC13459836ED4F55AAED76B07629615D627BE26.pdf",
+   "descricaoArquivo": "Edital nº 44 - Convocação para a matrícula no Curso de Formação Profissional (2ª Turma) – remanejamento extraordinário ",
+   "dataArquivoObj": "2025-12-15T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "03DB871124882B6FED7F281678793758C39AA92BE93F781625D6A66FD6503178.pdf",
+   "descricaoArquivo": "Edital nº 43 – Retificação do Edital nº 42",
+   "dataArquivoObj": "2025-12-11T16:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "33BF2CB4F283ACACAFE88AB357F853D86D32FC7D7C6AE31C7180ED3213B2F524.pdf",
+   "descricaoArquivo": "Edital nº 42 – Convocação para a matrícula no Curso de Formação Profissional (2ª Turma) – 3º remanejamento",
+   "dataArquivoObj": "2025-12-03T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "BB556D5FE6CA60632409CA0B97D22CCA32038FF8E9483B327118C75A63FBE89C.pdf",
+   "descricaoArquivo": "Edital nº 41 – Convocação para a matrícula no Curso de Formação Profissional (2ª Turma) – 2º remanejamento",
+   "dataArquivoObj": "2025-11-27T19:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "83A7564AF03B40EC615810C6D07800129F6B8917E19FFDD1F4499970987E3903.pdf",
+   "descricaoArquivo": "Edital nº 40 – Convocação para a matrícula no Curso de Formação Profissional (2ª Turma) – 1º remanejamento",
+   "dataArquivoObj": "2025-11-21T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F98A08D45C4ACD9E2A532B1400B77CB71D562FC080CD3C190BFD4FEF4CFD6BD6.pdf",
+   "descricaoArquivo": "Edital nº 39 – Convocação de candidato sub judice, para a matrícula no Curso de Formação Profissional – 2ª Turma",
+   "dataArquivoObj": "2025-11-18T15:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "50668A9BDFC0CB75BDAF97A50B6DFF2CF298FB5044AAC6C6627F1E00D2407E51.pdf",
+   "descricaoArquivo": "Edital nº 38 - Retificação ao Edital nº 34",
+   "dataArquivoObj": "2025-11-13T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0FA317673DEA24013A284C42C89AE767E18F8C1D7A3F73769E75A3074BC2BA91.pdf",
+   "descricaoArquivo": "Edital nº 37 – Convocação para a matrícula no Curso de Formação Profissional – 2ª Turma",
+   "dataArquivoObj": "2025-11-07T15:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "434EF473D8479C563348E1EA485AE4139F0D92496AB42B38739A754B5A4AF8F3.pdf",
+   "descricaoArquivo": "Edital nº 36 – Resultado final na segunda etapa – Curso de Formação Profissional – 1ª Turma e o resultado final no concurso público",
+   "dataArquivoObj": "2025-11-05T17:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "28412707BE85A9B615D029D38BBC3D364131E0CACBC5B2927C9898B62B02D3C2.pdf",
+   "descricaoArquivo": "Edital n° 35 - Complementos e esclarecimentos adicionais referentes ao Cronograma Geral ",
+   "dataArquivoObj": "2025-10-17T12:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "82DCBBF1A0102EB7CE0EDF1C6F3F923F4DAA0CF2C20C8B44F24061044AEC8575.pdf",
+   "descricaoArquivo": "Edital nº 34 - Cronograma Geral",
+   "dataArquivoObj": "2025-10-10T15:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_33_2023_PC_PE_Conv_CF_2_Remanejamento.pdf",
+   "descricaoArquivo": "Edital nº 33 – Convocação para a matrícula no Curso de Formação Profissional – 2º remanejamento",
+   "dataArquivoObj": "2025-04-30T18:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_32_2023_PC_PE_Conv_CF_1_Remanejamento.pdf",
+   "descricaoArquivo": "Edital nº 32 – Convocação para a matrícula no Curso de Formação Profissional – 1º remanejamento",
+   "dataArquivoObj": "2025-04-24T17:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_31_2023_PC_PE_Informativo - Ajustado.pdf",
+   "descricaoArquivo": "Edital nº 31 - Informativo",
+   "dataArquivoObj": "2025-04-23T18:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_30_2023_PC_PE_Ret_res_final_obj_sub_judice_incl_final_1ªet_conv_sub_judice_Bruno_Clediomar.pdf",
+   "descricaoArquivo": "Edital nº 30 – Retificação do resultado final de candidato nas provas objetivas e a inclusão de candidato sub judice no resultado final na primeira etapa do concurso, somente para o cargo de Delegado de Polícia",
+   "dataArquivoObj": "2025-04-17T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_29_2023_PC_PE_Conv_CF.pdf",
+   "descricaoArquivo": "Edital nº 29 - Convocação para a matrícula no Curso de Formação",
+   "dataArquivoObj": "2025-04-02T18:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_28_2023_PC_PE_RES_FINAL_TITULOS_E_RES_FINAL_PRIMEIRA_ETAPA_SOMENTE_DELEGADO.PDF",
+   "descricaoArquivo": "Edital nº 28 - Resultado final na avaliação de títulos e o resultado final na primeira etapa do concurso, somente para o cargo de Delegado de Polícia",
+   "dataArquivoObj": "2025-02-05T18:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_27_2023_PC_PE_RES_PROV_TITULOS_SOMENTE_DELEGADO.PDF",
+   "descricaoArquivo": "Edital nº 27 - Resultado provisório na avaliação de títulos, somente para o cargo de Delegado de Polícia",
+   "dataArquivoObj": "2025-01-22T10:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_26_2023_PC_PE_RES_FINAL_ORAL_CONV_TITULOS_SOMENTE_DELEGADO.PDF",
+   "descricaoArquivo": "Edital nº 26 - Resultado final na prova oral e a convocação para a avaliação de títulos, somente para o cargo de Delegado de Polícia",
+   "dataArquivoObj": "2025-01-07T11:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_25_2023_PC_PE_RES_PROV_ORAL_SOMENTE_DELEGADO.PDF",
+   "descricaoArquivo": "Edital nº 25 - Resultado provisório na prova oral, somente para o cargo de Delegado de Polícia",
+   "dataArquivoObj": "2024-12-17T10:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_24_2023_PC_PE_CONV_PSIC_SUB_JUDICE_ELISA.PDF",
+   "descricaoArquivo": "Edital nº 24 - Convocação de candidata sub judice para a avaliação psicológica",
+   "dataArquivoObj": "2024-12-06T12:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_23_2023_PC_PE_RES_FINAL_PSIC_E_IS_CONV_ORAL_E_RES_FINAL_1_ETAPA.PDF",
+   "descricaoArquivo": "Edital nº 23 - Resultado final na avaliação psicológica, investigação social, na primeira etapa do concurso, exceto para o cargo de Delegado e a convocação para a prova oral",
+   "dataArquivoObj": "2024-11-25T21:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_COMUNICADO_RES_FINAL_PSIC_E_IS.PDF",
+   "descricaoArquivo": "Comunicado - Data de divulgação do resultado final na avaliação psicológica e de resultado final na investigação social",
+   "dataArquivoObj": "2024-11-22T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_2023_PC_PE_RES_PROV_PSIC_E_IS.PDF",
+   "descricaoArquivo": "Edital nº 22 - Resultado provisório na avaliação psicológica e o resultado provisório na investigação social",
+   "dataArquivoObj": "2024-11-01T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_2023_PC_PE_APT_SAUDE_CONV_TAF_SUB_JUDICE_NICOLE.PDF",
+   "descricaoArquivo": "Edital nº 21 - Resultado de candidata sub judice no resultado final dos exames médicos e a convocação para a prova de capacidade física",
+   "dataArquivoObj": "2024-11-01T16:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_2023_PC_PE_APT_SAUDE_TAF_CONV_PSIC_IS_SUB_JUDICE_RENATA.PDF",
+   "descricaoArquivo": "Edital nº 20 - Resultado de candidata sub judice no resultado final nos exames médicos e na prova de capacidade física, bem como a convocação para a avaliação psicológica e a investigação social",
+   "dataArquivoObj": "2024-10-25T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_2023_PC_PE_RES_FINAL_TAF_CONV_PSIC_INVESTIGAO_SOCIAL.PDF",
+   "descricaoArquivo": "Edital nº 19 - Resultado final na prova de capacidade física, convocação para a avaliação psicológica e para a investigação social",
+   "dataArquivoObj": "2024-09-18T10:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_2023_PC_PE_INCL_RES_FINAL_EX_MEDICOS_E_CONV_TAF_REABERTURA_RECURSOS_TAF.PDF",
+   "descricaoArquivo": "Edital nº 18 - Reabertura do prazo para interposição de recursos contra o resultado provisório na prova de capacidade física (candidatos de que trata o Edital nº 17), inclusão de candidatos no resultado final nos exames médicos e convocação destes para a prova de capacidade física",
+   "dataArquivoObj": "2024-09-09T13:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_2023_PC_PE_RES_PROV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 17 - Resultado provisório na prova de capacidade física",
+   "dataArquivoObj": "2024-09-03T14:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_2023_PC_PE_CONV_EX_MEDICOS_SUB_JUDICE_RENATA.PDF",
+   "descricaoArquivo": "Edital nº 16 - Convocação de candidata sub judice.",
+   "dataArquivoObj": "2024-09-02T15:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_2023_PC_PE_GRAVACOES_TAF.PDF",
+   "descricaoArquivo": "Edital nº 15 - Gravações do TAF",
+   "dataArquivoObj": "2024-08-13T19:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_2023_PC_PE_RES_FINAL_BIOP_EX_MEDICOS_E_CONV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 14 - Resultado final na avaliação biopsicossocial, resultado final nos exames médicos e a convocação para a prova de capacidade física",
+   "dataArquivoObj": "2024-08-08T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13_2023_PC_PE_PERODO_TAF.PDF",
+   "descricaoArquivo": "Edital nº 13 - Período da prova de capacidade física",
+   "dataArquivoObj": "2024-07-31T17:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_2023_PC_PE_REABERTURA_RECURSO_EX_MEDICOS.PDF",
+   "descricaoArquivo": "Edital nº 12 - Reabertura do período de interposição de recursos contra o resultado provisório nos exames médicos",
+   "dataArquivoObj": "2024-07-29T14:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_2023_PC_PE_RES_PROV_EX_MEDICOS_E_BIOP.PDF",
+   "descricaoArquivo": "Edital nº 11 - Resultado provisório nos exames médicos e na avaliação biopsicossocial dos candidatos que solicitaram concorrer às vagas reservadas às pessoas com deficiência",
+   "dataArquivoObj": "2024-07-17T17:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_2023_PC_PE_RET_DATA.PDF",
+   "descricaoArquivo": "Edital nº 10 - Retificação de datas",
+   "dataArquivoObj": "2024-06-10T10:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_2023_PC_PE_RES_FINAL_PROVA_PRATICA_CONV_EX_MEDICOS_E_BIOP.PDF",
+   "descricaoArquivo": "Edital nº 9 - Resultado final na prova prática de digitação e convocação para exames médicos e avaliação biopsicossocial",
+   "dataArquivoObj": "2024-06-03T11:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_2023_PC_PE_RES_PROV_PROVA_PRATICA.PDF",
+   "descricaoArquivo": "Edital nº 8 – Resultado provisório na prova prática de digitação",
+   "dataArquivoObj": "2024-05-15T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_2023_PC_PE_INC_RES_FINAL_DISC_SUB_JUDICE_CLEDIOMAR.PDF",
+   "descricaoArquivo": "Edital nº 7 – Inclusão do candidato sub judice no resultado final na prova discursiva",
+   "dataArquivoObj": "2024-05-08T21:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_2023_PC_PE_RES_FINAL_DISC_CONV_PROVA_PRATICA.PDF",
+   "descricaoArquivo": "Edital nº 6 – Resultado final na prova discursiva, para todos os cargos, e convocação para a prova prática de digitação",
+   "dataArquivoObj": "2024-04-19T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_23_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2024-04-08T10:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_2023_PC_PE_RES_FINAL_OBJ_PROV_DISC.PDF",
+   "descricaoArquivo": "Edital nº 5 - Resultado final nas provas objetivas e resultado provisório na prova discursiva (todos os cargos)",
+   "dataArquivoObj": "2024-04-01T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_2023_PC_PE_RET_PCD.PDF",
+   "descricaoArquivo": "Edital nº 4 - Inclusão dos subitens 5.3.1 e 11.17.1 no Edital nº 1",
+   "dataArquivoObj": "2024-03-05T11:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PCPE_COMUNICADO_DECISOES_JUDICIAIS.PDF",
+   "descricaoArquivo": "Comunicado - Decisões judiciais",
+   "dataArquivoObj": "2024-02-27T18:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_23___DEMANDA_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda de candidatos por vaga",
+   "dataArquivoObj": "2024-02-16T18:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_3_2023_PC_PE_LOCAIS.PDF",
+   "descricaoArquivo": "Edital nº 3 -  Informações sobre a prova e data de disponibilização do link de consulta individual de local",
+   "dataArquivoObj": "2024-02-09T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_REL_FINAL_INSC_DEF.PDF",
+   "descricaoArquivo": "Relação final dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2024-02-05T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_REL_PROV_INSC_DEF.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2024-01-24T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PCPE_COMUNICADO_PRORROG_PROV_ISENO.PDF",
+   "descricaoArquivo": "Comunicado - Prorrogação do link de recurso contra o indeferimento da solicitação de isenção",
+   "dataArquivoObj": "2024-01-10T17:58:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_2_2023_PC_PE_RET_DATAS_CRONOGRAMA.PDF",
+   "descricaoArquivo": "Edital nº 2 – Retificação de datas constantes do  Anexo I do Edital nº 1 – PCPE",
+   "dataArquivoObj": "2024-01-04T18:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_2023_PC_PE_ABERTURA_ATUALIZADO_ED_4.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura – Atualizado conforme retificações",
+   "dataArquivoObj": "2023-12-22T08:45:02",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_2023_PC_PE_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2023-12-22T08:45:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "087_PC_PE_DELEGADO_ORAL_SJ_001.pdf",
+   "descricaoArquivo": "PROVA ORAL - CARGO DELEGADO (APLICADO EM 18/05/2025) SUB JUDICE",
+   "dataArquivoObj": "2025-05-21T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "P_MALOTE1_052_PC_PE_23_ORAL_COMPADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL - CARGO DELEGADO (APLICADO EM 16/02/2025) SUB JUDICE",
+   "dataArquivoObj": "2025-02-18T18:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MALOTE1_027_PC_PE_23_ORAL_COM_PADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 1",
+   "dataArquivoObj": "2024-12-03T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MALOTE2_027_PC_PE_23_ORAL_COM_PADRAO.PDF",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 2",
+   "dataArquivoObj": "2024-12-03T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_23_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_01.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 1",
+   "dataArquivoObj": "2024-04-01T20:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_23_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_02_(2).PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTAS – PROVA DISCURSIVA – CARGO 2",
+   "dataArquivoObj": "2024-04-01T20:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_PE_23_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_03.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA – CARGO 3",
+   "dataArquivoObj": "2024-04-01T20:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_954PC_PECB1_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS (P1) – CARGO 1",
+   "dataArquivoObj": "2024-04-01T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_954PC_PECB2_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS (P1) – CARGO 3",
+   "dataArquivoObj": "2024-04-01T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_954PC_PE001_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS (P2) – CARGO 1",
+   "dataArquivoObj": "2024-04-01T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_954PC_PE002_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS (P2) – CARGO 3",
+   "dataArquivoObj": "2024-04-01T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_MATRIZ_955PC_PE_DELEGADO001_00.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO (P1) – CARGO 2",
+   "dataArquivoObj": "2024-04-01T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MATRIZ_955PC_PE_DELEGADO001_00_COM_JUSTIFICATIVAS_ATUALIZADO.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 2_ATUALIZADO",
+   "dataArquivoObj": "2024-03-15T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "955_PC_PE_DELEGADO_DISC.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 2",
+   "dataArquivoObj": "2024-03-05T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MATRIZ_955PC_PE_DELEGADO001_00_COM_JUSTIFICATIVAS.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 2 - SEM EFEITO",
+   "dataArquivoObj": "2024-03-05T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "954_PC_PE_DISC_01.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 1",
+   "dataArquivoObj": "2024-02-27T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "954_PC_PE_DISC_02.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA – CARGO 3",
+   "dataArquivoObj": "2024-02-27T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1",
+   "dataArquivoObj": "2024-02-27T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MATRIZ_954PC_PE001_00_COM_JUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1",
+   "dataArquivoObj": "2024-02-27T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MATRIZ_954PC_PECB2_00_COM_JUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3",
+   "dataArquivoObj": "2024-02-27T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "MATRIZ_954PC_PE002_00_COM_JUSTIFICATIVA.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3",
+   "dataArquivoObj": "2024-02-27T19:00:00",
+   "isGuid": false
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{
+ "eventoURL": "PC_AL_26",
+ "eventoNomeAbreviado": "PC AL 26",
+ "eventoNomeCompleto": "Polícia Civil do Estado de Alagoas",
+ "eventoAno": 2026,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "CARGO 1: AGENTE DE POLÍCIA CIVIL"
+  },
+  {
+   "idArea": "02",
+   "area": "CARGO 2: ESCRIVÃO DE POLÍCIA CIVIL "
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "5A8304561B1D416BF40875FE9D5CA4C11144F264BA41273271BAD8A1D3CCA567.html",
+   "descricaoArquivo": "Relação provisória dos candidatos com a inscrição deferida para concorrer às vagas reservadas às pessoas com deficiência - Vlibras",
+   "dataArquivoObj": "2026-10-02T09:30:03",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "09136359A35C620AF39465961C739B8A9D2DD0993C611EDF9645FD78CA42C536.pdf",
+   "descricaoArquivo": "Relação provisória dos candidatos com a inscrição deferida para concorrer às vagas reservadas às pessoas com deficiência",
+   "dataArquivoObj": "2026-10-02T09:30:02",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E2918ECB960B7E1E7233C63B366FCB3CAFD9033F876B25B7B1272105870025D5.html",
+   "descricaoArquivo": "Relação provisória de candidatas que tiveram a solicitação de atendimento especializado para lactantes deferida - Vlibras",
+   "dataArquivoObj": "2026-10-02T09:30:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "55C304BD136FB8A0AB7BF1864A1B02320F38199D317242A74EA029169A31D440.pdf",
+   "descricaoArquivo": "Relação provisória de candidatas que tiveram a solicitação de atendimento especializado para lactantes deferida",
+   "dataArquivoObj": "2026-10-02T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A9EEA8745462162C1D248DEE076D8008F86B711664DDF67176A71DD040F11D2E.html",
+   "descricaoArquivo": "Edital nº 4 - Retificação da relação final dos candidatos com a solicitação de isenção da taxa de inscrição deferida, divulgada por meio do Edital nº 3 – PCAL - Vlibras",
+   "dataArquivoObj": "2026-09-17T10:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CD85E7D3BDDF018AF4517B2CD07D02FDC041761D27E50E45A7A961F24DE77E6F.pdf",
+   "descricaoArquivo": "Edital nº 4 - Retificação da relação final dos candidatos com a solicitação de isenção da taxa de inscrição deferida, divulgada por meio do Edital nº 3 – PCAL",
+   "dataArquivoObj": "2026-09-17T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A3D53E05B2B1D344C0F0576AF5674FFF5F97B4E91F394600013165CFC47D2041.html",
+   "descricaoArquivo": "Edital nº 3 - Relação final dos candidatos com a solicitação de isenção da taxa de inscrição deferida - Vlibras",
+   "dataArquivoObj": "2026-09-10T10:50:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C50650F2F5415638197991BA2A4606574355768B0653607F0A163D26954E229F.pdf",
+   "descricaoArquivo": "Edital nº 3 - Relação final dos candidatos com a solicitação de isenção da taxa de inscrição deferida",
+   "dataArquivoObj": "2026-09-10T10:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "451A53D20F10371452BA949E37A1E8ABF9C39AE8994FCB67CC7F6E35D9D70CCA.html",
+   "descricaoArquivo": "Edital nº 2 - Relação provisória dos candidatos com a solicitação de isenção da taxa de inscrição deferida - VLibras",
+   "dataArquivoObj": "2026-08-26T10:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "59D8CA129D74535F381B238EE634A172B49D02378DE130DB629922F9F2A62BD4.pdf",
+   "descricaoArquivo": "Edital nº 2 - Relação provisória dos candidatos com a solicitação de isenção da taxa de inscrição deferida",
+   "dataArquivoObj": "2026-08-26T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A429CD5186A7D65198F536F956EA9BDEB529C75054A50AF470A6B71F0037E829.html",
+   "descricaoArquivo": "Respostas às impugnações - Vlibras",
+   "dataArquivoObj": "2026-07-30T12:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "6A49DD474DE7CB4EDA830AD57223EB8C7B374F37523380F4FA81145C63D879FE.pdf",
+   "descricaoArquivo": "Respostas às impugnações",
+   "dataArquivoObj": "2026-07-30T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0E6F3DBC0AC9DD8B05D3678A31D9BEABC74E074436B39867AA05C00949130215.html",
+   "descricaoArquivo": "Edital nº 1 - Abertura - Vlibras",
+   "dataArquivoObj": "2026-07-03T22:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5D5AD5B60F3E7BDD8865B1E3FB9965D652ADB351313D202E409B68BE1CEEFCC5.pdf",
+   "descricaoArquivo": "Edital nº 1 - Abertura",
+   "dataArquivoObj": "2026-07-03T22:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": []
+}

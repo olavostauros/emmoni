@@ -13,13 +13,17 @@
   catálogo.
 - 51 testes novos com fixtures JSON em `fixtures/crawl/cebraspe/`; `docs/operations.md` com o
   agendamento diário.
+- 25 órgãos estaduais, DEPEN e SEAP-MA no catálogo com apelidos de cargo; regras novas do
+  crawler; `make crawl` corrigido (contato exportado; erro de configuração não grava estado).
+  35 propostas pendentes (decisão 0008).
 
 ## Em andamento
 - Nada em execução.
 
 ## Próximos passos
-1. Humano decide sobre as 3 propostas pendentes de PCDF (`emmoni manifests pending|approve|reject`).
-   Ingerir exige calibrar o parser do Cebraspe nos cadernos da PCDF e preencher `subjects_by_range`.
+1. Ingerir os 36 manifestos aprovados em 2026-10-07 (PCDF, PC/PM/CBM estaduais, DEPEN): um por
+   vez, calibrando o parser do Cebraspe em cada caderno e preenchendo `name`, `first_number` e
+   `subjects_by_range` (os manifestos aprovados vieram das propostas sem ajuste).
 2. M4 — crescer a taxonomia a partir de `docs/progress/2026-10-07-sugestoes-de-assuntos.md`
    (728 sugestões; 462 questões em `review` só por falta de assunto) e reclassificar. Ao reclassificar,
    as duplicatas entre cargos hoje escondidas pelo `review` passam a ser marcadas (eram 161 antes
@@ -28,9 +32,10 @@
 4. Etapa `structure` e exportação de imagens para as 210 questões com problema de extração.
 
 ## Bloqueios e perguntas em aberto
-- Órgãos policiais que o Cebraspe lista e não estão no catálogo (PC de 10 estados, PM de 8, CBM,
-  DEPEN, SEAP, SDS/PE): cada um entra por commit em `db/catalog.yaml` com `aliases`; o crawler
-  então busca o detalhe e propõe. Decidir a ordem (M5 prevê outras bancas; os órgãos podem vir antes).
+- Proposta pendente que deixa de ser proposta (regra mudou) não é removida de `_pending/` pelo
+  crawler: `pmto-2020-qps` ficou e foi rejeitada à mão. Decidir se o crawler apaga ou marca.
+- SDS/PE (2016) continua fora do catálogo: a secretaria organizou concursos de PC-PE e de
+  Polícia Científica; decidir se entra como alias de `pcpe`.
 - PCDF 2019: um caderno com dois gabaritos definitivos (básicos e específicos); o manifesto aceita
   um gabarito por prova. Mudar o modelo ou juntar os PDFs à mão na aprovação.
 - Decidir (M4) se questão sem assunto adequado deve ser `draft` em vez de `review`: hoje ela sai
@@ -46,7 +51,7 @@
 - Questões visíveis no esquema `api`: 784 (65 do seed + 719 reais)
 - Reais: 1.496 carregadas · 824 `published` (105 delas duplicatas entre cargos do PF 2021, ocultas
   no `api`) · 672 em revisão (462 só por classificação, 210 por extração) · 0 `draft`
-- Provas ingeridas: 18 (18 aprovadas)
-- Propostas do crawler pendentes: 3 (pcdf-2019, pcdf-2020, pcdf-2026)
+- Provas ingeridas: 18 (18 aprovadas na amostragem)
+- Propostas do crawler pendentes: 0 · manifestos aprovados: 41 (5 ingeridos) · rejeitados: 1
 - Concursos vistos pelo crawler no Cebraspe: 498 (440 fora do escopo, 49 de órgãos candidatos)
 - Contrato do front-end: **v1.1**

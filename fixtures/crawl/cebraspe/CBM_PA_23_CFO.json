@@ -1,0 +1,424 @@
+{
+ "eventoURL": "CBM_PA_23_CFO",
+ "eventoNomeAbreviado": "CBM_PA_23_CFO",
+ "eventoNomeCompleto": "Oficiais do Corpo de Bombeiros Militar (CFO/BM/2023)",
+ "eventoAno": 2023,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "OFICIAL DO CORPO DE BOMBEIROS MILITAR DO ESTADO DO PARÁ"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "08F140C3000A33130FF5C539865562DBAE9EDDC046FE2E7D66F6B4C8CFE6D2E9.pdf",
+   "descricaoArquivo": "Edital nº 59 - Resultado final de candidato sub judice.",
+   "dataArquivoObj": "2026-08-26T14:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F137979B8DF6A8BBA163B410538499348AF241724B7DCC66FD9F6414346166BA.pdf",
+   "descricaoArquivo": "Edital nº 58 – Resultado final e homologação do concurso público destinado à admissão ao curso de formação de oficiais do corpo de bombeiros militar (CFO/CBM/2023), para o candidato na condição sub judice, inscrito sob o nº 10001743.",
+   "dataArquivoObj": "2026-08-11T13:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "7F89218E383A86CE5DB07972BEE92F6D3F4B4A7743B1958B60C188AD484663D1.pdf",
+   "descricaoArquivo": "Edital nº 57 – Resultado final de candidato sub judice, inscrito sob o nº 10001743, na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2026-08-11T13:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0F11533753597196F6C3F5D1394FA585CEE73362BC387F76FC7157F5F755D897.pdf",
+   "descricaoArquivo": "Edital nº 56 – Exclusão de candidata da condição sub judice.",
+   "dataArquivoObj": "2026-08-10T08:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "D2650D2DC8E0AE9F1EFAC7BC4D05C7C425C7FA3F1D4494D4A0CDA29A151BB918.pdf",
+   "descricaoArquivo": "Edital nº 55 - Resultado final de candidato sub judice.",
+   "dataArquivoObj": "2026-07-28T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FE735C7D60C048918DFEC110F85A180890202453AD64BCE52FEDACADE1602E37.pdf",
+   "descricaoArquivo": "Edital nº 54 - Reintegração de candidato sub judice, bem como a sua convocação para o teste de avaliação física.",
+   "dataArquivoObj": "2026-06-02T08:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "78E55082BA2895F5C3DEA49EC3465CBE507F429EE7C8DB413502A3EEB38AC62F.pdf",
+   "descricaoArquivo": "Edital nº 53 – Retificação do resultado final no concurso público para admissão ao Curso de Formação de Oficiais do Corpo de Bombeiros Militar (CFO/CBM/2023).",
+   "dataArquivoObj": "2026-05-14T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A740B507E6072E427AE61292A6A0F78440912DE99E4F9B12AC2B185F5E4C0309.pdf",
+   "descricaoArquivo": "Edital nº 52 – Retificação do resultado final no concurso público para admissão ao Curso de Formação de Oficiais do Corpo de Bombeiros Militar (CFO/BM/2023), divulgado por meio do Edital nº 38 – CBMPA – CFO/BM, de 28 de março de 2025, para excluir o candidato inscrito sob o nº 10003815, da condição sub judice.",
+   "dataArquivoObj": "2026-04-24T15:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "301E1D584FD473EE25DA09736E8E0864018F1BD1A0651FDB02FA659081FE01BA.pdf",
+   "descricaoArquivo": "Edital nº 51 – Retificação do resultado final de candidata sub judice - REPUBLICAÇÃO",
+   "dataArquivoObj": "2026-04-24T14:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A05839D8D19BB852CB743B958E272C917F3B4FAD6DA4F0E9B6312B004AF3DA02.pdf",
+   "descricaoArquivo": "Edital nº 51 – Retificação do resultado final de candidata sub judice.",
+   "dataArquivoObj": "2026-04-16T15:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4099BD74CAD7B6FA0681A56DD091D73D0936F50EF4F3289D4234B8B1FE81659E.pdf",
+   "descricaoArquivo": "Edital nº 50 – Resultado final de candidato sub judice.",
+   "dataArquivoObj": "2025-12-23T13:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "3CC80BE4215AAB786E931B816C3CA5F15E234177C95668CA2AC82EAFB5DA2FCF.pdf",
+   "descricaoArquivo": "Edital nº 49 – Resultado final de candidata sub judice.",
+   "dataArquivoObj": "2025-12-23T13:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "307A3FF7746D9C1AAB7393986D03A3A8F85C754C50E8BABD23469923913CD220.pdf",
+   "descricaoArquivo": "Edital nº 48 – Retificação do resultado final no concurso público.",
+   "dataArquivoObj": "2025-12-18T10:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FECB2BD947ACF228C673CA14AE46499E9DE24491EC07EDD40B00535EBB9B2C32.pdf",
+   "descricaoArquivo": "Edital nº 47 – Reintegração de candidato sub judice.",
+   "dataArquivoObj": "2025-11-18T13:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F140FF9DA6445D819593682401365C42C9EB39E402AB5056C96AC72B8E9FE544.pdf",
+   "descricaoArquivo": "Edital nº 46 – Resultado final de candidatos sub judice.",
+   "dataArquivoObj": "2025-10-31T17:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4DD4EFCD1C28394C6489FC97049B6BA22A05F0CB7543B79E0F45AD661331508C.pdf",
+   "descricaoArquivo": "Edital nº 45 – Resultado de candidato convocado por meio do Edital nº 42 – CBMPA – CFO/BM, de 3 de julho de 2025.",
+   "dataArquivoObj": "2025-10-03T15:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 44 CFO - DE 06.08.2025 - DOE Nº 36.321 DE 07.08.2025 - RES. DEF. GISLAINE DAIANE DOS S. REIS.pdf",
+   "descricaoArquivo": "Edital nº 44 – Resultado definitivo de candidata sub judice, bem como os procedimentos para interposição de recursos contra o resultado provisório na investigação de antecedentes pessoais, somente da candidata a que se refere este edital.",
+   "dataArquivoObj": "2025-08-07T17:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 43 CFO - DE 08.07.2025 - DOE Nº 36.293 DE 09.07.2025 - Reint_Res_final_IS_TAF_sub_judice_JAMILLY.pdf",
+   "descricaoArquivo": "Edital nº 43 - Resultado final no TAF e na investigação de antecedentes pessoais de candidata sub judice",
+   "dataArquivoObj": "2025-07-10T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 42 CFO - DE 03.07.2025 - DOE Nº 36.287 DE 04.07.2025 - Res_final_saude_conv_TAF_sub_judice_Danilson.pdf",
+   "descricaoArquivo": "Edital nº 42 – Resultado final na avaliação de saúde de candidato sub judice, bem como sua convocação para o Teste de Avaliação Física",
+   "dataArquivoObj": "2025-07-04T12:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 41 CFO - DE 23.04.2025 - DOE Nº 36.207 DE 24.04.2025 - Res_prov_IS_sub_judice_Emerson-1.pdf",
+   "descricaoArquivo": "Edital nº 41 – Procedimentos para interposição de recursos contra o resultado provisório de candidato sub judice inscrito sob o nº 10000829, na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2025-04-24T15:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 40 CFO - DE 23.04.2025 - DOE Nº 36.207 DE 24.04.2025 - Res_Final_TAF_IS_sub_judice_Gilvandro-2.pdf",
+   "descricaoArquivo": "Edital nº 40 – Resultado definitivo de candidato sub judice, inscrito sob o nº 10003815, na 4ª ETAPA – TESTE DE AVALIAÇÃO FÍSICA, bem como os procedimentos para interposição de recursos contra o resultado provisório na investigação de antecedentes pessoais, somente do candidato a que se refere este edital.",
+   "dataArquivoObj": "2025-04-24T15:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 39 CFO - DE 22.0422025 - DOE Nº 36.206 DE 23.04.2025 - sub_judice_final_Psico_IS_conv_saúde_sub_judice_Danilson.pdf",
+   "descricaoArquivo": "Edital nº 39 – Resultado final de candidato sub judice, inscrito sob o nº 10006047, na avaliação psicológica e na investigação de antecedentes pessoais; bem como a convocação do referido candidato para a avaliação de saúde.",
+   "dataArquivoObj": "2025-04-23T14:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_38_CBM_PA_CFO_Res_final_concurso_público.pdf",
+   "descricaoArquivo": "Edital nº 38 – Resultado final no concurso público dos candidatos que lograram êxito em todas as etapas do certame, incluindo aqueles que estão na condição sub judice por decisão judicial do concurso público",
+   "dataArquivoObj": "2025-03-31T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 37 CFO - DE 27.03.2025 - DOE Nº 36.177 DE 28.03.2025 -Result.Final Av. Psicol. e Conv.Av Saúde GISLAINE DAIANE.pdf",
+   "descricaoArquivo": "Edital nº 37 – Resultado final de candidata sub judice na avaliação psicológica, bem como a convocação da referida candidata para a avaliação de saúde",
+   "dataArquivoObj": "2025-03-28T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_36_CBM_PA_CFO_Ret_final_obj_e_final_fases_sub_judice_Andre_Leonardo.pdf",
+   "descricaoArquivo": "Edital nº 36 – Reintegração de candidatos sub judice por meio da retificação do resultado final na prova objetiva",
+   "dataArquivoObj": "2025-03-26T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_35_CBM_PA_CFO_INCL_RES_FINAL_DISC_SUB_JUDICE_CONV_PSCI_IS_FIP_DANILSON.PDF",
+   "descricaoArquivo": "Edital nº 35 – Resultado final na prova de redação de candidato sub judice, bem como a convocação do referido candidato para a avaliação psicológica,  para a investigação de antecedentes pessoais e para o preenchimento da ficha de informações pessoais",
+   "dataArquivoObj": "2025-03-07T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_34_CBM_PA_CFO_REINT_CONV_TAF_SUB_JUDICE_EMERSON_GILVANDRO.PDF",
+   "descricaoArquivo": "Edital nº 34 – Reintegração de candidatos sub judice, bem como a convocação dos referidos candidatos para o teste de avaliação física",
+   "dataArquivoObj": "2025-02-19T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_33_CBM_PA_CFO_CONV_PSICO_SUB_JUDICE_GISLAINE.PDF",
+   "descricaoArquivo": "Edital nº 33 – Reintegração de candidatos sub judice, bem como a convocação da referida candidata para a avaliação psicológica",
+   "dataArquivoObj": "2025-02-07T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_32_CBM_PA_CFO_RET_OBJ_PROV_REDAO_SUB_JUDICE_DANILSON.PDF",
+   "descricaoArquivo": "Edital nº 32 – Retificação do resultado final na prova objetiva e do resultado provisório na prova de redação de candidato sub judice",
+   "dataArquivoObj": "2025-02-05T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_31_CBM_PA_CFO_RETIFICACAO_DATA.PDF",
+   "descricaoArquivo": "Edital nº 31 – Retificação do cronograma previsto das próximas atividades, constante do subitem 1.1 do Edital nº 19",
+   "dataArquivoObj": "2025-01-31T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_30_CBM_PA_CFO_CONV_TAF_BIANCA.PDF",
+   "descricaoArquivo": "Edital nº 30 – Reintegração de candidata sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2025-01-16T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_29_CBM_PA_CFO_RES_FINAL_INVESTIGAO.PDF",
+   "descricaoArquivo": "Edital nº 29 – Resultado final na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-11-08T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_28_CBM_PA_CFO_RETIFICACAO_DATA.PDF",
+   "descricaoArquivo": "Edital nº 28 - Retificação do cronograma constante do Edital nº 19",
+   "dataArquivoObj": "2024-11-04T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_27_CBM_PA_CFO_RET_CRONOGRAMA_RES_PROV_INVESTIGAO.PDF",
+   "descricaoArquivo": "Edital nº 27 –  Resultado provisório na investigação de antecedentes pessoais e retificação do cronograma divulgado no Edital nº 19 e suas alterações",
+   "dataArquivoObj": "2024-10-24T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_26_CBM_PA_CFO_EXCL_SUB_JUDICE_ITALO.PDF",
+   "descricaoArquivo": "Edital nº 26 – Exclusão de candidato sub judice do concurso público destinado à admissão ao Curso de Formação de Oficiais do Corpo de Bombeiros Militar (CFO/BM/2023).",
+   "dataArquivoObj": "2024-10-15T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_25_CBM_PA_CFO_RES_FINAL_FSICA_PROV_INVESTIGAO.PDF",
+   "descricaoArquivo": "Edital nº 25 – Resultado final no teste de avaliação física",
+   "dataArquivoObj": "2024-09-04T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_24_CBM_PA_CFO_RETIFICACAO_DATA.PDF",
+   "descricaoArquivo": "Edital nº 24 – Retificação da data constante do subitem 3.1, bem como a inclusão do subitem 3.2 no Edital nº 22",
+   "dataArquivoObj": "2024-08-30T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_23_CBM_PA_CFO_REABERTURA_REC_APTID_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 23 – Reabertura do link de recursos contra o resultado provisório na avaliação de aptidão física",
+   "dataArquivoObj": "2024-08-27T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_CBM_PA_CFO_RES_PROV_APTID_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 22 – Resultado provisório no teste de avaliação física",
+   "dataArquivoObj": "2024-08-20T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_CBM_PA_CFO_RETIFICACAO.PDF",
+   "descricaoArquivo": "Edital nº 21 – Retificação das datas constantes do quadro do subitem 1.1 do Edital nº 19, e suas alterações, e a retificação da data constante do subitem 4.3 do Edital nº 20",
+   "dataArquivoObj": "2024-08-14T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_CBM_PA_CFO_RET_E_RES_FINAL_AVAL_SAUDE_CONV_APTID_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 20 – Retificação da data constante do subitem 1.1 do Edital nº 19, o resultado final na avaliação de saúde e a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2024-07-26T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_CBM_PA_CFO_CRONOGRAMA.PDF",
+   "descricaoArquivo": "Edital nº 19 - Cronograma previsto das próximas atividades",
+   "dataArquivoObj": "2024-07-19T13:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_CBM_PA_CFO_RES_PROV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 18 – Resultado provisório na avaliação de saúde",
+   "dataArquivoObj": "2024-07-03T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_CBM_PA_CFO_RETIFICACAO.PDF",
+   "descricaoArquivo": "Edital nº 17 – Exclusão do subitem 12.11.3.2 do Edital nº 1 – CBMPA – CFO/BM, de 24 de outubro de 2023, e alterações, bem como a retificação dos subitens 12.11.2.5 e 12.11.3.7 do referido edital",
+   "dataArquivoObj": "2024-06-27T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_CBM_PA_CFO_INC_RES_FINAL_PSICOL_CONV_AVAL_SAUDE_SUB_JUDICE_GIORDANA_ITALO.PDF",
+   "descricaoArquivo": "Edital nº 16 – Convocação de candidatos para a avaliação de saúde",
+   "dataArquivoObj": "2024-05-10T11:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_CBM_PA_CFO_RET.PDF",
+   "descricaoArquivo": "Edital nº 15 – Retificação dos subitens que tratam do teste de flexão abdominal",
+   "dataArquivoObj": "2024-05-03T09:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_CBM_PA_CFO_RES_FINAL_PSICOL_CONV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 14 – Resultado final da avaliação psicológica e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2024-05-03T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13_CBM_PA_CFO_INC_SUB_JUDICE_RES_FINAL_DISC_CONV_PSICO_IS_ITALO.PDF",
+   "descricaoArquivo": "Edital nº 13 – Inclusão de candidato sub judice no resultado final na prova de redação, convocação para a avaliação psicológica e para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais",
+   "dataArquivoObj": "2024-04-22T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_CBM_PA_CFO_RET_PSICO_GIORDANA.PDF",
+   "descricaoArquivo": "Edital nº 12 – Retificação de data de realização da avaliação psicológica de candidata sub judice",
+   "dataArquivoObj": "2024-04-12T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_CBM_PA_CFO_CONV_PSICO_FIC_GIORDANA.PDF",
+   "descricaoArquivo": "Edital nº 11 – Convocação de candidato sub judice para a avaliação psicológica e para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais (FIP)",
+   "dataArquivoObj": "2024-04-11T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_CBM_PA_CFO_RES_PROV_PSICOL.PDF",
+   "descricaoArquivo": "Edital nº 10 – Resultado provisório da avaliação psicológica",
+   "dataArquivoObj": "2024-04-09T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_CBM_PA_CFO_PREENCH_FIP.PDF",
+   "descricaoArquivo": "Edital nº 9 – Prazo para atualização da FIP",
+   "dataArquivoObj": "2024-04-03T09:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_CBM_PA_CFO_RET_FINAL_OBJ_PROV_DISC_SUB_JUDICE_ITALO.PDF",
+   "descricaoArquivo": "Edital nº 8 – Retificação do resultado final na prova objetiva e no resultado provisório na prova de redação de candidato sub judice",
+   "dataArquivoObj": "2024-04-03T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_CBM_PA_CFO_REAB_UPLOAD_IS.PDF",
+   "descricaoArquivo": "Edital nº 7 – Prorrogação do período de preenchimento da Ficha de Informações Pessoais (FIP) e do período de envio, via upload, da imagem legível da documentação mencionada no subitem 13.6 do edital de abertura",
+   "dataArquivoObj": "2024-03-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_CBM_PA_CFO_RES_FINAL_DISC_CONV_PSICO_INVEST.PDF",
+   "descricaoArquivo": "Edital nº 6 – Resultado final na prova de redação, convocação para a avaliação psicológica e para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais (FIP)",
+   "dataArquivoObj": "2024-03-15T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_PA_CFO_COMUNICADO_JUSTIFICATIVAS.PDF",
+   "descricaoArquivo": "Comunicado - Recursos interpostos contra o resultado provisório na prova objetiva",
+   "dataArquivoObj": "2024-02-29T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_CBM_PA_CFO_RES_FINAL_OBJ_PROV_DISCURSIVA.PDF",
+   "descricaoArquivo": "Edital nº 5 – Resultado final na prova objetiva e o resultado provisório na prova de redação",
+   "dataArquivoObj": "2024-02-22T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_PA_23_CFO_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO_1.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2024-02-09T12:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_CBM_PA_CFO_RES_PROV_OBJ.PDF",
+   "descricaoArquivo": "Edital nº 4 – Resultado provisório na prova objetiva",
+   "dataArquivoObj": "2024-02-02T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DEMANDA_CANDIDATOS_POR_VAGA___CBM_PA_23___CFO.PDF",
+   "descricaoArquivo": "Demanda candidatos por vaga",
+   "dataArquivoObj": "2024-01-05T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_3_CBM_PA_CFO_LOCAIS_E_HORRIOS.PDF",
+   "descricaoArquivo": "Edital nº 3 – Locais de aplicação da prova objetiva e da redação",
+   "dataArquivoObj": "2023-12-26T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FORMULRIO_DEVOLUO_TAXA_CONCURSO.PDF",
+   "descricaoArquivo": "Formulário de devolução da taxa do concurso",
+   "dataArquivoObj": "2023-12-18T12:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_02_CFO__DE__13.12.2023___DOE_N_35.644_DE_14.12.2023___CBMPA___CFO___SOLICITAO_DEV._TAXA_DE_INSCRIO.PDF",
+   "descricaoArquivo": "Edital nº 2 – Solicitação de devolução do valor de taxa de inscrição paga em duplicidade ou fora do prazo previsto no Edital de abertura",
+   "dataArquivoObj": "2023-12-18T12:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_CBM_PA_CFO_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2023-10-25T10:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "CBM_PA_23_CFO_PADRO_DE_RESPOSTA_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DE REDAÇÃO – P2",
+   "dataArquivoObj": "2024-02-22T09:38:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_927_CBM_PA_CFO_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA - P1",
+   "dataArquivoObj": "2024-02-02T15:56:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "927_CBM_PA_CFO_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - P1",
+   "dataArquivoObj": "2024-01-17T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "927_CBM_PA_CFO_DISC.PDF",
+   "descricaoArquivo": "PROVA DE REDAÇÃO – P2",
+   "dataArquivoObj": "2024-01-10T19:00:00",
+   "isGuid": false
+  }
+ ]
+}

@@ -196,7 +196,11 @@ def scope(event: _Event, catalog: Catalog) -> ContestFound:
 # --- tipo de cada arquivo -------------------------------------------------------------------------
 
 _NOT_CORE = (
-    (("CURSO DE FORMACAO", "CFP", "VERIFICACAO DE APRENDIZAGEM", "TURMA"), "curso de formação"),
+    (
+        ("CURSO DE FORMACAO", "CURSO DE INSTRUCAO", "CFP", "VERIFICACAO DE APRENDIZAGEM", "TURMA"),
+        "curso de formação",
+    ),
+    (("SEM EFEITO",), "documento sem efeito"),
     (("PROVA ORAL", "ORAL "), "prova oral"),
     (("DISCURSIV", "PADRAO DE RESPOSTA", "REDACAO"), "prova discursiva"),
     (
@@ -230,6 +234,8 @@ def classify_file(description: str, name: str) -> tuple[str | None, str]:
         return "answer_key_preliminary", "descrição contém 'GABARITO PRELIMINAR'"
     if "PROVA OBJETIVA" in d or (d.startswith("PROVA") and "OBJETIVA" in d):
         return "exam", "descrição contém 'PROVA OBJETIVA'"
+    if "CADERNO DE PROVA" in d:  # concursos de 2016–2017: 'Caderno de provas - Conhecimentos...'
+        return "exam", "descrição contém 'CADERNO DE PROVAS'"
     if "GABARITO" in d:
         return None, "gabarito de tipo não reconhecido"
     if "PROVA" in d:
@@ -241,6 +247,8 @@ _LABEL_NOISE = (
     *_FINAL,
     *_PRELIMINARY,
     "PROVA OBJETIVA",
+    "CADERNO DE PROVAS",
+    "CADERNO DE PROVA",
     "COM JUSTIFICATIVAS",
     "COM JUSTIFICATIVA",
 )
@@ -300,17 +308,39 @@ def _cargo_name(area: str) -> str:
 
 
 def match_position(text: str, positions: list[Position]) -> tuple[Position, float, str] | None:
-    """Cargo do catálogo citado em `text` (nome completo, ou primeira palavra do nome)."""
+    """Cargo do catálogo citado em `text`: nome completo, apelido ou primeira palavra do nome."""
     haystack = normalize(text)
     for position in positions:
         if normalize(position.name) in haystack:
             return position, 1.0, f"nome do cargo '{position.name}' aparece em '{text.strip()}'"
     words = set(_tokens(haystack))
     for position in positions:
+        for alias in position.aliases:
+            alias_tokens = _tokens(alias)
+            if alias_tokens and set(alias_tokens) <= words:
+                return (
+                    position,
+                    0.9,
+                    f"'{alias}' (apelido de '{position.name}') em '{text.strip()}'",
+                )
+    for position in positions:
         first = _tokens(position.name)[0]
         if len(first) >= 5 and first in words:
             return position, 0.8, f"'{first}' (de '{position.name}') aparece em '{text.strip()}'"
     return None
+
+
+# Rótulo genérico de prova comum a todos os cargos: só o tipo de conhecimento, sem citar cargo
+# ('CONHECIMENTOS GERAIS', 'CONHECIMENTOS BASICOS - BLOCO I - PARA TODOS OS CARGOS'). Rótulo que
+# nomeia um grupo ('...PARA TODOS OS CARGOS DE PERITO') não é genérico.
+_SHARED_LABEL = re.compile(
+    r"^(CONHECIMENTOS (GERAIS|BASICOS|COMPLEMENTARES)( - BLOCO [IVX0-9]+)?( \(P\d\))?"
+    r"( - )?( PARA TODOS OS CARGOS)?)?$"
+)
+
+
+def _is_shared_label(label: str) -> bool:
+    return _SHARED_LABEL.fullmatch(label) is not None
 
 
 @dataclass
@@ -329,9 +359,15 @@ def resolve_positions(label: str, cargos: dict[int, str], agency: Agency) -> _Po
         if found:
             position, confidence, why = found
             return _Positions([position.slug], [], {"confidence": confidence, "rule": why})
+    shared = False
     if not names and not numbers and len(cargos) == 1:
         names = [_cargo_name(next(iter(cargos.values())))]
         rule = "único cargo do concurso"
+    elif not names and not numbers and len(cargos) > 1 and _is_shared_label(label):
+        # 'CONHECIMENTOS GERAIS' sem cargo: prova comum a todos os cargos do concurso.
+        names = [_cargo_name(area) for _, area in sorted(cargos.items())]
+        rule = "prova sem cargo citado: todos os cargos do concurso que estão no catálogo"
+        shared = True
     matched: list[tuple[Position, float, str]] = []
     unmatched: list[str] = []
     for name in names:
@@ -345,7 +381,7 @@ def resolve_positions(label: str, cargos: dict[int, str], agency: Agency) -> _Po
         matched.append((position, 0.6, "único cargo do órgão no catálogo"))
         rule = "cargo não citado"
     evidence = {
-        "confidence": min((m[1] for m in matched), default=0.0),
+        "confidence": min((m[1] for m in matched), default=0.0) * (0.7 if shared else 1.0),
         "rule": rule + "; " + "; ".join(m[2] for m in matched) if matched else rule,
     }
     return _Positions([m[0].slug for m in matched], unmatched, evidence)

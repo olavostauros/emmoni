@@ -1,0 +1,652 @@
+{
+ "eventoURL": "PM_SC_23_SOLDADO",
+ "eventoNomeAbreviado": "PM SC 23 SOLDADO",
+ "eventoNomeCompleto": "POLÍCIA MILITAR DE SANTA CATARINA",
+ "eventoAno": 2023,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "CARGO DE SOLDADO DA POLÍCIA MILITAR"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "225 LUCAS SOUZA DOS SANTOS.pdf",
+   "descricaoArquivo": "Edital nº 225 – Cumprimento de Decisão Judicial – Lucas Souza dos Santos",
+   "dataArquivoObj": "2025-07-07T17:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "220 NATASHA MERCANTE GOMES.pdf",
+   "descricaoArquivo": "Edital nº 220 – Cumprimento de Decisão Judicial – Natasha Mercante Gomes",
+   "dataArquivoObj": "2025-07-07T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "212 LORIVAL PREISLER JUNIRO.pdf",
+   "descricaoArquivo": "Edital nº 212 – Cumprimento de Decisão Judicial – Lorival Preisler Junior",
+   "dataArquivoObj": "2025-07-07T17:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "209 FELIPE DE CAMPOS GONZAGA.pdf",
+   "descricaoArquivo": "Edital nº 209 – Cumprimento de Decisão Judicial – Felipe de Campos Gonzaga",
+   "dataArquivoObj": "2025-07-07T17:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "197 GABRIEL HENRIQUE DA SILVA.pdf",
+   "descricaoArquivo": "Edital nº 197 – Cumprimento de Decisão Judicial – Gabriel Henrique da Silva",
+   "dataArquivoObj": "2025-07-07T17:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "181 GABRIEL DALLAZEN FONSECA.pdf",
+   "descricaoArquivo": "Edital nº 181 – Cumprimento de Decisão Judicial – Gabriel Dallazen Fonseca",
+   "dataArquivoObj": "2025-07-07T17:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "143 GUSTAVO DOMINGOS MANOEL EYROFF.pdf",
+   "descricaoArquivo": "Edital nº 143 – Cumprimento de Decisão Judicial – Gustavo Domingos Manoel Eyroff",
+   "dataArquivoObj": "2025-07-07T17:05:50",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "141 GUSTAVO DOMINGOS MANOEL EYROFF.pdf",
+   "descricaoArquivo": "Edital nº 141 – Cumprimento de Decisão Judicial – Gustavo Domingos Manoel Eyroff",
+   "dataArquivoObj": "2025-07-07T17:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "137 FABRICIO LOCH.pdf",
+   "descricaoArquivo": "Edital nº 137 – Cumprimento de Decisão Judicial – Fabricio Loch",
+   "dataArquivoObj": "2025-07-07T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "135 FABRICIO LOCH.pdf",
+   "descricaoArquivo": "Edital nº 135 – Cumprimento de Decisão Judicial – Fabricio Loch",
+   "dataArquivoObj": "2025-07-07T16:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "134 MATHEUS MATIAS ESMERALDINO.pdf",
+   "descricaoArquivo": "Edital nº 134 – Cumprimento de Decisão Judicial – Matheus Matias Esmeraldino",
+   "dataArquivoObj": "2025-07-07T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "129 MATHEUS AGUIAR DE SOUZA.pdf",
+   "descricaoArquivo": "Edital nº 129 – Cumprimento de Decisão Judicial – Matheus Aguiar de Souza",
+   "dataArquivoObj": "2025-07-07T16:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "127 MATHEUS MATIAS ESMERALDINO.pdf",
+   "descricaoArquivo": "Edital nº 127 – Cumprimento de Decisão Judicial – Matheus Matias Esmeraldino",
+   "dataArquivoObj": "2025-07-07T16:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "123 CATRIEL BRUM DENARDI.pdf",
+   "descricaoArquivo": "Edital nº 123 – Cumprimento de Decisão Judicial – Catriel Brum Denardi",
+   "dataArquivoObj": "2025-07-07T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "115 LARYSSA TAUANNY SAOUZA NUNES.pdf",
+   "descricaoArquivo": "Edital nº 115 – Cumprimento de Decisão Judicial – Laryssa Tauanny Souza Nunes",
+   "dataArquivoObj": "2025-07-07T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "105 Convocacao para matrícula no curso de formacao de praca.pdf",
+   "descricaoArquivo": "Edital nº 105 – Cumprimento de Decisão Judicial – Convocação para matrícula no Curso de Formação de Praça",
+   "dataArquivoObj": "2025-07-07T16:15:50",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Edital 93CCP2025 - CONVOCA OS CANDIDATOS SUB JUDICE PARA A ENTREGA DOS DOCUMENTOS NECESSÁRIOS PARA A INCLUSÃO E MATRÍCULA GRAZIELA ROMANOSKI RODRIGUES.pdf",
+   "descricaoArquivo": "Edital nº 93 – Cumprimento de Decisão Judicial – Graziela Romanoski Rodrigues",
+   "dataArquivoObj": "2025-07-07T16:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "074 LUANA CRISTINA TERDETTI.pdf",
+   "descricaoArquivo": "Edital nº 74 – Cumprimento de Decisão Judicial – Luana Cristina Terdetti",
+   "dataArquivoObj": "2025-07-04T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "073 DILIAN CESCHINI PAGLIARINI.pdf",
+   "descricaoArquivo": "Edital nº 73 – Cumprimento de Decisão Judicial – Dilian Ceschini Pagliarini",
+   "dataArquivoObj": "2025-07-04T11:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "071 RUANNIERY FIGUEIREDO PADILHA.pdf",
+   "descricaoArquivo": "Edital nº 71 – Cumprimento de Decisão Judicial – Ruanniery Figueiredo Padilha",
+   "dataArquivoObj": "2025-07-04T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "070 NAYLANE DA ROCHA MARQUES.pdf",
+   "descricaoArquivo": "Edital nº 70 – Cumprimento de Decisão Judicial – Naylane da Rocha Marques",
+   "dataArquivoObj": "2025-07-04T11:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "069 SIDIANE APARECIDA PADILHA.pdf",
+   "descricaoArquivo": "Edital nº 69 – Cumprimento de Decisão Judicial – Sidiane Aparecida Padilha",
+   "dataArquivoObj": "2025-07-04T11:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "068 CAROLINE LUIZE CALLAI PEREIRA.pdf",
+   "descricaoArquivo": "Edital nº 68 – Cumprimento de Decisão Judicial – Caroline Luize Callai Pereira",
+   "dataArquivoObj": "2025-07-04T11:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "061 ADRIEL CORREA ABDRE.pdf",
+   "descricaoArquivo": "Edital nº 61 – Cumprimento de Decisão Judicial – Adriel Correa André",
+   "dataArquivoObj": "2025-07-04T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "058 LUIZ HENRIQUE AMORIM ANDRE.pdf",
+   "descricaoArquivo": "Edital nº 58 – Cumprimento de Decisão Judicial – Luiz Henrique Amorim André",
+   "dataArquivoObj": "2025-07-04T10:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "052 BRUNO OSTROWSKI WUNSCH.pdf",
+   "descricaoArquivo": "Edital nº 52 – Cumprimento de Decisão Judicial – Bruno Ostrowski Munsch",
+   "dataArquivoObj": "2025-07-04T10:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "047 RAPHAEL LUCAS DOS SANTOS AQUINO BARROSO.pdf",
+   "descricaoArquivo": "Edital nº 47 – Cumprimento de Decisão Judicial – Raphael Lucas dos Santos Aquino Barroso",
+   "dataArquivoObj": "2025-07-04T10:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "047 BARBARA VICTORIA SCHWANCK LOPES.pdf",
+   "descricaoArquivo": "Edital nº 47 – Cumprimento de Decisão Judicial – Bárbara Victória Schwanck Lopes",
+   "dataArquivoObj": "2025-07-04T10:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "046 JEAN HENRIQUE DRESCH.pdf",
+   "descricaoArquivo": "Edital nº 46 – Cumprimento de Decisão Judicial – Jean Henrique Dresch",
+   "dataArquivoObj": "2025-07-04T10:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "044 WAGNER RODENBUSCH SILVA.pdf",
+   "descricaoArquivo": "Edital nº 44 – Cumprimento de Decisão Judicial – Wagner Rodenbusch Silva",
+   "dataArquivoObj": "2025-07-04T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "040 PEDRO HENRIQUE PATENE.pdf",
+   "descricaoArquivo": "Edital nº 40 – Cumprimento de Decisão Judicial – Pedro Henrique Patene",
+   "dataArquivoObj": "2025-07-04T10:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "039 BRUNO HENRIQUE TAUFER.pdf",
+   "descricaoArquivo": "Edital nº 39 – Cumprimento de Decisão Judicial – Bruno Henrique Taufer",
+   "dataArquivoObj": "2025-07-04T10:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "038 LIIZ GUSTAVO OLIVEIRA AURELIO.pdf",
+   "descricaoArquivo": "Edital nº 38 – Cumprimento de Decisão Judicial – Luiz Gustavo Oliveira Aurélio",
+   "dataArquivoObj": "2025-07-04T10:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "037 JOÃO VITOR BORGES.pdf",
+   "descricaoArquivo": "Edital nº 37 – Cumprimento de Decisão Judicial – João Vitor Borges",
+   "dataArquivoObj": "2025-07-04T10:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "035 NATALIA DA SILVA LUIZ.pdf",
+   "descricaoArquivo": "Edital nº 35 – Cumprimento de Decisão Judicial – Natalia da Silva Luiz",
+   "dataArquivoObj": "2025-07-04T10:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "034 ADELAR BREHM.pdf",
+   "descricaoArquivo": "Edital nº 34 – Cumprimento de Decisão Judicial – Adelar Brehm",
+   "dataArquivoObj": "2025-07-04T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "031 CATRIEL BRUM DEBARDI.pdf",
+   "descricaoArquivo": "Edital nº 31 – Cumprimento de Decisão Judicial – Catriel Brum Debardi",
+   "dataArquivoObj": "2025-07-04T09:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "028 LEANDRO JOSE ANDRADE PAVAN.pdf",
+   "descricaoArquivo": "Edital nº 28 – Cumprimento de Decisão Judicial – Leandro José Andrade Pavan",
+   "dataArquivoObj": "2025-07-04T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "026 GABRIELA TOMAZELLI SOARES.pdf",
+   "descricaoArquivo": "Edital nº 26 – Cumprimento de Decisão Judicial – Gabriela Tomazelli Soares",
+   "dataArquivoObj": "2025-07-04T09:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "025 WILLIAN KLIPPEL BOEIRA.pdf",
+   "descricaoArquivo": "Edital nº 25 – Cumprimento de Decisão Judicial – Willian Klippel Boeira",
+   "dataArquivoObj": "2025-07-04T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "024 CRISTIAN LUIZ CORSO.pdf",
+   "descricaoArquivo": "Edital nº 24 – Cumprimento de Decisão Judicial – Cristian Luiz Corso",
+   "dataArquivoObj": "2025-07-04T09:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "023 CAYO GEREMIAS DA NATAVIDADE.pdf",
+   "descricaoArquivo": "Edital nº 23 – Cumprimento de Decisão Judicial – Cayo Geremias da Natavidade",
+   "dataArquivoObj": "2025-07-04T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "021 MATHEUS ESTEVAO ZAVODNI.pdf",
+   "descricaoArquivo": "Edital nº 21 – Cumprimento de Decisão Judicial – Matheus Estevão Zavodni",
+   "dataArquivoObj": "2025-07-04T09:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "021 DAFFERSON DA SILVA BORBA.pdf",
+   "descricaoArquivo": "Edital nº 21 – Cumprimento de Decisão Judicial – Dafferson da Silva Borba",
+   "dataArquivoObj": "2025-07-04T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "020 VICTOR ANTONIO ARAUJO.pdf",
+   "descricaoArquivo": "Edital nº 20 – Cumprimento de Decisão Judicial – Victor Antonio Araújo",
+   "dataArquivoObj": "2025-07-04T09:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "019 LUIS FERNANDO TAVARES LEVANDOWSKI.pdf",
+   "descricaoArquivo": "Edital nº 19 – Cumprimento de Decisão Judicial – Luis Fernando  Levandowski",
+   "dataArquivoObj": "2025-07-04T09:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "016 LUCAS FELIPE DAUFENBACH.pdf",
+   "descricaoArquivo": "Edital nº 16 – Cumprimento de Decisão Judicial – Lucas Felipe Daufenbach",
+   "dataArquivoObj": "2025-07-04T09:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "015 MATHEUS AGUIAR DE SOUZA.pdf",
+   "descricaoArquivo": "Edital nº 15 – Cumprimento de Decisão Judicial – Matheus Aguiar de Sousa ",
+   "dataArquivoObj": "2025-07-04T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Edital 80CCP2025PMSC_Soldado_Res_Final_Exame_Saude_Toxicologico.pdf",
+   "descricaoArquivo": "Edital nº 80 – Resultado final nos exames de saúde (médico e odontológico), exame toxicológico e o resultado provisório na investigação social ",
+   "dataArquivoObj": "2025-05-21T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_SC_Soldado_Comunicado_Res_Final_Saude_Tox.pdf",
+   "descricaoArquivo": "Comunicado – Resultado final da avaliação de saúde  (médico e odontológico) e exame toxicológico, resultado provisório na investigação social e convocação para o desempate de notas",
+   "dataArquivoObj": "2025-05-14T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Edital 76CCP2025_PMSC_Soldado_Res_final_psicologica.pdf",
+   "descricaoArquivo": "Edital nº 76 –  Resultado final na avaliação psicológica",
+   "dataArquivoObj": "2025-05-14T16:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Edital 72CCP2025PMSC_Soldado_Conv_nova_avaliação_saúde.pdf",
+   "descricaoArquivo": "Edital nº 72 – Convocação para nova avaliação de saúde (médico e odontológico)",
+   "dataArquivoObj": "2025-05-07T17:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL 064 CCP 2025 DIVULGA RESULTADO PROVISÓRIO NA AVALIAÇÃO PSICOLÓGICA.pdf",
+   "descricaoArquivo": "Edital nº 64 – Resultado provisório na avaliação psicológica",
+   "dataArquivoObj": "2025-04-16T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL N 063 CCP 2025 DIVULGA RESULTADO PROVISÓRIO NOS EXAMES DE SAÚDE (MÉDICO E ODONTOLÓGICO) E TOXICOLÓGICO.pdf",
+   "descricaoArquivo": "Edital nº 63 – Resultado provisório nos exames de saúde (médico e odontológico) e toxicológico",
+   "dataArquivoObj": "2025-04-15T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL 057CCP2025 _Soldado_Ret_Data_Ed_39.pdf",
+   "descricaoArquivo": "Edital nº 57 – Retificação da  data constante do subitem 7.4 do Edital nº 035/CCP/2025",
+   "dataArquivoObj": "2025-04-09T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Edital 50CCP2025_PMSC_Soldado_Res_Final_aval_fis_conv_psico.pdf",
+   "descricaoArquivo": "Edital nº 50 – Resultado na avaliação física, considerando-se os recursos interpostos nos termos do subitem 9.8 do edital de abertura e convocação para a avaliação psicológica",
+   "dataArquivoObj": "2025-03-21T19:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_040_CCP_2025_DIVULGAR_AS_INFORMAES_REFERENTES_AO_LOCAL_E_AO_HORRIO_DE_REALIZAO_DA_INSPEO_DE_SADE_(MDICO_E_ODONTOLGICO)_SUB_JUDICE_TAYNARA_FERNANDES_RIBEIRO.PDF",
+   "descricaoArquivo": "Edital nº 40 – Informações sobre a inspeção de saúde (médica e odontológica) – sub judice",
+   "dataArquivoObj": "2025-03-07T18:00:03",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_039_CCP_2025_DIVULGAR_AS_INFORMAES_REFERENTES_AO_LOCAL_E_AO_HORRIO_DE_REALIZAO_DA_AVALIAO_FSICA_CANDATA_SUB_JUDICE__TAYNARA_FERNANDES_RIBEIRO.PDF",
+   "descricaoArquivo": "Edital nº 39 – Informações sobre a avaliação física – sub judice",
+   "dataArquivoObj": "2025-03-07T18:00:02",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_038_CCP_2025_DIVULGAR_AS_INFORMAES_REFERENTES_AO_LOCAL_E_AO_HORRIO_DE_REALIZAO_DA_INSPEO_DE_SADE_(MDICO_E_ODONTOLGICO).PDF",
+   "descricaoArquivo": "Edital nº 38 – Informações sobre a inspeção de saúde (médica e odontológica)",
+   "dataArquivoObj": "2025-03-07T18:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_037_CCP_2025_DIVULGAR_AS_INFORMAES_REFERENTES_AO_LOCAL_E_AO_HORRIO_DE_REALIZAO_DA_AVALIAO_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 37 – Informações sobre a avaliação física",
+   "dataArquivoObj": "2025-03-07T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_35_CCP2025_PMSC_SOLDADO_RES_FINAL_DISC_CONVOCACOES_ADI.PDF",
+   "descricaoArquivo": "Edital nº 35 – Resultado final na prova discursiva e convocação para a avaliação física, exame médico e odontológico, exame toxicológico e investigação social",
+   "dataArquivoObj": "2025-02-28T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_027CCP2025_2023_PMSC_SOLDADO_RET_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 27 –  Inclusão de candidatas no resultado final na prova objetiva e no resultado provisório na prova discursiva",
+   "dataArquivoObj": "2025-02-14T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_SC_SOLDADO_COMUNICADO_RES_FINAL_DISC_CONVOCACOES_ADI.PDF",
+   "descricaoArquivo": "Comunicado – Resultado final na prova discursiva e convocações",
+   "dataArquivoObj": "2025-02-07T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_004CCP2025_PMSC_SOLDADO_RES_FINAL_OBJ_PROV_DISC.PDF",
+   "descricaoArquivo": "Edital nº 004/CCP/2025 – Resultado final na prova objetiva e resultado provisório na prova discursiva",
+   "dataArquivoObj": "2025-01-21T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_001CCP2025_2023_PMSC_SOLDADO_RET_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 001/CCP/2025 – Retificação do Edital nº 002/CGCP/2023",
+   "dataArquivoObj": "2025-01-06T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_02_CCP_2024.PDF",
+   "descricaoArquivo": "Edital nº 02/CCP/2024 –  Retificação do Edital nº 42/CCP/2024",
+   "dataArquivoObj": "2024-04-12T10:23:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_46_CCP_2024.PDF",
+   "descricaoArquivo": "Edital nº 46/CCP/2024 – Cumprimento de Decisão Judicial.",
+   "dataArquivoObj": "2024-04-12T10:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_44_CCP_2024.PDF",
+   "descricaoArquivo": "Edital nº 44/CCP/2024 – Cumprimento de Decisão Judicial.",
+   "dataArquivoObj": "2024-04-12T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_42_CCP_2024.PDF",
+   "descricaoArquivo": "Edital nº 42/CCP/2024 – Cumprimento de Decisão Judicial.",
+   "dataArquivoObj": "2024-04-12T09:48:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_39_CCP_2024.PDF",
+   "descricaoArquivo": "Edital nº 39/CCP/2024 – Cumprimento de Decisão Judicial.",
+   "dataArquivoObj": "2024-04-12T09:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_37_CCP_2024.PDF",
+   "descricaoArquivo": "Edital nº 37/CCP/2024 – Cumprimento de Decisão Judicial.",
+   "dataArquivoObj": "2024-04-12T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_35_CCP_2024_DIVULGA_LIMINAR_DE_NATALIA_DA_SILVA_LUIZ.PDF",
+   "descricaoArquivo": "Edital nº 35/CCP/2024 - Divulga a decisão judicial oriunda dos autos do processo nº 5021188-36.2023.8.24.0091, em favor de candidata.",
+   "dataArquivoObj": "2024-02-07T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "RESULTADO_FINAL_PRAA.PDF",
+   "descricaoArquivo": "Edital nº 7 – Resultado final no concurso",
+   "dataArquivoObj": "2024-01-09T17:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_83_2023_PMSC_SOLDADO_RES_FINAL_EX_SAUDE_TOXICOL_PROV_IS.PDF",
+   "descricaoArquivo": "Edital nº 83 – Resultado final no exame de saúde (médico e odontológico), o resultado final no exame toxicológico e o resultado provisório na investigação social",
+   "dataArquivoObj": "2023-12-29T19:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_080_2023_PMSC_SOLDADO_CUMPRIMENTO_DE_DECISAO_JUDICIAL.PDF",
+   "descricaoArquivo": "Edital nº 80 – Cumprimento de decisão judicial e o retorno dos candidatos à condição regular",
+   "dataArquivoObj": "2023-12-28T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_077_2023_PMSC_SOLDADO_RES_FINAL_AVAL_PSICOL.PDF",
+   "descricaoArquivo": "Edital nº 77 – Resultado final na avaliação psicológica",
+   "dataArquivoObj": "2023-12-28T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_73.14_2023_PMSC_SOLDADO_CONV_INSP_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 73 – Convocação para a realização de nova inspeção de saúde",
+   "dataArquivoObj": "2023-12-20T21:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_65_2023_PMSC_SOLDADO_RES_PROV_AVAL_PSICOL.PDF",
+   "descricaoArquivo": "Edital nº 65 – Resultado provisório na avaliação psicológica",
+   "dataArquivoObj": "2023-12-05T18:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_63_2023_PMSC_SOLDADO_RES_PROV_EX_SAUDE_TOXICOL.PDF",
+   "descricaoArquivo": "Edital nº 63 – Resultado provisório no exame de saúde (médico e odontológico) e o resultado provisório no exame toxicológico",
+   "dataArquivoObj": "2023-11-28T18:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_51_2023_PMSC_SOLDADO_INCLUSAO_CANDIDATO_CONV_AVAL_PSICOL_PABLO.PDF",
+   "descricaoArquivo": "Edital nº 51 – Inclusão de candidato na convocação para a avaliação psicológica",
+   "dataArquivoObj": "2023-11-17T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_49_2023_PMSC_SOLDADO_RES_REC_AVAL_FISICA_CONV_AVAL_PSICOL.PDF",
+   "descricaoArquivo": "Edital nº 49 – Resultado na  avaliação física e convocação para a avaliação psicológica",
+   "dataArquivoObj": "2023-11-10T19:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_043_CCP_2023.PDF",
+   "descricaoArquivo": "Edital nº 43 – Exclusão de candidato na convocação para a reaplicação da avaliação física",
+   "dataArquivoObj": "2023-11-03T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_042_2023_PMSC_SOLDADO_CONV_AVAL_FISICA_POR_REC_N_014_2023_12_PJ_CAP_DO_MPSC.PDF",
+   "descricaoArquivo": "Edital nº 42 – Convocação para reaplicação da Avaliação Física",
+   "dataArquivoObj": "2023-10-27T18:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_038_CCP_LOCAL_E__HORRIO_DE_REALIZAO_DA_INSPEO_DE_SADE_(MDICO_E_ODONTOLGICO).PDF",
+   "descricaoArquivo": "Edital nº 38 – Local e horário da realização da inspeção de saúde",
+   "dataArquivoObj": "2023-10-17T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_2023_PMSC_SOLDADO_EXCLUSAO_SUBITEM_4.5.PDF",
+   "descricaoArquivo": "Edital nº 12 – Exclusão do subitem  4.5 do Edital nº 030/CCP/2023 – CFP, de 9 de outubro de 2023",
+   "dataArquivoObj": "2023-10-11T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_030CCP2023____RESULTADO_FINAL_NA_PROVA_DISCURSIVA_E_A_CONVOCACOES.PDF",
+   "descricaoArquivo": "Edital nº 30 – Resultado final na prova discursiva e a convocação para a avaliação física, o exame de saúde (médico e odontológico), o exame toxicológico e a investigação social",
+   "dataArquivoObj": "2023-10-09T18:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_010CCP2023___DIVULGAR_A_RETIFICAO_DOS_NDICES_(IMDP_E_IMA)_DO_TESTE_DE_BARRA_FIXA_DIVULGADOS_POR_MEIO_DO_SUBITEM_1.1.4__DO_ANEXO_III._1_REFERENTE_AO.PDF",
+   "descricaoArquivo": "Edital nº 10 – Retificação dos índices (IMDP e IMA) do teste de barra fixa, divulgados por meio do subitem 1.1.4 do Anexo III.1 do Edital nº  002/CGCP – CFP",
+   "dataArquivoObj": "2023-10-04T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_SC_23_SOLDADO_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2023-09-27T16:12:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_029_CCP_2023___DIVULGA_RESULTADO_FINAL_NA_PROVA_OBJETIVA_E_O_RESULTADO_PROVISRIO_NA_PROVA_DISCURSIVA.PDF",
+   "descricaoArquivo": "Edital nº 29 – Resultado final na prova objetiva e o resultado provisório na prova discursiva",
+   "dataArquivoObj": "2023-09-20T18:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_25CCP2023___DIVULGA_A_DECISO_JUDICIAL_ORIUNDA_DOS_AUTOS_DO_PROCESSO_N_004919_68.2023.8.24.0010__EM_FAVOR_DO_CANDIDATO_THOAG_PETRINE_DE_SOUZA_NEVES.PDF",
+   "descricaoArquivo": "Edital nº 25 – Inclusão de candidato na relação provisória das inscrições deferidas no Edital de concurso público nº 002/CGCP/2023",
+   "dataArquivoObj": "2023-08-24T18:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_24_CCP_2023___HOMOLOGAO_DA_RELAO_FINAL_DOS_CANDIDATOS_COM_A_INSCRIO_DEFERIDA.PDF",
+   "descricaoArquivo": "Edital nº 24 – Homologação da relação final das inscrições deferidas, referente ao Edital de concurso público nº 002/CGCP/2023",
+   "dataArquivoObj": "2023-08-24T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_SC_23_SOLDADO___DEMANDA_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda de candidatos por vaga",
+   "dataArquivoObj": "2023-08-18T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_023_CCP2023_LOCAIS_DE_APLICAO_DA_PROVA_OBJETIVA_E_DA_PROVA_DISCURSIVA_CFP_(002).PDF",
+   "descricaoArquivo": "Edital nº 23 – Locais de aplicação da prova objetiva e da prova discursiva",
+   "dataArquivoObj": "2023-08-15T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_SC_SOLDADO_COMUNICADO_LOCAIS_.PDF",
+   "descricaoArquivo": "Comunicado – Consulta aos locais de realização das provas",
+   "dataArquivoObj": "2023-08-10T18:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_2023_PMSC_SOLDADO_REL_FINAL_INSCRITOS.PDF",
+   "descricaoArquivo": "Edital nº 21 – Relação final dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2023-08-07T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_2023_PMSC_SOLDADO_RETIFICACAO_REL_PROV_INSCRITOS_E_DE_DATA.PDF",
+   "descricaoArquivo": "Edital nº 6 – Retificação da relação provisória dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2023-07-28T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_018CCP2023_DIVULGAR_A_RELAO_PROVISRIA_DOS_CANDIDATOS_COM_A_INSCRIO_DEFERIDA_E_ABRIR_PRAZO_PARA_RECURSO_CONTRA_AS_INSCRIES_INDEFERIDAS.PDF",
+   "descricaoArquivo": "Edital nº 18 – Relação provisória dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2023-07-14T14:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_16CCP2023_DIVULGAR_A_RELAO_FINAL_DOS_CANDIDATOS_COM_A_SOLICITAO_DE_ISENO_DA_TAXA_DE_INSCRIO_DEFERIDA_E_O_PROCEDIM.PDF",
+   "descricaoArquivo": "Edital nº 16 – Relação final dos candidatos com a solicitação de isenção do pagamento da taxa de inscrição deferida",
+   "dataArquivoObj": "2023-07-05T14:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_2023_PMSC_SOLDADO_REL_PROV_ISENO.PDF",
+   "descricaoArquivo": "Edital nº 14 – Relação provisória dos candidatos com a solicitação de isenção do pagamento da taxa de inscrição deferida",
+   "dataArquivoObj": "2023-06-26T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_2023_PMSC_SOLDADO_RET_ISENO.PDF",
+   "descricaoArquivo": "Edital nº 4 – Retificação do subitem 5.4.10.2.5.1 do Edital nº 002/CGCP/2023 – CFP",
+   "dataArquivoObj": "2023-05-23T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_2_2022_PMSC_Abertura_Soldado_atualizado.pdf",
+   "descricaoArquivo": "Edital nº 1 – Abertura – Atualizado conforme retificações   ",
+   "dataArquivoObj": "2023-05-15T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_2022_PMSC_ABERTURA_SOLDADO.PDF",
+   "descricaoArquivo": "Edital nº 2 – Abertura",
+   "dataArquivoObj": "2023-05-11T16:16:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_862_PMSC_SOLDADO_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA",
+   "dataArquivoObj": "2023-09-20T18:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_SC_23_SOLDADO_PADRO_DE_RESPOSTA_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA - PROVA DISCURSIVA (P2)",
+   "dataArquivoObj": "2023-09-20T18:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "862_PMSC_SOLDADO_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA",
+   "dataArquivoObj": "2023-09-01T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "862_PMSC_SOLDADO_DISC.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA (P2)",
+   "dataArquivoObj": "2023-08-29T19:00:00",
+   "isGuid": false
+  }
+ ]
+}

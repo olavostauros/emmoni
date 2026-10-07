@@ -1,0 +1,196 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_GO_16.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcgo-2016` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcgo-2016
+name: Polícia Civil do Estado de Goiás
+agency: pcgo
+exam_board: cebraspe
+year: 2016
+source_url: https://www.cebraspe.org.br/concursos/PC_GO_16
+exams:
+- slug: conhecimentos-especificos-cargo-1-agente-de-policia-substituto
+  name: 'Caderno de provas - Conhecimentos Específicos - cargo 1: agente de polícia substituto'
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_001_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_001_01.pdf
+- slug: conhecimentos-especificos-cargo-2-escrivao-de-policia-substituto
+  name: 'Caderno de provas - Conhecimentos Específicos - cargo 2: escrivão de polícia substituto'
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_002_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_002_01.pdf
+- slug: conhecimentos-basicos-cargo-1-agente-de-policia-substituto
+  name: 'Caderno de provas - Conhecimentos Básicos - cargo 1: agente de polícia substituto'
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CB1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CB1_01.pdf
+- slug: conhecimentos-basicos-cargo-2-escrivao-de-policia-substituto
+  name: 'Caderno de provas - Conhecimentos Básicos - cargo 2: escrivão de polícia substituto'
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CB1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CB1_01.pdf
+- slug: conhecimentos-gerais-cargo-1-agente-de-policia-substituto
+  name: 'Caderno de provas - Conhecimentos Gerais - cargo 1: agente de polícia substituto'
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CG1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CG1_01.pdf
+- slug: conhecimentos-gerais-cargo-2-escrivao-de-policia-substituto
+  name: 'Caderno de provas - Conhecimentos Gerais - cargo 2: escrivão de polícia substituto'
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CG1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CG1_01.pdf
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_GO_16
+    link_text: PC/GO 2016
+    event: PC_GO_16
+    agency:
+      value: pcgo
+      confidence: 1.0
+      rule: prefixo PC_GO da URL do evento
+    year:
+      value: 2016
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos-cargo-1-agente-de-policia-substituto:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_001_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Específicos - cargo 1: agente de polícia substituto'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_001_01.pdf
+          link_text: 'Gabarito Definitivo - Conhecimentos Específicos - cargo 1: agente de polícia substituto'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-2-escrivao-de-policia-substituto:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_002_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Específicos - cargo 2: escrivão de polícia substituto'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_002_01.pdf
+          link_text: 'Gabarito Definitivo - Conhecimentos Específicos - cargo 2: escrivão de polícia substituto'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-basicos-cargo-1-agente-de-policia-substituto:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CB1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Básicos - cargo 1: agente de polícia substituto'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CB1_01.pdf
+          link_text: 'Gabarito Definitivo - Conhecimentos Básicos - cargo 1: agente de polícia substituto'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-basicos-cargo-2-escrivao-de-policia-substituto:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CB1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Básicos - cargo 2: escrivão de polícia substituto'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CB1_01.pdf
+          link_text: 'Gabarito Definitivo - Conhecimentos Básicos - cargo 2: escrivão de polícia substituto'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-1-agente-de-policia-substituto:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CG1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Gerais - cargo 1: agente de polícia substituto'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CG1_01.pdf
+          link_text: 'Gabarito Definitivo - Conhecimentos Gerais - cargo 1: agente de polícia substituto'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-2-escrivao-de-policia-substituto:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA SUBSTITUTO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/277_PCGO_CG1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Gerais - cargo 2: escrivão de polícia substituto'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_GO_16/arquivos/Gab_Definitivo_277_PCGO_CG1_01.pdf
+          link_text: 'Gabarito Definitivo - Conhecimentos Gerais - cargo 2: escrivão de polícia substituto'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

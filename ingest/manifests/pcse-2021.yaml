@@ -1,0 +1,116 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_SE_21.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcse-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcse-2021
+name: POLÍCIA CIVIL DO ESTADO DE SERGIPE
+agency: pcse
+exam_board: cebraspe
+year: 2021
+source_url: https://www.cebraspe.org.br/concursos/PC_SE_21
+exams:
+- slug: conhecimentos-especificos-cargo-1
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_001_01.PDF
+- slug: conhecimentos-especificos-cargo-2
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 2
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_002_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_002_01.PDF
+- slug: conhecimentos-gerais
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS
+  positions:
+  - agente
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_CG1_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_SE_21
+    link_text: PCSE 21
+    event: PC_SE_21
+    agency:
+      value: pcse
+      confidence: 1.0
+      rule: prefixo PC_SE da URL do evento
+    year:
+      value: 2021
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos-cargo-1:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA JUDICIARIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_001_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_001_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 1
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-2:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_002_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 2
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_002_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 2
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais:
+      positions:
+        value:
+        - agente
+        - escrivao
+        confidence: 0.7
+        rule: 'prova sem cargo citado: todos os cargos do concurso que estão no catálogo; nome do cargo ''Agente
+          de Polícia'' aparece em ''AGENTE DE POLICIA JUDICIARIA''; nome do cargo ''Escrivão de Polícia'' aparece
+          em ''ESCRIVAO DE POLICIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_CG1_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_CG1_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS GERAIS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

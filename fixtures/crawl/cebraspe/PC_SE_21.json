@@ -1,0 +1,272 @@
+{
+ "eventoURL": "PC_SE_21",
+ "eventoNomeAbreviado": "PCSE 21",
+ "eventoNomeCompleto": "POLÍCIA CIVIL DO ESTADO DE SERGIPE",
+ "eventoAno": 2021,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: Agente de Polícia Judiciária "
+  },
+  {
+   "idArea": "02",
+   "area": "Cargo 2: Escrivão de Polícia "
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "ED_23_PC_SE_2021_INCL_CAND_SUB_JUD_TAYNARA.PDF",
+   "descricaoArquivo": "Edital nº 23 - Inclusão de candidata sub judice.",
+   "dataArquivoObj": "2024-09-10T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_PC_SE_2021_RETIFICAES_RES_FINAL_TTULOS_E_CONCURSO_.PDF",
+   "descricaoArquivo": "Edital nº 22 - Retificações, resultado final na avaliação de títulos e o resultado final no concurso público",
+   "dataArquivoObj": "2022-09-19T16:51:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_DATA.PDF",
+   "descricaoArquivo": "Comunicado - Informação sobre a data de divulgação do próximo edital",
+   "dataArquivoObj": "2022-09-16T18:46:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_PC_SE_2021_RES_PROV_TTULOS.PDF",
+   "descricaoArquivo": "Edital nº 21 - Resultado provisório na avaliação de títulos",
+   "dataArquivoObj": "2022-09-06T15:58:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_PC_SE_2021_RES_FINAL_SINDICNCIA_CONV_TTULOS.PDF",
+   "descricaoArquivo": "Edital nº 20 - Resultado final na sindicância de vida pregressa e a convocação para a avaliação de títulos",
+   "dataArquivoObj": "2022-08-23T09:36:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_PC_SE_2021_RES_FINAL_HETERO_PROV_SINDICNCIA.PDF",
+   "descricaoArquivo": "Edital nº 19 - Resultado final no procedimento de heteroidentificação e o resultado provisório na sindicância de vida pregressa",
+   "dataArquivoObj": "2022-07-27T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_PC_SE_2021_RET_ED_16.PDF",
+   "descricaoArquivo": "Edital nº 18 - Retificação do Edital nº 16 – PCSE para a inclusão de subitens",
+   "dataArquivoObj": "2022-07-26T18:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_PC_SE_2021_RES_PROV_HETERO.PDF",
+   "descricaoArquivo": "Edital nº 17 - Resultado provisório no procedimento de heteroidentificação complementar à autodeclaração dos candidatos negros",
+   "dataArquivoObj": "2022-07-07T17:08:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FIC_AGENTES_ESCRIVES.PDF",
+   "descricaoArquivo": "Ficha de Informações Confidenciais (FIC)",
+   "dataArquivoObj": "2022-06-20T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_PC_SE_2021_RES_FINAL_EXAMES_BIOM_TOXIC_CONV_SIND_VIDA_PREGRESSA_HETERO.PDF",
+   "descricaoArquivo": "Edital nº 16 - Resultado final nos exames biomédicos, toxicológico e convocações",
+   "dataArquivoObj": "2022-06-17T15:56:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_PC_SE_2021_RES_PROV_EXAMES_BIOM_TOXIC.PDF",
+   "descricaoArquivo": "Edital nº 15 - Resultado provisório nos exames biomédicos e toxicológico",
+   "dataArquivoObj": "2022-05-26T15:57:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_PC_SE_2021_REPUBLICAO_SUBITEM_2.1_EDITAL_13.PDF",
+   "descricaoArquivo": "Edital nº 14 – Republicação do subitem 2.1 do Edital nº 13 – PCSE, de 30 de março de 2022",
+   "dataArquivoObj": "2022-04-18T14:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13PC_SE_2021_RES_FINAL_EXAME_PSICOTECNICO_CONV_EXAMES_BIOMDICOS_TOX.PDF",
+   "descricaoArquivo": "Edital nº 13 – Resultado final no exame psicotécnico e a convocação para os exames biomédicos e toxicológico",
+   "dataArquivoObj": "2022-03-31T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_PC_SE_2021_RES_PROV_EXAME_PSICOTECNICO.PDF",
+   "descricaoArquivo": "Edital nº 12 – Resultado provisório no exame psicotécnico",
+   "dataArquivoObj": "2022-03-08T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_PC_SE_2021_RES_FINAL_EXAME_BIOFSICOS_CONV_EXAME_PSICOTECNICO.PDF",
+   "descricaoArquivo": "Edital nº 11 – Resultado final dos exames biofísicos e convocação para o exame psicotécnico",
+   "dataArquivoObj": "2022-02-04T10:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_PC_SE_2021_RES_PROV_EXAME_BIOFSICOS.PDF",
+   "descricaoArquivo": "Edital nº 10 – Resultado provisório nos exames biofísicos",
+   "dataArquivoObj": "2022-01-21T11:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_PC_SE_2021_RETIFICAO_DE_DATA.PDF",
+   "descricaoArquivo": "Edital nº 9 – Retificação da data constante do subitem 3.1 do Edital nº 8 – PCSE, de 30 de dezembro de 2021",
+   "dataArquivoObj": "2022-01-04T17:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_PC_SE_2021_RES_FIN_PERICIA_CONV_EXAME_BIOFSICOS.PDF",
+   "descricaoArquivo": "Edital nº 8 – Resultado final da perícia médica e convocação para os exames biofísicos (testes físicos)",
+   "dataArquivoObj": "2022-01-03T17:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CONVOCAO_DE_PERICIA.PDF",
+   "descricaoArquivo": "Convocação de candidatos PCD por nova junta para análise recursal",
+   "dataArquivoObj": "2021-12-27T09:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_SE_21_INC_CANDIDATOS_REL_FINAL_PCD.PDF",
+   "descricaoArquivo": "Inclusão de candidatos na relação final dos candidatos com a inscrição deferida para concorrer na condição de pessoa com deficiência",
+   "dataArquivoObj": "2021-12-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_PC_SE_2021_RES_PROV_PERICIA.PDF",
+   "descricaoArquivo": "Edital nº 7 – Resultado provisório da perícia médica dos candidatos que se declararam com deficiência",
+   "dataArquivoObj": "2021-12-15T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_PC_SE_2021_RES_FINAL_DISC_CONV_PERICIA.PDF",
+   "descricaoArquivo": "Edital nº 6 - Resultado final na prova discursiva e a convocação para a perícia médica dos candidatos que se declararam com deficiência",
+   "dataArquivoObj": "2021-11-05T10:16:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_SE_JUSTIFICATIVAS_ALTERAO_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2021-11-01T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_PC_SE_2021_RES_FINAL_OBJ_PROV_DISC.PDF",
+   "descricaoArquivo": "Edital nº 5 – Resultado final nas provas objetivas e resultado provisório na prova discursiva",
+   "dataArquivoObj": "2021-10-18T14:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_RES_FINAL_OBJ_PROV_DISC.PDF",
+   "descricaoArquivo": "Comunicado - Alteração da data do resultado final nas provas objetivas e de resultado provisório na prova discursiva",
+   "dataArquivoObj": "2021-10-16T07:52:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_PC_SE_2021_RET.PDF",
+   "descricaoArquivo": "Edital nº 4 – Retificação dos subitens 1.2, alínea b, 5.1.6.1, 7.1 e 10.1 do Edital nº 1 – PCSE, de 1º de julho de 2021",
+   "dataArquivoObj": "2021-10-05T12:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_SE_21___DEMANDA_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda candidato por vaga",
+   "dataArquivoObj": "2021-09-15T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_3_PC_SE_21_LOCAIS.PDF",
+   "descricaoArquivo": "Edital nº 3 – Informações das provas objetivas e discursivas e data da disponibilização do link de consulta individual aos locais de realização das provas",
+   "dataArquivoObj": "2021-09-10T14:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_SE_21_REL_FINAL_PCD.PDF",
+   "descricaoArquivo": "Relação final dos candidatos com a inscrição deferida para concorrer na condição de pessoa com deficiência",
+   "dataArquivoObj": "2021-08-27T15:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_SE_21_REL_PROV_PCD.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos com a inscrição deferida para concorrer na condição de pessoa com deficiência",
+   "dataArquivoObj": "2021-08-11T17:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_2_PC_SE_2021_RET_PRORROGAO.PDF",
+   "descricaoArquivo": "Edital nº 2 - Prorrogação do período de inscrição e retificações",
+   "dataArquivoObj": "2021-07-27T18:21:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_PC_SE_2021_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2021-07-02T14:15:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "PC_SE_21_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_01.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - CARGO 1",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_SE_21_PADRO_DE_RESPOSTA_DEFINITIVO_CARGO_02.PDF",
+   "descricaoArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - CARGO 2",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "605_PCSE_CG1_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS GERAIS",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "605_PCSE_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "605_PCSE_002_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 2",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_605_PCSE_CG1_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS GERAIS",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_605_PCSE_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 1",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_605_PCSE_002_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 2",
+   "dataArquivoObj": "2021-10-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "605_PCSE_001_DISC.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 1",
+   "dataArquivoObj": "2021-09-23T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "605_PCSE_002_DISC.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA - CARGO 2",
+   "dataArquivoObj": "2021-09-23T09:50:00",
+   "isGuid": false
+  }
+ ]
+}

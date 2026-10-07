@@ -1,0 +1,56 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcrj-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcrj-2021
+name: POLÍCIA CIVIL DO ESTADO DO RIO DE JANEIRO
+agency: pcrj
+exam_board: cebraspe
+year: 2021
+source_url: https://www.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO
+exams:
+- slug: objetiva
+  name: PROVA OBJETIVA
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/662_PCRJ_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/GAB_DEFINITIVO_662_PCRJ_001_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO
+    link_text: PCRJ 21 DELEGADO
+    event: PC_RJ_21_DELEGADO
+    agency:
+      value: pcrj
+      confidence: 1.0
+      rule: prefixo PC_RJ da URL do evento
+    year:
+      value: 2021
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    objetiva:
+      positions:
+        value:
+        - delegado
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Delegado de Polícia' aparece em 'DELEGADO DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/662_PCRJ_001_01.PDF
+          link_text: PROVA OBJETIVA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/GAB_DEFINITIVO_662_PCRJ_001_01.PDF
+          link_text: GABARITO DEFINITIVO
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

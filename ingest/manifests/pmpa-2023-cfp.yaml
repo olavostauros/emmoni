@@ -1,0 +1,86 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_PA_23_CFP.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pmpa-2023-cfp` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pmpa-2023-cfp
+name: Praças da Polícia Militar do Pará
+agency: pmpa
+exam_board: cebraspe
+year: 2023
+source_url: https://www.cebraspe.org.br/concursos/PM_PA_23_CFP
+exams:
+- slug: conhecimentos-especificos
+  name: PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/916_PMPA_CFP_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/GAB_DEFINITIVO_916_PMPA_CFP_001_01.PDF
+- slug: conhecimentos-basicos
+  name: PROVA OBJETIVA – CONHECIMENTOS BÁSICOS
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/916_PMPA_CFP_CB1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/GAB_DEFINITIVO_916_PMPA_CFP_CB1_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PM_PA_23_CFP
+    link_text: PM_PA_23_CFP
+    event: PM_PA_23_CFP
+    agency:
+      value: pmpa
+      confidence: 1.0
+      rule: prefixo PM_PA da URL do evento
+    year:
+      value: 2023
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos:
+      positions:
+        value:
+        - soldado
+        confidence: 0.9
+        rule: único cargo do concurso; 'PRACA' (apelido de 'Soldado da Polícia Militar') em 'CARGO DE PRACA DA POLICIA
+          MILITAR DO ESTADO DO PARA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/916_PMPA_CFP_001_01.PDF
+          link_text: PROVA OBJETIVA – CONHECIMENTOS ESPECÍFICOS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/GAB_DEFINITIVO_916_PMPA_CFP_001_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-basicos:
+      positions:
+        value:
+        - soldado
+        confidence: 0.9
+        rule: único cargo do concurso; 'PRACA' (apelido de 'Soldado da Polícia Militar') em 'CARGO DE PRACA DA POLICIA
+          MILITAR DO ESTADO DO PARA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/916_PMPA_CFP_CB1_01.PDF
+          link_text: PROVA OBJETIVA – CONHECIMENTOS BÁSICOS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFP/arquivos/GAB_DEFINITIVO_916_PMPA_CFP_CB1_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS BÁSICOS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

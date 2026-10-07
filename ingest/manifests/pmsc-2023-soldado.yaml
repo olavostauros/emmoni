@@ -1,0 +1,57 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_SC_23_SOLDADO.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pmsc-2023-soldado` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pmsc-2023-soldado
+name: POLÍCIA MILITAR DE SANTA CATARINA
+agency: pmsc
+exam_board: cebraspe
+year: 2023
+source_url: https://www.cebraspe.org.br/concursos/PM_SC_23_SOLDADO
+exams:
+- slug: objetiva
+  name: PROVA OBJETIVA
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_SC_23_SOLDADO/arquivos/862_PMSC_SOLDADO_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_SC_23_SOLDADO/arquivos/GAB_DEFINITIVO_862_PMSC_SOLDADO_001_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PM_SC_23_SOLDADO
+    link_text: PM SC 23 SOLDADO
+    event: PM_SC_23_SOLDADO
+    agency:
+      value: pmsc
+      confidence: 1.0
+      rule: prefixo PM_SC da URL do evento
+    year:
+      value: 2023
+      confidence: 1.0
+      rule: eventoAno
+    phase: Em Andamento
+  exams:
+    objetiva:
+      positions:
+        value:
+        - soldado
+        confidence: 1.0
+        rule: único cargo do concurso; nome do cargo 'Soldado da Polícia Militar' aparece em 'CARGO DE SOLDADO DA
+          POLICIA MILITAR'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_SC_23_SOLDADO/arquivos/862_PMSC_SOLDADO_001_01.PDF
+          link_text: PROVA OBJETIVA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_SC_23_SOLDADO/arquivos/GAB_DEFINITIVO_862_PMSC_SOLDADO_001_01.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

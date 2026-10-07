@@ -1,0 +1,352 @@
+{
+ "eventoURL": "PC_CE_25_DELEGADO",
+ "eventoNomeAbreviado": "PC CE 25 DELEGADO ",
+ "eventoNomeCompleto": "Concurso Público de Delegado de Polícia Civil",
+ "eventoAno": 2025,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "DELEGADO DE POLÍCIA CIVIL"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "343D1F1304A0FEAC5B64A11CB922A40798F511391200EF8D54813AB5E1588A09.pdf",
+   "descricaoArquivo": "Comunicado – Retificação dos subitens 2.1 e 2.13.2 constantes do Comunicado de convocação para a avaliação de verificação de aprendizagem do curso de formação e treinamento",
+   "dataArquivoObj": "2026-09-22T09:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "9E3D759F1A7860DEC1CAE0491FEB7B0DBE6A58B4B00E3CDCFA58AE77DAFB5C99.pdf",
+   "descricaoArquivo": "Comunicado – Convocação para a avaliação de verificação de aprendizagem do curso de formação e treinamento",
+   "dataArquivoObj": "2026-09-18T19:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E1A7C6345E78150D1E1327DB339F572CD0D1FA185A4170DB4D77DB9739926969.pdf",
+   "descricaoArquivo": "Edital nº 31 – Inclusão de candidatos sub judice no resultado final na investigação social e a retificação do novo resultado final consolidado com as decisões judiciais",
+   "dataArquivoObj": "2026-08-05T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4FC82E6DD2F1445140F7849CFB4111C5606D4335415C602C11DD52AFBBC8A2BA.pdf",
+   "descricaoArquivo": "Edital nº 30 – Inclusão no resultado final no teste de aptidão física",
+   "dataArquivoObj": "2026-07-07T15:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "1ECDEBC9A9936BEBB47871E374315DCC3737C09805602D495209104F9EC2E3D2.pdf",
+   "descricaoArquivo": "Edital nº 29 – Convocação para o teste de aptidão física",
+   "dataArquivoObj": "2026-06-18T14:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4B9243B8DC6D48BFF5FDAE74AFCF687B7A3F1D7C3E2311E97735BEAC0A4DAFD4.pdf",
+   "descricaoArquivo": "Edital nº 1/2026 – Convocação para realização de  inspeção médica oficial e entrega de documentos para fins de nomeação",
+   "dataArquivoObj": "2026-05-06T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "8A5DC16621B7EB7A26F5334C2F319B4B786D956A286EC4CEA12BD2FA9307FEA7.pdf",
+   "descricaoArquivo": " Comunicado – Inspeção médica oficial e entrega de documentos ",
+   "dataArquivoObj": "2026-04-30T18:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "44B60F5B0A43BB9C49938D4F99AC0402059461B4FA75EEAD4F503BE3B0F03BE0.pdf",
+   "descricaoArquivo": "Comunicado – Relação de exames médicos e documentos a serem apresentados por ocasião de futura convocação",
+   "dataArquivoObj": "2026-04-23T14:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "696902C0AD205E3C570EC723C1ADE7C669805BA2989DFFA11BD9FCA2C4119E94.pdf",
+   "descricaoArquivo": "Edital nº 28 – Homologação do concurso público ",
+   "dataArquivoObj": "2026-04-23T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4231C080C440AF184F7B3D22280BBB282A4B797151FF03AEC2E0137D6DB8DE32.pdf",
+   "descricaoArquivo": "Edital nº 27 – Resultado final consolidado com as decisões judiciais",
+   "dataArquivoObj": "2026-04-13T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "BEFEF49C796C7BA49E2F0680DC69B6FFCD2D67D3F0DFA128A50818DD32B652F2.pdf",
+   "descricaoArquivo": "Edital nº 26 – Inclusão de candidatos sub judice no resultado final do concurso público ",
+   "dataArquivoObj": "2026-03-24T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "B94E91E67D8826B243D209B7CEC9111F789F1BA0A097E7F867C713FBA697D1F9.pdf",
+   "descricaoArquivo": "Edital nº 25 – Resultado final na investigação social e o resultado final no concurso público ",
+   "dataArquivoObj": "2026-03-10T11:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "3699B5E84DE23CDD84BCDE3768E4DC339F57AA261399F48D29E5A3158FA91AE8.pdf",
+   "descricaoArquivo": "Edital nº 24 – Retificação das datas constantes do subitem 4.1 – Link para interpor recurso contra o resultado provisório na investigação social",
+   "dataArquivoObj": "2026-02-11T16:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C56AAF0F4DF4D16B94A3FCDA8416CB7C05EEA96110143308AFE9093889805340.pdf",
+   "descricaoArquivo": "Edital nº 23 – Resultado final na avaliação biopsicossocial, resultado final no procedimento de heteroidentificação e o resultado provisório na investigação social ",
+   "dataArquivoObj": "2026-02-10T16:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C5F3D86E3A44F32AA1FA0221DB1E9FA2829818E08C250CAAB119EDEFC6C07558.pdf",
+   "descricaoArquivo": "Edital nº 22 – Convocação para a investigação social – sub judice",
+   "dataArquivoObj": "2026-02-09T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E32CDCDD25A8297310E381D4F9A334F021B965C848990FD25D42CCDE4D770CBE.pdf",
+   "descricaoArquivo": "Currículos dos integrantes da comissão recursal de heteroidentificação",
+   "dataArquivoObj": "2026-01-28T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A2DF699D0F688B73756399CD5E4C8C7CAF20EF12F869103D0F55CD244450A89D.pdf",
+   "descricaoArquivo": "Edital nº 21 – Resultado provisório na avaliação biopsicossocial e o resultado provisório no procedimento de heteroidentificação ",
+   "dataArquivoObj": "2026-01-27T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0E8E53848AFA39B2C91C8211ACA77E83B50CE90A7736E69E1E0ADE4ECD00F7ED.pdf",
+   "descricaoArquivo": "Edital nº 20 –  Retificação do subitem 2.1.1 do Edital nº 19 ",
+   "dataArquivoObj": "2026-01-08T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "9EAB64EAC65368DD09768411F813AC04D22E59121FA2647E2D4048C2096F8174.pdf",
+   "descricaoArquivo": "Currículos dos integrantes da comissão de heteroidentificação",
+   "dataArquivoObj": "2026-01-06T17:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "389B910644B4A25B6204D3C92FD5E5704D010CEFFC1A0700EC92CBDA93E30E37.pdf",
+   "descricaoArquivo": "Edital nº 19 – Resultado final na prova de títulos, convocação para avaliação biopsicossocial e procedimento de heteroidentificação",
+   "dataArquivoObj": "2025-12-30T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F18BF87A042EC8C2F2386EA0B2B93AB017B3B222EA18D40B010CD4839B57DD67.pdf",
+   "descricaoArquivo": "Edital nº 18 –  Resultado provisório na prova de títulos",
+   "dataArquivoObj": "2025-12-12T16:16:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "019596D1666EBAE51E27D0A815071E2EFAD0BD0D11C941F6571F8787682A31EC.pdf",
+   "descricaoArquivo": "Edital nº 17 – Resultado final na prova oral e a convocação para a prova de títulos",
+   "dataArquivoObj": "2025-11-28T14:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C321907E74BD26EFC8C86B60EA03C15A5C83FF51B7C1CB2CF565D131080BC002.pdf",
+   "descricaoArquivo": "Edital nº 16 – Resultado provisório na prova oral",
+   "dataArquivoObj": "2025-11-14T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "40CE779E2A30F4063B0ED5DDD5CD34702D5D4478236B39A48F96C41BE9149EF5.pdf",
+   "descricaoArquivo": "Edital nº 15 – Retificação prova oral",
+   "dataArquivoObj": "2025-10-27T13:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "B8F3DA6EF1429FBDC6F409EC30651A0CFD06E53EB0BAD73658EC449737661A6A.pdf",
+   "descricaoArquivo": "Edital nº 14 – Resultado final na avaliação psicológica e a convocação para a prova oral",
+   "dataArquivoObj": "2025-10-24T11:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F1921C73D7845F627D992466590663EC646C8E6FA7C887E3F1ECF805EBE6839D.pdf",
+   "descricaoArquivo": "Edital nº 13 –  Resultado provisório na avaliação psicológica",
+   "dataArquivoObj": "2025-10-06T16:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "92384C69EEF06A8CA724850FC64B00442E9EF837816D0DC8B38FA4792A84F5CB.pdf",
+   "descricaoArquivo": "Edital nº 12 –  Retificação do subitem 11.10.1 do Edital nº 1",
+   "dataArquivoObj": "2025-10-01T15:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "2522CEEFEC1D6E24BA8E9C78BB10FB9E289C6C2AB33AEE309A33A314BE965EEC.pdf",
+   "descricaoArquivo": "Edital nº 11 – Resultado final no novo teste de aptidão física e a convocação para a avaliação psicológica",
+   "dataArquivoObj": "2025-09-19T17:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "91FFCB90C5591B630689FB93ED2DE973E60A46AD22F6410B5A76E53EBB4B4BD5.pdf",
+   "descricaoArquivo": "Edital nº 10 – Resultado final no teste de aptidão física e a convocação para a avaliação psicológica - Candidatos Edital nº 7",
+   "dataArquivoObj": "2025-09-17T13:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DD798DF6E47A25F26B84E9CCAC56BD25DE2DE68D1F8289EC3F47313E9EE722BC.pdf",
+   "descricaoArquivo": "Currículos dos integrantes da banca examinadora para a avaliação psicológica",
+   "dataArquivoObj": "2025-09-17T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "487FA5E72EC48D966CAC4947457F3534B622C7A7AB2DD4740945826A15E5B8EF.pdf",
+   "descricaoArquivo": "Edital nº 9 – Resultado provisório no novo teste de aptidão física para os candidatos sub judice que solicitaram concorrer às vagas reservadas às pessoas com deficiência",
+   "dataArquivoObj": "2025-09-16T20:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "77194931E7ABA8566B1A053006F1812697BE4E21C9522DD865DB93452B9A2683.pdf",
+   "descricaoArquivo": "Edital nº 8 –  Convocação para o novo TAF para os candidatos sub judice que solicitaram concorrer às vagas reservadas às pessoas com deficiência",
+   "dataArquivoObj": "2025-09-09T14:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "6CCFC21A3478D6E849B57E794E26021537E695F965AAF3B0ED26B7887A994F62.pdf",
+   "descricaoArquivo": "Edital nº 7 – Resultado provisório no teste de aptidão física ",
+   "dataArquivoObj": "2025-09-03T10:00:03",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "30FE34B2E395C281455F1E16E4CE3217BFBBB547EB7FB599987DED83A875E859.pdf",
+   "descricaoArquivo": "Edital nº 6 – Aplicação de novo TAF para candidatos PCD em condição sub judice",
+   "dataArquivoObj": "2025-09-03T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_CE_Delegado_Res_Prov_TAF.pdf",
+   "descricaoArquivo": "Comunicado - Resultado provisório no teste de aptidão física",
+   "dataArquivoObj": "2025-08-01T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_5_2025_PC_CE_Delegado_Res_Final_Disc_Conv_TAF_IS.pdf",
+   "descricaoArquivo": "Edital nº 5 – Resultado final nas provas discursivas,  convocação para o teste de aptidão física e a convocação para a investigação social",
+   "dataArquivoObj": "2025-07-10T13:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_CE_25_DELEGADO_Justificativas_de_alterações_de_gabarito.pdf",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2025-06-25T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_CE_Delegado_Devolucao_taxa.pdf",
+   "descricaoArquivo": "Comunicado – Reembolso de taxa de inscrição para pagamento em duplicidade",
+   "dataArquivoObj": "2025-06-25T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_4_2025_PC_CE_Delegado_Res_final_obj_e_prov_disc.pdf",
+   "descricaoArquivo": "Edital nº 4 –  Resultado final na prova objetiva e o resultado provisório nas provas discursivas",
+   "dataArquivoObj": "2025-06-18T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DEMANDA CANDIDATOS POR VAGA - ATUALIZADO.pdf",
+   "descricaoArquivo": "Demanda de candidato por vaga ",
+   "dataArquivoObj": "2025-05-20T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_3_2025_PC_CE_Delegado_Locais.pdf",
+   "descricaoArquivo": "Edital nº 3 – Locais de aplicação da prova objetiva e das provas discursivas",
+   "dataArquivoObj": "2025-05-19T18:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_2_2025_PC_CE_Ret_mulheres.pdf",
+   "descricaoArquivo": "Edital nº 2 – Retificação dos subitens 8.11.5.1 e 8.11.5.3 e a inclusão do subitem 5.3 (e seguintes)",
+   "dataArquivoObj": "2025-05-16T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_CE_Delegado_2025_Rel_Final_Inc.pdf",
+   "descricaoArquivo": "Relação final dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2025-05-16T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_3_2025_PC_CE_Delegado_Rel_prov_inc_.pdf",
+   "descricaoArquivo": "Relação provisória dos candidatos com a inscrição deferida",
+   "dataArquivoObj": "2025-05-07T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_CE_Delegado_Comunicado_torna_sem_efeito_Ed_2.pdf",
+   "descricaoArquivo": "Comunicado – Torna sem efeito o Edital nº 2 – PC/CE Delegado",
+   "dataArquivoObj": "2025-04-11T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_2_2025_PC_CE_Delegado_Ret_reserva_mulheres_.pdf",
+   "descricaoArquivo": "Edital nº 2 – Retificações do Edital nº 1 – PC/CE Delegado – SEM EFEITO",
+   "dataArquivoObj": "2025-04-11T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "604AD49B3B202ADDE47604DB25A62CD0E2EF82C46D149C5D40DE06689F438357.pdf",
+   "descricaoArquivo": "Edital nº 1 – Atualizado conforme retificações",
+   "dataArquivoObj": "2025-03-14T20:00:25",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_1_2025_PC_CE_Delegado_Abertura.pdf",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2025-03-14T20:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "EEEA250CCEF80AA47825F7F9C52351C83DD6E54D9015020C8AC6F7D6617D5391.pdf",
+   "descricaoArquivo": " AVALIAÇÃO DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO",
+   "dataArquivoObj": "2026-10-01T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "491439F5A9B386157432545EFAA6351EE9156AE1050F88BAC1FF1A44B1F58F17.pdf",
+   "descricaoArquivo": "GABARITO PRELIMINAR - AVALIAÇÃO DE VERIFICAÇÃO DE APRENDIZAGEM - CURSO DE FORMAÇÃO",
+   "dataArquivoObj": "2026-10-01T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "AF1A155D4D60151AFB09F7990338E9DCAFFA5523254B72E280451DCDA4FB72FC.pdf",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 1",
+   "dataArquivoObj": "2025-11-06T19:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "38954C40385355EA34C519A5CDFD77047BF4DBC4274C679C4CA5160B35B7711E.pdf",
+   "descricaoArquivo": "PROVA ORAL - MALOTE 2",
+   "dataArquivoObj": "2025-11-06T19:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PADRÃO DE RESPOSTA DEFINITIVO - PROVA DISCURSIVA P2.pdf",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTAS – PROVA DISCURSIVA (P2)",
+   "dataArquivoObj": "2025-06-18T13:56:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_084_PC_CE_001_01.pdf",
+   "descricaoArquivo": "GABARITO DEFINITIVO – PROVA OBJETIVA",
+   "dataArquivoObj": "2025-06-18T09:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "084_PC_CE_001_01.pdf",
+   "descricaoArquivo": "PROVA OBJETIVA",
+   "dataArquivoObj": "2025-05-30T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "084_PC_CE_001_DISC.pdf",
+   "descricaoArquivo": "PROVA DISCURSIVA (P2)",
+   "dataArquivoObj": "2025-05-27T19:00:00",
+   "isGuid": false
+  }
+ ]
+}

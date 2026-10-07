@@ -1,0 +1,746 @@
+{
+ "eventoURL": "PC_GO_16",
+ "eventoNomeAbreviado": "PC/GO 2016",
+ "eventoNomeCompleto": "Polícia Civil do Estado de Goiás",
+ "eventoAno": 2016,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: Agente de Polícia Substituto"
+  },
+  {
+   "idArea": "02",
+   "area": "Cargo 2: Escrivão de Polícia Substituto"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "ED_4_83_2017_PC_GO_16_EXCLUSO_CANDIDATO.PDF",
+   "descricaoArquivo": "Edital nº 004-83 - Exclusão de candidato sub judice do resultado final no concurso público.",
+   "dataArquivoObj": "2024-08-05T15:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_82_2017_PC_GO_16_EXC_SUB_JUDICE_REGULAR_DENILSON.PDF",
+   "descricaoArquivo": "EDITAL Nº 004-82 - Exclusão de candidato da condição o sub judice, passando a figurar como regular no resultado final no concurso.",
+   "dataArquivoObj": "2024-06-04T11:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_81_2017_PC_GO_16_INC_FINAL_IS_FINAL_CONCURSO_BRUNA.PDF",
+   "descricaoArquivo": "Edital nº 004-81– Inclusão de candidata no resultado final no preenchimento da Ficha de Informações Confidenciais (FIC) e no resultado final na avaliação de vida pregressa e investigação social, bem como a inclusão da referida candidata no resultado final no concurso público.",
+   "dataArquivoObj": "2024-03-13T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_DE_EXCLUSO_DE_CANDIDATO_DA_CONDIO_SUB_JUDICE__DIRIO_OFICIAL_GO__N_23.815_DE_13_06_2022___RONI.PDF",
+   "descricaoArquivo": "Edital de Exclusão de candidato da condição sub judice – Diário Oficial/GO – Nº 23.815 de 13/06/2022",
+   "dataArquivoObj": "2024-02-21T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_80_2017_PC_GO_16_EXC_SUB_JUDICE_REGULAR_RICARDO.PDF",
+   "descricaoArquivo": "Edital nº 004-80 – Exclusão de candidato da condição sub judice, passando a figurar como regular no resultado final no concurso, divulgado por meio do subitem 1.1.2 do Edital nº 004-23 – Segplan/SSP/PCGO, de 30 de maio de 2017.",
+   "dataArquivoObj": "2024-02-20T08:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_79_2017_PC_GO_16__FINAL_DIGITAO_CONV_FIC_IS_BRUNA.PDF",
+   "descricaoArquivo": "Edital Nº 004-79 - Inclusão de candidata no resultado final na prova prática de digitação bem como a convocação da referida candidata para o preenchimento da Ficha de Informações Confidenciais (FIC) e para a entrega da documentação referente à avaliação de vida pregressa e investigação social.",
+   "dataArquivoObj": "2024-01-02T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_78_2017_PC_GO_16__PROV_DIGITAO_BRUNA.PDF",
+   "descricaoArquivo": "Edital nº 004-78 – Inclusão de candidata no resultado provisório na prova prática de digitação, bem como os procedimentos para acessar aos espelhos de avaliação da prova prática de digitação e para interpor recurso contra o resultado provisório na prova prática de digitação.",
+   "dataArquivoObj": "2023-10-11T10:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_77_2017_PC_GO_16__CONV_SUB_JUDICE_DIGITAO_BRUNA.PDF",
+   "descricaoArquivo": "Edital nº 004-77 – Convocação de candidata sub judice para a prova prática de digitação.",
+   "dataArquivoObj": "2023-06-20T17:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_76_2017_PC_GO_16__CONV_SUB_JUDICE_PSICO_BRUNA.PDF",
+   "descricaoArquivo": "Edital nº 004-76 - Convocação de candidata para o exame psicotécnico.",
+   "dataArquivoObj": "2023-04-13T11:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_75_2017_PC_GO_16_EXCLUSO_CANDIDATOS_SUB_JUDICE_VRIOS.PDF",
+   "descricaoArquivo": "Edital nº 004-75 – Exclusão de candidatos sub judice.",
+   "dataArquivoObj": "2022-12-14T11:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_004_74__SEGPLAN_SSP_PCGO_DE_20_DE_OUTUBRO_DE_2022___ELIMINAO_NO_TAF.PDF",
+   "descricaoArquivo": "Edital nº 004-74 – Eliminação de candidata do certame em virtude de sua inaptidão no TAF.",
+   "dataArquivoObj": "2022-11-10T14:18:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_73_2017_PC_GO_16_EXCLUSO_CANDIDATA_SUB_JUDICE_VIVIANE.PDF",
+   "descricaoArquivo": "Edital nº 004-73 – Exclusão de candidata sub judice.",
+   "dataArquivoObj": "2022-11-01T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_72_2017PC_GO_16_EXCLUSAO_CONDICAO_SUB_JUDICE_DANIELA.PDF",
+   "descricaoArquivo": "Edital nº 004-72 – Exclusão de candidata da condição sub judice",
+   "dataArquivoObj": "2022-10-20T14:36:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_71_2017_PC_GO_16_INC_SUB_JUDICE_FIC_IS_FINAL_CONCURSO_DANIELA.PDF",
+   "descricaoArquivo": "Edital nº 004-71 – Inclusão de candidata sub judice.",
+   "dataArquivoObj": "2022-10-03T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_70_2017_PC_GO_16_RET_LINK_FIC_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 004-70 - Retificação",
+   "dataArquivoObj": "2022-09-02T15:27:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_69_2017_PC_GO_16_CONV_SUB_JUDICE_FIP_DANIELA_E_VIVIANE.PDF",
+   "descricaoArquivo": "Edital Nº 004-69 - Convocação de candidatas sub judice para o preenchimento da Ficha de Informações Confidenciais (FIC) e para a entrega da documentação referente à avaliação de vida pregressa e investigação social.",
+   "dataArquivoObj": "2022-08-29T17:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_68_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_RENATO.PDF",
+   "descricaoArquivo": "Edital Nº 004-68 - Exclusão de candidato da condição sub judice.",
+   "dataArquivoObj": "2022-08-11T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_67_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_FERNANDO_WEVERTON.PDF",
+   "descricaoArquivo": "Edital Nº 004-67 - Exclusão de candidato da condição sub judice.",
+   "dataArquivoObj": "2022-07-20T09:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_66_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_VIVIANE.PDF",
+   "descricaoArquivo": "Edital Nº 004-66 - Exclusão de candidata da condição sub judice.",
+   "dataArquivoObj": "2022-07-20T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_65_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_ANA_PAULA.PDF",
+   "descricaoArquivo": "Edital Nº 004-65 - Exclusão de candidata da condição sub judice passando esta a figurar como regular no concurso público para o provimento de vagas no cargo de Escrivão de Polícia Substituto da Policia Civil do Estado de Goiás.",
+   "dataArquivoObj": "2022-05-25T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_64_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_IRENE.PDF",
+   "descricaoArquivo": "Edital nº 004-64 - Exclusão de candidata da condição sub judice passando a figurar como regular.",
+   "dataArquivoObj": "2022-03-08T09:01:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_63_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_GLAYCE.PDF",
+   "descricaoArquivo": "Edital nº 004-63 - Exclusão de candidata da condição sub judice passando a figurar como regular.",
+   "dataArquivoObj": "2022-03-08T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_62_2021_PC_GO_16_EXCLUSO_INCLUSO_SUB_JUDICE_ANDREIA_E_CYNTHIA.PDF",
+   "descricaoArquivo": "Edital Nº 004-62 - Exclusão de candidata sub judice e inclusão de candidata no resultado final na avaliação médica e no resultado final na avaliação de aptidão física.",
+   "dataArquivoObj": "2021-10-26T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_61_2017_PC_GO_16__INCLUSO_SUB_JUDICE_INC_PSICO_CONV_FIP_E_PERCIA_JOO.PDF",
+   "descricaoArquivo": "Edital nº 004_61 - Inclusão de candidato sub judice no resultado final no exame psicotécnico, bem como a sua convocação para o preenchimento da Ficha de Informações Confidenciais (FIC), para a entrega da documentação referente à avaliação de vida pregressa e investigação social e para a perícia médica dos candidatos que se declararam com deficiência.",
+   "dataArquivoObj": "2021-06-25T18:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_60_2017_PC_GO_16__INCLUSO_SUB_JUDICE_INC_TAF_CONV_PSICO_JOO.PDF",
+   "descricaoArquivo": "Edital nº 004_60 -  Inclusão de candidato sub judice no resultado final na avaliação de aptidão física, divulgado por meio do subitem 1.1.2.2 do Edital nº 004-11 – SEGPLAN/SSP/PCGO, de 23 de fevereiro de 2017, e a convocação desse candidato para o exame psicotécnico.",
+   "dataArquivoObj": "2021-05-21T18:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_59_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_HENRIQUE.PDF",
+   "descricaoArquivo": "Edital nº 004_59 -  Exclusão de candidato da condição sub judice, passando o candidato a figurar como regular no concurso público.",
+   "dataArquivoObj": "2021-05-21T18:29:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_58_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE_VINICIUS.PDF",
+   "descricaoArquivo": "Edital nº 004_58 - Exclusão de candidato da condição sub judice, passando o candidato a figurar como regular no resultado final no concurso público.",
+   "dataArquivoObj": "2021-05-17T16:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_57_2017_PC_GO_16_PSICO__DIGIT__FIC_GLAYCE.PDF",
+   "descricaoArquivo": "Edital nº 004_57 - Inclusão de candidata sub judice.",
+   "dataArquivoObj": "2021-05-17T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_56_2017_PC_GO_16__SUB_JUDICE__RICARDO.PDF",
+   "descricaoArquivo": "Edital nº 004_56 - Inclusão de candidato sub judice.",
+   "dataArquivoObj": "2021-05-11T10:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_55_2017_PC_GO_16__SUB_JUDICE_HENRIQUE.PDF",
+   "descricaoArquivo": "Edital nº 004_55 - Inclusão de candidato sub judice no resultado final no preenchimento da Ficha de Informações Confidencias (FIC) e na avaliação de vida pregressa e investigação social e no resultado final no concurso.",
+   "dataArquivoObj": "2021-04-23T15:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_54_2017_PC_GO_EDITAL_CONVOCAO_PARA_FIC.PDF",
+   "descricaoArquivo": "Edital nº 004_54 - Convocação de candidata sub judice para o preenchimento da Ficha de Informações Confidenciais (FIC) e para a entrega da documentação referente à avaliação de vida pregressa e investigação social.",
+   "dataArquivoObj": "2021-04-23T10:59:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_53_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 004_53 - Exclusão de candidata da condição sub judice.",
+   "dataArquivoObj": "2021-04-09T18:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_52_2017_PC_GO_16_PROV__PSICOTECNICO_E_DIGITACAO_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 004_52 - Convocação de candidatos para o preenchimento da Ficha de Informações Confidenciais (FIC) e para a entrega da documentação referente à avaliação de vida pregressa e investigação social.",
+   "dataArquivoObj": "2021-02-26T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_51_2017_PC_GO_16__EXCLUSAO_CONDICAO_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 004_51 - Exclusão de candidato da condição sub judice, passando o candidato a figurar como regular no resultado final no concurso público.",
+   "dataArquivoObj": "2021-02-08T18:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_50_2017_PC_GO_16__INCLUSO_SUB_JUDICE_RES_FIN_ROBERTO.PDF",
+   "descricaoArquivo": "Edital nº 004_50 - Inclusão de candidato sub judice no resultado final no concurso público, divulgado por meio do subitem 1.1.2 do Edital nº 004-23 – Segplan/SSP/PCGO, de 30 de maio de 2017.",
+   "dataArquivoObj": "2021-01-25T10:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_49_2017_PC_GO_16_CONV_SUB_JUDICE_RICARDO_RET_DATA.PDF",
+   "descricaoArquivo": "Edital nº 004_49 - Retificação do subitem 1.1 e do item 3 do Edital nº 004-48 – SEGPLAN/SSP/PCGO, de 15 de dezembro de 2020.",
+   "dataArquivoObj": "2021-01-06T10:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_48_2017_PC_GO_16_CONV_SUB_JUDICE_RICARDO.PDF",
+   "descricaoArquivo": "Edital nº 004_48 - Convocação de candidato sub judice ao cargo de Escrivão da Polícia Civil para o exame psicotécnico e a prova prática de digitação.",
+   "dataArquivoObj": "2020-12-16T10:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_47_2017_PC_GO_16_EXCLUSAO_CONDICAO_SUB_JUDICE_REJANE.PDF",
+   "descricaoArquivo": "Edital nº 004-47 - Exclusão de candidata da condição de sub judice passando a figurar no concurso público para o provimento de vagas nos cargos de Agente de Polícia Substituto e de Escrivão de Polícia Substituto como candidata regular.",
+   "dataArquivoObj": "2020-11-27T17:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_46_2017_PC_GO_16__INCLUSO_SUB_JUDICE_RES_FIN_REJANE_DIOGO_CYNTHIA.PDF",
+   "descricaoArquivo": "Edital nº 004_46 - Inclusão de candidatos sub judice no resultado final no concurso público, divulgado por meio dos subitens 1.1.1 e 1.1.2 do Edital nº 004-23 – Segplan/SSP/PCGO, de 30 de maio de 2017.",
+   "dataArquivoObj": "2020-09-29T10:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_45_2017_PC_GO_16__INCLUSO_SUB_JUDICE_FIC_INVESTIGAO_REJANE_CYNTHIA.PDF",
+   "descricaoArquivo": "Edital nº 004_45 - Inclusão de candidatos sub judice no resultado final no preenchimento da Ficha de Informações Confidenciais (FIC) e no resultado final na avaliação de vida pregressa e investigação social, divulgados por meio dos subitens 1.1.1.2, 1.1.2.1, 2.1.1.2 e 2.1.2.1 do Edital nº 004-22 – Segplan/SSP/PCGO, de 30 de maio de 2017.",
+   "dataArquivoObj": "2020-09-29T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_44_2017_PC_GO_16__INCLUSO_SUB_JUDICE_CARLOS.PDF",
+   "descricaoArquivo": "Edital nº 004-44 - Torna pública a inclusão de candidato, na condição regular, no resultado final no concurso público",
+   "dataArquivoObj": "2020-04-27T10:12:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_43_2017_PC_GO_16__INCLUSO_SUB_JUDICE_JULIO_CEZAR_DO_NASCIMENTO_MATHIAS.PDF",
+   "descricaoArquivo": "Edital nº 004-43 -  Inclusão de candidato, na condição regular no Resultado final do concurso.",
+   "dataArquivoObj": "2020-03-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_16_2017_PC_GO_16__INCLUSO_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 004-16 - Inclusão de candidato sub judice no resultado final no concurso público",
+   "dataArquivoObj": "2019-07-18T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_42_2017_PC_GO_16__INCLUSO_SUB_JUDICE_LARA_TATIELE.PDF",
+   "descricaoArquivo": "Edital nº 004-42 - Inclusão de candidata no resultado final no concurso público dos candidatos sub judice considerados pessoas com deficiência na perícia médica",
+   "dataArquivoObj": "2019-02-25T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_41_2017_PC_GO_16__INCLUSO_SUB_JUDICE_AGNALDO_MARIA_FERREIRA_JUNIOR.PDF",
+   "descricaoArquivo": "Edital nº 004-41 - Inclusão de candidato sub judice no resultado final no preenchimento da FIC, na avaliação de vida pregressa e investigação social e no resultado final no concurso público",
+   "dataArquivoObj": "2019-01-28T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_40_2017_PC_GO_16__EXCLUSAO_SUB_JUDICE_DAVI_MONTEIRO_DE_FREITAS.PDF",
+   "descricaoArquivo": "Edital nº 004-40 - Exclusão de candidato sub judice do resultado final no concurso público",
+   "dataArquivoObj": "2018-11-26T18:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_39_2017_PC_GO_16__INCLUS__O_SUB_JUDICE_BRUNA_DA_SILVA_GARCINO_E_RONI_CESAR_BATISTA.PDF",
+   "descricaoArquivo": "Edital nº 004-39 - Inclusão de candidatos sub judice no resultado final no concurso",
+   "dataArquivoObj": "2018-03-14T12:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_38_2017_PC_GO_16__INCLUS__O_SUB_JUDICE_LAYANNE_CRYSTINNE_OLIVEIRA_GALISI.PDF",
+   "descricaoArquivo": "Edital nº 004-38 - Inclusão de candidata sub judice no resultado final no concurso público",
+   "dataArquivoObj": "2018-03-05T11:37:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_37_2017_PC_GO_16_EXCLUS__O__SUB_JUDICE_ANNA_PAULLA_VIEIRA_BARBOSA.PDF",
+   "descricaoArquivo": "Edital nº 004-37 - Exclusão de candidata sub judice do resultado final no concurso público",
+   "dataArquivoObj": "2018-02-08T09:28:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_36_2017_PC_GO_16_SUB_JUDICE_DAVI_FREITAS_E_LEONARDO_ORELLI.PDF",
+   "descricaoArquivo": "Edital n. 004-36 - Inclusão de candidatos sub judice no resultado final no concurso público, divulgado pelos subitens 1.1.1 e 1.1.2 do Edital n. 004-23",
+   "dataArquivoObj": "2018-01-15T16:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_35_2017_PC_GO_16_SUB_JUDICE_INVESTIGACAO.PDF",
+   "descricaoArquivo": "Edital n. 004-35 - Resultado final no preenchimento da FIC e na investigação social de candidato sub judice",
+   "dataArquivoObj": "2017-12-20T16:47:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_34_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-34 - Retificação de candidatos sub judice no resultado final no concurso público",
+   "dataArquivoObj": "2017-12-11T16:47:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_33_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-33 - Inclusão de candidatos sub judice no resultado final no concurso público",
+   "dataArquivoObj": "2017-10-23T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_32__2017_PC_GO_16_FINAL_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-32 - Resultado final no preenchimento da FIC e na investigação social candidato sub judice",
+   "dataArquivoObj": "2017-09-22T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_30_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-30 - Exclusão de candidatos da condição de sub judice e inclusão de candidatos sub judice no resultado final no concurso público",
+   "dataArquivoObj": "2017-09-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_31_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital 004-31 - Resultado provisório no preenchimento da FIC e na avaliação de vida pregressa e investigação social ",
+   "dataArquivoObj": "2017-09-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_29_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-29 - Convocação de candidato sub judice para o preenchimento da FIC e para a entrega da documentação da investigação social",
+   "dataArquivoObj": "2017-09-05T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_28_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-28 - Resultado final na prova prática de digitação de candidato sub judice",
+   "dataArquivoObj": "2017-08-22T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_27_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-27 - Resultado provisório na prova prática de digitação de candidato sub judice",
+   "dataArquivoObj": "2017-08-16T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_26_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-26 - Convocação de candidato sub judice para prova prática de digitação",
+   "dataArquivoObj": "2017-07-27T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_25_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-25 - Convocação de candidato sub judice para prova prática de digitação",
+   "dataArquivoObj": "2017-07-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_24_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-24 - Convocação de candidato sub judice para o exame psicotécnico",
+   "dataArquivoObj": "2017-06-29T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "HOMOLOGA____O_CONCURSO.PDF",
+   "descricaoArquivo": "Homologação do concurso",
+   "dataArquivoObj": "2017-06-08T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_22_2017_PC_GO_16_FINAL_FIC_INVESTIGACAO_E_PERICIA.PDF",
+   "descricaoArquivo": "Edital n. 004-22 - Resultado final da FIC, na avaliação de vida pregressa e investigação social e perícia médica",
+   "dataArquivoObj": "2017-05-30T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_23_2017_PC_GO_16_FINAL_CONCURSO.PDF",
+   "descricaoArquivo": "Edital n. 004 - 23 - Resultado final no concurso público ",
+   "dataArquivoObj": "2017-05-30T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_21_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-21 - Resultados no preenchimento da FIC e na avaliação de vida pregressa e investigação social de candidatos sub judice",
+   "dataArquivoObj": "2017-05-22T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_20_2017_PC_GO_16_PROV_INVEST_RET_ED_19.PDF",
+   "descricaoArquivo": "Edital n. 004-20 - Retificação do subitem 2.1.2 do Edital n. 004-19",
+   "dataArquivoObj": "2017-05-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_19_2017_PC_GO_16_PROV_FIC_INVESTIGACAO_E_PERICIA.PDF",
+   "descricaoArquivo": "Edital n. 004-19 - Resultado provisório no preenchimento da FIC, na avaliação de vida pregressa e investigação social e na perícia médica ",
+   "dataArquivoObj": "2017-05-05T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CAPA_DE_RECURSO___PER__CIA_M__DICA___PC_GO_2016.DOC",
+   "descricaoArquivo": "Formulário para interposição de recurso contra o resultado provisório na perícia médica",
+   "dataArquivoObj": "2017-05-05T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_18_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-18 - Convocação de candidatos sub judice para o preenchimento da FIC e para a entrega da documentação da Investigação Social",
+   "dataArquivoObj": "2017-05-04T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PC_GO_16_FIC.PDF",
+   "descricaoArquivo": "Comunicado - Atualização da FIC",
+   "dataArquivoObj": "2017-04-25T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_17_2017_PC_GO_16_SUB_JUDICE_DOUGLAS_CABRAL_PORTELA.PDF",
+   "descricaoArquivo": "Edital n. 004-17 - Resultado no exame psicotécnico de candidato sub judice",
+   "dataArquivoObj": "2017-04-18T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_16_2017_PC_GO_16_FINAL_PSICOTECNICO_DIGITACAO_CONV_INVEST_PERICIA.PDF",
+   "descricaoArquivo": "Edital n. 004-16 - Resultado final no exame psicotécnico e na prova prática de digitação (somente para o cargo de Escrivão) e convocações ",
+   "dataArquivoObj": "2017-04-10T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_15_2017_PC_GO_16_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n. 004-15 - Resultado na avaliação de aptidão física e convocação para o exame psicotécnico de candidato sub judice",
+   "dataArquivoObj": "2017-04-04T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_14_2017_PC_GO_16_PROV_PSICOTECNICO_E_DIGITACAO.PDF",
+   "descricaoArquivo": "Edital n. 004-14 ° Edital de resultado provisório no exame psicotécnico e o resultado provisório na prova prática de digitação",
+   "dataArquivoObj": "2017-03-21T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_13_2017_PC_GO_16_RETIFICA____O_DA_DATA_DA_PROVA_DE_DIGITA____O.PDF",
+   "descricaoArquivo": "Edital n. 004-13 - Retificação da data da prova de digitação",
+   "dataArquivoObj": "2017-03-03T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_12_2017_PC_GO_16_RETIFICA____O.PDF",
+   "descricaoArquivo": "Edital n. 004-12 - Retificação do subitem 5.2 do Edital n. 004-11 ° SEGPLAN/SSP/PCGO",
+   "dataArquivoObj": "2017-03-02T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_11_2017_PC_GO_16_FINAL_FISICA_CONV_PSICO_E_DIGITACAO.PDF",
+   "descricaoArquivo": "Edital n. 004-11 Resultado final na avaliação de aptidão física, convocação para o exame psicotécnico e a convocação para a prova prática de digitação",
+   "dataArquivoObj": "2017-03-01T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PC_GO_16_HORARIO_RECURSO.PDF",
+   "descricaoArquivo": "Comunicado - Horário do recurso da Aptidão Física",
+   "dataArquivoObj": "2017-02-16T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_10_2017_PC_GO_16_PROV_APTIDAO_FISICA.PDF",
+   "descricaoArquivo": "Edital n. 004-10 - Resultado provisório na avaliação de aptidão física",
+   "dataArquivoObj": "2017-02-15T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_9_2017_PC_GO_16_FINAL_AVAL_MEDICA_CONV_FISICA.PDF",
+   "descricaoArquivo": "Edital n. 004-9 - Resultado final na avaliação médica e convocação para a avaliação de aptidão física",
+   "dataArquivoObj": "2017-01-30T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_8_2016_PC_GO_16_PROV_AVALIACAO_MEDICA.PDF",
+   "descricaoArquivo": "Edital n. 004-8 - Resultado provisório na avaliação médica",
+   "dataArquivoObj": "2016-12-28T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_7_2016_PC_GO_16_RET.PDF",
+   "descricaoArquivo": "Edital n. 004-07 - Retificação da alínea c do inciso X do subitem 10.14 do Edital n. 004 - Segplan/SSP/PCGO",
+   "dataArquivoObj": "2016-12-05T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_6_2016_PC_GO_16_FINAL_DISC_CONV_MED.PDF",
+   "descricaoArquivo": "Edital n. 004-6 - Resultado final na prova discursiva e a convocação para a avaliação médica ",
+   "dataArquivoObj": "2016-11-25T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_5_2016_PC_GO_16_RET.PDF",
+   "descricaoArquivo": "Edital n. 004-5 - Retificação do Anexo I do Edital n. 004",
+   "dataArquivoObj": "2016-11-21T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_4_2016_PC_GO_16_RET.PDF",
+   "descricaoArquivo": "Edital n. 004-4 - Retificação do Anexo IV do Edital n. 004",
+   "dataArquivoObj": "2016-11-16T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alteração do gabarito da prova objetiva",
+   "dataArquivoObj": "2016-11-14T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_3_2016_PC_GO_16_FINAL_OBJETIVA_PROV_DISC.PDF",
+   "descricaoArquivo": "Edital n. 004-3 - Resultado final nas provas objetivas e resultado provisório na prova discursiva",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PC_GO_16_RECURSO.PDF",
+   "descricaoArquivo": "Comunicado - Prazo para candidato interpor recurso contra o padrão preliminar de resposta da prova discursiva",
+   "dataArquivoObj": "2016-10-18T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PC_GO_16_CONFIRMACAO_PROVA.PDF",
+   "descricaoArquivo": "Comunicado - Manutenção da data de aplicação das provas do concurso no dia 16 de outubro de 2016",
+   "dataArquivoObj": "2016-10-13T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PC_GO_16_PROCESSO.PDF",
+   "descricaoArquivo": "Comunicado - Suspensão do concurso público para provimento de vagas nos cargos de Agente de Polícia Substituto e de Escrivão de Polícia Substituto ",
+   "dataArquivoObj": "2016-10-11T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DEMANDA_DE_CANDIDATOS_POR_VAGA__PC_GO_16.PDF",
+   "descricaoArquivo": "Demanda de candidatos por vaga",
+   "dataArquivoObj": "2016-10-07T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_2_2016_PC_GO_16_LOCAIS.PDF",
+   "descricaoArquivo": "Edital n. 004-2 – Inclusão do subitem 10.5.1 e informações dos locais e horário de aplicação das provas objetivas e discursivas",
+   "dataArquivoObj": "2016-10-05T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_FINAL_AE.PDF",
+   "descricaoArquivo": "Relação final dos candidatos que tiveram a solicitação de atendimento especial deferida",
+   "dataArquivoObj": "2016-09-29T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_FINAL_PCD.PDF",
+   "descricaoArquivo": "Relação final dos candidatos que tiveram a inscrição deferida para concorrerem na condição de pessoa com deficiência",
+   "dataArquivoObj": "2016-09-29T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_PROV_PCD.PDF",
+   "descricaoArquivo": "Relação provisória das inscrições deferidas para concorrerem na condição de pessoa com deficiência sem considerar pagamentos, isenções e duplicidades ",
+   "dataArquivoObj": "2016-09-20T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_PROV_AE.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos que tiveram a solicitação de atendimento especial deferida, sem considerar pagamentos, isenções e duplicidades ",
+   "dataArquivoObj": "2016-09-20T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_FINAL_ISENCAO.PDF",
+   "descricaoArquivo": "Relação final dos candidatos que tiveram o pedido de isenção do pagamento da taxa de inscrição deferido",
+   "dataArquivoObj": "2016-09-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_PROV_ISENCAO.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos que tiveram o pedido de isenção do pagamento da taxa de inscrição deferido",
+   "dataArquivoObj": "2016-09-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_1_2016_PC_GO_16_INCLUSAO.PDF",
+   "descricaoArquivo": "Edital n. 004-01 - Inclusão dos objetos de avaliação constantes do subitem 19.2.1.1 do Edital n. 004 - Conforme DO/GO",
+   "dataArquivoObj": "2016-08-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_2016_PC_GO_16_INCLUSAO.PDF",
+   "descricaoArquivo": "Edital n. 005 - Inclusão dos objetos de avaliação constantes do subitem 19.2.1.1 do Edital n. 004",
+   "dataArquivoObj": "2016-08-12T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16.PDF",
+   "descricaoArquivo": "Respostas aos pedidos de impugnações ao Edital N. 004 ° SEGPLAN/SSP/PCGO, de 1. de agosto de 2016",
+   "dataArquivoObj": "2016-08-10T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO___EDITAL_PUBLICA____O.PDF",
+   "descricaoArquivo": "Edital n° 004 - Abertura",
+   "dataArquivoObj": "2016-08-01T00:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "Gab_Definitivo_277_PCGO_002_01.pdf",
+   "descricaoArquivo": " Gabarito Definitivo - Conhecimentos Específicos - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_277_PCGO_001_01.pdf",
+   "descricaoArquivo": " Gabarito Definitivo - Conhecimentos Específicos - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_277_PCGO_CG1_01.pdf",
+   "descricaoArquivo": " Gabarito Definitivo - Conhecimentos Gerais - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_277_PCGO_CG1_01.pdf",
+   "descricaoArquivo": " Gabarito Definitivo - Conhecimentos Gerais - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_277_PCGO_CB1_01.pdf",
+   "descricaoArquivo": " Gabarito Definitivo - Conhecimentos Básicos - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_277_PCGO_CB1_01.pdf",
+   "descricaoArquivo": " Gabarito Definitivo - Conhecimentos Básicos - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_PADRAO_DE_RESPOSTA_DEFINITIVO_CARGO1.pdf",
+   "descricaoArquivo": "Cargo 1 - Padrão de resposta definitivo ",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PC_GO_16_PADRAO_DE_RESPOSTA_DEFINITIVO_CARGO2.pdf",
+   "descricaoArquivo": "Cargo 2 - Padrão de resposta definitivo",
+   "dataArquivoObj": "2016-11-09T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_DISC001_01.pdf",
+   "descricaoArquivo": " Prova discursiva 1",
+   "dataArquivoObj": "2016-10-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_DISC002_01.pdf",
+   "descricaoArquivo": " Prova discursiva 2",
+   "dataArquivoObj": "2016-10-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PCGO277_001A09E0430_PadraoResposta.pdf",
+   "descricaoArquivo": " Padrão de respostas provisório da prova discursiva - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PCGO277_002A09E0934_PadraoResposta.pdf",
+   "descricaoArquivo": " Padrão de respostas provisório da prova discursiva - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_002_01.pdf",
+   "descricaoArquivo": " Caderno de provas - Conhecimentos Específicos - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_001_01.pdf",
+   "descricaoArquivo": " Caderno de provas - Conhecimentos Específicos - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_CG1_01.pdf",
+   "descricaoArquivo": " Caderno de provas - Conhecimentos Gerais - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_CG1_01.pdf",
+   "descricaoArquivo": " Caderno de provas - Conhecimentos Gerais - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_CB1_01.pdf",
+   "descricaoArquivo": " Caderno de provas - Conhecimentos Básicos - cargo 1: agente de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "277_PCGO_CB1_01.pdf",
+   "descricaoArquivo": " Caderno de provas - Conhecimentos Básicos - cargo 2: escrivão de polícia substituto",
+   "dataArquivoObj": "2016-10-17T00:00:00",
+   "isGuid": false
+  }
+ ]
+}

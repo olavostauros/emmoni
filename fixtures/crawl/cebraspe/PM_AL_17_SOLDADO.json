@@ -1,0 +1,394 @@
+{
+ "eventoURL": "PM_AL_17_SOLDADO",
+ "eventoNomeAbreviado": "PM/AL SOLDADO 2017",
+ "eventoNomeCompleto": "Polícia Militar do Estado de Alagoas",
+ "eventoAno": 2017,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Soldado Combatente"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "ED_41_PM_AL_17_SOLDADO_CONV_SUB_JUDICE_TAF_FIC_IS_ALTURA_CARLOS.PDF",
+   "descricaoArquivo": "Edital nº 41 – Convocação de candidato sub judice.",
+   "dataArquivoObj": "2024-02-22T16:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_40_PM_AL_17_SOLDADO_RES_FIN_SUB_JUDICE_PUBLICADO_NO_DIRIO.PDF",
+   "descricaoArquivo": "Edital nº 40 - os Resultados finais na aferição de altura, no teste de aptidão física e na comprovação documental e investigação social de candidatos sub judice (CONFORME PUBLICADO NO DIÁRIO OFICIAL DO ESTADO DE ALAGOAS)",
+   "dataArquivoObj": "2019-12-11T09:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_40_PM_AL_17_SOLDADO_RES_FIN_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 40 - Resultados finais na aferição de altura, no teste de aptidão física e na comprovação documental e investigação social de candidatos sub judice",
+   "dataArquivoObj": "2019-12-10T09:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_39_PM_AL_17_SOLDADO_RES_PROV_TAF_(002).PDF",
+   "descricaoArquivo": "Edital nº 39 - Resultado no teste de aptidão física dos candidatos sub judice de que tratam o Edital nº 34 – PMAL, de 22 de julho de 2019, e o Edital nº 37 – PMAL, de 15 de agosto de 2019",
+   "dataArquivoObj": "2019-09-20T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_38_2018_PM_AL_17_RET_DATA.PDF",
+   "descricaoArquivo": "Edital nº 38 - Retificação da data constante do subitem 5.1 do Edital nº 34 – PMAL, de 22 de julho de 2019",
+   "dataArquivoObj": "2019-09-11T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_37_2018_PM_AL_17_SOLDADO_FINAL_AVALIACAO_MEDICA_CONV_TAF___SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 37 - Convocação para o teste de aptidão física e a convocação para a entrega da documentação referente à comprovação documental e investigação social dos candidatos sub judice",
+   "dataArquivoObj": "2019-08-19T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_36_2018_PM_AL_RES_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 36 - Resultados finais no teste de aptidão física, na aferição de altura e na comprovação documental e investigação social de candidatos sub judice",
+   "dataArquivoObj": "2019-08-06T16:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_35_2018_PM_AL_RETIFICACAO.PDF",
+   "descricaoArquivo": "Edital nº 35 - Retificação da data constante do subitem 5.1 do Edital nº 34",
+   "dataArquivoObj": "2019-07-29T11:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_34_2018_PM_AL_CONV_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 34 - Convocação para o teste de aptidão física e a convocação para a entrega da documentação referente à comprovação documental e investigação social dos candidatos sub judice",
+   "dataArquivoObj": "2019-07-29T11:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_DATAS_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Comunicado - Resultado provisório na comprovação documental e investigação social dos candidatos mencionados no Edital nº 32 – PMAL, de 19 de novembro de 2018",
+   "dataArquivoObj": "2018-12-06T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_32_2018_PMAL_17_SOLDADO_RES_TAF_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 32 - Resultado do TAF e da comprovação documental de candidatos sub judice",
+   "dataArquivoObj": "2018-11-26T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_33_2018_PMAL_17_SOLDADO_CONVOCAO_TAF_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 33 - Convocação de candidato sub judice para o TAF",
+   "dataArquivoObj": "2018-11-26T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_31_2018 PMAL_17_Soldado_Convocacaoo_TAF_sub_judice.pdf.pdf",
+   "descricaoArquivo": "Edital nº 31 - Convocação de candidatos sub judice para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social.",
+   "dataArquivoObj": "2018-09-13T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_30_2018_PMAL_17_SOLDADO_RESULTADO_E_CONVOCA____O_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 30 - Resultado do teste de aptidão física de candidata sub judice e convocação para a aferição de altura e entrega da documentação para fins da comprovação documental e investigação social",
+   "dataArquivoObj": "2018-08-15T19:16:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_29_2018_PMAL_17_SOLDADO_CONVOCA____O_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 29 - Convocação de candidata sub judice para a entrega dos exames médicos pendentes referentes à avaliação médica das condições de saúde física e mental.",
+   "dataArquivoObj": "2018-08-14T08:29:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_28_2018_PM_AL_SOLDADO_RESULTADOS_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 28 - Cumprimento a decisões judiciais e considerando o diposto no Edital nº 1 – PMAL, que instituiu o concurso público para provimento de vagas no cargo de Soldado Combatente da Polícia Militar do Estado de Alagoas, e o Edital nº 22 – PMAL, de 3 de maio de 2018, que homologou o resultado final do concurso público.",
+   "dataArquivoObj": "2018-08-13T14:08:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_27_2018_PMAL_17_SOLDADO_CONVOCA____O_TAF_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 27 - Convocação decandidata sub judice para o teste de abdominal supra tocando os cotovelos nos quadríceps, para o teste de corrida de ir e vir (shuttle run) e para o teste de corrida de 1.800m, referentes ao teste de aptidão física",
+   "dataArquivoObj": "2018-07-26T18:21:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_26_2018_PM_AL_SOLDADO_CONVOCA____O_NOVA_AFERI____O_ALTURA.PDF",
+   "descricaoArquivo": "Edital nº 26 - Convocação de candidatos sub judice para a nova aferição de altura",
+   "dataArquivoObj": "2018-07-05T10:18:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_25_2018_PMAL_17_SOLDADO_CONVOCA____O_TAF_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 25 - Convocação de candidata sub judice para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social.",
+   "dataArquivoObj": "2018-06-19T12:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_24_2018_PMAL_17_SOLDADO_CONVOCA____O_TAF_SUB_JUDICE.PDF",
+   "descricaoArquivo": "EDITAL Nº 24 - Convocação de candidato sub judice para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social",
+   "dataArquivoObj": "2018-06-05T11:37:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_23_2018_PM_AL_17_SOLDADO_RES_EXAME_M__DICO_E_CONV_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 23 - Resultado de exames médicos e odontológicos de candidatos sub judice. Convocação dos referidos candidatos para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social.",
+   "dataArquivoObj": "2018-05-21T12:07:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_2018_PM_AL_17_SOLDADO_RES_FINAL_COMPROVA____O_DOCUMENTAL_E_INVESTIGA____O_E_CONCURSO___REGULARES_E_SUB_JUDICE_.PDF",
+   "descricaoArquivo": "Edital nº 22 - Resultado final na comprovação documental e investigação social e o resultado final no concurso público",
+   "dataArquivoObj": "2018-05-04T09:33:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_PM_AL_17_SOLDADO___EXCLUS__O_DE_CANDIDATO.PDF",
+   "descricaoArquivo": "Edital nº 21 - Exclusão de candidato",
+   "dataArquivoObj": "2018-04-23T16:49:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_PM_AL_17_SOLDADO___RES__FINAL_AFERI____O_E_TAF__PROV_COMPROVA____O_DOCUMENTAL_E_INVESTIGA____O.PDF",
+   "descricaoArquivo": "Edital nº 20 - Resultado final da aferição de altura, no teste de aptidão física e o resultado provisório na comprovação documental e investigação social",
+   "dataArquivoObj": "2018-04-18T09:03:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_2018_PM_AL_17_SOLDADO_CONV_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 19 - Convocação da candidata sub judice para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social",
+   "dataArquivoObj": "2018-04-13T09:23:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_2018_PMAL_17_SOLDADO_CONVOCA____O_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 18 - Convocação de sub judice para a avaliação médica das condições de saúde física e mental",
+   "dataArquivoObj": "2018-04-11T09:07:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_2018_PMAL_17_SOLDADO_CONVOCA____O_SUB_JUDICE.PDF",
+   "descricaoArquivo": "EDITAL Nº 17 - Convocação de candidatos sub judice para o TAF e comprovação documental",
+   "dataArquivoObj": "2018-04-03T12:21:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_DATAS.PDF",
+   "descricaoArquivo": "Comunicado - Teste de Aptidão Física",
+   "dataArquivoObj": "2018-03-27T18:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_2018_PMAL_17_SOLDADO_CONVOCA____O_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 16 - Convocação de candidatos sub judice para o teste de aptidão física.",
+   "dataArquivoObj": "2018-03-20T16:11:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_2018_PM_AL_17_SOLDADO_RETIFICA____O_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 15 - Inclusão decandidato no resultado final na avaliação médica das condições de saúde física e mental",
+   "dataArquivoObj": "2018-03-20T16:08:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_2018_PM_AL_17_SOLDADO_RES_PROV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 14 - Resultado provisório do TAF - sub judice",
+   "dataArquivoObj": "2018-03-13T16:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13_2018_PM_AL_SOLDADO_CONVOCA____O_AFERI____O_ALTURA.PDF",
+   "descricaoArquivo": "Edital nº 13 - Convocação para aferição de altura",
+   "dataArquivoObj": "2018-03-12T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_2018_PM_AL_17_SOLDADO_RES_PROV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 12  - Resultado provisório no teste de aptdão física",
+   "dataArquivoObj": "2018-03-06T08:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_2018_PM_AL_17_SOLDADO_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital nº 11 - Convocação de candidata sub judice para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social",
+   "dataArquivoObj": "2018-03-02T09:41:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_2018_PM_AL_17_SOLDADO_SUB_JUDICE.PDF",
+   "descricaoArquivo": "Edital n° 10 - Convocação dos candidatos sub judice",
+   "dataArquivoObj": "2018-02-26T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_2018_PM_AL_17_SOLDADO___RETIFICA____O.PDF",
+   "descricaoArquivo": "Edital n° 9 - Retificação da data de divulgação do edital de abertura",
+   "dataArquivoObj": "2018-02-22T15:52:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_2018_PM_AL_17_SOLDADO_DISTRIBUI____O_DE_CANDIDATOS_PARA_COMPROVA____O_DOCUMENTAL.PDF",
+   "descricaoArquivo": "Edital n° 8 - Local e os horários para a entrega da documentação para fins da comprovação documental e investigação social e convoca��o de candidato sub judice",
+   "dataArquivoObj": "2018-02-09T10:32:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_COMPROVA____O_DOCUMENTAL.PDF",
+   "descricaoArquivo": "Comunicado - Edital com data e horário para a entrega da documentação para fins de comprovação documental e investigação social",
+   "dataArquivoObj": "2018-02-08T16:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_2018_PM_AL_17_SOLDADO_SUB_JUDICE_FERNANDA_DANIELLA_DE_SOUZA_MENDES.PDF",
+   "descricaoArquivo": "Edita n° 7 - Convocação candidato sub judice",
+   "dataArquivoObj": "2018-02-06T15:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_2018_PM_AL_17_SOLDADO_SUB_JUDICE_RAYANNE_EVELLYN_TORRES_ALVES.PDF",
+   "descricaoArquivo": "Edital n° 6 - Convocação candidato sub judice",
+   "dataArquivoObj": "2018-01-30T16:17:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_2018_PM_AL_17_SOLDADO_FINAL_AVALIACAO_MEDICA_CONV_TAF.PDF",
+   "descricaoArquivo": "Edital n° 5 - Resultado final na avaliação médica das condições de saúde física e mental, convocação para o teste de aptidão física e para a entrega da documentação para fins da comprovação documental e investigação social",
+   "dataArquivoObj": "2018-01-29T17:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CAPA_RECURSO_AV_MEDICA_PM_AL_2017.DOC",
+   "descricaoArquivo": "Modelo de formulário para interposição de recurso contra o resultado provisório da avaliação médica",
+   "dataArquivoObj": "2018-01-16T14:43:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_2017_PM_AL_17_SOLDADO_PROV_AVALIACAO_MEDICA.PDF",
+   "descricaoArquivo": "Edital n° 4 - Resultado provisório na avaliação médica das condições de saúde física e mental",
+   "dataArquivoObj": "2018-01-08T11:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_FIC_E_RESULTADO.PDF",
+   "descricaoArquivo": "Comunicado - Ficha de Informações Confidenciais (FIC) e resultado provisório na avaliação médica ",
+   "dataArquivoObj": "2017-12-18T14:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_FIC.PDF",
+   "descricaoArquivo": "Comunicado - Período de preenchimento da Ficha de Informações Confidenciais (FIC)",
+   "dataArquivoObj": "2017-12-12T17:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alteração do gabarito de itens",
+   "dataArquivoObj": "2017-12-04T15:13:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_3_2017_PM_AL_17_SOLDADO_FINAL_OBJETIVA_CONV_EXAME_E_FIC.PDF",
+   "descricaoArquivo": "Edital n° 3 ° Retificação de item, resultado final nas provas objetivas, convocação para a avaliação médica e para o preenchimento da Ficha de Informações Confidenciais (FIC)",
+   "dataArquivoObj": "2017-11-27T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_EXCLUSAO.PDF",
+   "descricaoArquivo": "Comunicado - Candidatos sub judice",
+   "dataArquivoObj": "2017-10-25T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO___DEMANDA_DE_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda de candidatos por vaga",
+   "dataArquivoObj": "2017-10-20T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_2_2017_PM_AL_17_SOLDADO_LOCAIS_E_HORARIOS.PDF",
+   "descricaoArquivo": "Edital n° 2 - Locais de aplicação das provas objetivas",
+   "dataArquivoObj": "2017-10-19T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_FINAL_AE.PDF",
+   "descricaoArquivo": "Relação final dos candidatos que tiveram a solicitação de atendimento especial deferida",
+   "dataArquivoObj": "2017-10-04T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_PROV_AE_INCLUSAO.PDF",
+   "descricaoArquivo": "Inclusão de candidatos na relação provisória dos candidatos que tiveram a solicitação de atendimento especial deferida",
+   "dataArquivoObj": "2017-09-27T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_PROV_AE.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos que tiveram a solicitação de atendimento especial deferida",
+   "dataArquivoObj": "2017-09-22T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_FINAL_ISENCAO.PDF",
+   "descricaoArquivo": "Relação final dos candidatos que tiveram o pedido de isenção do pagamento da taxa de inscrição deferido",
+   "dataArquivoObj": "2017-08-30T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_RESPOSTAS_IMPUGNACOES.PDF",
+   "descricaoArquivo": "Respostas às impugnações ao Edital n°1 ° PMAL",
+   "dataArquivoObj": "2017-08-29T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_ISENCAO.PDF",
+   "descricaoArquivo": "Comunicado - Alteração de data de divulgação do resultado final da isenção",
+   "dataArquivoObj": "2017-08-29T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "COMUNICADO_PM_AL_17_SOLDADO_IMPUGNACOES.PDF",
+   "descricaoArquivo": "Comunicado - Respostas às impugnações ao edital de abertura do concurso ",
+   "dataArquivoObj": "2017-08-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_AL_17_SOLDADO_PROV_ISENCAO.PDF",
+   "descricaoArquivo": "Relação provisória dos candidatos que tiveram o pedido de isenção do pagamento da taxa de inscrição deferido",
+   "dataArquivoObj": "2017-08-22T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_2017_PM_AL_17_SOLDADO_ABERTURA.PDF",
+   "descricaoArquivo": "Edital n° 1 - Abertura",
+   "dataArquivoObj": "2017-07-31T00:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "343_PMAL_001_01.pdf",
+   "descricaoArquivo": "Caderno de provas - Conhecimentos Específicos - soldado combatente",
+   "dataArquivoObj": "0001-01-01T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "343_PMAL_CB1_01.pdf",
+   "descricaoArquivo": "Caderno de provas - Conhecimentos Básicos - soldado combatente",
+   "dataArquivoObj": "0001-01-01T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_343_PMAL_001_01.PDF",
+   "descricaoArquivo": "Gabarito Definitivo - Conhecimentos Específicos - soldado combatente",
+   "dataArquivoObj": "0001-01-01T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_343_PMAL_CB1_01.PDF",
+   "descricaoArquivo": "Gabarito Definitivo - Conhecimentos Básicos - soldado combatente",
+   "dataArquivoObj": "0001-01-01T00:00:00",
+   "isGuid": false
+  }
+ ]
+}

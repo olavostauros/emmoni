@@ -1,0 +1,168 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_PE_23.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcpe-2023` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcpe-2023
+name: POLÍCIA CIVIL DE PERNAMBUCO (PC/PE)
+agency: pcpe
+exam_board: cebraspe
+year: 2023
+source_url: https://www.cebraspe.org.br/concursos/PC_PE_23
+exams:
+- slug: p2-cargo-1
+  name: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE001_00_COM_JUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE001_00.PDF
+- slug: p2-cargo-3
+  name: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE002_00_COM_JUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE002_00.PDF
+- slug: p1-cargo-1
+  name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB1_00.PDF
+- slug: p1-cargo-3
+  name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB2_00_COM_JUSTIFICATIVA.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB2_00.PDF
+- slug: p1-cargo-2-atualizado
+  name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 2_ATUALIZADO
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_955PC_PE_DELEGADO001_00_COM_JUSTIFICATIVAS_ATUALIZADO.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_955PC_PE_DELEGADO001_00.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_PE_23
+    link_text: PC PE 23
+    event: PC_PE_23
+    agency:
+      value: pcpe
+      confidence: 1.0
+      rule: prefixo PC_PE da URL do evento
+    year:
+      value: 2023
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    p2-cargo-1:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE001_00_COM_JUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
+          value: exam
+          confidence: 1.0
+          rule: caderno de prova publicado junto com o gabarito preliminar
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE001_00.PDF
+          link_text: GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS (P2) – CARGO 1
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    p2-cargo-3:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE002_00_COM_JUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA (P2) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
+          value: exam
+          confidence: 1.0
+          rule: caderno de prova publicado junto com o gabarito preliminar
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE002_00.PDF
+          link_text: GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS (P2) – CARGO 3
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    p1-cargo-1:
+      positions:
+        value:
+        - agente
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Agente de Polícia' aparece em 'AGENTE DE POLICIA'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
+          value: exam
+          confidence: 1.0
+          rule: caderno de prova publicado junto com o gabarito preliminar
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB1_00.PDF
+          link_text: GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS (P1) – CARGO 1
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    p1-cargo-3:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB2_00_COM_JUSTIFICATIVA.PDF
+          link_text: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
+          value: exam
+          confidence: 1.0
+          rule: caderno de prova publicado junto com o gabarito preliminar
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB2_00.PDF
+          link_text: GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS (P1) – CARGO 3
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    p1-cargo-2-atualizado:
+      positions:
+        value:
+        - delegado
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Delegado de Polícia' aparece em 'DELEGADO DE POLICIA'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_955PC_PE_DELEGADO001_00_COM_JUSTIFICATIVAS_ATUALIZADO.PDF
+          link_text: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 2_ATUALIZADO
+          value: exam
+          confidence: 1.0
+          rule: caderno de prova publicado junto com o gabarito preliminar
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_955PC_PE_DELEGADO001_00.PDF
+          link_text: GABARITO DEFINITIVO (P1) – CARGO 2
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

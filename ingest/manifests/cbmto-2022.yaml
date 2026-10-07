@@ -1,0 +1,84 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_TO_22.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve cbmto-2022` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: cbmto-2022
+name: CORPO DE BOMBEIROS MILITAR DO TOCANTINS
+agency: cbmto
+exam_board: cebraspe
+year: 2022
+source_url: https://www.cebraspe.org.br/concursos/CBM_TO_22
+exams:
+- slug: oficial
+  name: PROVA OBJETIVA - CARGO 1
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/795_CBM_TO_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/GAB_DEFINITIVO_795_CBM_TO_001_01.PDF
+- slug: soldado
+  name: PROVA OBJETIVA - CARGO 2
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/795_CBM_TO_002_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/GAB_DEFINITIVO_795_CBM_TO_002_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/CBM_TO_22
+    link_text: CBM TO 22
+    event: CBM_TO_22
+    agency:
+      value: cbmto
+      confidence: 1.0
+      rule: prefixo CBM_TO da URL do evento
+    year:
+      value: 2022
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    oficial:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'CADETE' (apelido de 'Oficial Bombeiro Militar') em 'CADETE'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/795_CBM_TO_001_01.PDF
+          link_text: PROVA OBJETIVA - CARGO 1
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/GAB_DEFINITIVO_795_CBM_TO_001_01.PDF
+          link_text: GABARITO DEFINITIVO - CARGO 1
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    soldado:
+      positions:
+        value:
+        - soldado
+        confidence: 0.9
+        rule: cargos citados na descrição; 'PRACA' (apelido de 'Soldado Bombeiro Militar') em 'ALUNO-PRACA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/795_CBM_TO_002_01.PDF
+          link_text: PROVA OBJETIVA - CARGO 2
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/GAB_DEFINITIVO_795_CBM_TO_002_01.PDF
+          link_text: GABARITO DEFINITIVO - CARGO 2
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

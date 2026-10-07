@@ -1,0 +1,220 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_MA_17_APC.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcma-2017-apc` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcma-2017-apc
+name: Polícia Civil do Estado do Maranhão
+agency: pcma
+exam_board: cebraspe
+year: 2017
+source_url: https://www.cebraspe.org.br/concursos/PC_MA_17_APC
+exams:
+- slug: conhecimentos-especificos-cargo-1-escrivao-de-policia
+  name: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 1: ESCRIVÃO DE POLÍCIA'
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_001_01.PDF
+- slug: conhecimentos-especificos-cargo-2-investigador-de-policia
+  name: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 2: INVESTIGADOR DE POLÍCIA'
+  positions:
+  - investigador
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_002_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_002_01.PDF
+- slug: conhecimentos-especificos-cargo-5-perito-criminal
+  name: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 5: PERITO CRIMINAL'
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_005_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_005_01.PDF
+- slug: conhecimentos-gerais-cargo-1-escrivao-de-policia
+  name: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 1: ESCRIVÃO DE POLÍCIA'
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG1_01.PDF
+- slug: conhecimentos-gerais-cargo-2-investigador-de-policia
+  name: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 2: INVESTIGADOR DE POLÍCIA'
+  positions:
+  - investigador
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG2_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG2_01.PDF
+- slug: conhecimentos-gerais-cargo-5-perito-criminal
+  name: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 5: PERITO CRIMINAL'
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG4_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG4_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_MA_17_APC
+    link_text: PC/MA APC 2017
+    event: PC_MA_17_APC
+    agency:
+      value: pcma
+      confidence: 1.0
+      rule: prefixo PC_MA da URL do evento
+    year:
+      value: 2017
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos-cargo-1-escrivao-de-policia:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_001_01.PDF
+          link_text: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 1: ESCRIVÃO DE POLÍCIA'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_001_01.PDF
+          link_text: 'GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 1: ESCRIVÃO DE POLÍCIA'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-2-investigador-de-policia:
+      positions:
+        value:
+        - investigador
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Investigador de Polícia' aparece em 'INVESTIGADOR DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_002_01.PDF
+          link_text: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 2: INVESTIGADOR DE POLÍCIA'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_002_01.PDF
+          link_text: 'GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 2: INVESTIGADOR DE POLÍCIA'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-5-perito-criminal:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Perito Criminal' aparece em 'PERITO CRIMINAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_005_01.PDF
+          link_text: 'CADERNO DE PROVAS - CONHECIMENTOS ESPECÍFICOS - CARGO 5: PERITO CRIMINAL'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_005_01.PDF
+          link_text: 'GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 5: PERITO CRIMINAL'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-1-escrivao-de-policia:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Escrivão de Polícia' aparece em 'ESCRIVAO DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG1_01.PDF
+          link_text: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 1: ESCRIVÃO DE POLÍCIA'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG1_01.PDF
+          link_text: 'GABARITO DEFINITIVO - CONHECIMENTOS GERAIS - CARGO 1: ESCRIVÃO DE POLÍCIA'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-2-investigador-de-policia:
+      positions:
+        value:
+        - investigador
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Investigador de Polícia' aparece em 'INVESTIGADOR DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG2_01.PDF
+          link_text: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 2: INVESTIGADOR DE POLÍCIA'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG2_01.PDF
+          link_text: 'GABARITO DEFINITIVO - CONHECIMENTOS GERAIS - CARGO 2: INVESTIGADOR DE POLÍCIA'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-5-perito-criminal:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Perito Criminal' aparece em 'PERITO CRIMINAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG4_01.PDF
+          link_text: 'CADERNO DE PROVAS - CONHECIMENTOS GERAIS - CARGO 5: PERITO CRIMINAL'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG4_01.PDF
+          link_text: 'GABARITO DEFINITIVO - CONHECIMENTOS GERAIS - CARGO 5: PERITO CRIMINAL'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped:
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 3 - MEDICO LEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_003_01.PDF
+    reason: 'cargo fora do catálogo: MEDICO LEGISTA'
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 4 - ODONTOLEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_004_01.PDF
+    reason: 'cargo fora do catálogo: ODONTOLEGISTA'
+  - label: CONHECIMENTOS GERAIS - CARGO 4 - ODONTOLEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG3_01.PDF
+    reason: 'cargo fora do catálogo: ODONTOLEGISTA'
+  - label: CONHECIMENTOS GERAIS - CARGO 3 - MEDICO LEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/373_SSPMA_APC_CG3_01.PDF
+    reason: 'cargo fora do catálogo: MEDICO LEGISTA'
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 4 - ODONTOLEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_004_01.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 3 - MEDICO LEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_003_01.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS GERAIS - CARGO 4 - ODONTOLEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG3_01.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS GERAIS - CARGO 3 - MEDICO LEGISTA
+    url: https://cdn.cebraspe.org.br/concursos/PC_MA_17_APC/arquivos/GAB_DEFINITIVO_373_SSPMA_APC_CG3_01.PDF
+    reason: gabarito sem prova correspondente

@@ -1,0 +1,100 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/CBM_TO_21.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve cbmto-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: cbmto-2021
+name: CORPO DE BOMBEIROS MILITAR DO TOCANTINS
+agency: cbmto
+exam_board: cebraspe
+year: 2021
+source_url: https://www.cebraspe.org.br/concursos/CBM_TO_21
+exams:
+- slug: oficial
+  name: PROVA OBJETIVA - CARGO 1
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_001_00.PDF
+    answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_001_00.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_DEFINITIVO_MATRIZ_581_CBMTO_001_00.PDF
+- slug: soldado
+  name: PROVA OBJETIVA - CARGO 2
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_002_00.PDF
+    answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_002_00.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_DEFINITIVO_MATRIZ_581_CBMTO_002_00.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/CBM_TO_21
+    link_text: CBMTO 2021
+    event: CBM_TO_21
+    agency:
+      value: cbmto
+      confidence: 1.0
+      rule: prefixo CBM_TO da URL do evento
+    year:
+      value: 2021
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    oficial:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'CADETE' (apelido de 'Oficial Bombeiro Militar') em 'CADETE'
+      pairing:
+        answer_key_preliminary: mesmo rótulo na descrição
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_001_00.PDF
+          link_text: PROVA OBJETIVA - CARGO 1
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_preliminary:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_001_00.PDF
+          link_text: GABARITO PRELIMINAR - CARGO 1
+          value: answer_key_preliminary
+          confidence: 1.0
+          rule: descrição contém 'GABARITO PRELIMINAR'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_DEFINITIVO_MATRIZ_581_CBMTO_001_00.PDF
+          link_text: GABARITO DEFINITIVO - CARGO 1
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    soldado:
+      positions:
+        value:
+        - soldado
+        confidence: 0.8
+        rule: cargos citados na descrição; 'SOLDADO' (de 'Soldado Bombeiro Militar') aparece em 'ALUNO-SOLDADO'
+      pairing:
+        answer_key_preliminary: mesmo rótulo na descrição
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_002_00.PDF
+          link_text: PROVA OBJETIVA - CARGO 2
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_preliminary:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_002_00.PDF
+          link_text: GABARITO PRELIMINAR - CARGO 2
+          value: answer_key_preliminary
+          confidence: 1.0
+          rule: descrição contém 'GABARITO PRELIMINAR'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_DEFINITIVO_MATRIZ_581_CBMTO_002_00.PDF
+          link_text: GABARITO DEFINITIVO - CARGO 2
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

@@ -1,0 +1,260 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_MA_17.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pmma-2017` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pmma-2017
+name: Polícia Militar do Estado do Maranhão
+agency: pmma
+exam_board: cebraspe
+year: 2017
+source_url: https://www.cebraspe.org.br/concursos/PM_MA_17
+exams:
+- slug: conhecimentos-especificos-cargo-1-1-tenente-pm-cirurgiao-dentista
+  name: 'Caderno de provas - Conhecimentos Específicos - cargo 1: 1 tenente pm - cirurgião-dentista'
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_001_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_001_01.pdf
+- slug: conhecimentos-especificos-cargo-2-1-tenente-pm-medico
+  name: 'Caderno de provas - Conhecimentos Específicos - cargo 2: 1 tenente pm - médico'
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_002_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_002_01.pdf
+- slug: conhecimentos-especificos-cargo-3-1-tenente-pm-medico-veterinario
+  name: 'Caderno de provas - Conhecimentos Específicos - cargo 3: 1 tenente pm - médico-veterinário'
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_003_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_003_01.pdf
+- slug: conhecimentos-especificos-cargo-5-soldado-do-quadro-de-praca-policial
+  name: 'Caderno de provas - Conhecimentos Específicos - cargo 5: soldado do quadro de praça policial'
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_005_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_005_01.pdf
+- slug: conhecimentos-gerais-cargo-3-1-tenente-pm-medico-veterinrio
+  name: 'Caderno de provas - Conhecimentos Gerais - cargo 3: 1 tenente pm - médico-veterin�rio'
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
+- slug: conhecimentos-gerais-cargo-2-1-tenente-pm-medico
+  name: 'Caderno de provas - Conhecimentos Gerais - cargo 2: 1 tenente pm - médico'
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
+- slug: conhecimentos-gerais-cargo-1-1-tenente-pm-cirurgiao-dentista
+  name: 'Caderno de provas - Conhecimentos Gerais - cargo 1: 1 tenente pm - cirurgião-dentista'
+  positions:
+  - oficial
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
+- slug: conhecimentos-gerais-cargo-5-soldado-do-quadro-de-praca-policial
+  name: 'Caderno de provas - Conhecimentos Gerais - cargo 5: soldado do quadro de praça policial'
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG2_01.pdf
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG2_01.pdf
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PM_MA_17
+    link_text: PM/MA 2017
+    event: PM_MA_17
+    agency:
+      value: pmma
+      confidence: 1.0
+      rule: prefixo PM_MA da URL do evento
+    year:
+      value: 2017
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos-cargo-1-1-tenente-pm-cirurgiao-dentista:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'TENENTE' (apelido de 'Oficial da Polícia Militar') em '1 TENENTE PM
+          CIRURGIAO-DENTISTA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_001_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Específicos - cargo 1: 1 tenente pm - cirurgião-dentista'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_001_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Específicos - cargo 1: 1 tenente pm - cirurgião-dentista'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-2-1-tenente-pm-medico:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'TENENTE' (apelido de 'Oficial da Polícia Militar') em '1 TENENTE PM
+          MEDICO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_002_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Específicos - cargo 2: 1 tenente pm - médico'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_002_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Específicos - cargo 2: 1 tenente pm - médico'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-3-1-tenente-pm-medico-veterinario:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'TENENTE' (apelido de 'Oficial da Polícia Militar') em '1 TENENTE PM
+          MEDICO-VETERINARIO'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_003_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Específicos - cargo 3: 1 tenente pm - médico-veterinário'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_003_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Específicos - cargo 3: 1 tenente pm - médico-veterin�rio'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-5-soldado-do-quadro-de-praca-policial:
+      positions:
+        value:
+        - soldado
+        confidence: 0.9
+        rule: cargos citados na descrição; 'PRACA' (apelido de 'Soldado da Polícia Militar') em 'SOLDADO DO QUADRO
+          DE PRACA POLICIAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_005_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Específicos - cargo 5: soldado do quadro de praça policial'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_005_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Específicos - cargo 5: soldado do quadro de praça policial'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-3-1-tenente-pm-medico-veterinrio:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'TENENTE' (apelido de 'Oficial da Polícia Militar') em '1 TENENTE PM
+          MEDICO-VETERINARIO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Gerais - cargo 3: 1 tenente pm - médico-veterin�rio'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Gerais - cargo 3: 1 tenente pm - médico-veterin�rio'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-2-1-tenente-pm-medico:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'TENENTE' (apelido de 'Oficial da Polícia Militar') em '1 TENENTE PM
+          MEDICO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Gerais - cargo 2: 1 tenente pm - médico'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Gerais - cargo 2: 1 tenente pm - médico'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-1-1-tenente-pm-cirurgiao-dentista:
+      positions:
+        value:
+        - oficial
+        confidence: 0.9
+        rule: cargos citados na descrição; 'TENENTE' (apelido de 'Oficial da Polícia Militar') em '1 TENENTE PM
+          CIRURGIAO-DENTISTA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Gerais - cargo 1: 1 tenente pm - cirurgião-dentista'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Gerais - cargo 1: 1 tenente pm - cirurgião-dentista'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-cargo-5-soldado-do-quadro-de-praca-policial:
+      positions:
+        value:
+        - soldado
+        confidence: 0.9
+        rule: cargos citados na descrição; 'PRACA' (apelido de 'Soldado da Polícia Militar') em 'SOLDADO DO QUADRO
+          DE PRACA POLICIAL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG2_01.pdf
+          link_text: 'Caderno de provas - Conhecimentos Gerais - cargo 5: soldado do quadro de praça policial'
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG2_01.pdf
+          link_text: 'Gabarito definitivo - Conhecimentos Gerais - cargo 5: soldado do quadro de praça policial'
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

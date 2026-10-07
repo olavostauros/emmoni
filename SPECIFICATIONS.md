@@ -135,7 +135,8 @@ O catálogo real é **curado em `db/catalog.yaml`** e carregado por `emmoni cata
 (idempotente, por slug). Manifestos só citam slugs que existem nele (decisão 0005). Cada órgão
 pode ter `aliases` — os prefixos com que as fontes o escrevem nas URLs e nomes de evento (`PF`,
 `DPF`, `PC_DF`) —, usados só pelo crawler para reconhecer o órgão; não vão para o banco
-(decisão 0007).
+(decisão 0007). Cada cargo pode ter `aliases` — outras palavras com que as fontes o escrevem
+(`PRACA`, `CADETE`, `ASPIRANTE`) —, com o mesmo uso e o mesmo destino (decisão 0008).
 
 ### 4.2 Concurso, prova e origem
 

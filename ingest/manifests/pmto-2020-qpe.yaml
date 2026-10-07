@@ -1,0 +1,56 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_TO_20_QPE.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pmto-2020-qpe` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pmto-2020-qpe
+name: POLÍCIA MILITAR DO ESTADO DO TOCANTINS
+agency: pmto
+exam_board: cebraspe
+year: 2020
+source_url: https://www.cebraspe.org.br/concursos/PM_TO_20_QPE
+exams:
+- slug: objetiva
+  name: PROVA OBJETIVA
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/MATRIZ_572PMTO002.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/GAB_DEFINITIVO_572_PMTO_MATRIZ.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PM_TO_20_QPE
+    link_text: PMTO QPE 2020
+    event: PM_TO_20_QPE
+    agency:
+      value: pmto
+      confidence: 1.0
+      rule: prefixo PM_TO da URL do evento
+    year:
+      value: 2020
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    objetiva:
+      positions:
+        value:
+        - soldado
+        confidence: 0.8
+        rule: único cargo do concurso; 'SOLDADO' (de 'Soldado da Polícia Militar') aparece em 'ALUNO-SOLDADO QPE'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/MATRIZ_572PMTO002.PDF
+          link_text: PROVA OBJETIVA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/GAB_DEFINITIVO_572_PMTO_MATRIZ.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

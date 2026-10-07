@@ -1,0 +1,712 @@
+{
+ "eventoURL": "CBM_PA_23_CFP",
+ "eventoNomeAbreviado": "CBM_PA_23_CFP",
+ "eventoNomeCompleto": "Praças do Corpo de Bombeiros Militar (CFP/BM/2023)",
+ "eventoAno": 2023,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "CURSO DE FORMAÇÃO DE PRAÇAS DO CORPO DE BOMBEIROS MILITAR DO ESTADO DO PARÁ"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "4CBB599945876F9863D2B8BD87F6821D3EE85EF4EB7A19127B168723F4590348.pdf",
+   "descricaoArquivo": "Edital nº 109 - Reintegração de candidato sub judice, bem como o seu resultado final na avaliação de saúde e a sua convocação para o teste de avaliação física.",
+   "dataArquivoObj": "2026-09-25T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A4261706901794E720728E5A72E469A18C77808D9040601C892569F91CB7FF0F.pdf",
+   "descricaoArquivo": "Edital nº 108 - Resultado final de candidato sub judice, na investigação de antecedentes pessoais,  bem como o resultado final e homologação do concurso público.",
+   "dataArquivoObj": "2026-09-21T16:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "993055D17593638719DD42CC57EDDE62E0FCFB9A686E36879B34AF01B1BA49D4.pdf",
+   "descricaoArquivo": "Edital nº 107 – Resultado de candidato convocado por meio do Edital nº 105 – CBMPA – CFP/BM, de 5 de agosto de 2026.",
+   "dataArquivoObj": "2026-08-28T15:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "1C3BDEDF428761145AE9E332A3174437A47EE8AABD8B99B040481D2C6B25D118.pdf",
+   "descricaoArquivo": "Edital nº 106 - Reintegração de candidato sub judice, bem como a sua convocação para o teste de avaliação física.",
+   "dataArquivoObj": "2026-08-17T11:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5231939E571B934C212F55CEF174562725D6F8737F442ABC2550DB2698E1058E.pdf",
+   "descricaoArquivo": "Edital nº 105 – Reintegração de candidato sub judice, bem como a sua convocação para o teste de avaliação física.",
+   "dataArquivoObj": "2026-08-06T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4139B667B5301CC586F33A69BB570BAAF78B63030D9608233D781501290F9B72.pdf",
+   "descricaoArquivo": "Edital nº 104 – Resultado de candidata sub judice.",
+   "dataArquivoObj": "2026-08-06T13:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "2906D99793C2A5C9D2FB74AC86DD7E860AEE9F3A93436C22AF335ABC43684229.pdf",
+   "descricaoArquivo": "Edital n° 103 - Reintegração da candidata sub judice, inscrito sob o nº 10010198, bem como a convocação da referida candidata para o teste de avaliação física.",
+   "dataArquivoObj": "2026-07-14T13:48:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0DC0F51F8D5CEBB8CA3F4FB692CC041E51A096ABE6891829C82D1B2BD7BF6A41.pdf",
+   "descricaoArquivo": "Edital n° 102 - Reintegração do candidato sub judice, inscrito sob o nº 10029968, bem como a convocação do referido candidato para o teste de avaliação física.",
+   "dataArquivoObj": "2026-07-14T13:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "D7C51C2C0BB84902952C216DF2B0DC9FF1ED67C55FF3F2B4930BF3AEAC076667.pdf",
+   "descricaoArquivo": "Edital n° 101 - Informa-se que não houve candidato considerado apto das convocações realizadas por meio do edital nº 96, edital nº 98, edital nº 99 -  CBMPA – CFP/BM",
+   "dataArquivoObj": "2026-07-10T16:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "40CF41ADF4DC90C4F8C808FF1B0D5BAE24BF5A8D6DAB8E0CAD0CA5C514EDDCCA.pdf",
+   "descricaoArquivo": "Edital nº 100 - Resultado final de candidatos sub judice, no teste de avaliação física.",
+   "dataArquivoObj": "2026-07-01T16:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0CFDBCFE7B89987CBD0A11047FD3129F915E881C6759BCD7D22E4895A7204F64.pdf",
+   "descricaoArquivo": "Edital nº 99 – Reintegração de candidato sub judice, inscrito sob o nº 10019166, bem como a convocação do referido candidato para o teste de avaliação física.",
+   "dataArquivoObj": "2026-06-18T13:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FBF7AB5C456607626E7DC69624885BE8924686CFA7B56C34F433DB21051E0FE0.pdf",
+   "descricaoArquivo": "Edital nº 98 – Reintegração de candidata sub judice inscrita sob o nº 10043378, bem como a convocação da referida candidata para o teste de avaliação física.",
+   "dataArquivoObj": "2026-06-17T10:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4257C085D4CB601E27910892321C95079DF836030F0D932AC314BD2DD621D949.pdf",
+   "descricaoArquivo": "Edital nº 97 - Reintegração do candidato sub judice, inscrito sob o nº 10013336, no concurso público destinado à admissão ao curso de formação de praças do corpo de bombeiros militar (cfp/bm/2023), bem como a convocação do referido candidato para o teste de avaliação física",
+   "dataArquivoObj": "2026-06-10T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "335356234F8288ED7DAFF41593F147BF57962AB5A5997E969851D171CF5F7B35.pdf",
+   "descricaoArquivo": "Edital nº 96 - Reintegração de candidata sub judice, bem como a convocação da referida candidata para o teste de avaliação física.",
+   "dataArquivoObj": "2026-06-02T08:42:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "61ED485F11495A7670F7CB87E73BB0C152E0CC28453C01DA98C7C8156D921869.pdf",
+   "descricaoArquivo": "Edital nº 95 - Reintegração de candidato sub judice, bem como a convocação do referido candidato para o teste de avaliação física.",
+   "dataArquivoObj": "2026-06-02T08:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "6D042493D2ED211794DD2DEA10AC9C58AA51D0F56335383F8E350FF72B08DA45.pdf",
+   "descricaoArquivo": "Edital nº 94 – Retificação do resultado final no concurso público para admissão ao curso de formação de Praças do Corpo de Bombeiros Militar (CFP/BM/2023), divulgado por meio do edital nº 66 – CBMPA – CFP/BM, de 28 de março de 2025, mediante a inclusão do candidato sub judice  inscrito sob o nº 10043296.",
+   "dataArquivoObj": "2026-04-27T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5F7C02D8CB3E94A4F804D0210FA04F7D2D5074F9DAE9B51BF2835129C1B707C2.pdf",
+   "descricaoArquivo": "Edital nº 93 – Reintegração de candidato sub judice, bem como a convocação do referido candidato para o teste de avaliação física.",
+   "dataArquivoObj": "2026-04-16T15:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "8C9838919406BA29125E637E93684691BABFEE5D3030DFFB8751AD6D2B22672D.pdf",
+   "descricaoArquivo": "Edital nº 92 – Retificação do resultado final no concurso público para admissão ao Curso de Formação de Praças do Corpo de Bombeiros Militar (CFP/BM/2023), divulgado por meio do Edital nº 66 – CBMPA – CFP/BM, de 28 de março de 2025, incluindo no resultado final os candidatos inscritos sob o nº 10035784, 10014849 e 10035784.",
+   "dataArquivoObj": "2026-02-26T17:41:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0B29486222093A82E421CAE4D053E0034C62F449E706EED552029A810C786610.pdf",
+   "descricaoArquivo": "Edital nº 91 – Resultado final de candidatos sub judice na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2026-02-26T17:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "D69BF20A4CA2B41C54E436E3EA9309D649B95BB41D7CB866CC95EBBCA583E307.pdf",
+   "descricaoArquivo": "Edital nº 90 – Ciência de convocação de candidata sub judice, para o teste de avaliação física.",
+   "dataArquivoObj": "2026-02-12T10:57:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EE037603300DC0E042EC41443D24A492A9D24B3B71BA40AB595FE2E830DF80F0.pdf",
+   "descricaoArquivo": "Edital nº 89 – Retificação do resultado final no concurso público para admissão ao Curso de Formação de Praças do Corpo de Bombeiros Militar (CFP/BM/2023), divulgado por meio do Edital nº 66 – CBMPA – CFP/BM, de 28 de março de 2025, incluindo no resultado final o candidato inscrito sob o nº 10000370. ",
+   "dataArquivoObj": "2026-02-12T10:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5284C617B181E2B4E8BC446D0F2C9DA228E3A35A8EFACF93BB4451D85668795F.pdf",
+   "descricaoArquivo": "Edital nº 88 – Retificação do resultado final no concurso público para admissão ao Curso de Formação de Praças do Corpo de Bombeiros Militar (CFP/BM/2023), divulgado por meio do Edital nº 66 – CBMPA – CFP/BM, de 28 de março de 2025, incluindo no resultado final o candidato inscrito sob o nº 10005671.",
+   "dataArquivoObj": "2026-02-06T09:42:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C0264CC73AECC53A75BAF30229076623680F91F8F613886F9823517357159ECF.pdf",
+   "descricaoArquivo": "Edital nº 87 – Resultado final de candidato sub judice, no teste de avaliação física.",
+   "dataArquivoObj": "2026-02-06T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F59154D70F8961DEDCC366642D30E0832EA2B51A820D94490B0F02BD117F25A0.pdf",
+   "descricaoArquivo": "Edital nº 86 – Convocação de candidata sub judice, para o teste de avaliação física.",
+   "dataArquivoObj": "2026-01-28T10:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "2CD1EDFB77A46A5FD16F86A87D68408F28E1C19A21B476C2A97E346CB2E0BC72.pdf",
+   "descricaoArquivo": "Edital nº 85 – Retificação do resultado final no concurso público",
+   "dataArquivoObj": "2025-12-18T10:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "DA86C3121C28D6414EEFCCEFE9C73879CE3C649D81FBF8F3DC9BA83AF4C7DD7F.pdf",
+   "descricaoArquivo": "Edital nº 84 – Reintegração de candidato sub judice.",
+   "dataArquivoObj": "2025-11-12T15:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E6E5D8B006B3157323EE861F9937694D3E7651FC2038758C7D66F44F86FDC338.pdf",
+   "descricaoArquivo": "Edital nº 83 – Resultado final de candidata sub judice.",
+   "dataArquivoObj": "2025-09-29T14:16:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C4FD840F03918F75DD2E91B1CF801BDE089BE7B2CED836DA88029695A6D5B63A.pdf",
+   "descricaoArquivo": " Edital nº 82 – Exclusão de candidato do concurso público.",
+   "dataArquivoObj": "2025-08-27T11:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 81 DE 05.08.2025 CFP-CBMPA - DOE Nº 36.320 DE 06.08.2025 - Excl_cond_sub_judice ABNER BRAZ SIQUEIRA BITTENCOURT_-3.pdf",
+   "descricaoArquivo": "Edital nº 81 - Exclusão de candidato da condição sub judice, passando a figurar como regular no resultado final no concurso público.",
+   "dataArquivoObj": "2025-08-06T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 80 DE 28.07.2025 CFP-CBMPA - DOE Nº36.313 DE 29.07.2025 - Res_final_TAF_sub_judice_varios.pdf",
+   "descricaoArquivo": "Edital nº 80 – Resultado final no teste de avaliação física de candidatos sub judice.",
+   "dataArquivoObj": "2025-07-29T17:12:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 79 DE 28.07.2025 CFP-CBMPA - DOE Nº36.313 DE 29.07.2025 - Reint_Conv_TAF_sub_judice_YASMIM EMILLY.pdf",
+   "descricaoArquivo": "Edital nº 79 - Reintegração de candidata sub judice, bem como a sua convocação para o teste de avaliação física.",
+   "dataArquivoObj": "2025-07-29T17:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 78 DE 11.07.2025 CFP-CBMPA - DOE Nº 36.297 DE 14.07.2025 - RES. FINAL.pdf",
+   "descricaoArquivo": "Edital nº 78 – Torna público que não houve candidato considerado apto da  convocação realizada por meio do Edital nº 72 – CBMPA",
+   "dataArquivoObj": "2025-07-14T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 77 DE 03.07.2025 CFP-CBMPA - DOE Nº 36.287 DE 04.07.2025 - Res_final_TAF_sub_judice CHARLES DAVID.pdf",
+   "descricaoArquivo": "Edital nº 77 – Informa-se que não houve candidato considerado apto da convocação realizada por meio do Edital nº 70",
+   "dataArquivoObj": "2025-07-04T12:35:10",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 76 DE 03.07.2025 CFP-CBMPA - DOE Nº 36.287 DE 04.07.2025 - Res_final_TAF_sub_judice_ED_58 JHENNIFER KLYSSIA.pdf",
+   "descricaoArquivo": "Edital nº 76 – Informa-se que não houve candidato considerado apto da convocação realizada por meio do Edital nº 58",
+   "dataArquivoObj": "2025-07-04T12:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 75 DE 02.07.2025 CFP-CBMPA - DOE Nº 36.285 DE 03.07.2025 - REINT. S. JUDICE - KARINE DE SOUSA GONÇALVES.pdf",
+   "descricaoArquivo": "Edital nº 75 – Reintegração de candidata sub judice",
+   "dataArquivoObj": "2025-07-03T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 74 DE 25.06.2025 CFP-CBMPA - DOE Nº 36.275 DE 26.06.2025 - Conv_TAF_sub_judice_Shirlei.pdf",
+   "descricaoArquivo": "Edital nº 74 – Convocação de candidata sub judice para o teste de avaliação física.",
+   "dataArquivoObj": "2025-06-26T14:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 73 DE 11.06.2025 CFP-CBMPA - DOE Nº 36.260 DE 12.06.2025 - Res_final_saude_sub_judice ALEX PONTES MIRANDA.pdf",
+   "descricaoArquivo": "Edital nº 73 – Informa-se que não houve candidato considerado apto da convocação realizada por meio do Edital nº 55 – CBMPA – CFP/BM, de 18 de fevereiro de 2025.",
+   "dataArquivoObj": "2025-06-12T14:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_72_CBM_PA_CFP_Conv_TAF_Denize_Gabrielly.pdf",
+   "descricaoArquivo": "Edital nº 72 – Reintegração de candidatas sub judice, bem como a convocação das referidas candidatas para o teste de avaliação física.",
+   "dataArquivoObj": "2025-05-26T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 71 DE 07.05.2025 CFP -CBMPA - DOE Nº 36.219 DE 08.05.2025 - Res_final_IS_sub_judice_Tiago-1.pdf",
+   "descricaoArquivo": "Edital nº 71 – Resultado final de candidato sub judice na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2025-05-08T11:46:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 70 DE 07.05.2025 CFP-CBMPA - DOE Nº 36.219 DE 08.05.2025 - Reintegração e Conv_TAF_CHARLES-1.pdf",
+   "descricaoArquivo": "Edital nº 70 – Reintegração de candidato sub judice, bem como a convocação do referido candidato para o teste de avaliação física.",
+   "dataArquivoObj": "2025-05-08T11:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 69 DE 05.05.2025 CFP-CBMPA - DOE Nº 36.215 DE 06.05.2025 - Res_final_TAF_IS_sub_judice_ANA CAROLINE E MARLON.pdf",
+   "descricaoArquivo": "Edital nº 69 – Resultado Final de candidatos sub judice.",
+   "dataArquivoObj": "2025-05-06T14:19:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 68 DE 05.05.2025 CFP-CBMPA - DOE Nº 36.215 DE 06.05.2025 - Res_final_IS_sub_judice_EDUARDA DE PAULA.pdf",
+   "descricaoArquivo": "Edital nº 68 – Resultado Final de candidata sub judice na Investigação e Antecedentes Pessoais.",
+   "dataArquivoObj": "2025-05-06T14:17:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 67 DE 05.05.2025 CFP-CBMPA - DOE Nº 36.215 DE 06.05.2025 - Reint_sub_judice_DANIEL ALVES-1.pdf",
+   "descricaoArquivo": "Edital nº 67 – Reintegração de candidato sub judice.",
+   "dataArquivoObj": "2025-05-06T14:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_66_CBM_PA_CFP_Res_final_concurso.pdf",
+   "descricaoArquivo": "Edital nº 66 – Resultado final no concurso público dos candidatos que lograram êxito em todas as etapas do certame, incluindo aqueles que estão na condição sub judice por decisão judicial do concurso público",
+   "dataArquivoObj": "2025-03-31T10:01:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_65_CBM_PA_CFP_Res_final_desempate.pdf",
+   "descricaoArquivo": "Edital nº 65 – Resultado final no desempate de notas",
+   "dataArquivoObj": "2025-03-31T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 64 DE 27.03.2025_CBM_PA_CFP- DOE nº 36.177 DE 28.03.2025 -Reintegração_sub_judice_EDUARDA DE PAULA.pdf",
+   "descricaoArquivo": "Edital nº 64 – Reintegração de candidata sub judice",
+   "dataArquivoObj": "2025-03-28T11:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 63 DE 27.03.2023_CBM_PA_CFP_DOE Nº 36.177 DE 28.03.2025 -Conv_TAF_ANA CAROLINEa.pdf",
+   "descricaoArquivo": "Edital nº 63 – Convocação de candidata sub judice para o teste de avaliação física",
+   "dataArquivoObj": "2025-03-28T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 62 DE 26.03.2025-CFP-CBMPA - DOE Nº 36.175 DE 27.03.2025- Exclusão cond_sub_judice_Lucas Ian.pdf",
+   "descricaoArquivo": "Edital nº 62 – Exclusão de candidato da condição sub judice",
+   "dataArquivoObj": "2025-03-27T11:41:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 61 DE 26.03.2025_CFP-CBMPA - DOE Nº 36.175 DE 27.03.2025 - Res_TAF sub judice RUBIA DE CASSIA SILVA CARVALHO.pdf",
+   "descricaoArquivo": "Edital nº 61 – Resultado final no teste de avaliação física, da candidata sub judice",
+   "dataArquivoObj": "2025-03-27T11:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_60_CBM_PA_CFP_Res_prov_desempate.pdf",
+   "descricaoArquivo": "Edital nº 60 – Resultado provisório no desempate de notas",
+   "dataArquivoObj": "2025-03-17T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_59_CBM_PA_CFP_DE 10.03.2025_CBM_PA_CFP- DOE Nº 36.156 DE 11.03.2025 - Reint_sub_judice_Marlon.pdf",
+   "descricaoArquivo": "Edital nº 59 – Reintegração de candidato sub judice",
+   "dataArquivoObj": "2025-03-11T14:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_58_CBM_PA_CFP_REINT_CONV_TAF_SUB_JUDICE_JHENNIFER.PDF",
+   "descricaoArquivo": "Edital nº 58 – Reintegração de candidata sub judice, bem como a convocação da referida candidata para o teste de avaliação física",
+   "dataArquivoObj": "2025-03-07T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_57_CBM_PA_CFP_RES_FINAL_TAF_IS_SUB_JUDICE_HEITOR.PDF",
+   "descricaoArquivo": "Edital nº 57 – Resultado definitivo de candidato sub judice na avaliação de aptidão física e na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2025-03-06T11:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_56_CBM_PA_CFP_RES_FINAL_INVESTIGAO_CONV_DESEMPATE.PDF",
+   "descricaoArquivo": "Edital nº 56 – Resultado final na investigação de antecedentes pessoais e a convocação para o envio da documentação para o desempate de notas",
+   "dataArquivoObj": "2025-03-06T10:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_55_CBM_PA_CFP_RES_FINAL_PSICO_CONV_SADE_SUB_JUDICE_ALEX.PDF",
+   "descricaoArquivo": "Edital nº 55 – Resultado final de candidato sub judice na avaliação psicológica, bem como a convocação do referido candidato para a avaliação de saúde",
+   "dataArquivoObj": "2025-02-19T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_54_CBM_PA_CFP_RES_FINAL_TAF_SUB_JUDICE_KAYQUE_RUBIA.PDF",
+   "descricaoArquivo": "Edital nº 54 – Resultado definitivo no teste de avaliação física de candidatos sub judice",
+   "dataArquivoObj": "2025-02-13T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EX_53_CBM_PA_CFP_RES_PROV_INVEST.PDF",
+   "descricaoArquivo": "Edital nº 53 – Resultado provisório na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2025-02-07T08:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_52_CBM_PA_CFP_CONV_TAF_SUB_JUDICE_TAYANE.PDF",
+   "descricaoArquivo": "Edital nº 52 – Reintegração de candidata sub judice, bem como a convocação da referida candidata para o teste de avaliação física",
+   "dataArquivoObj": "2025-02-04T10:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_51_CBM_PA_CFP_CONV_TAF_SUB_JUDICE_HEITOR.PDF",
+   "descricaoArquivo": "Edital nº 51 – Reintegração de candidato sub judice, bem como a convocação do referido candidato para a avaliação de aptidão física",
+   "dataArquivoObj": "2025-02-04T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_50_CBM_PA_CFP_RETIFICACAO_DATA.PDF",
+   "descricaoArquivo": "Edital nº 50 – Retificação do cronograma previsto das próximas atividades, constante do subitem 1.1 do Edital nº 20",
+   "dataArquivoObj": "2025-01-31T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_49_DE_22.01.2025___CFP_CBMPA__DOE_N_36.109_DE_23.01.2025__REINTEGRAO_E_CONV_TAF_KATRINNE_BOTELHO.PDF",
+   "descricaoArquivo": "Edital nº 49 – Reintegração da candidata sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2025-01-23T11:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_48_DE_20.01.2025__CFP_CBMPA___DOE_N_36.108_DE_22.01.2025__REINTEGRAO_E__CONV_TAF_LYDIA_SARAIVA.PDF",
+   "descricaoArquivo": "Edital nº 48 – Reintegração de candidata sub judice, bem como a convocação para a avaliação de aptidão física",
+   "dataArquivoObj": "2025-01-23T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_47_DE_20.01.2025__CFP_CBMPA___DOE_N_36.106_DE_21.01.2025___REINTEGRAO_E_CONV_PSICO_IS_SUB_JUDICE_ALEX_PONTES.PDF",
+   "descricaoArquivo": "Edital nº 47 – Reintegração de candidato sub judice, bem como a convocação do referido candidato para a avaliação psicológica, para a investigação de antecedentes pessoais e para o preenchimento da ficha de informações pessoais",
+   "dataArquivoObj": "2025-01-21T15:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_46_DE_20.01.2025___CFP_CBMPA___DOE_N_36.106_DE_21.01.2025__REINTEGRAO_E_CONV_TAF_ANA_CAROLINE.PDF",
+   "descricaoArquivo": "Edital nº 46 – Reintegração de candidata sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2025-01-21T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_45_CBM_PA_CFP_INCL_RES_FINAL_APTID_FSICA_ARIANNY.PDF",
+   "descricaoArquivo": "Edital nº 45 – Reintegração de candidata sub judice, bem como o resultado final no teste de avaliação física",
+   "dataArquivoObj": "2025-01-16T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_44_CBM_PA_CFP_CONV_TAF_KAYQUE.PDF",
+   "descricaoArquivo": "Edital nº 44 – Reintegração de candidato sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2025-01-15T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_43_CBM_PA_CFP_CONV_TAF_RENATA_A.PDF",
+   "descricaoArquivo": "Edital nº 43 – Reintegração de candidata sub judice, bem como a convocação para o teste de avaliação de aptidão física",
+   "dataArquivoObj": "2024-12-10T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_42_CBM_PA_CFP_CONV_TAF_KARINE.PDF",
+   "descricaoArquivo": "Edital nº 42 – Reintegração de candidata sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2024-12-02T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_41_CBM_PA_CFP_RES_FINAL_TAF_VARIOS.PDF",
+   "descricaoArquivo": "Edital nº 41 – Resultado definitivo do teste de avaliação física de candidatos sub judice",
+   "dataArquivoObj": "2024-11-26T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_40_CBM_PA_CFP_RETIFICACAO_DATA.PDF",
+   "descricaoArquivo": "Edital nº 40 - Retificação do cronograma constante do Edital nº 20",
+   "dataArquivoObj": "2024-11-04T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_39_CBM_PA_CFP_CONV_TAF_FELIPE.PDF",
+   "descricaoArquivo": "Edital nº 39 - Reintegração de candidato sub judice e sua convocação para o teste de aptidão física",
+   "dataArquivoObj": "2024-10-31T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_38_CBM_PA_CFP_RES_FINAL_TAF_LUAN.PDF",
+   "descricaoArquivo": "Edital nº 38 - Reintegração de candidato sub judice no resultado final no teste de aptidão física",
+   "dataArquivoObj": "2024-10-29T13:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_37_CBM_PA_CFP_INCL_CAND_SUB_JUDICE__NO_RES_FINAL_AVAL_SAUDE_E_CONV_TAF_TIAGO.PDF",
+   "descricaoArquivo": "Edital nº 37 - Resultado final na avaliação de saúde de candidato sub judice",
+   "dataArquivoObj": "2024-10-25T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_36_CBM_PA_CFP_CONV_TAF_PAOLA.PDF",
+   "descricaoArquivo": "Edital nº 36 - Reintegração de candidata sub judice e sua convocação para o teste de aptidão física",
+   "dataArquivoObj": "2024-10-22T11:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_35_CBM_PA_CFP_CONV_TAF_GABRIEL.PDF",
+   "descricaoArquivo": "Edital nº 35 - Reintegração de candidato sub judice e sua convocação para o teste de aptidão física",
+   "dataArquivoObj": "2024-10-22T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_34_CBM_PA_CFP_RETIFICACAO_SUBITEM_18.5_ED_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 34 – Retificação do subitem 18.5 do Edital nº 1",
+   "dataArquivoObj": "2024-10-16T14:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_33_CBM_PA_CFP_RES_FINAL_PSICO_SUB_JUDICE_CONV_SADE_FINAL_TAF_VARIOS.PDF",
+   "descricaoArquivo": "Edital nº 33 – Resultado final na avaliação psicológica, convocação para a avaliação de saúde, para o teste de aptidão física e Resultado final no teste de avaliação física de candidatos sub judice",
+   "dataArquivoObj": "2024-09-26T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_32_CBM_PA_CFP_RES_FINAL_SUB_JUDICE_SADE.PDF",
+   "descricaoArquivo": "Edital nº 32 – Resultado provisório na avaliação de saúde de candidato sub judice",
+   "dataArquivoObj": "2024-09-20T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_31_CBM_PA_CFP_RES_FINAL_APTID_FSICA_ACESSVEL.PDF",
+   "descricaoArquivo": "Edital nº 31 – Resultado final no teste de avaliação física",
+   "dataArquivoObj": "2024-09-18T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_30_CBM_PA_CFP_INCL_CAND_SUB_JUDICE__NO_RES_FINAL_OBJ_CONV_PSICO_INVEST_JOSIAS.PDF",
+   "descricaoArquivo": "Edital nº 30 – Inclusão de candidato sub judice no resultado final na prova objetiva, bem como a convocação do referido candidato para a avaliação psicológica, para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais",
+   "dataArquivoObj": "2024-09-17T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_29_CBM_PA_CFP_INCL_CAND_SUB_JUDICE__FINAL_SAUDE_CONV_TAF_RUBI.PDF",
+   "descricaoArquivo": "Edital nº 29 – Convocação de candidata para o teste de avaliação física",
+   "dataArquivoObj": "2024-09-12T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_PA_CFP_COMUNICADO_PRORROGAO.PDF",
+   "descricaoArquivo": "Comunicado - Prorrogação do link de recursos contra o resultado provisório no teste de aptidão física",
+   "dataArquivoObj": "2024-09-04T17:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_28_CBM_PA_CFP_RETIFICACAO_TEXTO_GRAVIDA.PDF",
+   "descricaoArquivo": "Edital nº 28 – Retificação do subitem 1.1.2 do Edital nº 27",
+   "dataArquivoObj": "2024-09-04T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_27_CBM_PA_CFP_RES_PROV_APTID_FSICA_ACESSVEL.PDF",
+   "descricaoArquivo": "Edital nº 27 – Resultado provisório no teste de avaliação física",
+   "dataArquivoObj": "2024-08-30T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_26_CBM_PA_CFP_CONV_SUB_JUDICE_TAF_VRIOS.PDF",
+   "descricaoArquivo": "Edital nº 26 – Convocação de candidatos sub judice para o teste de aptidão física",
+   "dataArquivoObj": "2024-08-29T09:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_25_CBM_PA_CFP_CONV_SUB_JUDICE_TAF_VRIOS_27_08.PDF",
+   "descricaoArquivo": "Edital nº 25 – Convocação de candidatos sub judice para o teste de aptidão física",
+   "dataArquivoObj": "2024-08-29T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_24_CBM_PA_CFP_CONV_SUB_JUDICE_TAF_MAICON.PDF",
+   "descricaoArquivo": "Edital nº 24 – Convocação de candidato sub judice para o teste de aptidão física",
+   "dataArquivoObj": "2024-08-13T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_23_CBM_PA_CFP_CONV_SUB_JUDICE_TAF_EDUARDO.PDF",
+   "descricaoArquivo": "Edital nº 23 – Convocação de candidato sub judice para o teste de aptidão física",
+   "dataArquivoObj": "2024-08-06T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_CBM_PA_CFP_RES_FINAL_PSICO_SUB_JUDICE_CONV_SADE_TIAGO.PDF",
+   "descricaoArquivo": "Edital nº 22 - Convocação de candidato sub judice",
+   "dataArquivoObj": "2024-08-02T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_CBM_PA_CFP_RES_FINAL_AVAL_SAUDE_CONV_APTID_FSICA.PDF",
+   "descricaoArquivo": "Edital nº 21 – Resultado final na avaliação de saúde e a convocação para o teste de aptidão física",
+   "dataArquivoObj": "2024-07-26T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_CBM_PA_CFP_CRONOGRAMA.PDF",
+   "descricaoArquivo": "Edital nº 20 - Cronograma previsto das próximas atividades",
+   "dataArquivoObj": "2024-07-19T13:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_CBM_PA_CFP_RES_PROV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 19 – Resultado provisório na avaliação de saúde",
+   "dataArquivoObj": "2024-07-03T09:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_CBM_PA_CFP_INCL_CAND_SUB_JUDICE__NO_RES_FINAL_OBJ_CONV_PSICO_INVEST_TIAGO.PDF",
+   "descricaoArquivo": "Edital nº 18 – Inclusão de candidato sub judice no resultado final na prova objetiva, bem como a convocação para a avaliação psicológica, para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais (FIP)",
+   "dataArquivoObj": "2024-07-02T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_CBM_PA_CFP_RETIFICACAO.PDF",
+   "descricaoArquivo": "Edital nº 17 – Exclusão do subitem 12.11.3.2 do Edital nº 1 – CBMPA – CFP/BM, de 24 de outubro de 2023, e alterações, bem como a retificação dos subitens 12.11.2.5 e 12.11.3.7 do referido edital",
+   "dataArquivoObj": "2024-06-27T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_CBM_PA_CFP_RES_FINAL_PSICO_SUB_JUDICE_CONV_SADE_FLAVIO.PDF",
+   "descricaoArquivo": "Edital nº 16 – Resultado na avaliação psicológica, bem como a convocação do referido candidato sub judice para a avaliação de saúde",
+   "dataArquivoObj": "2024-05-17T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_CBM_PA_CFP_RET.PDF",
+   "descricaoArquivo": "Edital nº 15 – Retificação dos subitens que tratam do teste de flexão abdominal",
+   "dataArquivoObj": "2024-05-06T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_CBM_PA_CFP_RES_FINAL_PSICOL_CONV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 14 – Resultado final da avaliação psicológica e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2024-05-03T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13_CBM_PA_CFP_CONV_SUB_JUDICE_PSICO_IS_FLAVIO.PDF",
+   "descricaoArquivo": "Edital nº 13 – Convocação de candidato sub judice para a avaliação psicológica, para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais",
+   "dataArquivoObj": "2024-04-23T09:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_CBM_PA_CFP_INC_RES_PROV_PSICOL_BRUNO.PDF",
+   "descricaoArquivo": "Edital nº 12 – Inclusão de candidato no resultado provisório da avaliação psicológica",
+   "dataArquivoObj": "2024-04-23T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_CBM_PA_CFP_RES_PROV_PSICOL.PDF",
+   "descricaoArquivo": "Edital nº 11 – Resultado provisório da avaliação psicológica",
+   "dataArquivoObj": "2024-04-09T09:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_CBM_PA_CFP_CLASSIFICACAO_NO_RES_FINAL_OBJ.PDF",
+   "descricaoArquivo": "Edital nº 10 – Classificação final nas provas objetivas em ordem alfabética e classificação",
+   "dataArquivoObj": "2024-04-09T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_CBM_PA_CFP_PREENCH_FIP.PDF",
+   "descricaoArquivo": "Edital nº 9 – Prazo para atualização da FIP",
+   "dataArquivoObj": "2024-04-03T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_CBM_PA_CFP_REAB_UPLOAD_IS.PDF",
+   "descricaoArquivo": "Edital nº 8 – Reabertura do período de preenchimento da Ficha de Informações Pessoais (FIP) e do período de envio, via upload, da imagem legível da documentação mencionada no subitem 13.6 do edital de abertura",
+   "dataArquivoObj": "2024-03-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_CBM_PA_CFP_RET.PDF",
+   "descricaoArquivo": "Edital nº 7 – Inclusão do subitem 4.2.1 no Edital nº 5",
+   "dataArquivoObj": "2024-03-12T09:20:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_CBM_PA_CFP_RET_DOE.PDF",
+   "descricaoArquivo": "Edital nº 6 – Conforme versão publicada no Diário Oficial do Estado do Pará, de 12 de março de 2024",
+   "dataArquivoObj": "2024-03-12T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_CBM_PA_CFP_RET.PDF",
+   "descricaoArquivo": "Edital nº 6 – Retificação das datas constantes do subitem 4.2 do Edital nº 1",
+   "dataArquivoObj": "2024-03-06T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_CBM_PA_CFP_RES_FINAL_OBJ_CONV_PSICO_INVEST.PDF",
+   "descricaoArquivo": "Edital nº 5 – Resultado final na prova objetiva, a convocação para a avaliação psicológica e a convocação para a investigação de antecedentes pessoais e para o preenchimento da Ficha de Informações Pessoais (FIP)",
+   "dataArquivoObj": "2024-03-04T16:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_PA_23_CFP_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2024-02-16T14:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_CBM_PA_CFP_RES_PROV_OBJ.PDF",
+   "descricaoArquivo": "Edital nº 4 – Resultado provisório na prova objetiva",
+   "dataArquivoObj": "2024-02-09T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CBM_PA_23_CFP___DEMANDA_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda de candidatos por vaga",
+   "dataArquivoObj": "2024-01-10T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_3_CBM_PA_CFP_LOCAIS_E_HORRIOS.PDF",
+   "descricaoArquivo": "Edital nº 3 – Locais de aplicação da prova objetiva",
+   "dataArquivoObj": "2023-12-28T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FORMULRIO_DEVOLUO_TAXA_CONCURSO.PDF",
+   "descricaoArquivo": "Formulário de devolução da taxa do concurso",
+   "dataArquivoObj": "2023-12-18T12:31:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_02_CFP__DE_13.12.2023___DOE_N_35.644_DE_14.12.2023___CBMPA___CFP___SOLICITAO_DEV._TAXA_DE_INSCRIO.PDF",
+   "descricaoArquivo": "Edital nº 2 – Solicitação de devolução do valor de taxa de inscrição paga em duplicidade ou fora do prazo previsto no Edital de abertura",
+   "dataArquivoObj": "2023-12-18T12:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_CBM_PA_CFP_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2023-10-25T10:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_928_CBM_PA_CFP_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO - PROVA OBJETIVA (P1)",
+   "dataArquivoObj": "2024-02-09T11:58:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "928_CBM_PA_CFP_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA (P1)",
+   "dataArquivoObj": "2024-01-24T19:00:00",
+   "isGuid": false
+  }
+ ]
+}

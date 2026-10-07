@@ -15,7 +15,7 @@ BENCH_URL_OWNER  ?= $(call db_url,emmoni_owner,emmoni_bench)
 BENCH_URL_INGEST ?= $(call db_url,emmoni_ingest,emmoni_bench)
 BENCH_URL_WEB    ?= $(call db_url,emmoni_web,emmoni_bench)
 
-export EMMONI_DB_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB
+export EMMONI_DB_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB EMMONI_CRAWL_CONTACT
 
 UV     ?= uv
 DBMATE ?= dbmate --wait

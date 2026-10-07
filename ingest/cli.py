@@ -17,7 +17,7 @@ from ingest import (
     taxonomy,
 )
 from ingest import sources as sources_module
-from ingest.crawlers.http import PoliteClient
+from ingest.crawlers.http import CrawlError, PoliteClient
 from ingest.crawlers.registry import CRAWLERS
 
 
@@ -186,16 +186,21 @@ def _crawl(source_slug: str | None, all_sources: bool, force: bool) -> int:
     failed = 0
     with db.connect() as conn:
         for source in chosen:
-            report = crawl.run_source(
-                source,
-                CRAWLERS[source.crawler],
-                known,
-                conn,
-                data_dir=fetch.data_dir(),
-                manifests_dir=manifest.MANIFESTS_DIR,
-                client_factory=lambda: PoliteClient.from_env(listed),
-                force=force,
-            )
+            try:
+                report = crawl.run_source(
+                    source,
+                    CRAWLERS[source.crawler],
+                    known,
+                    conn,
+                    data_dir=fetch.data_dir(),
+                    manifests_dir=manifest.MANIFESTS_DIR,
+                    client_factory=lambda: PoliteClient.from_env(listed),
+                    force=force,
+                )
+            except CrawlError as error:  # configuração: nada foi gravado para esta fonte
+                conn.rollback()
+                print(f"crawl {source.slug}: {error}")
+                return 2
             conn.commit()
             print("\n".join(report.lines()))
             failed += bool(report.blocked)  # erros pontuais ficam no relatório

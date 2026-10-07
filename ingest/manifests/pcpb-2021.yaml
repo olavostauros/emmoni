@@ -1,0 +1,655 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PC_PB_21.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pcpb-2021` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pcpb-2021
+name: POLÍCIA CIVIL DO ESTADO DA PARAÍBA
+agency: pcpb
+exam_board: cebraspe
+year: 2021
+source_url: https://www.cebraspe.org.br/concursos/PC_PB_21
+exams:
+- slug: conhecimentos-especificos-cargo-1
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_001_01.PDF
+- slug: conhecimentos-especificos-cargo-4
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 4
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_004_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_004_01.PDF
+- slug: conhecimentos-especificos-cargo-5
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 5
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_005_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_005_01.PDF
+- slug: conhecimentos-especificos-cargo-6
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 6
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_006_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_006_01.PDF
+- slug: conhecimentos-especificos-cargo-7
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 7
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_007_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_007_01.PDF
+- slug: conhecimentos-especificos-cargo-8
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 8
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_008_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_008_01.PDF
+- slug: conhecimentos-especificos-cargo-9
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 9
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_009_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_009_01.PDF
+- slug: conhecimentos-especificos-cargo-10
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 10
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_010_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_010_01.PDF
+- slug: conhecimentos-especificos-cargo-11
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 11
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_011_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_011_01.PDF
+- slug: conhecimentos-especificos-cargo-12
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 12
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_012_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_012_01.PDF
+- slug: conhecimentos-especificos-cargo-13
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 13
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_013_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_013_01.PDF
+- slug: conhecimentos-complementares-para-os-cargos-de-4-a-13
+  name: PROVA OBJETIVA - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 4 A 13
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CC1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CC1_01.PDF
+- slug: conhecimentos-gerais-para-o-cargo-de-delegado
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE DELEGADO
+  positions:
+  - delegado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG1_01.PDF
+- slug: conhecimentos-gerais-para-os-cargos-de-4-a-13
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 4 A 13
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG2_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG2_01.PDF
+- slug: conhecimentos-especificos-para-o-cargo-de-escrivao-de-policia
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_002_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_002_01.PDF
+- slug: conhecimentos-gerais-para-o-cargo-de-escrivao-de-policia
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
+  positions:
+  - escrivao
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_CG1_01.PDF
+- slug: conhecimentos-especificos-cargo-3
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 3
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_003_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_003_01_VF.PDF
+- slug: conhecimentos-especificos-cargo-15
+  name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 15
+  positions:
+  - papiloscopista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_015_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_015_01.PDF
+- slug: conhecimentos-complementares-para-os-cargos-de-14-a-17
+  name: PROVA OBJETIVA - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 14 A 17
+  positions:
+  - papiloscopista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CC1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CC1_01.PDF
+- slug: conhecimentos-gerais-para-o-cargo-de-agente-de-investigacao
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE AGENTE DE INVESTIGAÇÃO
+  positions:
+  - agente
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG1_01_VF.PDF
+- slug: conhecimentos-gerais-para-os-cargos-de-14-a-17
+  name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 14 A 17
+  positions:
+  - papiloscopista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG2_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG2_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PC_PB_21
+    link_text: PCPB 21
+    event: PC_PB_21
+    agency:
+      value: pcpb
+      confidence: 1.0
+      rule: prefixo PC_PB da URL do evento
+    year:
+      value: 2021
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    conhecimentos-especificos-cargo-1:
+      positions:
+        value:
+        - delegado
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Delegado de Polícia' aparece em 'A01 DELEGADO DE POLICIA
+          CIVIL'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_001_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 1
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_001_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 1
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-4:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C01 PERITO OFICIAL
+          CRIMINAL AREA: GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_004_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 4
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_004_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 4
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-5:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C02 PERITO OFICIAL
+          CRIMINAL AREA: BIOLOGIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_005_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 5
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_005_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 5
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-6:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C03 PERITO OFICIAL
+          CRIMINAL AREA: ENGENHARIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_006_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 6
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_006_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 6
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-7:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C04 PERITO OFICIAL
+          CRIMINAL AREA: TECNOLOGIA DA INFORMACAO'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_007_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 7
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_007_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 7
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-8:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C05 PERITO OFICIAL
+          MEDICO-LEGAL AREA: GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_008_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 8
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_008_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 8
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-9:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C06 PERITO OFICIAL
+          MEDICO-LEGAL AREA: PSIQUIATRIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_009_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 9
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_009_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 9
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-10:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C07 PERITO OFICIAL
+          MEDICO-LEGAL AREA: PATOLOGIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_010_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 10
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_010_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 10
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-11:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C08 PERITO OFICIAL
+          ODONTO-LEGAL AREA: GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_011_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 11
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_011_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 11
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-12:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C09 PERITO OFICIAL
+          QUIMICO-LEGAL AREA: GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_012_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 12
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_012_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 12
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-13:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C10 PERITO OFICIAL
+          QUIMICO-LEGAL AREA: QUIMICA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_013_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 13
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_013_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 13
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-complementares-para-os-cargos-de-4-a-13:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C01 PERITO OFICIAL
+          CRIMINAL AREA: GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CC1_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 4 A 13
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CC1_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 4 A 13
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-para-o-cargo-de-delegado:
+      positions:
+        value:
+        - delegado
+        confidence: 0.8
+        rule: '''DELEGADO'' (de ''Delegado de Polícia'') aparece em ''CONHECIMENTOS GERAIS PARA O CARGO DE DELEGADO'''
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG1_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE DELEGADO
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG1_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTO GERAIS PARA O CARGO DE DELEGADO
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-para-os-cargos-de-4-a-13:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 0.8
+        rule: 'cargos citados na descrição; ''PERITO'' (de ''Perito Criminal'') aparece em ''C01 PERITO OFICIAL
+          CRIMINAL AREA: GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG2_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 4 A 13
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG2_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS GERAIS PARA OS CARGOS DE 4 A 13
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-para-o-cargo-de-escrivao-de-policia:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: nome do cargo 'Escrivão de Polícia' aparece em 'CONHECIMENTOS ESPECIFICOS PARA O CARGO DE ESCRIVAO
+          DE POLICIA'
+      pairing:
+        answer_key_final: nome do arquivo
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_002_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_002_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 2
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-para-o-cargo-de-escrivao-de-policia:
+      positions:
+        value:
+        - escrivao
+        confidence: 1.0
+        rule: nome do cargo 'Escrivão de Polícia' aparece em 'CONHECIMENTOS GERAIS PARA O CARGO DE ESCRIVAO DE POLICIA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_CG1_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_CG1_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS GERAIS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-3:
+      positions:
+        value:
+        - agente
+        confidence: 0.8
+        rule: cargos citados na descrição; 'AGENTE' (de 'Agente de Polícia') aparece em 'B02 AGENTE DE INVESTIGACAO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_003_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 3
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_003_01_VF.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 3
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-especificos-cargo-15:
+      positions:
+        value:
+        - papiloscopista
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Papiloscopista'' aparece em ''D02 PAPILOSCOPISTA AREA:
+          GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_015_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 15
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_015_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS ESPECÍFICOS - CARGO 15
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-complementares-para-os-cargos-de-14-a-17:
+      positions:
+        value:
+        - papiloscopista
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Papiloscopista'' aparece em ''D02 PAPILOSCOPISTA AREA:
+          GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CC1_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 14 A 17
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CC1_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS COMPLEMENTARES PARA OS CARGOS DE 14 A 17
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-para-o-cargo-de-agente-de-investigacao:
+      positions:
+        value:
+        - agente
+        confidence: 0.8
+        rule: '''AGENTE'' (de ''Agente de Polícia'') aparece em ''CONHECIMENTOS GERAIS PARA O CARGO DE AGENTE DE
+          INVESTIGACAO'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG1_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE AGENTE DE INVESTIGAÇÃO
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG1_01_VF.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS GERAIS PARA O CARGO DE AGENTE DE INVESTIGAÇÃO
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais-para-os-cargos-de-14-a-17:
+      positions:
+        value:
+        - papiloscopista
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Papiloscopista'' aparece em ''D02 PAPILOSCOPISTA AREA:
+          GERAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG2_01.PDF
+          link_text: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 14 A 17
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG2_01.PDF
+          link_text: GABARITO DEFINITIVO - CONHECIMENTOS GERAIS PARA OS CARGOS DE 14 A 17
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped:
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 14
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_014_01.PDF
+    reason: 'cargo fora do catálogo: D01 TECNICO EM PERICIA AREA: GERAL'
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 16
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_016_01.PDF
+    reason: 'cargo fora do catálogo: D03 NECROTOMISTA AREA: GERAL'
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 17
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_017_01.PDF
+    reason: 'cargo fora do catálogo: D04 NECROTOMISTA AREA: ENFERMAGEM'
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 3
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_003_01.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 14
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_014_01.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 16
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_016_01.PDF
+    reason: gabarito sem prova correspondente
+  - label: CONHECIMENTOS ESPECIFICOS - CARGO 17
+    url: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_017_01.PDF
+    reason: gabarito sem prova correspondente

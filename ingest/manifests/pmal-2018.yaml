@@ -1,0 +1,56 @@
+# Proposta do crawler `cebraspe` a partir de https://www.cebraspe.org.br/concursos/PM_AL_18_SOLDADO.
+# Não edite: a próxima execução do crawler reescreve este arquivo. Aprove com
+# `emmoni manifests approve pmal-2018` e ajuste o manifesto aprovado (disciplinas por faixa,
+# nomes, `first_number`) antes de ingerir.
+contest: pmal-2018
+name: POLÍCIA MILITAR DO ESTADO DE ALAGOAS
+agency: pmal
+exam_board: cebraspe
+year: 2018
+source_url: https://www.cebraspe.org.br/concursos/PM_AL_18_SOLDADO
+exams:
+- slug: objetiva
+  name: PROVA OBJETIVA
+  positions:
+  - soldado
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/MATRIZ_410_PMAL001__PAG_7.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/GAB_DEFINITIVO_410_PMAL001__PAG_7.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/PM_AL_18_SOLDADO
+    link_text: PM/AL SOLDADO 2018
+    event: PM_AL_18_SOLDADO
+    agency:
+      value: pmal
+      confidence: 1.0
+      rule: prefixo PM_AL da URL do evento
+    year:
+      value: 2018
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    objetiva:
+      positions:
+        value:
+        - soldado
+        confidence: 0.8
+        rule: único cargo do concurso; 'SOLDADO' (de 'Soldado da Polícia Militar') aparece em 'SOLDADO COMBATENTE'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/MATRIZ_410_PMAL001__PAG_7.PDF
+          link_text: PROVA OBJETIVA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'PROVA OBJETIVA'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/GAB_DEFINITIVO_410_PMAL001__PAG_7.PDF
+          link_text: GABARITO DEFINITIVO - PROVA OBJETIVA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped: []

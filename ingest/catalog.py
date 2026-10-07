@@ -39,6 +39,9 @@ class Position(_Strict):
     slug: str
     name: str
     education_level: Literal["fundamental", "medio", "superior"] | None = None
+    # Outros nomes com que as fontes escrevem o cargo (`PRACA`, `CADETE`, `ASPIRANTE`): palavras
+    # normalizadas, sem acento. Só o crawler usa (decisão 0008).
+    aliases: list[str] = []
 
 
 class Agency(_Strict):

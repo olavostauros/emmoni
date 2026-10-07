@@ -1,0 +1,778 @@
+{
+ "eventoURL": "PM_PA_23_CFO",
+ "eventoNomeAbreviado": "PM_PA_23_CFO",
+ "eventoNomeCompleto": "Oficiais da Polícia Militar do Pará",
+ "eventoAno": 2023,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "OFICIAL DA POLÍCIA MILITAR DO ESTADO DO PARÁ"
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "8FC650C75E8F5A6EE121BE67577B2C617F0794C63950589509725FF38214354B.pdf",
+   "descricaoArquivo": "Edital nº 114 - Retificação do resultado final de candidato sub judice, inscrito sob o nº 10016017, na prova objetiva, bem como o seu resultado final na prova discursiva, no concurso público para o ingresso no curso de formação de oficiais (CFO).",
+   "dataArquivoObj": "2026-08-26T14:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "B10EF786D174DF158742E3B7555169A4426DE392C7255A60C427AE20363205A5.pdf",
+   "descricaoArquivo": "Edital nº 113 - Reintegração de candidato sub judice, inscrito sob o nº 10010629, bem como a sua convocação para a avaliação de aptidão física.",
+   "dataArquivoObj": "2026-07-23T14:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CC820117743FC8F16E16C0357A710EADCA47CB09B782E16B58D1D091974C5EE1.pdf",
+   "descricaoArquivo": "Edital nº 112 – Reintegração de candidato sub judice.",
+   "dataArquivoObj": "2026-06-18T13:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "777C4E7312F5AE3E54CD2EAD01978D98C2EC7F3D44199DFAE753B35638A51C18.pdf",
+   "descricaoArquivo": "Edital nº 111 - Resultado final de candidato sub judice na avaliação de aptidão física.",
+   "dataArquivoObj": "2026-06-03T14:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "96A33D49742569611F43B7892D1B8EE2075BE0C53DEB99A25E3AE14A3CA28B86.pdf",
+   "descricaoArquivo": "Edital nº 110 – Resultado final de candidato sub judice na avaliação de saúde e a convocação do referido candidato para a avaliação de aptidão física.",
+   "dataArquivoObj": "2026-05-13T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "000A1870F592CE578916CF8B1E6ADB205F0BECE75402182DC4EFC21F5AF984DB.pdf",
+   "descricaoArquivo": "Edital nº 109 – Reintegração de candidato.",
+   "dataArquivoObj": "2026-04-30T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "1DB71D3B7606B8FC40DF50CCCC529952A6A25A6CF81C27F053493D921F3FA728.pdf",
+   "descricaoArquivo": "Edital nº 108 – Retificação do resultado final no concurso público, para admissão ao curso de formação de oficiais da Polícia Militar do Pará (CFO/PMPA/2023), divulgado por meio do edital nº 57 – PMPA CFO/PM, de 28 de março de 2025, incluindo no resultado final os candidatos sub judice inscritos sob os nº 10000580 e nº 10005505.",
+   "dataArquivoObj": "2026-04-27T14:56:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "0475229F061DC65431D1FA681281FF50BD416747DB97CA7C7E8847827FE29CDB.pdf",
+   "descricaoArquivo": "Edital nº 107 – Resultado final de candidato sub judice inscrito sob o nº 10000580, no teste de avaliação física e na investigação de antecedentes pessoais, bem como o resultado final do candidato sub judice inscrito sob o nº 10005505, na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2026-04-27T14:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4E36C146322EFCA8DA9B6BAF558B1BFF537C65CB24B758393A538FDFD5918CE5.pdf",
+   "descricaoArquivo": "Edital nº 106 – Resultado final de candidato sub judice, inscrito sob o nº 10000580, na avaliação psicológica, na avaliação de saúde e a convocação  do referido candidato sub judice para a avaliação de aptidão física.",
+   "dataArquivoObj": "2026-04-09T14:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "742030D62B406C8C6E8B3C04AC0FB84231B4142E94CA59F973FB6EE43DAAFB58.pdf",
+   "descricaoArquivo": "Edital nº 105 – Retificação do resultado final no concurso público, para admissão ao Curso de Formação de Oficiais da Polícia Militar do Pará (CFO/PMPA/2023), divulgado por meio do Edital nº 57 – PMPA CFO/PM, de 28 de março de 2025, incluindo no resultado final o candidato sub judice, inscrito sob o nº 10001162.",
+   "dataArquivoObj": "2026-04-07T14:46:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E6168A502808E092A52C6F915C2CDA30968BD3110E30C8E67652C0659AA1C7F7.pdf",
+   "descricaoArquivo": "Edital nº 104 – Reintegração de candidato sub judice, inscrito sob o nº 10001162, bem como o resultado final no teste de avaliação física e o resultado final na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2026-04-07T14:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E29507E63238BE600383BB996691E428AE180BA7320F61E3DF24F6E04880B462.pdf",
+   "descricaoArquivo": "Edital nº 103 – Resultado final de candidato sub judice, inscrito sob o nº 10005505, na avaliação de aptidão física.",
+   "dataArquivoObj": "2026-04-07T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "66102F552B857BB3103887E37C1BADF26739AF6724C940EE62FC67C42B5AE602.pdf",
+   "descricaoArquivo": "Edital nº 101 - Resultado final de candidato sub judice, inscrito sob o nº 10002953, na avaliação psicológica e a convocação do referido candidato sub judice para a avaliação de saúde.",
+   "dataArquivoObj": "2026-03-18T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A1949A54A61DA4CF7E286266EB23B832A3DDD89802B4BBD6FB3D8FDBF03C5CCF.pdf",
+   "descricaoArquivo": "Edital nº 100 - Retificação do resultado final no concurso público.",
+   "dataArquivoObj": "2026-03-09T15:53:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CDF8BD674F9993B7C63AB7F8020E5000A56F20053EA6347016D77B76EDB4FDBF.pdf",
+   "descricaoArquivo": "edital nº 99 - Resultado final de candidatos sub judice, na investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2026-03-09T15:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "3072496CB38A38A9A5A97489BA8D7B7AC0946142950B3876471C706DDDAC0850.pdf",
+   "descricaoArquivo": "Edital nº 98 – Resultado final de candidatos sub judice, na avaliação de aptidão física.",
+   "dataArquivoObj": "2026-02-26T17:14:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "8DFA5171BBECB636600F79B1AB3EC076D07C26D69162635903B63735B191E71B.pdf",
+   "descricaoArquivo": "Edital nº 97 – Resultado final de candidato sub judice inscrito sob o nº 10005505, na avaliação de saúde, bem como a sua convocação para a avaliação de aptidão física.",
+   "dataArquivoObj": "2026-02-26T17:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FAA4703579605DE44411A8F5BAE1F0B6B35F2CA8815961C9C84239F3D75B31A7.pdf",
+   "descricaoArquivo": "Edital nº 96 – Retificação da data constante do subitem 1.1 do Edital nº 95 – PMPA CFO/PM, de 9 de fevereiro de 2026.",
+   "dataArquivoObj": "2026-02-12T09:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E9B6F0C7B8CC5B9E7BF347950CE952E081C6D588FA4B13D4EE8E924BE47E48A5.pdf",
+   "descricaoArquivo": "Edital nº 95 – Reintegração de candidato sub judice, bem como a convocação do referido candidato para a avaliação psicológica e para a investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2026-02-10T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "965384D5D6174F5B384CDBD2546BBC6B6718095300E6EED3E9841CB73BD56F23.pdf",
+   "descricaoArquivo": "Edital nº 94 – Convocação de candidato sub judice, para a avaliação de aptidão física.",
+   "dataArquivoObj": "2026-01-27T10:59:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "12307E5D7059AEA209BA22112B1CAECA6E190DFD1C112FA147E60270E9D92AAE.pdf",
+   "descricaoArquivo": "Edital nº 93 – Reintegração e convocação de candidato sub judice para a avaliação de aptidão física",
+   "dataArquivoObj": "2026-01-26T09:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C9ACFDBAD107B2F15440D602867EF27303347E15950BCF703654B2E8DA4002BB.pdf",
+   "descricaoArquivo": "Edital nº 92 – Retificação do resultado final no concurso público para incluir candidata sub judice",
+   "dataArquivoObj": "2026-01-23T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "E261CC5E18ACE37C5A17DB69B9D338E55F9340E148CFFC2F6567411F5AD3801B.pdf",
+   "descricaoArquivo": "Edital nº 91 – Resultado final de candidato sub judice, na avaliação psicológica e a convocação do referido candidato para a avaliação de saúde.",
+   "dataArquivoObj": "2026-01-09T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "8B27D6A39643FA3A522B87BEEEB3270F1E4D296E4F98BD215ADA5A7CAD5FD69D.pdf",
+   "descricaoArquivo": "Edital nº 90 – Resultado final de candidata sub judice, bem como a sua convocação para a avaliação de aptidão física.",
+   "dataArquivoObj": "2026-01-07T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "904247C82D32E6150DBE23F5CCD9CB8B8A487970992A1BE70929D79DB38A3EFD.pdf",
+   "descricaoArquivo": "Edital nº 89 – Convocação de candidata sub judice.",
+   "dataArquivoObj": "2025-12-11T10:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "52ED961B197F347CEA0336B1EBDB7E96EA7D783B72C7BDE6B2B81ABD51DB7640.pdf",
+   "descricaoArquivo": "Edital nº 88 – Retificação do resultado final no concurso público.",
+   "dataArquivoObj": "2025-12-10T16:44:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "9DB1B415807508BAE0A23869BD94972ABE11D24723875BAB0E5BAF623BACF5F1.pdf",
+   "descricaoArquivo": "Edital nº 87 – Resultado final de candidatos sub judice.",
+   "dataArquivoObj": "2025-12-10T16:42:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "C93A8853F068F61692644A6B76B17CA3186B8032C0F7E75CBCA225F4D31ABC5B.pdf",
+   "descricaoArquivo": "Edital nº 86 – Resultado final de candidato sub judice.",
+   "dataArquivoObj": "2025-12-10T16:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "5C1D023390FEF33DC764E38CEDE154DF0EC4884BE6482544AA330EE40781272B.pdf",
+   "descricaoArquivo": "Edital nº 85 – Resultado final de candidata sub judice.",
+   "dataArquivoObj": "2025-11-18T13:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "A33154A84D64AC0AB5FA8ED5290282F311EE2B6075CD20FF6EA7BA70F7F313C9.pdf",
+   "descricaoArquivo": "Edital nº 84 – Retificação do resultado final de candidato sub judice, bem como a sua convocação para a avaliação psicológica e para a investigação social.",
+   "dataArquivoObj": "2025-11-18T13:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "AD466D0480B2DD5E9870A1FC9976AAD367245207B81462C5169E6875BD5D5437.pdf",
+   "descricaoArquivo": "Edital nº 83 – Torna sem efeito o Edital nº 81 – PMPA CFO/PM, de 04 de novembro de 2025 e publicado no DOE Nº 36.423, de 05.11.2025.",
+   "dataArquivoObj": "2025-11-14T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "21FFAAE820B0346E43ACA79814060E8EF5AC96A5ADE373F9750AE01CD5BFC8BA.pdf",
+   "descricaoArquivo": "Edital nº 82 – Reintegração de candidato sub judice.",
+   "dataArquivoObj": "2025-11-12T14:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "8A868E9F3E5DD7E661D39F9B63AACCCF2501E5BE5620EB415E6D28A78F4BB06C.pdf",
+   "descricaoArquivo": "Edital nº 81 - Retificação do resultado final no concurso público, para admissão ao Curso de Formação de Oficiais da Polícia Militar do Pará (CFO/PMPA/2023), divulgado por meio do Edital nº 57 – PMPA CFO/PM, de 28 de março de 2025 - Conforme publicado no DOE nº 36.423 de 05.11.2025.",
+   "dataArquivoObj": "2025-11-12T14:10:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "4E90463C26CD8C5AB22E47D1D021FAC8FE02FD7F985A87FA77EF4409ABDE98FE.pdf",
+   "descricaoArquivo": "Edital nº 80 - Retificação do resultado final no concurso público, para admissão ao Curso de Formação de Oficiais da Polícia Militar do Pará (CFO/PMPA/2023), divulgado por meio do Edital nº 57 – PMPA CFO/PM, de 28 de março de 2025.",
+   "dataArquivoObj": "2025-11-04T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "61422660D34C2BA3550A8E78AE8E76021982810EB7D98A950E2C6F3DFBEEF5B3.pdf",
+   "descricaoArquivo": "Edital nº 79 – Resultado final de candidato sub judice na avaliação de aptidão física.",
+   "dataArquivoObj": "2025-10-31T17:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "CD8F62F318C57066BF174F551F8926FA47008ECB352AF26E26EC7CFC8B21B534.pdf",
+   "descricaoArquivo": "Edital nº 78 - Reintegração de candidato sub judice.",
+   "dataArquivoObj": "2025-10-29T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "F077D7F38A007AF97FF3D605ACE7F0A0C72FE79783663060D695B4EE48D668FD.pdf",
+   "descricaoArquivo": "Edital nº 77 - Convocação de candidata sub judice para a Avaliação de Aptidão Física.",
+   "dataArquivoObj": "2025-10-22T09:05:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "9A43B07A838BFAB9C804B13637305A8A6B714950DDB98F760F54E6E854B9F4C2.pdf",
+   "descricaoArquivo": "Edital nº 76 – Não houve candidato considerado apto da convocação realizada por meio do Edital nº 71 – PMPA CFO/PM",
+   "dataArquivoObj": "2025-10-10T15:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "AF73A5A6C222678B2F8FFE252B1BBA114286C476AB5C00986BB22E73E1BB507D.pdf",
+   "descricaoArquivo": "Edital nº 75 – Resultado final de candidatos sub judice na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2025-10-10T15:15:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "7B53821DB91DBF36AEDFC8374CC992DAF39C0D0A4721A670D5A4966A3BE12868.pdf",
+   "descricaoArquivo": "Edital nº 74 – Resultado final de candidatos sub judice na avaliação de aptidão física e na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2025-10-10T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 73 CFO-PMPA DE 05.06.2025 - DOE Nº 36.320 DE 06.08.2025 - Res_final_saude_TAF_sub_judice_ PEDRO-3.pdf",
+   "descricaoArquivo": "Edital nº 73 - Resultado final de candidato sub judice, bem como a convocação do referido candidato para a avaliação de aptidão física.",
+   "dataArquivoObj": "2025-08-06T17:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 72 CFO-PMPA DE 28.07.2025 - DOE Nº 36.313 DE 29.07.2025 - RESULTADO Final_saude_TAF_sub_judice_BERNARDO.pdf",
+   "descricaoArquivo": "Edital nº 72 – Resultado final de candidato sub judice.",
+   "dataArquivoObj": "2025-07-29T17:51:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 71 CFO-PMPA DE 28.07.2025 - DOE Nº 36.313 DE 29.07.2025 - Conv_TAF_sub_judice_Ingrid.pdf",
+   "descricaoArquivo": "Edital nº 71 – Reintegração de candidata sub judice, bem como a convocação da referida candidata para a avaliação de aptidão física.",
+   "dataArquivoObj": "2025-07-29T17:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 70 CFO-PMPA DE 09.07.2025 - DOE Nº 36.295 DE 10.07.2025 - Res_Final_TAF_sub_judice_Jonathan.pdf",
+   "descricaoArquivo": "Edital nº 70 - Resultado final na Avaliação de Aptidão Física de candidato sub judice",
+   "dataArquivoObj": "2025-07-10T17:50:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 69 CFO-PMPA DE 09.07.2025 - DOE Nº 36.295 DE 10.07.2025 - Res_final_saude_TAF_sub_judice_ CLENILSON.pdf",
+   "descricaoArquivo": "Edital nº 69 - Resultado final na Avaliação de Saúde e na Avaliação de Aptidão Física de candidato sub judice",
+   "dataArquivoObj": "2025-07-10T17:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 68 CFO-PMPA DE 12.06.2025 - DOE Nº 36.261 DE 13.06.2025 - Torna_sem_efeito_Ed_63 DAVI DA SILVA.pdf",
+   "descricaoArquivo": "Edital nº 68 – Torna sem efeito o Edital nº 63 – PMPA CFO/PM, de 28 de abril de 2025 - Republicado por ter saído com incorreções no Diário Oficial nº 36.260 de 12.06.2025",
+   "dataArquivoObj": "2025-06-13T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 69 CFO-PMPA DE 12.06.2025 - DOE Nº 36.260 DE 12.06.2025 - Torna_sem_efeito_Ed_63 DAVI DA SILVA.pdf",
+   "descricaoArquivo": "Edital nº 69 – Torna sem efeito o Edital nº 63 – PMPA CFO/PM, de 28 de abril de 2025.",
+   "dataArquivoObj": "2025-06-13T11:29:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 67 CFO-PMPA DE 12.05.2025 - DOE Nº 36.225 DE 13.05.2025 - Prov_TAF_sub_judice_Raimundo.pdf",
+   "descricaoArquivo": "Edital nº 67 – Procedimentos para interposição de recursos contra o resultado provisório de candidato sub judice, inscrito sob o nº 10002888.",
+   "dataArquivoObj": "2025-05-13T14:43:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 66 CFO-PMPA DE 30.04.2025 - DOE Nº 36.214 DE 05.05.2025 - Inc_saúde_conv_TAF_sub_judice_Glauber..pdf",
+   "descricaoArquivo": "Edital nº 66 – Resultado final de candidato sub judice, inscrito sob o nº 10006707, na avaliação de saúde, bem como a convocação do referido candidato para a avaliação de aptidão física.",
+   "dataArquivoObj": "2025-05-06T15:25:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 65 CFO-PMPA DE 30.04.2025 - DOE Nº 36.214 DE 05.05.2025 - Ret_disc_conv_psico_IS_sub_judice_ELIASE-1.pdf",
+   "descricaoArquivo": "Edital nº 65 – Retificação do resultado final de candidata sub judice, bem como a convocação da referida candidata para a avaliação psicológica e para a investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2025-05-06T15:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 64 CFO-PMPA DE 28.04.2025 - DOE Nº 36.210 DE 29.04.2025 - Inc_saúde_conv_TAF_sub_judice_Hellington-1.pdf",
+   "descricaoArquivo": "Edital nº 64 – Resultado final de candidato sub judice na avaliação de saúde, bem como a convocação do referido candidato para a avaliação de aptidão física.",
+   "dataArquivoObj": "2025-04-29T14:35:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 63 CFO-PMPA DE 28.04.2025 - DOE Nº 36.210 DE 29.04.2025 - _PMPA_CFO_Ret_disc_sub_judice_DAVI DA SILVA.pdf",
+   "descricaoArquivo": "Edital nº 63 – Retificação do resultado final de candidato sub Judice.",
+   "dataArquivoObj": "2025-04-29T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 62 CFO-PMPA DE 23.04.2025 - DOE Nº 36.207 DE 24.04.2025 - Torna_sem_efeito_Ed_48-1.pdf",
+   "descricaoArquivo": "Edital nº 62 – Torna sem efeito o edital nº 48 – PMPA CFO/PM, de 3 de fevereiro de 2025.",
+   "dataArquivoObj": "2025-04-24T14:55:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 61 CFO-PMPA DE 22.04.2025 - DOE Nº 36.206 DE 23.04.2025 - Res_saúde_conv_TAF_sub_judice_Jonathan.pdf",
+   "descricaoArquivo": "Edital nº 61 – Resultado final de candidato sub judice inscrito sob nº 10000818, na avaliação de saúde, bem como a convocação do referido candidato para a avaliação de aptidão física.",
+   "dataArquivoObj": "2025-04-23T13:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 60 CFO-PMPA DE 16.04.2025 - EDIÇÃO EXTRA DOE Nº 36.203 DE 17.04.2025 - Inc_sub_judice_fina_IS__psic_conv_Saúde_Bernardo.pdf",
+   "descricaoArquivo": "Edital nº 60 – Resultado final de candidato sub judice, inscrito sob o nº 10010161, na avaliação psicológica e na investigação de antecedentes pessoais, bem como a convocação do referido candidato para a avaliação de saúde.",
+   "dataArquivoObj": "2025-04-22T14:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 59 CFO-PMPA DE 16.04.2025 - DOE Nº 36.202 DE 17.04.2025 - Ret_disc_conv_psico_IS_sub_judice_Pedro.pdf",
+   "descricaoArquivo": "Edital nº 59 – Reintegração de candidato sub judice, inscrito sob o nº 10000773, bem como a retificação do resultado final na prova discursiva e a convocação para a avaliação psicológica e para a investigação de antecedentes pessoais.",
+   "dataArquivoObj": "2025-04-22T14:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 58 CFO-PMPA DE 15.04.2025 - DOE Nº 36.201 DE 16.04.2025 - RAIMUNDO DE OLIVEIRA - SU JUDICE -  REINTEHRAÇÃO E AV. FÍSICA.pdf",
+   "descricaoArquivo": "Edital nº 58 – Reintegração de candidato sub judice, bem como a convocação do referido candidato para a Avaliação de Aptidão Física.",
+   "dataArquivoObj": "2025-04-16T14:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Ed_57_PMPA_CFO_Res_Final_Concurso.pdf",
+   "descricaoArquivo": "Edital nº 57– Resultado final no concurso público dos candidatos que lograram êxito em todas as etapas do certame, incluindo aqueles que estão na condição sub judice por decisão judicial do concurso público",
+   "dataArquivoObj": "2025-03-31T09:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 56 DE 27.03.2025_PMPA_CFO_DOE Nº 36.177 DE 28.03.2025 -Retif.Final_Disc, Res.Final Av.Psic. e Conv. Av.Saúde sub_judice_ CLENILSON.pdf",
+   "descricaoArquivo": "Edital nº 56 – Reintegração de candidato sub judice, bem como a retificação do resultado final na prova discursiva, o resultado final na avaliação psicológica e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2025-03-28T11:42:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 55 DE 27.03.2025_PMPA_CFO_DOE Nº 36.177 DE 28.03.2025 - Reintegração e Conv Av Psico e  IS_sub_judice_BERNARDO BRITO.pdf",
+   "descricaoArquivo": "Edital nº 55 – Reintegração de candidato sub judice, bem como a convocação para a avaliação psicológica e para a investigação social",
+   "dataArquivoObj": "2025-03-28T11:41:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL Nº 54 DE 26.03.2025_PMPA_CFO_REP. EDIÇÃO EXTRA DOE Nº 36.176 DE 27.03.2025 - Reint, Res.Fina Prov Disc.,Av.Psic, IS, e Av.saúde ELIZANGELA.pdf",
+   "descricaoArquivo": "Edital nº 54 – Reintegração de candidata sub judice, bem como o resultado final na prova discursiva, o resultado final na avaliação psicológica, o resultado final na investigação de antecedentes pessoais e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2025-03-28T11:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_53_PMPA_CFO_RES_FINAL_TAF_IS_SUB_JUDICE_KILLDERY_RAPHAEL.PDF",
+   "descricaoArquivo": "Edital nº 53 – Resultado definitivo da avaliação de aptidão física e o resultado final na investigação de antecedentes pessoais de candidatos sub judice",
+   "dataArquivoObj": "2025-03-07T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_52_PMPA_CFO_RES_FINAL_AV_MED_SUB_JUDICE_KILLDERY_RAPHAEL.PDF",
+   "descricaoArquivo": "Edital nº 52 – Resultado final na avaliação de saúde dos candidatos sub judice",
+   "dataArquivoObj": "2025-02-20T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_51_CFO_PMPA__DE_18.02.2025__REP._DOE_N_36.142_DE_21.02.2025__RESULTADO_FINAL_TAF_E_IS_SUB_JUDICE_JACKLINE_REPUBLICADO.PDF",
+   "descricaoArquivo": "Edital nº 51 – Resultado definitivo da avaliação de aptidão física e o resultado final na investigação de antecedentes pessoais da candidata sub judice - Conforme divulgado no Diário Oficial de 21/02/2025",
+   "dataArquivoObj": "2025-02-19T11:00:05",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_50_PMPA_CFO_REINTEGRACAO_SUB_JUDICE_RENET.PDF",
+   "descricaoArquivo": "Edital nº 50 – Reintegração de candidato sub judice",
+   "dataArquivoObj": "2025-02-19T11:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_49_PMPA_CFO_RES_FINAL_PSICO_CONV_SADE_VRIOS.PDF",
+   "descricaoArquivo": "Edital nº 49 – Reintegração de candidatos sub judice, bem como o resultado final na avaliação psicológica e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2025-02-19T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_48_PMPA_CFO_RET_FINAL_DISC_SUB_JUDICE_MYKAEL.PDF",
+   "descricaoArquivo": "Edital nº 48 – Reintegração do candidato sub judice, bem como a retificação do resultado final na prova discursiva",
+   "dataArquivoObj": "2025-02-04T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_47_PMPA_CFO_RETIFICACAO_DATA_ED_23.PDF",
+   "descricaoArquivo": "Edital nº 47 – Retificação do cronograma previsto das próximas atividades, divulgado por meio do subitem 2.2 do Edital nº 23",
+   "dataArquivoObj": "2025-01-31T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_46_CFO_EDITAL_N_45___PMPA_DE_23.01.2025__DOE_N_36.109_DE_23.01.2025__REINTEGRACAO_SUB_JUDICE_FABRICIO_ARRUDA.PDF",
+   "descricaoArquivo": "Edital nº 46 – Reintegração de candidato sub judice",
+   "dataArquivoObj": "2025-01-23T11:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_45_CFO_PMPA_DE_21.01.2025__DOE_N_36108_DE_22.01.2025___RES_FINAL_TAF_SUB_JUDICE__HIAGO_NEVES.PDF",
+   "descricaoArquivo": "Edital nº 45 - Resultado final no teste de avaliação física de candidato sub judice",
+   "dataArquivoObj": "2025-01-23T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_44_CFO_PMPA_DE_20.01.2025__DOE_N_36.106_DE_21.01.2025__REINTEGRAO_E_CONV.TAF__SUB_JUDICE___PRISCILLA_KETHENY.PDF",
+   "descricaoArquivo": "Edital nº 44 – Reintegração de candidata sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2025-01-21T17:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_43_CFO_PMPA_DE_20.01.2025__DOE_N_36.106_DE_21.01.2025___EXCLUSO_DO_RESULTADO_FINAL_DO_TAF___PRISCILLA_KETHENY.PDF",
+   "descricaoArquivo": "Edital nº 43 - Exclusão de candidata do resultado final no teste de avaliação física, divulgado por meio do Edital nº 20",
+   "dataArquivoObj": "2025-01-21T17:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_42_PMPA_CFO_APTIDAO_TAF_SUB_JUDICE_RAFAEL.PDF",
+   "descricaoArquivo": "Edital nº 42 – Reintegração de candidato sub judice, bem como o resultado final no teste de avaliação física",
+   "dataArquivoObj": "2025-01-16T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_41_PMPA_CFO_CONV_TAF_SUB_JUDICE__ALEXANDRE.PDF",
+   "descricaoArquivo": "Edital nº 41 – Reintegração de candidato sub judice, por meio da convocação para a avaliação de aptidão física",
+   "dataArquivoObj": "2025-01-13T12:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_40_PMPA_CFO_RET_FINAL_OBJ_PROV_DISC_SUB_JUDICE__JONATHAN_GLAUBER_REPUBLICADO.PDF",
+   "descricaoArquivo": "Edital nº 40 – Retificação do resultado final na prova discursiva de candidatos sub judice, bem como a convocação dos referidos candidatos para a avaliação psicológica e para a investigação de antecedentes pessoais – Conforme divulgado no Diário Oficial de 14/01/2025",
+   "dataArquivoObj": "2025-01-13T12:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_39_PMPA_CFO_CONV_SUB_JUDICE_TAF_JOSUE.PDF",
+   "descricaoArquivo": "Edital nº 39 – Reintegração de candidata sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2025-01-02T10:45:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_38_PMPA_CFO_RES_FINAL__SUB_JUDICE_TAF__VARIOS.PDF",
+   "descricaoArquivo": "Edital nº 38 – Resultado definitivo da avaliação de aptidão física, de candidatos sub judice",
+   "dataArquivoObj": "2024-12-30T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_37_PMPA_CFO_FINAL_PSICO_SADE_TAF_E_IS_SUB_JUDICE_JOSEMAR.PDF",
+   "descricaoArquivo": "Edital nº 37 – Reintegração de candidato sub judice, bem como o resultado final na avaliação psicológica, na avaliação de saúde, no teste de avaliação física e na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-12-27T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_36_PMPA_CFO_RET_FINAL_OBJ_PROV_DISC_SUB_JUDICE_HELLINGTON.PDF",
+   "descricaoArquivo": "Edital nº 36 – Reintegração de candidato sub judice, bem como a retificação do resultado final na sua prova discursiva e convocação para a avaliação psicológica e a convocação para a investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-12-18T09:30:02",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_35_PMPA_CFO_FINAL_PSICO_CONV_SADE_SUB_JUDICE_RAPHAEL.PDF",
+   "descricaoArquivo": "Edital nº 35 – Reintegração de candidato sub judice, bem como o resultado final na avaliação psicológica e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2024-12-18T09:30:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_34_PMPA_CFO_RES_FINAL__SUB_JUD_TAF_IS_JOAO.PDF",
+   "descricaoArquivo": "Edital nº 34 – Resultado definitivo da avaliação de aptidão física e o resultado provisório na investigação de antecedentes pessoais de candidato sub judice – Conforme divulgado no Diário Oficial de 19/12/2024",
+   "dataArquivoObj": "2024-12-18T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_33_PMPA_CFO_RES_FINAL_PSICO_CONV_AV_SADE_SUB_JUDICE_KILLDERY.PDF",
+   "descricaoArquivo": "Edital nº 33 – Resultado final na avaliação psicológica de candidato sub judice, bem como a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2024-12-10T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_32_PMPA_CFO_CONV_TAF_SUB_JUDICE__EDUARDO.PDF",
+   "descricaoArquivo": "Edital nº 32 – Reintegração de candidato sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2024-12-06T11:30:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_31_PMPA_CFO_CONV_TAF_SUB_JUDICE_KARINA_LUCAS.PDF",
+   "descricaoArquivo": "Edital nº 31 – Reintegração de candidatos sub judice, bem como a convocação para o teste de avaliação física",
+   "dataArquivoObj": "2024-12-06T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_30_PMPA_CFO_CONV_TAF_SUB_JUDICE__BIANCA_FELIPE.PDF",
+   "descricaoArquivo": "Edital nº 30 – Reintegração de candidatos sub judice, por meio da convocação para o teste de avaliação física",
+   "dataArquivoObj": "2024-11-07T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_29_PMPA_CFO_CONV_SUB_JUDICE_TAF_JOAO.PDF",
+   "descricaoArquivo": "Edital nº 29 – Reintegração e convocação de candidato sub judice para o TAF",
+   "dataArquivoObj": "2024-11-06T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_28_PMPA_CFO_RET_DATA.PDF",
+   "descricaoArquivo": "Edital nº 28 - Retificação do cronograma constante do Edital nº 23",
+   "dataArquivoObj": "2024-11-04T11:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_27_PMPA_CFO_RET_DATA.PDF",
+   "descricaoArquivo": "Edital nº 27 – Retificação da data do resultado final no concurso público",
+   "dataArquivoObj": "2024-10-10T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_26_PMPA_CFO_INC_SUB_JUDICE_FINAL_DISCURSIVA_CONV_PSICO_IS_RAPHAEL.PDF",
+   "descricaoArquivo": "Edital nº 26 – Reintegração de candidato sub judice no concurso público para Admissão ao Curso de Formação de Oficiais, o resultado final na prova discursiva, bem como a convocação do referido candidato sub judice para a avaliação psicológica e para a investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-10-08T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_25_PMPA_CFO_CONV_SUB_JUDICE_TAF_HIAGO.PDF",
+   "descricaoArquivo": "Edital nº 25 – Convocação de candidato sub judice para o teste de avaliação física",
+   "dataArquivoObj": "2024-09-27T09:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_24_PMPA_CFO_RES_TAF_SUB_JUDICE_ANNA_JULIANA.PDF",
+   "descricaoArquivo": "Edital nº 24 – Candidatas sub judice aptas no teste de avaliação física",
+   "dataArquivoObj": "2024-09-24T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_23_PMPA_CFO_RES_FINAL_IS.PDF",
+   "descricaoArquivo": "Edital nº 23 – Resultado final na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-09-20T09:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_22_PMPA_CFO_RETIFICACAO_TEXTO_GRAVIDA.PDF",
+   "descricaoArquivo": "Edital nº 22 – Retificação do subitem 1.1.1 do Edital nº 18, e do Edital nº 20",
+   "dataArquivoObj": "2024-09-04T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_21_PMPA_CFO_CONV_SUB_JUDICE_TAF_JULIANA.PDF",
+   "descricaoArquivo": "Edital nº 21 – Convocação de candidato Sub Judice para o teste de avaliação física",
+   "dataArquivoObj": "2024-08-27T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_20_PMPA_CFO_RES_FINAL_TAF_PROV_IS.PDF",
+   "descricaoArquivo": "Edital nº 20 – Resultado final no teste de avaliação física e o resultado provisório na investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-08-23T21:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_19_PMPA_CFO_CONV_SUB_JUDICE_TAF_ANNA.PDF",
+   "descricaoArquivo": "Edital nº 19 – Convocação de candidata Sub Judice para o teste de avaliação física",
+   "dataArquivoObj": "2024-08-12T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_18_PMPA_CFO_RES_PROV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 18 – Resultado provisório no teste de avaliação física",
+   "dataArquivoObj": "2024-08-07T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_17_PMPA_CFO_CONV_SUB_JUDICE_TAF_PEDRO.PDF",
+   "descricaoArquivo": "Edital nº 17 – Candidato sub judice convocado para o teste de avaliação física, realizado nos dias 1º de agosto de 2024 e 2 de agosto de 2024",
+   "dataArquivoObj": "2024-08-02T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_16_PMPA_CFO_RETIFICACAO_E_CRONOGRAMA.PDF",
+   "descricaoArquivo": "Edital nº 16 - Retificação da data constante do subitem 4.2 do Edital nº 14 e cronograma previsto das próximas atividades",
+   "dataArquivoObj": "2024-07-18T14:30:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_15_PMPA_CFO_REABERTURA_LINK_GRAVIDAS.PDF",
+   "descricaoArquivo": "Edital nº 15 – Reabertura de link para upload da declaração gestacional",
+   "dataArquivoObj": "2024-07-17T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_14_PMPA_CFO_RES_FINAL_AVAL_SAUDE_CONV_TAF.PDF",
+   "descricaoArquivo": "Edital nº 14 - Resultado final na avaliação de saúde e convocação para o teste de avaliação física",
+   "dataArquivoObj": "2024-07-12T10:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_13_PMPA_CFO_RETIFICACAO.PDF",
+   "descricaoArquivo": "Edital nº 13 – Exclusão da alínea “c” dos subitens 12.11.4.2 e 12.11.5.2 constantes do Edital nº 1",
+   "dataArquivoObj": "2024-06-28T11:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_12_PMPA_CFO_INCL_RES_PROV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 12 – Retificação dos subitens 2.1 e 2.2 constante do Edital nº 11 – PMPA CFO/PM, 18 de junho de 2024, bem como a inclusão de candidatos no resultado provisório na avaliação de saúde",
+   "dataArquivoObj": "2024-06-21T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PMPA_CFO_COMUNICADO_20.06.PDF",
+   "descricaoArquivo": "Comunicado - Parecer da junta médica, referente à avaliação de saúde",
+   "dataArquivoObj": "2024-06-20T12:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_11_PMPA_CFO_RES_PROV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 11 – Resultado provisório na avaliação de saúde",
+   "dataArquivoObj": "2024-06-19T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PMPA_CFO_COMUNICADO_FIP.PDF",
+   "descricaoArquivo": "Comunicado - Atualização das informações da Ficha de Informações Pessoais",
+   "dataArquivoObj": "2024-04-15T15:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_10_PMPA_CFO_RES_FINAL_PSICOL_CONV_AVAL_SAUDE.PDF",
+   "descricaoArquivo": "Edital nº 10 – Resultado final na avaliação psicológica e a convocação para a avaliação de saúde",
+   "dataArquivoObj": "2024-04-12T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_9_PMPA_CFO_RES_PROV_PSICOL.PDF",
+   "descricaoArquivo": "Edital nº 9 – Resultado provisório na avaliação psicológica",
+   "dataArquivoObj": "2024-03-19T21:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_8_PMPA_CFO_RES_FINAL_DISC_CONV_PSICOL_IS.PDF",
+   "descricaoArquivo": "Edital nº 8 – Resultado final na prova discursiva e a convocação para a avaliação psicológica e para a investigação de antecedentes pessoais",
+   "dataArquivoObj": "2024-02-23T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_7_PMPA_CFO_RES_FINAL_OBJETIVA_PROV_DISC.PDF",
+   "descricaoArquivo": "Edital nº 7 – Resultado final nas provas objetivas e o resultado provisório na prova discursiva",
+   "dataArquivoObj": "2024-01-26T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_PA_23_CFO_JUSTIFICATIVAS_DE_ALTERAES_DE_GABARITO.PDF",
+   "descricaoArquivo": "Justificativas de alterações de gabarito",
+   "dataArquivoObj": "2024-01-18T10:42:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_6_PMPA_CFO_RES_PROV_OBJETIVA.PDF",
+   "descricaoArquivo": "Edital nº 6 – Resultado provisório nas provas objetivas",
+   "dataArquivoObj": "2024-01-11T09:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PM_PA_23_CFO___DEMANDA_CANDIDATOS_POR_VAGA.PDF",
+   "descricaoArquivo": "Demanda de candidatos por vaga",
+   "dataArquivoObj": "2023-12-01T11:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_5_PMPA_CFO_LOCAIS.PDF",
+   "descricaoArquivo": "Edital nº 5 - Informações sobre a prova e data de disponibilização do link de consulta individual",
+   "dataArquivoObj": "2023-11-30T13:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_4_PMPA_CFO_RET_EXC_SEXO.PDF",
+   "descricaoArquivo": "Edital nº 4 – Retificação dos subitens 2.2, 5.1, 5.5, 9.16.7.1, 14.2 e 16.1",
+   "dataArquivoObj": "2023-11-29T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "FORMULRIO_DEVOLUO_TAXA_DE_INSCRIO_CONCURSO.PDF",
+   "descricaoArquivo": "FORMULÁRIO DE RESTITUIÇÃO",
+   "dataArquivoObj": "2023-11-21T19:00:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_03_CFO_PMPA_DE_14.11.2023___REP._DOE_N_35.614_DE_20.11.2023___CFO___DEVOLUO_DE_TAXA_PAGA_EM_DUPLICIDADE.PDF",
+   "descricaoArquivo": "Edital nº 3 – Procedimentos para solicitação de devolução do valor de taxa de inscrição pago em duplicidade ou fora do prazo previsto – Republicado",
+   "dataArquivoObj": "2023-11-21T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "EDITAL_N_03_CFO_PMPA_DE_14.11.2023___DOE_N_35.610_DE_16.11.2023___CFO___DEVOLUO_DE_TAXA_PAGA_EM_DUPLICIDADE.PDF",
+   "descricaoArquivo": "Edital nº 3 – Procedimentos para solicitação de devolução do valor de taxa de inscrição pago em duplicidade ou fora do prazo previsto",
+   "dataArquivoObj": "2023-11-17T11:40:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_2_PMPA_CFO_RET.PDF",
+   "descricaoArquivo": "Edital nº 2 – Retificação dos subitens 6.4.3.2, 11.12, 11.25.2, 11.28, 11.29.1, 12.10.1, 13.1, 13.13.2 e 17.2 e  17.2.1 e do Anexo I – Cronograma previsto",
+   "dataArquivoObj": "2023-10-03T16:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_PMPA_CFO_ABERTURA_ATUALIZADO_RET_4.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura – Atualizado conforme retificações",
+   "dataArquivoObj": "2023-09-20T09:48:01",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_PMPA_CFO_ABERTURA.PDF",
+   "descricaoArquivo": "Edital nº 1 – Abertura",
+   "dataArquivoObj": "2023-09-20T09:48:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "PM_PA_23_CFO_PADRO_DE_RESPOSTA_DEFINITIVO.PDF",
+   "descricaoArquivo": "PADRÃO DEFINITIVO DE RESPOSTA – PROVA DISCURSIVA (P3)",
+   "dataArquivoObj": "2024-01-26T10:20:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_915_PMPA_CFO_CB1_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS BÁSICOS (P1)",
+   "dataArquivoObj": "2024-01-15T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "GAB_DEFINITIVO_915_PMPA_CFO_001_01.PDF",
+   "descricaoArquivo": "GABARITO DEFINITIVO – CONHECIMENTOS ESPECÍFICOS (P2)",
+   "dataArquivoObj": "2024-01-15T14:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "915_PMPA_CFO_CB1_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS BÁSICOS (P1)",
+   "dataArquivoObj": "2023-12-20T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "915_PMPA_CFO_001_01.PDF",
+   "descricaoArquivo": "PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS (P2)",
+   "dataArquivoObj": "2023-12-20T19:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "915_PMPA_CFO_DISC.PDF",
+   "descricaoArquivo": "PROVA DISCURSIVA (P3)",
+   "dataArquivoObj": "2023-12-12T19:00:00",
+   "isGuid": false
+  }
+ ]
+}
