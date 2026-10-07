@@ -1,0 +1,7 @@
+subject: direito-ambiental
+name: Direito Ambiental
+topics:
+  - {slug: licenciamento, name: "Licenciamento ambiental"}
+  - {slug: crimes-ambientais, name: "Crimes ambientais"}
+  - {slug: biodiversidade, name: "Biodiversidade, biossegurança e conhecimento tradicional"}
+  - {slug: principios, name: "Princípios do direito ambiental"}

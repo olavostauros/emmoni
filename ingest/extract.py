@@ -29,6 +29,7 @@ FULL_WIDTH_SHARE = 0.8  # desenho mais largo que isso é moldura/faixa, não fig
 MIN_RULE = 40.0  # régua horizontal mais curta que isso costuma ser sublinhado
 SEPARATOR_SHARE = 0.4  # régua com ~ a largura da coluna
 TABLE_ROW_GAP = 40.0  # réguas largas mais próximas que isso = linhas de tabela
+DOUBLE_RULE_GAP = 6.0  # réguas mais próximas que isso formam um separador duplo
 
 
 class Line(BaseModel):
@@ -112,7 +113,7 @@ def _is_separator(figure: Figure, figures: list[Figure], width: float) -> bool:
         and other.y1 - other.y0 <= 3
         and other.x1 - other.x0 >= SEPARATOR_SHARE * width
         and abs(other.x0 - figure.x0) < 10
-        and abs(other.y0 - figure.y0) < TABLE_ROW_GAP
+        and DOUBLE_RULE_GAP < abs(other.y0 - figure.y0) < TABLE_ROW_GAP
         for other in figures
     )
 

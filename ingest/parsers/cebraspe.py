@@ -23,16 +23,20 @@ PARSER = "cebraspe-parser@1"
 
 START = re.compile(r"^-* ?PROVA OBJETIVA ?-*$")
 STOP = re.compile(r"^-* ?PROVA DISCURSIVA ?-*$")
-SKIP = re.compile(r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+)$", re.I)
+SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
+    r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*)$", re.I
+)
 ITEM = re.compile(r"^(\d{1,3})(?:\s+\S|$)")  # número sozinho: item que é só figura
 ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
 TEXT_LABEL = re.compile(r"^Texto\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")
 TEXT_REF = re.compile(r"\btexto\s+([0-9][\w.]*-[IVX]+|[0-9][A-Z0-9.]+)", re.I)
-COMMAND = re.compile(r"\b(julg|judge|juzg)", re.I)  # português, inglês, espanhol
+COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
 SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
-BROKEN_MATH = re.compile(r"[଀-୿ഀ-ൿሀ-፿\U0001D400-\U0001D7FF]")
+BROKEN_MATH = re.compile(  # inclui caracteres de controle: glifo sem mapeamento
+    "[\x00-\x08\x0b\x0c\x0e-\x1f\u0b00-\u0b7f\u0d00-\u0d7f\u1200-\u137f\U0001d400-\U0001d7ff]"
+)
 
 SENTENCE_STOP = (".", ":", ";", "?", "!")
 SENTENCE_STOP_FULL = (".", "?", "!")
@@ -192,12 +196,14 @@ def _stream(pages: list[Page]) -> list[_Entry]:
         images = [f for f in page.figures if f.kind == "image"]
         entries: list[_Entry] = []
         skipped: list[Line] = []
+        start_y = 0.0  # figuras acima do marcador são cabeçalho da prova
         for line in page.lines:
             if not started:
                 started = line.column == 0 and bool(START.search(line.plain))
+                start_y = line.y1
                 continue
             if line.column == 0 and STOP.search(line.plain):
-                stream.extend(_with_figures(page, entries, skipped))
+                stream.extend(_with_figures(page, entries, skipped, start_y))
                 return stream
             if SKIP.match(line.plain):
                 skipped.append(line)
@@ -220,16 +226,18 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             if line.scripts:
                 entry.flags.add("formula")  # índices/expoentes que o texto puro achata
             entries.append(entry)
-        stream.extend(_with_figures(page, entries, skipped))
+        stream.extend(_with_figures(page, entries, skipped, start_y))
     return stream
 
 
-def _with_figures(page: Page, entries: list[_Entry], skipped: list[Line]) -> list[_Entry]:
+def _with_figures(
+    page: Page, entries: list[_Entry], skipped: list[Line], start_y: float = 0.0
+) -> list[_Entry]:
     """Marca com 'figure' a linha que antecede cada figura (no Cebraspe, o texto que a apresenta
     vem antes dela); se a figura abre a coluna, marca a linha seguinte."""
     middle = page.width / 2
     for figure in page.figures:
-        if any(_contains(figure, line) for line in skipped):
+        if figure.y1 <= start_y or any(_contains(figure, line) for line in skipped):
             continue  # faixa de fundo de título ("BLOCO II")
         column = 1 if figure.x1 <= middle + 12 else 2 if figure.x0 >= middle - 12 else 0
         same = [e for e in entries if column == 0 or e.line.column in (column, 0)]

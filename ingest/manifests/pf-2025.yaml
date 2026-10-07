@@ -1,0 +1,99 @@
+# PF 2025 — Banca: Cebraspe. Fonte: https://www.cebraspe.org.br/concursos/PF_25 (API: eventos/PF_25).
+# Para Escrivão (15), Agente (16) e Papiloscopista (17) a prova objetiva vem em três cadernos:
+# conhecimentos básicos Bloco I e Bloco II (comuns aos três cargos) e conhecimentos específicos (um por
+# cargo). Cada caderno é uma prova no emmoni. Peritos (cargos 2 a 14) ficam para depois.
+# Numeração: Bloco I 1–60, Bloco II 61–96, específicos 97–120; Delegado 1–120 num caderno só.
+# Data de aplicação ainda não conferida em edital (applied_on omitido).
+contest: pf-2025
+name: PF 2025
+agency: pf
+exam_board: cebraspe
+year: 2025
+source_url: https://www.cebraspe.org.br/concursos/PF_25
+exams:
+  - slug: basicos-bloco-i
+    name: Agente, Escrivão e Papiloscopista — conhecimentos básicos, Bloco I
+    positions: [agente, escrivao, papiloscopista]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_CB2_01.pdf
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/D0F881898A969B6733B878291FC1201E6CFE079281391E04B7EE322628BC888C.pdf
+    subjects_by_range:
+      - {from: 1, to: 10, subject: lingua-portuguesa}            # 9–10: redação oficial
+      - {from: 11, to: 16, subject: direito-administrativo}
+      - {from: 17, to: 22, subject: direito-constitucional}
+      - {from: 23, to: 25, subject: direito-penal}
+      - {from: 26, to: 27, subject: direito-processual-penal}
+      - {from: 28, to: 28, subject: direito-penal}               # lei penal no espaço
+      - {from: 29, to: 34, subject: direitos-humanos}
+      - {from: 35, to: 44, subject: legislacao-penal-especial}
+      - {from: 45, to: 52, subject: estatistica}
+      - {from: 53, to: 60, subject: raciocinio-logico}
+  - slug: basicos-bloco-ii
+    name: Agente, Escrivão e Papiloscopista — conhecimentos básicos, Bloco II
+    positions: [agente, escrivao, papiloscopista]
+    canonical_booklet: "único"
+    first_number: 61
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_CG1_01.pdf
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/A78F5BA07173AF0B8A5E611A1D7AAB166B7BD473E5D7AC2220F0F1B7DDB641E9.pdf
+    subjects_by_range:
+      - {from: 61, to: 96, subject: informatica}
+  - slug: escrivao-especificos
+    name: Escrivão de Polícia Federal — conhecimentos específicos
+    positions: [escrivao]
+    canonical_booklet: "único"
+    first_number: 97
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_015_01.pdf
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/570C8865F7DDA1651ED10E330A6297A95466A2393EEEC633290FE754912D6143.pdf
+    subjects_by_range:
+      - {from: 97, to: 110, subject: contabilidade-geral}
+      - {from: 111, to: 120, subject: arquivologia}
+  - slug: agente-especificos
+    name: Agente de Polícia Federal — conhecimentos específicos
+    positions: [agente]
+    canonical_booklet: "único"
+    first_number: 97
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_016_01.pdf
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/CDC24D454696C9FE260E6C50FE758707F322649AEE24B6FB664FDDA10E307BCF.pdf
+    subjects_by_range:
+      - {from: 97, to: 120, subject: contabilidade-geral}
+  - slug: papiloscopista-especificos
+    name: Papiloscopista Policial Federal — conhecimentos específicos
+    positions: [papiloscopista]
+    canonical_booklet: "único"
+    first_number: 97
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_017_01.pdf
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/448F54940D877880045A494008870FC0B25C57C9D7233ECD0CDC29B942A683AD.pdf
+    subjects_by_range:
+      - {from: 97, to: 104, subject: biologia}
+      - {from: 105, to: 112, subject: fisica}
+      - {from: 113, to: 120, subject: quimica}
+  - slug: delegado
+    name: Delegado de Polícia Federal — conhecimentos específicos
+    positions: [delegado]
+    canonical_booklet: "único"
+    documents:
+      exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_001_01.pdf
+      answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/D202E48A0B1EBF5039E398F0B49D0186DD625DFF53498E36EE4D88DE4501E3A8.pdf
+    subjects_by_range:
+      - {from: 1, to: 12, subject: direito-administrativo}
+      - {from: 13, to: 24, subject: direito-constitucional}
+      - {from: 25, to: 34, subject: direitos-humanos}
+      - {from: 35, to: 38, subject: direito-civil}
+      - {from: 39, to: 42, subject: direito-processual-civil}
+      - {from: 43, to: 45, subject: direito-civil}               # sociedades
+      - {from: 46, to: 51, subject: direito-internacional}
+      - {from: 52, to: 65, subject: direito-penal}
+      - {from: 66, to: 68, subject: legislacao-penal-especial}   # crimes ambientais
+      - {from: 69, to: 73, subject: direito-penal}
+      - {from: 74, to: 92, subject: direito-processual-penal}
+      - {from: 93, to: 96, subject: legislacao-penal-especial}   # lavagem de dinheiro
+      - {from: 97, to: 100, subject: criminologia}
+      - {from: 101, to: 106, subject: direito-previdenciario}
+      - {from: 107, to: 109, subject: direito-financeiro}
+      - {from: 110, to: 112, subject: direito-tributario}
+      - {from: 113, to: 120, subject: direito-ambiental}
