@@ -1,4 +1,12 @@
 .env
-data/
+# data/ fica fora do git, exceto as respostas de classificação do agente (decisão 0006)
+data/*
+!data/staging/
+data/staging/*
+!data/staging/*/
+data/staging/*/*
+!data/staging/*/*/
+data/staging/*/*/*
+!data/staging/*/*/classify-answers.json
 __pycache__/
 .venv/

@@ -1,0 +1,1001 @@
+{
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.6
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Reescrita de frases"
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Semântica e vocabulário (sinonímia, substituição de palavras)"
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.6
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Reescrita de frases"
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.6
+   },
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Funções (afim e exponencial)"
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.6
+   },
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Funções (afim e exponencial)"
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.6
+   },
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Funções (afim e exponencial)"
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.7
+   },
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [],
+  "suggested_topic": "Sequências e progressões"
+ },
+ "32": {
+  "topics": [],
+  "suggested_topic": "Sequências e progressões"
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Computação em nuvem"
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "fisica.mecanica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": "Cinemática (lançamento de projéteis)"
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "fisica.mecanica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": "Cinemática (lançamento de projéteis)"
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "fisica.mecanica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": "Cinemática (lançamento de projéteis)"
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "fisica.mecanica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": "Quantidade de movimento e colisões"
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "fisica.mecanica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": "Quantidade de movimento e colisões"
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Agentes públicos e Lei nº 8.112/1990"
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [],
+  "suggested_topic": "Governança pública"
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [],
+  "suggested_topic": "Lei de Acesso à Informação (Lei nº 12.527/2011)"
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Licitações e contratos administrativos"
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "geopolitica.transportes",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "geopolitica.transportes",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "geopolitica.transportes",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "geopolitica.urbanizacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "geopolitica.urbanizacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Normas gerais de circulação e conduta"
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Habilitação e pontuação do condutor"
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Registro e licenciamento de veículos"
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.sistema_nacional_de_transito",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Controle da administração pública"
+ },
+ "87": {
+  "topics": [],
+  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+ },
+ "88": {
+  "topics": [],
+  "suggested_topic": "Licitações e contratos administrativos"
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [],
+  "suggested_topic": "Controle da administração pública"
+ },
+ "91": {
+  "topics": [],
+  "suggested_topic": "Carreira de policial rodoviário federal (Lei nº 9.654/1998)"
+ },
+ "92": {
+  "topics": [],
+  "suggested_topic": "Carreira de policial rodoviário federal (Lei nº 9.654/1998)"
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Nacionalidade"
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Direitos políticos"
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [],
+  "suggested_topic": "Defesa do Estado e das instituições democráticas"
+ },
+ "99": {
+  "topics": [],
+  "suggested_topic": "Defesa do Estado e das instituições democráticas"
+ },
+ "100": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a fé pública"
+ },
+ "101": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a fé pública"
+ },
+ "102": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a Administração Pública (corrupção ativa)"
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Crimes contra a Administração Pública (corrupção ativa)"
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Crimes contra a fé pública"
+ },
+ "105": {
+  "topics": [],
+  "suggested_topic": "Provas (busca e apreensão)"
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Identificação criminal (Lei nº 12.037/2009)"
+ },
+ "108": {
+  "topics": [],
+  "suggested_topic": "Provas"
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.prisao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [],
+  "suggested_topic": "Lei de Crimes Hediondos (Lei nº 8.072/1990)"
+ },
+ "111": {
+  "topics": [],
+  "suggested_topic": "Lei de Abuso de Autoridade (Lei nº 13.869/2019)"
+ },
+ "112": {
+  "topics": [],
+  "suggested_topic": "Identificação criminal (Lei nº 12.037/2009)"
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [],
+  "suggested_topic": "Estatuto do Desarmamento (Lei nº 10.826/2003)"
+ },
+ "115": {
+  "topics": [],
+  "suggested_topic": "Lei de Tortura (Lei nº 9.455/1997)"
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Direitos humanos na Constituição Federal e jurisprudência do STF"
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Direitos humanos na Constituição Federal e jurisprudência do STF"
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Direitos humanos na Constituição Federal e jurisprudência do STF"
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

@@ -1,0 +1,226 @@
+{
+ "97": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.9
+   },
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Regime de competência e regime de caixa"
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Depreciação, amortização e exaustão"
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.85
+   },
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Balancete de verificação"
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Provisões e passivos contingentes (CPC 25)"
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Lei nº 6.404/1976 (Lei das Sociedades por Ações)"
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Legislação arquivística (Lei nº 8.159/1991, CONARQ e SIGA)"
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Conceitos fundamentais de arquivologia"
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Descrição arquivística (NOBRADE e ISAD(G))"
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Gestão arquivística de documentos digitais (e-ARQ Brasil)"
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

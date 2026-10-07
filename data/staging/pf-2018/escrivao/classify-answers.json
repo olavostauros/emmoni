@@ -1,0 +1,1013 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Semântica e vocabulário (sinonímia, substituição de palavras)"
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Semântica e vocabulário (sinonímia, substituição de palavras)"
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Semântica e vocabulário (sinonímia, substituição de palavras)"
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Semântica e vocabulário (sinonímia, substituição de palavras)"
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Flexão verbal (tempos e modos)"
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Reescrita de frases"
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Regência verbal e nominal"
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Vozes verbais"
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Extinção dos atos administrativos (anulação e revogação)"
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Controle da administração pública"
+ },
+ "27": {
+  "topics": [],
+  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+ },
+ "28": {
+  "topics": [],
+  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [],
+  "suggested_topic": "Direitos políticos"
+ },
+ "32": {
+  "topics": [],
+  "suggested_topic": "Direitos políticos"
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_tempo",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Crimes contra a Administração Pública (contrabando)"
+ },
+ "34": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a Administração Pública (contrabando)"
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Competência"
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Provas (busca e apreensão)"
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [],
+  "suggested_topic": "Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)"
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Lei de Migração (Lei nº 13.445/2017)"
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Amostragem"
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Amostragem"
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Amostragem"
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "estatistica.variaveis_aleatorias",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "estatistica.variaveis_aleatorias",
+    "confidence": 0.9
+   },
+   {
+    "path": "estatistica.probabilidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "estatistica.variaveis_aleatorias",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.testes_de_hipoteses",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.probabilidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [],
+  "suggested_topic": "Problemas aritméticos e sistemas de equações"
+ },
+ "60": {
+  "topics": [],
+  "suggested_topic": "Problemas aritméticos e sistemas de equações"
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [],
+  "suggested_topic": "Editores de texto e apresentações (Microsoft Office e LibreOffice)"
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "76": {
+  "topics": [],
+  "suggested_topic": "Computação em nuvem"
+ },
+ "77": {
+  "topics": [],
+  "suggested_topic": "Computação em nuvem"
+ },
+ "78": {
+  "topics": [],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "79": {
+  "topics": [],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "80": {
+  "topics": [],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "81": {
+  "topics": [],
+  "suggested_topic": "Metadados e formatos de arquivo"
+ },
+ "82": {
+  "topics": [],
+  "suggested_topic": "Metadados e formatos de arquivo"
+ },
+ "83": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "84": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "85": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "86": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "94": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "95": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "96": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Depreciação, amortização e exaustão"
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Depreciação, amortização e exaustão"
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.patrimonio",
+    "confidence": 0.8
+   },
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.8
+   },
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Balancete de verificação"
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Balancete de verificação"
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.patrimonio",
+    "confidence": 0.7
+   },
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Contas e plano de contas"
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Preservação e conservação de documentos"
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Tipologias documentais e diplomática"
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Tipologias documentais e diplomática"
+ }
+}

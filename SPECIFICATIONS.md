@@ -508,7 +508,8 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
   o texto-base e o enunciado; `classify-answers.json` traz `{número: {topics: [{path, confidence}],
   suggested_topic}}`. Só entram assuntos da disciplina da questão; no máximo 3. Sugestões de assunto
   novo vão para `topics.json`, para curadoria da taxonomia. `EMMONI_CLASSIFIER` identifica quem
-  respondeu.
+  respondeu. O `classify-answers.json` é o único arquivo de `data/` versionado no git (exceção no
+  `.gitignore`): é o trabalho do agente, auditável e reaproveitado em reprocessamentos.
 - Fluxo: `emmoni ingest <concurso> --step classify` → agente lê as tarefas e grava as respostas →
   `--step classify` de novo → `--step load`.
 - O agente **nunca** decide gabarito: o gabarito vem só dos PDFs oficiais de gabarito.

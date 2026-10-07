@@ -1,0 +1,238 @@
+{
+ "97": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.9
+   },
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Contas e plano de contas"
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Conceitos, objetivos e finalidades da contabilidade"
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.patrimonio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   },
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Regime de competência e regime de caixa"
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Regime de competência e regime de caixa"
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Regime de competência e regime de caixa"
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.85
+   },
+   {
+    "path": "contabilidade_geral.patrimonio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Balancete de verificação"
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.85
+   },
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Depreciação, amortização e exaustão"
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Provisões e passivos contingentes (CPC 25)"
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   },
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Provisões e passivos contingentes (CPC 25)"
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Depreciação, amortização e exaustão"
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

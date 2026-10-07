@@ -1,0 +1,78 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.vocabulario",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_espanhola.compreensao_de_texto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_espanhola.vocabulario",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

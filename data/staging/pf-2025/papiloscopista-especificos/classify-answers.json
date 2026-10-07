@@ -1,0 +1,198 @@
+{
+ "97": {
+  "topics": [
+   {
+    "path": "biologia.bioquimica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "biologia.bioquimica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "biologia.embriologia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "biologia.embriologia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Histologia"
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Histologia"
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "fisica.optica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "fisica.optica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "fisica.optica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [],
+  "suggested_topic": "Soluções e propriedades coligativas"
+ },
+ "118": {
+  "topics": [],
+  "suggested_topic": "Soluções e propriedades coligativas"
+ },
+ "119": {
+  "topics": [],
+  "suggested_topic": "Soluções e propriedades coligativas"
+ },
+ "120": {
+  "topics": [],
+  "suggested_topic": "Soluções e propriedades coligativas"
+ }
+}

@@ -1,0 +1,243 @@
+{
+ "61": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Editores de texto e apresentações (Microsoft Office e LibreOffice)"
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Linux"
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "67": {
+  "topics": [],
+  "suggested_topic": "Computação em nuvem"
+ },
+ "68": {
+  "topics": [],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "69": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "70": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "71": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Biometria (acurácia, FPIR e FNIR)"
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Biometria (acurácia, FPIR e FNIR)"
+ },
+ "75": {
+  "topics": [],
+  "suggested_topic": "Programação (Python e R)"
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [],
+  "suggested_topic": "Programação (Python e R)"
+ },
+ "79": {
+  "topics": [],
+  "suggested_topic": "Computação em nuvem"
+ },
+ "80": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Linux"
+ },
+ "82": {
+  "topics": [],
+  "suggested_topic": "Computação em nuvem"
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.seguranca_da_informacao",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "90": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "91": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "92": {
+  "topics": [],
+  "suggested_topic": "Banco de dados"
+ },
+ "93": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "94": {
+  "topics": [],
+  "suggested_topic": "APIs e desenvolvimento web (REST e GraphQL)"
+ },
+ "95": {
+  "topics": [],
+  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+ },
+ "96": {
+  "topics": [],
+  "suggested_topic": "APIs e desenvolvimento web (REST e GraphQL)"
+ }
+}

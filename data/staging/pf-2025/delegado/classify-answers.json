@@ -1,0 +1,843 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Licitações e contratos administrativos"
+ },
+ "2": {
+  "topics": [],
+  "suggested_topic": "Convênios e contratos de repasse"
+ },
+ "3": {
+  "topics": [],
+  "suggested_topic": "Convênios e contratos de repasse"
+ },
+ "4": {
+  "topics": [],
+  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+ },
+ "5": {
+  "topics": [],
+  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+ },
+ "6": {
+  "topics": [],
+  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+ },
+ "7": {
+  "topics": [],
+  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+ },
+ "8": {
+  "topics": [],
+  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.atributos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Classificação dos atos administrativos"
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Classificação dos atos administrativos"
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Elementos (requisitos) do ato administrativo"
+ },
+ "13": {
+  "topics": [],
+  "suggested_topic": "Controle de constitucionalidade"
+ },
+ "14": {
+  "topics": [],
+  "suggested_topic": "Controle de constitucionalidade"
+ },
+ "15": {
+  "topics": [],
+  "suggested_topic": "Controle de constitucionalidade"
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [],
+  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+ },
+ "18": {
+  "topics": [],
+  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+ },
+ "19": {
+  "topics": [],
+  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+ },
+ "20": {
+  "topics": [],
+  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Ordem social"
+ },
+ "22": {
+  "topics": [],
+  "suggested_topic": "Direitos indígenas"
+ },
+ "23": {
+  "topics": [],
+  "suggested_topic": "Teoria da Constituição (conceitos e sentidos)"
+ },
+ "24": {
+  "topics": [],
+  "suggested_topic": "Teoria da Constituição (conceitos e sentidos)"
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Incidente de deslocamento de competência (federalização)"
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Uso da força e armas de fogo (Lei nº 13.060/2014)"
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Uso da força e armas de fogo (Lei nº 13.060/2014)"
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_civil.responsabilidade_civil",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Prescrição e decadência"
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_civil.responsabilidade_civil",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [],
+  "suggested_topic": "Direitos reais (posse e propriedade)"
+ },
+ "38": {
+  "topics": [],
+  "suggested_topic": "Direitos reais (posse e propriedade)"
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "direito_civil.direito_de_empresa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "direito_civil.direito_de_empresa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "direito_civil.direito_de_empresa",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Recuperação judicial e falência"
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Conexão e continência"
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Homologação de decisão estrangeira"
+ },
+ "41": {
+  "topics": [],
+  "suggested_topic": "Ações constitucionais (mandado de segurança e ação popular)"
+ },
+ "42": {
+  "topics": [],
+  "suggested_topic": "Ações constitucionais (mandado de segurança e ação popular)"
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "direito_internacional.migracao_e_extradicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "direito_internacional.migracao_e_extradicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "direito_internacional.migracao_e_extradicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "direito_internacional.migracao_e_extradicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "direito_internacional.cooperacao_internacional",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_internacional.tratados",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_internacional.cooperacao_internacional",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_internacional.tratados",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Teoria do bem jurídico e princípios do direito penal"
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Teoria do bem jurídico e princípios do direito penal"
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Teoria do bem jurídico e princípios do direito penal"
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Lei penal no espaço e imunidades diplomáticas"
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Lei penal no espaço (territorialidade e extraterritorialidade)"
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Lei penal no espaço e imunidades diplomáticas"
+ },
+ "58": {
+  "topics": [],
+  "suggested_topic": "Crimes de racismo (Lei nº 7.716/1989)"
+ },
+ "59": {
+  "topics": [],
+  "suggested_topic": "Crimes de racismo (Lei nº 7.716/1989)"
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": "Crimes contra a honra"
+ },
+ "61": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a Administração Pública"
+ },
+ "62": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a Administração Pública"
+ },
+ "63": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a Administração Pública"
+ },
+ "64": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a fé pública"
+ },
+ "65": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a fé pública"
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Tráfico de pessoas (Lei nº 13.344/2016)"
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Crimes contra a liberdade pessoal"
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Crimes contra a liberdade pessoal"
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": "Crimes contra a liberdade pessoal"
+ },
+ "66": {
+  "topics": [],
+  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
+ },
+ "67": {
+  "topics": [],
+  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
+ },
+ "68": {
+  "topics": [],
+  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
+ },
+ "93": {
+  "topics": [],
+  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
+ },
+ "94": {
+  "topics": [],
+  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
+ },
+ "95": {
+  "topics": [],
+  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
+ },
+ "96": {
+  "topics": [],
+  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [],
+  "suggested_topic": "Jurisdição e competência"
+ },
+ "80": {
+  "topics": [],
+  "suggested_topic": "Jurisdição e competência"
+ },
+ "81": {
+  "topics": [],
+  "suggested_topic": "Jurisdição e competência"
+ },
+ "82": {
+  "topics": [],
+  "suggested_topic": "Jurisdição e competência"
+ },
+ "83": {
+  "topics": [],
+  "suggested_topic": "Jurisdição e competência"
+ },
+ "84": {
+  "topics": [],
+  "suggested_topic": "Provas"
+ },
+ "85": {
+  "topics": [],
+  "suggested_topic": "Provas"
+ },
+ "86": {
+  "topics": [],
+  "suggested_topic": "Provas"
+ },
+ "87": {
+  "topics": [],
+  "suggested_topic": "Provas"
+ },
+ "88": {
+  "topics": [],
+  "suggested_topic": "Interrogatório do acusado"
+ },
+ "89": {
+  "topics": [],
+  "suggested_topic": "Interrogatório do acusado"
+ },
+ "90": {
+  "topics": [],
+  "suggested_topic": "Interrogatório do acusado"
+ },
+ "91": {
+  "topics": [],
+  "suggested_topic": "Interrogatório do acusado"
+ },
+ "92": {
+  "topics": [],
+  "suggested_topic": "Interrogatório do acusado"
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Teorias sociológicas da criminalidade"
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Teorias sociológicas da criminalidade"
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "criminologia.vitimologia",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Modelos de reação ao delito (dissuasório, ressocializador, restaurador)"
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "criminologia.vitimologia",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Modelos de reação ao delito (dissuasório, ressocializador, restaurador)"
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "direito_previdenciario.beneficios",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_previdenciario.seguridade_social",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "direito_previdenciario.segurados",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "direito_previdenciario.seguridade_social",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "direito_previdenciario.beneficios",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_previdenciario.segurados",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a previdência social"
+ },
+ "106": {
+  "topics": [],
+  "suggested_topic": "Crimes contra a previdência social"
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "direito_financeiro.receita_e_despesa",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Dívida pública e crédito público"
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "direito_financeiro.receita_e_despesa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "direito_financeiro.orcamento_publico",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "direito_tributario.tributos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "direito_tributario.tributos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Competência tributária"
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "direito_tributario.credito_tributario",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Obrigação tributária (sujeição passiva e domicílio)"
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "direito_ambiental.licenciamento",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "direito_ambiental.licenciamento",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Áreas de preservação permanente e Código Florestal"
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "direito_ambiental.principios",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Responsabilidade civil por dano ambiental"
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "direito_ambiental.biodiversidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "direito_ambiental.biodiversidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "direito_ambiental.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "direito_ambiental.crimes_ambientais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "direito_ambiental.crimes_ambientais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}
