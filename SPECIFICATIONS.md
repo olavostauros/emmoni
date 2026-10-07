@@ -22,18 +22,20 @@ e atualize este arquivo no mesmo commit.
 | Acesso ao banco | **psycopg 3** (SQL explícito, sem ORM) | O esquema é o produto; nada de esquema implícito em ORM. |
 | Testes | **pytest** contra um Postgres descartável (docker compose, banco `emmoni_test`) | |
 | Qualidade de código | **ruff** (lint + format), **mypy** em modo estrito no pacote `ingest` | |
-| Ambiente local | **docker compose** (serviço `db`), **Makefile** como ponto de entrada | |
+| Ambiente local | **docker compose** (serviço `db`, porta `55432` no host), **Makefile** como ponto de entrada | Porta alta para não colidir com outros Postgres da máquina. |
+| Versões das ferramentas | **mise** (`mise.toml`) fixa uv e dbmate e ativa o `.venv`; o uv instala o Python de `.python-version` | Ambiente reproduzível sem instalar nada globalmente. |
 
-Variáveis de ambiente (documentadas em `.env.example`, nunca commitar `.env`):
+Variáveis de ambiente: a lista completa está em `.env.example` (nunca commitar `.env`). O Makefile
+tem padrões de desenvolvimento para todas as URLs do banco, então um repositório limpo funciona sem
+`.env`.
 
-```
-DATABASE_URL=postgres://emmoni_ingest:...@localhost:5432/emmoni?sslmode=disable
-DATABASE_URL_TEST=postgres://...@localhost:5432/emmoni_test?sslmode=disable
-ANTHROPIC_API_KEY=...
-EMMONI_LLM_MODEL=claude-sonnet-5-5
-EMMONI_DATA_DIR=./data
-EMMONI_CRAWL_CONTACT=contato@exemplo.com   # vai no User-Agent do crawler
-```
+| Variável | Uso |
+|---|---|
+| `DATABASE_URL` / `DATABASE_URL_OWNER` | Banco `emmoni` como `emmoni_ingest` / `emmoni_owner` (migrações). |
+| `DATABASE_URL_TEST`, `_TEST_OWNER`, `_TEST_WEB` | Banco `emmoni_test`, um por papel. |
+| `ANTHROPIC_API_KEY`, `EMMONI_LLM_MODEL` | Extração estruturada (padrão `claude-sonnet-5-5`). |
+| `EMMONI_DATA_DIR` | Raiz de `raw/`, `staging/`, `assets/`, `crawl/`. |
+| `EMMONI_CRAWL_CONTACT` | Contato no `User-Agent` do crawler. |
 
 ---
 
@@ -42,7 +44,7 @@ EMMONI_CRAWL_CONTACT=contato@exemplo.com   # vai no User-Agent do crawler
 ```
 emmoni/
 ├── MISSION.md  AGENTS.md  SPECIFICATIONS.md
-├── Makefile  docker-compose.yml  .env.example  pyproject.toml
+├── Makefile  docker-compose.yml  .env.example  pyproject.toml  mise.toml  .python-version
 ├── docs/
 │   ├── contract.md          # contrato com o front-end (seção 6)
 │   ├── content-format.md    # formato do conteúdo das questões (seção 5)
@@ -50,6 +52,7 @@ emmoni/
 │   ├── progress/            # STATUS.md + um registro por sessão (ver docs/progress/README.md)
 │   └── decisions/           # NNNN-titulo.md, uma decisão por arquivo
 ├── db/
+│   ├── init/                # SQL do init do container: cria os papéis (cluster)
 │   ├── migrations/          # dbmate: AAAAMMDDHHMMSS_descricao.sql
 │   ├── schema.sql           # dump gerado pelo dbmate (commitado, nunca editado à mão)
 │   ├── checks/              # consultas de qualidade (seção 8)
@@ -63,6 +66,7 @@ emmoni/
 │   ├── parsers/             # um módulo por banca: cebraspe.py, fgv.py, ...
 │   ├── cli.py               # comando `emmoni`
 │   └── ...
+├── scripts/                 # scripts de apoio chamados pelo Makefile
 ├── fixtures/                # PDFs e páginas HTML de amostra para testes
 ├── tests/
 └── data/                    # ignorado pelo git: raw/, staging/, assets/, crawl/
@@ -218,6 +222,12 @@ assuntos novos — sugere-os num relatório para revisão.
 | `emmoni_owner` | Dono do esquema; usado só pelas migrações. |
 | `emmoni_ingest` | Leitura/escrita nas tabelas; usado pela ingestão. |
 | `emmoni_web` | **Somente leitura**, e somente no esquema `api` (seção 6). Usado pelo front-end. |
+
+Esquemas: `public` (tabelas internas), `crawl` (estado do crawler), `api` (contrato) e `ext`
+(extensões, com `USAGE` para todos; o `search_path` do banco é `public, ext`). Os papéis são do
+cluster e nascem em `db/init/`; as permissões são dadas por `ALTER DEFAULT PRIVILEGES` na migração
+de fundação, então todo objeto criado depois pelo `emmoni_owner` já nasce com as permissões
+certas. Funções não são executáveis por `PUBLIC`.
 
 ---
 
@@ -461,14 +471,16 @@ emmoni coverage                     # gera docs/coverage.md
 
 | Alvo | O que faz |
 |---|---|
-| `make db-up` | Sobe o Postgres do docker compose. |
+| `make db-up` / `db-down` / `db-reset` | Sobe, para ou recria do zero o Postgres do docker compose. |
+| `make install` | `uv sync --frozen`. |
 | `make migrate` | `dbmate up` + atualiza `db/schema.sql`. |
 | `make seed` | Carrega taxonomia e `db/seed/seed.sql`. |
 | `make test` | pytest contra `emmoni_test` recriado do zero (migrações + seed). |
+| `make migrations-roundtrip` | up → rollback de todas → up em banco vazio; falha se sobrar esquema, privilégio padrão ou configuração do banco. |
 | `make lint` | ruff check, ruff format --check, mypy. |
 | `make check` | `emmoni check`. |
 | `make bench` | Mede as funções do contrato (seção 6). |
-| `make gates` | lint + test + check. **Obrigatório passar antes de entregar.** |
+| `make gates` | db-up + migrate + lint + migrations-roundtrip + test + check. **Obrigatório passar antes de entregar.** |
 
 Testes obrigatórios:
 
