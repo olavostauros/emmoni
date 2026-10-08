@@ -1,0 +1,19 @@
+{
+ "exam": "pmal-2021/oficial",
+ "numbers": [
+  15,
+  22,
+  26,
+  29,
+  51,
+  62,
+  96,
+  100,
+  119,
+  120
+ ],
+ "sampled_at": "2026-10-08T13:41:42.994463+00:00",
+ "approved_at": "2026-10-08T13:44:14.907329+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "6e39493ecaa290e2d1768b66d9a80ed1be6eb12efcfee36ccb41fe27a5bba93b"
+}

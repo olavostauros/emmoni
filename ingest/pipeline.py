@@ -17,7 +17,7 @@ from types import ModuleType
 from pydantic import TypeAdapter
 
 from ingest import classify as classify_step
-from ingest import db, fetch, taxonomy
+from ingest import db, fetch, review, taxonomy
 from ingest.crawlers.http import PoliteClient
 from ingest.extract import Page, extract
 from ingest.load import DocumentIds, LoadReport, TopicAssignment, load_exam
@@ -197,10 +197,13 @@ class ExamRun:
                 topics,
                 extra,
             )
+            ref = review.ExamRef(self.manifest.contest, self.exam.slug)
+            outcome = review.reconcile(conn, ref)
+            conn.commit()
         self.log(
             f"  load: {report.questions} questões — {report.published} publicáveis,"
             f" {report.review} em revisão, {report.draft} sem assunto;"
-            f" {report.duplicates} duplicatas, {report.removed} removidas"
+            f" {report.duplicates} duplicatas, {report.removed} removidas; prova: {outcome}"
         )
         return report
 

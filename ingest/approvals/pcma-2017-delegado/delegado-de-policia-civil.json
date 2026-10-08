@@ -1,0 +1,19 @@
+{
+ "exam": "pcma-2017-delegado/delegado-de-policia-civil",
+ "numbers": [
+  11,
+  17,
+  27,
+  33,
+  58,
+  59,
+  84,
+  86,
+  89,
+  100
+ ],
+ "sampled_at": "2026-10-08T13:31:59.730420+00:00",
+ "approved_at": "2026-10-08T13:34:31.783090+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "a8a11a164748e2c5df8dfd65a5cb18129b7d008d1f13c2112f13fad672f67f31"
+}

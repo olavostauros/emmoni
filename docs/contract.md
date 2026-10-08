@@ -1,6 +1,6 @@
 # Contrato com o front-end
 
-**Versão 1.1** · 2026-10-07
+**Versão 1.2** · 2026-10-08
 
 Este documento é tudo o que o agente de front-end precisa para trabalhar com o banco do emmoni.
 Ele descreve o esquema `api` do PostgreSQL: o que existe, o formato de cada resposta e como os
@@ -96,7 +96,7 @@ errado → erro `22023`.
 | `include_annulled` | booleano | `true` | padrão `false`: questões anuladas ficam de fora |
 
 Valores de `career`: `pf`, `prf`, `policia_civil`, `policia_militar`, `bombeiro_militar`,
-`policia_penal`, `policia_legislativa`, `guarda_municipal`, `outra`.
+`policia_penal`, `policia_legislativa`, `guarda_municipal`, `policia_cientifica`, `outra`.
 
 **`query`** (busca textual): sintaxe de buscador (`websearch_to_tsquery`), sem diferença entre
 maiúsculas e minúsculas nem entre palavras com e sem acento, e com radicais em português
@@ -173,3 +173,4 @@ Para montar a árvore de assuntos: `api.topic` ordenada por `path`, ligando cada
 |---|---|---|
 | 1.0 | 2026-10-07 | Primeira versão. |
 | 1.1 | 2026-10-07 | Sem mudança de interface. Documenta o comando no início do enunciado (Cebraspe) e `answer_preliminary` nulo quando o preliminar não está disponível. |
+| 1.2 | 2026-10-08 | Novo valor de `career`: `policia_cientifica` (perícia oficial fora da Polícia Civil, ex.: Polícia Científica de Pernambuco). Compatível: trate valores desconhecidos como `outra`. |

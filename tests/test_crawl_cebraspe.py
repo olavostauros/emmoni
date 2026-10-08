@@ -161,7 +161,15 @@ def _event(url: str, name: str, year: int | None = None) -> cebraspe._Event:
         ("CBMTO_21", "CBMTO 2021", 2021, "in_scope", "cbmto"),
         ("DEPEN_20", "DEPEN 20", 2020, "in_scope", "depen"),
         ("SDS_PE_16_CIVIL", "SDS/PE POLÍCIA CIVIL 2016", 2016, "in_scope", "pcpe"),  # 0012
-        ("SDS_PE_16_CIENTIFICA", "SDS/PE Polícia Científica 2016", 2016, "candidate_agency", None),
+        # Polícia Científica entrou no catálogo como órgão próprio (decisão 0016).
+        (
+            "SDS_PE_16_CIENTIFICA",
+            "SDS/PE Polícia Científica 2016",
+            2016,
+            "in_scope",
+            "pcientifica-pe",
+        ),
+        ("SUSIPE_PA_19", "SUSIPE PA 2019", 2019, "candidate_agency", None),
         ("TJ_CE_25_NOTARIOS", "TJ CE 25 NOTÁRIOS", 2025, "out_of_scope", None),
         ("PRF_XX", "PRF sem ano", None, "out_of_scope", None),
     ],
@@ -323,9 +331,23 @@ def test_proposes_new_police_contests_and_reports_candidates(
     assert [e.positions for e in pcdf.exams] == [["agente"], ["agente"]]
     assert pcdf.evidence["contest"]["agency"]["rule"] == "prefixo PC_DF da URL do evento"
     # Órgãos policiais fora do catálogo só vão para o relatório; o detalhe não é buscado.
-    # SDS/PE: só o concurso da PC-PE entra, pelo alias do evento (decisão 0012).
-    assert report.candidate_agencies == {"SDS": ["SDS/PE Polícia Científica 2016"]}
-    assert not any("SDS_PE_16_CIENTIFICA" in url for url in site.requested)
+    # SDS/PE: cada evento vai para o seu órgão, pelo alias (decisões 0012 e 0016).
+    assert report.candidate_agencies == {}
+    cientifica = manifest.load(manifests_dir / "_pending" / "pcientifica-pe-2016.yaml")
+    assert cientifica.agency == "pcientifica-pe"
+    positions = {e.slug: e.positions for e in cientifica.exams}
+    assert positions["auxiliar-de-perito"] == ["auxiliar-de-perito"]
+    assert positions["medico-legista"] == ["medico-legista"]
+    # Uma prova comum por série de cadernos, só para os cargos da série.
+    assert positions["conhecimentos-gerais-serie-259"] == [
+        "auxiliar-de-legista",
+        "auxiliar-de-perito",
+        "auxiliar-de-papiloscopista",
+    ]
+    assert positions["conhecimentos-gerais-para-todas-as-areas-serie-260"] == [
+        "medico-legista",
+        "perito-criminal",
+    ]
     pcpe2016 = manifest.load(manifests_dir / "_pending" / "pcpe-2016.yaml")
     assert {e.slug: e.positions for e in pcpe2016.exams}["delegado"] == ["delegado"]
     # Órgãos estaduais e polícia penal (decisão 0008): propostos a partir das fixtures.

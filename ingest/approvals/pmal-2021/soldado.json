@@ -1,0 +1,19 @@
+{
+ "exam": "pmal-2021/soldado",
+ "numbers": [
+  30,
+  37,
+  48,
+  68,
+  69,
+  100,
+  103,
+  108,
+  115,
+  116
+ ],
+ "sampled_at": "2026-10-08T13:41:44.761899+00:00",
+ "approved_at": "2026-10-08T13:44:15.173323+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "c3f2bc1e1f500d5ec01f66de094beb59e2c8b87038821b79adf8e4a76de766d8"
+}

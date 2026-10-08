@@ -154,7 +154,7 @@ agencies:
     level: estadual
     state: PE
     # SDS_PE_16_CIVIL: concurso da PC-PE organizado pela secretaria (decisão 0012). O evento
-    # irmão SDS_PE_16_CIENTIFICA (Polícia Científica) não é da PC-PE e continua candidato.
+    # irmão SDS_PE_16_CIENTIFICA é da Polícia Científica (pcientifica-pe, decisão 0016).
     aliases: [PC_PE, PCPE, SDS_PE_16_CIVIL]
     positions:
       - {slug: delegado, name: Delegado de Polícia, education_level: superior}
@@ -164,6 +164,20 @@ agencies:
       - {slug: papiloscopista, name: Papiloscopista, education_level: superior}
       - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
       - {slug: perito-medico-legista, name: Perito Médico-Legista, education_level: superior}
+  - slug: pcientifica-pe
+    name: Polícia Científica de Pernambuco
+    short_name: Polícia Científica/PE
+    career: policia_cientifica
+    level: estadual
+    state: PE
+    # Gerência Geral de Polícia Científica, da SDS/PE; fora da PC-PE (decisão 0016).
+    aliases: [SDS_PE_16_CIENTIFICA]
+    positions:
+      - {slug: perito-criminal, name: Perito Criminal, education_level: superior}
+      - {slug: medico-legista, name: Médico Legista, education_level: superior}
+      - {slug: auxiliar-de-perito, name: Auxiliar de Perito, education_level: medio}
+      - {slug: auxiliar-de-legista, name: Auxiliar de Legista, education_level: medio}
+      - {slug: auxiliar-de-papiloscopista, name: Auxiliar de Papiloscopista, education_level: medio}
   - slug: pcrj
     name: Polícia Civil do Estado do Rio de Janeiro
     short_name: PCRJ

@@ -7,7 +7,11 @@
   alternativas, gabarito e disciplina) e as páginas em PNG em `paginas/`: a da prova onde está
   cada questão (e a anterior, quando há texto-base) e a do gabarito definitivo.
 - `approve`: publica a **prova** (`exam.publish_status = 'published'`) depois da amostragem. O
-  comando exige que a amostra tenha sido gerada e registra quem aprovou (`--by`, o modelo).
+  comando exige que a amostra tenha sido gerada e registra quem aprovou (`--by`, o modelo) em
+  `ingest/approvals/<concurso>/<prova>.json`, versionado, com a impressão digital do conteúdo
+  aprovado (decisão 0016).
+- `reconcile`/`restore`: a prova só fica publicada se o conteúdo no banco tem a impressão digital
+  aprovada. Roda depois de cada `load`; `restore` refaz a publicação num banco novo.
 - `topics`: amostra determinística de N questões classificadas, de todas as provas reais, para
   conferir a qualidade da classificação por assunto (critério do M4: 50 amostras, ≥ 90% de
   acerto). Gera `data/review/assuntos/amostra.json` (onde o revisor grava `verdict`) e
@@ -17,6 +21,7 @@
 import base64
 import datetime
 import getpass
+import hashlib
 import html
 import json
 import random
@@ -28,6 +33,7 @@ import pymupdf
 
 Conn = psycopg.Connection[tuple[object, ...]]
 PAGE_ZOOM = 1.6
+APPROVALS_DIR = Path(__file__).parent / "approvals"
 
 
 class ReviewError(Exception):
@@ -174,7 +180,35 @@ def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path) -> Path:
     return page
 
 
-def approve(conn: Conn, ref: ExamRef, data: Path, by: str | None = None) -> tuple[int, int]:
+def fingerprint(conn: Conn, exam_id: int) -> str:
+    """Impressão digital do conteúdo conferido na amostragem.
+
+    Por questão: número, `statement_hash` (enunciado, alternativas e texto-base), gabarito final,
+    status do gabarito, disciplina e se está em revisão. Assuntos ficam de fora: a classificação
+    tem amostragem própria (`review topics`) e muda sem mudar o que a amostra conferiu.
+    """
+    rows = conn.execute(
+        """select q.number, q.statement_hash, q.answer_final, q.answer_status::text, s.slug,
+                  q.publish_status = 'review'
+             from question q left join subject s on s.id = q.subject_id
+            where q.exam_id = %s order by q.number""",
+        (exam_id,),
+    ).fetchall()
+    payload = json.dumps([list(r) for r in rows], separators=(",", ":"))
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
+def approval_path(approvals: Path, ref: ExamRef) -> Path:
+    return approvals / ref.contest / f"{ref.exam}.json"
+
+
+def approve(
+    conn: Conn,
+    ref: ExamRef,
+    data: Path,
+    by: str | None = None,
+    approvals: Path = APPROVALS_DIR,
+) -> tuple[int, int]:
     """Publica a prova. Devolve (questões publicadas, questões que ficam de fora)."""
     record_path = sample_dir(data, ref) / "sample.json"
     if not record_path.exists():
@@ -193,7 +227,62 @@ def approve(conn: Conn, ref: ExamRef, data: Path, by: str | None = None) -> tupl
     record["approved_at"] = datetime.datetime.now(datetime.UTC).isoformat()
     record["approved_by"] = by or getpass.getuser()
     record_path.write_text(json.dumps(record, indent=1), encoding="utf-8")
+    write_approval(approvals, ref, record, fingerprint(conn, exam_id))
     return int(str(row[0])), int(str(row[1]))
+
+
+def write_approval(approvals: Path, ref: ExamRef, sample: dict[str, object], digest: str) -> Path:
+    path = approval_path(approvals, ref)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    record = {
+        "exam": str(ref),
+        "numbers": sample["numbers"],
+        "sampled_at": sample["created_at"],
+        "approved_at": sample["approved_at"],
+        "approved_by": sample["approved_by"],
+        "fingerprint": digest,
+    }
+    path.write_text(json.dumps(record, indent=1) + "\n", encoding="utf-8")
+    return path
+
+
+def reconcile(conn: Conn, ref: ExamRef, approvals: Path = APPROVALS_DIR) -> str:
+    """Acerta `exam.publish_status` com o registro de aprovação. Devolve o que aconteceu.
+
+    - conteúdo com a impressão digital aprovada → `published`;
+    - prova publicada cujo conteúdo mudou (ou sem registro) → `review` até nova amostragem
+      (decisão 0015, item 1);
+    - prova não publicada e sem aprovação válida → fica como está.
+    """
+    exam_id = _exam_id(conn, ref)
+    path = approval_path(approvals, ref)
+    approved = (
+        json.loads(path.read_text(encoding="utf-8"))["fingerprint"] if path.exists() else None
+    )
+    current = conn.execute("select publish_status::text from exam where id = %s", (exam_id,))
+    status = str(current.fetchone()[0])  # type: ignore[index]
+    if approved is not None and approved == fingerprint(conn, exam_id):
+        if status != "published":
+            conn.execute("update exam set publish_status = 'published' where id = %s", (exam_id,))
+            return "publicada (aprovação registrada confere)"
+        return "publicada"
+    if status == "published":
+        conn.execute("update exam set publish_status = 'review' where id = %s", (exam_id,))
+        reason = "conteúdo mudou desde a aprovação" if approved else "sem registro de aprovação"
+        return f"volta para review: {reason}; reamostre (emmoni review sample {ref})"
+    return status
+
+
+def restore(conn: Conn, approvals: Path = APPROVALS_DIR) -> list[tuple[str, str]]:
+    """Reconcilia todas as provas com registro de aprovação que estão no banco."""
+    results = []
+    for path in sorted(approvals.glob("*/*.json")):
+        ref = ExamRef(path.parent.name, path.stem)
+        try:
+            results.append((str(ref), reconcile(conn, ref, approvals)))
+        except ReviewError:
+            results.append((str(ref), "não está no banco"))
+    return results
 
 
 TOPIC_SAMPLE_SEED = "assuntos"

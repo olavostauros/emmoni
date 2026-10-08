@@ -62,6 +62,7 @@ emmoni/
 ├── ingest/                  # pacote Python
 │   ├── sources.yaml         # fontes permitidas para crawling (seção 7.1)
 │   ├── crawlers/            # um módulo por fonte: cebraspe.py, fgv.py, ...
+│   ├── approvals/           # aprovação de cada prova, com a impressão digital (seção 8)
 │   ├── manifests/           # um YAML por concurso aprovado (seção 7.2)
 │   │   ├── _pending/        # manifestos propostos pelo crawler, aguardando aprovação
 │   │   └── _rejected/       # propostas rejeitadas, com o motivo (decisão 0007)
@@ -118,7 +119,7 @@ catálogos; `uuid` (`gen_random_uuid()`) para `question` e `passage`, que são e
 ```sql
 create type career as enum (
   'pf', 'prf', 'policia_civil', 'policia_militar', 'bombeiro_militar',
-  'policia_penal', 'policia_legislativa', 'guarda_municipal', 'outra'
+  'policia_penal', 'policia_legislativa', 'guarda_municipal', 'policia_cientifica', 'outra'
 );
 create type government_level as enum ('federal', 'estadual', 'distrital', 'municipal');
 
@@ -523,6 +524,7 @@ emmoni ingest <manifest> --step <s> # uma etapa
 emmoni review list|show [<concurso>/<prova>]   # fila de questões em review, com motivos
 emmoni review sample <concurso>/<prova> [--n 10] # amostra em HTML, ao lado da página do PDF
 emmoni review approve <concurso>/<prova>        # publica a prova (exige amostra)
+emmoni review restore                           # publica as provas que conferem com ingest/approvals/
 emmoni review topics [--n 50] [--report]        # amostra de classificações por assunto (M4)
 emmoni taxonomy load
 emmoni check                        # seção 8
@@ -563,9 +565,14 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 - Amostragem por prova (feita pelo agente, decisão 0011): para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
   (de forma determinística) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
   com cada questão ao lado da página do PDF; a prova só vai para `published` após a conferência
-  (`emmoni review approve --by <modelo>`, que registra quem aprovou em `sample.json`). A amostra traz também `amostra.md` e as páginas em PNG; o revisor segue
+  (`emmoni review approve --by <modelo>`, que registra quem aprovou e a impressão digital do
+  conteúdo em `ingest/approvals/<concurso>/<prova>.json`, versionado; decisão 0016). A amostra traz também `amostra.md` e as páginas em PNG; o revisor segue
   `ingest/prompts/review-sample@1.md` e grava `verdicts.json` (decisão 0014). Prova reprocessada depois de aprovada é
-  reamostrada; se reprovar, volta para `review` até nova aprovação (decisão 0015).
+  reamostrada; se reprovar, volta para `review` até nova aprovação (decisão 0015). Depois de cada
+  `load`, a prova só continua publicada se o conteúdo tem a impressão digital aprovada (número,
+  hash do enunciado, gabarito, disciplina e pendência de cada questão; assuntos ficam de fora);
+  senão volta para `review` até ser reamostrada. `emmoni review restore` republica, num banco novo,
+  as provas que conferem.
 - Amostragem da classificação: `emmoni review topics --n 50` sorteia 50 questões classificadas e
   gera `data/review/assuntos/amostra.{json,md}`; o agente revisor, em contexto separado do
   `classify`, grava `verdict` e `reviewed_by`, e `--report` mede o acerto (critério do M4,

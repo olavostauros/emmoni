@@ -64,12 +64,12 @@ def test_sample_is_deterministic_and_skips_review(tx: Conn) -> None:
 def test_approve_requires_sample_then_publishes_exam(tx: Conn, tmp_path: Path) -> None:
     ref, exam_id = _exam(tx)
     with pytest.raises(review.ReviewError, match="amostra"):
-        review.approve(tx, ref, tmp_path)
+        review.approve(tx, ref, tmp_path, approvals=tmp_path / "approvals")
     page = review.write_sample(tx, ref, 4, tmp_path)
     assert "Amostra" in page.read_text(encoding="utf-8")
     markdown = (page.parent / "amostra.md").read_text(encoding="utf-8")
     assert markdown.startswith(f"# Amostra — {ref}") and markdown.count("## Questão") == 4
-    review.approve(tx, ref, tmp_path)
+    review.approve(tx, ref, tmp_path, approvals=tmp_path / "approvals")
     assert scalar(tx, "select publish_status from exam where id = %s", (exam_id,)) == "published"
     record = json.loads((page.parent / "sample.json").read_text(encoding="utf-8"))
     assert record["approved_at"] and record["approved_by"]
@@ -78,11 +78,61 @@ def test_approve_requires_sample_then_publishes_exam(tx: Conn, tmp_path: Path) -
 def test_approve_records_reviewer(tx: Conn, tmp_path: Path) -> None:
     ref, _ = _exam(tx)
     review.write_sample(tx, ref, 3, tmp_path)
-    review.approve(tx, ref, tmp_path, by="claude-opus-5-5")
+    review.approve(tx, ref, tmp_path, by="claude-opus-5-5", approvals=tmp_path / "approvals")
     record = json.loads(
         (review.sample_dir(tmp_path, ref) / "sample.json").read_text(encoding="utf-8")
     )
     assert record["approved_by"] == "claude-opus-5-5"
+    approval = json.loads(
+        review.approval_path(tmp_path / "approvals", ref).read_text(encoding="utf-8")
+    )
+    assert approval["approved_by"] == "claude-opus-5-5"
+    assert approval["numbers"] == record["numbers"]
+    assert len(approval["fingerprint"]) == 64
+
+
+def _status(tx: Conn, exam_id: int) -> object:
+    return scalar(tx, "select publish_status from exam where id = %s", (exam_id,))
+
+
+def test_reconcile_keeps_approved_content_and_demotes_changed(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id = _exam(tx)
+    approvals = tmp_path / "approvals"
+    review.write_sample(tx, ref, 3, tmp_path)
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    # Classificação não conta: mudar o assunto não tira a prova do ar.
+    tx.execute(
+        "update question set publish_status = 'published' where exam_id = %s and number = 1",
+        (exam_id,),
+    )
+    assert review.reconcile(tx, ref, approvals) == "publicada"
+    # Gabarito mudou depois da aprovação → volta para review.
+    tx.execute(
+        "update question set answer_final = 'E', answer_preliminary = 'E'"
+        " where exam_id = %s and number = 2",
+        (exam_id,),
+    )
+    assert review.reconcile(tx, ref, approvals).startswith("volta para review")
+    assert _status(tx, exam_id) == "review"
+
+
+def test_restore_publishes_matching_exams_from_records(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id = _exam(tx)
+    approvals = tmp_path / "approvals"
+    review.write_sample(tx, ref, 3, tmp_path)
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    tx.execute("update exam set publish_status = 'draft' where id = %s", (exam_id,))  # banco novo
+    results = dict(review.restore(tx, approvals))
+    assert results[str(ref)].startswith("publicada")
+    assert _status(tx, exam_id) == "published"
+
+
+def test_reconcile_without_record_demotes_published_exam(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id = _exam(tx)
+    assert review.reconcile(tx, ref, tmp_path) == "draft"
+    tx.execute("update exam set publish_status = 'published' where id = %s", (exam_id,))
+    assert "sem registro" in review.reconcile(tx, ref, tmp_path)
+    assert _status(tx, exam_id) == "review"
 
 
 def test_topic_sample_is_deterministic_and_counts_verdicts(tx: Conn, tmp_path: Path) -> None:

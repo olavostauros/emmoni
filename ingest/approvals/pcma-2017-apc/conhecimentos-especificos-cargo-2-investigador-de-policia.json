@@ -1,0 +1,19 @@
+{
+ "exam": "pcma-2017-apc/conhecimentos-especificos-cargo-2-investigador-de-policia",
+ "numbers": [
+  21,
+  22,
+  32,
+  33,
+  37,
+  39,
+  46,
+  48,
+  49,
+  54
+ ],
+ "sampled_at": "2026-10-08T13:31:57.019205+00:00",
+ "approved_at": "2026-10-08T13:34:37.921982+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "b6a0390b20ca1d78e110607c84549a80bce43006388d0a58909bcc9075fa363b"
+}

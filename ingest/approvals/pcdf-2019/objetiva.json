@@ -1,0 +1,19 @@
+{
+ "exam": "pcdf-2019/objetiva",
+ "numbers": [
+  9,
+  15,
+  52,
+  57,
+  77,
+  78,
+  97,
+  98,
+  99,
+  117
+ ],
+ "sampled_at": "2026-10-08T13:49:31.635394+00:00",
+ "approved_at": "2026-10-08T13:50:38.145778+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "63389f0bcb1b0de179871a0e11bad7d463c90c77c934f7a21a1eb6b5b0872b2d"
+}

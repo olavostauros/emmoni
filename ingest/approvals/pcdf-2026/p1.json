@@ -1,0 +1,19 @@
+{
+ "exam": "pcdf-2026/p1",
+ "numbers": [
+  8,
+  40,
+  43,
+  66,
+  67,
+  69,
+  77,
+  96,
+  102,
+  105
+ ],
+ "sampled_at": "2026-10-08T13:31:51.549650+00:00",
+ "approved_at": "2026-10-08T13:35:13.661947+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "f2faedeb64c7fd3fe60e93e8fc4038c1d8f4d677e3e12511bd434a06de886140"
+}

@@ -1,0 +1,19 @@
+{
+ "exam": "pcal-2022/conhecimentos-especificos-p2",
+ "numbers": [
+  32,
+  35,
+  47,
+  56,
+  57,
+  65,
+  70,
+  86,
+  100,
+  105
+ ],
+ "sampled_at": "2026-10-08T13:31:47.926447+00:00",
+ "approved_at": "2026-10-08T13:35:13.100086+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "6bf5bb2c10fbf8bdf5f99558907caa0f64c82e4bbcb5390671bfc1ec59ce9277"
+}

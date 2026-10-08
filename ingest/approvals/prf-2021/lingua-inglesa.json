@@ -1,0 +1,17 @@
+{
+ "exam": "prf-2021/lingua-inglesa",
+ "numbers": [
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7,
+  8
+ ],
+ "sampled_at": "2026-10-08T17:34:59.556584+00:00",
+ "approved_at": "2026-10-08T17:37:15.339778+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "809fc343fbf6e7ef8c25acf34c584080645a8cac3d99d872e9ed93a3c1b5b2d6"
+}

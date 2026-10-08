@@ -1,0 +1,19 @@
+{
+ "exam": "pf-2018/agente",
+ "numbers": [
+  6,
+  15,
+  19,
+  20,
+  22,
+  38,
+  56,
+  89,
+  91,
+  97
+ ],
+ "sampled_at": "2026-10-08T17:41:49.014347+00:00",
+ "approved_at": "2026-10-08T17:42:59.504236+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "788b787650830ff9afae1fa43d24489fb83ebf3eba2935302bf06760bab0fff9"
+}

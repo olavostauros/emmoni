@@ -1,0 +1,19 @@
+{
+ "exam": "cbmpa-2023-cfp/p1",
+ "numbers": [
+  1,
+  3,
+  8,
+  9,
+  21,
+  27,
+  33,
+  41,
+  45,
+  47
+ ],
+ "sampled_at": "2026-10-08T13:31:43.298376+00:00",
+ "approved_at": "2026-10-08T13:35:11.229751+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "7813d58084ec5d7016eb3dbda13e1c5785c4c7d86de18b55d4ef4ad6e2a66e7c"
+}

@@ -1,0 +1,19 @@
+{
+ "exam": "pmro-2022/objetiva",
+ "numbers": [
+  8,
+  9,
+  27,
+  39,
+  51,
+  54,
+  60,
+  80,
+  81,
+  97
+ ],
+ "sampled_at": "2026-10-08T13:32:30.657055+00:00",
+ "approved_at": "2026-10-08T13:37:16.720835+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "d5d7bd1ecc6b21cf673bff8da89ab43b3f955fc9219eff1951bea24b0a64ea6b"
+}

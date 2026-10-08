@@ -1,0 +1,19 @@
+{
+ "exam": "pmsc-2023-oficial/objetiva",
+ "numbers": [
+  1,
+  3,
+  9,
+  34,
+  37,
+  39,
+  43,
+  59,
+  73,
+  76
+ ],
+ "sampled_at": "2026-10-08T13:47:11.583085+00:00",
+ "approved_at": "2026-10-08T13:48:41.839832+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "e5dadc96e62b3edd084e23ef9156ee53a9e24df405d712fed7bbd9056145fd71"
+}

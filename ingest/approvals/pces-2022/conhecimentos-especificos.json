@@ -1,0 +1,19 @@
+{
+ "exam": "pces-2022/conhecimentos-especificos",
+ "numbers": [
+  21,
+  34,
+  38,
+  39,
+  42,
+  47,
+  51,
+  56,
+  77,
+  80
+ ],
+ "sampled_at": "2026-10-08T13:31:52.251109+00:00",
+ "approved_at": "2026-10-08T13:34:48.717279+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "75c733984e729860e170394d69b52e0bfe3e96513fe7ad9ebbaaeac08267ee48"
+}

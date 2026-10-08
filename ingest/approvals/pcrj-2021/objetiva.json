@@ -1,0 +1,19 @@
+{
+ "exam": "pcrj-2021/objetiva",
+ "numbers": [
+  6,
+  8,
+  27,
+  31,
+  34,
+  71,
+  78,
+  80,
+  98,
+  99
+ ],
+ "sampled_at": "2026-10-08T13:32:15.535589+00:00",
+ "approved_at": "2026-10-08T13:37:14.857350+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "ab8177206db303b895af878aa85ecf8680cd26823b06dd13a47830e2081c650f"
+}

@@ -1,0 +1,19 @@
+{
+ "exam": "prf-2018/policial",
+ "numbers": [
+  10,
+  22,
+  42,
+  54,
+  69,
+  89,
+  105,
+  107,
+  111,
+  120
+ ],
+ "sampled_at": "2026-10-08T17:34:58.872110+00:00",
+ "approved_at": "2026-10-08T17:37:14.853385+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "d7fab18191f520a7cb2f2d8df57f7609a00f3775fe4b54582da11a12edc7f155"
+}

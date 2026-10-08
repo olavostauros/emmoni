@@ -1,0 +1,19 @@
+{
+ "exam": "pf-2018/papiloscopista",
+ "numbers": [
+  3,
+  14,
+  24,
+  26,
+  27,
+  28,
+  29,
+  64,
+  70,
+  93
+ ],
+ "sampled_at": "2026-10-08T17:41:50.396071+00:00",
+ "approved_at": "2026-10-08T17:43:00.077432+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "8ee7ae0a1d82895537c06a1d6563e786afc88212a7e0b39bae7df357220794d6"
+}

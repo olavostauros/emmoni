@@ -1,0 +1,551 @@
+# pcientifica-pe-2016 (evento SDS_PE_16_CIENTIFICA): proposta do crawler aprovada em 2026-10-08
+# pelo agente (claude-opus-5-5), decisão 0016. Ajustes: conhecimentos gerais da série 259 só para os
+# três auxiliares; incluído o caderno de conhecimentos gerais da série 260 (cargos 4 a 16), que o
+# crawler pulou. Falta calibrar: first_number e subjects_by_range (mesmos cadernos de 2016 do
+# pcpe-2016).
+contest: pcientifica-pe-2016
+name: Secretaria de Defesa Social do Estado de Pernambuco
+agency: pcientifica-pe
+exam_board: cebraspe
+year: 2016
+source_url: https://www.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA
+exams:
+- slug: auxiliar-de-legista
+  name: Caderno de prova - Auxiliar de legista
+  positions:
+  - auxiliar-de-legista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_001_01.PDF
+- slug: auxiliar-de-perito
+  name: Caderno de prova - Auxiliar de perito
+  positions:
+  - auxiliar-de-perito
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_002_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_002_01.PDF
+- slug: auxiliar-de-papiloscopista
+  name: Caderno de prova - Auxiliar de papiloscopista
+  positions:
+  - auxiliar-de-papiloscopista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_003_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_003_01.PDF
+- slug: conhecimentos-gerais-nivel-medio
+  name: Caderno de prova - Conhecimentos gerais (auxiliares, série 259)
+  positions:
+  - auxiliar-de-legista
+  - auxiliar-de-perito
+  - auxiliar-de-papiloscopista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_CG1_01.PDF
+- slug: conhecimentos-gerais-nivel-superior
+  name: Caderno de prova - Conhecimentos gerais para todas as áreas (cargos 4 a 16, série 260)
+  positions:
+  - medico-legista
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_CG1_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_CG1_01.PDF
+- slug: medico-legista
+  name: Caderno de prova - CARGO 4 - MÉDICO LEGISTA
+  positions:
+  - medico-legista
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_001_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_001_01.PDF
+- slug: cargo-5-perito-criminal-area-1-engenharia-mecanica-ou-engenharia-mecatronica
+  name: Caderno de prova - CARGO 5 - PERITO CRIMINAL - ÁREA 1 - ENGENHARIA MECÂNICA OU ENGENHARIA MECATRÔNICA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_002_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_002_01.PDF
+- slug: cargo-6-perito-criminal-area-2-engenharia-civil
+  name: Caderno de prova - CARGO 6 - PERITO CRIMINAL - ÁREA 2 - ENGENHARIA CIVIL
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_003_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_003_01.PDF
+- slug: cargo-7-perito-criminal-area-3-engenharia-eletrica-engenharia-eletronica-eng-de-redes-de-comunicacao-ou-engenharia-de-telecomunicacoes
+  name: Caderno de prova - CARGO 7 - PERITO CRIMINAL - ÁREA 3 - ENGENHARIA ELÉTRICA, ENGENHARIA ELETRÔNICA, ENG.
+    DE REDES DE COMUNICAÇÃO OU ENGENHARIA DE TELECOMUNICAÇÕES
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_004_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_004_01.PDF
+- slug: cargo-8-perito-criminal-area-4-quimica-quimica-industrial-ou-engenharia-quimica
+  name: Caderno de prova - CARGO 8 - PERITO CRIMINAL � ÁREA 4 - QUÍMICA, QUÍMICA INDUSTRIAL OU ENGENHARIA QUÍMICA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_005_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_005_01.PDF
+- slug: cargo-9-perito-criminal-area-5-farmacia
+  name: Caderno de prova - CARGO 9 - PERITO CRIMINAL � ÁREA 5 - FARMÁCIA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_006_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_006_01.PDF
+- slug: cargo-10-perito-criminal-area-6-ciencias-biologicas-e-biomedicina
+  name: Caderno de prova - CARGO 10 - PERITO CRIMINAL � ÁREA 6 - CIÊNCIAS BIOLÓGICAS E BIOMEDICINA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_007_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_007_01.PDF
+- slug: cargo-11-perito-criminal-area-7-cienciasda-computao-engenharia-da-computacao-ou-sistemas-de-informacao
+  name: Caderno de prova - CARGO 11 - PERITO CRIMINAL � ÁREA 7 - CIÊNCIASDA COMPUTA��O, ENGENHARIA DA COMPUTAÇÃO
+    OU SISTEMAS DE INFORMAÇÃO
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_008_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_008_01.PDF
+- slug: cargo-12-perito-criminal-area-8-ciencias-contabeis
+  name: Caderno de prova - CARGO 12 - PERITO CRIMINAL � ÁREA 8 - CIÊNCIAS CONTÁBEIS
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_009_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_009_01.PDF
+- slug: cargo-13-perito-criminal-area-9-engenharia-agronomica-geologia-engenharia-ambiental-ou-engenharia-florestal
+  name: Caderno de prova - CARGO 13 - PERITO CRIMINAL � ÁREA 9 - ENGENHARIA AGRONÔMICA, GEOLOGIA, ENGENHARIA AMBIENTAL
+    OU ENGENHARIA FLORESTAL
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_010_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_010_01.PDF
+- slug: cargo-14-perito-criminal-area-10-fisica
+  name: Caderno de prova - CARGO 14 - PERITO CRIMINAL � ÁREA 10 - FÍSICA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_011_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_011_01.PDF
+- slug: cargo-15-perito-criminal-area-11-odontologia
+  name: Caderno de prova - CARGO 15 - PERITO CRIMINAL � ÁREA 11 - ODONTOLOGIA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_012_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_012_01.PDF
+- slug: cargo-16-perito-criminal-area-12-medicina-veterinaria
+  name: Caderno de prova - CARGO 16 - PERITO CRIMINAL � ÁREA 12 - MEDICINA VETERINÁRIA
+  positions:
+  - perito-criminal
+  documents:
+    exam: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_013_01.PDF
+    answer_key_final: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_013_01.PDF
+evidence:
+  source: cebraspe
+  contest:
+    url: https://www.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA
+    link_text: SDS/PE Polícia Científica 2016
+    event: SDS_PE_16_CIENTIFICA
+    agency:
+      value: pcientifica-pe
+      confidence: 1.0
+      rule: prefixo SDS_PE_16_CIENTIFICA da URL do evento
+    year:
+      value: 2016
+      confidence: 1.0
+      rule: eventoAno
+    phase: Encerrados
+  exams:
+    auxiliar-de-legista:
+      positions:
+        value:
+        - auxiliar-de-legista
+        confidence: 1.0
+        rule: nome do cargo 'Auxiliar de Legista' aparece em 'AUXILIAR DE LEGISTA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_001_01.PDF
+          link_text: Caderno de prova - Auxiliar de legista
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_001_01.PDF
+          link_text: Gabarito definitivo - Auxiliar de legista
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    auxiliar-de-perito:
+      positions:
+        value:
+        - auxiliar-de-perito
+        confidence: 1.0
+        rule: nome do cargo 'Auxiliar de Perito' aparece em 'AUXILIAR DE PERITO'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_002_01.PDF
+          link_text: Caderno de prova - Auxiliar de perito
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_002_01.PDF
+          link_text: Gabarito definitivo - Auxiliar de perito
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    auxiliar-de-papiloscopista:
+      positions:
+        value:
+        - auxiliar-de-papiloscopista
+        confidence: 1.0
+        rule: nome do cargo 'Auxiliar de Papiloscopista' aparece em 'AUXILIAR DE PAPILOSCOPISTA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_003_01.PDF
+          link_text: Caderno de prova - Auxiliar de papiloscopista
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_003_01.PDF
+          link_text: Gabarito definitivo - Auxiliar de papiloscopista
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    conhecimentos-gerais:
+      positions:
+        value:
+        - auxiliar-de-legista
+        - auxiliar-de-perito
+        - perito-criminal
+        - medico-legista
+        confidence: 0.5599999999999999
+        rule: 'prova sem cargo citado: todos os cargos do concurso que estão no catálogo; nome do cargo ''Auxiliar
+          de Legista'' aparece em ''AUXILIAR DE LEGISTA''; nome do cargo ''Auxiliar de Perito'' aparece em ''AUXILIAR
+          DE PERITO''; ''PERITO'' (de ''Perito Criminal'') aparece em ''PERITO PAPILOSCOPISTA''; nome do cargo ''Médico
+          Legista'' aparece em ''MEDICO LEGISTA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/259_SDS_PE_CG1_01.PDF
+          link_text: Caderno de prova - Conhecimentos gerais
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_259_SDS_PE_CG1_01.PDF
+          link_text: Gabarito definitivo - Conhecimentos gerais
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    medico-legista:
+      positions:
+        value:
+        - medico-legista
+        confidence: 1.0
+        rule: cargos citados na descrição; nome do cargo 'Médico Legista' aparece em 'MEDICO LEGISTA'
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_001_01.PDF
+          link_text: Caderno de prova - CARGO 4 - MÉDICO LEGISTA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_001_01.PDF
+          link_text: Gabarito definitivo - CARGO 4 - MÉDICO LEGISTA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-5-perito-criminal-area-1-engenharia-mecanica-ou-engenharia-mecatronica:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          1: ENGENHARIA MECANICA OU ENGENHARIA MECATRONICA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_002_01.PDF
+          link_text: Caderno de prova - CARGO 5 - PERITO CRIMINAL - ÁREA 1 - ENGENHARIA MECÂNICA OU ENGENHARIA MECATRÔNICA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_002_01.PDF
+          link_text: Gabarito definitivo - CARGO 5 - PERITO CRIMINAL - ÁREA 1 - ENGENHARIA MECÂNICA OU ENGENHARIA
+            MECATRÔNICA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-6-perito-criminal-area-2-engenharia-civil:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          2: ENGENHARIA CIVIL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_003_01.PDF
+          link_text: Caderno de prova - CARGO 6 - PERITO CRIMINAL - ÁREA 2 - ENGENHARIA CIVIL
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_003_01.PDF
+          link_text: Gabarito definitivo - CARGO 6 - PERITO CRIMINAL - ÁREA 2 - ENGENHARIA CIVIL
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    ? cargo-7-perito-criminal-area-3-engenharia-eletrica-engenharia-eletronica-eng-de-redes-de-comunicacao-ou-engenharia-de-telecomunicacoes
+    : positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          3: ENGENHARIA ELETRICA, ENGENHARIA ELETRONICA, ENGENHARIA DE REDES DE COMUNICACAO OU ENGENHARIA DE TELECOMUNICACOES'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_004_01.PDF
+          link_text: Caderno de prova - CARGO 7 - PERITO CRIMINAL - ÁREA 3 - ENGENHARIA ELÉTRICA, ENGENHARIA ELETRÔNICA,
+            ENG. DE REDES DE COMUNICAÇÃO OU ENGENHARIA DE TELECOMUNICAÇÕES
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_004_01.PDF
+          link_text: Gabarito definitivo - CARGO 7 - PERITO CRIMINAL - ÁREA 3 - ENGENHARIA ELÉTRICA, ENGENHARIA
+            ELETRÔNICA, ENG. DE REDES DE COMUNICAÇÃO OU ENGENHARIA DE TELECOMUNICAÇÕES
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-8-perito-criminal-area-4-quimica-quimica-industrial-ou-engenharia-quimica:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          4: QUIMICA, QUIMICA INDUSTRIAL OU ENGENHARIA QUIMICA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_005_01.PDF
+          link_text: Caderno de prova - CARGO 8 - PERITO CRIMINAL � ÁREA 4 - QUÍMICA, QUÍMICA INDUSTRIAL OU ENGENHARIA
+            QUÍMICA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_005_01.PDF
+          link_text: Gabarito definitivo - CARGO 8 - PERITO CRIMINAL � ÁREA 4 - QUÍMICA, QUÍMICA INDUSTRIAL OU ENGENHARIA
+            QUÍMICA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-9-perito-criminal-area-5-farmacia:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          5: FARMACIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_006_01.PDF
+          link_text: Caderno de prova - CARGO 9 - PERITO CRIMINAL � ÁREA 5 - FARMÁCIA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_006_01.PDF
+          link_text: Gabarito definitivo - CARGO 9 - PERITO CRIMINAL � ÁREA 5 - FARMÁCIA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-10-perito-criminal-area-6-ciencias-biologicas-e-biomedicina:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          6: CIENCIAS BIOLOGICAS OU BIOMEDICINA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_007_01.PDF
+          link_text: Caderno de prova - CARGO 10 - PERITO CRIMINAL � ÁREA 6 - CIÊNCIAS BIOLÓGICAS E BIOMEDICINA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_007_01.PDF
+          link_text: Gabarito definitivo - CARGO 10 - PERITO CRIMINAL � ÁREA 6 - CIÊNCIAS BIOLÓGICAS E BIOMEDICINA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-11-perito-criminal-area-7-cienciasda-computao-engenharia-da-computacao-ou-sistemas-de-informacao:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          7: CIENCIA DA COMPUTACAO, ENGENHARIA DA COMPUTACAO OU SISTEMAS DE INFORMACAO'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_008_01.PDF
+          link_text: Caderno de prova - CARGO 11 - PERITO CRIMINAL � ÁREA 7 - CIÊNCIASDA COMPUTA��O, ENGENHARIA
+            DA COMPUTAÇÃO OU SISTEMAS DE INFORMAÇÃO
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_008_01.PDF
+          link_text: Gabarito definitivo - CARGO 11 - PERITO CRIMINAL � ÁREA 7 - CIÊNCIASDA COMPUTA��O, ENGENHARIA
+            DA COMPUTAÇÃO OU SISTEMAS DE INFORMAÇÃO
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-12-perito-criminal-area-8-ciencias-contabeis:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          8: CIENCIAS CONTABEIS'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_009_01.PDF
+          link_text: Caderno de prova - CARGO 12 - PERITO CRIMINAL � ÁREA 8 - CIÊNCIAS CONTÁBEIS
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_009_01.PDF
+          link_text: Gabarito definitivo - CARGO 12 - PERITO CRIMINAL � ÁREA 8 - CIÊNCIAS CONTÁBEIS
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-13-perito-criminal-area-9-engenharia-agronomica-geologia-engenharia-ambiental-ou-engenharia-florestal:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          9: ENGENHARIA AGRONOMICA, GEOLOGIA, ENGENHARIA AMBIENTAL OU ENGENHARIA FLORESTAL'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_010_01.PDF
+          link_text: Caderno de prova - CARGO 13 - PERITO CRIMINAL � ÁREA 9 - ENGENHARIA AGRONÔMICA, GEOLOGIA, ENGENHARIA
+            AMBIENTAL OU ENGENHARIA FLORESTAL
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_010_01.PDF
+          link_text: Gabarito definitivo - CARGO 13 - PERITO CRIMINAL � ÁREA 9 - ENGENHARIA AGRONÔMICA, GEOLOGIA,
+            ENGENHARIA AMBIENTAL OU ENGENHARIA FLORESTAL
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-14-perito-criminal-area-10-fisica:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          10: AREA: FISICA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_011_01.PDF
+          link_text: Caderno de prova - CARGO 14 - PERITO CRIMINAL � ÁREA 10 - FÍSICA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_011_01.PDF
+          link_text: Gabarito definitivo - CARGO 14 - PERITO CRIMINAL � ÁREA 10 - FÍSICA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-15-perito-criminal-area-11-odontologia:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          11: ODONTOLOGIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_012_01.PDF
+          link_text: Caderno de prova - CARGO 15 - PERITO CRIMINAL � ÁREA 11 - ODONTOLOGIA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_012_01.PDF
+          link_text: Gabarito definitivo - CARGO 15 - PERITO CRIMINAL � ÁREA 11 - ODONTOLOGIA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+    cargo-16-perito-criminal-area-12-medicina-veterinaria:
+      positions:
+        value:
+        - perito-criminal
+        confidence: 1.0
+        rule: 'cargos citados na descrição; nome do cargo ''Perito Criminal'' aparece em ''PERITO CRIMINAL AREA
+          12: MEDICINA VETERINARIA'''
+      pairing:
+        answer_key_final: mesmo rótulo na descrição
+      documents:
+        exam:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_013_01.PDF
+          link_text: Caderno de prova - CARGO 16 - PERITO CRIMINAL � ÁREA 12 - MEDICINA VETERINÁRIA
+          value: exam
+          confidence: 1.0
+          rule: descrição contém 'CADERNO DE PROVAS'
+        answer_key_final:
+          url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_013_01.PDF
+          link_text: Gabarito definitivo - CARGO 16 - PERITO CRIMINAL � ÁREA 12 - MEDICINA VETERINÁRIA
+          value: answer_key_final
+          confidence: 1.0
+          rule: descrição contém 'GABARITO DEFINITIVO'
+  skipped:
+  - label: CONHECIMENTOS GERAIS PARA TODAS AS AREAS
+    url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/260SDSPE_CG1_01.PDF
+    reason: cargo não identificado
+  - label: CONHECIMENTOS GERAIS PARA TODAS AS AREAS
+    url: https://cdn.cebraspe.org.br/concursos/SDS_PE_16_CIENTIFICA/arquivos/Gab_Definitivo_260SDSPE_CG1_01.PDF
+    reason: gabarito sem prova correspondente

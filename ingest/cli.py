@@ -7,6 +7,7 @@ from pathlib import Path
 from ingest import (
     catalog,
     checks,
+    coverage,
     crawl,
     db,
     fetch,
@@ -26,6 +27,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(prog="emmoni")
     commands = parser.add_subparsers(dest="command", required=True)
 
+    commands.add_parser("coverage", help="gera docs/coverage.md")
     check = commands.add_parser("check", help="roda os checks de qualidade dos dados")
     check.add_argument("--checks-dir", type=Path, default=checks.CHECKS_DIR)
 
@@ -57,6 +59,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     rev_approve = rev_commands.add_parser("approve", help="publica a prova após a amostragem")
     rev_approve.add_argument("exam", help="<concurso>/<prova>")
     rev_approve.add_argument("--by", help="quem conferiu a amostra (modelo e versão do agente)")
+    rev_commands.add_parser(
+        "restore", help="publica as provas cujo conteúdo confere com a aprovação registrada"
+    )
     rev_topics = rev_commands.add_parser(
         "topics", help="amostra de classificações por assunto para conferência"
     )
@@ -91,6 +96,15 @@ def main(argv: Sequence[str] | None = None) -> int:
         return _manifests(args)
     if args.command == "review":
         return _review(args)
+    if args.command == "coverage":
+        with db.connect() as conn:
+            cov = coverage.write(conn)
+        print(
+            f"coverage: {cov.total} questões publicadas; {len(cov.not_loaded)} prova(s) fora do"
+            f" banco, {len(cov.not_published)} não publicada(s), {len(cov.pending)} proposta(s)"
+            f" pendente(s) → {coverage.COVERAGE_FILE}"
+        )
+        return 0
     if args.command == "check":
         return _check(args.checks_dir)
     if args.command == "taxonomy":
@@ -196,6 +210,13 @@ def _review(args: argparse.Namespace) -> int:
                 published, left = review.approve(conn, ref, fetch.data_dir(), args.by)
                 conn.commit()
                 print(f"{ref} publicada: {published} questão(ões) visíveis, {left} fora")
+            elif args.review_command == "restore":
+                results = review.restore(conn)
+                conn.commit()
+                for exam, outcome in results:
+                    print(f"{exam:<60} {outcome}")
+                published = sum(outcome.startswith("publicada") for _, outcome in results)
+                print(f"restore: {published} de {len(results)} prova(s) publicada(s)")
     except review.ReviewError as error:
         print(f"review: {error}")
         return 1

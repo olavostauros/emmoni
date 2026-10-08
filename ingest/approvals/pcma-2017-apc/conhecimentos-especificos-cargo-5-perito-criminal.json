@@ -1,0 +1,19 @@
+{
+ "exam": "pcma-2017-apc/conhecimentos-especificos-cargo-5-perito-criminal",
+ "numbers": [
+  28,
+  30,
+  33,
+  37,
+  38,
+  40,
+  42,
+  52,
+  54,
+  55
+ ],
+ "sampled_at": "2026-10-08T13:31:57.502846+00:00",
+ "approved_at": "2026-10-08T13:34:30.712554+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "46cd9af56153ee257cc28a10d4fbba94b46255fffbcf30dbfd8e5e07568aadd3"
+}

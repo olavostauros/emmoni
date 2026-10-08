@@ -1,0 +1,19 @@
+{
+ "exam": "pcal-2021/escrivao",
+ "numbers": [
+  54,
+  57,
+  59,
+  79,
+  83,
+  88,
+  94,
+  101,
+  109,
+  116
+ ],
+ "sampled_at": "2026-10-08T13:41:22.842795+00:00",
+ "approved_at": "2026-10-08T13:43:40.803354+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "37aedfc2d51a4ad059e87495fd9b6f4dc0c5d85ff91625059fca6c187e6774fe"
+}

@@ -1,0 +1,19 @@
+{
+ "exam": "pmma-2017/conhecimentos-especificos-cargo-5-soldado-do-quadro-de-praca-policial",
+ "numbers": [
+  61,
+  63,
+  67,
+  70,
+  76,
+  81,
+  91,
+  95,
+  114,
+  120
+ ],
+ "sampled_at": "2026-10-08T13:32:26.794377+00:00",
+ "approved_at": "2026-10-08T13:37:16.207128+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "bfac66469bd7084039b3d79eec8321169d234bddfdca0aa134045549761f0a1e"
+}

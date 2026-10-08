@@ -21,6 +21,7 @@ Career = Literal[
     "policia_penal",
     "policia_legislativa",
     "guarda_municipal",
+    "policia_cientifica",
     "outra",
 ]
 

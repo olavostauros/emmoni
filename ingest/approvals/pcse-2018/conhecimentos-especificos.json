@@ -1,0 +1,19 @@
+{
+ "exam": "pcse-2018/conhecimentos-especificos",
+ "numbers": [
+  48,
+  53,
+  70,
+  74,
+  75,
+  77,
+  82,
+  94,
+  120,
+  136
+ ],
+ "sampled_at": "2026-10-08T13:32:19.803902+00:00",
+ "approved_at": "2026-10-08T13:36:34.792403+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "2021b8c108a08deb05d3e2f10d12af025ac9ec53591ef3d49a35d8e3ff380808"
+}

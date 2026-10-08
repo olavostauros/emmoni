@@ -1,0 +1,19 @@
+{
+ "exam": "pf-2021/escrivao",
+ "numbers": [
+  29,
+  33,
+  36,
+  53,
+  62,
+  67,
+  74,
+  76,
+  82,
+  118
+ ],
+ "sampled_at": "2026-10-08T17:34:54.594399+00:00",
+ "approved_at": "2026-10-08T17:37:12.881670+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "5fd8ae4fd27297d7a4d0a77973d7aeba18192b8c32e76fdd445fdbe4ca07aada"
+}

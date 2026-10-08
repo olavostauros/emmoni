@@ -1,0 +1,19 @@
+{
+ "exam": "pcro-2022/conhecimentos-gerais-para-o-cargo-1",
+ "numbers": [
+  2,
+  4,
+  6,
+  8,
+  11,
+  14,
+  19,
+  20,
+  23,
+  25
+ ],
+ "sampled_at": "2026-10-08T13:41:36.122299+00:00",
+ "approved_at": "2026-10-08T13:43:44.849683+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "0e0244cf791acc2361528799ab2611da47a45923a3094315bb716b7dff4868fa"
+}

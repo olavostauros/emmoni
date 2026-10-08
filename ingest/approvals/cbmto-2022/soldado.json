@@ -1,0 +1,19 @@
+{
+ "exam": "cbmto-2022/soldado",
+ "numbers": [
+  3,
+  13,
+  16,
+  18,
+  21,
+  33,
+  35,
+  39,
+  41,
+  49
+ ],
+ "sampled_at": "2026-10-08T13:31:46.460044+00:00",
+ "approved_at": "2026-10-08T13:35:12.542112+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "a3fac76bb48b986139e365390fd092adec9606cf04ee599012a7097b35bc0235"
+}

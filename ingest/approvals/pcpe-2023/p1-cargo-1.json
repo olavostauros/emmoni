@@ -1,0 +1,19 @@
+{
+ "exam": "pcpe-2023/p1-cargo-1",
+ "numbers": [
+  2,
+  5,
+  7,
+  11,
+  12,
+  13,
+  14,
+  17,
+  18,
+  19
+ ],
+ "sampled_at": "2026-10-08T13:32:11.252557+00:00",
+ "approved_at": "2026-10-08T13:37:07.706316+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "b40b268b538e3b6940617b8bf13dbc9478b298b21db14a5e47c0408614ad50f9"
+}

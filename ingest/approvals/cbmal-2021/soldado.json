@@ -1,0 +1,19 @@
+{
+ "exam": "cbmal-2021/soldado",
+ "numbers": [
+  1,
+  4,
+  6,
+  21,
+  30,
+  49,
+  58,
+  88,
+  93,
+  114
+ ],
+ "sampled_at": "2026-10-08T13:46:56.135484+00:00",
+ "approved_at": "2026-10-08T13:48:58.178174+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "df564f5bc362f0ea70b098788bc1749e357fde42d2117df6807d6fe582a0ef97"
+}

@@ -1,0 +1,19 @@
+{
+ "exam": "pcma-2017-apc/conhecimentos-especificos-cargo-1-escrivao-de-policia",
+ "numbers": [
+  21,
+  25,
+  26,
+  27,
+  43,
+  45,
+  47,
+  55,
+  58,
+  60
+ ],
+ "sampled_at": "2026-10-08T13:31:56.480402+00:00",
+ "approved_at": "2026-10-08T13:34:37.658141+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "0e1edbee542ff57521e08b398a78a4be09faa96d4c2046ace93e747f4ac5ed43"
+}

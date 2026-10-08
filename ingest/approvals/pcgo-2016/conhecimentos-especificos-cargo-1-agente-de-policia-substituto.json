@@ -1,0 +1,19 @@
+{
+ "exam": "pcgo-2016/conhecimentos-especificos-cargo-1-agente-de-policia-substituto",
+ "numbers": [
+  51,
+  53,
+  55,
+  58,
+  60,
+  61,
+  62,
+  63,
+  64,
+  69
+ ],
+ "sampled_at": "2026-10-08T13:31:54.347653+00:00",
+ "approved_at": "2026-10-08T13:34:49.268670+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "a67d6453028e2ce416a1c3d232f623464efd1422f85476e640bd6707562a3ed7"
+}

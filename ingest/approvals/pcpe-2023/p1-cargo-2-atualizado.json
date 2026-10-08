@@ -1,0 +1,19 @@
+{
+ "exam": "pcpe-2023/p1-cargo-2-atualizado",
+ "numbers": [
+  7,
+  20,
+  27,
+  35,
+  47,
+  52,
+  59,
+  79,
+  83,
+  95
+ ],
+ "sampled_at": "2026-10-08T13:32:12.247385+00:00",
+ "approved_at": "2026-10-08T13:37:07.973969+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "d3d4c37b37d67975c7bc777c978fd32d7f0e4938bdb1e24df3cb30cf1bb0d9b9"
+}

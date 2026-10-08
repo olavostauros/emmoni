@@ -1,0 +1,19 @@
+{
+ "exam": "pcdf-2020/conhecimentos-especificos",
+ "numbers": [
+  52,
+  66,
+  73,
+  74,
+  75,
+  78,
+  93,
+  115,
+  116,
+  118
+ ],
+ "sampled_at": "2026-10-08T13:47:01.006267+00:00",
+ "approved_at": "2026-10-08T13:48:58.453782+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "477b4636b82f4d0d42fa770ef9d6df5e53f3041c41e9fd4d64cc78ace43a2ae4"
+}

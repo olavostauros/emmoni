@@ -337,11 +337,12 @@ def match_position(text: str, positions: list[Position]) -> tuple[Position, floa
 
 
 # Rótulo genérico de prova comum a todos os cargos: só o tipo de conhecimento, sem citar cargo
-# ('CONHECIMENTOS GERAIS', 'CONHECIMENTOS BASICOS - BLOCO I - PARA TODOS OS CARGOS'). Rótulo que
+# ('CONHECIMENTOS GERAIS', 'CONHECIMENTOS BASICOS - BLOCO I - PARA TODOS OS CARGOS',
+# 'CONHECIMENTOS GERAIS PARA TODAS AS AREAS'). Rótulo que
 # nomeia um grupo ('...PARA TODOS OS CARGOS DE PERITO') não é genérico.
 _SHARED_LABEL = re.compile(
     r"^(CONHECIMENTOS (GERAIS|BASICOS|COMPLEMENTARES)( - BLOCO [IVX0-9]+)?( \(P\d\))?"
-    r"( - )?( PARA TODOS OS CARGOS)?)?$"
+    r"( - )?( PARA (TODOS OS CARGOS|TODAS AS AREAS))?)?$"
 )
 
 
@@ -439,14 +440,58 @@ def _name(doc: FoundDocument) -> str:
     return doc.url.rsplit("/", 1)[-1]
 
 
+def _series(doc: FoundDocument) -> str | None:
+    """Série do caderno no nome do arquivo ('259_SDS_PE_CG1_01.PDF', '260SDSPE_002_01.PDF')."""
+    found = re.match(r"(\d{3})(?!\d)", _name(doc))
+    return found.group(1) if found else None
+
+
+def _resolve_by_series(
+    exams: list[FoundDocument], cargos: dict[int, str], agency: Agency
+) -> dict[str, tuple[_Positions, str | None]]:
+    """Cargos de cada prova; devolve também a série quando ela entra no slug.
+
+    Concurso com mais de uma série de cadernos (SDS/PE 2016: 259 nível médio, 260 nível superior)
+    tem uma prova comum por série. A prova comum vai só para os cargos das outras provas da mesma
+    série, e a série entra no slug para as duas não colidirem (decisão 0016).
+    """
+    resolved: dict[str, tuple[_Positions, str | None]] = {
+        d.url: (resolve_positions(exam_label(d.link_text), cargos, agency), None) for d in exams
+    }
+    series = {d.url: _series(d) for d in exams}
+    if len({s for s in series.values() if s}) < 2:
+        return resolved
+    for doc in exams:
+        label = exam_label(doc.link_text)
+        if not series[doc.url] or not _is_shared_label(label):
+            continue
+        same = [
+            slug
+            for other in exams
+            if other is not doc
+            and series[other.url] == series[doc.url]
+            and not _is_shared_label(exam_label(other.link_text))
+            for slug in resolved[other.url][0].slugs
+        ]
+        if same:
+            evidence = {
+                "confidence": 0.9,
+                "rule": f"prova comum da série {series[doc.url]}: cargos das outras provas da série",
+            }
+            positions = _Positions(list(dict.fromkeys(same)), [], evidence)
+            resolved[doc.url] = (positions, series[doc.url])
+    return resolved
+
+
 def pair_exams(contest: ContestFound, cargos: dict[int, str], agency: Agency) -> None:
     exams = [d for d in contest.documents if d.kind == "exam"]
     keys = [d for d in contest.documents if d.kind in KEY_KINDS]
     used_keys: set[str] = set()
     by_slug: dict[str, ExamFound] = {}
+    resolved = _resolve_by_series(exams, cargos, agency)
     for exam_doc in sorted(exams, key=lambda d: _name(d)):
         label = exam_label(exam_doc.link_text)
-        positions = resolve_positions(label, cargos, agency)
+        positions, series = resolved[exam_doc.url]
         if not positions.slugs:
             why = (
                 "cargo fora do catálogo: " + "; ".join(positions.unmatched)
@@ -469,6 +514,8 @@ def pair_exams(contest: ContestFound, cargos: dict[int, str], agency: Agency) ->
             exam_doc.reason = "prova sem gabarito correspondente"
             contest.skipped.append({"label": label, "url": exam_doc.url, "reason": exam_doc.reason})
         slug = _exam_slug(label, positions.slugs)
+        if series:
+            slug = f"{slug}-serie-{series}"
         found = ExamFound(
             slug=slug,
             name=exam_doc.link_text,

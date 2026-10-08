@@ -1,0 +1,19 @@
+{
+ "exam": "cbmal-2021/oficial",
+ "numbers": [
+  10,
+  44,
+  49,
+  53,
+  88,
+  98,
+  101,
+  103,
+  104,
+  109
+ ],
+ "sampled_at": "2026-10-08T13:41:16.979325+00:00",
+ "approved_at": "2026-10-08T13:43:40.270985+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "ec8da95c8faa8d32600c79a42e499f8bb21ec881ac556c31864eb5693f26d065"
+}
