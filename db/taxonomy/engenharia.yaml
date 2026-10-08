@@ -1,6 +1,24 @@
 subject: engenharia
 name: Engenharia
 topics:
-  - {slug: engenharia-civil, name: "Engenharia civil"}
-  - {slug: seguranca-do-trabalho, name: "Segurança do trabalho"}
-  - {slug: geoprocessamento, name: "Sensoriamento remoto e geoprocessamento"}
+  - slug: engenharia-civil
+    name: Engenharia civil
+    children:
+      - {slug: materiais-e-concreto, name: "Materiais de construção e concreto"}
+      - {slug: estruturas, name: "Estruturas"}
+      - {slug: hidraulica-e-instalacoes, name: "Hidráulica e instalações prediais"}
+      - {slug: planejamento-e-custos, name: "Planejamento, orçamento e custos de obras"}
+      - {slug: transportes-e-vias, name: "Engenharia de transportes e vias"}
+  - slug: seguranca-do-trabalho
+    name: Segurança do trabalho
+    children:
+      - {slug: normas-regulamentadoras, name: "Normas regulamentadoras"}
+      - {slug: epi-e-epc, name: "Equipamentos de proteção individual e coletiva"}
+      - {slug: protecao-contra-incendio, name: "Proteção contra incêndio em edificações"}
+  - slug: geoprocessamento
+    name: Sensoriamento remoto e geoprocessamento
+    children:
+      - {slug: sensoriamento-remoto, name: "Sensoriamento remoto e imagens de satélite"}
+      - {slug: cartografia-e-geodesia, name: "Cartografia, geodésia e topografia"}
+      - {slug: sig, name: "Sistemas de informação geográfica"}
+  - {slug: engenharia-eletrica, name: "Engenharia elétrica e eletrônica"}

@@ -1,12 +1,70 @@
 subject: direito-administrativo
 name: Direito Administrativo
 topics:
+  - slug: principios
+    name: Princípios e regime jurídico-administrativo
+  - slug: organizacao-administrativa
+    name: Organização administrativa
+    children:
+      - {slug: centralizacao-e-descentralizacao, name: "Centralização, descentralização e desconcentração"}
+      - {slug: administracao-direta-e-indireta, name: "Administração direta e indireta"}
+      - {slug: autarquias-e-fundacoes, name: "Autarquias e fundações públicas"}
+      - {slug: empresas-estatais, name: "Empresas públicas e sociedades de economia mista"}
+      - {slug: terceiro-setor, name: "Entidades paraestatais e terceiro setor"}
   - slug: atos-administrativos
     name: Atos administrativos
     children:
       - {slug: atributos, name: Atributos do ato administrativo}
+      - {slug: elementos, name: "Elementos e requisitos do ato administrativo"}
+      - {slug: classificacao, name: "Classificação e espécies de atos"}
+      - {slug: extincao, name: "Anulação, revogação e convalidação"}
+      - {slug: discricionariedade, name: "Discricionariedade e vinculação"}
   - slug: poderes-administrativos
     name: Poderes administrativos
     children:
       - {slug: poder-de-policia, name: Poder de polícia}
       - {slug: poder-disciplinar, name: Poder disciplinar}
+      - {slug: poder-hierarquico, name: "Poder hierárquico"}
+      - {slug: poder-regulamentar, name: "Poder regulamentar e normativo"}
+      - {slug: abuso-de-poder, name: "Abuso de poder: excesso e desvio"}
+  - slug: agentes-publicos
+    name: Agentes públicos
+    children:
+      - {slug: classificacao, name: "Classificação e regimes jurídicos"}
+      - {slug: cargo-emprego-e-funcao, name: "Cargo, emprego e função pública; concurso público"}
+      - {slug: lei-8112, name: "Lei nº 8.112/1990: provimento, vacância, direitos e deveres"}
+      - {slug: processo-administrativo-disciplinar, name: "Processo administrativo disciplinar e sindicância"}
+      - {slug: responsabilidade-dos-agentes, name: "Responsabilidade civil, penal e administrativa"}
+      - {slug: acumulacao-e-remuneracao, name: "Acumulação de cargos, remuneração e aposentadoria"}
+  - slug: licitacoes-e-contratos
+    name: Licitações e contratos administrativos
+    children:
+      - {slug: lei-14133, name: "Lei nº 14.133/2021"}
+      - {slug: lei-8666, name: "Lei nº 8.666/1993"}
+      - {slug: modalidades-e-pregao, name: "Modalidades de licitação e pregão"}
+      - {slug: dispensa-e-inexigibilidade, name: "Dispensa e inexigibilidade"}
+      - {slug: contratos-administrativos, name: "Contratos administrativos: cláusulas, alteração e extinção"}
+      - {slug: crimes-e-sancoes-licitatorias, name: "Infrações, sanções e crimes em licitações"}
+  - slug: servicos-publicos
+    name: Serviços públicos, concessão e permissão
+  - slug: responsabilidade-civil-do-estado
+    name: Responsabilidade civil do Estado
+  - slug: controle-da-administracao
+    name: Controle da administração pública
+    children:
+      - {slug: controle-interno-e-externo, name: "Controle interno, externo e tribunais de contas"}
+      - {slug: controle-judicial, name: "Controle judicial"}
+  - slug: improbidade-administrativa
+    name: Improbidade administrativa (Lei nº 8.429/1992)
+  - slug: processo-administrativo
+    name: Processo administrativo federal (Lei nº 9.784/1999)
+  - slug: bens-publicos
+    name: Bens públicos
+  - slug: intervencao-na-propriedade
+    name: Intervenção do Estado na propriedade (desapropriação, tombamento, requisição)
+  - slug: acesso-a-informacao
+    name: Lei de Acesso à Informação (Lei nº 12.527/2011)
+  - slug: convenios-e-consorcios
+    name: Convênios, consórcios públicos e contratos de repasse
+  - slug: carreiras-policiais-federais
+    name: Carreiras policiais federais (Lei nº 9.654/1998, Lei nº 4.878/1965)

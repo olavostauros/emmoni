@@ -6,7 +6,7 @@ Cada etapa lê e grava em `data/staging/<concurso>/<prova>/` e pode ser rerodada
 
 `classify` não chama API nenhuma: grava `classify-tasks.json` com o que falta classificar, o agente
 responde em `classify-answers.json` e a etapa, rerodada, valida e grava `topics.json`. Questões sem
-resposta entram no `load` sem assunto (`draft`).
+resposta, ou respondidas sem assunto confiante, entram no `load` sem assunto (`draft`).
 """
 
 import json
@@ -153,6 +153,7 @@ class ExamRun:
             tasks_path.unlink()
         self.log(
             f"  classify: {len(result.topics)} classificadas, {len(result.review)} para revisão,"
+            f" {len(result.unresolved)} sem assunto confiante,"
             f" {len(result.suggestions)} sugestões de assunto ({result.model})"
         )
         if pending:

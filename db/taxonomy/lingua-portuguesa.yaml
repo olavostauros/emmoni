@@ -2,24 +2,66 @@ subject: lingua-portuguesa
 name: Língua Portuguesa
 topics:
   - slug: interpretacao-de-texto
-    name: Interpretação de texto
+    name: Compreensão e interpretação de texto
+    children:
+      - {slug: ideias-do-texto, name: "Ideias, informações e tese do texto"}
+      - {slug: inferencias, name: "Inferências, pressupostos e subentendidos"}
+      - {slug: tipologia-e-generos, name: "Tipologia e gêneros textuais"}
+      - {slug: argumentacao, name: "Argumentação e intencionalidade discursiva"}
+      - {slug: relacoes-entre-textos, name: "Relações entre textos e intertextualidade"}
   - slug: coesao-e-coerencia
     name: Coesão e coerência
     children:
       - {slug: referenciacao, name: Referenciação}
       - {slug: conectivos, name: Conectivos}
+      - {slug: progressao-textual, name: "Progressão textual e organização dos parágrafos"}
+  - slug: semantica
+    name: Semântica e vocabulário
+    children:
+      - {slug: sinonimia-e-antonimia, name: "Sinonímia, antonímia e substituição de palavras"}
+      - {slug: polissemia-e-ambiguidade, name: "Polissemia, ambiguidade e sentido contextual"}
+      - {slug: conotacao-e-figuras, name: "Denotação, conotação e figuras de linguagem"}
+  - slug: reescrita
+    name: Reescrita de frases e equivalência de sentido
+  - slug: morfologia
+    name: Classes de palavras
+    children:
+      - {slug: substantivo-e-adjetivo, name: "Substantivo e adjetivo"}
+      - {slug: artigo-e-numeral, name: "Artigo e numeral"}
+      - {slug: pronomes, name: Pronomes}
+      - {slug: verbos, name: "Verbos: flexão, tempos e modos"}
+      - {slug: adverbio, name: Advérbio}
+      - {slug: preposicao-e-conjuncao, name: "Preposição e conjunção"}
+      - {slug: formacao-de-palavras, name: "Estrutura e formação de palavras"}
+  - slug: sintaxe
+    name: Sintaxe
+    children:
+      - {slug: termos-da-oracao, name: Termos da oração}
+      - {slug: periodo-composto, name: "Período composto: coordenação e subordinação"}
+      - {slug: vozes-verbais, name: "Vozes verbais"}
+      - {slug: colocacao-pronominal, name: "Colocação pronominal"}
+      - {slug: funcoes-do-se-e-do-que, name: "Funções do 'se' e do 'que'"}
   - slug: concordancia
     name: Concordância
     children:
       - {slug: verbal, name: Concordância verbal}
       - {slug: nominal, name: Concordância nominal}
+  - slug: regencia
+    name: Regência verbal e nominal
   - slug: crase
     name: Crase
   - slug: pontuacao
     name: Pontuação
   - slug: ortografia
     name: Ortografia
-  - slug: sintaxe
-    name: Sintaxe
     children:
-      - {slug: termos-da-oracao, name: Termos da oração}
+      - {slug: acentuacao, name: "Acentuação gráfica"}
+      - {slug: grafia-de-palavras, name: "Grafia de palavras e emprego de letras"}
+  - slug: redacao-oficial
+    name: Redação oficial
+    children:
+      - {slug: comunicacoes-oficiais, name: "Comunicações oficiais: ofício, memorando, e-mail e padrão ofício"}
+      - {slug: pronomes-de-tratamento, name: "Pronomes de tratamento, vocativos e fechos"}
+      - {slug: atributos-do-texto-oficial, name: "Atributos do texto oficial: clareza, concisão, impessoalidade"}
+  - slug: variacao-linguistica
+    name: Variação linguística e níveis de linguagem

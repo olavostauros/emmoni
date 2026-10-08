@@ -1,0 +1,944 @@
+{
+ "31": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_executivo",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.principios_fundamentais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.lei_8666",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.dispensa_e_inexigibilidade",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_administrativo.atos_administrativos.elementos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_hierarquico",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.dispensa_e_inexigibilidade",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.lei_8666",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsidade_documental",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.extorsao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.interpretacao_e_analogia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_tempo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.interpretacao_e_analogia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_contra_a_administracao_da_justica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.roubo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.habeas_corpus_e_revisao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_privada",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.questoes_e_processos_incidentes",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_processual_penal.acao_penal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.procedimentos_especiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.justica_negocial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.aplicacao_da_lei_processual",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.prisao.mandado_e_cumprimento",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.audiencia_de_custodia",
+    "confidence": 0.95
+   },
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "execucao_penal.orgaos_da_execucao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "execucao_penal.orgaos_da_execucao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "execucao_penal.orgaos_da_execucao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direitos_humanos.pessoas_presas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direitos_humanos.pessoas_presas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.organizacao_criminosa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_tortura",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_penal_especial.organizacao_criminosa",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.organizacao_criminosa",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "seguranca_publica.politica_criminal_e_penitenciaria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "seguranca_publica.politica_criminal_e_penitenciaria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "execucao_penal.faltas_disciplinares_e_rdd",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "execucao_penal.faltas_disciplinares_e_rdd",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "execucao_penal.faltas_disciplinares_e_rdd",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "seguranca_publica.politica_criminal_e_penitenciaria",
+    "confidence": 0.7
+   },
+   {
+    "path": "seguranca_publica.sistema_de_seguranca_publica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "seguranca_publica.politica_criminal_e_penitenciaria",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "seguranca_publica.sistema_de_seguranca_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "seguranca_publica.sistema_de_seguranca_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "execucao_penal.lei_de_execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "execucao_penal.lei_de_execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "execucao_penal.lei_de_execucao_penal",
+    "confidence": 0.75
+   },
+   {
+    "path": "execucao_penal.regimes_e_progressao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "execucao_penal.regimes_e_progressao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "execucao_penal.lei_de_execucao_penal",
+    "confidence": 0.7
+   },
+   {
+    "path": "execucao_penal.regimes_e_progressao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "execucao_penal.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "execucao_penal.direitos_e_deveres_do_preso",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "execucao_penal.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "execucao_penal.direitos_e_deveres_do_preso",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "execucao_penal.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "execucao_penal.direitos_e_deveres_do_preso",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "execucao_penal.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "execucao_penal.direitos_e_deveres_do_preso",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "seguranca_publica.politicas_de_seguranca",
+    "confidence": 0.9
+   },
+   {
+    "path": "seguranca_publica.sistema_de_seguranca_publica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "seguranca_publica.politicas_de_seguranca",
+    "confidence": 0.85
+   },
+   {
+    "path": "seguranca_publica.sistema_de_seguranca_publica",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "execucao_penal.faltas_disciplinares_e_rdd",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "execucao_penal.faltas_disciplinares_e_rdd",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.regimento_interno",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.carreira_penal_federal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.carreira_penal_federal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.carreira_penal_federal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.policiamento_e_operacoes",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Força Nacional de Segurança Pública (Lei nº 11.473/2007)"
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal.regulamento_penitenciario_federal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.sistema_penitenciario_federal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

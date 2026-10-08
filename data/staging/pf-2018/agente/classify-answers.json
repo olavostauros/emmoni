@@ -78,29 +78,33 @@
  "9": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "10": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.redacao_oficial",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "11": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "12": {
   "topics": [
@@ -172,11 +176,15 @@
  "19": {
   "topics": [
    {
-    "path": "lingua_portuguesa.sintaxe",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Flexão verbal (tempos e modos)"
+  "suggested_topic": ""
  },
  "20": {
   "topics": [
@@ -224,43 +232,70 @@
   "suggested_topic": ""
  },
  "25": {
-  "topics": [],
-  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "26": {
-  "topics": [],
-  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.centralizacao_e_descentralizacao",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "27": {
   "topics": [
    {
-    "path": "direito_administrativo.poderes_administrativos",
-    "confidence": 0.5
+    "path": "direito_administrativo.controle_da_administracao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Controle da administração pública"
+  "suggested_topic": ""
  },
  "28": {
   "topics": [
    {
-    "path": "direito_administrativo.atos_administrativos",
-    "confidence": 0.5
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Controle da administração pública"
+  "suggested_topic": ""
  },
  "29": {
   "topics": [
    {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.9
+   },
+   {
     "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
-    "confidence": 0.5
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Defesa do Estado e das instituições democráticas"
+  "suggested_topic": ""
  },
  "30": {
-  "topics": [],
-  "suggested_topic": "Defesa do Estado e das instituições democráticas"
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "31": {
   "topics": [
@@ -339,12 +374,22 @@
   "suggested_topic": ""
  },
  "39": {
-  "topics": [],
-  "suggested_topic": "Lei de Migração (Lei nº 13.445/2017)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_migracao",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "40": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "41": {
   "topics": [
@@ -475,15 +520,6 @@
   ],
   "suggested_topic": ""
  },
- "56": {
-  "topics": [
-   {
-    "path": "raciocinio_logico.logica_proposicional",
-    "confidence": 0.95
-   }
-  ],
-  "suggested_topic": ""
- },
  "54": {
   "topics": [
    {
@@ -497,6 +533,15 @@
   "topics": [
    {
     "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional",
     "confidence": 0.95
    }
   ],
@@ -642,33 +687,38 @@
  "70": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "71": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "72": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "73": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "74": {
   "topics": [
@@ -698,44 +748,98 @@
   "suggested_topic": "Multimídia e formatos de arquivo"
  },
  "77": {
-  "topics": [],
-  "suggested_topic": "Editores de texto e apresentações (Microsoft Office e LibreOffice)"
+  "topics": [
+   {
+    "path": "informatica.apresentacoes",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "78": {
-  "topics": [],
-  "suggested_topic": "Editores de texto e apresentações (Microsoft Office e LibreOffice)"
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "79": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "80": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.programacao.engenharia_de_software",
+    "confidence": 0.88
+   },
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "81": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "82": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "83": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "84": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.aprendizado_de_maquina",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "85": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.big_data",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "86": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.mineracao_de_dados",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "87": {
   "topics": [
@@ -796,20 +900,40 @@
   "suggested_topic": ""
  },
  "93": {
-  "topics": [],
-  "suggested_topic": "Programação (Python e R)"
+  "topics": [
+   {
+    "path": "informatica.programacao.r",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "94": {
-  "topics": [],
-  "suggested_topic": "Programação (Python e R)"
+  "topics": [
+   {
+    "path": "informatica.programacao.r",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "95": {
-  "topics": [],
-  "suggested_topic": "Programação (Python e R)"
+  "topics": [
+   {
+    "path": "informatica.programacao.python",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "96": {
-  "topics": [],
-  "suggested_topic": "Programação (Python e R)"
+  "topics": [
+   {
+    "path": "informatica.programacao.python",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "97": {
   "topics": [
@@ -832,11 +956,11 @@
  "99": {
   "topics": [
    {
-    "path": "contabilidade_geral.patrimonio",
-    "confidence": 0.5
+    "path": "contabilidade_geral.conceitos_e_principios",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Conceitos, objetivos e finalidades da contabilidade"
+  "suggested_topic": ""
  },
  "100": {
   "topics": [
@@ -1015,11 +1139,11 @@
  "118": {
   "topics": [
    {
-    "path": "contabilidade_geral.pronunciamentos_cpc",
-    "confidence": 0.5
+    "path": "contabilidade_geral.lei_das_sociedades_por_acoes",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Lei nº 6.404/1976 (Lei das Sociedades por Ações)"
+  "suggested_topic": ""
  },
  "119": {
   "topics": [

@@ -1,5 +1,21 @@
 subject: legislacao-penal-militar
 name: Legislação Penal Militar
 topics:
-  - {slug: codigo-penal-militar, name: "Código Penal Militar"}
-  - {slug: processo-penal-militar, name: "Código de Processo Penal Militar"}
+  - slug: codigo-penal-militar
+    name: Código Penal Militar
+    children:
+      - {slug: aplicacao-da-lei-penal-militar, name: "Aplicação da lei penal militar"}
+      - {slug: crime-militar, name: "Crime militar: conceito, próprio e impróprio"}
+      - {slug: teoria-do-crime-militar, name: "Fato típico, ilicitude e culpabilidade no CPM"}
+      - {slug: penas-e-medidas-de-seguranca, name: "Penas e medidas de segurança"}
+      - {slug: crimes-em-especie, name: "Crimes militares em espécie"}
+  - slug: processo-penal-militar
+    name: Código de Processo Penal Militar
+    children:
+      - {slug: policia-judiciaria-militar-e-ipm, name: "Polícia judiciária militar e inquérito policial militar"}
+      - {slug: acao-penal-e-competencia, name: "Ação penal militar e competência"}
+      - {slug: prisao-e-medidas-cautelares, name: "Prisão, menagem e medidas cautelares"}
+      - {slug: provas-e-procedimentos, name: "Provas, processo e procedimentos"}
+      - {slug: nulidades-e-recursos, name: "Nulidades e recursos"}
+  - slug: organizacao-da-justica-militar
+    name: Organização da Justiça Militar

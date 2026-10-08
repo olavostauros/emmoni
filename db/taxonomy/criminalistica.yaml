@@ -1,6 +1,18 @@
 subject: criminalistica
 name: Criminalística
 topics:
-  - {slug: local-de-crime, name: "Local de crime e cadeia de custódia"}
+  - {slug: conceitos-e-pericia, name: "Conceito, perícia, peritos e laudo pericial"}
+  - slug: local-de-crime
+    name: Local de crime e cadeia de custódia
+    children:
+      - {slug: isolamento-e-preservacao, name: "Isolamento e preservação do local"}
+      - {slug: vestigios-e-cadeia-de-custodia, name: "Vestígios, coleta e cadeia de custódia"}
+      - {slug: perinecroscopia, name: "Exame perinecroscópico e local de morte violenta"}
   - {slug: balistica-forense, name: "Balística forense"}
   - {slug: papiloscopia, name: "Papiloscopia e identificação"}
+  - {slug: documentoscopia, name: "Documentoscopia e grafoscopia"}
+  - {slug: locais-de-acidente-de-transito, name: "Perícia em locais de acidente de trânsito"}
+  - {slug: identificacao-humana, name: "Identificação humana civil e criminal"}
+  - {slug: informatica-forense, name: "Informática forense"}
+  - {slug: fotografia-e-representacao, name: "Fotografia, desenho e representação do local"}
+  - {slug: exames-laboratoriais, name: "Exames laboratoriais: química, biologia e genética forense"}

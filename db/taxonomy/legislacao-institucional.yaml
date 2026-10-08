@@ -1,6 +1,32 @@
 subject: legislacao-institucional
 name: Legislação Institucional
 topics:
-  - {slug: estatuto-da-corporacao, name: "Estatuto da corporação (PM/CBM)"}
-  - {slug: regulamento-disciplinar, name: "Regulamento disciplinar"}
-  - {slug: codigo-penal-militar, name: "Código Penal Militar e Processo Penal Militar"}
+  - slug: estatuto-da-corporacao
+    name: Estatuto da corporação (PM/CBM)
+    children:
+      - {slug: ingresso-e-carreira, name: "Ingresso, carreira, promoções e cursos"}
+      - {slug: direitos-e-prerrogativas, name: "Direitos, prerrogativas e remuneração"}
+      - {slug: deveres-e-etica, name: "Deveres, ética, hierarquia e disciplina"}
+      - {slug: situacoes-e-movimentacao, name: "Situações do militar: ativa, reserva, reforma, agregação e movimentação"}
+      - {slug: exclusao-e-perda-do-posto, name: "Exclusão, demissão, reforma disciplinar e perda do posto"}
+  - slug: regulamento-disciplinar
+    name: Regulamento disciplinar
+    children:
+      - {slug: transgressoes, name: "Transgressões disciplinares e sua classificação"}
+      - {slug: punicoes-e-recompensas, name: "Punições, recompensas e comportamento"}
+      - {slug: processo-disciplinar, name: "Sindicância, conselho de disciplina e de justificação"}
+  - slug: organizacao-da-corporacao
+    name: Organização básica da corporação (estrutura, unidades e competências)
+  - slug: codigo-penal-militar
+    name: Código Penal Militar e Processo Penal Militar
+  - slug: continencias-e-honras
+    name: Regulamento de continências, honras e sinais de respeito
+  - slug: regimento-interno
+    name: Regimento interno e normas administrativas da corporação
+  - slug: sistema-penitenciario-federal
+    name: Legislação do sistema penitenciário federal (DEPEN)
+    children:
+      - {slug: regulamento-penitenciario-federal, name: "Regulamento penitenciário federal"}
+      - {slug: carreira-penal-federal, name: "Carreira da polícia penal federal (Lei nº 10.693/2003)"}
+  - slug: policiamento-e-operacoes
+    name: Normas de policiamento, operações e uso da força

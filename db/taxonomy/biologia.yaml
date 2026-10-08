@@ -3,5 +3,24 @@ name: Biologia
 topics:
   - {slug: bioquimica, name: "Bioquímica e composição da matéria viva"}
   - {slug: citologia, name: "Citologia"}
+  - {slug: histologia, name: "Histologia"}
   - {slug: genetica, name: "Genética"}
   - {slug: embriologia, name: "Embriologia"}
+  - slug: fisiologia-humana
+    name: Anatomia e fisiologia humana
+    children:
+      - {slug: respiratorio-e-circulatorio, name: "Sistemas respiratório e circulatório"}
+      - {slug: nervoso-e-sensorial, name: "Sistemas nervoso e sensorial"}
+      - {slug: digestorio-e-excretor, name: "Sistemas digestório e excretor"}
+      - {slug: endocrino-e-reprodutor, name: "Sistemas endócrino e reprodutor"}
+      - {slug: locomotor-e-imunologico, name: "Sistemas locomotor e imunológico"}
+  - slug: ecologia
+    name: Ecologia
+    children:
+      - {slug: ecossistemas-e-biomas, name: "Ecossistemas, biomas e relações ecológicas"}
+      - {slug: impactos-ambientais, name: "Impactos ambientais e sustentabilidade"}
+  - {slug: evolucao, name: "Evolução e origem da vida"}
+  - {slug: microbiologia-e-doencas, name: "Microbiologia, parasitologia e doenças"}
+  - {slug: botanica, name: "Botânica"}
+  - {slug: zoologia, name: "Zoologia"}
+  - {slug: biologia-forense, name: "Biologia forense: DNA, entomologia e vestígios biológicos"}

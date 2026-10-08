@@ -1,0 +1,740 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.exclusao_e_perda_do_posto",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.exclusao_e_perda_do_posto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.exclusao_e_perda_do_posto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.transgressoes",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.punicoes_e_recompensas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.transgressoes",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.punicoes_e_recompensas",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_espaco",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.fato_tipico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.dolo_e_culpa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.7
+   },
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.8
+   },
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.policia_judiciaria",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.policia_judiciaria",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_privada",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_privada",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_processual_penal.acao_penal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.federacao_e_entes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.reparticao_de_competencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.forcas_armadas",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.seguranca_publica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "direito_administrativo.servicos_publicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.dispensa_e_inexigibilidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.contratos_administrativos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.modalidades_e_pregao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.lei_8666",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direito_administrativo.bens_publicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_interno_e_externo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "matematica.problemas_aritmeticos",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.conjuntos_numericos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "matematica.equacoes_e_inequacoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "matematica.equacoes_e_inequacoes",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.85
+   },
+   {
+    "path": "matematica.equacoes_e_inequacoes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "matematica.probabilidade",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.brasil_colonia",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.brasil_colonia",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.brasil_colonia",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_geral.idade_moderna",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.redemocratizacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.era_vargas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "geografia.geografia_geral.globalizacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "geografia.geografia_geral.globalizacao",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.urbanizacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "geografia.geografia_do_brasil.urbanizacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

@@ -1,0 +1,316 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.75
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.criptografia_e_certificacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.6
+   },
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "informatica.programacao.python",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "informatica.programacao",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "informatica.programacao.apis_e_web",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.7
+   },
+   {
+    "path": "informatica.programacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.sql",
+    "confidence": 0.75
+   },
+   {
+    "path": "informatica.banco_de_dados",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.sql",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.banco_de_dados",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.redes_e_internet.transmissao_de_dados",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.criptografia_e_certificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.criptografia_e_certificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.criptografia_e_certificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.criptografia_e_certificacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.autenticacao_e_biometria",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.isolamento_e_preservacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "criminalistica.conceitos_e_pericia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "criminalistica.locais_de_acidente_de_transito",
+    "confidence": 0.9
+   },
+   {
+    "path": "criminalistica.local_de_crime.vestigios_e_cadeia_de_custodia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.perinecroscopia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.perinecroscopia",
+    "confidence": 0.9
+   },
+   {
+    "path": "criminalistica.balistica_forense",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.perinecroscopia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

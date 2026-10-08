@@ -1,0 +1,986 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.poder_constituinte",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade.controle_concentrado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.federacao_e_entes",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.organizacao_do_estado.reparticao_de_competencias",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.funcoes_essenciais_a_justica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "direito_constitucional.tributacao_e_orcamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "direito_constitucional.ordem_economica_e_financeira",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.seguranca_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.dispensa_e_inexigibilidade",
+    "confidence": 0.95
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.lei_14133",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "direito_administrativo.intervencao_na_propriedade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_hierarquico",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.extincao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_hierarquico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "direito_administrativo.servicos_publicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "direito_administrativo.servicos_publicos",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.contratos_administrativos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.centralizacao_e_descentralizacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.discricionariedade",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.atos_administrativos.classificacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.extincao",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.atos_administrativos.elementos",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade.prescricao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.outros_crimes_contra_a_vida",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direito_penal.penas.especies_de_pena",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.fato_tipico",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.lesao_corporal",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.roubo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual.crimes_contra_vulneravel",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_paz_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade.prescricao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_estado_democratico_de_direito",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.provas.provas_ilicitas",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.questoes_e_processos_incidentes",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Execução penal: incidentes de execução (Lei nº 7.210/1984)"
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.questoes_e_processos_incidentes",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Execução penal: anistia, indulto e incidentes de execução (Lei nº 7.210/1984)"
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.nulidades",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.nulidades",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Lei Henry Borel (Lei nº 14.344/2022): violência doméstica e familiar contra a criança e o adolescente"
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_consumidor",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.protecao_a_testemunhas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.crimes_de_transito",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_hediondos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.seguranca_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.organizacao_e_atribuicoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "medicina_legal.traumatologia_forense.energias_mecanicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "medicina_legal.tanatologia_forense.fenomenos_cadavericos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "medicina_legal.tanatologia_forense.cronotanatognose",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "medicina_legal.traumatologia_forense.energias_fisicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "medicina_legal.asfixiologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "medicina_legal.sexologia_forense.gravidez_parto_e_aborto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "criminologia.prevencao_da_criminalidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "criminologia.teorias_sociologicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "criminologia.conceito_e_metodo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "criminologia.teorias_sociologicas",
+    "confidence": 0.75
+   },
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "direito_civil.lindb",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "direito_civil.direitos_reais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "direito_civil.direitos_reais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_empresarial.recuperacao_e_falencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_empresarial.recuperacao_e_falencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_empresarial.recuperacao_e_falencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.normas_fundamentais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.tutela_provisoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.provas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "direito_tributario.principios_tributarios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "direito_tributario.tributos",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_tributario.competencia_tributaria",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_tributario.legislacao_tributaria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_tributario.credito_tributario",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "direito_tributario.administracao_tributaria",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Ilícito tributário e crimes contra a ordem tributária (Lei nº 8.137/1990)"
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "direito_ambiental.principios",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_ambiental.responsabilidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direito_ambiental.competencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "direito_ambiental.codigo_florestal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "direito_ambiental.crimes_ambientais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_ambiental.responsabilidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "direito_ambiental.unidades_de_conservacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

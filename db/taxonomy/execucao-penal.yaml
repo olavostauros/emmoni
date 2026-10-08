@@ -1,6 +1,14 @@
 subject: execucao-penal
 name: Execução Penal
 topics:
-  - {slug: lei-de-execucao-penal, name: "Lei de Execução Penal"}
+  - {slug: lei-de-execucao-penal, name: "Lei de Execução Penal: objeto, princípios e aplicação"}
+  - {slug: classificacao-e-assistencia, name: "Classificação do condenado e assistência"}
+  - {slug: direitos-e-deveres-do-preso, name: "Direitos e deveres do preso"}
+  - {slug: trabalho-e-remicao, name: "Trabalho e remição"}
+  - {slug: faltas-disciplinares-e-rdd, name: "Faltas disciplinares e regime disciplinar diferenciado"}
+  - {slug: orgaos-da-execucao, name: "Órgãos da execução penal"}
+  - {slug: estabelecimentos-penais, name: "Estabelecimentos penais"}
   - {slug: regimes-e-progressao, name: "Regimes e progressão"}
+  - {slug: livramento-e-saidas, name: "Livramento condicional, saídas temporárias e monitoração eletrônica"}
   - {slug: sistema-penitenciario-federal, name: "Sistema penitenciário federal"}
+  - {slug: politica-penitenciaria, name: "Política penitenciária nacional e normas internacionais"}

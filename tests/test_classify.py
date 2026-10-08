@@ -74,10 +74,13 @@ def test_classify_accepts_confident_topics_and_flags_the_rest(
     result, pending = classify.classify(validated, subjects, answers, classifier="eu")
     assert result.model == "eu" and result.prompt == classify.PROMPT_NAME
     assert [t.path for t in result.topics[1]] == ["lingua_portuguesa.pontuacao"]
-    assert 2 not in result.topics and "confiança" in result.review[2]
+    # Sem assunto confiante: não é revisão (lacuna da taxonomia, decisão 0010); fica sem assunto
+    # e volta às tarefas, com a sugestão registrada.
+    assert 2 not in result.topics and result.review == {}
+    assert "confiança" in result.unresolved[2]
     assert result.suggestions == {2: "Semântica"}
     # Sem disciplina não vira tarefa; sem resposta vira tarefa (e fica draft no load).
-    assert [t.number for t in pending] == [4]
+    assert [t.number for t in pending] == [2, 4]
 
     # Rerodar com as mesmas respostas dá o mesmo resultado.
     again, _ = classify.classify(validated, subjects, answers, classifier="eu")

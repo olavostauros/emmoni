@@ -1,0 +1,602 @@
+{
+ "61": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.75
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.transgressoes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.processo_disciplinar",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.exclusao_e_perda_do_posto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.exclusao_e_perda_do_posto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.exclusao_e_perda_do_posto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas.formulas_e_funcoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas.formatacao_e_graficos",
+    "confidence": 0.7
+   },
+   {
+    "path": "informatica.planilhas_eletronicas",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas.formulas_e_funcoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "informatica.apresentacoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "informatica.apresentacoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "informatica.apresentacoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.redes_e_internet.internet_e_intranet",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

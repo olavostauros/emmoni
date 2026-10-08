@@ -127,11 +127,11 @@
  "110": {
   "topics": [
    {
-    "path": "contabilidade_geral.pronunciamentos_cpc",
-    "confidence": 0.5
+    "path": "contabilidade_geral.lei_das_sociedades_por_acoes",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Lei nº 6.404/1976 (Lei das Sociedades por Ações)"
+  "suggested_topic": ""
  },
  "111": {
   "topics": [
@@ -172,11 +172,11 @@
  "115": {
   "topics": [
    {
-    "path": "arquivologia.principios_arquivisticos",
-    "confidence": 0.5
+    "path": "arquivologia.descricao_arquivistica",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Descrição arquivística (NOBRADE e ISAD(G))"
+  "suggested_topic": ""
  },
  "116": {
   "topics": [

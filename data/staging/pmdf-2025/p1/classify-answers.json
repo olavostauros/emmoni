@@ -1,0 +1,438 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.preposicao_e_conjuncao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.95
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.vozes_verbais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.gramatica.pronomes_e_referencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.compreensao_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.vocabulario",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_inglesa.compreensao_de_texto",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.vocabulario",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.organizacao_da_corporacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_do_df",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_institucional.organizacao_da_corporacao",
+    "confidence": 0.65
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.organizacao_territorial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional",
+    "confidence": 0.7
+   },
+   {
+    "path": "geografia.geografia_regional.organizacao_territorial",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.75
+   },
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.85
+   },
+   {
+    "path": "direitos_humanos.grupos_vulneraveis",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.85
+   },
+   {
+    "path": "direitos_humanos.grupos_vulneraveis",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.85
+   },
+   {
+    "path": "direitos_humanos.grupos_vulneraveis",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.95
+   },
+   {
+    "path": "direitos_humanos.policia_e_direitos_humanos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.policia_e_direitos_humanos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.8
+   },
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "criminologia.conceito_e_metodo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "criminologia.politica_criminal",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminologia.conceito_e_metodo",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "criminologia.criminologia_ambiental",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "criminologia.prevencao_da_criminalidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "criminologia.prevencao_da_criminalidade",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminologia.vitimologia",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "criminologia.criminologia_ambiental",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminologia.teorias_sociologicas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.probabilidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.conjuntos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

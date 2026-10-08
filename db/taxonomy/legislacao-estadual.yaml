@@ -1,6 +1,31 @@
 subject: legislacao-estadual
 name: Legislação Estadual
 topics:
-  - {slug: constituicao-estadual, name: "Constituição estadual"}
-  - {slug: estatuto-dos-servidores, name: "Estatuto dos servidores estaduais"}
-  - {slug: lei-organica-da-policia-civil, name: "Lei orgânica da Polícia Civil"}
+  - slug: constituicao-estadual
+    name: Constituição estadual
+    children:
+      - {slug: organizacao-e-poderes, name: "Organização do estado e dos Poderes"}
+      - {slug: seguranca-publica, name: "Segurança pública na constituição estadual"}
+      - {slug: servidores-publicos, name: "Servidores públicos civis e militares na constituição estadual"}
+      - {slug: ministerio-publico-e-justica, name: "Ministério Público e funções essenciais à Justiça"}
+  - slug: lei-organica-do-df
+    name: Lei Orgânica do Distrito Federal
+  - slug: estatuto-dos-servidores
+    name: Estatuto dos servidores estaduais
+    children:
+      - {slug: provimento-e-vacancia, name: "Provimento, posse, exercício e vacância"}
+      - {slug: direitos-e-vantagens, name: "Direitos, vantagens, licenças e afastamentos"}
+      - {slug: deveres-e-responsabilidades, name: "Deveres, proibições e responsabilidades"}
+      - {slug: processo-disciplinar, name: "Penalidades e processo administrativo disciplinar"}
+  - slug: lei-organica-da-policia-civil
+    name: Lei orgânica da Polícia Civil
+    children:
+      - {slug: organizacao-e-atribuicoes, name: "Organização e atribuições da Polícia Civil"}
+      - {slug: carreira-e-prerrogativas, name: "Carreira, cargos, ingresso e prerrogativas"}
+      - {slug: regime-disciplinar, name: "Regime disciplinar dos policiais civis"}
+  - slug: regime-juridico-pcdf
+    name: Regime jurídico dos policiais civis da União e do DF (Lei nº 4.878/1965)
+  - slug: processo-administrativo-estadual
+    name: Lei estadual de processo administrativo
+  - slug: outras-leis-estaduais
+    name: Outras leis estaduais e distritais

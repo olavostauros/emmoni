@@ -1,5 +1,12 @@
 subject: criminologia
 name: Criminologia
 topics:
+  - {slug: conceito-e-metodo, name: "Conceito, método e objetos da criminologia"}
   - {slug: escolas-criminologicas, name: "Escolas criminológicas"}
+  - {slug: teorias-sociologicas, name: "Teorias sociológicas da criminalidade"}
+  - {slug: criminologia-critica, name: "Criminologia crítica e abolicionismo"}
   - {slug: vitimologia, name: "Vitimologia"}
+  - {slug: prevencao-da-criminalidade, name: "Prevenção da criminalidade e modelos de reação ao delito"}
+  - {slug: controle-social, name: "Controle social"}
+  - {slug: politica-criminal, name: "Política criminal"}
+  - {slug: criminologia-ambiental, name: "Criminologia ambiental e teoria das atividades rotineiras"}

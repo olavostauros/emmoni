@@ -1,5 +1,8 @@
 subject: direito-eleitoral
 name: Direito Eleitoral
 topics:
-  - {slug: crimes-eleitorais, name: "Crimes eleitorais"}
+  - {slug: direitos-politicos-e-alistamento, name: "Direitos políticos e alistamento"}
   - {slug: justica-eleitoral, name: "Justiça Eleitoral"}
+  - {slug: partidos-e-candidaturas, name: "Partidos, registro de candidatura e inelegibilidades"}
+  - {slug: propaganda-eleitoral, name: "Propaganda eleitoral"}
+  - {slug: crimes-eleitorais, name: "Crimes eleitorais"}

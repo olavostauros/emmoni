@@ -2,4 +2,6 @@ subject: saude-publica
 name: Saúde Pública
 topics:
   - {slug: sus, name: "Sistema Único de Saúde"}
+  - {slug: politicas-de-saude, name: "Políticas e programas de saúde"}
   - {slug: vigilancia-sanitaria, name: "Vigilância sanitária e epidemiológica"}
+  - {slug: epidemiologia, name: "Epidemiologia"}

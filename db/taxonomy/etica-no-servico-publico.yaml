@@ -1,5 +1,8 @@
 subject: etica-no-servico-publico
 name: Ética no Serviço Público
 topics:
-  - {slug: codigo-de-etica, name: "Código de Ética do Servidor Público Civil Federal"}
   - {slug: etica-e-moral, name: "Ética e moral"}
+  - {slug: etica-e-funcao-publica, name: "Ética e função pública: deveres e conduta do servidor"}
+  - {slug: codigo-de-etica, name: "Código de Ética do Servidor Público Civil Federal"}
+  - {slug: conflito-de-interesses, name: "Conflito de interesses (Lei nº 12.813/2013)"}
+  - {slug: transparencia-e-governanca, name: "Transparência, acesso à informação e governança"}

@@ -1,0 +1,818 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_executivo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.empresas_estatais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.atributos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.lei_14133",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.autarquias_e_fundacoes",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "direito_penal.penas.medidas_de_seguranca",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "direito_penal.penas.especies_de_pena",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_penal.penas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_penal.penas.sursis_e_livramento_condicional",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_hediondos",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.erro",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa",
+    "confidence": 0.6
+   },
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.roubo",
+    "confidence": 0.6
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "direito_penal.penas.efeitos_da_condenacao",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_penal.penas.aplicacao_da_pena",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.conceito_e_classificacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.nulidades",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.recursos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interceptacao_e_sigilo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_temporaria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.justica_negocial",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.sujeitos_processuais.juiz",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Atos processuais e prazos: disposições gerais do CPP (arts. 798 a 803)"
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.penas_e_medidas_de_seguranca",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crime_militar",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crime_militar",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.teoria_do_crime_militar",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.penas_e_medidas_de_seguranca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.penas_e_medidas_de_seguranca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.policia_judiciaria_militar_e_ipm",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.prisao_e_medidas_cautelares",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.provas_e_procedimentos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.provas_e_procedimentos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.provas_e_procedimentos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "direito_civil.bens",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_civil.familia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "direito_civil.pessoas_e_domicilio.pessoa_natural",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "direito_civil.familia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "direito_civil.negocios_juridicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "direito_civil.familia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "direito_civil.familia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.punicoes_e_recompensas",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.regulamento_disciplinar.transgressoes",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.65
+   },
+   {
+    "path": "legislacao_institucional.organizacao_da_corporacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.organizacao_da_corporacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.organizacao_da_corporacao",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_institucional.policiamento_e_operacoes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.situacoes_e_movimentacao",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.substantivo_e_adjetivo",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.ortografia.acentuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.75
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.6
+   },
+   {
+    "path": "lingua_portuguesa.crase",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.tautologia_e_contradicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.conjuntos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.8
+   },
+   {
+    "path": "raciocinio_logico.conjuntos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.conjuntos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.compreensao_de_texto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.vocabulario",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.compreensao_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.vocabulario",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_inglesa.gramatica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "lingua_inglesa.gramatica.pronomes_e_referencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.internet_e_intranet",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.7
+   },
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

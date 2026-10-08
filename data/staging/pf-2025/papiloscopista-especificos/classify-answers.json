@@ -56,20 +56,20 @@
  "103": {
   "topics": [
    {
-    "path": "biologia.citologia",
-    "confidence": 0.5
+    "path": "biologia.histologia",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Histologia"
+  "suggested_topic": ""
  },
  "104": {
   "topics": [
    {
-    "path": "biologia.citologia",
-    "confidence": 0.5
+    "path": "biologia.histologia",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Histologia"
+  "suggested_topic": ""
  },
  "105": {
   "topics": [
@@ -180,19 +180,39 @@
   "suggested_topic": ""
  },
  "117": {
-  "topics": [],
-  "suggested_topic": "Soluções e propriedades coligativas"
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "118": {
-  "topics": [],
-  "suggested_topic": "Soluções e propriedades coligativas"
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "119": {
-  "topics": [],
-  "suggested_topic": "Soluções e propriedades coligativas"
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "120": {
-  "topics": [],
-  "suggested_topic": "Soluções e propriedades coligativas"
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  }
 }

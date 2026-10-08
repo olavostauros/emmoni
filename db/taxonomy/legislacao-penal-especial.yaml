@@ -3,3 +3,81 @@ name: Legislação Penal Especial
 topics:
   - slug: lei-de-drogas
     name: Lei de Drogas (Lei nº 11.343/2006)
+  - slug: estatuto-do-desarmamento
+    name: Estatuto do Desarmamento (Lei nº 10.826/2003)
+  - slug: crimes-hediondos
+    name: Crimes hediondos (Lei nº 8.072/1990)
+  - slug: lavagem-de-dinheiro
+    name: Lavagem de dinheiro (Lei nº 9.613/1998)
+  - slug: organizacao-criminosa
+    name: Organização criminosa (Lei nº 12.850/2013)
+  - slug: lei-de-tortura
+    name: Lei de Tortura (Lei nº 9.455/1997)
+  - slug: abuso-de-autoridade
+    name: Abuso de autoridade (Lei nº 13.869/2019)
+  - slug: crimes-ambientais
+    name: Crimes ambientais (Lei nº 9.605/1998)
+  - slug: eca
+    name: Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)
+    children:
+      - {slug: direitos-e-medidas-de-protecao, name: "Direitos fundamentais e medidas de proteção"}
+      - {slug: ato-infracional, name: "Ato infracional e medidas socioeducativas"}
+      - {slug: crimes-do-eca, name: "Crimes e infrações administrativas do ECA"}
+  - slug: estatuto-do-idoso
+    name: Estatuto da Pessoa Idosa (Lei nº 10.741/2003)
+  - slug: estatuto-da-pessoa-com-deficiencia
+    name: Estatuto da Pessoa com Deficiência (Lei nº 13.146/2015)
+  - slug: lei-maria-da-penha
+    name: Lei Maria da Penha (Lei nº 11.340/2006)
+  - slug: racismo
+    name: Crimes de racismo e preconceito (Lei nº 7.716/1989)
+  - slug: interceptacao-telefonica
+    name: Interceptação telefônica (Lei nº 9.296/1996)
+  - slug: juizados-especiais-criminais
+    name: Juizados Especiais Criminais (Lei nº 9.099/1995)
+  - slug: prisao-temporaria
+    name: Prisão temporária (Lei nº 7.960/1989)
+  - slug: crimes-contra-o-sistema-financeiro
+    name: Crimes contra o Sistema Financeiro Nacional (Lei nº 7.492/1986)
+  - slug: crimes-contra-a-ordem-tributaria
+    name: Crimes contra a ordem tributária, econômica e as relações de consumo (Lei nº 8.137/1990)
+  - slug: crimes-contra-a-ordem-economica
+    name: Crimes contra a ordem econômica (Lei nº 8.176/1991)
+  - slug: lei-de-migracao
+    name: Lei de Migração (Lei nº 13.445/2017)
+  - slug: trafico-de-pessoas
+    name: Tráfico de pessoas (Lei nº 13.344/2016)
+  - slug: identificacao-criminal
+    name: Identificação criminal (Lei nº 12.037/2009)
+  - slug: identificacao-civil
+    name: Identificação civil (Lei nº 7.116/1983 e Decreto nº 11.797/2023)
+  - slug: execucao-penal
+    name: Lei de Execução Penal (Lei nº 7.210/1984)
+  - slug: crimes-de-transito
+    name: Crimes de trânsito (Lei nº 9.503/1997)
+  - slug: crimes-ciberneticos
+    name: Crimes cibernéticos e Marco Civil da Internet (Leis nº 12.737/2012 e 12.965/2014)
+  - slug: contravencoes-penais
+    name: Lei das Contravenções Penais (Decreto-Lei nº 3.688/1941)
+  - slug: genocidio
+    name: Genocídio (Lei nº 2.889/1956)
+  - slug: antiterrorismo
+    name: Lei Antiterrorismo (Lei nº 13.260/2016)
+  - slug: protecao-a-testemunhas
+    name: Proteção a vítimas e testemunhas (Lei nº 9.807/1999)
+  - slug: crimes-licitatorios
+    name: Crimes em licitações e contratos
+  - slug: crimes-contra-o-consumidor
+    name: Crimes contra o consumidor (Lei nº 8.078/1990)
+  - slug: atribuicoes-da-policia-federal
+    name: Atribuições da Polícia Federal (Lei nº 10.446/2002)
+  - slug: seguranca-privada
+    name: Segurança privada (Lei nº 14.967/2024)
+  - slug: crimes-de-responsabilidade
+    name: Crimes de responsabilidade (Lei nº 1.079/1950 e Decreto-Lei nº 201/1967)
+  - slug: lei-anticorrupcao
+    name: Lei Anticorrupção (Lei nº 12.846/2013)
+  - slug: estatuto-do-torcedor-e-desporto
+    name: Crimes do Estatuto do Torcedor e da Lei Geral do Esporte
+  - slug: lei-de-crimes-contra-a-seguranca-nacional
+    name: Crimes contra a segurança nacional e o Estado democrático de direito

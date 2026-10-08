@@ -6,10 +6,16 @@ topics:
     children:
       - {slug: medidas-de-posicao, name: Medidas de posição}
       - {slug: medidas-de-dispersao, name: Medidas de dispersão}
+      - {slug: graficos-e-tabelas, name: "Gráficos, tabelas e distribuições de frequência"}
   - slug: probabilidade
     name: Probabilidade
   - slug: variaveis-aleatorias
     name: Variáveis aleatórias e distribuições
+    children:
+      - {slug: distribuicoes-discretas, name: "Distribuições discretas (binomial, Poisson)"}
+      - {slug: distribuicao-normal, name: "Distribuição normal e outras contínuas"}
+  - slug: amostragem
+    name: Amostragem
   - slug: inferencia
     name: Inferência estatística
     children:
@@ -17,3 +23,5 @@ topics:
       - {slug: testes-de-hipoteses, name: Testes de hipóteses}
   - slug: correlacao-e-regressao
     name: Correlação e regressão
+  - slug: series-e-numeros-indices
+    name: Séries temporais e números-índices

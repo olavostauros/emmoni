@@ -1,0 +1,324 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "biologia.ecologia.ecossistemas_e_biomas",
+    "confidence": 0.85
+   },
+   {
+    "path": "biologia.botanica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "biologia.ecologia.ecossistemas_e_biomas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "biologia.zoologia",
+    "confidence": 0.75
+   },
+   {
+    "path": "biologia.ecologia.ecossistemas_e_biomas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "biologia.ecologia.impactos_ambientais",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "biologia.ecologia.impactos_ambientais",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "biologia.zoologia",
+    "confidence": 0.75
+   },
+   {
+    "path": "biologia.ecologia.ecossistemas_e_biomas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "biologia.ecologia.impactos_ambientais",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.85
+   },
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.85
+   },
+   {
+    "path": "biologia.bioquimica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.85
+   },
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.85
+   },
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.isolamento_e_preservacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "criminalistica.conceitos_e_pericia",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminalistica.local_de_crime",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "criminalistica.locais_de_acidente_de_transito",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.perinecroscopia",
+    "confidence": 0.75
+   },
+   {
+    "path": "criminalistica.conceitos_e_pericia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.perinecroscopia",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminalistica.balistica_forense",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime.perinecroscopia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "criminalistica.conceitos_e_pericia",
+    "confidence": 0.7
+   },
+   {
+    "path": "criminalistica.local_de_crime",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "criminalistica.fotografia_e_representacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminalistica.local_de_crime",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "criminalistica.local_de_crime",
+    "confidence": 0.85
+   },
+   {
+    "path": "criminalistica.local_de_crime.vestigios_e_cadeia_de_custodia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

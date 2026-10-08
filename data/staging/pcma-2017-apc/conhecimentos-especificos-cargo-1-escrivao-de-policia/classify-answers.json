@@ -1,0 +1,402 @@
+{
+ "21": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.classificacao",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.responsabilidade_dos_agentes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_administrativo.controle_da_administracao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direito_administrativo.servicos_publicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.principios_fundamentais",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.eficacia_das_normas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.funcoes_essenciais_a_justica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.interpretacao_e_analogia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_tempo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual.crimes_contra_vulneravel",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.disposicoes_gerais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_contra_a_administracao_da_justica",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.receptacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.aplicacao_da_lei_processual",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interceptacao_e_sigilo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.liberdade_provisoria_e_fianca",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.habeas_corpus_e_revisao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.condicoes_da_acao_e_denuncia",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_hediondos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.organizacao_criminosa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

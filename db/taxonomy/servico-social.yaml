@@ -2,3 +2,5 @@ subject: servico-social
 name: Serviço Social
 topics:
   - {slug: servico-social-geral, name: "Serviço social: fundamentos e instrumentos"}
+  - {slug: politicas-sociais, name: "Políticas sociais e assistência social"}
+  - {slug: etica-profissional, name: "Ética profissional e legislação do serviço social"}

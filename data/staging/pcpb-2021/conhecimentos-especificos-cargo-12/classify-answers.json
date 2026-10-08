@@ -1,0 +1,300 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "quimica.estrutura_atomica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "quimica.ligacoes_quimicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "quimica.funcoes_inorganicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.equilibrio_quimico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "quimica.eletroquimica",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "quimica.ligacoes_quimicas",
+    "confidence": 0.8
+   },
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.7
+   },
+   {
+    "path": "quimica.quimica_organica.funcoes_organicas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica.reacoes_organicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica.polimeros_e_biomoleculas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica",
+    "confidence": 0.75
+   },
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.8
+   },
+   {
+    "path": "quimica.quimica_organica.polimeros_e_biomoleculas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Quimiometria: estatística aplicada, planejamento de experimentos e validação de métodos"
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   },
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

@@ -1,0 +1,296 @@
+{
+ "21": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.identificacao_civil",
+    "confidence": 0.65
+   },
+   {
+    "path": "legislacao_penal_especial.contravencoes_penais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.ato_infracional",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
+    "confidence": 0.75
+   },
+   {
+    "path": "legislacao_penal_especial.eca",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_idoso",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.interceptacao_telefonica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.interceptacao_telefonica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direito_eleitoral.direitos_politicos_e_alistamento",
+    "confidence": 0.55
+   },
+   {
+    "path": "direito_eleitoral.partidos_e_candidaturas",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Garantias eleitorais: prisão em período eleitoral (Código Eleitoral, arts. 234–239)"
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_idoso",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_sistema_financeiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_sistema_financeiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direito_eleitoral.crimes_eleitorais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.crimes_do_eca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Juizados Especiais Federais (Lei nº 10.259/2001): competência cível"
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.execucao_penal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_a_ordem_tributaria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_consumidor",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.organizacao_e_atribuicoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.organizacao_e_atribuicoes",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.deveres_e_responsabilidades",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

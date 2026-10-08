@@ -55,6 +55,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     rev_sample.add_argument("--n", type=int, default=10)
     rev_approve = rev_commands.add_parser("approve", help="publica a prova após a amostragem")
     rev_approve.add_argument("exam", help="<concurso>/<prova>")
+    rev_approve.add_argument("--by", help="quem conferiu a amostra (modelo e versão do agente)")
+    rev_topics = rev_commands.add_parser(
+        "topics", help="amostra de classificações por assunto para conferência"
+    )
+    rev_topics.add_argument("--n", type=int, default=50)
+    rev_topics.add_argument("--seed", default=review.TOPIC_SAMPLE_SEED)
+    rev_topics.add_argument("--report", action="store_true", help="conta os vereditos gravados")
 
     crawl_cmd = commands.add_parser("crawl", help="descobre provas nas fontes e propõe manifestos")
     crawl_cmd.add_argument("source", nargs="?", help="slug da fonte (ingest/sources.yaml)")
@@ -139,9 +146,22 @@ def _ingest(name: str, exam_slug: str | None, step: str | None) -> int:
 
 def _review(args: argparse.Namespace) -> int:
     try:
-        ref = review.ExamRef.parse(args.exam) if args.exam else None
+        exam_arg = getattr(args, "exam", None)
+        ref = review.ExamRef.parse(exam_arg) if exam_arg else None
         with db.connect() as conn:
-            if args.review_command == "list":
+            if args.review_command == "topics":
+                if args.report:
+                    report = review.topic_sample_report(fetch.data_dir())
+                    accuracy = f"{report.accuracy:.0%}" if report.accuracy is not None else "—"
+                    print(
+                        f"assuntos: {report.judged}/{report.total} conferidas,"
+                        f" {report.ok} corretas ({accuracy})"
+                    )
+                else:
+                    print(
+                        f"amostra: {review.write_topic_sample(conn, args.n, fetch.data_dir(), args.seed)}"
+                    )
+            elif args.review_command == "list":
                 rows = review.list_review(conn, ref)
                 for exam, number, reasons in rows:
                     print(f"{exam} {number:>4}  {'; '.join(reasons)}")
@@ -164,7 +184,7 @@ def _review(args: argparse.Namespace) -> int:
                 print(f"amostra: {page}")
             elif args.review_command == "approve":
                 assert ref is not None
-                published, left = review.approve(conn, ref, fetch.data_dir())
+                published, left = review.approve(conn, ref, fetch.data_dir(), args.by)
                 conn.commit()
                 print(f"{ref} publicada: {published} questão(ões) visíveis, {left} fora")
     except review.ReviewError as error:

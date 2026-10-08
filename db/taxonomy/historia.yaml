@@ -1,5 +1,28 @@
 subject: historia
 name: História
 topics:
-  - {slug: historia-do-brasil, name: "História do Brasil"}
-  - {slug: historia-regional, name: "História regional"}
+  - slug: historia-geral
+    name: História geral
+    children:
+      - {slug: antiguidade-e-idade-media, name: "Antiguidade e Idade Média"}
+      - {slug: idade-moderna, name: "Idade Moderna"}
+      - {slug: idade-contemporanea, name: "Idade Contemporânea"}
+  - slug: historia-do-brasil
+    name: História do Brasil
+    children:
+      - {slug: brasil-colonia, name: "Brasil colônia"}
+      - {slug: brasil-imperio, name: "Independência e Brasil império"}
+      - {slug: escravidao-e-abolicao, name: "Escravidão e abolição"}
+      - {slug: primeira-republica, name: "Primeira República"}
+      - {slug: era-vargas, name: "Era Vargas"}
+      - {slug: periodo-democratico-1946-1964, name: "Período democrático (1946–1964)"}
+      - {slug: ditadura-militar, name: "Ditadura militar"}
+      - {slug: redemocratizacao, name: "Redemocratização e Nova República"}
+      - {slug: populacoes-indigenas, name: "Populações indígenas e política indigenista"}
+  - slug: historia-regional
+    name: História regional
+    children:
+      - {slug: periodo-colonial, name: "Período colonial no estado ou região"}
+      - {slug: formacao-e-emancipacao, name: "Formação do estado e emancipação política"}
+      - {slug: seculo-xx-e-atualidade, name: "Século XX e atualidade"}
+      - {slug: movimentos-e-cultura, name: "Movimentos sociais, cultura e patrimônio"}

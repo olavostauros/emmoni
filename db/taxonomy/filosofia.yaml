@@ -2,3 +2,5 @@ subject: filosofia
 name: Filosofia
 topics:
   - {slug: etica-e-filosofia, name: "Ética e filosofia"}
+  - {slug: filosofia-politica, name: "Filosofia política e do direito"}
+  - {slug: teoria-do-conhecimento, name: "Teoria do conhecimento e lógica"}

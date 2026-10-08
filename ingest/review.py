@@ -2,9 +2,13 @@
 
 - `list`/`show`: questões em `review`, com os motivos gravados pela etapa `validate`.
 - `sample`: sorteia N questões publicáveis de uma prova e gera um HTML com cada questão ao lado da
-  página do PDF original, para conferência humana. O sorteio é determinístico por prova.
-- `approve`: publica a **prova** (`exam.publish_status = 'published'`) depois da amostragem. É um
-  ato humano: o comando exige que a amostra tenha sido gerada e registra quem aprovou.
+  página do PDF original, para a conferência do agente revisor (decisão 0011). O sorteio é determinístico por prova.
+- `approve`: publica a **prova** (`exam.publish_status = 'published'`) depois da amostragem. O
+  comando exige que a amostra tenha sido gerada e registra quem aprovou (`--by`, o modelo).
+- `topics`: amostra determinística de N questões classificadas, de todas as provas reais, para
+  conferir a qualidade da classificação por assunto (critério do M4: 50 amostras, ≥ 90% de
+  acerto). Gera `data/review/assuntos/amostra.json` (onde o revisor grava `verdict`) e
+  `amostra.md`; `--report` conta os vereditos.
 """
 
 import base64
@@ -155,7 +159,7 @@ def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path) -> Path:
     return page
 
 
-def approve(conn: Conn, ref: ExamRef, data: Path) -> tuple[int, int]:
+def approve(conn: Conn, ref: ExamRef, data: Path, by: str | None = None) -> tuple[int, int]:
     """Publica a prova. Devolve (questões publicadas, questões que ficam de fora)."""
     record_path = sample_dir(data, ref) / "sample.json"
     if not record_path.exists():
@@ -172,9 +176,135 @@ def approve(conn: Conn, ref: ExamRef, data: Path) -> tuple[int, int]:
     assert row is not None
     record = json.loads(record_path.read_text(encoding="utf-8"))
     record["approved_at"] = datetime.datetime.now(datetime.UTC).isoformat()
-    record["approved_by"] = getpass.getuser()
+    record["approved_by"] = by or getpass.getuser()
     record_path.write_text(json.dumps(record, indent=1), encoding="utf-8")
     return int(str(row[0])), int(str(row[1]))
+
+
+TOPIC_SAMPLE_SEED = "assuntos"
+VERDICTS = ("ok", "wrong")
+
+
+@dataclass(frozen=True)
+class TopicSampleItem:
+    id: str
+    exam: str
+    number: int
+    subject: str
+    passage_md: str | None
+    statement_md: str
+    topics: list[str]  # "path — nome"
+
+
+def sample_topics(conn: Conn, n: int, seed: str = TOPIC_SAMPLE_SEED) -> list[TopicSampleItem]:
+    """Sorteio determinístico entre as questões reais classificadas e sem pendência de revisão."""
+    rows = conn.execute(
+        """select q.id::text, c.slug || '/' || e.slug, q.number, s.name, p.body_md, q.statement_md,
+                  array_agg(t.path::text || ' — ' || t.name order by t.path)
+             from question q
+             join exam e on e.id = q.exam_id
+             join contest c on c.id = e.contest_id
+             join subject s on s.id = q.subject_id
+             join question_topic qt on qt.question_id = q.id
+             join topic t on t.id = qt.topic_id
+             left join passage p on p.id = q.passage_id
+            where c.slug not like 'seed-%%' and q.publish_status <> 'review'
+            group by q.id, c.slug, e.slug, q.number, s.name, p.body_md, q.statement_md
+            order by c.slug, e.slug, q.number"""
+    ).fetchall()
+    if not rows:
+        raise ReviewError("nenhuma questão classificada para amostrar")
+    chosen = random.Random(seed).sample(rows, min(n, len(rows)))
+    items = [
+        TopicSampleItem(
+            id=str(r[0]),
+            exam=str(r[1]),
+            number=int(str(r[2])),
+            subject=str(r[3]),
+            passage_md=None if r[4] is None else str(r[4]),
+            statement_md=str(r[5]),
+            topics=list(r[6]),  # type: ignore[call-overload]
+        )
+        for r in chosen
+    ]
+    return sorted(items, key=lambda i: (i.exam, i.number))
+
+
+def topic_sample_dir(data: Path) -> Path:
+    return data / "review" / "assuntos"
+
+
+def write_topic_sample(conn: Conn, n: int, data: Path, seed: str = TOPIC_SAMPLE_SEED) -> Path:
+    items = sample_topics(conn, n, seed)
+    directory = topic_sample_dir(data)
+    directory.mkdir(parents=True, exist_ok=True)
+    record = {
+        "created_at": datetime.datetime.now(datetime.UTC).isoformat(),
+        "seed": seed,
+        "items": [
+            {
+                "id": i.id,
+                "exam": i.exam,
+                "number": i.number,
+                "subject": i.subject,
+                "topics": i.topics,
+                "verdict": None,  # "ok" | "wrong", preenchido pelo agente revisor
+                "note": "",
+                "reviewed_by": None,
+            }
+            for i in items
+        ],
+    }
+    (directory / "amostra.json").write_text(
+        json.dumps(record, indent=1, ensure_ascii=False), encoding="utf-8"
+    )
+    lines = [
+        "# Amostra de classificação por assunto",
+        "",
+        f"{len(items)} questões sorteadas (semente `{seed}`). Para cada uma, confira se os assuntos",
+        "atribuídos descrevem o conteúdo cobrado e grave `verdict` (`ok` ou `wrong`) e, se quiser,",
+        "`note` em `amostra.json`. Depois: `emmoni review topics --report`.",
+        "",
+    ]
+    for i in items:
+        lines += [f"## {i.exam} — questão {i.number} ({i.subject})", ""]
+        if i.passage_md:
+            lines += ["**Texto-base**", "", i.passage_md, ""]
+        lines += [i.statement_md, "", "**Assuntos atribuídos:**", ""]
+        lines += [f"- `{t}`" for t in i.topics]
+        lines.append("")
+    page = directory / "amostra.md"
+    page.write_text("\n".join(lines), encoding="utf-8")
+    return page
+
+
+@dataclass(frozen=True)
+class TopicSampleReport:
+    total: int
+    judged: int
+    ok: int
+
+    @property
+    def accuracy(self) -> float | None:
+        return self.ok / self.judged if self.judged else None
+
+
+def topic_sample_report(data: Path) -> TopicSampleReport:
+    path = topic_sample_dir(data) / "amostra.json"
+    if not path.exists():
+        raise ReviewError("gere a amostra antes (emmoni review topics)")
+    record = json.loads(path.read_text(encoding="utf-8"))
+    items = record["items"]
+    for item in items:
+        if item["verdict"] not in (None, *VERDICTS):
+            raise ReviewError(
+                f"{item['exam']} questão {item['number']}: veredito inválido {item['verdict']!r}"
+                f" (use {' ou '.join(VERDICTS)})"
+            )
+    judged = [i for i in items if i["verdict"] is not None]
+    return TopicSampleReport(
+        total=len(items), judged=len(judged), ok=sum(i["verdict"] == "ok" for i in judged)
+    )
 
 
 def _page_png(pdf_path: str | None, page: int) -> str | None:

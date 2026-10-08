@@ -1,0 +1,438 @@
+{
+ "21": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.impulso_e_quantidade_de_movimento",
+    "confidence": 0.85
+   },
+   {
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.cinematica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade.eletrodinamica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade.eletrodinamica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.estatica_e_hidrostatica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.7
+   },
+   {
+    "path": "quimica.materia_e_substancias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "quimica.ligacoes_quimicas",
+    "confidence": 0.75
+   },
+   {
+    "path": "quimica.estrutura_atomica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "quimica.funcoes_inorganicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.gases",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.75
+   },
+   {
+    "path": "quimica.termoquimica",
+    "confidence": 0.7
+   },
+   {
+    "path": "quimica.cinetica_quimica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "quimica.equilibrio_quimico",
+    "confidence": 0.8
+   },
+   {
+    "path": "quimica.eletroquimica",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica",
+    "confidence": 0.8
+   },
+   {
+    "path": "quimica.estrutura_atomica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "biologia.biologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.85
+   },
+   {
+    "path": "biologia.microbiologia_e_doencas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "biologia.genetica",
+    "confidence": 0.8
+   },
+   {
+    "path": "biologia.bioquimica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.9
+   },
+   {
+    "path": "biologia.histologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "biologia.bioquimica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "biologia.evolucao",
+    "confidence": 0.8
+   },
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.conceitos_e_principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao.lancamentos",
+    "confidence": 0.85
+   },
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.analise_de_demonstracoes",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Contabilidade de custos: análise custo-volume-lucro e ponto de equilíbrio"
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.contabilidade_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.ativos_e_passivos.estoques",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis",
+    "confidence": 0.85
+   },
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "psicologia.psicopatologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "psicologia.psicologia_geral",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Código de Ética Profissional do Psicólogo"
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "psicologia.psicologia_geral",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "psicologia.psicologia_juridica",
+    "confidence": 0.75
+   },
+   {
+    "path": "psicologia.psicopatologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "psicologia.psicologia_juridica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "psicologia.psicologia_juridica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "servico_social.politicas_sociais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "servico_social.servico_social_geral",
+    "confidence": 0.85
+   },
+   {
+    "path": "servico_social.etica_profissional",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "servico_social.servico_social_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "servico_social.politicas_sociais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "servico_social.politicas_sociais",
+    "confidence": 0.7
+   },
+   {
+    "path": "servico_social.servico_social_geral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "servico_social.politicas_sociais",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "servico_social.servico_social_geral",
+    "confidence": 0.8
+   },
+   {
+    "path": "servico_social.etica_profissional",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

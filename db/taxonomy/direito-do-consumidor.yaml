@@ -2,4 +2,7 @@ subject: direito-do-consumidor
 name: Direito do Consumidor
 topics:
   - {slug: relacao-de-consumo, name: "Relação de consumo"}
+  - {slug: direitos-basicos, name: "Direitos básicos do consumidor"}
+  - {slug: responsabilidade, name: "Responsabilidade pelo fato e pelo vício do produto ou serviço"}
+  - {slug: praticas-abusivas, name: "Práticas abusivas, publicidade e proteção contratual"}
   - {slug: crimes-contra-o-consumidor, name: "Crimes contra o consumidor"}

@@ -1,6 +1,25 @@
 subject: quimica
 name: Química
 topics:
+  - {slug: estrutura-atomica, name: "Estrutura atômica e modelos atômicos"}
   - {slug: tabela-periodica, name: "Tabela periódica"}
   - {slug: ligacoes-quimicas, name: "Ligações e interações químicas"}
+  - {slug: funcoes-inorganicas, name: "Funções inorgânicas: ácidos, bases, sais e óxidos"}
   - {slug: reacoes-quimicas, name: "Reações e estequiometria"}
+  - {slug: gases, name: "Gases"}
+  - {slug: solucoes, name: "Soluções e propriedades coligativas"}
+  - {slug: termoquimica, name: "Termoquímica"}
+  - {slug: cinetica-quimica, name: "Cinética química"}
+  - {slug: equilibrio-quimico, name: "Equilíbrio químico e pH"}
+  - {slug: eletroquimica, name: "Eletroquímica e oxirredução"}
+  - {slug: radioatividade, name: "Radioatividade"}
+  - slug: quimica-organica
+    name: Química orgânica
+    children:
+      - {slug: funcoes-organicas, name: "Funções orgânicas e nomenclatura"}
+      - {slug: isomeria, name: "Isomeria"}
+      - {slug: reacoes-organicas, name: "Reações orgânicas"}
+      - {slug: polimeros-e-biomoleculas, name: "Polímeros e biomoléculas"}
+  - {slug: quimica-analitica, name: "Química analítica e instrumental (cromatografia, espectrometria)"}
+  - {slug: quimica-forense, name: "Química forense: drogas, explosivos e resíduos"}
+  - {slug: materia-e-substancias, name: "Matéria, substâncias, misturas e separação"}

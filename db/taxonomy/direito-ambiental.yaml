@@ -1,7 +1,13 @@
 subject: direito-ambiental
 name: Direito Ambiental
 topics:
-  - {slug: licenciamento, name: "Licenciamento ambiental"}
-  - {slug: crimes-ambientais, name: "Crimes ambientais"}
-  - {slug: biodiversidade, name: "Biodiversidade, biossegurança e conhecimento tradicional"}
   - {slug: principios, name: "Princípios do direito ambiental"}
+  - {slug: competencias, name: "Competências ambientais e meio ambiente na Constituição"}
+  - {slug: politica-nacional, name: "Política Nacional do Meio Ambiente e SISNAMA"}
+  - {slug: licenciamento, name: "Licenciamento ambiental"}
+  - {slug: responsabilidade, name: "Responsabilidade civil e administrativa por dano ambiental"}
+  - {slug: crimes-ambientais, name: "Crimes ambientais"}
+  - {slug: codigo-florestal, name: "Código Florestal: APP e reserva legal"}
+  - {slug: unidades-de-conservacao, name: "Unidades de conservação (SNUC)"}
+  - {slug: biodiversidade, name: "Biodiversidade, biossegurança e conhecimento tradicional"}
+  - {slug: residuos-e-poluicao, name: "Resíduos sólidos, poluição e recursos hídricos"}

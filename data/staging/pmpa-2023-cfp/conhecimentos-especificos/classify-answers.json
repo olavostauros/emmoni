@@ -1,0 +1,418 @@
+{
+ "21": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.reparticao_de_competencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa.centralizacao_e_descentralizacao",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.extincao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_espaco",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direito_penal.penas.concurso_de_crimes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.aplicacao_da_lei_processual",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.prazos_e_arquivamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_processual_penal.provas.provas_ilicitas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crime_militar",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crime_militar",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.penas_e_medidas_de_seguranca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.policia_judiciaria_militar_e_ipm",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.provas_e_procedimentos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.policia_judiciaria_militar_e_ipm",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_hediondos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_de_transito",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao",
+    "confidence": 0.75
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.deveres_e_etica",
+    "confidence": 0.6
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_institucional.organizacao_da_corporacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.ingresso_e_carreira",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_institucional.estatuto_da_corporacao.direitos_e_prerrogativas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.8
+   },
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

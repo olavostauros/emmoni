@@ -1,5 +1,12 @@
 subject: direito-financeiro
 name: Direito Financeiro
 topics:
-  - {slug: orcamento-publico, name: "Orçamento público"}
+  - slug: orcamento-publico
+    name: Orçamento público
+    children:
+      - {slug: principios-orcamentarios, name: "Princípios orçamentários"}
+      - {slug: leis-orcamentarias, name: "PPA, LDO e LOA"}
   - {slug: receita-e-despesa, name: "Receita e despesa pública"}
+  - {slug: lrf, name: "Lei de Responsabilidade Fiscal"}
+  - {slug: divida-publica, name: "Dívida e crédito público"}
+  - {slug: controle-e-fiscalizacao, name: "Controle e fiscalização financeira"}

@@ -1,0 +1,610 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.argumentacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.variacao_linguistica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.semantica.conotacao_e_figuras",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.era_vargas",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.periodo_democratico_1946_1964",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.periodo_democratico_1946_1964",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_do_brasil.ditadura_militar",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.redemocratizacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.ditadura_militar",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.periodo_democratico_1946_1964",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.periodo_democratico_1946_1964",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.movimentos_e_cultura",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.movimentos_e_cultura",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.movimentos_e_cultura",
+    "confidence": 0.7
+   },
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.movimentos_e_cultura",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.movimentos_e_cultura",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.transportes_e_infraestrutura",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.urbanizacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_geral.globalizacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.questoes_ambientais",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.questoes_ambientais",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "matematica.probabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "matematica.trigonometria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

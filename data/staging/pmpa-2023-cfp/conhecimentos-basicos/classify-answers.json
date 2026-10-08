@@ -1,0 +1,222 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.65
+   },
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.65
+   },
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.65
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.pronomes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.75
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.65
+   },
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.65
+   },
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.internet_e_intranet",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.7
+   },
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.navegadores",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.conjuntos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.tautologia_e_contradicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.quantificadores",
+    "confidence": 0.65
+   },
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

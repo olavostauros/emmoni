@@ -1,34 +1,32 @@
-# Status — atualizado em 2026-10-07
+# Status — atualizado em 2026-10-08
 
-**Marco atual:** M3 — Crawling — **pronto**; ingestão dos 36 manifestos aprovados feita (decisão 0009)
-**Próximo marco:** M4 — Taxonomia e classificação
+**Marco atual:** M4 — Taxonomia e classificação — falta só a conferência humana da amostra de assuntos
+**Próximo marco:** M5 — Mais bancas
 **Últimos marcos concluídos:** M0 — Fundação · M1 — Esquema e contrato · M2 — Primeira ingestão · M3 — Crawling (2026-10-07)
 
 ## Feito neste marco
-- Crawler do Cebraspe pela API JSON (`ingest/crawlers/cebraspe.py`), orquestração com estado em
-  `crawl.page` e cache em `data/crawl/` (`ingest/crawl.py`), propostas e aprovação
-  (`ingest/proposals.py`, `emmoni manifests`), `emmoni crawl` / `make crawl` (decisão 0007).
-- Execução real: os 5 concursos de PF e PRF do M2 foram redescobertos com 36/36 documentos dos
-  manifestos manuais; 3 concursos novos propostos (PCDF 2019, 2020 e 2026). PCDF entrou no
-  catálogo.
-- 51 testes novos com fixtures JSON em `fixtures/crawl/cebraspe/`; `docs/operations.md` com o
-  agendamento diário.
-- 25 órgãos estaduais, DEPEN e SEAP-MA no catálogo com apelidos de cargo; regras novas do
-  crawler; `make crawl` corrigido (contato exportado; erro de configuração não grava estado).
-  35 propostas pendentes (decisão 0008).
+- Taxonomia ampliada para 863 assuntos; questão sem assunto confiante fica `draft` e volta às
+  tarefas, e `review` passa a significar só defeito de extração (decisão 0010).
+- Classificação das 108 provas pelo agente: 6.472 classificadas, 62 sem assunto confiante.
+- `emmoni review topics --n 50` / `--report`: amostra gerada em `data/review/assuntos/`, sem
+  vereditos (registro de 2026-10-08).
+- Revisão humana substituída pela revisão do agente nos três pontos (decisão 0011).
 
 ## Em andamento
 - Nada em execução.
 
 ## Próximos passos
-1. M4 — classificar por assunto as 3.732 questões `draft` (só falta assunto) e revisar as 1.693
-   em `review`; depois amostragem humana (`emmoni review sample/approve`) das 103 provas novas.
-2. M4 — crescer a taxonomia a partir de `docs/progress/2026-10-07-sugestoes-de-assuntos.md`
-   (728 sugestões; 462 questões em `review` só por falta de assunto) e reclassificar. Ao reclassificar,
-   as duplicatas entre cargos hoje escondidas pelo `review` passam a ser marcadas (eram 161 antes
-   da classificação, hoje 105).
-3. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
-4. Etapa `structure` e exportação de imagens para as 210 questões com problema de extração.
+1. **Agente revisor** (decisão 0011): conferir `data/review/assuntos/amostra.md` em contexto
+   separado do `classify` e gravar `verdict` e `reviewed_by` em `amostra.json`;
+   `emmoni review topics --report`. ≥ 90% fecha o M4.
+2. Amostragem por prova pelo agente (`emmoni review sample` / `approve --by <modelo>`) das 90
+   provas novas para publicá-las no `api`.
+3. Os 62 sem assunto: conferir se a disciplina do manifesto está certa antes de criar assunto
+   novo; depois reclassificar.
+4. `ingest --step load` deveria seguir para as provas seguintes quando uma falha.
+5. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
+6. Etapa `structure` e exportação de imagens para as questões em `review` por figura, fórmula e
+   layout (1.231).
 
 ## Bloqueios e perguntas em aberto
 - OCR (PDFs digitalizados) e itens sem gabarito legível: ver decisão 0009, adendo.
@@ -38,8 +36,6 @@
   Polícia Científica; decidir se entra como alias de `pcpe`.
 - PCDF 2019: um caderno com dois gabaritos definitivos (básicos e específicos); o manifesto aceita
   um gabarito por prova. Mudar o modelo ou juntar os PDFs à mão na aprovação.
-- Decidir (M4) se questão sem assunto adequado deve ser `draft` em vez de `review`: hoje ela sai
-  da deduplicação junto com as de extração incompleta.
 - O registro de aprovação de provas (`data/review/<concurso>/<prova>/sample.json`) está no
   `.gitignore`: a aprovação só existe no banco de desenvolvimento. Decidir se vale versionar.
 - DPF 2014 (API do Cebraspe dá erro 500, tentado de novo diariamente) e concursos anteriores a
@@ -48,11 +44,11 @@
 - Folga pequena em `facet_counts` sem filtros (281/300 ms), prevista na decisão 0002.
 
 ## Números
-- Questões visíveis no esquema `api`: 784 (65 do seed + 719 reais) — nenhuma prova nova publicada
-- Reais: 6.249 carregadas (39 concursos, 108 provas) · 824 `published` · 1.693 `review` ·
-  3.732 `draft` (sem assunto) · 226 duplicatas marcadas
-- Provas ingeridas: 108 (18 aprovadas na amostragem; 103 novas sem amostragem; 4 provas não
-  carregadas: DEPEN 2020, CBM/AL 2017 básicos cargo 1, PCDF 2020 básicos, PM/TO 2020 QPE)
-- Propostas do crawler pendentes: 0 · manifestos aprovados: 41 (5 ingeridos) · rejeitados: 1
-- Concursos vistos pelo crawler no Cebraspe: 498 (440 fora do escopo, 49 de órgãos candidatos)
-- Contrato do front-end: **v1.1** (tabela `exam_document` é interna, fora do `api`)
+- Questões visíveis no esquema `api`: 1.188 (seed + as 18 provas aprovadas)
+- Reais: 6.249 carregadas (39 concursos, 108 provas) · 4.978 `published` (todas com assunto) ·
+  1.231 `review` (extração) · 40 `draft` · 282 duplicatas marcadas
+- Provas: 18 aprovadas na amostragem; 90 sem amostragem; 5 não carregadas (DEPEN 2020, CBM/AL
+  2017 básicos cargo 1, PCDF 2020 básicos, PM/TO 2020 QPE, PC/PB 2021 específicos cargo 8)
+- Propostas do crawler pendentes: 0 · manifestos aprovados: 41 · rejeitados: 1
+- Taxonomia: 56 disciplinas, 863 assuntos
+- Contrato do front-end: **v1.1** (sem mudança)

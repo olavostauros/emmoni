@@ -1,0 +1,214 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.preposicao_e_conjuncao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.85
+   },
+   {
+    "path": "redacao_oficial.padrao_oficio",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.8
+   },
+   {
+    "path": "redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "estatistica.variaveis_aleatorias.distribuicao_normal",
+    "confidence": 0.8
+   },
+   {
+    "path": "estatistica.variaveis_aleatorias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "estatistica.amostragem",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.nacionalidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.empresas_estatais",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.regime_disciplinar",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

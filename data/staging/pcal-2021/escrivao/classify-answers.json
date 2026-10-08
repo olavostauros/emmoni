@@ -1,0 +1,708 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.dispensa_e_inexigibilidade",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.lei_14133",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.modalidades_e_pregao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.empresas_estatais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_hierarquico",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_hierarquico",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.classificacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.atributos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.nacionalidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.lesao_corporal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.periclitacao_e_rixa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_liberdade_pessoal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.outros_crimes_contra_a_vida",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.penas.efeitos_da_condenacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.estelionato",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.acao_penal",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.corrupcao_ativa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.corrupcao_ativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.extorsao",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.concussao_e_excesso_de_exacao",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.liberdade_provisoria_e_fianca",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.prazos_e_arquivamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.prisao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.identificacao_criminal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.prazos_e_arquivamento",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.aplicacao_da_lei_processual",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.aplicacao_da_lei_processual",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.justica_negocial",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.justica_negocial",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.justica_negocial",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.direitos_e_vantagens",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.direitos_e_vantagens",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.organizacao_e_poderes",
+    "confidence": 0.7
+   },
+   {
+    "path": "legislacao_estadual.constituicao_estadual",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.ministerio_publico_e_justica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.servidores_publicos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.organizacao_e_poderes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.organizacao_e_poderes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.organizacao_e_atribuicoes",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.organizacao_e_atribuicoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

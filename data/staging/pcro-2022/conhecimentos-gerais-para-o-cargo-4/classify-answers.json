@@ -1,0 +1,336 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.pronomes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.6
+   },
+   {
+    "path": "lingua_portuguesa.morfologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.8
+   },
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional",
+    "confidence": 0.75
+   },
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.questoes_ambientais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.7
+   },
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.questoes_ambientais",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_geral.geografia_fisica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.65
+   },
+   {
+    "path": "historia.historia_regional.seculo_xx_e_atualidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.transportes_e_infraestrutura",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.transportes_e_infraestrutura",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

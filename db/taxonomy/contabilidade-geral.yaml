@@ -1,18 +1,40 @@
 subject: contabilidade-geral
 name: Contabilidade Geral
 topics:
+  - slug: conceitos-e-principios
+    name: Conceitos, objetivos e estrutura conceitual
   - slug: patrimonio
     name: Patrimônio e equação patrimonial
+  - slug: contas-e-plano-de-contas
+    name: Contas e plano de contas
   - slug: fatos-contabeis
     name: Fatos contábeis
+  - slug: regimes-de-competencia-e-caixa
+    name: Regime de competência e regime de caixa
   - slug: escrituracao
     name: Escrituração contábil
+    children:
+      - {slug: balancete-de-verificacao, name: "Balancete de verificação"}
+      - {slug: lancamentos, name: "Lançamentos e livros contábeis"}
+  - slug: ativos-e-passivos
+    name: Ativos e passivos
+    children:
+      - {slug: estoques, name: "Estoques"}
+      - {slug: imobilizado-e-intangivel, name: "Ativo imobilizado e intangível"}
+      - {slug: depreciacao-amortizacao-e-exaustao, name: "Depreciação, amortização e exaustão"}
+      - {slug: perdas-estimadas, name: "Perdas estimadas com créditos de liquidação duvidosa"}
+      - {slug: provisoes-e-contingencias, name: "Provisões e passivos contingentes"}
   - slug: demonstracoes-contabeis
     name: Demonstrações contábeis
     children:
       - {slug: balanco-patrimonial, name: Balanço patrimonial}
       - {slug: dre, name: Demonstração do resultado do exercício}
+      - {slug: dfc, name: "Demonstração dos fluxos de caixa"}
+      - {slug: dmpl-e-dva, name: "DMPL, DVA e notas explicativas"}
+      - {slug: analise-de-demonstracoes, name: "Análise das demonstrações contábeis"}
   - slug: pronunciamentos-cpc
     name: Pronunciamentos do CPC
+  - slug: lei-das-sociedades-por-acoes
+    name: Lei nº 6.404/1976 (aspectos contábeis)
   - slug: contabilidade-publica
     name: Contabilidade aplicada ao setor público

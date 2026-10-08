@@ -1,7 +1,23 @@
 subject: fisica
 name: Física
 topics:
-  - {slug: ondulatoria, name: "Ondulatória"}
-  - {slug: eletricidade, name: "Eletricidade e eletrostática"}
+  - {slug: unidades-e-medidas, name: "Grandezas, unidades e vetores"}
+  - slug: mecanica
+    name: Mecânica
+    children:
+      - {slug: cinematica, name: "Cinemática"}
+      - {slug: dinamica, name: "Dinâmica e leis de Newton"}
+      - {slug: trabalho-e-energia, name: "Trabalho, energia e potência"}
+      - {slug: impulso-e-quantidade-de-movimento, name: "Impulso, quantidade de movimento e colisões"}
+      - {slug: estatica-e-hidrostatica, name: "Estática e hidrostática"}
+      - {slug: gravitacao, name: "Gravitação"}
+  - {slug: termologia, name: "Termologia: termometria, calorimetria e termodinâmica"}
+  - {slug: ondulatoria, name: "Ondulatória e acústica"}
   - {slug: optica, name: "Óptica"}
-  - {slug: mecanica, name: "Mecânica"}
+  - slug: eletricidade
+    name: Eletricidade e eletrostática
+    children:
+      - {slug: eletrostatica, name: "Eletrostática"}
+      - {slug: eletrodinamica, name: "Eletrodinâmica e circuitos"}
+      - {slug: eletromagnetismo, name: "Eletromagnetismo"}
+  - {slug: fisica-moderna, name: "Física moderna"}

@@ -1,0 +1,226 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.reparticao_de_competencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.processo_legislativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.classificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.abuso_de_poder",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.tempo_do_crime",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual.crimes_contra_vulneravel",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual.crimes_contra_vulneravel",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_tortura",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.policia_judiciaria",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.prisao.prisao_temporaria",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

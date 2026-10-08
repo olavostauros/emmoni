@@ -1,0 +1,406 @@
+{
+ "41": {
+  "topics": [
+   {
+    "path": "administracao_geral.processo_administrativo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas.comunicacao_e_equipes",
+    "confidence": 0.8
+   },
+   {
+    "path": "administracao_geral.gestao_de_pessoas.lideranca_e_motivacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_da_qualidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_projetos_e_processos",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Administração de recursos materiais e patrimoniais (compras e estoques)"
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_executivo",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.defesa_do_estado",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.extincao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.atos_administrativos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_administrativo.convenios_e_consorcios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.concurso_de_pessoas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.roubo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.interpretacao_e_analogia",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.roubo",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.dolo_e_culpa",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.policia_judiciaria",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.reconhecimento_e_acareacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.sujeitos_processuais.assistente_e_auxiliares",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.organizacao_criminosa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_tortura",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.penas_e_medidas_de_seguranca",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.penas_e_medidas_de_seguranca",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crimes_em_especie",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.organizacao_da_justica_militar",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.provas_e_procedimentos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.policia_judiciaria_militar_e_ipm",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.policia_judiciaria_militar_e_ipm",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.policia_judiciaria_militar_e_ipm",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

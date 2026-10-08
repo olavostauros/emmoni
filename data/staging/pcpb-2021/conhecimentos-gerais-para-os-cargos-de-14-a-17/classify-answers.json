@@ -1,0 +1,218 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.conotacao_e_figuras",
+    "confidence": 0.75
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.95
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.pronomes",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.formacao_de_palavras",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.95
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.internet_e_intranet",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.navegadores",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.85
+   },
+   {
+    "path": "raciocinio_logico.raciocinio_espacial_e_temporal",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.conjuntos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

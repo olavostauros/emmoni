@@ -1,0 +1,618 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.argumentacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.pronomes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.vozes_verbais",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "matematica.unidades_de_medida",
+    "confidence": 0.85
+   },
+   {
+    "path": "matematica.problemas_aritmeticos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.85
+   },
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "matematica.geometria_espacial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "matematica.estatistica_basica.graficos_e_tabelas",
+    "confidence": 0.75
+   },
+   {
+    "path": "matematica.problemas_aritmeticos",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "matematica.funcoes",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.equacoes_e_inequacoes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "matematica.funcoes.quadratica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "matematica.estatistica_basica.media",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.estatistica_basica.graficos_e_tabelas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.respiratorio_e_circulatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.respiratorio_e_circulatorio",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.respiratorio_e_circulatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.respiratorio_e_circulatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.respiratorio_e_circulatorio",
+    "confidence": 0.75
+   },
+   {
+    "path": "biologia.fisiologia_humana.digestorio_e_excretor",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.digestorio_e_excretor",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.locomotor_e_imunologico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "biologia.histologia",
+    "confidence": 0.75
+   },
+   {
+    "path": "biologia.citologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.locomotor_e_imunologico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "biologia.fisiologia_humana.digestorio_e_excretor",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "quimica.estrutura_atomica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "quimica.eletroquimica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "quimica.eletroquimica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.termoquimica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "quimica.tabela_periodica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.estatica_e_hidrostatica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "fisica.termologia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade.eletrostatica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "fisica.eletricidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.6
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_legislativo",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_eleitoral.partidos_e_candidaturas",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_eleitoral.direitos_politicos_e_alistamento",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.autarquias_e_fundacoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crime_militar",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "legislacao_penal_militar.processo_penal_militar.acao_penal_e_competencia",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_penal_militar.codigo_penal_militar.crime_militar",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.classificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

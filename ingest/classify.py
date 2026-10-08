@@ -10,9 +10,12 @@ Não há chamada a API nenhuma. A etapa trabalha com dois arquivos no staging da
   no formato `{"12": {"topics": [{"path": ..., "confidence": ...}], "suggested_topic": ""}}`.
 
 A disciplina vem do manifesto; só são aceitos assuntos **dessa** disciplina que existam em
-`db/taxonomy/`. Resposta inválida (assunto de outra disciplina, confiança fora de [0, 1]) é
-rejeitada e a questão fica `review` com o motivo. Confiança < 0,6 → `review`. Sem resposta → a
-questão fica `draft` no `load`. As respostas ficam no staging: reprocessar não repete trabalho.
+`db/taxonomy/`. Resposta malformada (confiança fora de [0, 1]) derruba a etapa; assunto de outra
+disciplina manda a questão para `review` com o motivo. Resposta **sem assunto com confiança ≥ 0,6**
+não é um defeito da questão, e sim uma lacuna da taxonomia: a questão fica sem assunto (`draft` no
+`load`), a sugestão é registrada e a questão volta às tarefas, para ser reclassificada quando a
+taxonomia crescer (decisão 0010). Sem resposta → `draft`. As respostas ficam no staging:
+reprocessar não repete trabalho.
 """
 
 import json
@@ -49,6 +52,8 @@ class Classified(BaseModel):
     topics: dict[int, list[Assigned]]
     review: dict[int, str]  # número → motivo
     suggestions: dict[int, str]  # número → assunto sugerido (para curadoria da taxonomia)
+    # Respondidas sem assunto confiante: ficam `draft` e voltam às tarefas (decisão 0010).
+    unresolved: dict[int, str] = {}
 
 
 class TopicAnswer(BaseModel):
@@ -153,9 +158,12 @@ def classify(
             if accepted:
                 result.topics[question.number] = accepted[:MAX_TOPICS]
             else:
-                result.review[question.number] = (
-                    f"classificação com confiança abaixo de {MIN_CONFIDENCE} (assunto)"
+                # Lacuna da taxonomia, não defeito da questão: sem assunto, volta às tarefas.
+                result.unresolved[question.number] = (
+                    f"nenhum assunto com confiança ≥ {MIN_CONFIDENCE}"
                 )
+                passage = passages.get(question.passage_key) if question.passage_key else None
+                pending.append(task_for(question, passage, subject))
         if answer.suggested_topic:
             result.suggestions[question.number] = answer.suggested_topic
     return result, pending

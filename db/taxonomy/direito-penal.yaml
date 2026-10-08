@@ -1,23 +1,94 @@
 subject: direito-penal
 name: Direito Penal
 topics:
+  - slug: principios
+    name: Princípios do direito penal e teoria do bem jurídico
   - slug: aplicacao-da-lei-penal
     name: Aplicação da lei penal
     children:
       - {slug: tempo-do-crime, name: Tempo do crime}
       - {slug: lei-penal-no-tempo, name: Lei penal no tempo}
+      - {slug: lei-penal-no-espaco, name: "Lei penal no espaço: territorialidade, extraterritorialidade e lugar do crime"}
+      - {slug: imunidades, name: "Imunidades e eficácia de sentença estrangeira"}
+      - {slug: interpretacao-e-analogia, name: "Interpretação da lei penal, analogia e conflito aparente de normas"}
   - slug: teoria-do-crime
     name: Teoria do crime
     children:
+      - {slug: conceito-e-classificacao, name: "Conceito e classificação dos crimes"}
+      - {slug: fato-tipico, name: "Fato típico: conduta, resultado, nexo causal e tipicidade"}
       - {slug: iter-criminis, name: "Iter criminis, tentativa e desistência"}
-      - {slug: excludentes-de-ilicitude, name: Excludentes de ilicitude}
       - {slug: dolo-e-culpa, name: Dolo e culpa}
+      - {slug: erro, name: "Erro de tipo e erro de proibição"}
+      - {slug: excludentes-de-ilicitude, name: Excludentes de ilicitude}
+      - {slug: culpabilidade, name: "Culpabilidade e imputabilidade"}
+      - {slug: concurso-de-pessoas, name: "Concurso de pessoas"}
+  - slug: penas
+    name: Penas
+    children:
+      - {slug: especies-de-pena, name: "Espécies de pena: privativas de liberdade, restritivas de direitos e multa"}
+      - {slug: aplicacao-da-pena, name: "Aplicação da pena (dosimetria)"}
+      - {slug: concurso-de-crimes, name: "Concurso de crimes"}
+      - {slug: sursis-e-livramento-condicional, name: "Suspensão condicional da pena e livramento condicional"}
+      - {slug: medidas-de-seguranca, name: "Medidas de segurança"}
+      - {slug: efeitos-da-condenacao, name: "Efeitos da condenação e reabilitação"}
+  - slug: acao-penal
+    name: Ação penal no Código Penal
+  - slug: extincao-da-punibilidade
+    name: Extinção da punibilidade
+    children:
+      - {slug: prescricao, name: Prescrição}
   - slug: crimes-contra-a-pessoa
     name: Crimes contra a pessoa
     children:
       - {slug: homicidio, name: Homicídio}
+      - {slug: outros-crimes-contra-a-vida, name: "Induzimento ao suicídio, infanticídio e aborto"}
+      - {slug: lesao-corporal, name: "Lesão corporal"}
+      - {slug: periclitacao-e-rixa, name: "Periclitação da vida e da saúde; rixa"}
+      - {slug: crimes-contra-a-honra, name: "Crimes contra a honra"}
+      - {slug: crimes-contra-a-liberdade-pessoal, name: "Crimes contra a liberdade pessoal"}
+      - {slug: inviolabilidade-do-domicilio-e-segredos, name: "Inviolabilidade do domicílio, da correspondência e dos segredos"}
   - slug: crimes-contra-o-patrimonio
     name: Crimes contra o patrimônio
     children:
       - {slug: furto, name: Furto}
       - {slug: roubo, name: Roubo}
+      - {slug: extorsao, name: "Extorsão e extorsão mediante sequestro"}
+      - {slug: dano, name: Dano}
+      - {slug: apropriacao-indebita, name: "Apropriação indébita"}
+      - {slug: estelionato, name: "Estelionato e outras fraudes"}
+      - {slug: receptacao, name: "Receptação"}
+      - {slug: disposicoes-gerais, name: "Imunidades e disposições gerais"}
+  - slug: crimes-contra-a-dignidade-sexual
+    name: Crimes contra a dignidade sexual
+    children:
+      - {slug: estupro, name: "Estupro"}
+      - {slug: crimes-contra-vulneravel, name: "Crimes sexuais contra vulnerável"}
+      - {slug: assedio-e-importunacao, name: "Assédio sexual, importunação e outros crimes sexuais"}
+  - slug: crimes-contra-a-familia
+    name: Crimes contra a família
+  - slug: crimes-contra-a-incolumidade-publica
+    name: Crimes contra a incolumidade pública
+  - slug: crimes-contra-a-paz-publica
+    name: Crimes contra a paz pública (associação criminosa, incitação)
+  - slug: crimes-contra-a-fe-publica
+    name: Crimes contra a fé pública
+    children:
+      - {slug: moeda-falsa, name: "Moeda falsa"}
+      - {slug: falsidade-documental, name: "Falsidade documental e ideológica"}
+      - {slug: falsa-identidade, name: "Falsa identidade e outras falsidades"}
+  - slug: crimes-contra-a-administracao-publica
+    name: Crimes contra a Administração Pública
+    children:
+      - {slug: peculato, name: Peculato}
+      - {slug: concussao-e-excesso-de-exacao, name: "Concussão e excesso de exação"}
+      - {slug: corrupcao-passiva, name: "Corrupção passiva"}
+      - {slug: prevaricacao-e-condescendencia, name: "Prevaricação, condescendência criminosa e advocacia administrativa"}
+      - {slug: outros-crimes-de-funcionario, name: "Outros crimes praticados por funcionário público"}
+      - {slug: crimes-de-particular, name: "Crimes praticados por particular: resistência, desobediência, desacato, tráfico de influência"}
+      - {slug: corrupcao-ativa, name: "Corrupção ativa"}
+      - {slug: contrabando-e-descaminho, name: "Contrabando e descaminho"}
+      - {slug: crimes-contra-a-administracao-da-justica, name: "Crimes contra a administração da justiça"}
+  - slug: crimes-contra-o-estado-democratico-de-direito
+    name: Crimes contra o Estado democrático de direito
+  - slug: crimes-contra-a-organizacao-do-trabalho
+    name: Crimes contra a organização do trabalho e o sentimento religioso

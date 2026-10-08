@@ -2,3 +2,6 @@ subject: sociologia
 name: Sociologia
 topics:
   - {slug: sociologia-geral, name: "Sociologia geral"}
+  - {slug: classicos, name: "Autores clássicos: Durkheim, Weber e Marx"}
+  - {slug: sociedade-brasileira, name: "Sociedade brasileira"}
+  - {slug: violencia-e-criminalidade, name: "Violência, criminalidade e controle social"}

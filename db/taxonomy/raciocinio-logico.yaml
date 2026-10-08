@@ -4,15 +4,26 @@ topics:
   - slug: logica-proposicional
     name: Lógica proposicional
     children:
+      - {slug: proposicoes-e-conectivos, name: "Proposições, conectivos e tabelas-verdade"}
       - {slug: negacao, name: Negação de proposições}
       - {slug: equivalencias, name: Equivalências lógicas}
+      - {slug: quantificadores, name: "Quantificadores e lógica de primeira ordem"}
+      - {slug: tautologia-e-contradicao, name: "Tautologia, contradição e contingência"}
   - slug: logica-de-argumentacao
     name: Lógica de argumentação
   - slug: sequencias
-    name: Sequências numéricas
+    name: Sequências numéricas e padrões
   - slug: analise-combinatoria
     name: Análise combinatória
   - slug: conjuntos
     name: Conjuntos
   - slug: probabilidade
     name: Probabilidade
+  - slug: problemas-aritmeticos
+    name: Problemas aritméticos, geométricos e matriciais
+  - slug: associacao-logica
+    name: Associação lógica, verdades e mentiras, ordenação
+  - slug: raciocinio-espacial-e-temporal
+    name: Raciocínio espacial e temporal
+  - slug: principio-da-casa-dos-pombos
+    name: Princípio da casa dos pombos

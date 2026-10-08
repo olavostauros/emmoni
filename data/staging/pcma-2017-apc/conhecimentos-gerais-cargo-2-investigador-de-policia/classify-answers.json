@@ -1,0 +1,214 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.morfologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "administracao_geral.processo_administrativo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas.lideranca_e_motivacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.85
+   },
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   },
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.85
+   },
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "atualidades.educacao_e_direitos",
+    "confidence": 0.75
+   },
+   {
+    "path": "atualidades.sociedade_e_cultura",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "atualidades.seguranca_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.navegadores",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

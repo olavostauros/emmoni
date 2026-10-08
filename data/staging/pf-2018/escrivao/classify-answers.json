@@ -251,19 +251,41 @@
  "26": {
   "topics": [
    {
-    "path": "direito_administrativo.atos_administrativos",
-    "confidence": 0.5
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Controle da administração pública"
+  "suggested_topic": ""
  },
  "27": {
-  "topics": [],
-  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa.autarquias_e_fundacoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "28": {
-  "topics": [],
-  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa.autarquias_e_fundacoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "29": {
   "topics": [
@@ -284,12 +306,22 @@
   "suggested_topic": ""
  },
  "31": {
-  "topics": [],
-  "suggested_topic": "Direitos políticos"
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "32": {
-  "topics": [],
-  "suggested_topic": "Direitos políticos"
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "33": {
   "topics": [
@@ -301,8 +333,13 @@
   "suggested_topic": "Crimes contra a Administração Pública (contrabando)"
  },
  "34": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública (contrabando)"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "35": {
   "topics": [
@@ -316,11 +353,11 @@
  "36": {
   "topics": [
    {
-    "path": "direito_processual_penal.inquerito_policial",
-    "confidence": 0.5
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Provas (busca e apreensão)"
+  "suggested_topic": ""
  },
  "37": {
   "topics": [
@@ -332,8 +369,13 @@
   "suggested_topic": ""
  },
  "38": {
-  "topics": [],
-  "suggested_topic": "Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.ato_infracional",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "39": {
   "topics": [
@@ -347,11 +389,11 @@
  "40": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.lei_de_drogas",
-    "confidence": 0.5
+    "path": "legislacao_penal_especial.lei_de_migracao",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Lei de Migração (Lei nº 13.445/2017)"
+  "suggested_topic": ""
  },
  "41": {
   "topics": [
@@ -524,12 +566,22 @@
   "suggested_topic": ""
  },
  "59": {
-  "topics": [],
-  "suggested_topic": "Problemas aritméticos e sistemas de equações"
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "60": {
-  "topics": [],
-  "suggested_topic": "Problemas aritméticos e sistemas de equações"
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "61": {
   "topics": [
@@ -603,8 +655,13 @@
   "suggested_topic": ""
  },
  "68": {
-  "topics": [],
-  "suggested_topic": "Editores de texto e apresentações (Microsoft Office e LibreOffice)"
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "69": {
   "topics": [
@@ -661,52 +718,116 @@
   "suggested_topic": ""
  },
  "75": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "76": {
-  "topics": [],
-  "suggested_topic": "Computação em nuvem"
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "77": {
-  "topics": [],
-  "suggested_topic": "Computação em nuvem"
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "78": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "79": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "80": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "81": {
-  "topics": [],
-  "suggested_topic": "Metadados e formatos de arquivo"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.metadados_e_formatos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "82": {
-  "topics": [],
-  "suggested_topic": "Metadados e formatos de arquivo"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.metadados_e_formatos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "83": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.big_data",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "84": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.big_data",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.dados_e_informacao.mineracao_de_dados",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "85": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.aprendizado_de_maquina",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "86": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.aprendizado_de_maquina",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "87": {
   "topics": [
@@ -767,20 +888,44 @@
   "suggested_topic": ""
  },
  "93": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "94": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "95": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.mineracao_de_dados",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "96": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "97": {
   "topics": [

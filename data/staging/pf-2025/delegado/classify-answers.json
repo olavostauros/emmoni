@@ -9,32 +9,67 @@
   "suggested_topic": "Licitações e contratos administrativos"
  },
  "2": {
-  "topics": [],
-  "suggested_topic": "Convênios e contratos de repasse"
+  "topics": [
+   {
+    "path": "direito_administrativo.convenios_e_consorcios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "3": {
-  "topics": [],
-  "suggested_topic": "Convênios e contratos de repasse"
+  "topics": [
+   {
+    "path": "direito_administrativo.convenios_e_consorcios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "4": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "5": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "6": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "7": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "8": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "9": {
   "topics": [
@@ -73,16 +108,31 @@
   "suggested_topic": "Elementos (requisitos) do ato administrativo"
  },
  "13": {
-  "topics": [],
-  "suggested_topic": "Controle de constitucionalidade"
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade.controle_concentrado",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "14": {
-  "topics": [],
-  "suggested_topic": "Controle de constitucionalidade"
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade.controle_concentrado",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "15": {
-  "topics": [],
-  "suggested_topic": "Controle de constitucionalidade"
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade.controle_concentrado",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "16": {
   "topics": [
@@ -94,41 +144,80 @@
   "suggested_topic": ""
  },
  "17": {
-  "topics": [],
-  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.processo_legislativo",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_legislativo",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "18": {
-  "topics": [],
-  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.processo_legislativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "19": {
-  "topics": [],
-  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_legislativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "20": {
-  "topics": [],
-  "suggested_topic": "Poder Legislativo, Poder Executivo e processo legislativo"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_legislativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "21": {
   "topics": [
    {
-    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
-    "confidence": 0.5
+    "path": "direito_constitucional.ordem_social",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Ordem social"
+  "suggested_topic": ""
  },
  "22": {
-  "topics": [],
-  "suggested_topic": "Direitos indígenas"
+  "topics": [
+   {
+    "path": "direito_constitucional.ordem_social.indigenas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "23": {
-  "topics": [],
-  "suggested_topic": "Teoria da Constituição (conceitos e sentidos)"
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.conceito_e_classificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "24": {
-  "topics": [],
-  "suggested_topic": "Teoria da Constituição (conceitos e sentidos)"
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.conceito_e_classificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "25": {
   "topics": [
@@ -205,20 +294,20 @@
  "33": {
   "topics": [
    {
-    "path": "direitos_humanos.teoria_geral",
-    "confidence": 0.5
+    "path": "direitos_humanos.uso_da_forca",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Uso da força e armas de fogo (Lei nº 13.060/2014)"
+  "suggested_topic": ""
  },
  "34": {
   "topics": [
    {
-    "path": "direitos_humanos.teoria_geral",
-    "confidence": 0.5
+    "path": "direitos_humanos.uso_da_forca",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Uso da força e armas de fogo (Lei nº 13.060/2014)"
+  "suggested_topic": ""
  },
  "35": {
   "topics": [
@@ -239,12 +328,58 @@
   "suggested_topic": ""
  },
  "37": {
-  "topics": [],
-  "suggested_topic": "Direitos reais (posse e propriedade)"
+  "topics": [
+   {
+    "path": "direito_civil.direitos_reais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "38": {
-  "topics": [],
-  "suggested_topic": "Direitos reais (posse e propriedade)"
+  "topics": [
+   {
+    "path": "direito_civil.direitos_reais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": "Conexão e continência"
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "Homologação de decisão estrangeira"
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.acoes_constitucionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.acoes_constitucionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "43": {
   "topics": [
@@ -272,32 +407,6 @@
    }
   ],
   "suggested_topic": "Recuperação judicial e falência"
- },
- "39": {
-  "topics": [
-   {
-    "path": "direito_processual_civil.jurisdicao_e_competencia",
-    "confidence": 0.8
-   }
-  ],
-  "suggested_topic": "Conexão e continência"
- },
- "40": {
-  "topics": [
-   {
-    "path": "direito_processual_civil.jurisdicao_e_competencia",
-    "confidence": 0.6
-   }
-  ],
-  "suggested_topic": "Homologação de decisão estrangeira"
- },
- "41": {
-  "topics": [],
-  "suggested_topic": "Ações constitucionais (mandado de segurança e ação popular)"
- },
- "42": {
-  "topics": [],
-  "suggested_topic": "Ações constitucionais (mandado de segurança e ação popular)"
  },
  "46": {
   "topics": [
@@ -416,12 +525,22 @@
   "suggested_topic": "Lei penal no espaço e imunidades diplomáticas"
  },
  "58": {
-  "topics": [],
-  "suggested_topic": "Crimes de racismo (Lei nº 7.716/1989)"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Crimes de racismo e preconceito (Lei nº 7.716/1989)"
  },
  "59": {
-  "topics": [],
-  "suggested_topic": "Crimes de racismo (Lei nº 7.716/1989)"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Crimes de racismo e preconceito (Lei nº 7.716/1989)"
  },
  "60": {
   "topics": [
@@ -433,24 +552,84 @@
   "suggested_topic": "Crimes contra a honra"
  },
  "61": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "62": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "63": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_contra_a_administracao_da_justica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "64": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsidade_documental",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "65": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsidade_documental",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_a_ordem_economica",
+    "confidence": 0.85
+   },
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "69": {
   "topics": [
@@ -496,34 +675,6 @@
    }
   ],
   "suggested_topic": "Crimes contra a liberdade pessoal"
- },
- "66": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
- },
- "67": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
- },
- "68": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
- },
- "93": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "94": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "95": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "96": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
  },
  "74": {
   "topics": [
@@ -571,60 +722,170 @@
   "suggested_topic": ""
  },
  "79": {
-  "topics": [],
-  "suggested_topic": "Jurisdição e competência"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "80": {
-  "topics": [],
-  "suggested_topic": "Jurisdição e competência"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "81": {
-  "topics": [],
-  "suggested_topic": "Jurisdição e competência"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.conflito_de_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "82": {
-  "topics": [],
-  "suggested_topic": "Jurisdição e competência"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "83": {
-  "topics": [],
-  "suggested_topic": "Jurisdição e competência"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.conflito_de_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "84": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "85": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "86": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "87": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.provas_ilicitas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "88": {
-  "topics": [],
-  "suggested_topic": "Interrogatório do acusado"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "89": {
-  "topics": [],
-  "suggested_topic": "Interrogatório do acusado"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "90": {
-  "topics": [],
-  "suggested_topic": "Interrogatório do acusado"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "91": {
-  "topics": [],
-  "suggested_topic": "Interrogatório do acusado"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "92": {
-  "topics": [],
-  "suggested_topic": "Interrogatório do acusado"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.procedimentos.tribunal_do_juri",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "97": {
   "topics": [
@@ -647,20 +908,20 @@
  "99": {
   "topics": [
    {
-    "path": "criminologia.vitimologia",
-    "confidence": 0.5
+    "path": "criminologia.prevencao_da_criminalidade",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Modelos de reação ao delito (dissuasório, ressocializador, restaurador)"
+  "suggested_topic": ""
  },
  "100": {
   "topics": [
    {
-    "path": "criminologia.vitimologia",
-    "confidence": 0.5
+    "path": "criminologia.prevencao_da_criminalidade",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Modelos de reação ao delito (dissuasório, ressocializador, restaurador)"
+  "suggested_topic": ""
  },
  "101": {
   "topics": [
@@ -707,12 +968,22 @@
   "suggested_topic": ""
  },
  "105": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a previdência social"
+  "topics": [
+   {
+    "path": "direito_previdenciario.crimes_previdenciarios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "106": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a previdência social"
+  "topics": [
+   {
+    "path": "direito_previdenciario.crimes_previdenciarios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "107": {
   "topics": [
@@ -753,20 +1024,24 @@
  "111": {
   "topics": [
    {
-    "path": "direito_tributario.tributos",
-    "confidence": 0.5
+    "path": "direito_tributario.competencia_tributaria",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_tributario.administracao_tributaria",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Competência tributária"
+  "suggested_topic": ""
  },
  "112": {
   "topics": [
    {
-    "path": "direito_tributario.credito_tributario",
-    "confidence": 0.5
+    "path": "direito_tributario.obrigacao_tributaria",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Obrigação tributária (sujeição passiva e domicílio)"
+  "suggested_topic": ""
  },
  "113": {
   "topics": [

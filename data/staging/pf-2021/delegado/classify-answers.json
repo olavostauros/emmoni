@@ -1,85 +1,177 @@
 {
  "1": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "2": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "3": {
-  "topics": [],
-  "suggested_topic": "Improbidade administrativa (Lei nº 8.429/1992)"
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "4": {
-  "topics": [],
-  "suggested_topic": "Responsabilidade civil do Estado"
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "5": {
-  "topics": [],
-  "suggested_topic": "Responsabilidade civil do Estado"
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "6": {
-  "topics": [],
-  "suggested_topic": "Controle da administração pública"
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_interno_e_externo",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "7": {
   "topics": [
    {
-    "path": "direito_administrativo.atos_administrativos",
-    "confidence": 0.5
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Controle da administração pública"
+  "suggested_topic": ""
  },
  "8": {
-  "topics": [],
-  "suggested_topic": "Controle da administração pública"
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_interno_e_externo",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "9": {
-  "topics": [],
-  "suggested_topic": "Controle da administração pública"
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_interno_e_externo",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
  },
  "10": {
-  "topics": [],
-  "suggested_topic": "Processo administrativo federal (Lei nº 9.784/1999)"
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "11": {
-  "topics": [],
-  "suggested_topic": "Processo administrativo federal (Lei nº 9.784/1999)"
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "12": {
   "topics": [
    {
-    "path": "direito_administrativo.atos_administrativos",
-    "confidence": 0.5
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Processo administrativo federal (Lei nº 9.784/1999)"
+  "suggested_topic": ""
  },
  "13": {
-  "topics": [],
-  "suggested_topic": "Agentes públicos e Lei nº 8.112/1990"
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "14": {
-  "topics": [],
-  "suggested_topic": "Agentes públicos e Lei nº 8.112/1990"
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "15": {
-  "topics": [],
-  "suggested_topic": "Agentes públicos e Lei nº 8.112/1990"
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "16": {
-  "topics": [],
-  "suggested_topic": "Teoria da Constituição (conceito e classificações)"
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.conceito_e_classificacao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "17": {
-  "topics": [],
-  "suggested_topic": "Teoria da Constituição (conceito e classificações)"
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.conceito_e_classificacao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "18": {
-  "topics": [],
-  "suggested_topic": "Teoria da Constituição (conceito e classificações)"
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.conceito_e_classificacao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "19": {
   "topics": [
@@ -93,11 +185,15 @@
  "20": {
   "topics": [
    {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.8
+   },
+   {
     "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
-    "confidence": 0.5
+    "confidence": 0.65
    }
   ],
-  "suggested_topic": "Poder Judiciário (organização e competências)"
+  "suggested_topic": ""
  },
  "21": {
   "topics": [
@@ -121,10 +217,14 @@
   "topics": [
    {
     "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
-    "confidence": 0.5
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_constitucional.ordem_economica_e_financeira",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Expropriação e confisco (art. 243 da CF)"
+  "suggested_topic": ""
  },
  "24": {
   "topics": [
@@ -136,28 +236,66 @@
   "suggested_topic": ""
  },
  "25": {
-  "topics": [],
-  "suggested_topic": "Poder Judiciário (organização e competências)"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "26": {
-  "topics": [],
-  "suggested_topic": "Poder Judiciário (organização e competências)"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "27": {
-  "topics": [],
-  "suggested_topic": "Funções essenciais à Justiça"
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.funcoes_essenciais_a_justica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "28": {
-  "topics": [],
-  "suggested_topic": "Controle de constitucionalidade"
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "29": {
-  "topics": [],
-  "suggested_topic": "Controle de constitucionalidade"
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade.controle_concentrado",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "30": {
-  "topics": [],
-  "suggested_topic": "Controle de constitucionalidade"
+  "topics": [
+   {
+    "path": "direito_constitucional.controle_de_constitucionalidade",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "31": {
   "topics": [
@@ -178,33 +316,6 @@
   "suggested_topic": ""
  },
  "33": {
-  "topics": [
-   {
-    "path": "direito_civil.direito_de_empresa",
-    "confidence": 0.95
-   }
-  ],
-  "suggested_topic": ""
- },
- "37": {
-  "topics": [
-   {
-    "path": "direito_civil.direito_de_empresa",
-    "confidence": 0.95
-   }
-  ],
-  "suggested_topic": ""
- },
- "38": {
-  "topics": [
-   {
-    "path": "direito_civil.direito_de_empresa",
-    "confidence": 0.95
-   }
-  ],
-  "suggested_topic": ""
- },
- "39": {
   "topics": [
    {
     "path": "direito_civil.direito_de_empresa",
@@ -235,6 +346,33 @@
   "topics": [
    {
     "path": "direito_processual_civil.tutela_provisoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_civil.direito_de_empresa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "direito_civil.direito_de_empresa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_civil.direito_de_empresa",
     "confidence": 0.95
    }
   ],
@@ -317,68 +455,53 @@
   "suggested_topic": ""
  },
  "48": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a ordem tributária (Lei nº 8.137/1990)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_a_ordem_tributaria",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
  },
  "49": {
-  "topics": [],
-  "suggested_topic": "Estatuto do Desarmamento (Lei nº 10.826/2003)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "50": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "51": {
-  "topics": [],
-  "suggested_topic": "Lei de Abuso de Autoridade (Lei nº 13.869/2019)"
- },
- "75": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "76": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "77": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "78": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "79": {
-  "topics": [],
-  "suggested_topic": "Lavagem de dinheiro (Lei nº 9.613/1998)"
- },
- "80": {
-  "topics": [],
-  "suggested_topic": "Crimes contra o Sistema Financeiro Nacional (Lei nº 7.492/1986)"
- },
- "81": {
-  "topics": [],
-  "suggested_topic": "Crimes contra o Sistema Financeiro Nacional (Lei nº 7.492/1986)"
- },
- "82": {
-  "topics": [],
-  "suggested_topic": "Crimes contra o Sistema Financeiro Nacional (Lei nº 7.492/1986)"
- },
- "83": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a ordem tributária (Lei nº 8.137/1990)"
- },
- "84": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a ordem tributária (Lei nº 8.137/1990)"
- },
- "85": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a ordem tributária (Lei nº 8.137/1990)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "52": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsidade_documental",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.extincao_da_punibilidade.prescricao",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
  },
  "53": {
   "topics": [
@@ -421,25 +544,44 @@
   "suggested_topic": ""
  },
  "57": {
-  "topics": [],
-  "suggested_topic": "Teoria da pena (penas, medidas de segurança, prescrição)"
+  "topics": [
+   {
+    "path": "direito_penal.penas.medidas_de_seguranca",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "58": {
-  "topics": [],
-  "suggested_topic": "Teoria da pena (penas, medidas de segurança, prescrição)"
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade.prescricao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "59": {
-  "topics": [],
-  "suggested_topic": "Teoria da pena (penas, medidas de segurança, prescrição)"
+  "topics": [
+   {
+    "path": "direito_penal.penas.especies_de_pena",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
  },
  "60": {
   "topics": [
    {
-    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
-    "confidence": 0.5
+    "path": "direito_penal.penas.aplicacao_da_pena",
+    "confidence": 0.88
    }
   ],
-  "suggested_topic": "Teoria da pena (penas, medidas de segurança, prescrição)"
+  "suggested_topic": ""
  },
  "61": {
   "topics": [
@@ -491,50 +633,196 @@
   "suggested_topic": "Concurso de pessoas"
  },
  "66": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "67": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.peculato",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "68": {
   "topics": [
    {
-    "path": "direito_penal.teoria_do_crime.iter_criminis",
-    "confidence": 0.5
+    "path": "direito_penal.crimes_contra_a_administracao_publica.outros_crimes_de_funcionario",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Crimes contra a Administração Pública (descaminho)"
+  "suggested_topic": ""
  },
  "69": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_de_particular",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "70": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública (descaminho)"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.extincao_da_punibilidade",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "71": {
   "topics": [
    {
-    "path": "direito_penal.teoria_do_crime.iter_criminis",
-    "confidence": 0.5
+    "path": "direito_penal.crimes_contra_a_fe_publica.moeda_falsa",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Crimes contra a fé pública"
+  "suggested_topic": ""
  },
  "72": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsa_identidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "73": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.crimes_contra_a_administracao_da_justica",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "74": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsidade_documental",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_sistema_financeiro",
+    "confidence": 0.88
+   },
+   {
+    "path": "legislacao_penal_especial.interceptacao_telefonica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_sistema_financeiro",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_o_sistema_financeiro",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_a_ordem_tributaria",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_a_ordem_tributaria",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_contra_a_ordem_tributaria",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "86": {
   "topics": [
@@ -581,53 +869,115 @@
   "suggested_topic": "Liberdade provisória e fiança"
  },
  "90": {
-  "topics": [],
-  "suggested_topic": "Competência criminal"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "91": {
-  "topics": [],
-  "suggested_topic": "Competência criminal"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "92": {
-  "topics": [],
-  "suggested_topic": "Competência criminal"
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "93": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.pericias_e_corpo_de_delito",
+    "confidence": 0.92
+   },
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "94": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.pericias_e_corpo_de_delito",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "95": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.reconhecimento_e_acareacao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "96": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.testemunhas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "97": {
-  "topics": [],
-  "suggested_topic": "Provas (busca domiciliar)"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.88
+   },
+   {
+    "path": "direito_processual_penal.provas.interceptacao_e_sigilo",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "98": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.pericias_e_corpo_de_delito",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "99": {
-  "topics": [],
-  "suggested_topic": "Organização criminosa (Lei nº 12.850/2013)"
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "100": {
   "topics": [
    {
-    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
-    "confidence": 0.5
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.provas.provas_ilicitas",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Provas"
+  "suggested_topic": ""
  },
  "101": {
   "topics": [
@@ -648,21 +998,31 @@
   "suggested_topic": "Organização criminosa (Lei nº 12.850/2013)"
  },
  "103": {
-  "topics": [],
-  "suggested_topic": "Prevenção da criminalidade"
+  "topics": [
+   {
+    "path": "criminologia.prevencao_da_criminalidade",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "104": {
   "topics": [
    {
-    "path": "criminologia.vitimologia",
-    "confidence": 0.5
+    "path": "criminologia.conceito_e_metodo",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Conceito, método e objetos da criminologia"
+  "suggested_topic": ""
  },
  "105": {
-  "topics": [],
-  "suggested_topic": "Controle social"
+  "topics": [
+   {
+    "path": "criminologia.controle_social",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "106": {
   "topics": [
@@ -714,12 +1074,22 @@
   "suggested_topic": ""
  },
  "111": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a previdência social"
+  "topics": [
+   {
+    "path": "direito_previdenciario.crimes_previdenciarios",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "112": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a previdência social"
+  "topics": [
+   {
+    "path": "direito_previdenciario.crimes_previdenciarios",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "113": {
   "topics": [
@@ -760,20 +1130,20 @@
  "117": {
   "topics": [
    {
-    "path": "direito_tributario.principios_tributarios",
-    "confidence": 0.5
+    "path": "direito_tributario.legislacao_tributaria",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Legislação tributária (fontes e vigência)"
+  "suggested_topic": ""
  },
  "118": {
   "topics": [
    {
-    "path": "direito_tributario.principios_tributarios",
-    "confidence": 0.5
+    "path": "direito_tributario.imunidades_e_isencoes",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Imunidades tributárias"
+  "suggested_topic": ""
  },
  "119": {
   "topics": [

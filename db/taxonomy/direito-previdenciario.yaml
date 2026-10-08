@@ -4,3 +4,7 @@ topics:
   - {slug: seguridade-social, name: "Seguridade social e custeio"}
   - {slug: segurados, name: "Segurados e dependentes"}
   - {slug: beneficios, name: "Benefícios"}
+  - {slug: tempo-de-contribuicao, name: "Tempo de contribuição e contagem recíproca"}
+  - {slug: decadencia-e-prescricao, name: "Decadência e prescrição"}
+  - {slug: regimes-proprios, name: "Regimes próprios e previdência dos militares"}
+  - {slug: crimes-previdenciarios, name: "Crimes contra a previdência social"}

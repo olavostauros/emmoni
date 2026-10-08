@@ -1,5 +1,13 @@
 subject: primeiros-socorros
 name: Primeiros Socorros
 topics:
-  - {slug: suporte-basico-de-vida, name: "Suporte básico de vida"}
+  - {slug: avaliacao-e-sinais-vitais, name: "Avaliação da vítima e sinais vitais"}
+  - {slug: suporte-basico-de-vida, name: "Suporte básico de vida: RCP e desobstrução das vias aéreas"}
   - {slug: atendimento-pre-hospitalar, name: "Atendimento pré-hospitalar"}
+  - {slug: hemorragias-e-ferimentos, name: "Hemorragias e ferimentos"}
+  - {slug: fraturas-e-imobilizacao, name: "Fraturas, luxações e imobilização"}
+  - {slug: queimaduras, name: "Queimaduras"}
+  - {slug: emergencias-clinicas, name: "Emergências clínicas: desmaio, convulsão, AVC, infarto"}
+  - {slug: afogamento, name: "Afogamento"}
+  - {slug: intoxicacoes-e-animais-peconhentos, name: "Intoxicações e acidentes com animais peçonhentos"}
+  - {slug: transporte-de-vitimas, name: "Transporte e remoção de vítimas"}

@@ -1,6 +1,10 @@
 subject: direito-internacional
 name: Direito Internacional
 topics:
+  - {slug: fontes-e-sujeitos, name: "Fontes, personalidade internacional e organizações internacionais"}
+  - {slug: tratados, name: "Tratados e convenções internacionais"}
   - {slug: migracao-e-extradicao, name: "Migração, extradição e expulsão"}
   - {slug: cooperacao-internacional, name: "Cooperação jurídica internacional"}
-  - {slug: tratados, name: "Tratados e convenções internacionais"}
+  - {slug: dominio-publico-internacional, name: "Domínio público internacional: mar, rios e espaço"}
+  - {slug: tribunais-internacionais, name: "Tribunais internacionais"}
+  - {slug: direito-internacional-privado, name: "Direito internacional privado"}

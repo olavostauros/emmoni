@@ -1,0 +1,308 @@
+{
+ "51": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.gases",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "quimica.estrutura_atomica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "quimica.funcoes_inorganicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.equilibrio_quimico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "quimica.eletroquimica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "quimica.equilibrio_quimico",
+    "confidence": 0.8
+   },
+   {
+    "path": "quimica.quimica_organica.polimeros_e_biomoleculas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica.reacoes_organicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.quimica_organica.funcoes_organicas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "quimica.quimica_organica.reacoes_organicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "quimica.gases",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "quimica.cinetica_quimica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "quimica.equilibrio_quimico",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "quimica.termoquimica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.9
+   },
+   {
+    "path": "quimica.equilibrio_quimico",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.75
+   },
+   {
+    "path": "quimica.materia_e_substancias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Química ambiental: qualidade da água, poluentes e química verde"
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Química ambiental: qualidade da água, poluentes e química verde"
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Química ambiental: qualidade da água, poluentes e química verde"
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.85
+   },
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.9
+   },
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.9
+   },
+   {
+    "path": "quimica.quimica_forense",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Quimiometria: estatística aplicada, planejamento de experimentos e validação de métodos"
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Quimiometria: estatística aplicada, planejamento de experimentos e validação de métodos"
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "quimica.quimica_analitica",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

@@ -3,3 +3,7 @@ name: Teoria Musical
 topics:
   - {slug: harmonia, name: "Harmonia e acordes"}
   - {slug: ritmo-e-compasso, name: "Ritmo e compasso"}
+  - {slug: escalas-e-intervalos, name: "Escalas, intervalos e tonalidade"}
+  - {slug: leitura-e-notacao, name: "Leitura e notação musical"}
+  - {slug: ornamentos-e-expressao, name: "Ornamentos, dinâmica e expressão"}
+  - {slug: instrumentos-e-banda, name: "Instrumentos e banda de música"}

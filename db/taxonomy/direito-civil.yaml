@@ -1,7 +1,19 @@
 subject: direito-civil
 name: Direito Civil
 topics:
-  - {slug: pessoas-e-domicilio, name: "Pessoas e domicílio"}
-  - {slug: responsabilidade-civil, name: "Responsabilidade civil"}
-  - {slug: direito-de-empresa, name: "Direito de empresa e sociedades"}
+  - {slug: lindb, name: "Lei de Introdução às Normas do Direito Brasileiro"}
+  - slug: pessoas-e-domicilio
+    name: Pessoas e domicílio
+    children:
+      - {slug: pessoa-natural, name: "Pessoa natural: personalidade, capacidade e direitos da personalidade"}
+      - {slug: pessoa-juridica, name: "Pessoa jurídica"}
+  - {slug: bens, name: "Bens"}
+  - {slug: negocios-juridicos, name: "Fatos e negócios jurídicos: defeitos, nulidades e invalidade"}
+  - {slug: prescricao-e-decadencia, name: "Prescrição e decadência"}
+  - {slug: obrigacoes, name: "Obrigações"}
   - {slug: contratos, name: "Contratos"}
+  - {slug: responsabilidade-civil, name: "Responsabilidade civil"}
+  - {slug: direitos-reais, name: "Direitos reais: posse e propriedade"}
+  - {slug: familia, name: "Direito de família"}
+  - {slug: sucessoes, name: "Direito das sucessões"}
+  - {slug: direito-de-empresa, name: "Direito de empresa e sociedades"}

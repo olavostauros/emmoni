@@ -1,0 +1,602 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.crase",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.vozes_verbais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.concordancia.nominal",
+    "confidence": 0.7
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.substantivo_e_adjetivo",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.conotacao_e_figuras",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.variacao_linguistica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "saude_publica.sus",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "saude_publica.sus",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "saude_publica.vigilancia_sanitaria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "saude_publica.vigilancia_sanitaria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "saude_publica.vigilancia_sanitaria",
+    "confidence": 0.85
+   },
+   {
+    "path": "saude_publica.epidemiologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "saude_publica.vigilancia_sanitaria",
+    "confidence": 0.85
+   },
+   {
+    "path": "saude_publica.epidemiologia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.era_vargas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.7
+   },
+   {
+    "path": "historia.historia_do_brasil",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.periodo_democratico_1946_1964",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.periodo_democratico_1946_1964",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.formacao_e_emancipacao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.movimentos_e_cultura",
+    "confidence": 0.85
+   },
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.seculo_xx_e_atualidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.7
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.seculo_xx_e_atualidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.urbanizacao",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.urbanizacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.urbanizacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "geografia.geografia_do_brasil.populacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_regional.organizacao_territorial",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.75
+   },
+   {
+    "path": "geografia.geografia_regional.organizacao_territorial",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "matematica.probabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.cinematica",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "quimica.ligacoes_quimicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "quimica.estrutura_atomica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "quimica.reacoes_quimicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "quimica.funcoes_inorganicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.software",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

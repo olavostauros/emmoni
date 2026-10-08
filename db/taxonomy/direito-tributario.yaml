@@ -2,5 +2,11 @@ subject: direito-tributario
 name: Direito Tributário
 topics:
   - {slug: principios-tributarios, name: "Princípios tributários"}
+  - {slug: competencia-tributaria, name: "Competência tributária"}
+  - {slug: imunidades-e-isencoes, name: "Imunidades e isenções"}
   - {slug: tributos, name: "Espécies tributárias"}
+  - {slug: impostos-em-especie, name: "Impostos federais, estaduais e municipais"}
+  - {slug: legislacao-tributaria, name: "Legislação tributária: fontes, vigência e interpretação"}
+  - {slug: obrigacao-tributaria, name: "Obrigação tributária, sujeição passiva e responsabilidade"}
   - {slug: credito-tributario, name: "Crédito tributário"}
+  - {slug: administracao-tributaria, name: "Administração tributária, fiscalização e dívida ativa"}

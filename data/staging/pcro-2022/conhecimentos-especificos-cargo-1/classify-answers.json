@@ -1,0 +1,740 @@
+{
+ "31": {
+  "topics": [
+   {
+    "path": "estatistica.estatistica_descritiva.medidas_de_posicao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.85
+   },
+   {
+    "path": "estatistica.amostragem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "estatistica.estatistica_descritiva.medidas_de_posicao",
+    "confidence": 0.8
+   },
+   {
+    "path": "estatistica.estatistica_descritiva.graficos_e_tabelas",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "estatistica.probabilidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "estatistica.amostragem",
+    "confidence": 0.8
+   },
+   {
+    "path": "estatistica.inferencia.estimacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.backup",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "administracao_geral.teorias_da_administracao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "administracao_publica.reforma_do_estado",
+    "confidence": 0.9
+   },
+   {
+    "path": "administracao_publica.modelos_de_gestao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "administracao_geral.processo_administrativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "administracao_geral.processo_administrativo",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "administracao_geral.estrutura_organizacional",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas",
+    "confidence": 0.85
+   },
+   {
+    "path": "administracao_geral.planejamento_estrategico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas.comunicacao_e_equipes",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "administracao_publica.reforma_do_estado",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Organização da administração pública: administração direta e indireta (autarquias e agências reguladoras)"
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "administracao_publica.governanca_e_transparencia",
+    "confidence": 0.4
+   }
+  ],
+  "suggested_topic": "Administração de recursos materiais: licitações e contratos (Lei nº 14.133/2021)"
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.conceitos_e_principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.patrimonio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.contas_e_plano_de_contas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.contas_e_plano_de_contas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao.lancamentos",
+    "confidence": 0.85
+   },
+   {
+    "path": "contabilidade_geral.fatos_contabeis",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.escrituracao",
+    "confidence": 0.75
+   },
+   {
+    "path": "contabilidade_geral.ativos_e_passivos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.balanco_patrimonial",
+    "confidence": 0.9
+   },
+   {
+    "path": "contabilidade_geral.pronunciamentos_cpc",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.demonstracoes_contabeis.dre",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "contabilidade_geral.contabilidade_publica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_temporaria",
+    "confidence": 0.7
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.concurso_de_pessoas",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.concurso_de_pessoas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.pessoas_presas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.teoria_geral",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.eficacia_das_normas",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.federacao_e_entes",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.principios_fundamentais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.ordem_social.familia_crianca_e_idoso",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_sociais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_constitucional.ordem_social",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_constitucional.ordem_social.meio_ambiente",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_constitucional.ordem_social.indigenas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.carreira_e_prerrogativas",
+    "confidence": 0.65
+   },
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.regime_disciplinar",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.estatuto_dos_servidores.provimento_e_vacancia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.bens_publicos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_regulamentar",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.atos_administrativos.classificacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.classificacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.lei_organica_da_policia_civil.regime_disciplinar",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "medicina_legal.tanatologia_forense.necropsia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "medicina_legal.traumatologia_forense",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "medicina_legal.sexologia_forense.crimes_sexuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "medicina_legal.asfixiologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "medicina_legal.sexologia_forense.gravidez_parto_e_aborto",
+    "confidence": 0.7
+   },
+   {
+    "path": "medicina_legal.tanatologia_forense",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

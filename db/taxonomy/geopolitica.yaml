@@ -4,3 +4,7 @@ topics:
   - {slug: transportes, name: "Rede de transportes"}
   - {slug: urbanizacao, name: "Urbanização e metrópoles"}
   - {slug: globalizacao, name: "Globalização e território"}
+  - {slug: blocos-economicos, name: "Blocos econômicos e integração regional"}
+  - {slug: fronteiras-e-territorio, name: "Fronteiras, Amazônia e questões territoriais"}
+  - {slug: conflitos-mundiais, name: "Conflitos e geopolítica mundial"}
+  - {slug: energia-e-recursos, name: "Energia e recursos naturais"}

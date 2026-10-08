@@ -1,0 +1,1002 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.seguranca_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.reparticao_de_competencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.ministerio_publico_e_justica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "direito_internacional.tratados",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_internacional.cooperacao_internacional",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "legislacao_estadual.constituicao_estadual.seguranca_publica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.processo_legislativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.nacionalidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "direito_internacional.tratados",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "direito_administrativo.intervencao_na_propriedade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "direito_administrativo.bens_publicos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.contratos_administrativos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "seguranca_publica.lei_organica_das_policias_civis",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.fato_tipico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Escolas penais e evolução histórica do direito penal"
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.fato_tipico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "direito_penal.penas",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_penal.penas.aplicacao_da_pena",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_dignidade_sexual.crimes_contra_vulneravel",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.interpretacao_e_analogia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.fato_tipico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_espaco",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direito_penal.extincao_da_punibilidade.prescricao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_organizacao_do_trabalho",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_penal.penas",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_privada",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.sujeitos_processuais.ministerio_publico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.questoes_e_processos_incidentes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.procedimentos.juizados_especiais_criminais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_civil_ex_delicto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.confissao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.provas.teoria_geral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.recursos",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_penal.recursos.recurso_em_sentido_estrito",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_processual_penal.habeas_corpus_e_revisao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.prazos_e_arquivamento",
+    "confidence": 0.65
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.racismo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.crimes_do_eca",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_crimes_contra_a_seguranca_nacional",
+    "confidence": 0.3
+   }
+  ],
+  "suggested_topic": "Crimes eleitorais (Código Eleitoral, Lei nº 4.737/1965)"
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_de_transito",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lavagem_de_dinheiro",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Lei Henry Borel: violência doméstica contra a criança e o adolescente (Lei nº 14.344/2022)"
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "medicina_legal.introducao.documentos_medico_legais",
+    "confidence": 0.9
+   },
+   {
+    "path": "medicina_legal.infortunistica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "medicina_legal.introducao.pericias_e_peritos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "medicina_legal.traumatologia_forense.energias_mecanicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "medicina_legal.traumatologia_forense.energias_quimicas_e_mistas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "medicina_legal.tanatologia_forense.cronotanatognose",
+    "confidence": 0.9
+   },
+   {
+    "path": "medicina_legal.tanatologia_forense.fenomenos_cadavericos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "medicina_legal.sexologia_forense.gravidez_parto_e_aborto",
+    "confidence": 0.8
+   },
+   {
+    "path": "medicina_legal.tanatologia_forense",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "medicina_legal.antropologia_forense",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "medicina_legal.traumatologia_forense.lesoes_por_arma_de_fogo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "criminologia.criminologia_critica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "criminologia.teorias_sociologicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "criminologia.criminologia_critica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "criminologia.controle_social",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "criminologia.controle_social",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "criminologia.conceito_e_metodo",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "criminologia.escolas_criminologicas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direito_civil.pessoas_e_domicilio.pessoa_natural",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "direito_civil.lindb",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direito_civil.direitos_reais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direito_empresarial.sociedades",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direito_civil.responsabilidade_civil",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direito_empresarial.sociedades",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "direito_empresarial.recuperacao_e_falencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "direito_empresarial.recuperacao_e_falencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "direito_empresarial.titulos_de_credito",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.normas_fundamentais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.tutela_provisoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.provas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.jurisdicao_e_competencia",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_processual_civil.sentenca_e_coisa_julgada",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.provas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_processual_civil.tutela_provisoria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "direito_tributario.tributos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "direito_tributario.obrigacao_tributaria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "direito_tributario.obrigacao_tributaria",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_tributario.principios_tributarios",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "direito_tributario.obrigacao_tributaria",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_tributario.obrigacao_tributaria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "direito_tributario.imunidades_e_isencoes",
+    "confidence": 0.95
+   },
+   {
+    "path": "direito_tributario.principios_tributarios",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "direito_tributario.credito_tributario",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_tributario.obrigacao_tributaria",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "direito_tributario.credito_tributario",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_ambiental.principios",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_ambiental.codigo_florestal",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "direito_ambiental.crimes_ambientais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "direito_ambiental.responsabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direito_ambiental.responsabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "direito_ambiental.crimes_ambientais",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "direito_ambiental.unidades_de_conservacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "direito_ambiental.responsabilidade",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

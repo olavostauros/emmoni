@@ -72,7 +72,7 @@ Regras inegociáveis:
 - Recebeu 403, 429 ou captcha: recua e para naquele host. **Não** contorna bloqueio (sem trocar IP
   ou User-Agent, sem resolver captcha, sem login, sem paywall).
 - O crawler **propõe** manifestos em `ingest/manifests/_pending/`; a ingestão só processa manifestos
-  aprovados.
+  aprovados. Quem aprova é o agente (ver "Revisão pelo agente").
 - Testes de crawler usam HTML gravado em `fixtures/`, nunca a rede.
 
 ## Princípios de engenharia
@@ -82,13 +82,35 @@ Regras inegociáveis:
 - **Rastreabilidade acima de volume**: uma questão sem origem ou sem gabarito não entra como publicada.
   Use um status (`rascunho`, `revisar`, `publicada`) em vez de descartar silenciosamente.
 - **Extração assistida por LLM é permitida**, mas o resultado é validado por regras (número de
-  alternativas, gabarito válido para o tipo, numeração contínua na prova) e por amostragem manual.
+  alternativas, gabarito válido para o tipo, numeração contínua na prova) e por amostragem feita
+  pelo agente (ver "Revisão pelo agente").
   Registre qual modelo/versão extraiu cada questão.
 - **Migrações** sempre versionadas e reversíveis quando possível; nunca edite uma migração já aplicada.
 - **Testes** para o esquema (restrições), para os parsers de cada banca (com PDFs de amostra
   pequenos em `fixtures/`) e para as consultas do contrato.
 - Preserve a formatação relevante do enunciado (itálico, sublinhado, tabelas, fórmulas) em um
   formato definido (ex.: Markdown restrito) e documente esse formato no contrato.
+
+## Revisão pelo agente
+
+Não há etapa de revisão humana (decisão 0011). O agente faz as três revisões, com os mesmos
+comandos e limiares, e registra o modelo e a versão como revisor:
+
+- **Propostas do crawler** — `emmoni manifests show <slug>`: conferir a evidência e as páginas já
+  guardadas pelo crawler (concurso policial, prova e gabarito certos, slugs do catálogo). Aprovar
+  com `emmoni manifests approve`, ou rejeitar com `--reason`. A mensagem de commit diz quem aprovou.
+  Não navegue fora do crawler para conferir.
+- **Amostra por prova** — `emmoni review sample <concurso>/<prova>`: comparar cada questão da
+  amostra com a página do PDF (enunciado, texto-base, alternativas, gabarito final, disciplina).
+  Tudo confere: `emmoni review approve <concurso>/<prova> --by <modelo>`. Algo não confere: não
+  aprovar; corrigir a causa e amostrar de novo.
+- **Amostra de assuntos** — `emmoni review topics`: em contexto separado do `classify` (outro
+  agente, sem as respostas nem o raciocínio da classificação), julgar se os assuntos descrevem a
+  questão; gravar `verdict` (`ok`/`wrong`), `note` quando `wrong` e `reviewed_by`. Depois,
+  `--report`.
+
+Seja estrito: em dúvida, o veredito é `wrong` e a prova não é aprovada. Um veredito humano
+posterior prevalece sobre o do agente.
 
 ## Fluxo de trabalho
 

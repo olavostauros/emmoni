@@ -1,0 +1,116 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.75
+   },
+   {
+    "path": "historia.historia_do_brasil.populacoes_indigenas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_regional.seculo_xx_e_atualidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.periodo_colonial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.organizacao_territorial",
+    "confidence": 0.75
+   },
+   {
+    "path": "geografia.geografia_do_brasil.questoes_ambientais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.formacao_e_emancipacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "historia.historia_do_brasil.era_vargas",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.8
+   },
+   {
+    "path": "historia.historia_regional.seculo_xx_e_atualidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

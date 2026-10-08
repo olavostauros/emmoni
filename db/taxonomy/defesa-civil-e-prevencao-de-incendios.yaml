@@ -1,5 +1,18 @@
 subject: defesa-civil-e-prevencao-de-incendios
 name: Defesa Civil e Prevenção de Incêndios
 topics:
-  - {slug: prevencao-e-combate-a-incendio, name: "Prevenção e combate a incêndio"}
-  - {slug: defesa-civil, name: "Defesa civil"}
+  - slug: prevencao-e-combate-a-incendio
+    name: Prevenção e combate a incêndio
+    children:
+      - {slug: teoria-do-fogo, name: "Teoria do fogo e combustão"}
+      - {slug: classes-de-incendio-e-extintores, name: "Classes de incêndio e agentes extintores"}
+      - {slug: sistemas-de-protecao, name: "Sistemas de proteção: hidrantes, chuveiros automáticos, detecção e alarme"}
+      - {slug: normas-e-instrucoes-tecnicas, name: "Normas e instruções técnicas de segurança contra incêndio"}
+      - {slug: brigada-de-incendio, name: "Brigada de incêndio e plano de emergência"}
+      - {slug: produtos-perigosos, name: "Produtos perigosos e GLP"}
+  - slug: defesa-civil
+    name: Defesa civil
+    children:
+      - {slug: sistema-nacional, name: "Sistema Nacional de Proteção e Defesa Civil (Lei nº 12.608/2012)"}
+      - {slug: gestao-de-riscos-e-desastres, name: "Gestão de riscos e desastres"}
+  - {slug: busca-e-salvamento, name: "Busca, salvamento e resgate"}

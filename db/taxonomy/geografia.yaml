@@ -1,5 +1,26 @@
 subject: geografia
 name: Geografia
 topics:
-  - {slug: geografia-do-brasil, name: "Geografia do Brasil"}
-  - {slug: geografia-regional, name: "Geografia regional"}
+  - slug: geografia-geral
+    name: Geografia geral
+    children:
+      - {slug: cartografia, name: "Cartografia e orientação"}
+      - {slug: geografia-fisica, name: "Geografia física: clima, relevo, hidrografia e vegetação"}
+      - {slug: globalizacao, name: "Globalização e economia mundial"}
+      - {slug: populacao-mundial, name: "População mundial e migrações"}
+  - slug: geografia-do-brasil
+    name: Geografia do Brasil
+    children:
+      - {slug: territorio-e-regionalizacao, name: "Território, fronteiras e regionalização"}
+      - {slug: aspectos-fisicos, name: "Relevo, clima, hidrografia e vegetação do Brasil"}
+      - {slug: populacao, name: "População brasileira: demografia e migrações"}
+      - {slug: urbanizacao, name: "Urbanização e problemas urbanos"}
+      - {slug: economia, name: "Indústria, agropecuária, energia e economia regional"}
+      - {slug: transportes-e-infraestrutura, name: "Transportes e infraestrutura"}
+      - {slug: questoes-ambientais, name: "Questões ambientais e biomas"}
+  - slug: geografia-regional
+    name: Geografia regional
+    children:
+      - {slug: aspectos-fisicos, name: "Aspectos físicos do estado ou região"}
+      - {slug: aspectos-socioeconomicos, name: "População, economia e infraestrutura do estado ou região"}
+      - {slug: organizacao-territorial, name: "Organização territorial: regiões, municípios e entorno"}

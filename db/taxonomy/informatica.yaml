@@ -1,20 +1,73 @@
 subject: informatica
 name: Informática
 topics:
-  - slug: planilhas-eletronicas
-    name: Planilhas eletrônicas
-  - slug: seguranca-da-informacao
-    name: Segurança da informação
+  - slug: conceitos-basicos
+    name: Conceitos básicos de computação
     children:
-      - {slug: malware, name: Códigos maliciosos}
-      - {slug: golpes-e-ataques, name: Golpes e ataques}
-      - {slug: mecanismos-de-protecao, name: Mecanismos de proteção}
-  - slug: redes-e-internet
-    name: Redes e internet
-    children:
-      - {slug: protocolos, name: Protocolos}
-      - {slug: correio-eletronico, name: Correio eletrônico}
+      - {slug: hardware, name: "Hardware e componentes do computador"}
+      - {slug: software, name: "Software, licenças e tipos de programas"}
+      - {slug: unidades-e-representacao, name: "Unidades de medida e representação de dados"}
   - slug: sistemas-operacionais
     name: Sistemas operacionais
     children:
       - {slug: windows, name: Windows}
+      - {slug: linux, name: Linux}
+      - {slug: arquivos-e-pastas, name: "Arquivos, pastas, permissões e organização"}
+  - slug: editores-de-texto
+    name: Editores de texto (Word, Writer)
+  - slug: planilhas-eletronicas
+    name: Planilhas eletrônicas (Excel, Calc)
+    children:
+      - {slug: formulas-e-funcoes, name: "Fórmulas e funções"}
+      - {slug: formatacao-e-graficos, name: "Formatação, gráficos e recursos"}
+  - slug: apresentacoes
+    name: Apresentações (PowerPoint, Impress)
+  - slug: redes-e-internet
+    name: Redes e internet
+    children:
+      - {slug: conceitos-de-redes, name: "Conceitos de redes, topologias e equipamentos"}
+      - {slug: protocolos, name: Protocolos}
+      - {slug: internet-e-intranet, name: "Internet, intranet e extranet"}
+      - {slug: navegadores, name: "Navegadores"}
+      - {slug: ferramentas-de-busca, name: "Ferramentas de busca e pesquisa"}
+      - {slug: correio-eletronico, name: Correio eletrônico}
+      - {slug: computacao-em-nuvem, name: "Computação em nuvem"}
+      - {slug: redes-sociais-e-colaboracao, name: "Redes sociais e ferramentas de colaboração"}
+      - {slug: transmissao-de-dados, name: "Transmissão de dados e codificação de sinais"}
+  - slug: seguranca-da-informacao
+    name: Segurança da informação
+    children:
+      - {slug: principios, name: "Princípios: confidencialidade, integridade, disponibilidade"}
+      - {slug: malware, name: Códigos maliciosos}
+      - {slug: golpes-e-ataques, name: Golpes e ataques}
+      - {slug: mecanismos-de-protecao, name: Mecanismos de proteção}
+      - {slug: criptografia-e-certificacao, name: "Criptografia, assinatura e certificação digital"}
+      - {slug: autenticacao-e-biometria, name: "Autenticação, senhas e biometria"}
+      - {slug: backup, name: "Cópias de segurança (backup)"}
+      - {slug: lgpd, name: "Proteção de dados pessoais (LGPD)"}
+  - slug: banco-de-dados
+    name: Banco de dados
+    children:
+      - {slug: modelagem, name: "Modelagem de dados e modelo relacional"}
+      - {slug: sql, name: SQL}
+      - {slug: nosql, name: "Bancos NoSQL"}
+      - {slug: data-warehouse-e-bi, name: "Data warehouse e inteligência de negócios"}
+  - slug: dados-e-informacao
+    name: Dados, informação, conhecimento e inteligência
+    children:
+      - {slug: big-data, name: "Big data"}
+      - {slug: mineracao-de-dados, name: "Mineração de dados"}
+      - {slug: aprendizado-de-maquina, name: "Aprendizado de máquina e inteligência artificial"}
+      - {slug: metadados-e-formatos, name: "Metadados e formatos de arquivo"}
+  - slug: sistemas-de-informacao
+    name: Sistemas de informação e teoria geral dos sistemas
+  - slug: programacao
+    name: Programação e desenvolvimento
+    children:
+      - {slug: logica-de-programacao, name: "Lógica de programação e algoritmos"}
+      - {slug: python, name: Python}
+      - {slug: r, name: "Linguagem R"}
+      - {slug: apis-e-web, name: "APIs e desenvolvimento web"}
+      - {slug: engenharia-de-software, name: "Engenharia de software"}
+  - slug: governanca-de-ti
+    name: Governança e gestão de TI (ITIL, COBIT)

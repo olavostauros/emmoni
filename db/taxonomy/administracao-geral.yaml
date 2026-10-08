@@ -1,5 +1,14 @@
 subject: administracao-geral
 name: Administração Geral
 topics:
+  - {slug: teorias-da-administracao, name: "Teorias e abordagens da administração"}
   - {slug: processo-administrativo, name: "Planejamento, organização, direção e controle"}
-  - {slug: gestao-de-pessoas, name: "Gestão de pessoas"}
+  - {slug: estrutura-organizacional, name: "Estrutura organizacional e departamentalização"}
+  - {slug: planejamento-estrategico, name: "Planejamento estratégico"}
+  - slug: gestao-de-pessoas
+    name: Gestão de pessoas
+    children:
+      - {slug: lideranca-e-motivacao, name: "Liderança e motivação"}
+      - {slug: comunicacao-e-equipes, name: "Comunicação, equipes e cultura organizacional"}
+  - {slug: gestao-da-qualidade, name: "Gestão da qualidade (PDCA, ferramentas)"}
+  - {slug: gestao-de-projetos-e-processos, name: "Gestão de projetos e processos"}

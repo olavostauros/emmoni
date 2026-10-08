@@ -2,3 +2,5 @@ subject: nocoes-de-direito
 name: Noções de Direito
 topics:
   - {slug: nocoes-gerais, name: "Noções gerais de direito"}
+  - {slug: fontes-e-hierarquia-das-normas, name: "Fontes do direito e hierarquia das normas"}
+  - {slug: ramos-do-direito, name: "Ramos do direito"}

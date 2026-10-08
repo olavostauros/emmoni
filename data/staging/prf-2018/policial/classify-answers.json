@@ -20,11 +20,11 @@
  "3": {
   "topics": [
    {
-    "path": "lingua_portuguesa.sintaxe",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.sintaxe.colocacao_pronominal",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Colocação pronominal"
+  "suggested_topic": ""
  },
  "4": {
   "topics": [
@@ -64,11 +64,15 @@
  "7": {
   "topics": [
    {
-    "path": "lingua_portuguesa.sintaxe",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.88
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.65
    }
   ],
-  "suggested_topic": "Flexão verbal (tempos e modos)"
+  "suggested_topic": ""
  },
  "8": {
   "topics": [
@@ -196,36 +200,80 @@
   "suggested_topic": ""
  },
  "21": {
-  "topics": [],
-  "suggested_topic": "Sequências e progressões"
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.funcoes.afim",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "22": {
-  "topics": [],
-  "suggested_topic": "Sequências e progressões"
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "23": {
-  "topics": [],
-  "suggested_topic": "Sequências e progressões"
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "24": {
-  "topics": [],
-  "suggested_topic": "Geometria espacial (vistas e sólidos)"
+  "topics": [
+   {
+    "path": "matematica.geometria_espacial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "25": {
-  "topics": [],
-  "suggested_topic": "Geometria espacial (vistas e sólidos)"
+  "topics": [
+   {
+    "path": "matematica.geometria_espacial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "26": {
-  "topics": [],
-  "suggested_topic": "Geometria espacial (vistas e sólidos)"
+  "topics": [
+   {
+    "path": "matematica.geometria_espacial",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
  },
  "27": {
-  "topics": [],
-  "suggested_topic": "Funções (afim e exponencial)"
+  "topics": [
+   {
+    "path": "matematica.funcoes.exponencial_e_logaritmica",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "28": {
-  "topics": [],
-  "suggested_topic": "Funções (afim e exponencial)"
+  "topics": [
+   {
+    "path": "matematica.funcoes.exponencial_e_logaritmica",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "29": {
   "topics": [
@@ -279,11 +327,11 @@
  "34": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "35": {
   "topics": [
@@ -898,8 +946,13 @@
   "suggested_topic": ""
  },
  "95": {
-  "topics": [],
-  "suggested_topic": "Responsabilidade civil do Estado"
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "96": {
   "topics": [
@@ -922,11 +975,15 @@
  "98": {
   "topics": [
    {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_politicos",
+    "confidence": 0.85
+   },
+   {
     "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
-    "confidence": 0.5
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Direitos políticos"
+  "suggested_topic": ""
  },
  "99": {
   "topics": [
@@ -949,15 +1006,24 @@
  "101": {
   "topics": [
    {
-    "path": "direito_penal.teoria_do_crime.iter_criminis",
-    "confidence": 0.5
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Crimes contra a Administração Pública (descaminho)"
+  "suggested_topic": ""
  },
  "102": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública (descaminho)"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.outros_crimes_de_funcionario",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "103": {
   "topics": [
@@ -1009,16 +1075,49 @@
   "suggested_topic": "Princípios do direito penal (legalidade)"
  },
  "108": {
-  "topics": [],
-  "suggested_topic": "Tráfico de pessoas (Lei nº 13.344/2016)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.trafico_de_pessoas",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "Provas (busca domiciliar)"
  },
  "111": {
-  "topics": [],
-  "suggested_topic": "Estatuto do Desarmamento (Lei nº 10.826/2003)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "112": {
-  "topics": [],
-  "suggested_topic": "Estatuto da Criança e do Adolescente (Lei nº 8.069/1990)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.eca.crimes_do_eca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "113": {
   "topics": [
@@ -1030,30 +1129,22 @@
   "suggested_topic": ""
  },
  "114": {
-  "topics": [],
-  "suggested_topic": "Tráfico de pessoas (Lei nº 13.344/2016)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.trafico_de_pessoas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "115": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Ambientais (Lei nº 9.605/1998)"
- },
- "109": {
   "topics": [
    {
-    "path": "direito_processual_penal.inquerito_policial",
-    "confidence": 0.5
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Provas (busca e apreensão)"
- },
- "110": {
-  "topics": [
-   {
-    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
-    "confidence": 0.7
-   }
-  ],
-  "suggested_topic": "Provas (busca domiciliar)"
+  "suggested_topic": ""
  },
  "116": {
   "topics": [

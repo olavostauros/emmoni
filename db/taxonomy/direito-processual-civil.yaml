@@ -1,5 +1,15 @@
 subject: direito-processual-civil
 name: Direito Processual Civil
 topics:
+  - {slug: normas-fundamentais, name: "Normas fundamentais e princípios"}
   - {slug: jurisdicao-e-competencia, name: "Jurisdição e competência"}
+  - {slug: partes-e-procuradores, name: "Partes, procuradores e intervenção de terceiros"}
+  - {slug: atos-processuais-e-prazos, name: "Atos processuais, prazos e comunicações"}
   - {slug: tutela-provisoria, name: "Tutela provisória e poder geral de cautela"}
+  - {slug: procedimento-comum, name: "Procedimento comum"}
+  - {slug: provas, name: "Provas"}
+  - {slug: sentenca-e-coisa-julgada, name: "Sentença e coisa julgada"}
+  - {slug: recursos, name: "Recursos"}
+  - {slug: execucao, name: "Execução e cumprimento de sentença"}
+  - {slug: acoes-constitucionais, name: "Ações constitucionais: mandado de segurança, ação popular, habeas data"}
+  - {slug: cooperacao-internacional, name: "Cooperação internacional e homologação de decisão estrangeira"}

@@ -2,5 +2,14 @@ subject: direitos-humanos
 name: Direitos Humanos
 topics:
   - {slug: teoria-geral, name: "Teoria geral dos direitos humanos"}
+  - {slug: direitos-humanos-na-constituicao, name: "Direitos humanos na Constituição Federal e jurisprudência"}
   - {slug: tratados-internacionais, name: "Tratados internacionais de direitos humanos"}
+  - {slug: sistema-global, name: "Sistema global (ONU): Declaração Universal e pactos"}
   - {slug: sistema-interamericano, name: "Sistema interamericano de direitos humanos"}
+  - {slug: tribunal-penal-internacional, name: "Tribunal Penal Internacional"}
+  - {slug: pessoas-presas, name: "Tratamento de pessoas presas (Regras de Mandela e outras)"}
+  - {slug: uso-da-forca, name: "Uso da força e armas de fogo por agentes de segurança"}
+  - {slug: policia-e-direitos-humanos, name: "Atuação policial e direitos humanos"}
+  - {slug: grupos-vulneraveis, name: "Grupos vulneráveis: mulheres, crianças, idosos, pessoas com deficiência, LGBTQIA+"}
+  - {slug: politicas-de-direitos-humanos, name: "Programa Nacional de Direitos Humanos e políticas públicas"}
+  - {slug: federalizacao, name: "Incidente de deslocamento de competência (federalização)"}

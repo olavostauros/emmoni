@@ -55,7 +55,8 @@ journalctl --user -u emmoni-crawl.service   # relatório de cada execução
 ## Depois de cada execução
 
 1. `emmoni manifests pending` lista as propostas; `emmoni manifests show <slug>` mostra uma.
-2. Conferir a proposta na página oficial (`source_url`) e o bloco `evidence`.
+2. O agente confere a proposta contra o bloco `evidence` e as páginas já guardadas pelo crawler
+   (decisão 0011; não navega fora do crawler).
 3. `emmoni manifests approve <slug>` move para `ingest/manifests/`. Ajustar ali `name`,
    `first_number`, `applied_on` e `subjects_by_range` (lendo o caderno) antes de
    `emmoni ingest <slug>`.
@@ -64,7 +65,8 @@ journalctl --user -u emmoni-crawl.service   # relatório de cada execução
 5. O relatório lista **órgãos candidatos ao catálogo** (prefixos policiais sem alias em
    `db/catalog.yaml`) e **documentos novos em concursos aprovados** (ex.: gabarito definitivo
    publicado depois do preliminar): o manifesto aprovado é editado à mão.
-6. Commitar `ingest/manifests/` (pendentes, aprovados e rejeitados ficam no git).
+6. Commitar `ingest/manifests/` (pendentes, aprovados e rejeitados ficam no git); a mensagem de
+   commit diz qual modelo aprovou.
 
 O código de saída é 1 quando algum host bloqueou (403/captcha); erros pontuais (um concurso com
 HTTP 500, por exemplo) ficam só no relatório e são tentados de novo no dia seguinte. Não contorne

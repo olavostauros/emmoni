@@ -180,56 +180,56 @@
  "19": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.3
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "20": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.3
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.88
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "21": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.3
+    "path": "lingua_portuguesa.redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "22": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.3
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "23": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.3
+    "path": "lingua_portuguesa.redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "24": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.3
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "25": {
   "topics": [
@@ -256,11 +256,15 @@
  "27": {
   "topics": [
    {
-    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
-    "confidence": 0.5
+    "path": "direito_administrativo.controle_da_administracao.controle_interno_e_externo",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Controle da administração pública"
+  "suggested_topic": ""
  },
  "28": {
   "topics": [
@@ -292,11 +296,20 @@
  "31": {
   "topics": [
    {
-    "path": "direito_processual_penal.inquerito_policial",
-    "confidence": 0.5
+    "path": "direito_processual_penal.provas.cadeia_de_custodia",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Provas (cadeia de custódia)"
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "33": {
   "topics": [
@@ -307,26 +320,32 @@
   ],
   "suggested_topic": ""
  },
- "32": {
+ "34": {
   "topics": [
    {
-    "path": "direito_penal.teoria_do_crime.iter_criminis",
-    "confidence": 0.5
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Crimes contra a Administração Pública (descaminho)"
- },
- "34": {
-  "topics": [],
-  "suggested_topic": "Lei de Abuso de Autoridade (Lei nº 13.869/2019)"
+  "suggested_topic": ""
  },
  "35": {
-  "topics": [],
-  "suggested_topic": "Lei de Migração (Lei nº 13.445/2017)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_migracao",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "36": {
-  "topics": [],
-  "suggested_topic": "Identificação criminal (Lei nº 12.037/2009)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.identificacao_criminal",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "37": {
   "topics": [
@@ -673,44 +692,82 @@
  "71": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "72": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "73": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "74": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "75": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.programacao.engenharia_de_software",
+    "confidence": 0.88
+   },
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "76": {
-  "topics": [],
-  "suggested_topic": "Sistemas de informação e teoria geral dos sistemas"
+  "topics": [
+   {
+    "path": "informatica.programacao.engenharia_de_software",
+    "confidence": 0.88
+   },
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "77": {
-  "topics": [],
-  "suggested_topic": "Dados, informação, conhecimento e inteligência"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "78": {
-  "topics": [],
-  "suggested_topic": "Dados, informação, conhecimento e inteligência"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "79": {
   "topics": [
@@ -749,65 +806,146 @@
   "suggested_topic": ""
  },
  "83": {
-  "topics": [],
-  "suggested_topic": "Metadados de arquivos"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.metadados_e_formatos",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "84": {
-  "topics": [],
-  "suggested_topic": "Programação (Python e R)"
+  "topics": [
+   {
+    "path": "informatica.programacao.python",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "85": {
-  "topics": [],
-  "suggested_topic": "Programação (Python e R)"
+  "topics": [
+   {
+    "path": "informatica.programacao.r",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "86": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.mineracao_de_dados",
+    "confidence": 0.88
+   },
+   {
+    "path": "informatica.dados_e_informacao.aprendizado_de_maquina",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "87": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.mineracao_de_dados",
+    "confidence": 0.75
+   },
+   {
+    "path": "informatica.dados_e_informacao.aprendizado_de_maquina",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "88": {
-  "topics": [],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao.big_data",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "89": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "90": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "91": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "92": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
  },
  "93": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "94": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.8
+   },
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "95": {
-  "topics": [],
-  "suggested_topic": "Banco de dados"
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.sql",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "96": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.4
+    "path": "informatica.programacao.apis_e_web",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "API (interfaces de programação de aplicações)"
+  "suggested_topic": ""
  },
  "97": {
   "topics": [
@@ -977,20 +1115,24 @@
  "114": {
   "topics": [
    {
-    "path": "quimica.ligacoes_quimicas",
-    "confidence": 0.5
+    "path": "quimica.solucoes",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Soluções e propriedades coligativas"
+  "suggested_topic": ""
  },
  "115": {
   "topics": [
    {
-    "path": "quimica.reacoes_quimicas",
-    "confidence": 0.5
+    "path": "quimica.termoquimica",
+    "confidence": 0.9
+   },
+   {
+    "path": "quimica.solucoes",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Termoquímica"
+  "suggested_topic": ""
  },
  "116": {
   "topics": [

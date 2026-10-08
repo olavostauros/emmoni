@@ -3,3 +3,7 @@ name: Segurança Pública
 topics:
   - {slug: politicas-de-seguranca, name: "Políticas de segurança pública"}
   - {slug: sistema-de-seguranca-publica, name: "Sistema Único de Segurança Pública"}
+  - {slug: lei-organica-das-policias-civis, name: "Lei Orgânica Nacional das Polícias Civis (Lei nº 14.735/2023)"}
+  - {slug: politica-criminal-e-penitenciaria, name: "Política criminal e penitenciária nacional"}
+  - {slug: atividade-de-inteligencia, name: "Atividade de inteligência"}
+  - {slug: policia-comunitaria, name: "Polícia comunitária e prevenção"}

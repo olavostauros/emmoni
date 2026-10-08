@@ -2,3 +2,7 @@ subject: psicologia
 name: Psicologia
 topics:
   - {slug: psicologia-geral, name: "Psicologia geral"}
+  - {slug: psicologia-juridica, name: "Psicologia jurídica e forense"}
+  - {slug: psicologia-organizacional, name: "Psicologia organizacional"}
+  - {slug: avaliacao-psicologica, name: "Avaliação psicológica"}
+  - {slug: psicopatologia, name: "Psicopatologia"}

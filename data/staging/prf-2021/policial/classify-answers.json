@@ -57,20 +57,20 @@
   ],
   "suggested_topic": ""
  },
- "16": {
-  "topics": [
-   {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.95
-   }
-  ],
-  "suggested_topic": ""
- },
  "15": {
   "topics": [
    {
     "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
     "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto",
+    "confidence": 0.95
    }
   ],
   "suggested_topic": ""
@@ -135,47 +135,55 @@
  "22": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "23": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "24": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.65
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "25": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "26": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Redação oficial (Manual de Redação da Presidência da República)"
+  "suggested_topic": ""
  },
  "27": {
   "topics": [
@@ -230,12 +238,26 @@
   "suggested_topic": ""
  },
  "31": {
-  "topics": [],
-  "suggested_topic": "Sequências e progressões"
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.85
+   },
+   {
+    "path": "matematica.problemas_aritmeticos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "32": {
-  "topics": [],
-  "suggested_topic": "Sequências e progressões"
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "33": {
   "topics": [
@@ -271,11 +293,11 @@
  "36": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.dados_e_informacao.big_data",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Mineração de dados, big data e aprendizado de máquina"
+  "suggested_topic": ""
  },
  "37": {
   "topics": [
@@ -289,11 +311,11 @@
  "38": {
   "topics": [
    {
-    "path": "informatica.redes_e_internet",
-    "confidence": 0.5
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.93
    }
   ],
-  "suggested_topic": "Computação em nuvem"
+  "suggested_topic": ""
  },
  "39": {
   "topics": [
@@ -352,11 +374,11 @@
  "45": {
   "topics": [
    {
-    "path": "etica_no_servico_publico.codigo_de_etica",
-    "confidence": 0.5
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.8
    }
   ],
-  "suggested_topic": "Agentes públicos e Lei nº 8.112/1990"
+  "suggested_topic": ""
  },
  "46": {
   "topics": [
@@ -368,8 +390,13 @@
   "suggested_topic": ""
  },
  "47": {
-  "topics": [],
-  "suggested_topic": "Governança pública"
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.transparencia_e_governanca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "48": {
   "topics": [
@@ -381,17 +408,26 @@
   "suggested_topic": ""
  },
  "49": {
-  "topics": [],
-  "suggested_topic": "Lei de Acesso à Informação (Lei nº 12.527/2011)"
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.transparencia_e_governanca",
+    "confidence": 0.88
+   }
+  ],
+  "suggested_topic": ""
  },
  "50": {
   "topics": [
    {
-    "path": "etica_no_servico_publico.codigo_de_etica",
-    "confidence": 0.5
+    "path": "etica_no_servico_publico.conflito_de_interesses",
+    "confidence": 0.75
+   },
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Licitações e contratos administrativos"
+  "suggested_topic": ""
  },
  "51": {
   "topics": [
@@ -540,6 +576,58 @@
   ],
   "suggested_topic": ""
  },
+ "66": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.sistema_nacional_de_transito",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.8
+   },
+   {
+    "path": "legislacao_de_transito.ctb",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
  "70": {
   "topics": [
    {
@@ -603,67 +691,6 @@
   ],
   "suggested_topic": ""
  },
- "80": {
-  "topics": [
-   {
-    "path": "legislacao_de_transito.resolucoes_contran",
-    "confidence": 0.9
-   }
-  ],
-  "suggested_topic": ""
- },
- "66": {
-  "topics": [
-   {
-    "path": "legislacao_de_transito.resolucoes_contran",
-    "confidence": 0.8
-   },
-   {
-    "path": "legislacao_de_transito.infracoes_e_penalidades",
-    "confidence": 0.7
-   }
-  ],
-  "suggested_topic": ""
- },
- "67": {
-  "topics": [
-   {
-    "path": "legislacao_de_transito.resolucoes_contran",
-    "confidence": 0.8
-   },
-   {
-    "path": "legislacao_de_transito.sistema_nacional_de_transito",
-    "confidence": 0.5
-   }
-  ],
-  "suggested_topic": ""
- },
- "68": {
-  "topics": [
-   {
-    "path": "legislacao_de_transito.resolucoes_contran",
-    "confidence": 0.8
-   },
-   {
-    "path": "legislacao_de_transito.ctb",
-    "confidence": 0.6
-   }
-  ],
-  "suggested_topic": ""
- },
- "69": {
-  "topics": [
-   {
-    "path": "legislacao_de_transito.resolucoes_contran",
-    "confidence": 0.8
-   },
-   {
-    "path": "legislacao_de_transito.ctb",
-    "confidence": 0.6
-   }
-  ],
-  "suggested_topic": ""
- },
  "77": {
   "topics": [
    {
@@ -699,6 +726,15 @@
    {
     "path": "legislacao_de_transito.ctb",
     "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.resolucoes_contran",
+    "confidence": 0.9
    }
   ],
   "suggested_topic": ""
@@ -759,19 +795,33 @@
  "86": {
   "topics": [
    {
-    "path": "direito_administrativo.atos_administrativos",
-    "confidence": 0.5
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.92
    }
   ],
-  "suggested_topic": "Controle da administração pública"
+  "suggested_topic": ""
  },
  "87": {
-  "topics": [],
-  "suggested_topic": "Organização administrativa (administração direta e indireta)"
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_administrativo.organizacao_administrativa.centralizacao_e_descentralizacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "88": {
-  "topics": [],
-  "suggested_topic": "Licitações e contratos administrativos"
+  "topics": [
+   {
+    "path": "direito_administrativo.licitacoes_e_contratos.dispensa_e_inexigibilidade",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "89": {
   "topics": [
@@ -787,16 +837,35 @@
   "suggested_topic": ""
  },
  "90": {
-  "topics": [],
-  "suggested_topic": "Controle da administração pública"
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_judicial",
+    "confidence": 0.8
+   },
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
  },
  "91": {
-  "topics": [],
-  "suggested_topic": "Carreira de policial rodoviário federal (Lei nº 9.654/1998)"
+  "topics": [
+   {
+    "path": "direito_administrativo.carreiras_policiais_federais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "92": {
-  "topics": [],
-  "suggested_topic": "Carreira de policial rodoviário federal (Lei nº 9.654/1998)"
+  "topics": [
+   {
+    "path": "direito_administrativo.carreiras_policiais_federais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
  },
  "93": {
   "topics": [
@@ -844,24 +913,57 @@
   "suggested_topic": ""
  },
  "98": {
-  "topics": [],
-  "suggested_topic": "Defesa do Estado e das instituições democráticas"
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "99": {
-  "topics": [],
-  "suggested_topic": "Defesa do Estado e das instituições democráticas"
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "100": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica.falsidade_documental",
+    "confidence": 0.85
+   },
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "101": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a fé pública"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio",
+    "confidence": 0.75
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_fe_publica",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
  },
  "102": {
-  "topics": [],
-  "suggested_topic": "Crimes contra a Administração Pública (corrupção ativa)"
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.corrupcao_ativa",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "103": {
   "topics": [
@@ -882,8 +984,13 @@
   "suggested_topic": "Crimes contra a fé pública"
  },
  "105": {
-  "topics": [],
-  "suggested_topic": "Provas (busca e apreensão)"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.busca_e_apreensao",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "106": {
   "topics": [
@@ -904,8 +1011,17 @@
   "suggested_topic": "Identificação criminal (Lei nº 12.037/2009)"
  },
  "108": {
-  "topics": [],
-  "suggested_topic": "Provas"
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.testemunhas",
+    "confidence": 0.88
+   },
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
  },
  "109": {
   "topics": [
@@ -921,16 +1037,31 @@
   "suggested_topic": ""
  },
  "110": {
-  "topics": [],
-  "suggested_topic": "Lei de Crimes Hediondos (Lei nº 8.072/1990)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_hediondos",
+    "confidence": 0.92
+   }
+  ],
+  "suggested_topic": ""
  },
  "111": {
-  "topics": [],
-  "suggested_topic": "Lei de Abuso de Autoridade (Lei nº 13.869/2019)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "112": {
-  "topics": [],
-  "suggested_topic": "Identificação criminal (Lei nº 12.037/2009)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.identificacao_criminal",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "113": {
   "topics": [
@@ -942,39 +1073,57 @@
   "suggested_topic": ""
  },
  "114": {
-  "topics": [],
-  "suggested_topic": "Estatuto do Desarmamento (Lei nº 10.826/2003)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "115": {
-  "topics": [],
-  "suggested_topic": "Lei de Tortura (Lei nº 9.455/1997)"
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_tortura",
+    "confidence": 0.93
+   }
+  ],
+  "suggested_topic": ""
  },
  "116": {
   "topics": [
    {
-    "path": "direitos_humanos.sistema_interamericano",
-    "confidence": 0.5
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direitos_humanos.policia_e_direitos_humanos",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Direitos humanos na Constituição Federal e jurisprudência do STF"
+  "suggested_topic": ""
  },
  "117": {
   "topics": [
    {
-    "path": "direitos_humanos.sistema_interamericano",
-    "confidence": 0.5
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Direitos humanos na Constituição Federal e jurisprudência do STF"
+  "suggested_topic": ""
  },
  "118": {
   "topics": [
    {
-    "path": "direitos_humanos.sistema_interamericano",
-    "confidence": 0.5
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.85
+   },
+   {
+    "path": "direitos_humanos.grupos_vulneraveis",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Direitos humanos na Constituição Federal e jurisprudência do STF"
+  "suggested_topic": ""
  },
  "119": {
   "topics": [

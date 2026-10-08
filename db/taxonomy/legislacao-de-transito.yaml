@@ -1,9 +1,17 @@
 subject: legislacao-de-transito
 name: Legislação de Trânsito
 topics:
-  - {slug: ctb, name: "Código de Trânsito Brasileiro"}
+  - slug: ctb
+    name: Código de Trânsito Brasileiro
+    children:
+      - {slug: normas-de-circulacao, name: "Normas gerais de circulação e conduta"}
+      - {slug: habilitacao, name: "Habilitação e pontuação do condutor"}
+      - {slug: veiculos, name: "Veículos: registro, licenciamento e equipamentos obrigatórios"}
+      - {slug: processo-administrativo, name: "Processo administrativo: autuação, notificação e defesa"}
+      - {slug: pedestres-e-condutores-de-veiculos-nao-motorizados, name: "Pedestres e veículos não motorizados"}
   - {slug: crimes-de-transito, name: "Crimes de trânsito"}
   - {slug: infracoes-e-penalidades, name: "Infrações, penalidades e medidas administrativas"}
   - {slug: resolucoes-contran, name: "Resoluções do CONTRAN"}
   - {slug: sinalizacao, name: "Sinalização de trânsito"}
   - {slug: sistema-nacional-de-transito, name: "Sistema Nacional de Trânsito"}
+  - {slug: direcao-defensiva, name: "Direção defensiva"}

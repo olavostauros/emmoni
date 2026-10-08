@@ -1,9 +1,89 @@
 subject: direito-processual-penal
 name: Direito Processual Penal
 topics:
+  - slug: principios
+    name: Princípios e sistemas processuais
+  - slug: aplicacao-da-lei-processual
+    name: Aplicação da lei processual penal no tempo e no espaço
   - slug: inquerito-policial
     name: Inquérito policial
+    children:
+      - {slug: natureza-e-caracteristicas, name: "Natureza, características e valor probatório"}
+      - {slug: instauracao-e-diligencias, name: "Instauração, diligências e indiciamento"}
+      - {slug: prazos-e-arquivamento, name: "Prazos, conclusão e arquivamento"}
+      - {slug: policia-judiciaria, name: "Polícia judiciária e atribuições"}
+      - {slug: identificacao-criminal, name: "Identificação criminal (Lei nº 12.037/2009)"}
+  - slug: acao-penal
+    name: Ação penal
+    children:
+      - {slug: acao-penal-publica, name: "Ação penal pública"}
+      - {slug: acao-penal-privada, name: "Ação penal privada"}
+      - {slug: condicoes-da-acao-e-denuncia, name: "Condições da ação, denúncia e queixa"}
+  - slug: acao-civil-ex-delicto
+    name: Ação civil ex delicto
+  - slug: jurisdicao-e-competencia
+    name: Jurisdição e competência
+    children:
+      - {slug: competencia-territorial, name: "Competência pelo lugar da infração e domicílio"}
+      - {slug: competencia-material, name: "Competência por matéria, prerrogativa de função e justiças"}
+      - {slug: conexao-e-continencia, name: "Conexão, continência e prevenção"}
+      - {slug: conflito-de-competencia, name: "Conflito de competência"}
+  - slug: sujeitos-processuais
+    name: Sujeitos do processo
+    children:
+      - {slug: juiz, name: "Juiz: impedimento, suspeição e juiz das garantias"}
+      - {slug: ministerio-publico, name: "Ministério Público"}
+      - {slug: acusado-e-defensor, name: "Acusado e defensor"}
+      - {slug: assistente-e-auxiliares, name: "Assistente de acusação e auxiliares da justiça"}
+  - slug: provas
+    name: Provas
+    children:
+      - {slug: teoria-geral, name: "Teoria geral da prova e ônus"}
+      - {slug: provas-ilicitas, name: "Provas ilícitas e ilegítimas"}
+      - {slug: pericias-e-corpo-de-delito, name: "Perícias e exame de corpo de delito"}
+      - {slug: cadeia-de-custodia, name: "Cadeia de custódia"}
+      - {slug: interrogatorio, name: "Interrogatório do acusado"}
+      - {slug: confissao, name: Confissão}
+      - {slug: testemunhas, name: "Prova testemunhal e declarações do ofendido"}
+      - {slug: reconhecimento-e-acareacao, name: "Reconhecimento de pessoas e coisas; acareação"}
+      - {slug: documentos-e-indicios, name: "Prova documental e indícios"}
+      - {slug: busca-e-apreensao, name: "Busca e apreensão"}
+      - {slug: interceptacao-e-sigilo, name: "Interceptação telefônica e quebra de sigilo"}
   - slug: prisao
-    name: Prisão
+    name: Prisão, medidas cautelares e liberdade provisória
     children:
       - {slug: prisao-em-flagrante, name: Prisão em flagrante}
+      - {slug: prisao-preventiva, name: "Prisão preventiva"}
+      - {slug: prisao-temporaria, name: "Prisão temporária"}
+      - {slug: medidas-cautelares-diversas, name: "Medidas cautelares diversas da prisão"}
+      - {slug: liberdade-provisoria-e-fianca, name: "Liberdade provisória e fiança"}
+      - {slug: audiencia-de-custodia, name: "Audiência de custódia"}
+      - {slug: mandado-e-cumprimento, name: "Mandado de prisão, cumprimento e uso de algemas"}
+  - slug: citacao-e-intimacao
+    name: Citações e intimações
+  - slug: questoes-e-processos-incidentes
+    name: Questões e processos incidentes
+  - slug: procedimentos
+    name: Procedimentos
+    children:
+      - {slug: procedimento-comum, name: "Procedimento comum (ordinário, sumário, sumaríssimo)"}
+      - {slug: tribunal-do-juri, name: "Tribunal do júri"}
+      - {slug: juizados-especiais-criminais, name: "Juizados especiais criminais (Lei nº 9.099/1995)"}
+      - {slug: procedimentos-especiais, name: "Procedimentos especiais"}
+  - slug: justica-negocial
+    name: Justiça negocial (ANPP, colaboração premiada, transação penal)
+  - slug: sentenca-e-coisa-julgada
+    name: Sentença e coisa julgada
+  - slug: nulidades
+    name: Nulidades
+  - slug: recursos
+    name: Recursos
+    children:
+      - {slug: teoria-geral-dos-recursos, name: "Teoria geral dos recursos"}
+      - {slug: apelacao, name: Apelação}
+      - {slug: recurso-em-sentido-estrito, name: "Recurso em sentido estrito"}
+      - {slug: embargos-e-outros, name: "Embargos, agravo, carta testemunhável e recursos aos tribunais superiores"}
+  - slug: habeas-corpus-e-revisao
+    name: Habeas corpus, revisão criminal e mandado de segurança
+  - slug: relacoes-jurisdicionais-com-autoridade-estrangeira
+    name: Relações jurisdicionais com autoridade estrangeira

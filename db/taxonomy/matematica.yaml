@@ -1,11 +1,30 @@
 subject: matematica
 name: Matemática
 topics:
-  - slug: porcentagem
-    name: Porcentagem
-  - slug: razao-e-proporcao
-    name: Razão e proporção
+  - {slug: conjuntos-numericos, name: "Conjuntos numéricos e operações"}
+  - {slug: porcentagem, name: Porcentagem}
+  - {slug: razao-e-proporcao, name: "Razão, proporção e regra de três"}
+  - {slug: matematica-financeira, name: "Matemática financeira: juros simples e compostos"}
+  - {slug: equacoes-e-inequacoes, name: "Equações, inequações e sistemas"}
+  - slug: funcoes
+    name: Funções
+    children:
+      - {slug: afim, name: "Função afim"}
+      - {slug: quadratica, name: "Função quadrática"}
+      - {slug: exponencial-e-logaritmica, name: "Funções exponencial e logarítmica"}
+  - {slug: sequencias-e-progressoes, name: "Sequências e progressões"}
+  - {slug: geometria-plana, name: "Geometria plana: ângulos, áreas e perímetros"}
+  - {slug: geometria-espacial, name: "Geometria espacial: sólidos e volumes"}
+  - {slug: geometria-analitica, name: "Geometria analítica"}
+  - {slug: trigonometria, name: "Trigonometria"}
+  - {slug: matrizes-e-determinantes, name: "Matrizes, determinantes e sistemas lineares"}
+  - {slug: analise-combinatoria, name: "Análise combinatória"}
+  - {slug: probabilidade, name: "Probabilidade"}
   - slug: estatistica-basica
     name: Estatística básica
     children:
       - {slug: media, name: Média}
+      - {slug: graficos-e-tabelas, name: "Gráficos e tabelas"}
+      - {slug: medidas-de-dispersao, name: "Mediana, moda e medidas de dispersão"}
+  - {slug: unidades-de-medida, name: "Grandezas, unidades de medida e conversões"}
+  - {slug: problemas-aritmeticos, name: "Problemas aritméticos e situações-problema"}

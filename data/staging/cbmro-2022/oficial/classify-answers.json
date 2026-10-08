@@ -1,0 +1,986 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.ortografia.acentuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.adverbio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.85
+   },
+   {
+    "path": "lingua_portuguesa.semantica.sinonimia_e_antonimia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.8
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "matematica.probabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "matematica.probabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "matematica.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "matematica.geometria_analitica",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "matematica.geometria_analitica",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "matematica.trigonometria",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "matematica.trigonometria",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.8
+   },
+   {
+    "path": "matematica.trigonometria",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "matematica.geometria_plana",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "matematica.geometria_espacial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "estatistica.estatistica_descritiva.medidas_de_posicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "estatistica.estatistica_descritiva.medidas_de_posicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "estatistica.estatistica_descritiva.medidas_de_dispersao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.formacao_e_emancipacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.organizacao_territorial",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.75
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "historia.historia_regional",
+    "confidence": 0.7
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.85
+   },
+   {
+    "path": "geografia.geografia_do_brasil.economia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "historia.historia_do_brasil.brasil_imperio",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "geografia.geografia_regional.aspectos_fisicos",
+    "confidence": 0.8
+   },
+   {
+    "path": "geografia.geografia_regional.aspectos_socioeconomicos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.formacao_e_emancipacao",
+    "confidence": 0.75
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "historia.historia_regional.formacao_e_emancipacao",
+    "confidence": 0.75
+   },
+   {
+    "path": "historia.historia_do_brasil.primeira_republica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.linux",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.85
+   },
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas.formulas_e_funcoes",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.navegadores",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.arquivos_e_pastas",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.planejamento_e_custos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.planejamento_e_custos",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.planejamento_e_custos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Mecânica dos solos e fundações"
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil",
+    "confidence": 0.55
+   }
+  ],
+  "suggested_topic": "Mecânica dos solos e fundações"
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.materiais_e_concreto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.materiais_e_concreto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.materiais_e_concreto",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.estruturas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.estruturas",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.transportes_e_vias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.transportes_e_vias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.transportes_e_vias",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.estruturas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.hidraulica_e_instalacoes",
+    "confidence": 0.8
+   },
+   {
+    "path": "engenharia.seguranca_do_trabalho.protecao_contra_incendio",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.estruturas",
+    "confidence": 0.7
+   },
+   {
+    "path": "engenharia.engenharia_civil.materiais_e_concreto",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "engenharia.seguranca_do_trabalho.normas_regulamentadoras",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil",
+    "confidence": 0.5
+   }
+  ],
+  "suggested_topic": "Legislação profissional: sistema CONFEA/CREA e ART"
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "engenharia.seguranca_do_trabalho.normas_regulamentadoras",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.hidraulica_e_instalacoes",
+    "confidence": 0.65
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.hidraulica_e_instalacoes",
+    "confidence": 0.95
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.hidraulica_e_instalacoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "engenharia.engenharia_civil.hidraulica_e_instalacoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "engenharia.seguranca_do_trabalho.protecao_contra_incendio",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "engenharia.geoprocessamento.cartografia_e_geodesia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.sistemas_de_protecao",
+    "confidence": 0.8
+   },
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.teoria_do_fogo",
+    "confidence": 0.85
+   },
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.85
+   },
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.teoria_do_fogo",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.brigada_de_incendio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.sistemas_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.8
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.sistemas_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.sistemas_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.produtos_perigosos",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.sistemas_de_protecao",
+    "confidence": 0.8
+   },
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.produtos_perigosos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.8
+   },
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.produtos_perigosos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.produtos_perigosos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.sistemas_de_protecao",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "defesa_civil_e_prevencao_de_incendios.prevencao_e_combate_a_incendio.normas_e_instrucoes_tecnicas",
+    "confidence": 0.85
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

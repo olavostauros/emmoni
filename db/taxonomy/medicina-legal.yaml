@@ -1,6 +1,44 @@
 subject: medicina-legal
 name: Medicina Legal
 topics:
-  - {slug: traumatologia-forense, name: "Traumatologia forense"}
-  - {slug: tanatologia-forense, name: "Tanatologia forense"}
-  - {slug: sexologia-forense, name: "Sexologia forense"}
+  - slug: introducao
+    name: Conceito, perícias e documentos médico-legais
+    children:
+      - {slug: pericias-e-peritos, name: "Perícias, peritos e corpo de delito"}
+      - {slug: documentos-medico-legais, name: "Documentos médico-legais: laudo, atestado, relatório"}
+  - slug: antropologia-forense
+    name: Antropologia forense e identificação médico-legal
+  - slug: traumatologia-forense
+    name: Traumatologia forense
+    children:
+      - {slug: energias-mecanicas, name: "Energias mecânicas: instrumentos contundentes, cortantes, perfurantes"}
+      - {slug: lesoes-por-arma-de-fogo, name: "Lesões por projétil de arma de fogo"}
+      - {slug: energias-fisicas, name: "Energias físicas: calor, frio, eletricidade e radiação"}
+      - {slug: energias-quimicas-e-mistas, name: "Energias químicas, bioquímicas e mistas"}
+      - {slug: lesao-corporal-juridica, name: "Classificação jurídica das lesões corporais"}
+  - slug: asfixiologia-forense
+    name: Asfixiologia forense
+  - slug: tanatologia-forense
+    name: Tanatologia forense
+    children:
+      - {slug: fenomenos-cadavericos, name: "Fenômenos cadavéricos abióticos e transformativos"}
+      - {slug: cronotanatognose, name: "Cronotanatognose"}
+      - {slug: necropsia, name: "Necropsia e exumação"}
+      - {slug: tipos-de-morte, name: "Tipos de morte, morte encefálica e causa jurídica"}
+  - slug: sexologia-forense
+    name: Sexologia forense
+    children:
+      - {slug: crimes-sexuais, name: "Perícia nos crimes sexuais"}
+      - {slug: gravidez-parto-e-aborto, name: "Gravidez, parto, puerpério e aborto"}
+  - slug: toxicologia-forense
+    name: Toxicologia forense e toxicomanias
+  - slug: psiquiatria-forense
+    name: Psiquiatria forense e modificadores da capacidade
+  - slug: genetica-forense
+    name: Genética forense e investigação de paternidade
+  - slug: odontologia-legal
+    name: Odontologia legal
+  - slug: infortunistica
+    name: Infortunística e acidentes do trabalho
+  - slug: patologia-forense
+    name: Patologia forense

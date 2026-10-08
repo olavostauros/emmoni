@@ -1,5 +1,20 @@
 subject: atualidades
 name: Atualidades
 topics:
-  - {slug: politica-e-economia, name: "Política e economia"}
-  - {slug: sociedade-e-cultura, name: "Sociedade e cultura"}
+  - slug: politica-e-economia
+    name: Política e economia
+    children:
+      - {slug: politica-brasileira, name: "Política brasileira"}
+      - {slug: economia-brasileira, name: "Economia brasileira"}
+  - slug: sociedade-e-cultura
+    name: Sociedade e cultura
+  - slug: relacoes-internacionais
+    name: Relações internacionais e conflitos
+  - slug: meio-ambiente
+    name: Meio ambiente e clima
+  - slug: ciencia-tecnologia-e-saude
+    name: Ciência, tecnologia e saúde
+  - slug: seguranca-publica
+    name: Segurança pública, violência e sistema prisional
+  - slug: educacao-e-direitos
+    name: Educação, cidadania e direitos

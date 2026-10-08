@@ -1,5 +1,9 @@
 subject: direito-empresarial
 name: Direito Empresarial
 topics:
+  - {slug: empresario-e-estabelecimento, name: "Empresário, estabelecimento e registro"}
   - {slug: sociedades, name: "Sociedades empresárias"}
   - {slug: titulos-de-credito, name: "Títulos de crédito"}
+  - {slug: recuperacao-e-falencia, name: "Recuperação judicial, extrajudicial e falência"}
+  - {slug: propriedade-industrial, name: "Propriedade industrial e concorrência desleal"}
+  - {slug: contratos-empresariais, name: "Contratos empresariais"}

@@ -446,7 +446,8 @@ edita o manifesto e reroda a ingestão daquela prova (decisão 0007).
 catálogo) e a move para `ingest/manifests/`. `emmoni manifests reject <slug> --reason "..."` move
 para `ingest/manifests/_rejected/` com o motivo, e o crawler não volta a propor o concurso. Os três
 diretórios ficam no git. Enquanto
-`auto_approve: false` (padrão), toda proposta passa por revisão humana. Ligar `auto_approve` numa
+`auto_approve: false` (padrão), toda proposta passa por revisão explícita, feita pelo agente
+(decisão 0011, AGENTS.md "Revisão pelo agente"). Ligar `auto_approve` numa
 fonte exige decisão registrada e só vale para propostas em que todos os campos vieram de regras ou
 têm confiança ≥ 0,9.
 
@@ -497,7 +498,7 @@ exams:
 | `structure` | questões brutas → `questions.json` | Agente só onde as regras falham (tabelas, fórmulas, layout em colunas), pelo mesmo mecanismo de tarefas/respostas do `classify`. Saída validada por pydantic; inválida → `review`. |
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |
 | `validate` | `questions.json` | Numeração contínua, alternativas compatíveis com o tipo, gabarito válido, enunciado não vazio, imagens resolvidas. Falha → questão fica `review`, com motivo registrado. |
-| `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo agente dentro da taxonomia, com `confidence`. Grava `classify-tasks.json` com o que falta; lê `classify-answers.json`. Confiança < 0,6 ou assunto de outra disciplina → `review`; sem resposta → `draft`. |
+| `classify` | questões → assuntos | Disciplina vem do cabeçalho/manifesto; assuntos pelo agente dentro da taxonomia, com `confidence`. Grava `classify-tasks.json` com o que falta; lê `classify-answers.json`. Assunto de outra disciplina → `review`; sem resposta, ou sem assunto com confiança ≥ 0,6 → `draft`, e a questão volta às tarefas (decisão 0010). |
 | `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of` (questões em `review` ficam fora: o conteúdo extraído está incompleto). |
 
 No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
@@ -516,6 +517,7 @@ emmoni ingest <manifest> --step <s> # uma etapa
 emmoni review list|show [<concurso>/<prova>]   # fila de questões em review, com motivos
 emmoni review sample <concurso>/<prova> [--n 10] # amostra em HTML, ao lado da página do PDF
 emmoni review approve <concurso>/<prova>        # publica a prova (exige amostra)
+emmoni review topics [--n 50] [--report]        # amostra de classificações por assunto (M4)
 emmoni taxonomy load
 emmoni check                        # seção 8
 emmoni coverage                     # gera docs/coverage.md
@@ -552,10 +554,14 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 - Checks mínimos: questão publicada sem gabarito final e não anulada; múltipla escolha com < 4
   alternativas; buraco na numeração de uma prova; `asset:` sem asset; duplicatas publicadas
   não marcadas; questão publicada sem assunto; texto-base sem questões.
-- Amostragem manual: para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
+- Amostragem por prova (feita pelo agente, decisão 0011): para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
   (de forma determinística) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
-  com cada questão ao lado da página do PDF; a prova só vai para `published` após aprovação humana
-  (`emmoni review approve`, que registra quem aprovou em `sample.json`).
+  com cada questão ao lado da página do PDF; a prova só vai para `published` após a conferência
+  (`emmoni review approve --by <modelo>`, que registra quem aprovou em `sample.json`).
+- Amostragem da classificação: `emmoni review topics --n 50` sorteia 50 questões classificadas e
+  gera `data/review/assuntos/amostra.{json,md}`; o agente revisor, em contexto separado do
+  `classify`, grava `verdict` e `reviewed_by`, e `--report` mede o acerto (critério do M4,
+  decisões 0010 e 0011).
 - `emmoni coverage` gera `docs/coverage.md`: questões publicadas por banca × órgão × ano e por
   disciplina, provas de manifestos ainda não ingeridas, propostas pendentes de aprovação e, por
   fonte, a última execução do crawler e os hosts que bloquearam.

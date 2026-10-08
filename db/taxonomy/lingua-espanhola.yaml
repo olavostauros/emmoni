@@ -3,3 +3,10 @@ name: Língua Espanhola
 topics:
   - {slug: compreensao-de-texto, name: "Compreensão de texto"}
   - {slug: vocabulario, name: "Vocabulário e aspectos linguísticos"}
+  - slug: gramatica
+    name: Gramática
+    children:
+      - {slug: verbos, name: "Verbos e tempos verbais"}
+      - {slug: pronomes-e-referencia, name: "Pronomes e referência"}
+      - {slug: conectores-e-preposicoes, name: "Conectores e preposições"}
+  - {slug: coesao-e-coerencia, name: "Coesão e coerência"}
