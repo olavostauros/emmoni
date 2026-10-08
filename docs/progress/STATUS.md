@@ -8,14 +8,15 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
   e reprocessamento das 16 provas; sessões paralelas (decisão 0019).
 - Site antigo do Cebraspe: `extract` com `legacy`, PF 2012 Agente publicado, disciplina `economia`
   (decisão 0020, `2026-10-08-pf-2012-site-antigo.md`).
+- Provas aprovadas reprocessadas com o parser novo: 67 créditos emendados no banco, as 117 provas
+  seguem publicadas sem reamostragem (`2026-10-08-reprocessamento-creditos.md`).
 
 ## Em andamento
-- Nada em execução. Branch `worktree-credit-end-reprocess` ainda não integrado ao `main`.
+- Nada em execução. Branch `worktree-credit-end-reprocess` ainda não integrado ao `main` (PR aberto).
 
 ## Próximos passos
-1. **Reprocessar e reamostrar as provas aprovadas que o parser novo muda** (decisão 0020): 49
-   provas, sobretudo créditos de 82 textos-base hoje partidos ao meio; PF 2021 q97–101 vão para
-   `review`. Lista: rodar a comparação `segment` antigo × novo do registro da sessão.
+1. Crédito em três linhas ou mais: só as duas últimas são emendadas (PM/MA 2017 g39, INFOPEN do
+   DEPEN). Corrigir no parser e reprocessar como em `2026-10-08-reprocessamento-creditos.md`.
 2. Avaliar ligar o estilo pelas larguras (`legacy`) nos cadernos novos com fontes "TT…o00"
    (PC/PE 2023, PF 2025…): recupera itálico/negrito perdidos (inclui o negrito do PF 2018,
    "compreende", agente q19). Exige reprocessar e reamostrar.
