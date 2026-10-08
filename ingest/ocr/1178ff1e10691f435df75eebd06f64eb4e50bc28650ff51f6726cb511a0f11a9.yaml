@@ -1,0 +1,128 @@
+# Revisão do OCR (decisão 0018): PCDF 2020, agente, conhecimentos básicos (caderno com justificativas).
+# Conferido linha a linha contra a imagem das páginas 2–7: enunciados, comandos e textos-base.
+document: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_CB1_COMJUSTIFICATIVA.PDF
+proofread_by: claude-opus-5-5
+lines:
+- page: 2
+  ocr: seguros ao se pronunciarem sobre problemas que aflizem o
+  text: seguros ao se pronunciarem sobre problemas que afligem o
+- page: 2
+  ocr: severos, dê um largo ciao ao trabalho do dia, assim como quem
+  text: severos, dê um largo *ciao* ao trabalho do dia, assim como quem
+- page: 2
+  ocr: 'Raduan Nassar. Aí pelas três da tarde. Mn: Ítalo Moriconi (Org.). Os cem melhores'
+  text: 'Raduan Nassar. **Aí pelas três da tarde**. *In*: Ítalo Moriconi (Org.). **Os cem melhores**'
+- page: 2
+  ocr: 'contos brasileiros do século. Rio de Janeiro: Objetiva, 2001 (com adaptações).'
+  text: '**contos brasileiros do século**. Rio de Janeiro: Objetiva, 2001 (com adaptações).'
+- page: 2
+  ocr: 2 O:textoenvolve um único personagem, que subverte a sua
+  text: 2 O texto envolve um único personagem, que subverte a sua
+- page: 2
+  ocr: referência ao ser humano como ftipo representativo de
+  text: referência ao ser humano como tipo representativo de
+- page: 2
+  ocr: empregado no sentido de surgir.
+  text: empregado no sentido de **surgir**.
+- page: 3
+  ocr: Texto CBI1A2-I
+  text: Texto CB1A2-I
+- page: 3
+  ocr: Já era conhecido. As antigas tradições de conhecimento só
+  text: já era conhecido. As antigas tradições de conhecimento só
+- page: 3
+  ocr: L...]
+  text: '[...]'
+- page: 3
+  ocr: tradições — de conhecimento — anteriores. —Isso — expandiu
+  text: tradições de conhecimento anteriores. Isso expandiu
+- page: 3
+  ocr: 'Yuval Noah Harari. Sapiens: uma breve história da humanidade. 26.o ed.'
+  text: 'Yuval Noah Harari. **Sapiens**: uma breve história da humanidade. 26.ª ed.'
+- page: 3
+  ocr: No que se refere aos aspectos linguísticos do texto CBI1A2-IL,
+  text: No que se refere aos aspectos linguísticos do texto CB1A2-I,
+- page: 3
+  ocr: Julgue os itens subsequentes.
+  text: julgue os itens subsequentes.
+- page: 3
+  ocr: verbal “têm” fosse substituída por há.
+  text: verbal “têm” fosse substituída por **há**.
+- page: 4
+  ocr: society, it is also transforming police work in the 21* century.
+  text: society, it is also transforming police work in the 21st century.
+- page: 4
+  ocr: by law enforcement and the intelligzence community. These
+  text: by law enforcement and the intelligence community. These
+- page: 4
+  ocr: characteristies has only recently become part of the
+  text: characteristics has only recently become part of the
+- page: 4
+  ocr: 24 n the last paragraph, the words “comprehensive” and
+  text: 24 In the last paragraph, the words “comprehensive” and
+- page: 4
+  ocr: “report” can be correctly replaced with understanding and
+  text: “report” can be correctly replaced with **understanding** and
+- page: 4
+  ocr: journalist without this changing the meaning of the text.
+  text: '**journalist** without this changing the meaning of the text.'
+- page: 4
+  ocr: scan a suspect's fingerprints and in many cases reveal their
+  text: scan a suspect’s fingerprints and in many cases reveal their
+- page: 5
+  ocr: be appropriately replaced by Briefly.
+  text: be appropriately replaced by **Briefly**.
+- page: 5
+  ocr: could be appropriately replaced by petty crimes.
+  text: could be appropriately replaced by **petty crimes**.
+- page: 5
+  ocr: with” means to meet the deadline.
+  text: with” means **to meet the deadline**.
+- page: 5
+  ocr: instituída pela Lei Complementar n.o 94/1998 e suas alterações,
+  text: instituída pela Lei Complementar n.º 94/1998 e suas alterações,
+- page: 5
+  ocr: Julgue os itens que se seguem.
+  text: julgue os itens que se seguem.
+- page: 5
+  ocr: Golás, em razão de a referida lei complementar prever como
+  text: Goiás, em razão de a referida lei complementar prever como
+- page: 5
+  ocr: 'de três unidades da Federação: Distrito Federal, Goilás e'
+  text: 'de três unidades da Federação: Distrito Federal, Goiás e'
+- page: 5
+  ocr: Com base na Lei n.o 8.112/1990, julgue os itens que se seguem.
+  text: Com base na Lei n.º 8.112/1990, julgue os itens que se seguem.
+- page: 5
+  ocr: 36 AÀ nomeação poderá se dar tanto em caráter efetivo quanto
+  text: 36 A nomeação poderá se dar tanto em caráter efetivo quanto
+- page: 6
+  ocr: expediente forense, se feito sem Justa causa.
+  text: expediente forense, se feito sem justa causa.
+- page: 6
+  ocr: '* —“Houve, no local investigado, uma festa, com aglomeração de'
+  text: • Houve, no local investigado, uma festa, com aglomeração de
+- page: 6
+  ocr: '* Cada rapaz cumprimentou exatamente uma vez a todos os'
+  text: • Cada rapaz cumprimentou exatamente uma vez a todos os
+- page: 6
+  ocr: '* Cada moça cumprimentou exatamente uma vez a todos os'
+  text: • Cada moça cumprimentou exatamente uma vez a todos os
+- page: 7
+  ocr: 44 Sena festa havia 20 moças, o número de cumprimentos com
+  text: 44 Se na festa havia 20 moças, o número de cumprimentos com
+- page: 7
+  ocr: '* “Marcose Carlos preferiram ficar em silêncio.'
+  text: • Marcos e Carlos preferiram ficar em silêncio.
+- page: 7
+  ocr: '* —Fernando afirmou que o culpado era Marcos ou Carlos.'
+  text: • Fernando afirmou que o culpado era Marcos ou Carlos.
+- page: 7
+  ocr: '* Luísafirmou que o culpado era Fernando ou Carlos.'
+  text: • Luís afirmou que o culpado era Fernando ou Carlos.
+- page: 7
+  ocr: '* —“Paulo afirmou que o culpado era Marcos ou Fernando.'
+  text: • Paulo afirmou que o culpado era Marcos ou Fernando.
+- page: 7
+  ocr: seja igual a dez anos e que Carlos tenha nascido em 1994,
+  text: seja igual a dez anos e que Carlos tenha nascido em 1994.

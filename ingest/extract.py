@@ -4,15 +4,23 @@ Saída em `pages.json`: uma lista de páginas, cada uma com as linhas já ordena
 colunas é resolvido por bandas: linhas que ocupam a largura toda separam bandas; dentro de cada
 banda vem a coluna esquerda e depois a direita. Itálico e negrito viram Markdown restrito
 (docs/content-format.md). Cabeçalhos e rodapés repetidos são descartados.
+
+PDF digitalizado (página sem texto) passa antes pelo `ocrmypdf` com Tesseract `por` (decisão 0018):
+só as páginas sem texto recebem a camada de OCR; o resultado fica em cache ao lado do original. As
+linhas de OCR são revisadas pelo agente contra a imagem da página, e as correções ficam versionadas
+em `ingest/ocr/<sha256>.yaml`.
 """
 
 import re
+import subprocess
+import sys
 from collections import Counter
 from pathlib import Path
 from typing import Any
 
 import pymupdf
-from pydantic import BaseModel
+import yaml
+from pydantic import BaseModel, ConfigDict
 
 ITALIC = 2
 BOLD = 16
@@ -62,13 +70,208 @@ class Page(BaseModel):
     has_text: bool
     lines: list[Line]
     figures: list[Figure]
+    ocr: str | None = None  # quem leu e quem revisou o texto da página digitalizada
 
 
-def extract(pdf_path: Path) -> list[Page]:
-    with pymupdf.open(pdf_path) as document:  # type: ignore[no-untyped-call]
-        pages = [_page(page) for page in document]
+class LineFix(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    page: int
+    ocr: str  # a linha como o OCR leu (texto puro)
+    text: str  # a linha como está na página, em Markdown restrito (itálico, negrito)
+
+
+class OcrFixes(BaseModel):
+    """Revisão do OCR de um PDF pelo agente (`ingest/ocr/<sha256>.yaml`)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    document: str  # URL, para conferência
+    proofread_by: str  # modelo/versão do agente revisor
+    lines: list[LineFix] = []
+
+
+class OcrFixError(Exception):
+    """Correção de OCR que não casa com nenhuma linha: o OCR mudou, revisar de novo."""
+
+
+OCR_LANGUAGE = "por"
+OCR_ENGINE = "ocrmypdf+tesseract-por"
+FIXES_DIR = Path(__file__).with_name("ocr")
+
+
+GUTTER_WIDTH = 20.0  # pontos à direita da margem da coluna onde fica o número do item
+GUTTER_DPI = 300
+MIN_ITEM_SIZE = 5.0
+GLYPH_SIZE = 14.0
+SIZE_JITTER = 2.0  # o OCR dá corpos 7,5 a 8,9 para linhas do mesmo parágrafo  # desenho menor que isso nos dois lados é letra em curvas, não figura
+NUMBERED = re.compile(r"^(\d{1,3})(?:\s|$)")
+
+
+def extract(
+    pdf_path: Path, *, ocr_dir: Path | None = None, fixes_dir: Path = FIXES_DIR
+) -> list[Page]:
+    """Páginas do PDF. Com `ocr_dir`, páginas sem texto passam pelo OCR (cache em `ocr_dir`)."""
+    pages = _read(pdf_path)
+    scanned = {page.number for page in pages if not page.has_text}
+    if ocr_dir is not None and scanned:
+        pages = _read(ocr(pdf_path, ocr_dir))
+        for page in pages:
+            if page.number in scanned:
+                page.figures = _without_glyphs(page)
+                _steady_sizes(page)
+        _recover_item_numbers(pdf_path, pages, scanned)
+        fixes_path = fixes_dir / f"{pdf_path.stem}.yaml"
+        fixes = None
+        if fixes_path.exists():
+            fixes = OcrFixes.model_validate(yaml.safe_load(fixes_path.read_text("utf-8")))
+            apply_fixes(pages, fixes)
+        reader = OCR_ENGINE + (f"+revisado:{fixes.proofread_by}" if fixes else "")
+        for page in pages:
+            if page.number in scanned:
+                page.ocr = reader
     _drop_repeated(pages)
     return pages
+
+
+def apply_fixes(pages: list[Page], fixes: OcrFixes) -> None:
+    """Troca cada linha lida pelo OCR pelo texto revisado. Correção sem linha → OcrFixError."""
+    by_number = {page.number: page for page in pages}
+    for fix in fixes.lines:
+        page = by_number.get(fix.page)
+        line = next((c for c in page.lines if c.plain == fix.ocr), None) if page else None
+        if line is None:
+            raise OcrFixError(f"página {fix.page}: linha não encontrada: {fix.ocr!r}")
+        line.text = fix.text
+        line.plain = fix.text.replace("*", "")
+
+
+def _read(pdf_path: Path) -> list[Page]:
+    with pymupdf.open(pdf_path) as document:  # type: ignore[no-untyped-call]
+        return [_page(page) for page in document]
+
+
+def ocr(pdf_path: Path, ocr_dir: Path) -> Path:
+    """Cópia do PDF com camada de texto nas páginas sem texto. Reaproveita a cópia já feita."""
+    target = ocr_dir / pdf_path.name
+    if target.exists():
+        return target
+    ocr_dir.mkdir(parents=True, exist_ok=True)
+    partial = target.with_suffix(".partial.pdf")
+    subprocess.run(
+        [
+            sys.executable, "-m", "ocrmypdf", "--skip-text", "--language", OCR_LANGUAGE,
+            "--output-type", "pdf", "--quiet", str(pdf_path), str(partial),
+        ],
+        check=True,
+    )  # fmt: skip
+    partial.rename(target)
+    return target
+
+
+def _recover_item_numbers(pdf_path: Path, pages: list[Page], scanned: set[int]) -> None:
+    """Devolve números de item que o OCR da página inteira perdeu.
+
+    O Tesseract descarta dígitos isolados na margem (o número em negrito, longe do texto). Para
+    cada coluna de página digitalizada, a faixa onde ficam os números já reconhecidos passa por um
+    OCR só de dígitos; o número entra na linha da mesma altura que ainda não tem número, e só se
+    cabe na sequência entre os números vizinhos já conhecidos (o que barra lixo do OCR).
+    """
+    found: list[tuple[Line, int, float]] = []  # (linha, número, x do número)
+    with pymupdf.open(pdf_path) as document:  # type: ignore[no-untyped-call]
+        for page in pages:
+            if page.number not in scanned:
+                continue
+            for column in (1, 2):
+                numbered = [
+                    line for line in page.lines
+                    if line.column == column and NUMBERED.match(line.plain)
+                ]  # fmt: skip
+                if not numbered:
+                    continue
+                left = min(line.x0 for line in numbered) - 3
+                for x, y, number in _gutter_digits(document[page.number - 1], left):
+                    for line in page.lines:
+                        if line.column == column and line.y0 - 2 <= y <= line.y1 + 2:
+                            if not NUMBERED.match(line.plain):
+                                found.append((line, number, x))
+                            break
+    if not found:
+        return
+    targets = {id(line): (number, x) for line, number, x in found}
+    order = [line for page in pages for line in page.lines]
+    known = [  # fonte miúda: número de página no rodapé, não item
+        (i, int(m.group(1)))
+        for i, line in enumerate(order)
+        if (m := NUMBERED.match(line.plain)) and line.column in (1, 2) and line.size > MIN_ITEM_SIZE
+    ]
+    for i, line in enumerate(order):
+        target = targets.get(id(line))
+        if target is None:
+            continue
+        number, x = target
+        before = max((n for j, n in known if j < i), default=0)
+        after = min((n for j, n in known if j > i), default=10**3)
+        if before < number < after:
+            line.text = f"{number} {line.text}"
+            line.plain = f"{number} {line.plain}"
+            line.x0 = x
+            known.append((i, number))
+            known.sort()
+
+
+def _steady_sizes(page: Page) -> None:
+    """Na página digitalizada o corpo da linha vem da altura da caixa do OCR e oscila: o corpo
+    perto da mediana vira a mediana, e não há índice nem expoente reconhecíveis. Número miúdo
+    solto (número de página no rodapé) é ruído."""
+    page.lines = [
+        line for line in page.lines
+        if not (line.size < MIN_ITEM_SIZE and re.fullmatch(r"\d{1,3}", line.plain))
+    ]  # fmt: skip
+    if not page.lines:
+        return
+    sizes = sorted(line.size for line in page.lines)
+    median = sizes[len(sizes) // 2]
+    for line in page.lines:
+        line.scripts = False
+        if abs(line.size - median) < SIZE_JITTER:
+            line.size = median
+
+
+def _without_glyphs(page: Page) -> list[Figure]:
+    """Em página digitalizada com texto em curvas, cada letra é um desenho: fora com eles."""
+
+    def glyph(figure: Figure) -> bool:
+        small = figure.x1 - figure.x0 < GLYPH_SIZE and figure.y1 - figure.y0 < GLYPH_SIZE
+        inside = any(
+            line.x0 - 2 <= figure.x0 and figure.x1 <= line.x1 + 2
+            and line.y0 - 2 <= figure.y0 and figure.y1 <= line.y1 + 2
+            for line in page.lines
+        )  # fmt: skip
+        return small or inside
+
+    return [f for f in page.figures if f.kind == "image" or not glyph(f)]
+
+
+def _gutter_digits(page: Any, left: float) -> list[tuple[float, float, int]]:
+    """(x, altura do centro, número) dos dígitos na faixa de margem que começa em `left`."""
+    clip = pymupdf.Rect(left, 0, left + GUTTER_WIDTH, page.rect.height)  # type: ignore[no-untyped-call]
+    image = page.get_pixmap(dpi=GUTTER_DPI, clip=clip).tobytes("png")
+    result = subprocess.run(
+        [
+            "tesseract", "-", "-", "--psm", "6", "-l", "eng",
+            "-c", "tessedit_char_whitelist=0123456789", "tsv",
+        ],
+        input=image, capture_output=True, check=True,
+    )  # fmt: skip
+    scale = 72 / GUTTER_DPI
+    digits = []
+    for row in result.stdout.decode().splitlines()[1:]:
+        cells = row.split("\t")
+        if len(cells) == 12 and re.fullmatch(r"\d{1,3}", cells[11].strip()):
+            x, top, height = int(cells[6]), int(cells[7]), int(cells[9])
+            digits.append((left + x * scale, (top + height / 2) * scale, int(cells[11])))
+    return digits
 
 
 def _page(page: Any) -> Page:

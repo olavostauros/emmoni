@@ -1,0 +1,15 @@
+# Revisão do OCR (decisão 0018): PM/TO 2020 QPE, gabarito definitivo (matriz 572PMTO002).
+# As 60 marcas conferidas uma a uma contra a imagem da página (200 dpi), não por amostra.
+# Anuladas (X): 1, 56 e 60.
+document: https://cdn.cebraspe.org.br/concursos/PM_TO_20_QPE/arquivos/GAB_DEFINITIVO_572_PMTO_MATRIZ.PDF
+proofread_by: claude-opus-5-5
+lines:
+- {page: 1, ocr: 'Obs.: X ) questão anulada.', text: 'Obs.: ( X ) questão anulada.'}
+- {page: 1, ocr: 'Gabarito X A A c D B B D B A', text: 'Gabarito X A A C D B B D B A'}
+- {page: 1, ocr: 'Gabarito D B A E B A D B A c', text: 'Gabarito D B A E B A D B A C'}
+- {page: 1, ocr: 'Gabarito E B E c B D A B E A', text: 'Gabarito E B E C B D A B E A'}
+- {page: 1, ocr: 'Matriz 572PMTOO002', text: 'Matriz_572PMTO002'}
+- {page: 1, ocr: '1 12 13 14 15 16 17 18 19 20', text: '11 12 13 14 15 16 17 18 19 20'}
+- {page: 1, ocr: '6 c A E D B D B A E [(', text: 'C A E D B D B A E C'}
+- {page: 1, ocr: 'E B c B A A D [ D E', text: 'E B C B A A D C D E'}
+- {page: 1, ocr: 'c B E D E X D B c X', text: 'C B E D E X D B C X'}

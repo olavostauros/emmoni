@@ -19,6 +19,19 @@ sources:
     # O site de concursos é uma aplicação React que lê uma API JSON (decisão 0004).
     extra_content_types: [application/json, application/javascript, text/javascript]
 
+  # Site antigo do Cebraspe (concursos anteriores a 2014). Só responde em HTTP: exceção à regra
+  # do HTTPS autorizada pelo dono do projeto (decisão 0017). Sem crawler: só a etapa fetch.
+  - slug: cespe-unb
+    kind: exam_board
+    base_url: http://www.cespe.unb.br/concursos/
+    allowed_prefixes:
+      - http://www.cespe.unb.br/concursos/
+    crawler: null
+    allow_http: true
+    max_depth: 3
+    recrawl: {listing: 7d, contest_open: 7d, contest_closed: never}
+    auto_approve: false
+
 # Agregadores de questões e cursinhos: nunca acessados, nem para "conferir" (AGENTS.md).
 # Vale para o domínio e todos os subdomínios. Checada antes de qualquer requisição.
 denylist:

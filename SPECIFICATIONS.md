@@ -66,13 +66,14 @@ emmoni/
 │   ├── manifests/           # um YAML por concurso aprovado (seção 7.2)
 │   │   ├── _pending/        # manifestos propostos pelo crawler, aguardando aprovação
 │   │   └── _rejected/       # propostas rejeitadas, com o motivo (decisão 0007)
+│   ├── ocr/                 # revisão do OCR pelo agente, um YAML por PDF (<sha256>.yaml; decisão 0018)
 │   ├── parsers/             # um módulo por banca: cebraspe.py, fgv.py, ...
 │   ├── cli.py               # comando `emmoni`
 │   └── ...
 ├── scripts/                 # scripts de apoio chamados pelo Makefile
 ├── fixtures/                # PDFs (pdf/) e respostas gravadas das fontes (crawl/<fonte>/) para testes
 ├── tests/
-└── data/                    # ignorado pelo git: raw/, staging/, assets/, crawl/
+└── data/                    # ignorado pelo git: raw/, staging/, ocr/, assets/, crawl/
 ```
 
 ---
@@ -389,12 +390,13 @@ O crawler encontra provas novas e **propõe** manifestos; ele não ingere nada.
   kind: exam_board               # exam_board | agency
   base_url: https://www.cebraspe.org.br/concursos/
   allowed_prefixes: [https://www.cebraspe.org.br/concursos/, https://cdn.cebraspe.org.br/]
-  crawler: cebraspe              # módulo em ingest/crawlers/
+  crawler: cebraspe              # módulo em ingest/crawlers/; null = só a etapa fetch (decisão 0017)
   js: false
   max_depth: 3
   recrawl: {listing: 1d, contest_open: 3d, contest_closed: never}
   auto_approve: false
   extra_content_types: []        # opcional; ex.: [application/json] (decisão 0004)
+  allow_http: false              # opcional; exceção ao HTTPS por fonte (decisão 0017)
 ```
 
 **Bloqueadas por padrão** (lista `denylist` no mesmo arquivo, checada antes de qualquer requisição):
@@ -416,7 +418,9 @@ crawler é obrigado a usar):
   User-Agent, resolver captcha, fazer login, acessar área paga.
 - Limites por execução: `max_depth` da fonte, 2.000 páginas por fonte, PDFs até 50 MB, só
   `application/pdf` e `text/html`.
-- Só `https`. Redirecionamentos seguidos à mão: o destino passa pelas mesmas checagens. `robots.txt`
+- Só `https`, salvo fonte com `allow_http: true` (exceção por host que não aceita HTTPS, como
+  `www.cespe.unb.br` — decisão 0017). Redirecionamentos seguidos à mão: o destino passa pelas
+  mesmas checagens. `robots.txt`
   pela RFC 9309 (4xx → sem restrições; 5xx ou falha → tudo proibido). A etapa `fetch` usa o mesmo
   cliente (decisão 0003).
 - Tipos além de PDF e HTML só por fonte, no campo `extra_content_types` de `sources.yaml` (ex.: a API
@@ -498,7 +502,7 @@ exams:
 | Etapa | Entrada → saída | Detalhes |
 |---|---|---|
 | `fetch` | manifesto → `data/raw/<sha256>.pdf` + `source_document` | Não baixa de novo se o sha256 já existe. Respeita `robots.txt`, 1 requisição/s por host, `User-Agent` identificado. |
-| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR se a página não tiver texto; imagens exportadas para `data/assets/<sha256>.<ext>`. |
+| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR (`ocrmypdf` + Tesseract `por`) se a página não tiver texto, com revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml` (decisão 0018); imagens exportadas para `data/assets/<sha256>.<ext>`. |
 | `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras. |
 | `structure` | questões brutas → `questions.json` | Agente só onde as regras falham (tabelas, fórmulas, layout em colunas), pelo mesmo mecanismo de tarefas/respostas do `classify`. Saída validada por pydantic; inválida → `review`. |
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |

@@ -235,10 +235,15 @@ def _crawl(source_slug: str | None, all_sources: bool, force: bool) -> int:
     if not chosen:
         print(f"crawl: fonte {source_slug!r} não está em ingest/sources.yaml")
         return 2
+    if not all_sources and chosen[0].crawler is None:
+        print(f"crawl: a fonte {source_slug!r} não tem crawler (só a etapa fetch)")
+        return 2
     known = catalog.load()
     failed = 0
     with db.connect() as conn:
         for source in chosen:
+            if source.crawler is None:  # fonte só da etapa fetch
+                continue
             try:
                 report = crawl.run_source(
                     source,

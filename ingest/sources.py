@@ -5,7 +5,7 @@ from typing import Literal
 from urllib.parse import urlsplit
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field
+from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 SOURCES_FILE = Path(__file__).with_name("sources.yaml")
 
@@ -25,13 +25,24 @@ class Source(BaseModel):
     kind: Literal["exam_board", "agency"]
     base_url: str
     allowed_prefixes: list[str] = Field(min_length=1)
-    crawler: str
+    # Fonte sem crawler só serve à etapa `fetch` (URLs postas à mão nos manifestos).
+    crawler: str | None
     js: bool = False
     max_depth: int = Field(ge=0)
     recrawl: Recrawl
     auto_approve: bool = False
     # Tipos além de PDF e HTML, para fontes cujo site carrega a lista por API (decisão 0004).
     extra_content_types: list[str] = []
+    # Exceção à regra do HTTPS, só para hosts que não aceitam HTTPS (decisão 0017).
+    allow_http: bool = False
+
+    @model_validator(mode="after")
+    def _http_only_when_allowed(self) -> "Source":
+        for prefix in [self.base_url, *self.allowed_prefixes]:
+            scheme = urlsplit(prefix).scheme
+            if scheme != "https" and not (scheme == "http" and self.allow_http):
+                raise ValueError(f"{self.slug}: prefixo {prefix!r} exige https (ou allow_http)")
+        return self
 
 
 class SourceList(BaseModel):
