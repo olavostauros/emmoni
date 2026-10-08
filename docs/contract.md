@@ -1,6 +1,6 @@
 # Contrato com o front-end
 
-**Versão 1.2** · 2026-10-08
+**Versão 1.3** · 2026-10-08
 
 Este documento é tudo o que o agente de front-end precisa para trabalhar com o banco do emmoni.
 Ele descreve o esquema `api` do PostgreSQL: o que existe, o formato de cada resposta e como os
@@ -20,6 +20,26 @@ make db-up migrate seed     # Postgres local + esquema + 65 questões de exemplo
 
 Os dados do seed são fictícios: concursos com slug `seed-*`, documentos em `seed.emmoni.invalid`.
 Bancas, órgãos, cargos, disciplinas e assuntos são o catálogo real.
+
+### Acesso por HTTP (opcional)
+
+```sh
+make api-up        # PostgREST em http://127.0.0.1:53000, papel emmoni_web, só o esquema api
+```
+
+A mesma interface deste documento, por HTTP (decisão 0021). Só local, sem deploy público.
+
+| SQL | HTTP |
+|---|---|
+| `api.search_questions(filters, query, page_size, cursor)` | `POST /rpc/search_questions` com `{"filters": {...}, "query": "...", "page_size": 20, "cursor": "..."}` (chaves opcionais) |
+| `api.facet_counts(filters, query)` | `POST /rpc/facet_counts` com `{"filters": {...}, "query": "..."}` |
+| `api.get_question(id)` | `POST /rpc/get_question` com `{"id": "<uuid>"}`; `null` vira corpo `null` |
+| `select * from api.<view>` | `GET /<view>`, com filtros do PostgREST (`?agency_slug=eq.pf&order=slug`); no máximo **100 linhas** por requisição (use `limit`/`offset`) |
+
+- As funções também aceitam `GET` com os parâmetros na URL (`/rpc/search_questions?query=flagrante`).
+- Erro `22023` → **HTTP 400** com `{"code": "22023", "message": "...", "hint": "...", "details": null}`.
+- Imagens não são servidas pela API: `assets[].url` (`/assets/...`) continua por conta do site.
+- CORS aberto; porta ajustável por `EMMONI_API_PORT`.
 
 ## 2. Funções
 
@@ -174,3 +194,4 @@ Para montar a árvore de assuntos: `api.topic` ordenada por `path`, ligando cada
 | 1.0 | 2026-10-07 | Primeira versão. |
 | 1.1 | 2026-10-07 | Sem mudança de interface. Documenta o comando no início do enunciado (Cebraspe) e `answer_preliminary` nulo quando o preliminar não está disponível. |
 | 1.2 | 2026-10-08 | Novo valor de `career`: `policia_cientifica` (perícia oficial fora da Polícia Civil, ex.: Polícia Científica de Pernambuco). Compatível: trate valores desconhecidos como `outra`. |
+| 1.3 | 2026-10-08 | Sem mudança no esquema. Acesso opcional por HTTP (PostgREST, `make api-up`), seção 1. |

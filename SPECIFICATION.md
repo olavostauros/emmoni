@@ -23,6 +23,7 @@ e atualize este arquivo no mesmo commit.
 | Testes | **pytest** contra um Postgres descartável (docker compose, banco `emmoni_test`) | |
 | Qualidade de código | **ruff** (lint + format), **mypy** em modo estrito no pacote `ingest` | |
 | Ambiente local | **docker compose** (serviço `db`, porta `55432` no host), **Makefile** como ponto de entrada | Porta alta para não colidir com outros Postgres da máquina. |
+| API HTTP (opcional) | **PostgREST v12.2.3** sobre o esquema `api` como `emmoni_web` (serviço `api`, perfil `api`, porta `53000`; decisão 0021) | O contrato por HTTP sem código de servidor: views e funções do `api`, e nada mais. |
 | Versões das ferramentas | **mise** (`mise.toml`) fixa uv e dbmate e ativa o `.venv`; o uv instala o Python de `.python-version` | Ambiente reproduzível sem instalar nada globalmente. |
 
 Variáveis de ambiente: a lista completa está em `.env.example` (nunca commitar `.env`). O Makefile
@@ -36,6 +37,7 @@ tem padrões de desenvolvimento para todas as URLs do banco, então um repositó
 | `EMMONI_CLASSIFIER` | Identificador de quem classifica, gravado em `topics.json` (padrão `agent`). |
 | `EMMONI_DATA_DIR` | Raiz de `raw/`, `staging/`, `assets/`, `crawl/`. |
 | `EMMONI_CRAWL_CONTACT` | Contato no `User-Agent` do crawler. |
+| `EMMONI_API_PORT` | Porta da API HTTP no host (padrão `53000`). |
 
 ---
 
@@ -355,6 +357,10 @@ Implementação: views rodam com as permissões do dono; as funções são `SECU
 interpolam valores do usuário com `%L`. A montagem do SQL fica em funções internas de `public`
 (`search_condition`, `search_from`, `question_docs`), inacessíveis ao `emmoni_web`.
 
+Acesso por HTTP (decisão 0021): `make api-up` sobe o PostgREST com `emmoni_web` e só o esquema
+`api`; as views viram `GET /<view>` (no máximo 100 linhas por requisição) e as funções
+`POST /rpc/<função>`, com o erro `22023` em HTTP 400. Só local; deploy público exige outra decisão.
+
 Requisitos de desempenho (com ≥ 100 mil questões publicadas, máquina de desenvolvimento):
 `search_questions` p95 < 150 ms; `facet_counts` p95 < 300 ms. Medidos por `make bench`, que cria
 o banco descartável `emmoni_bench`, multiplica o seed até ~100 mil questões e falha se uma meta não
@@ -594,6 +600,7 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 | Alvo | O que faz |
 |---|---|
 | `make db-up` / `db-down` / `db-reset` | Sobe, para ou recria do zero o Postgres do docker compose. |
+| `make api-up` / `api-down` / `api-smoke` | Sobe (e confere), para ou confere a API HTTP do esquema `api` (seção 6). |
 | `make install` | `uv sync --frozen`. |
 | `make migrate` | `dbmate up` + atualiza `db/schema.sql`. |
 | `make catalog` | Carrega `db/catalog.yaml` e a taxonomia (dados reais, sem o seed). |
