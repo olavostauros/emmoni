@@ -5,7 +5,7 @@ from pathlib import Path
 import psycopg
 import pytest
 
-from ingest import catalog, manifest, taxonomy
+from ingest import catalog, cli, manifest, pipeline, taxonomy
 from ingest.extract import extract
 from ingest.load import DocumentIds, LoadError, TopicAssignment, load_exam
 from ingest.manifest import Manifest
@@ -306,3 +306,21 @@ def test_load_applies_reasons_from_classify(
             where c.slug = 'zz-pf-2021' and q.number = 5"""
     ).fetchone()
     assert row == ("review", ["confiança baixa"])
+
+
+def test_ingest_continues_after_a_load_error(
+    monkeypatch: pytest.MonkeyPatch, capsys: pytest.CaptureFixture[str]
+) -> None:
+    loaded = manifest.load(manifest.resolve("pf-2021"))
+    first, *rest = (exam.slug for exam in loaded.exams)
+    ran: list[str] = []
+
+    def run(self: pipeline.ExamRun, step: str | None = None) -> None:
+        ran.append(self.exam.slug)
+        if self.exam.slug == first:
+            raise LoadError("gabarito com menos itens")
+
+    monkeypatch.setattr(pipeline.ExamRun, "run", run)
+    assert cli.main(["ingest", "pf-2021", "--step", "load"]) == 1
+    assert ran == [first, *rest]
+    assert f"não carregada(s): {first}" in capsys.readouterr().out

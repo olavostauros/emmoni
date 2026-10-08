@@ -23,6 +23,7 @@ FLAG_REASONS = {
     "orphan_text": "texto solto depois do último item (pode ser continuação perdida)",
     "empty_item": "item sem texto (só figura)",
     "missing_passage": "remete a um texto-base que não foi encontrado",
+    "consecutive_items": "itens são períodos consecutivos de um parágrafo (dependem uns dos outros)",
 }
 
 

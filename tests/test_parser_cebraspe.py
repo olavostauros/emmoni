@@ -425,3 +425,24 @@ def test_command_split_across_columns_is_rejoined() -> None:
         "No que concerne aos aspectos linguísticos do texto 1A1-I"
     )
     assert segmented.passages[0].body_md == "A violência cresce nas cidades."
+
+
+def test_command_split_before_the_label_is_rejoined() -> None:
+    """PF 2018 (escrivão): o comando começa no fim do texto e a outra coluna começa no rótulo
+    ("13A1AAA, julgue"), não em minúscula; a frase inacabada volta para o comando."""
+    segmented = cebraspe.segment(extract(FIXTURES / "pdf/cebraspe/pf-2018-escrivao-p1-2.pdf"))
+    question = next(q for q in segmented.questions if q.number == 15)
+    assert question.passage_key == "13A1AAA"
+    assert question.statement_md.startswith(
+        "Com relação aos aspectos linguísticos e aos sentidos do texto 13A1AAA, julgue"
+    )
+    passage = next(p for p in segmented.passages if p.key == "13A1AAA")
+    assert passage.body_md.endswith("(com adaptações).")
+
+
+def test_consecutive_period_items_go_to_review() -> None:
+    """PF 2018 (papiloscopista): os itens 6–11 são os períodos consecutivos de um parágrafo;
+    isolado, o item 8 ("Nessas situações...") não se julga. Os itens 1–5 seguem publicáveis."""
+    segmented = cebraspe.segment(extract(FIXTURES / "pdf/cebraspe/pf-2018-papiloscopista-p1.pdf"))
+    flagged = [q.number for q in segmented.questions if "consecutive_items" in q.flags]
+    assert flagged == list(range(6, 12))

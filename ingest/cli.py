@@ -19,6 +19,7 @@ from ingest import (
 from ingest import sources as sources_module
 from ingest.crawlers.http import CrawlError, PoliteClient
 from ingest.crawlers.registry import CRAWLERS
+from ingest.load import LoadError
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -138,9 +139,17 @@ def _catalog_load(path: Path) -> int:
 def _ingest(name: str, exam_slug: str | None, step: str | None) -> int:
     loaded = manifest.load(manifest.resolve(name))
     exams = [loaded.exam(exam_slug)] if exam_slug else loaded.exams
+    failed: list[str] = []
     for exam in exams:
         print(f"{loaded.contest}/{exam.slug}")
-        pipeline.ExamRun(loaded, exam).run(step)
+        try:
+            pipeline.ExamRun(loaded, exam).run(step)
+        except LoadError as error:  # uma prova que não carrega não impede as seguintes
+            print(f"  erro na carga: {error}")
+            failed.append(exam.slug)
+    if failed:
+        print(f"ingest: {len(failed)} prova(s) não carregada(s): {', '.join(failed)}")
+        return 1
     return 0
 
 

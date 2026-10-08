@@ -95,6 +95,9 @@ CREDIT_ONLY = re.compile(
 BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extraído como "C"
 TEXT_REF = re.compile(rf"\btexto?\s+{_LABEL}", re.I)  # "texto CG1A1-I", "text 1A2-II"
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
+# "Os itens a seguir apresentam, de forma consecutiva, os períodos que compõem um parágrafo" (PF
+# 2018): cada item é um período do mesmo parágrafo e depende dos anteriores ("Nessas situações").
+CONSECUTIVE_ITEMS = re.compile(r"\bitens\b[^.]{0,60}\b(consecutiv|sucessiv)", re.I)
 # Cadernos "com justificativa" (PCDF 2020, PF 2025...): depois de cada item vem a justificativa
 # oficial do gabarito, às vezes grudada na última linha do item ("...administrativo.JUSTIFICATIVA").
 # PC/PE 2023 traz, depois de cada questão, uma tabela "||JUSTIFICATIVAS||".
@@ -467,9 +470,15 @@ def _bold_title(paragraph: str) -> bool:
 
 def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]) -> None:
     """Texto-base que cita figura/tabela ou que é só o crédito de uma imagem: a questão depende de
-    uma figura que não foi extraída."""
+    uma figura que não foi extraída. Itens que são períodos consecutivos de um parágrafo: cada um
+    depende dos outros itens, que não ficam no texto-base."""
     for question in questions:
         passage = passages.get(question.passage_key or "")
+        opening = question.statement_md.split("\n\n")[0]
+        if CONSECUTIVE_ITEMS.search(opening) or (
+            passage is not None and CONSECUTIVE_ITEMS.search(passage.body_md)
+        ):
+            question.flags = sorted({*question.flags, "consecutive_items"})
         if passage is None:
             continue
         body = passage.body_md.strip()
@@ -880,11 +889,12 @@ def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:
             if (
                 not before
                 and rest
-                and command[:1].islower()
+                and not command[:1].isupper()
                 and not rest[-1].rstrip().endswith(SENTENCE_STOP_FULL)
             ):
                 # Comando partido na troca de coluna (PM/AL 2018): "No que concerne aos ... do" |
-                # "texto 1A1-I, julgue". A frase inacabada do parágrafo anterior abre o comando.
+                # "texto 1A1-I, julgue" (ou "13A1AAA, julgue", PF 2018). A frase inacabada do
+                # parágrafo anterior abre o comando.
                 *done, unfinished = SENTENCE_END.split(rest[-1])
                 rest = [*rest[:-1], " ".join(done).strip()] if done else rest[:-1]
                 command = f"{unfinished.strip()} {command}"
