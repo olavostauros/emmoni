@@ -10,3 +10,4 @@ data/staging/*/*/*
 !data/staging/*/*/classify-answers.json
 __pycache__/
 .venv/
+deploy/.build/

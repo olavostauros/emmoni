@@ -23,6 +23,7 @@ e atualize este arquivo no mesmo commit.
 | Testes | **pytest** contra um Postgres descartável (docker compose, banco `emmoni_test`) | |
 | Qualidade de código | **ruff** (lint + format), **mypy** em modo estrito no pacote `ingest` | |
 | Ambiente local | **docker compose** (serviço `db`, porta `55432` no host), **Makefile** como ponto de entrada | Porta alta para não colidir com outros Postgres da máquina. |
+| Produção da API | **Google Cloud Run** (`emmoni-prod`, `southamerica-east1`): imagem imutável com Postgres 17 + PostgREST e os dados dentro, `max-instances=1`, corte de gasto por budget (decisão 0022, `docs/DEPLOY.md`) | Só leitura em produção: sem VM, sem rede de banco, sem segredo, escala a zero. |
 | API HTTP (opcional) | **PostgREST v12.2.3** sobre o esquema `api` como `emmoni_web` (serviço `api`, perfil `api`, porta `53000`; decisão 0021) | O contrato por HTTP sem código de servidor: views e funções do `api`, e nada mais. |
 | Versões das ferramentas | **mise** (`mise.toml`) fixa uv e dbmate e ativa o `.venv`; o uv instala o Python de `.python-version` | Ambiente reproduzível sem instalar nada globalmente. |
 
@@ -49,6 +50,9 @@ emmoni/
 ├── Makefile  docker-compose.yml  .env.example  pyproject.toml  mise.toml  .python-version
 ├── docs/
 │   ├── contract.md          # contrato com o front-end (seção 6)
+│   ├── DEPLOY.md            # deploy da API no Google Cloud (agente atlas, decisão 0022)
+│   ├── CYBERSECURITY.md     # segurança da produção e contrato de correção (agente cerberus)
+│   ├── security/reports/    # relatórios datados do cerberus
 │   ├── content-format.md    # formato do conteúdo das questões (seção 5)
 │   ├── coverage.md          # relatório de cobertura gerado (seção 8)
 │   ├── progress/            # STATUS.md + um registro por sessão (ver docs/progress/README.md)
@@ -72,6 +76,8 @@ emmoni/
 │   ├── parsers/             # um módulo por banca: cebraspe.py, fgv.py, ...
 │   ├── cli.py               # comando `emmoni`
 │   └── ...
+├── deploy/                  # imagem de produção (Dockerfile, build.sh), audit.py, budget-cap/ (decisão 0022)
+├── .claude/agents/          # atlas (deploy) e cerberus (segurança)
 ├── scripts/                 # scripts de apoio chamados pelo Makefile
 ├── fixtures/                # PDFs (pdf/) e respostas gravadas das fontes (crawl/<fonte>/) para testes
 ├── tests/
@@ -359,7 +365,7 @@ interpolam valores do usuário com `%L`. A montagem do SQL fica em funções int
 
 Acesso por HTTP (decisão 0021): `make api-up` sobe o PostgREST com `emmoni_web` e só o esquema
 `api`; as views viram `GET /<view>` (no máximo 100 linhas por requisição) e as funções
-`POST /rpc/<função>`, com o erro `22023` em HTTP 400. Só local; deploy público exige outra decisão.
+`POST /rpc/<função>`, com o erro `22023` em HTTP 400. Em produção, a mesma API roda no Cloud Run (decisão 0022, `docs/DEPLOY.md`).
 
 Requisitos de desempenho (com ≥ 100 mil questões publicadas, máquina de desenvolvimento):
 `search_questions` p95 < 150 ms; `facet_counts` p95 < 300 ms. Medidos por `make bench`, que cria
@@ -600,6 +606,7 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 | Alvo | O que faz |
 |---|---|
 | `make db-up` / `db-down` / `db-reset` | Sobe, para ou recria do zero o Postgres do docker compose. |
+| `make prod-image SCOPE=seed\|all` / `prod-audit IMAGE=<tag>` | Gera a imagem de produção da API / audita a imagem (`deploy/audit.py --image`). |
 | `make api-up` / `api-down` / `api-smoke` | Sobe (e confere), para ou confere a API HTTP do esquema `api` (seção 6). |
 | `make install` | `uv sync --frozen`. |
 | `make migrate` | `dbmate up` + atualiza `db/schema.sql`. |

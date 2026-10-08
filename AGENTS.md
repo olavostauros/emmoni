@@ -15,11 +15,15 @@ Em caso de conflito: o SPECIFICATION.md manda nas decisões técnicas; este arqu
 |---|---|
 | **Banco de dados** (missão atual) | Esquema, migrações, ingestão das provas, qualidade dos dados, contrato e seed para o front-end. |
 | **Front-end** | O site que os concurseiros usam. Consome o contrato publicado pelo agente de banco de dados. |
+| **atlas** (deploy) | Leva a API ao Google Cloud Run seguindo `docs/DEPLOY.md`; pede o sim do dono antes de cada recurso (`.claude/agents/atlas.md`). |
+| **cerberus** (segurança) | Audita imagem, API pública e projeto, só leitura; relatório no contrato de `docs/CYBERSECURITY.md` (`.claude/agents/cerberus.md`). |
 
 Regras de fronteira:
 
 - O agente de banco de dados **não** escreve código do site. O agente de front-end **não** altera
   esquema nem migrações — pede a mudança.
+- O atlas e o cerberus não mudam esquema, ingestão nem dados; o atlas publica imagens, o
+  cerberus só lê. Publicar as questões reais na API exige o sim explícito do dono (decisão 0022).
 - A interface entre os dois é o esquema `api` do banco, acessado com o papel `emmoni_web`,
   documentado em `docs/contract.md`, mais o **seed** (SPECIFICATION.md §6). Mudança incompatível no
   contrato = nova versão maior + nota de migração no `docs/contract.md`.
