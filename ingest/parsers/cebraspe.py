@@ -39,11 +39,19 @@ OPTION_MD = re.compile(r"^(?:\*\*)?[A-E](?:\*\*)?(?:\s+|$)")
 ROMAN_ITEM = re.compile(r"^(?:[IVX]+|[a-e]\))\s+\S")
 ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
 TEXT_LABEL = re.compile(r"^Texto\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")
+# Título de texto-base de múltipla escolha, citado pelas questões que o usam ("Figura 5A2",
+# "Caso hipotético 1A06-II", "situação hipotética 12A3-I").
+PASSAGE_TITLE = re.compile(
+    r"^\W*(?:Texto|Figura|Tabela|Quadro|Gr[áa]fico|Caso hipot[ée]tico|Situa[çc][ãa]o hipot[ée]tica)"
+    r"\s+([0-9][\w.]*(?:-[IVX]+)?)",
+    re.I,
+)
 TEXT_REF = re.compile(r"\btexto\s+([0-9][\w.]*-[IVX]+|[0-9][A-Z0-9.]+)", re.I)
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
 # Cadernos "com justificativa" (PCDF 2020, PF 2025...): depois de cada item vem a justificativa
 # oficial do gabarito, às vezes grudada na última linha do item ("...administrativo.JUSTIFICATIVA").
-JUSTIFICATION = re.compile(r"JUSTIFICATIVA\b|\bITEM ANULADO\b")  # sempre em maiúsculas
+# PC/PE 2023 traz, depois de cada questão, uma tabela "||JUSTIFICATIVAS||".
+JUSTIFICATION = re.compile(r"JUSTIFICATIVAS?\b|\bITEM ANULADO\b")  # sempre em maiúsculas
 SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
@@ -150,7 +158,11 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
 
 def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
     """Provas de múltipla escolha: cada questão vai do título "Questão N" ao próximo título.
-    O que sobra depois da última alternativa (texto rotulado, instrução) abre o grupo seguinte."""
+    O que sobra depois da última alternativa (texto rotulado, instrução) abre o grupo seguinte.
+
+    Na múltipla escolha a questão cita o texto-base que usa ("texto 2A1-I", "figura 5A2"). O texto
+    vale para a questão que o cita e para a primeira questão depois dele; as demais do grupo não
+    herdam o texto (o texto-base não se estende até a próxima abertura)."""
     passages: dict[str, RawPassage] = {}
     questions: list[RawQuestion] = []
     expected = first
@@ -158,13 +170,20 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
     block: list[_Entry] = []
     number = 0
     group_passage: str | None = None
-    group_flags: set[str] = set()
+    group_first = 0
+    labels: dict[str, str] = {}  # rótulo citado pelas questões → chave do texto-base
 
     def close() -> None:
         nonlocal lead
         if not block:
             return
-        question, rest = _choice_question(number, block, group_passage, group_flags)
+        question, rest = _choice_question(number, block, None, set())
+        key = _referenced_passage(question, labels) or (
+            group_passage if number == group_first else None
+        )
+        if key:
+            question.passage_key = key
+            question.flags = sorted({*question.flags, *passages[key].flags})
         questions.append(question)
         lead = _Unit(rest)
 
@@ -178,9 +197,11 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
                 cover = not questions and not any(
                     TEXT_LABEL.match(e.line.plain) for e in lead.entries
                 )
-                group_passage, group_flags = (
-                    (None, set()) if cover else _open_group_choice(lead, expected, passages)
-                )
+                group_passage = None if cover else _open_group_choice(lead, expected, passages)
+                group_first = expected
+                for key, passage in passages.items():
+                    for label in _passage_labels(passage):
+                        labels.setdefault(label, key)
                 lead = _Unit()
             block = []
             number = expected
@@ -188,7 +209,7 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
             skipping = False
         elif skipping:
             continue
-        elif number and JUSTIFICATION.match(entry.line.plain):
+        elif number and JUSTIFICATION.match(entry.line.plain.lstrip("|* ")):
             skipping = True
         elif number:
             block.append(entry)
@@ -295,11 +316,38 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     return [_join(lines) for lines in paragraphs if lines]
 
 
-def _open_group_choice(
-    lead: _Unit, first: int, passages: dict[str, RawPassage]
-) -> tuple[str | None, set[str]]:
+def _passage_labels(passage: RawPassage) -> list[str]:
+    """Rótulos pelos quais as questões citam o texto-base: a chave (quando é rótulo da banca) e o
+    título da primeira linha ("Figura 5A2" num texto anônimo)."""
+    labels = [] if re.fullmatch(r"g\d+", passage.key) else [passage.key]
+    title = PASSAGE_TITLE.match(passage.body_md)
+    if title and title.group(1) not in labels:
+        labels.append(title.group(1))
+    return labels
+
+
+def _referenced_passage(question: RawQuestion, labels: dict[str, str]) -> str | None:
+    """O último texto-base cujo rótulo aparece no enunciado ou nas alternativas."""
+    text = " ".join([question.statement_md, *(o.body_md for o in question.options)])
+    cited = [
+        key
+        for label, key in labels.items()
+        if re.search(rf"(?<![\w-]){re.escape(label)}(?![\w-])", text)
+    ]
+    return cited[-1] if cited else None
+
+
+def _bold_heading(entries: list[_Entry]) -> bool:
+    """Título de bloco em negrito ("**Atualidades e conhecimentos...**"): não é texto-base."""
+    return len(entries) <= 2 and all(
+        e.line.text.strip().startswith("**") and e.line.text.strip().endswith("**") for e in entries
+    )
+
+
+def _open_group_choice(lead: _Unit, first: int, passages: dict[str, RawPassage]) -> str | None:
     """Abertura entre questões de múltipla escolha: textos rotulados viram textos-base; texto sem
-    rótulo vira texto-base anônimo ("g<primeira questão>"). Não há comando a separar."""
+    rótulo vira texto-base anônimo ("g<primeira questão>"), salvo título de bloco em negrito.
+    Não há comando a separar. Devolve a chave do último texto da abertura."""
     segments: list[tuple[str | None, list[_Entry]]] = [(None, [])]
     for entry in lead.entries:
         match = TEXT_LABEL.match(entry.line.plain)
@@ -308,14 +356,12 @@ def _open_group_choice(
         else:
             segments[-1][1].append(entry)
     key: str | None = None
-    flags: set[str] = set()
     for label, entries in segments:
-        if not entries:
+        if not entries or (label is None and _bold_heading(entries)):
             continue
         key = label or f"g{first}"
         _add_passage(passages, key, _text_paragraphs(entries), entries)
-        flags = set().union(*(e.flags for e in entries))
-    return key, flags
+    return key
 
 
 def _inside_labeled_text(lead: _Unit) -> bool:
@@ -414,7 +460,10 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 if line.x0 > lefts[line.column] + ITEM_INDENT:
                     continue  # continuação da justificativa, recuada como continuação de item
                 in_justification = False  # linha na margem: próximo item ou comando
-            cut = JUSTIFICATION.search(line.plain)
+            # Tabela de justificativas (PC/PE 2023): fica no fluxo, e a múltipla escolha pula
+            # tudo até o próximo título de questão (as linhas da tabela estão na margem).
+            table = line.plain.startswith("||")
+            cut = None if table else JUSTIFICATION.search(line.plain)
             if cut is not None:
                 in_justification = True
                 if not line.plain[: cut.start()].strip():

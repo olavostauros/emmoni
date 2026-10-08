@@ -67,6 +67,8 @@ def test_approve_requires_sample_then_publishes_exam(tx: Conn, tmp_path: Path) -
         review.approve(tx, ref, tmp_path)
     page = review.write_sample(tx, ref, 4, tmp_path)
     assert "Amostra" in page.read_text(encoding="utf-8")
+    markdown = (page.parent / "amostra.md").read_text(encoding="utf-8")
+    assert markdown.startswith(f"# Amostra — {ref}") and markdown.count("## Questão") == 4
     review.approve(tx, ref, tmp_path)
     assert scalar(tx, "select publish_status from exam where id = %s", (exam_id,)) == "published"
     record = json.loads((page.parent / "sample.json").read_text(encoding="utf-8"))

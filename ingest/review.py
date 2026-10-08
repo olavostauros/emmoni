@@ -2,7 +2,10 @@
 
 - `list`/`show`: questões em `review`, com os motivos gravados pela etapa `validate`.
 - `sample`: sorteia N questões publicáveis de uma prova e gera um HTML com cada questão ao lado da
-  página do PDF original, para a conferência do agente revisor (decisão 0011). O sorteio é determinístico por prova.
+  página do PDF original, para a conferência do agente revisor (decisão 0011). O sorteio é
+  determinístico por prova. Para o agente, gera também `amostra.md` (enunciado, texto-base,
+  alternativas, gabarito e disciplina) e as páginas em PNG em `paginas/`: a da prova onde está
+  cada questão (e a anterior, quando há texto-base) e a do gabarito definitivo.
 - `approve`: publica a **prova** (`exam.publish_status = 'published'`) depois da amostragem. O
   comando exige que a amostra tenha sido gerada e registra quem aprovou (`--by`, o modelo).
 - `topics`: amostra determinística de N questões classificadas, de todas as provas reais, para
@@ -84,6 +87,7 @@ class QuestionView:
     review_reasons: list[str]
     source_page: int
     pdf_path: str | None
+    options: list[tuple[str, str]]
 
 
 def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
@@ -94,7 +98,9 @@ def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
                   coalesce((select array_agg(t.path::text order by t.path)
                               from question_topic qt join topic t on t.id = qt.topic_id
                              where qt.question_id = q.id), '{}'),
-                  q.publish_status::text, q.review_reasons, q.source_page, d.local_path
+                  q.publish_status::text, q.review_reasons, q.source_page, d.local_path,
+                  coalesce((select array_agg(array[o.letter, o.body_md] order by o.letter)
+                              from question_option o where o.question_id = q.id), '{}')
              from question q
              join exam e on e.id = q.exam_id
              left join passage p on p.id = q.passage_id
@@ -118,6 +124,7 @@ def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
             review_reasons=list(r[9]),  # type: ignore[call-overload]
             source_page=int(str(r[10])),
             pdf_path=None if r[11] is None else str(r[11]),
+            options=[(str(o[0]), str(o[1])) for o in r[12]],  # type: ignore[attr-defined]
         )
         for r in rows
     ]
@@ -148,6 +155,11 @@ def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path) -> Path:
     directory.mkdir(parents=True, exist_ok=True)
     page = directory / "amostra.html"
     page.write_text(_html(ref, questions), encoding="utf-8")
+    keys = _answer_key_paths(conn, ref)
+    (directory / "amostra.md").write_text(
+        _markdown(ref, questions, _write_pages(directory / "paginas", questions, keys)),
+        encoding="utf-8",
+    )
     record = {
         "exam": str(ref),
         "numbers": numbers,
@@ -314,6 +326,80 @@ def _page_png(pdf_path: str | None, page: int) -> str | None:
         zoom = pymupdf.Matrix(PAGE_ZOOM, PAGE_ZOOM)  # type: ignore[no-untyped-call]
         pixmap = document[page - 1].get_pixmap(matrix=zoom)
         return base64.b64encode(pixmap.tobytes("png")).decode()
+
+
+def _answer_key_paths(conn: Conn, ref: ExamRef) -> list[str]:
+    rows = conn.execute(
+        """select d.local_path from exam_document ed join source_document d
+                on d.id = ed.source_document_id
+            where ed.exam_id = %s and ed.kind = 'answer_key_final' and d.local_path is not null
+            order by ed.position""",
+        (_exam_id(conn, ref),),
+    ).fetchall()
+    return [str(r[0]) for r in rows]
+
+
+def _write_pages(
+    directory: Path, questions: list[QuestionView], keys: list[str]
+) -> dict[str, list[str]]:
+    """Grava as páginas em PNG; devolve, por questão (e por "gabarito"), os arquivos relativos."""
+    directory.mkdir(parents=True, exist_ok=True)
+    for old in directory.glob("*.png"):
+        old.unlink()
+    files: dict[str, list[str]] = {}
+
+    def render(pdf_path: str, page: int, name: str) -> str | None:
+        target = directory / name
+        if not target.exists():
+            png = _page_png(pdf_path, page)
+            if png is None:
+                return None
+            target.write_bytes(base64.b64decode(png))
+        return f"paginas/{name}"
+
+    for q in questions:
+        pages = [q.source_page - 1, q.source_page] if q.passage_md else [q.source_page]
+        names = [
+            render(q.pdf_path, page, f"prova-p{page:03d}.png")
+            for page in pages
+            if q.pdf_path and page >= 1
+        ]
+        files[str(q.number)] = [n for n in names if n]
+    keys_rendered = [render(path, 1, f"gabarito-{i}.png") for i, path in enumerate(keys, 1)]
+    files["gabarito"] = [n for n in keys_rendered if n]
+    return files
+
+
+def _markdown(ref: ExamRef, questions: list[QuestionView], pages: dict[str, list[str]]) -> str:
+    lines = [
+        f"# Amostra — {ref}",
+        "",
+        "Confira cada questão contra as páginas do PDF: enunciado, texto-base, alternativas,",
+        "gabarito definitivo e disciplina. Gabarito definitivo: "
+        + (", ".join(f"`{p}`" for p in pages["gabarito"]) or "(PDF não encontrado em disco)"),
+        "",
+    ]
+    for q in questions:
+        answer = q.answer_final or ("anulada" if q.answer_status == "annulled" else "—")
+        lines += [
+            f"## Questão {q.number}",
+            "",
+            f"- Páginas: {', '.join(f'`{p}`' for p in pages[str(q.number)]) or '(PDF não encontrado)'}"
+            f" (questão na página {q.source_page})",
+            f"- Gabarito final: **{answer}** ({q.answer_status}; preliminar:"
+            f" {q.answer_preliminary or '—'})",
+            f"- Disciplina: {q.subject or '—'} · Assuntos: {', '.join(q.topics) or '—'}",
+            "",
+        ]
+        if q.passage_md:
+            lines += ["**Texto-base**", "", q.passage_md, ""]
+        lines += ["**Enunciado**", "", q.statement_md, ""]
+        if q.options:
+            lines += ["**Alternativas**", ""] + [
+                f"- {letter}) {body}" for letter, body in q.options
+            ]
+            lines.append("")
+    return "\n".join(lines)
 
 
 def _html(ref: ExamRef, questions: list[QuestionView]) -> str:

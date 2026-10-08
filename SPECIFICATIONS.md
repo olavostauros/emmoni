@@ -506,7 +506,9 @@ exams:
 | `load` | staging → banco | Uma transação por prova; upsert por `(exam_id, number)`; deduplicação por `statement_hash` marca `duplicate_of` (questões em `review` ficam fora: o conteúdo extraído está incompleto). |
 
 No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
-rotulado ou a situação hipotética vira texto-base. O `load` grava `review` quando há motivo de
+rotulado ou a situação hipotética vira texto-base. Na múltipla escolha, o texto-base vale para a
+primeira questão depois dele e para as que o citam pelo rótulo ("texto 2A1-I", "figura 5A2");
+as demais não o herdam (decisão 0013). O `load` grava `review` quando há motivo de
 revisão, `published` quando não há motivo e há assunto, e `draft` quando falta assunto. A prova só é
 publicada depois da amostragem (decisão 0005).
 

@@ -188,6 +188,44 @@ def test_multiple_choice_questions_with_options_and_shared_text() -> None:
     assert second.options[0].body_md == "é dever do Estado."
 
 
+def _choice(number: int, statement: str, y: float) -> list[Line]:
+    return [
+        _line(f"Questão {number}", 51, y),
+        _line(statement, 28, y + 12, x1=200),
+        *(
+            _line(f"{letter} opção {letter}.", 28, y + 24 + 12 * i, x1=100)
+            for i, letter in enumerate("ABCDE")
+        ),
+    ]
+
+
+def test_choice_passage_only_for_the_first_question_or_who_cites_it() -> None:
+    """Múltipla escolha: o texto-base vale para a primeira questão depois dele e para as que o
+    citam (pelo rótulo ou pelo título "Figura 5A2"); as outras não o herdam. A tabela de
+    justificativas (PC/PE 2023) não vira texto-base, e título de bloco em negrito também não."""
+    lines = [
+        *_choice(1, "Primeira questão sem texto.", 20),
+        _line("||JUSTIFICATIVAS||", 28, 100, x1=120),
+        _line("||A|| - 1 Constituição. CORRETA porque sim.", 28, 112),
+        *_choice(2, "Segunda questão sem texto.", 140),
+        _line("**Texto 1A1-I**", 28, 230, x1=80),
+        _line("A segurança pública é dever do Estado.", 56, 242, x1=200),
+        *_choice(3, "A ideia central do texto é", 260),
+        *_choice(4, "Questão de outra matéria.", 350),
+        _line("Figura 5A2", 28, 440, x1=80),
+        _line("Perfis genéticos de dois indivíduos.", 56, 452, x1=200),
+        *_choice(5, "Segundo a figura 5A2, os perfis", 470),
+        *_choice(6, "Ainda de acordo com o texto 1A1-I,", 560),
+        *_choice(7, "Mais uma questão de outra matéria.", 650),
+        _line("**Atualidades**", 28, 740, x1=80),
+        *_choice(8, "Questão do bloco de atualidades.", 760),
+    ]
+    segmented = cebraspe.segment([_page(lines)])
+    keys = {q.number: q.passage_key for q in segmented.questions}
+    assert keys == {1: None, 2: None, 3: "1A1-I", 4: None, 5: "g5", 6: "1A1-I", 7: None, 8: None}
+    assert [p.key for p in segmented.passages] == ["1A1-I", "g5"]
+
+
 def test_code_lines_flag_layout() -> None:
     page = _page(
         [
