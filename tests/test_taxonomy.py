@@ -1,4 +1,4 @@
-"""Carga da taxonomia (SPECIFICATIONS.md §4.4)."""
+"""Carga da taxonomia (SPECIFICATION.md §4.4)."""
 
 from collections.abc import Iterator
 from pathlib import Path

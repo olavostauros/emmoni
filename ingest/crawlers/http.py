@@ -1,4 +1,4 @@
-"""Cliente HTTP único com as regras de cortesia (SPECIFICATIONS.md §7.1).
+"""Cliente HTTP único com as regras de cortesia (SPECIFICATION.md §7.1).
 
 Todo acesso à rede — crawler e etapa `fetch` — passa por aqui. Antes de cada requisição:
 denylist, lista de fontes permitidas e `robots.txt`. Entre requisições ao mesmo host: no mínimo

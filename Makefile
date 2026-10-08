@@ -1,4 +1,4 @@
-# Ponto de entrada do projeto (SPECIFICATIONS.md §9).
+# Ponto de entrada do projeto (SPECIFICATION.md §9).
 # Valores padrão = ambiente de desenvolvimento; um .env sobrescreve.
 
 -include .env

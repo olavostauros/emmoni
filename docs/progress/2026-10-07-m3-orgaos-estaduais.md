@@ -11,7 +11,7 @@
   `Makefile`: exporta `EMMONI_CRAWL_CONTACT` (o `make crawl` agendado nunca funcionaria sem isso).
 - Execução real: 47 requisições; **35 propostas** em `ingest/manifests/_pending/`; reexecução
   com 0 requisições. 13 fixtures novas; listagem de fixture reduzida; 8 testes novos.
-- Decisão 0008; SPECIFICATIONS.md §4.1 (apelidos de cargo).
+- Decisão 0008; SPECIFICATION.md §4.1 (apelidos de cargo).
 - A pedido do humano: **36 propostas aprovadas** sem ajuste (`emmoni manifests approve`) e
   `pmto-2020-qps` rejeitada (proposta antiga de regra corrigida, que o crawler não remove de
   `_pending/`). Os testes passam a usar como "manuais" os manifestos aprovados com fixture.

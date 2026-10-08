@@ -1,4 +1,4 @@
-"""Propostas de manifesto do crawler e sua aprovação (SPECIFICATIONS.md §7.1, decisão 0007).
+"""Propostas de manifesto do crawler e sua aprovação (SPECIFICATION.md §7.1, decisão 0007).
 
 Três diretórios, três estados, tudo versionado no git:
 

@@ -1,4 +1,4 @@
-"""M0: extensões, esquemas e papéis (SPECIFICATIONS.md §1 e §4.6)."""
+"""M0: extensões, esquemas e papéis (SPECIFICATION.md §1 e §4.6)."""
 
 from collections.abc import Iterator
 

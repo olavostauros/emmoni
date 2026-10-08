@@ -1,4 +1,4 @@
-"""Manifestos, catálogo, validate e load (SPECIFICATIONS.md §7.2, §7.3, §9)."""
+"""Manifestos, catálogo, validate e load (SPECIFICATION.md §7.2, §7.3, §9)."""
 
 from pathlib import Path
 

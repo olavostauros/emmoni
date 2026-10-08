@@ -3,11 +3,11 @@
 Instruções para agentes que trabalham neste repositório. Antes de começar, leia:
 
 1. [MISSION.md](MISSION.md) — o que é o emmoni e qual é a missão atual (o **porquê**).
-2. [SPECIFICATIONS.md](SPECIFICATIONS.md) — stack, modelo de dados, contrato, pipeline, testes e
+2. [SPECIFICATION.md](SPECIFICATION.md) — stack, modelo de dados, contrato, pipeline, testes e
    marcos (o **o quê**). É a fonte de verdade técnica.
 3. Este arquivo — como trabalhar (o **como**).
 
-Em caso de conflito: o SPECIFICATIONS.md manda nas decisões técnicas; este arquivo manda no processo.
+Em caso de conflito: o SPECIFICATION.md manda nas decisões técnicas; este arquivo manda no processo.
 
 ## Divisão de trabalho
 
@@ -21,14 +21,14 @@ Regras de fronteira:
 - O agente de banco de dados **não** escreve código do site. O agente de front-end **não** altera
   esquema nem migrações — pede a mudança.
 - A interface entre os dois é o esquema `api` do banco, acessado com o papel `emmoni_web`,
-  documentado em `docs/contract.md`, mais o **seed** (SPECIFICATIONS.md §6). Mudança incompatível no
+  documentado em `docs/contract.md`, mais o **seed** (SPECIFICATION.md §6). Mudança incompatível no
   contrato = nova versão maior + nota de migração no `docs/contract.md`.
 
 ## Idioma
 
 - Documentação, comentários e mensagens de commit em **português**.
 - Identificadores no código e no esquema em **inglês**, `snake_case`, seguindo **o glossário do
-  SPECIFICATIONS.md §3** (`exam_board` = banca, `answer_key` = gabarito etc.). Não invente sinônimos.
+  SPECIFICATION.md §3** (`exam_board` = banca, `answer_key` = gabarito etc.). Não invente sinônimos.
 - Dados voltados ao usuário (nomes de bancas, disciplinas, assuntos) ficam em português.
 
 ## Domínio — o que o agente precisa saber
@@ -61,7 +61,7 @@ Regras de fronteira:
 ### Crawling
 
 O agente **faz crawling** dos sites oficiais para descobrir provas. Regras inegociáveis abaixo;
-a implementação (cliente HTTP, limites, backoff) está no SPECIFICATIONS.md §7.1:
+a implementação (cliente HTTP, limites, backoff) está no SPECIFICATION.md §7.1:
 
 - Só acessa domínios da lista de fontes permitidas (`ingest/sources.yaml`). Domínio novo entra na
   lista por commit, com decisão registrada — nunca "de passagem" durante uma execução.
@@ -116,11 +116,11 @@ posterior prevalece sobre o do agente.
 
 ## Fluxo de trabalho
 
-1. Ler `MISSION.md`, `SPECIFICATIONS.md`, este arquivo, `docs/progress/STATUS.md` e
+1. Ler `MISSION.md`, `SPECIFICATION.md`, este arquivo, `docs/progress/STATUS.md` e
    `docs/contract.md`. O `STATUS.md` diz onde a última sessão parou. Conforme a tarefa, ler
    também `docs/content-format.md` (formato do enunciado), `docs/operations.md` (crawl diário) e
    as decisões citadas em `docs/decisions/`.
-2. Seguir os **marcos do SPECIFICATIONS.md §10 em ordem** (M0 → M6). Não comece um marco antes de o
+2. Seguir os **marcos do SPECIFICATION.md §10 em ordem** (M0 → M6). Não comece um marco antes de o
    anterior cumprir seu critério de "pronto". O M1 (esquema, contrato e seed) destrava o agente de
    front-end — ele tem prioridade sobre volume de questões.
 3. Dentro de um marco, trabalhar em incrementos pequenos e verticais: uma prova completa
@@ -154,6 +154,6 @@ para o checkout principal.
 
 ## Estrutura e tecnologia
 
-A estrutura do repositório, a stack e os comandos estão no SPECIFICATIONS.md (§1, §2 e §9).
+A estrutura do repositório, a stack e os comandos estão no SPECIFICATION.md (§1, §2 e §9).
 Para mudar qualquer especificação: escreva a decisão em `docs/decisions/` e atualize o
-SPECIFICATIONS.md **no mesmo commit**. Nunca deixe o código divergir da especificação em silêncio.
+SPECIFICATION.md **no mesmo commit**. Nunca deixe o código divergir da especificação em silêncio.

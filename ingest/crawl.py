@@ -1,4 +1,4 @@
-"""Orquestração do crawling (SPECIFICATIONS.md §7.1, decisão 0007).
+"""Orquestração do crawling (SPECIFICATION.md §7.1, decisão 0007).
 
 O crawler de cada fonte (`ingest/crawlers/<fonte>.py`) devolve o que **encontrou**: concursos com
 seus documentos e provas candidatas. Este módulo cuida do que é comum a todas as fontes:

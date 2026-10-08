@@ -16,7 +16,7 @@
   aparece nas provas de agente, escrivão e papiloscopista; 62 da prova de escrivão e 43 da de
   papiloscopista apontam (`duplicate_of`) para a cópia de agente, que é a canônica. PF 2018 não tem
   bloco comum (textos diferentes por cargo; 0 coincidências de enunciado), e PF 2025 já separa os
-  cadernos básicos. Comportamento conforme SPECIFICATIONS.md §5/§7: nada a corrigir.
+  cadernos básicos. Comportamento conforme SPECIFICATION.md §5/§7: nada a corrigir.
 
 ## Verificação
 - `make gates`: **passou** — 201 testes; 7 checks sem violações (`040_unmarked_duplicates` = 0).

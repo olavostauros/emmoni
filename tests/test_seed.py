@@ -1,4 +1,4 @@
-"""O seed cobre o que o front-end precisa (SPECIFICATIONS.md §6) e pode ser recarregado."""
+"""O seed cobre o que o front-end precisa (SPECIFICATION.md §6) e pode ser recarregado."""
 
 import os
 import subprocess

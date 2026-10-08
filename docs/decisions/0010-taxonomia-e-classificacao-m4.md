@@ -32,6 +32,6 @@ M2 sem assunto confiante).
 
 ## Consequências
 
-- SPECIFICATIONS.md §7.3 (regra do `classify`) e §8 (amostragem de assuntos) atualizados.
+- SPECIFICATION.md §7.3 (regra do `classify`) e §8 (amostragem de assuntos) atualizados.
 - Reclassificar uma prova inteira exige apagar as respostas em `classify-answers.json`; só as
   questões sem assunto confiante são retarefadas automaticamente.

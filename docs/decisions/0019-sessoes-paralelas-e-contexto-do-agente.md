@@ -11,7 +11,7 @@ As sessões do agente passaram a rodar em paralelo, cada uma num worktree do git
 de um `data/` que o checkout principal não tem (o `data/` do worktree é uma cópia, fora do git).
 
 Uma auditoria do contexto do agente achou também divergências no `AGENTS.md`: a regra de 429
-("recua e para") contrariava o §7.1 do SPECIFICATIONS.md (backoff com `Retry-After`, até 3
+("recua e para") contrariava o §7.1 do SPECIFICATION.md (backoff com `Retry-After`, até 3
 tentativas); os status apareciam como `rascunho`/`revisar`/`publicada`, mas o enum é
 `draft`/`review`/`published`; e o `STATUS.md` tinha virado histórico, contra o formato de
 `docs/progress/README.md`. O `AGENTS.md` é o único arquivo de instruções carregado (não há
@@ -26,12 +26,12 @@ tentativas); os status apareciam como `rascunho`/`revisar`/`publicada`, mas o en
 2. **O que precisa sobreviver ao worktree vai para o git** (aprovações, revisões de OCR,
    `classify-answers.json`, manifestos). O resto de `data/` é reproduzível.
 3. **O registro da sessão diz de qual worktree e commit veio uma carga no banco.**
-4. **`AGENTS.md` alinhado ao SPECIFICATIONS.md**: as regras inegociáveis de crawling ficam no
+4. **`AGENTS.md` alinhado ao SPECIFICATION.md**: as regras inegociáveis de crawling ficam no
    `AGENTS.md`, e a implementação (limites, backoff) só no §7.1; status com os nomes do enum.
 5. **`STATUS.md` volta ao formato do README**: só o estado atual. O histórico fica nos registros
    de sessão.
 
-O SPECIFICATIONS.md não muda.
+O SPECIFICATION.md não muda.
 
 ## Consequências
 

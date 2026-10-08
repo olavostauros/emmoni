@@ -1,4 +1,4 @@
-"""Etapa `load`: staging → banco, uma transação por prova (SPECIFICATIONS.md §7.3).
+"""Etapa `load`: staging → banco, uma transação por prova (SPECIFICATION.md §7.3).
 
 Idempotente: concurso e prova por slug, texto-base por `(exam_id, source_key)`, questão por
 `(exam_id, number)`. Rodar duas vezes produz o mesmo estado, com os mesmos ids.

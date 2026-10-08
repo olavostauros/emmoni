@@ -1,4 +1,4 @@
-# Catálogo curado: bancas, órgãos e cargos (SPECIFICATIONS.md §4.1, decisão 0005).
+# Catálogo curado: bancas, órgãos e cargos (SPECIFICATION.md §4.1, decisão 0005).
 # Carregado por `emmoni catalog load` (idempotente, por slug). Os manifestos só podem citar
 # slugs que existem aqui. Registros que saem do arquivo não são apagados do banco.
 # `aliases`: como as fontes escrevem o órgão nas URLs/nomes de evento (crawler, decisão 0007).

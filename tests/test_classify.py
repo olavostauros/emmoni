@@ -1,4 +1,4 @@
-"""Etapa classify: respostas do agente em arquivo, sem API (SPECIFICATIONS.md §7.4, §9)."""
+"""Etapa classify: respostas do agente em arquivo, sem API (SPECIFICATION.md §7.4, §9)."""
 
 import json
 from pathlib import Path

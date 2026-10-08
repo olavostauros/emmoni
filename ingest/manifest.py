@@ -1,4 +1,4 @@
-"""Manifesto de concurso (`ingest/manifests/<concurso>.yaml`, SPECIFICATIONS.md §7.2)."""
+"""Manifesto de concurso (`ingest/manifests/<concurso>.yaml`, SPECIFICATION.md §7.2)."""
 
 import datetime
 from pathlib import Path
@@ -69,7 +69,7 @@ class Manifest(_Strict):
     notice_number: str | None = None
     source_url: str | None = None  # página oficial do concurso, para conferência
     exams: list[Exam] = Field(min_length=1)
-    # Preenchido pelo crawler nas propostas (SPECIFICATIONS.md §7.1): de onde veio cada campo e com
+    # Preenchido pelo crawler nas propostas (SPECIFICATION.md §7.1): de onde veio cada campo e com
     # que confiança. O pipeline ignora; pode ficar no manifesto aprovado ou ser apagado.
     evidence: dict[str, Any] = {}
 

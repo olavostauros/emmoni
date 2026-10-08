@@ -1,4 +1,4 @@
-"""Crawler do Cebraspe e orquestração do crawling (SPECIFICATIONS.md §7.1, §9; decisão 0007).
+"""Crawler do Cebraspe e orquestração do crawling (SPECIFICATION.md §7.1, §9; decisão 0007).
 
 Nenhum teste acessa a rede: as respostas da API estão gravadas em `fixtures/crawl/cebraspe/`.
 """

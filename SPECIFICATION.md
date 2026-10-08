@@ -1,4 +1,4 @@
-# SPECIFICATIONS — emmoni
+# SPECIFICATION — emmoni
 
 Especificações técnicas para cumprir o [MISSION.md](MISSION.md). As regras de trabalho estão no
 [AGENTS.md](AGENTS.md). Em caso de conflito, **este documento manda nas decisões técnicas** e o
@@ -43,7 +43,7 @@ tem padrões de desenvolvimento para todas as URLs do banco, então um repositó
 
 ```
 emmoni/
-├── MISSION.md  AGENTS.md  SPECIFICATIONS.md
+├── MISSION.md  AGENTS.md  SPECIFICATION.md
 ├── Makefile  docker-compose.yml  .env.example  pyproject.toml  mise.toml  .python-version
 ├── docs/
 │   ├── contract.md          # contrato com o front-end (seção 6)

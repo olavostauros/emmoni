@@ -1,4 +1,4 @@
-"""Mede as funções do contrato com ~100 mil questões (SPECIFICATIONS.md §6).
+"""Mede as funções do contrato com ~100 mil questões (SPECIFICATION.md §6).
 
 Uso: bench.py <url owner> <url web>   (banco descartável, já migrado e com seed)
 Multiplica as questões do seed em concursos sintéticos `bench-*` e mede, como emmoni_web,

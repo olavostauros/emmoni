@@ -4,7 +4,7 @@
 
 ## Contexto
 
-O M1 entrega o esquema `api` (SPECIFICATIONS.md §6) para o agente de front-end trabalhar sem
+O M1 entrega o esquema `api` (SPECIFICATION.md §6) para o agente de front-end trabalhar sem
 conhecer as tabelas internas, com p95 < 150 ms na busca e < 300 ms nas facetas a 100 mil questões.
 
 ## Decisões

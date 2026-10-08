@@ -1,6 +1,6 @@
 # Status — atualizado em 2026-10-08
 
-**Marco atual:** M5 — Mais bancas (SPECIFICATIONS.md §10). M0–M4 prontos (M4 em 2026-10-08).
+**Marco atual:** M5 — Mais bancas (SPECIFICATION.md §10). M0–M4 prontos (M4 em 2026-10-08).
 Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui ampliou o Cebraspe.
 
 ## Feito neste marco

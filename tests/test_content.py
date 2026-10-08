@@ -1,4 +1,4 @@
-"""Hash de deduplicação e referências a assets (SPECIFICATIONS.md §5)."""
+"""Hash de deduplicação e referências a assets (SPECIFICATION.md §5)."""
 
 from ingest.content import asset_refs, statement_hash
 

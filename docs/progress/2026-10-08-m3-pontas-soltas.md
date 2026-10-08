@@ -17,7 +17,7 @@
   visto, detalhe com erro e outra fonte), escopo de SDS/PE, host bloqueado não remove nada.
 - Execução real `make crawl`: 1 requisição nova (detalhe de SDS_PE_16_CIVIL), proposta nova
   `ingest/manifests/_pending/pcpe-2016.yaml`; reexecução com 0 requisições.
-- SPECIFICATIONS.md §7.1 atualizado.
+- SPECIFICATION.md §7.1 atualizado.
 
 ## Verificação
 - `make gates`: **passou** — 312 testes; ruff, mypy, roundtrip das migrações ok; `emmoni check`

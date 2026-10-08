@@ -5,7 +5,7 @@
 ## Contexto
 
 O M2 ingere as provas de PF e PRF aplicadas pelo Cebraspe. A etapa `fetch` e a busca manual dos
-PDFs para os manifestos já acessam a rede; as regras de cortesia (SPECIFICATIONS.md §7.1) valem desde
+PDFs para os manifestos já acessam a rede; as regras de cortesia (SPECIFICATION.md §7.1) valem desde
 o primeiro acesso, não só a partir do crawler do M3.
 
 ## Decisões

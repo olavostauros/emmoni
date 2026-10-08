@@ -15,7 +15,7 @@ e para que outras pessoas e agentes (ex.: o de front-end) saibam em que ponto o 
 ```markdown
 # Status — atualizado em AAAA-MM-DD
 
-**Marco atual:** M? — <nome> (SPECIFICATIONS.md §10)
+**Marco atual:** M? — <nome> (SPECIFICATION.md §10)
 
 ## Feito neste marco
 - ...

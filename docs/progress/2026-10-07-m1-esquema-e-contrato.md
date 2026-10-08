@@ -14,7 +14,7 @@
   Gerado por `scripts/build_seed.py`.
 - 7 checks de qualidade em `db/checks/`.
 - `make bench` (`scripts/bench.py`), `make seed`, `make seed-build`.
-- `docs/contract.md` v1.0, `docs/content-format.md` v1.0, decisão 0002; SPECIFICATIONS.md alinhado
+- `docs/contract.md` v1.0, `docs/content-format.md` v1.0, decisão 0002; SPECIFICATION.md alinhado
   (§4, §5, §6, §9).
 
 ## Verificação

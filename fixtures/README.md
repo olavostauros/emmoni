@@ -1,6 +1,6 @@
 # Fixtures
 
-Amostras pequenas para testes. Nenhum teste acessa a rede (SPECIFICATIONS.md §9).
+Amostras pequenas para testes. Nenhum teste acessa a rede (SPECIFICATION.md §9).
 
 ## `pdf/cebraspe/`
 

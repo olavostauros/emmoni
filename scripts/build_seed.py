@@ -1,4 +1,4 @@
-"""Gera db/seed/seed.sql (SPECIFICATIONS.md §6).
+"""Gera db/seed/seed.sql (SPECIFICATION.md §6).
 
 As questões abaixo foram escritas para o seed: não vêm de provas reais. Concursos, provas e
 documentos são fictícios e marcados (slug `seed-`, URLs em `seed.emmoni.invalid`). Bancas,
@@ -921,7 +921,7 @@ def subject_label(slug: str) -> str:
 def build() -> str:
     out = [
         "-- GERADO por scripts/build_seed.py — não edite à mão (make seed-build).\n"
-        "-- Questões fictícias para desenvolvimento do front-end (SPECIFICATIONS.md §6).\n",
+        "-- Questões fictícias para desenvolvimento do front-end (SPECIFICATION.md §6).\n",
         "begin;\n",
         "delete from contest where slug like 'seed-%';\n",
         "delete from source_document where url like 'https://seed.emmoni.invalid/%';\n\n",

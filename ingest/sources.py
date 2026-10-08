@@ -1,4 +1,4 @@
-"""Fontes permitidas e denylist (`ingest/sources.yaml`, SPECIFICATIONS.md §7.1)."""
+"""Fontes permitidas e denylist (`ingest/sources.yaml`, SPECIFICATION.md §7.1)."""
 
 from pathlib import Path
 from typing import Literal
