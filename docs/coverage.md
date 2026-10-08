@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-08 18:43 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-08 18:53 UTC. Não edite à mão.
 
-**5063 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5062 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -11,7 +11,7 @@ Gerado por `emmoni coverage` em 2026-10-08 18:43 UTC. Não edite à mão.
 | Cebraspe | CBMAL | 2017 | 3 | 138 |
 | Cebraspe | CBMAL | 2021 | 2 | 148 |
 | Cebraspe | CBMPA | 2023 | 2 | 66 |
-| Cebraspe | CBMRO | 2022 | 1 | 73 |
+| Cebraspe | CBMRO | 2022 | 1 | 72 |
 | Cebraspe | CBMTO | 2021 | 2 | 64 |
 | Cebraspe | CBMTO | 2022 | 2 | 63 |
 | Cebraspe | DEPEN | 2020 | 1 | 90 |
@@ -69,7 +69,7 @@ Gerado por `emmoni coverage` em 2026-10-08 18:43 UTC. Não edite à mão.
 | Biologia | 75 |
 | Legislação de Trânsito | 71 |
 | Legislação Penal Militar | 68 |
-| Matemática | 68 |
+| Matemática | 67 |
 | Química | 65 |
 | Criminologia | 63 |
 | Criminalística | 62 |

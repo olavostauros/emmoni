@@ -1,4 +1,4 @@
-# Status — atualizado em 2026-10-08 (M4 pronto; bloqueios resolvidos)
+# Status — atualizado em 2026-10-08 (M4 pronto; staging do `CREDIT_END` reprocessado)
 
 **Marco atual:** M5 — Mais bancas (não iniciado)
 **Últimos marcos concluídos:** M0 — Fundação · M1 — Esquema e contrato · M2 — Primeira ingestão · M3 — Crawling (2026-10-07) · M4 — Taxonomia e classificação (2026-10-08)
@@ -50,16 +50,21 @@
   recusada (apóstrofo reto; crédito colado ao comando), corrigida e reamostrada.
 - Parser do Cebraspe: `CREDIT_END` e "expediente forense".
 
+## Feito em 2026-10-08 — staging com `CREDIT_END`
+- As 16 provas reprocessadas (`extract` → `load`): 51 questões mudam, todas só em espaço — o crédito
+  ("Internet: <…> (com adaptações).") passa a ser parágrafo próprio, separado do comando. A
+  impressão digital da aprovação usa o `statement_hash` normalizado, então 15 seguem aprovadas.
+- CBM/RO 2022 oficial q21 ganhou a marca `formula` (`odd_glyph`: "**A** 5*x*", dígito em fonte
+  própria entre a letra da opção e a variável) e foi para `review`; a prova foi reamostrada (16
+  questões, 6 delas com crédito mudado) e reaprovada. Afrouxar a regra tiraria a marca de índices
+  reais (R4, sp2, W1), então ficou como está.
+- Registro: `2026-10-08-credit-end.md`.
+
 ## Em andamento
 - Nada em execução.
 
 ## Próximos passos
-0. Reprocessar e reamostrar as 16 provas aprovadas que mudam com `CREDIT_END` (47 questões, só
-   quebra de parágrafo): cbmpa-2023-cfo/p1, cbmpa-2023-cfp/p1, cbmro-2022/oficial,
-   cbmto-2021/oficial, cbmto-2022/oficial e soldado, pcce-2025/objetiva, pcpb-2021 cargos 4, 5, 12
-   e 13, pcro-2022 (4 provas), pmto-2020-qppm/objetiva. Reprocessar tira cada uma do `api` até a
-   nova aprovação.
-0b. Manifestos dos concursos policiais antigos do `cespe-unb` (DPF 2004–2013, PRF 2013, PCs e PMs).
+0. Manifestos dos concursos policiais antigos do `cespe-unb` (DPF 2004–2013, PRF 2013, PCs e PMs).
 1. Começar o M5 (crawler e parser de outra banca).
 2. `pcpe-2016` e `pcientifica-pe-2016` (mesmos cadernos SDS/PE 2016): calibrar o parser, preencher
    `first_number` e `subjects_by_range` e ingerir.
@@ -77,8 +82,8 @@
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (tentado de novo diariamente).
 
 ## Números
-- Questões visíveis no esquema `api`: 5.063 reais sem duplicatas e sem o seed (`docs/coverage.md`)
-- Reais: 6.514 carregadas · 5.465 `published` · 1.049 `review`
+- Questões visíveis no esquema `api`: 5.062 reais sem duplicatas e sem o seed (`docs/coverage.md`)
+- Reais: 6.514 carregadas · 5.464 `published` · 1.050 `review`
 - Provas: 111 aprovadas e com registro em `ingest/approvals/`; 24 de manifestos aprovados fora do
   banco, 21 delas de `pcpe-2016` e `pcientifica-pe-2016`
 - Propostas do crawler pendentes: 0 · manifestos aprovados: 43 · rejeitados: 1
