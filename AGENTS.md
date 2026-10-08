@@ -60,8 +60,8 @@ Regras de fronteira:
 
 ### Crawling
 
-O agente **faz crawling** dos sites oficiais para descobrir provas (SPECIFICATIONS.md §7.1).
-Regras inegociáveis:
+O agente **faz crawling** dos sites oficiais para descobrir provas. Regras inegociáveis abaixo;
+a implementação (cliente HTTP, limites, backoff) está no SPECIFICATIONS.md §7.1:
 
 - Só acessa domínios da lista de fontes permitidas (`ingest/sources.yaml`). Domínio novo entra na
   lista por commit, com decisão registrada — nunca "de passagem" durante uma execução.
@@ -69,18 +69,19 @@ Regras inegociáveis:
   similares), nem para "conferir".
 - Respeita `robots.txt` e `Crawl-delay`; no máximo 1 requisição/s por host; `User-Agent` próprio
   com contato.
-- Recebeu 403, 429 ou captcha: recua e para naquele host. **Não** contorna bloqueio (sem trocar IP
+- Recebeu 403, captcha ou bloqueio: para naquele host. Recebeu 429/503: recua respeitando
+  `Retry-After` (até 3 tentativas) e, se persistir, para. **Não** contorna bloqueio (sem trocar IP
   ou User-Agent, sem resolver captcha, sem login, sem paywall).
 - O crawler **propõe** manifestos em `ingest/manifests/_pending/`; a ingestão só processa manifestos
   aprovados. Quem aprova é o agente (ver "Revisão pelo agente").
-- Testes de crawler usam HTML gravado em `fixtures/`, nunca a rede.
+- Testes de crawler usam respostas gravadas em `fixtures/crawl/<fonte>/`, nunca a rede.
 
 ## Princípios de engenharia
 
 - **Idempotência**: rodar a ingestão de novo não gera duplicatas. Use chaves naturais e um hash do
   enunciado normalizado para deduplicar.
 - **Rastreabilidade acima de volume**: uma questão sem origem ou sem gabarito não entra como publicada.
-  Use um status (`rascunho`, `revisar`, `publicada`) em vez de descartar silenciosamente.
+  Use o `publish_status` (`draft`, `review`, `published`) em vez de descartar silenciosamente.
 - **Extração assistida por LLM é permitida**, mas o resultado é validado por regras (número de
   alternativas, gabarito válido para o tipo, numeração contínua na prova) e por amostragem feita
   pelo agente (ver "Revisão pelo agente").
@@ -88,8 +89,8 @@ Regras inegociáveis:
 - **Migrações** sempre versionadas e reversíveis quando possível; nunca edite uma migração já aplicada.
 - **Testes** para o esquema (restrições), para os parsers de cada banca (com PDFs de amostra
   pequenos em `fixtures/`) e para as consultas do contrato.
-- Preserve a formatação relevante do enunciado (itálico, sublinhado, tabelas, fórmulas) em um
-  formato definido (ex.: Markdown restrito) e documente esse formato no contrato.
+- Preserve a formatação relevante do enunciado (itálico, sublinhado, tabelas, fórmulas) no formato
+  definido em `docs/content-format.md`; mudou o formato, atualize esse arquivo e o contrato.
 
 ## Revisão pelo agente
 
@@ -104,10 +105,11 @@ comandos e limiares, e registra o modelo e a versão como revisor:
   amostra com a página do PDF (enunciado, texto-base, alternativas, gabarito final, disciplina).
   Tudo confere: `emmoni review approve <concurso>/<prova> --by <modelo>`. Algo não confere: não
   aprovar; corrigir a causa e amostrar de novo.
-- **Amostra de assuntos** — `emmoni review topics`: em contexto separado do `classify` (outro
-  agente, sem as respostas nem o raciocínio da classificação), julgar se os assuntos descrevem a
-  questão; gravar `verdict` (`ok`/`wrong`), `note` quando `wrong` e `reviewed_by`. Depois,
-  `--report`.
+- **Amostra de assuntos** — `emmoni review topics`: em contexto separado do `classify` — um
+  subagente que lê só `data/review/assuntos/amostra.{md,json}` e `db/taxonomy/*.yaml`, sem abrir
+  `classify-answers.json`, o prompt nem o raciocínio da classificação —, julgar se os assuntos
+  descrevem a questão; gravar `verdict` (`ok`/`wrong`), `note` quando `wrong` e `reviewed_by`.
+  Depois, `--report`.
 
 Seja estrito: em dúvida, o veredito é `wrong` e a prova não é aprovada. Um veredito humano
 posterior prevalece sobre o do agente.
@@ -115,7 +117,9 @@ posterior prevalece sobre o do agente.
 ## Fluxo de trabalho
 
 1. Ler `MISSION.md`, `SPECIFICATIONS.md`, este arquivo, `docs/progress/STATUS.md` e
-   `docs/contract.md` (quando existir). O `STATUS.md` diz onde a última sessão parou.
+   `docs/contract.md`. O `STATUS.md` diz onde a última sessão parou. Conforme a tarefa, ler
+   também `docs/content-format.md` (formato do enunciado), `docs/operations.md` (crawl diário) e
+   as decisões citadas em `docs/decisions/`.
 2. Seguir os **marcos do SPECIFICATIONS.md §10 em ordem** (M0 → M6). Não comece um marco antes de o
    anterior cumprir seu critério de "pronto". O M1 (esquema, contrato e seed) destrava o agente de
    front-end — ele tem prioridade sobre volume de questões.
@@ -125,9 +129,28 @@ posterior prevalece sobre o do agente.
 5. Atualizar `docs/contract.md` e o seed sempre que o esquema `api` mudar.
 6. Registrar decisões de arquitetura em `docs/decisions/NNNN-titulo.md` (contexto, decisão,
    consequências — curto).
-7. **Antes de encerrar a sessão**, registrar o progresso em `docs/progress/`: atualizar o
-   `STATUS.md` e criar `AAAA-MM-DD-<assunto>.md` no formato de `docs/progress/README.md`.
-   Inclua o resultado do `make gates` e o que ficou sem verificar.
+7. **Antes de encerrar a sessão**, registrar o progresso em `docs/progress/`: criar
+   `AAAA-MM-DD-<assunto>.md` no formato de `docs/progress/README.md`, com o resultado do
+   `make gates` e o que ficou sem verificar, e **sobrescrever** o `STATUS.md` com o estado atual.
+   O `STATUS.md` não é histórico: o que foi feito fica no registro da sessão; no `STATUS.md` ficam
+   só o marco, o que está em andamento, os próximos passos, os bloqueios e os números de agora.
+
+## Sessões paralelas e worktrees
+
+Várias sessões podem rodar ao mesmo tempo, cada uma num worktree do git (decisão 0019). Elas
+**compartilham** o mesmo Postgres (`docker compose` com nome e porta fixos): os bancos `emmoni` e
+`emmoni_test` são um só por máquina. Já o `data/` de cada worktree é uma **cópia** que não volta
+para o checkout principal.
+
+- Comandos que escrevem no banco — `make gates`, `make test`, `make migrate`, `make seed`,
+  `make db-reset`, `emmoni ingest`, `emmoni review approve`, `emmoni crawl` — rodam em **uma
+  sessão por vez**. Antes de rodá-los, confira se outra sessão não está no meio de um deles; em
+  dúvida, pergunte ao dono.
+- O que precisa sobreviver ao worktree vai para o git: aprovações (`ingest/approvals/`), revisões
+  de OCR (`ingest/ocr/`), `classify-answers.json`, manifestos. O resto de `data/` (PDFs, staging,
+  amostras) é reproduzível e fica para trás quando o worktree é apagado.
+- Carregou no banco a partir de um worktree? O registro da sessão diz qual worktree e qual commit,
+  para que o checkout principal consiga reproduzir o mesmo estado depois do merge.
 
 ## Estrutura e tecnologia
 
