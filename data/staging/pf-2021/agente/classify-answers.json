@@ -11,15 +11,15 @@
  "2": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto",
-    "confidence": 0.6
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
    },
    {
-    "path": "lingua_portuguesa.sintaxe",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.morfologia.adverbio",
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Semântica e vocabulário (sinonímia, substituição de palavras)"
+  "suggested_topic": ""
  },
  "3": {
   "topics": [
