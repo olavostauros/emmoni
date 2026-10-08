@@ -468,3 +468,27 @@ def test_large_knowledge_title_is_a_heading_with_its_second_line() -> None:
     assert not cebraspe._subject_heading(body)
     assert not cebraspe._heading_continuation(body, _title_line("no edital", 59, 10))
     assert not cebraspe._subject_heading(_title_line("Conhecimentos gerais.", 48, 12))
+
+
+def test_source_credit_closes_its_paragraph() -> None:
+    """PM/TO 2020 q23: o comando vinha colado ao crédito do texto ("... (com adaptações). O
+    texto precedente refere-se ...")."""
+
+    def entry(text: str, y: float, x0: float = 30.0) -> cebraspe._Entry:
+        line = Line(text=text, plain=text, x0=x0, y0=y, x1=290, y1=y + 9, column=1, size=8.0)
+        return cebraspe._Entry(1, line, left=30.0)
+
+    entries = [
+        entry("A Revolta de 1835 marcou o século XIX.", 100),
+        entry("Internet: <dominiopublico.gov.br> (com adaptações).", 112, x0=150),
+        entry("O texto precedente refere-se ao movimento separatista que", 124),
+        entry("eclodiu no norte de Goiás.", 136),
+    ]
+    expected = [
+        "A Revolta de 1835 marcou o século XIX.",
+        "Internet: <dominiopublico.gov.br> (com adaptações).",
+        "O texto precedente refere-se ao movimento separatista que eclodiu no norte de Goiás.",
+    ]
+    assert cebraspe._paragraphs(entries) == expected
+    # Na múltipla escolha o crédito vem alinhado à direita e vai até a margem: não é "curto".
+    assert cebraspe._choice_paragraphs(entries) == expected

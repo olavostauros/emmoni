@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-08 18:43 UTC. Não edite à mão.
 
-**5006 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5063 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -19,7 +19,7 @@ Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 | Cebraspe | PCAL | 2022 | 2 | 117 |
 | Cebraspe | PCCE | 2025 | 1 | 99 |
 | Cebraspe | PCDF | 2019 | 1 | 94 |
-| Cebraspe | PCDF | 2020 | 1 | 54 |
+| Cebraspe | PCDF | 2020 | 2 | 104 |
 | Cebraspe | PCDF | 2026 | 1 | 110 |
 | Cebraspe | PCES | 2022 | 2 | 74 |
 | Cebraspe | PCGO | 2016 | 4 | 88 |
@@ -41,7 +41,7 @@ Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 | Cebraspe | PMPA | 2023 | 4 | 111 |
 | Cebraspe | PMRO | 2022 | 1 | 89 |
 | Cebraspe | PMSC | 2023 | 2 | 117 |
-| Cebraspe | PMTO | 2020 | 1 | 48 |
+| Cebraspe | PMTO | 2020 | 2 | 55 |
 | Cebraspe | PRF | 2018 | 1 | 101 |
 | Cebraspe | PRF | 2021 | 3 | 125 |
 
@@ -49,22 +49,22 @@ Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 529 |
+| Língua Portuguesa | 549 |
 | Informática | 424 |
 | Direito Processual Penal | 395 |
+| Direito Administrativo | 393 |
 | Direito Penal | 392 |
-| Direito Administrativo | 389 |
 | Direito Constitucional | 389 |
-| Legislação Penal Especial | 302 |
-| Legislação Institucional | 180 |
+| Legislação Penal Especial | 303 |
+| Legislação Institucional | 181 |
 | Medicina Legal | 178 |
 | Direitos Humanos | 128 |
 | Contabilidade Geral | 125 |
-| Geografia | 117 |
+| Geografia | 123 |
 | História | 116 |
-| Raciocínio Lógico | 97 |
+| Raciocínio Lógico | 109 |
+| Legislação Estadual | 93 |
 | Direito Civil | 90 |
-| Legislação Estadual | 90 |
 | Arquivologia | 76 |
 | Biologia | 75 |
 | Legislação de Trânsito | 71 |
@@ -74,9 +74,9 @@ Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 | Criminologia | 63 |
 | Criminalística | 62 |
 | Atualidades | 47 |
+| Língua Inglesa | 45 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 36 |
-| Língua Inglesa | 36 |
 | Direito Processual Civil | 31 |
 | Engenharia | 31 |
 | Direito Empresarial | 27 |
@@ -103,11 +103,11 @@ Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 | Direito do Consumidor | 4 |
 | História da PRF | 2 |
 | Primeiros Socorros | 2 |
+| Teoria Musical | 1 |
 
 ## Provas de manifestos aprovados fora do banco
 
 - `cbmal-2017/conhecimentos-basicos-cargo-1-oficial-combatente`
-- `pcdf-2020/conhecimentos-basicos`
 - `pcientifica-pe-2016/auxiliar-de-legista`
 - `pcientifica-pe-2016/auxiliar-de-perito`
 - `pcientifica-pe-2016/auxiliar-de-papiloscopista`
@@ -131,7 +131,6 @@ Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 - `pcpe-2016/agente-de-policia`
 - `pcpe-2016/escrivao-de-policia`
 - `pcpe-2016/conhecimentos-gerais`
-- `pmto-2020-qpe/objetiva`
 
 ## Provas carregadas e não publicadas
 

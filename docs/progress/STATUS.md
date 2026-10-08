@@ -34,10 +34,32 @@
 - DEPEN 2020 carregada e publicada (gabarito CG2 de nível médio; cargo é de nível médio).
 - Registro: `2026-10-08-bloqueios.md`.
 
+## Feito em 2026-10-08 — HTTP do `cespe.unb.br` (decisão 0017)
+- Dono autorizou HTTP para `www.cespe.unb.br`. Campo `allow_http` por fonte; fonte `cespe-unb`
+  (só `fetch`, `crawler: null`); `robots.txt` permite `/concursos/`. Listagem conferida: concursos
+  recentes em `/concursos/<SIGLA>`, antigos em `_antigos/` e `provas.htm`.
+- `ocrmypdf` 17.13 como dependência do projeto.
+
+## Feito em 2026-10-08 — OCR com revisão do agente (decisão 0018)
+- `extract` roda `ocrmypdf` + Tesseract `por` nas páginas sem texto; limpeza de layout (letras em
+  curvas não são figuras, corpo de fonte estabilizado, números de item recuperados na margem).
+- Revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml`; `extracted_by` registra OCR e
+  revisor.
+- **PCDF 2020 básicos** (50 itens, 41 linhas corrigidas, faixas de disciplina) e **PM/TO 2020 QPE**
+  (gabarito de 60 marcas, todas conferidas) publicados após amostra; a 1.ª amostra de cada uma foi
+  recusada (apóstrofo reto; crédito colado ao comando), corrigida e reamostrada.
+- Parser do Cebraspe: `CREDIT_END` e "expediente forense".
+
 ## Em andamento
 - Nada em execução.
 
 ## Próximos passos
+0. Reprocessar e reamostrar as 16 provas aprovadas que mudam com `CREDIT_END` (47 questões, só
+   quebra de parágrafo): cbmpa-2023-cfo/p1, cbmpa-2023-cfp/p1, cbmro-2022/oficial,
+   cbmto-2021/oficial, cbmto-2022/oficial e soldado, pcce-2025/objetiva, pcpb-2021 cargos 4, 5, 12
+   e 13, pcro-2022 (4 provas), pmto-2020-qppm/objetiva. Reprocessar tira cada uma do `api` até a
+   nova aprovação.
+0b. Manifestos dos concursos policiais antigos do `cespe-unb` (DPF 2004–2013, PRF 2013, PCs e PMs).
 1. Começar o M5 (crawler e parser de outra banca).
 2. `pcpe-2016` e `pcientifica-pe-2016` (mesmos cadernos SDS/PE 2016): calibrar o parser, preencher
    `first_number` e `subjects_by_range` e ingerir.
@@ -50,20 +72,15 @@
    excluídas de propósito — decisão 0009): confirmar e silenciar no relatório.
 
 ## Bloqueios e perguntas em aberto
-- **`cespe.unb.br`** (concursos anteriores a 2014): o host só responde em HTTP (porta 80); o
-  cliente é só HTTPS (decisão 0003). Incluir exige o dono do projeto aceitar uma exceção ao HTTPS.
-- **OCR** (PCDF 2020 básicos, PM/TO 2020 QPE): falta `tesseract-data-por` e `ocrmypdf` na máquina
-  (instalação do sistema, pelo dono).
 - CBM/AL 2017 básicos cargo 1 (erro de numeração no gabarito oficial) e PC/PB 2021 cargo 8 item 80
   (linha do gabarito ilegível) seguem fora.
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (tentado de novo diariamente).
 
 ## Números
-- Questões visíveis no esquema `api`: 5.071 (seed + as 109 provas aprovadas); 5.006 reais sem
-  duplicatas (`docs/coverage.md`)
-- Reais: 6.339 carregadas (40 concursos, 109 provas) · 5.307 `published` · 1.032 `review`
-- Provas: 109 aprovadas e com registro em `ingest/approvals/`; 26 de manifestos aprovados fora do
-  banco (`docs/coverage.md`), 21 delas de `pcpe-2016` e `pcientifica-pe-2016`
+- Questões visíveis no esquema `api`: 5.063 reais sem duplicatas e sem o seed (`docs/coverage.md`)
+- Reais: 6.514 carregadas · 5.465 `published` · 1.049 `review`
+- Provas: 111 aprovadas e com registro em `ingest/approvals/`; 24 de manifestos aprovados fora do
+  banco, 21 delas de `pcpe-2016` e `pcientifica-pe-2016`
 - Propostas do crawler pendentes: 0 · manifestos aprovados: 43 · rejeitados: 1
 - Taxonomia: 56 disciplinas, 899 assuntos
-- Contrato do front-end: **v1.2** (novo valor de `career`, compatível)
+- Contrato do front-end: **v1.2** (sem mudança nesta sessão)

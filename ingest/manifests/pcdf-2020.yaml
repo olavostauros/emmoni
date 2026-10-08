@@ -30,6 +30,15 @@ exams:
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/PCDF_AGENTE_CB1_COMJUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_DF_20_AGENTE/arquivos/GAB_DEFINITIVO_MATRIZ_550_PCDF_AGENTE_CB1_00.PDF
+  subjects_by_range:   # faixas conferidas lendo os itens após o OCR (2026-10-08)
+  - {from: 1, to: 20, subject: lingua-portuguesa}
+  - {from: 21, to: 29, subject: lingua-inglesa}
+  - {from: 30, to: 34, subject: geografia}
+  - {from: 35, to: 37, subject: direito-administrativo}
+  - {from: 38, to: 40, subject: legislacao-estadual}
+  - {from: 41, to: 41, subject: legislacao-penal-especial}
+  - {from: 42, to: 42, subject: direito-administrativo}
+  - {from: 43, to: 50, subject: raciocinio-logico}
 evidence:
   source: cebraspe
   contest:

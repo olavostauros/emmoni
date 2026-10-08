@@ -54,7 +54,7 @@ def ok(request: httpx.Request) -> httpx.Response:
 
 def test_sources_file_is_valid() -> None:
     listed = sources.load()
-    assert [s.slug for s in listed.sources] == ["cebraspe"]
+    assert [s.slug for s in listed.sources] == ["cebraspe", "cespe-unb"]
     assert listed.is_denied("https://www.qconcursos.com/questoes")
     assert listed.is_denied("https://qconcursos.com/")
     assert not listed.is_denied("https://notqconcursos.com/")
@@ -67,6 +67,8 @@ def test_sources_file_is_valid() -> None:
         "https://www.google.com/",  # fora da lista
         "https://www.cebraspe.org.br/outra-area/",  # host certo, prefixo errado
         "http://www.cebraspe.org.br/concursos/",  # sem https
+        "https://www.cespe.unb.br/concursos/",  # a fonte só lista o prefixo http
+        "ftp://www.cespe.unb.br/concursos/",  # esquema desconhecido
     ],
 )
 def test_url_outside_allowlist_makes_no_request(url: str) -> None:
@@ -198,3 +200,35 @@ def test_extra_content_types_are_per_source() -> None:
     )
     response = client.get("https://apis.cebraspe.org.br/cebraspe/eventos/PF_21")
     assert response.content_type == "application/json"
+
+
+def test_http_only_for_sources_with_allow_http() -> None:
+    client, requested, _ = make_client(ok)
+    url = "http://www.cespe.unb.br/concursos/PRF_13/arquivos/prova.pdf"
+    assert client.get(url).status == 200
+    # robots.txt pelo mesmo esquema da URL
+    assert requested == ["http://www.cespe.unb.br/robots.txt", url]
+
+
+def test_redirect_to_http_needs_allow_http() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        return httpx.Response(302, headers={"location": "http://cdn.cebraspe.org.br/a.pdf"})
+
+    client, requested, _ = make_client(handler)
+    with pytest.raises(NotAllowed):
+        client.get(f"{BASE}/concursos/a.pdf")
+    assert "http://cdn.cebraspe.org.br/a.pdf" not in requested
+
+
+def test_http_prefix_without_allow_http_is_invalid() -> None:
+    raw = {
+        "slug": "x",
+        "kind": "agency",
+        "base_url": "http://x.gov.br/",
+        "allowed_prefixes": ["http://x.gov.br/"],
+        "crawler": None,
+        "max_depth": 1,
+        "recrawl": {"listing": "1d", "contest_open": "1d", "contest_closed": "never"},
+    }
+    with pytest.raises(ValueError, match="https"):
+        sources.Source.model_validate(raw)

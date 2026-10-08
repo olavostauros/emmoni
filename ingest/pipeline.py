@@ -88,19 +88,23 @@ class ExamRun:
 
     def extract(self) -> None:
         for kind in self._documents_json():
-            pages = extract(self._raw(kind))
+            raw = self._raw(kind)
+            pages = extract(raw, ocr_dir=self.data / "ocr")
             self.path(f"pages.{kind}.json").write_bytes(_pages.dump_json(pages, indent=1))
+            ocr_note = " (OCR)" if (self.data / "ocr" / raw.name).exists() else ""
             empty = [p.number for p in pages if not p.has_text]
-            note = f" (sem texto: páginas {empty}; OCR ainda não implementado)" if empty else ""
-            self.log(f"  extract {kind}: {len(pages)} páginas{note}")
+            note = f" (sem texto mesmo após OCR: páginas {empty})" if empty else ""
+            self.log(f"  extract {kind}: {len(pages)} páginas{ocr_note}{note}")
 
     def _read_pages(self, kind: str) -> list[Page]:
         return _pages.validate_json(self.path(f"pages.{kind}.json").read_bytes())
 
     def segment(self) -> None:
-        segmented: Segmented = self.parser.segment(
-            self._read_pages("exam"), first=self.exam.first_number
-        )
+        pages = self._read_pages("exam")
+        segmented: Segmented = self.parser.segment(pages, first=self.exam.first_number)
+        readers = sorted({page.ocr for page in pages if page.ocr})
+        if readers:  # texto que veio do OCR fica registrado em extracted_by
+            segmented.parser = "+".join([segmented.parser, *readers])
         write(self.path("segmented.json"), segmented)
         flagged = sum(1 for q in segmented.questions if q.flags)
         self.log(

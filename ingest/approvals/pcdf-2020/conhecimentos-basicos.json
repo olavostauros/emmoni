@@ -1,0 +1,19 @@
+{
+ "exam": "pcdf-2020/conhecimentos-basicos",
+ "numbers": [
+  2,
+  7,
+  13,
+  16,
+  21,
+  29,
+  33,
+  35,
+  37,
+  45
+ ],
+ "sampled_at": "2026-10-08T18:40:37.650372+00:00",
+ "approved_at": "2026-10-08T18:43:58.588194+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "b29e546148ec3ac44d5304b4441f1110ea68e685d4ffdc02d92251f1dfd461cc"
+}

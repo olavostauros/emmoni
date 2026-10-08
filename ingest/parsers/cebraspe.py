@@ -72,7 +72,8 @@ LABEL_REF = re.compile(rf"\b{_TITLE_WORDS}\s+{_LABEL}", re.I)
 IMPLICIT_REF = re.compile(
     r"\b(?:d[oa]s?|n[oa]s?|[oa]s?|dess[ea]s?|nest[ea]s?|ness[ea]s?|pel[oa]s?|ao)\s+"
     r"(?:expediente|of[íi]cio|memorando|poema|tirinha|charge)\b"
-    r"(?!\s+(?:anterior|precedente|a seguir|abaixo|acima|seguinte|de\b|[0-9A-Z]+\d))",
+    # "do expediente forense": horário do fórum, não um documento (PCDF 2020 item 41)
+    r"(?!\s+(?:anterior|precedente|a seguir|abaixo|acima|seguinte|forense|de\b|[0-9A-Z]+\d))",
     re.I,
 )
 # Figura da própria questão ("a figura precedente", "o gráfico a seguir"): sem imagem extraída, a
@@ -107,6 +108,12 @@ SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
 BROKEN_MATH = re.compile(  # inclui caracteres de controle: glifo sem mapeamento
     "[\x00-\x08\x0b\x0c\x0e-\x1f\u0b00-\u0b7f\u0d00-\u0d7f\u1200-\u137f\ue000-\uf8ff\ufffd\U0001d400-\U0001d7ff]"
+)
+
+# Última linha do crédito de um texto ("Internet: <www.x.br> (com adaptações)."): o que vem depois
+# é outro parágrafo (o comando da questão), mesmo na margem e sem recuo (PM/TO 2020 q22, q23).
+CREDIT_END = re.compile(
+    r"(?:\((?:com adaptações|adaptado|adapted)\)|^(?:Internet|Fonte):.*>)\.?$", re.I
 )
 
 SENTENCE_STOP = (".", ":", ";", "?", "!")
@@ -407,7 +414,8 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
         enumerated = _at_margin(entry) and (
             ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
         )
-        new = previous is None or indented or previous.short or enumerated
+        credit_done = previous is not None and CREDIT_END.search(previous.line.plain.strip())
+        new = previous is None or indented or previous.short or enumerated or bool(credit_done)
         if new:
             paragraphs.append([])
         paragraphs[-1].append(entry.line.text)
@@ -895,6 +903,7 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             or (indented and not title_goes_on)
             or (previous.short and not title_goes_on)
             or abs(entry.line.size - previous.line.size) >= 1
+            or bool(CREDIT_END.search(previous.line.plain.strip()))
         )
         if new:
             paragraphs.append([])

@@ -107,16 +107,19 @@ class PoliteClient:
     def check(self, url: str) -> None:
         """Levanta NotAllowed/HostBlocked se `url` não pode ser pedida. Pode buscar o robots.txt."""
         parts = urlsplit(url)
-        if parts.scheme != "https":
+        if parts.scheme not in ("https", "http"):
             raise NotAllowed(f"só https: {url}")
         if self.sources.is_denied(url):
             raise NotAllowed(f"domínio na denylist: {url}")
-        if self.sources.source_for(url) is None:
+        source = self.sources.source_for(url)
+        if source is None:
             raise NotAllowed(f"fora das fontes permitidas (ingest/sources.yaml): {url}")
+        if parts.scheme == "http" and not source.allow_http:
+            raise NotAllowed(f"só https: {url}")
         host = parts.netloc.lower()
         if host in self.blocked:
             raise HostBlocked(f"{host} bloqueado nesta execução: {self.blocked[host]}")
-        if not self._robots_for(host).parser.can_fetch(self.user_agent, url):
+        if not self._robots_for(parts.scheme, host).parser.can_fetch(self.user_agent, url):
             raise NotAllowed(f"proibida pelo robots.txt: {url}")
 
     def get(
@@ -136,12 +139,12 @@ class PoliteClient:
             return self._accept(url, response)
         raise CrawlError(f"redirecionamentos demais: {url}")
 
-    def _robots_for(self, host: str) -> _Robots:
+    def _robots_for(self, scheme: str, host: str) -> _Robots:
         cached = self._robots.get(host)
         if cached and self.clock() - cached.fetched_at < ROBOTS_TTL:
             return cached
         parser = RobotFileParser()
-        robots_url = f"https://{host}/robots.txt"
+        robots_url = f"{scheme}://{host}/robots.txt"
         response = self._request(robots_url, {})
         # RFC 9309: 4xx → sem restrições; 5xx ou falha → tudo proibido.
         if response.status_code == 200:

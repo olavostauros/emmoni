@@ -1,0 +1,19 @@
+{
+ "exam": "pmto-2020-qpe/objetiva",
+ "numbers": [
+  12,
+  13,
+  14,
+  18,
+  23,
+  33,
+  35,
+  36,
+  37,
+  41
+ ],
+ "sampled_at": "2026-10-08T18:40:38.547648+00:00",
+ "approved_at": "2026-10-08T18:42:24.512078+00:00",
+ "approved_by": "claude-opus-5-5",
+ "fingerprint": "f2741423a534f1aac3078746c161782809a62dc548e7ed3537e1aa7b12b16969"
+}
