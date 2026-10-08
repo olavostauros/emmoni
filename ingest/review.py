@@ -88,6 +88,7 @@ class QuestionView:
     source_page: int
     pdf_path: str | None
     options: list[tuple[str, str]]
+    passage_page: int | None = None
 
 
 def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
@@ -100,7 +101,8 @@ def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
                              where qt.question_id = q.id), '{}'),
                   q.publish_status::text, q.review_reasons, q.source_page, d.local_path,
                   coalesce((select array_agg(array[o.letter, o.body_md] order by o.letter)
-                              from question_option o where o.question_id = q.id), '{}')
+                              from question_option o where o.question_id = q.id), '{}'),
+                  p.source_page
              from question q
              join exam e on e.id = q.exam_id
              left join passage p on p.id = q.passage_id
@@ -125,6 +127,7 @@ def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
             source_page=int(str(r[10])),
             pdf_path=None if r[11] is None else str(r[11]),
             options=[(str(o[0]), str(o[1])) for o in r[12]],  # type: ignore[attr-defined]
+            passage_page=None if r[13] is None else int(str(r[13])),
         )
         for r in rows
     ]
@@ -323,6 +326,8 @@ def _page_png(pdf_path: str | None, page: int) -> str | None:
     if not pdf_path or not Path(pdf_path).exists():
         return None
     with pymupdf.open(pdf_path) as document:  # type: ignore[no-untyped-call]
+        if not 1 <= page <= document.page_count:
+            return None
         zoom = pymupdf.Matrix(PAGE_ZOOM, PAGE_ZOOM)  # type: ignore[no-untyped-call]
         pixmap = document[page - 1].get_pixmap(matrix=zoom)
         return base64.b64encode(pixmap.tobytes("png")).decode()
@@ -358,7 +363,12 @@ def _write_pages(
         return f"paginas/{name}"
 
     for q in questions:
-        pages = [q.source_page - 1, q.source_page] if q.passage_md else [q.source_page]
+        # Da página onde começa o texto-base (ou a anterior) até a da questão.
+        start = q.source_page - 1 if q.passage_md else q.source_page
+        if q.passage_page is not None:
+            start = min(start, q.passage_page)
+        # ...e a seguinte, onde a questão pode continuar (alternativas na outra página).
+        pages = list(range(start, q.source_page + 2))
         names = [
             render(q.pdf_path, page, f"prova-p{page:03d}.png")
             for page in pages

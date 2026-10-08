@@ -15,6 +15,7 @@ mapeados, layout especial) é marcado em `flags` e a questão vai para revisão.
 import re
 from collections import Counter
 from dataclasses import dataclass, field
+from pathlib import Path
 from typing import Literal, cast
 
 from ingest.extract import Figure, Line, Page
@@ -27,7 +28,23 @@ STOP = re.compile(r"^-* ?PROVA DISCURSIVA( P\d)? ?-*$")
 # Título de seção que abre a prova quando não há "PROVA OBJETIVA" (CBM/AL e PM/AL 2017).
 SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
-    r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*)$", re.I
+    r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
+    # título de seção no meio do caderno (PM/AL 2021, PCDF 2019), código da matriz, lixo "! !"
+    r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d)? ?-*|›+ ?Matriz_\S*|[!\s]+)$",
+    re.I,
+)
+# Nomes de disciplina (db/taxonomy): faixa de título de seção em negrito ("**Língua Portuguesa**",
+# "**Geografia Geral e do Brasil**", Cebraspe 2021) não é texto-base nem enunciado.
+SUBJECT_NAMES = tuple(
+    sorted(
+        {
+            m.group(1).strip().strip('"').casefold()
+            for f in (Path(__file__).resolve().parents[2] / "db" / "taxonomy").glob("*.yaml")
+            if (m := re.search(r"^name:\s*(.+)$", f.read_text(encoding="utf-8"), re.M))
+        },
+        key=len,
+        reverse=True,
+    )
 )
 ITEM = re.compile(r"^(\d{1,3})(?:\s+\S|$)")  # número sozinho: item que é só figura
 # Provas de múltipla escolha do Cebraspe: título "Questão N" (ou "QUESTÃO N"), enunciado,
@@ -38,11 +55,11 @@ OPTION = re.compile(r"^([A-E])(?:\s+\S|$)")
 OPTION_MD = re.compile(r"^(?:\*\*)?[A-E](?:\*\*)?(?:\s+|$)")
 ROMAN_ITEM = re.compile(r"^(?:[IVX]+|[a-e]\))\s+\S")
 ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
-TEXT_LABEL = re.compile(r"^Texto\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")
+TEXT_LABEL = re.compile(r"^Texto?\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")  # "Text" nas provas de inglês
 # Título de texto-base de múltipla escolha, citado pelas questões que o usam ("Figura 5A2",
 # "Caso hipotético 1A06-II", "situação hipotética 12A3-I").
 _TITLE_WORDS = (
-    r"(?:Texto|Figura|Tabela|Quadro|Gr[áa]fico|Proposi[çc][ãa]o|Caso hipot[ée]tico"
+    r"(?:Texto?|Figura|Tabela|Quadro|Gr[áa]fico|Proposi[çc][ãa]o|Caso hipot[ée]tico"
     r"|Situa[çc][ãa]o hipot[ée]tica)"
 )
 # Código da banca: dígito seguido de letra (2A1-I, CG1A5AAA, 12A3-I, 5A2); "P3" não é rótulo.
@@ -61,7 +78,7 @@ IMPLICIT_REF = re.compile(
 # Figura da própria questão ("a figura precedente", "o gráfico a seguir"): sem imagem extraída, a
 # questão não se sustenta.
 FIGURE_REF = re.compile(
-    r"\b(?:figuras?|gr[áa]ficos?|imagens?|ilustra[çc][ãa]o|esquemas?|mapas?)\s+"
+    r"\b(?:figuras?|gr[áa]ficos?|imagens?|ilustra[çc][ãa]o|esquemas?|mapas?|planilhas?|circuitos?|cartogramas?|tabelas?)\s+"
     r"(?:precedentes?|anteriore?s?|a seguir|abaixo|acima|seguintes?|que segue|apresentad[ao]s?)\b",
     re.I,
 )
@@ -69,7 +86,7 @@ FIGURE_REF = re.compile(
 # "35. HISTÓRIA E GEOGRAFIA DE RONDÔNIA" em PC/RO 2022): encerra a alternativa e não é texto-base.
 SECTION_TITLE = re.compile(r"^(?:\d+\.\s+)?[A-ZÀ-Ú][A-ZÀ-Ú ,.()–-]{3,}$")
 BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extraído como "C"
-TEXT_REF = re.compile(r"\btexto\s+([0-9][\w.]*-[IVX]+|[0-9][A-Z0-9.]+)", re.I)
+TEXT_REF = re.compile(rf"\btexto?\s+{_LABEL}", re.I)  # "texto CG1A1-I", "text 1A2-II"
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
 # Cadernos "com justificativa" (PCDF 2020, PF 2025...): depois de cada item vem a justificativa
 # oficial do gabarito, às vezes grudada na última linha do item ("...administrativo.JUSTIFICATIVA").
@@ -130,6 +147,8 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     group_command = ""
     group_passage: str | None = None
     group_flags: set[str] = set()
+    skipped_items = 0  # itens anteriores a `first` (PC/AL 2021: os básicos no mesmo PDF)
+    skipped: _Unit | None = None  # o último deles, para descartar também as linhas de continuação
 
     def close_item() -> None:
         if item is None:
@@ -168,11 +187,30 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
             if item is not None:
                 close_item()
                 item = None
+            if skipped is not None and _continues(skipped, entry):
+                skipped.entries.append(entry)
+                continue
+            skipped = None
+            earlier = ITEM.match(line.plain) if not questions and first > 1 else None
+            if (
+                earlier is not None
+                and int(earlier.group(1)) == skipped_items + 1 < first
+                and line.x0 <= entry.left + ITEM_INDENT
+            ):
+                # Item de antes da prova: o que veio até aqui não é abertura do primeiro grupo.
+                skipped_items += 1
+                skipped = _Unit([entry])
+                lead = _Unit()
+                continue
             lead.entries.append(entry)
     close_item()
     if lead.entries and questions:
         # Texto depois do último item que não abriu grupo nenhum: não descartamos em silêncio.
         questions[-1].flags = sorted({*questions[-1].flags, "orphan_text"})
+    # Certo/errado: remissões não resolvidas e figura citada também vão para revisão.
+    labels = {label: p.key for p in passages.values() for label in _passage_labels(p)}
+    for question in questions:
+        question.flags = sorted({*question.flags, *_reference_flags(question, labels)})
     return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
 
 
@@ -519,7 +557,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             if line.column == 0 and STOP.search(line.plain):
                 stream.extend(_with_figures(page, entries, skipped, start_y))
                 return stream
-            if SKIP.match(line.plain):
+            if SKIP.match(line.plain) or _subject_heading(line):
                 skipped.append(line)
                 gap = True
                 continue
@@ -557,6 +595,17 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             entries.append(entry)
         stream.extend(_with_figures(page, entries, skipped, start_y))
     return stream
+
+
+def _subject_heading(line: Line) -> bool:
+    """Linha só em negrito, curta, sem pontuação final, que começa com nome de disciplina."""
+    text = line.text.strip()
+    if not (text.startswith("**") and text.endswith("**")) or len(line.plain.split()) > 6:
+        return False
+    plain = line.plain.strip().casefold()
+    return not plain.endswith((".", ":", "?")) and any(
+        plain == name or plain.startswith(name + " ") for name in SUBJECT_NAMES
+    )
 
 
 def _before(line: Line, index: int) -> Line:

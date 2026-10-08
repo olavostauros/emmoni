@@ -385,3 +385,23 @@ def test_segment_can_start_after_one_and_accepts_figure_only_items() -> None:
     questions = cebraspe.segment([page], first=9).questions
     assert [q.number for q in questions] == [9, 10]
     assert "empty_item" in questions[0].flags
+
+
+def test_items_before_first_do_not_leak_into_the_first_passage() -> None:
+    """PC/AL 2021: o PDF traz os itens 1–50 (básicos) antes da prova, que começa no 51. O texto
+    desses itens, inclusive a continuação do último, não vira texto-base do primeiro grupo."""
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50),
+            _line("**1** Item básico um.", 28, 70),
+            _line("**2** Item básico dois, que continua", 28, 90),
+            _line("na linha seguinte.", 46, 102, x1=150),
+            _line("Determinado órgão público publicou edital.", 57, 130),
+            _line("A partir dessa situação hipotética, julgue os itens.", 28, 150),
+            _line("**3** Item da prova.", 28, 170),
+        ]
+    )
+    segmented = cebraspe.segment([page], first=3)
+    (question,) = segmented.questions
+    passage = next(p for p in segmented.passages if p.key == question.passage_key)
+    assert passage.body_md == "Determinado órgão público publicou edital."
