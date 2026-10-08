@@ -1,4 +1,4 @@
-"""Contrato com o front-end (SPECIFICATIONS.md §6, docs/contract.md), contra o seed.
+"""Contrato com o front-end (SPECIFICATION.md §6, docs/contract.md), contra o seed.
 
 Os números esperados vêm de scripts/build_seed.py: 65 questões publicadas, 1 anulada.
 """

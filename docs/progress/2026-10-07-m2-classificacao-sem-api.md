@@ -12,7 +12,7 @@
 - Removidos: SDK `anthropic` (pyproject e uv.lock), `ANTHROPIC_API_KEY`, `EMMONI_LLM_MODEL`,
   cache `llm-cache/`, verificação de credencial no pipeline. Nova variável `EMMONI_CLASSIFIER`
   (padrão `agent`).
-- SPECIFICATIONS.md §1, §2, §7.3, §7.4 e §9 atualizados no mesmo commit.
+- SPECIFICATION.md §1, §2, §7.3, §7.4 e §9 atualizados no mesmo commit.
 
 ## Verificação
 - `make gates`: **passou** — 201 testes; ruff, mypy, seed, roundtrip das migrações e 7 checks

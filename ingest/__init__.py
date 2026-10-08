@@ -1,1 +1,1 @@
-"""Ingestão do emmoni: crawling, extração e carga de questões (SPECIFICATIONS.md §7)."""
+"""Ingestão do emmoni: crawling, extração e carga de questões (SPECIFICATION.md §7)."""

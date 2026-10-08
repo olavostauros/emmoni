@@ -1,4 +1,4 @@
-"""Orquestração das etapas de ingestão de uma prova (SPECIFICATIONS.md §7.3).
+"""Orquestração das etapas de ingestão de uma prova (SPECIFICATION.md §7.3).
 
 Cada etapa lê e grava em `data/staging/<concurso>/<prova>/` e pode ser rerodada sozinha:
 

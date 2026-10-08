@@ -1,4 +1,4 @@
-"""Taxonomia curada em db/taxonomy/*.yaml (SPECIFICATIONS.md §4.4).
+"""Taxonomia curada em db/taxonomy/*.yaml (SPECIFICATION.md §4.4).
 
 Formato de cada arquivo:
 

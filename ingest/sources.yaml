@@ -1,4 +1,4 @@
-# Fontes permitidas para crawling e download (SPECIFICATIONS.md §7.1).
+# Fontes permitidas para crawling e download (SPECIFICATION.md §7.1).
 # Nenhum domínio fora desta lista é acessado. Incluir ou remover domínio exige decisão em
 # docs/decisions/ no mesmo commit.
 

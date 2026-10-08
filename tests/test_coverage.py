@@ -1,4 +1,4 @@
-"""Relatório de cobertura (SPECIFICATIONS.md §8)."""
+"""Relatório de cobertura (SPECIFICATION.md §8)."""
 
 import shutil
 from pathlib import Path

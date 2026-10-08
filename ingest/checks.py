@@ -1,4 +1,4 @@
-"""Checks de qualidade dos dados (SPECIFICATIONS.md §8)."""
+"""Checks de qualidade dos dados (SPECIFICATION.md §8)."""
 
 from dataclasses import dataclass
 from pathlib import Path

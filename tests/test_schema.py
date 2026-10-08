@@ -1,4 +1,4 @@
-"""Restrições do modelo de dados (SPECIFICATIONS.md §4). Cada uma é violada de propósito."""
+"""Restrições do modelo de dados (SPECIFICATION.md §4). Cada uma é violada de propósito."""
 
 from collections.abc import Iterator
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Aplica todas as migrações, desfaz todas e aplica de novo num banco vazio
-# (SPECIFICATIONS.md §9). Uso: migrations-roundtrip.sh <url-do-banco-de-testes-como-owner>
+# (SPECIFICATION.md §9). Uso: migrations-roundtrip.sh <url-do-banco-de-testes-como-owner>
 set -euo pipefail
 
 url="$1"

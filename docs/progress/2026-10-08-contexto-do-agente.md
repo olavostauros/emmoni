@@ -9,7 +9,7 @@
 - `AGENTS.md`:
   - crawling: 429/503 → recua respeitando `Retry-After` (até 3 tentativas) e para se persistir;
     403/captcha → para (antes dizia "403, 429 ou captcha: para", contra o §7.1); a implementação
-    fica só no SPECIFICATIONS.md §7.1; fixtures em `fixtures/crawl/<fonte>/`;
+    fica só no SPECIFICATION.md §7.1; fixtures em `fixtures/crawl/<fonte>/`;
   - status com os nomes do enum (`draft`, `review`, `published`);
   - formato do enunciado aponta para `docs/content-format.md`;
   - amostra de assuntos: subagente que lê só `amostra.{md,json}` e a taxonomia (como no M4);

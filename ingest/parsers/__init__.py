@@ -1,1 +1,1 @@
-"""Parsers, um módulo por banca (SPECIFICATIONS.md §7.3)."""
+"""Parsers, um módulo por banca (SPECIFICATION.md §7.3)."""

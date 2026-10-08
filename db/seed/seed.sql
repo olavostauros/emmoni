@@ -1,5 +1,5 @@
 -- GERADO por scripts/build_seed.py — não edite à mão (make seed-build).
--- Questões fictícias para desenvolvimento do front-end (SPECIFICATIONS.md §6).
+-- Questões fictícias para desenvolvimento do front-end (SPECIFICATION.md §6).
 
 begin;
 

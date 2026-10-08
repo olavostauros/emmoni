@@ -1,4 +1,4 @@
-"""Fila de revisão e amostragem manual (SPECIFICATIONS.md §8).
+"""Fila de revisão e amostragem manual (SPECIFICATION.md §8).
 
 - `list`/`show`: questões em `review`, com os motivos gravados pela etapa `validate`.
 - `sample`: sorteia N questões publicáveis de uma prova e gera um HTML com cada questão ao lado da

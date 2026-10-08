@@ -1,4 +1,4 @@
-"""Fila de revisão e amostragem (SPECIFICATIONS.md §8)."""
+"""Fila de revisão e amostragem (SPECIFICATION.md §8)."""
 
 import json
 from collections.abc import Iterator

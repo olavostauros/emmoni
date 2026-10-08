@@ -1,4 +1,4 @@
-"""Regras de cortesia do cliente HTTP (SPECIFICATIONS.md §7.1, §9). Nenhum teste usa a rede."""
+"""Regras de cortesia do cliente HTTP (SPECIFICATION.md §7.1, §9). Nenhum teste usa a rede."""
 
 from collections.abc import Callable
 

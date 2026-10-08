@@ -1,4 +1,4 @@
-"""Propostas de manifesto: escrita, aprovação e rejeição (SPECIFICATIONS.md §7.1, decisão 0007)."""
+"""Propostas de manifesto: escrita, aprovação e rejeição (SPECIFICATION.md §7.1, decisão 0007)."""
 
 import datetime
 from pathlib import Path

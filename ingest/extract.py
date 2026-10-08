@@ -1,4 +1,4 @@
-"""Etapa `extract`: PDF → linhas em ordem de leitura (SPECIFICATIONS.md §7.3).
+"""Etapa `extract`: PDF → linhas em ordem de leitura (SPECIFICATION.md §7.3).
 
 Saída em `pages.json`: uma lista de páginas, cada uma com as linhas já ordenadas. Layout em duas
 colunas é resolvido por bandas: linhas que ocupam a largura toda separam bandas; dentro de cada

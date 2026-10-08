@@ -49,7 +49,7 @@ incluir `cespe.unb.br` nas fontes. Os demais eram de engenharia.
 - Reprocessar uma prova aprovada agora a tira do esquema `api` se o conteúdo mudar. As 17 provas
   cujo staging diverge do parser atual (decisão 0015) podem ser reprocessadas sem risco de
   publicar conteúdo não conferido.
-- `emmoni coverage` implementado (SPECIFICATIONS.md §8); `docs/coverage.md` é gerado.
+- `emmoni coverage` implementado (SPECIFICATION.md §8); `docs/coverage.md` é gerado.
 
 ## Adendo (mesma data): reprocessamento, DEPEN 2020 e títulos de seção
 

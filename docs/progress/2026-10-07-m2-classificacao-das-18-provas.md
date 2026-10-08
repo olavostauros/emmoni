@@ -10,7 +10,7 @@
   provas foram classificadas por agentes derivados (forks) em paralelo, com as mesmas regras, e a
   carga (`--step load`) foi feita em sequência pelo agente principal.
 - Respostas em `data/staging/<concurso>/<prova>/classify-answers.json` (18 arquivos, 252 KB),
-  agora **versionadas no git** por exceção no `.gitignore` (SPECIFICATIONS.md §7.4 atualizado).
+  agora **versionadas no git** por exceção no `.gitignore` (SPECIFICATION.md §7.4 atualizado).
 - Amostras das 18 provas regeneradas (`emmoni review sample`) com o status final das questões:
   `data/review/<concurso>/<prova>/amostra.html`.
 - Relatório de sugestões de assunto: `docs/progress/2026-10-07-sugestoes-de-assuntos.md`
@@ -52,7 +52,7 @@
 - Questões em `review` só por classificação não entram na deduplicação (regra do `load`): as 105
   duplicatas marcadas são menos que as 161 de antes da classificação. Discutir no M4 se
   "sem assunto adequado" deveria ser `draft` em vez de `review`.
-- `emmoni coverage` (SPECIFICATIONS.md §7.3 e §8) ainda não existe no CLI.
+- `emmoni coverage` (SPECIFICATION.md §7.3 e §8) ainda não existe no CLI.
 
 ## Próximo passo
 - Humano: abrir as 18 amostras em `data/review/` e aprovar com `emmoni review approve

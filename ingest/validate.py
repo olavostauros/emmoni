@@ -1,4 +1,4 @@
-"""Etapa `validate`: questões segmentadas + gabaritos → `questions.json` (SPECIFICATIONS.md §7.3).
+"""Etapa `validate`: questões segmentadas + gabaritos → `questions.json` (SPECIFICATION.md §7.3).
 
 Nada é descartado: toda regra que falha vira um motivo em `review_reasons`, e a questão é carregada
 como `review`. Só questões sem motivo podem ser publicadas.

@@ -1,4 +1,4 @@
-"""`emmoni check` e o runner de checks (SPECIFICATIONS.md §8)."""
+"""`emmoni check` e o runner de checks (SPECIFICATION.md §8)."""
 
 from collections.abc import Iterator
 from pathlib import Path

@@ -1,4 +1,4 @@
-"""Parser do Cebraspe: provas de itens certo/errado e gabaritos (SPECIFICATIONS.md §7.3).
+"""Parser do Cebraspe: provas de itens certo/errado e gabaritos (SPECIFICATION.md §7.3).
 
 Modelo de uma prova objetiva do Cebraspe:
 

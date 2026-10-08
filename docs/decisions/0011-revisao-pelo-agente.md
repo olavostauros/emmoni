@@ -33,7 +33,7 @@ humana virou o gargalo do projeto. O dono do projeto decidiu tirá-la do caminho
 
 ## Consequências
 
-- AGENTS.md (princípios e fluxo), SPECIFICATIONS.md §7.1 e §8 e `docs/operations.md` atualizados.
+- AGENTS.md (princípios e fluxo), SPECIFICATION.md §7.1 e §8 e `docs/operations.md` atualizados.
 - Erros que só uma pessoa veria (o mesmo modelo errando na extração e na conferência) podem passar.
   A pessoa pode conferir qualquer amostra depois; um `wrong` dela vale e reabre a prova ou o marco.
 - O M4 pode fechar sem conferência humana.

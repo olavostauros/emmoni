@@ -1,4 +1,4 @@
-"""Parser do Cebraspe contra PDFs oficiais em fixtures/ (snapshot JSON, SPECIFICATIONS.md §9)."""
+"""Parser do Cebraspe contra PDFs oficiais em fixtures/ (snapshot JSON, SPECIFICATION.md §9)."""
 
 import os
 from pathlib import Path

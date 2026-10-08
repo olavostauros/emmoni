@@ -1,4 +1,4 @@
-"""Etapa `classify`: questões → assuntos da taxonomia, classificadas pelo agente (SPECIFICATIONS.md
+"""Etapa `classify`: questões → assuntos da taxonomia, classificadas pelo agente (SPECIFICATION.md
 §7.3, §7.4; decisão 0006).
 
 Não há chamada a API nenhuma. A etapa trabalha com dois arquivos no staging da prova:

@@ -1,4 +1,4 @@
-"""`emmoni coverage`: relatório de cobertura em `docs/coverage.md` (SPECIFICATIONS.md §8).
+"""`emmoni coverage`: relatório de cobertura em `docs/coverage.md` (SPECIFICATION.md §8).
 
 - questões publicadas (as visíveis no esquema `api`: questão e prova publicadas, sem duplicatas)
   por banca × órgão × ano e por disciplina;

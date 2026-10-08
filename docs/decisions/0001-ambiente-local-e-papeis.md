@@ -5,7 +5,7 @@
 ## Contexto
 
 O M0 precisa de um ambiente que qualquer agente reproduza com `make gates` num repositório limpo,
-e do modelo de permissões da SPECIFICATIONS.md §4.6 antes de existir qualquer tabela.
+e do modelo de permissões da SPECIFICATION.md §4.6 antes de existir qualquer tabela.
 
 ## Decisões
 

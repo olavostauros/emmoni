@@ -25,7 +25,7 @@ def _normalize(md: str) -> str:
 
 
 def statement_hash(statement: str, options: Sequence[str] = (), passage: str | None = None) -> str:
-    """sha256 da questão normalizada (SPECIFICATIONS.md §5), usado na deduplicação.
+    """sha256 da questão normalizada (SPECIFICATION.md §5), usado na deduplicação.
 
     Entram o enunciado, as alternativas em ordem e o texto-base: enunciados genéricos
     ("Assinale a alternativa correta", "De acordo com o texto, ...") se repetem entre questões
