@@ -4,6 +4,7 @@
 -include .env
 
 EMMONI_DB_PORT ?= 55432
+EMMONI_API_PORT ?= 53000
 db_url = postgres://$(1):$(1)@localhost:$(EMMONI_DB_PORT)/$(2)?sslmode=disable
 
 DATABASE_URL            ?= $(call db_url,emmoni_ingest,emmoni)
@@ -15,12 +16,12 @@ BENCH_URL_OWNER  ?= $(call db_url,emmoni_owner,emmoni_bench)
 BENCH_URL_INGEST ?= $(call db_url,emmoni_ingest,emmoni_bench)
 BENCH_URL_WEB    ?= $(call db_url,emmoni_web,emmoni_bench)
 
-export EMMONI_DB_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB EMMONI_CRAWL_CONTACT
+export EMMONI_DB_PORT EMMONI_API_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB EMMONI_CRAWL_CONTACT
 
 UV     ?= uv
 DBMATE ?= dbmate --wait
 
-.PHONY: help db-up db-down db-reset install migrate catalog seed seed-build test test-db migrations-roundtrip \
+.PHONY: help db-up db-down db-reset api-up api-down api-smoke install migrate catalog seed seed-build test test-db migrations-roundtrip \
         lint format check crawl bench gates
 
 help:
@@ -29,12 +30,22 @@ help:
 db-up: ## Sobe o Postgres local
 	docker compose up -d --wait db
 
-db-down: ## Para o Postgres local (mantém os dados)
-	docker compose down
+db-down: ## Para o Postgres local e a API (mantém os dados)
+	docker compose --profile api down
 
 db-reset: ## Apaga o volume do Postgres e sobe de novo, do zero
 	docker compose down -v
 	$(MAKE) db-up
+
+api-up: db-up ## Sobe a API HTTP do esquema `api` (PostgREST, decisão 0021)
+	docker compose --profile api up -d api
+	scripts/api-smoke.sh
+
+api-down: ## Para a API HTTP
+	docker compose --profile api stop api
+
+api-smoke: ## Confere a API HTTP no ar (catálogo, busca, facetas, questão, erro 400)
+	scripts/api-smoke.sh
 
 install: ## Instala o ambiente Python
 	$(UV) sync --frozen
