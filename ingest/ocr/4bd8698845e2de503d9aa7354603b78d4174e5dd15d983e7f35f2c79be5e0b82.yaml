@@ -1,0 +1,20 @@
+# Revisão de linhas sem mapeamento Unicode (decisões 0018 e 0020): PF 2012, Agente, caderno Tipo I.
+# O PDF tem texto (só a capa é digitalizada), mas algumas linhas estão em fontes sem ToUnicode e saem
+# como "�". Conferidas contra a imagem das páginas: a faixa "PROVA OBJETIVA" (p. 2), os quadros
+# "RASCUNHO" (p. 6 e 8) e a tecla Enter desenhada no item 29 (p. 4). Os números de página no rodapé
+# da prova discursiva (p. 11 e 12) ficam fora da prova objetiva e não foram corrigidos.
+document: http://www.cespe.unb.br/concursos/DPF_12_AGENTE/arquivos/DPF12_AG_001_01.pdf
+proofread_by: claude-opus-5-5
+lines:
+- page: 2
+  ocr: �������� ����
+  text: PROVA OBJETIVA
+- page: 4
+  ocr: =SOMA(B2:B16) e tecle �.
+  text: '`=SOMA(B2:B16)` e tecle `Enter`.'
+- page: 6
+  ocr: �������
+  text: RASCUNHO
+- page: 8
+  ocr: �������
+  text: RASCUNHO

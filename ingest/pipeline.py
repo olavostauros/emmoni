@@ -27,6 +27,9 @@ from ingest.sources import load as load_sources
 from ingest.staging import AnswerKey, AnswerMark, Segmented, write
 from ingest.validate import Validated, validate
 
+# Cadernos do site antigo do Cebraspe: fontes sem nome e sem mapeamento (decisão 0020).
+LEGACY_SOURCES = {"cespe-unb"}
+
 STEPS = ("fetch", "extract", "segment", "answer-key", "validate", "classify", "load")
 PARSERS: dict[str, ModuleType] = {"cebraspe": cebraspe}
 KEY_KINDS = ("answer_key_preliminary", "answer_key_final")
@@ -87,9 +90,12 @@ class ExamRun:
         return self.data / "raw" / f"{self._documents_json()[kind]['sha256']}.pdf"
 
     def extract(self) -> None:
-        for kind in self._documents_json():
+        sources = load_sources()
+        for kind, document in self._documents_json().items():
             raw = self._raw(kind)
-            pages = extract(raw, ocr_dir=self.data / "ocr")
+            source = sources.source_for(str(document["url"]))
+            legacy = source is not None and source.slug in LEGACY_SOURCES
+            pages = extract(raw, ocr_dir=self.data / "ocr", legacy=legacy)
             self.path(f"pages.{kind}.json").write_bytes(_pages.dump_json(pages, indent=1))
             ocr_note = " (OCR)" if (self.data / "ocr" / raw.name).exists() else ""
             empty = [p.number for p in pages if not p.has_text]

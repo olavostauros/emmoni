@@ -1,0 +1,65 @@
+# 0020 — Cadernos do site antigo do Cebraspe: fontes sem nome e sem mapeamento
+
+**Data:** 2026-10-08 · **Marco:** M5
+
+## Contexto
+
+O primeiro caderno do `www.cespe.unb.br` (PF 2012, Agente) tem texto, mas o Distiller converteu as
+fontes TrueType em Type 1 sem nome ("TTD0ABo00") e sem peso nem ângulo no descritor:
+
+- os números de item estão numa fonte subconjunto sem ToUnicode e com glifos "g18".."g27": saem
+  como códigos de controle (`\x02\x0b` = 10), e o parser achava 1 questão em 120;
+- negrito e itálico somem (todas as fontes vêm com o mesmo `flags`);
+- o "ℓ" de "(ℓ.12)" vem numa fonte de símbolos cujo glifo se chama "R";
+- a faixa "PROVA OBJETIVA" e os quadros "RASCUNHO" estão em outra fonte sem mapeamento;
+- a coluna da esquerda vai de 28 a 312 pt numa página de 595: passa do meio da página, e as linhas
+  dela viravam "largura total".
+
+O OCR dos números na margem (Tesseract só com dígitos) foi tentado e descartado: lê "11" como "1",
+"9 O" como "90" e quase nada na coluna da direita.
+
+## Decisões
+
+1. **`extract(..., legacy=True)` só para a fonte `cespe-unb`** (`LEGACY_SOURCES` no pipeline).
+   Nenhum PDF já aprovado muda: os 270 PDFs do staging foram extraídos com o código antigo e o novo e
+   comparados, sem diferença.
+2. **Vão entre as colunas** deduzido da página: se alguma linha cruza a metade da largura e outra
+   posição entre 35% e 65% é cruzada por menos linhas, o vão é a faixa menos cruzada mais perto do
+   meio.
+3. **Números de item decodificados, não lidos por OCR**: numa fonte só com códigos de controle, os
+   nove primeiros números de um glifo, na ordem de leitura, são 1 a 9 e o código que sobra é 0. A
+   tabela só vale se todos os números da fonte formarem uma sequência de um em um.
+4. **Negrito e itálico pelas larguras**: a largura média das letras de cada fonte sem nome é
+   comparada com a das fontes-padrão do PDF (Times e Helvetica, quatro estilos); a mais próxima dá o
+   estilo, com no mínimo 20 letras e distância média até 0,02 corpo. Helvetica normal e oblíqua têm
+   as mesmas larguras: no empate fica a normal. Pontuação sozinha não recebe estilo.
+5. **"(R.12)" → "(ℓ.12)"** quando o "R" está sozinho, em fonte diferente das vizinhas, entre "(" e
+   ".<dígito>".
+6. **Correções revisadas valem também em página com texto**: `ingest/ocr/<sha256>.yaml` (decisão
+   0018) passa a corrigir linhas em fonte sem mapeamento, conferidas contra a imagem da página
+   ("PROVA OBJETIVA", "RASCUNHO", a tecla Enter desenhada). A página corrigida ganha
+   `revisado:<modelo>` no `extracted_by`.
+7. **Parser**: "RASCUNHO" é ignorado como "Espaço livre"; comando que começa com minúscula marca a
+   questão com `layout` (o corte entre texto-base e comando errou — lista I–IV com recuo deslocado).
+8. **Crédito do texto em duas linhas** (letra miúda, alinhado à direita, termina em "(com
+   adaptações)") é um parágrafo só, com o negrito do título emendado; e "In" numa fonte própria
+   seguido de ":" é itálico (*In*:), já que duas letras não bastam para deduzir o estilo. A primeira
+   amostra do PF 2012 foi recusada por esses dois defeitos; a segunda passou 10/10.
+9. **Disciplina nova `economia`** (micro, macro, setor público, economia brasileira): o PF 2012 tem
+   8 itens de economia e não havia onde pô-los.
+
+## Consequências
+
+- PF 2012 Agente: 120 itens, 13 textos-base, gabarito com 8 anulados; 27 itens em `review` (poema
+  em duas colunas, ofícios, figuras, a lista I–IV dos itens 83–84).
+- As fontes "TT...o00" sem estilo também aparecem em cadernos novos já aprovados (PC/PE 2023, PF
+  2025...): com o item 4 eles ganhariam itálico e negrito que hoje faltam ("*videogame*",
+  "**Ciência Hoje**"). Ligar `legacy` para eles exige reprocessar e reamostrar; fica como próximo
+  passo.
+- O item 8 vale para todos os cadernos: 82 textos-base de provas aprovadas (PF 2021, CBM/AL 2017
+  e outras) hoje publicam o crédito partido ao meio ("... geopolítica" | "global. Campinas...").
+  Corrige-se ao reprocessar e reamostrar essas provas.
+- As mudanças do item 7 alteram, no próximo reprocessamento, flags de provas aprovadas: CBM/AL 2021
+  soldado e oficial (itens perdem `figure`/`layout` falsos vindos do "RASCUNHO"), PM/TO 2020 QPE q50 e QPPM
+  q35 (idem) e PF 2021 agente q97–101 (ganham `layout`: o comando começa no meio da tabela). Nada
+  muda no banco até essas provas serem reprocessadas.

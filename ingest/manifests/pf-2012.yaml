@@ -1,0 +1,32 @@
+# PF 2012 — Agente. Banca: Cebraspe (então CESPE/UnB). Fonte: site antigo, sem crawler
+# (decisão 0017): http://www.cespe.unb.br/concursos/DPF_12_AGENTE/ — página guardada em
+# data/crawl/cespe-unb/. Caderno "Tipo I" e gabarito definitivo do mesmo tipo.
+contest: pf-2012
+name: PF 2012 — Agente
+agency: pf
+exam_board: cebraspe
+year: 2012
+source_url: http://www.cespe.unb.br/concursos/DPF_12_AGENTE/
+exams:
+  - slug: agente
+    name: Agente de Polícia Federal — prova objetiva
+    positions: [agente]
+    canonical_booklet: "I"
+    documents:
+      exam: http://www.cespe.unb.br/concursos/DPF_12_AGENTE/arquivos/DPF12_AG_001_01.pdf
+      answer_key_final: http://www.cespe.unb.br/concursos/DPF_12_AGENTE/arquivos/Gab_Definitivo_DPF12_AG_001_01.PDF
+    subjects_by_range:   # faixas conferidas lendo os itens e os comandos (2026-10-08)
+      - {from: 1, to: 16, subject: lingua-portuguesa}
+      - {from: 17, to: 26, subject: redacao-oficial}
+      - {from: 27, to: 40, subject: informatica}
+      - {from: 41, to: 49, subject: atualidades}
+      - {from: 50, to: 58, subject: raciocinio-logico}
+      - {from: 59, to: 63, subject: administracao-geral}
+      - {from: 64, to: 67, subject: direito-financeiro}
+      - {from: 68, to: 75, subject: economia}
+      - {from: 76, to: 86, subject: contabilidade-geral}
+      - {from: 87, to: 95, subject: direito-penal}
+      - {from: 96, to: 104, subject: direito-processual-penal}
+      - {from: 105, to: 109, subject: direito-administrativo}
+      - {from: 110, to: 114, subject: direito-constitucional}
+      - {from: 115, to: 120, subject: legislacao-penal-especial}

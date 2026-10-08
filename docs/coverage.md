@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-08 18:53 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-08 19:43 UTC. Não edite à mão.
 
-**5062 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5152 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -30,6 +30,7 @@ Gerado por `emmoni coverage` em 2026-10-08 18:53 UTC. Não edite à mão.
 | Cebraspe | PCRO | 2022 | 6 | 236 |
 | Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
+| Cebraspe | PF | 2012 | 1 | 90 |
 | Cebraspe | PF | 2018 | 4 | 414 |
 | Cebraspe | PF | 2021 | 4 | 233 |
 | Cebraspe | PF | 2025 | 6 | 248 |
@@ -49,20 +50,20 @@ Gerado por `emmoni coverage` em 2026-10-08 18:53 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 549 |
-| Informática | 424 |
-| Direito Processual Penal | 395 |
-| Direito Administrativo | 393 |
-| Direito Penal | 392 |
-| Direito Constitucional | 389 |
-| Legislação Penal Especial | 303 |
+| Língua Portuguesa | 560 |
+| Informática | 428 |
+| Direito Processual Penal | 404 |
+| Direito Penal | 401 |
+| Direito Administrativo | 398 |
+| Direito Constitucional | 394 |
+| Legislação Penal Especial | 308 |
 | Legislação Institucional | 181 |
 | Medicina Legal | 178 |
+| Contabilidade Geral | 132 |
 | Direitos Humanos | 128 |
-| Contabilidade Geral | 125 |
 | Geografia | 123 |
 | História | 116 |
-| Raciocínio Lógico | 109 |
+| Raciocínio Lógico | 114 |
 | Legislação Estadual | 93 |
 | Direito Civil | 90 |
 | Arquivologia | 76 |
@@ -73,7 +74,7 @@ Gerado por `emmoni coverage` em 2026-10-08 18:53 UTC. Não edite à mão.
 | Química | 65 |
 | Criminologia | 63 |
 | Criminalística | 62 |
-| Atualidades | 47 |
+| Atualidades | 56 |
 | Língua Inglesa | 45 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 36 |
@@ -81,18 +82,19 @@ Gerado por `emmoni coverage` em 2026-10-08 18:53 UTC. Não edite à mão.
 | Engenharia | 31 |
 | Direito Empresarial | 27 |
 | Física | 26 |
+| Administração Geral | 24 |
 | Direito Internacional | 24 |
 | Estatística | 23 |
 | Ética no Serviço Público | 23 |
 | Direito Previdenciário | 22 |
-| Administração Geral | 21 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
+| Redação Oficial | 18 |
 | Execução Penal | 17 |
-| Redação Oficial | 11 |
 | Segurança Pública | 11 |
+| Direito Financeiro | 10 |
 | Direito Eleitoral | 9 |
+| Economia | 8 |
 | Língua Espanhola | 8 |
-| Direito Financeiro | 7 |
 | Geopolítica | 7 |
 | Serviço Social | 7 |
 | Psicologia | 6 |
