@@ -28,7 +28,7 @@ STOP = re.compile(r"^-* ?PROVA DISCURSIVA( P\d)? ?-*$")
 # Título de seção que abre a prova quando não há "PROVA OBJETIVA" (CBM/AL e PM/AL 2017).
 SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
-    r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
+    r"^(BLOCO [IVX]+|Espaço livre|RASCUNHO|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
     # título de seção no meio do caderno (PM/AL 2021, PCDF 2019), código da matriz, lixo "! !"
     r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d)? ?-*|›* ?Matriz_\S*|P[áa]gina: ?\d+|[!\s]+)$",
     re.I,
@@ -842,6 +842,10 @@ def _question(
         flags.add("layout")  # quebras de linha com significado (código, versos, listas)
     if re.search(r"sublinhad", statement, re.I) and "<u>" not in statement:
         flags.add("underline")
+    if command[:1].islower():
+        # Comando que começa no meio de uma frase: o corte entre texto e comando errou (lista com
+        # recuo deslocado, "III recebimento ... | prestados no mês ...", PF 2012 itens 83 e 84).
+        flags.add("layout")
     return RawQuestion(
         number=number,
         type="true_false",
@@ -896,6 +900,17 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     for entry in entries:
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
+        # Crédito do texto em letra miúda, alinhado à direita e quebrado em duas linhas (PF 2012):
+        # segue até a linha que o encerra ("(com adaptações).").
+        credit_goes_on = (
+            previous is not None
+            and previous.line.size < CITATION_SIZE
+            and entry.line.size == previous.line.size
+            and min(previous.line.x0, entry.line.x0) > entry.left + ODD_INDENT  # alinhado à direita
+            and not CREDIT_END.search(previous.line.plain.strip())
+            and bool(CREDIT_END.search(entry.line.plain.strip()))
+        )
+        title_goes_on = title_goes_on or credit_goes_on
         # Linha anterior curta também fecha o parágrafo: com numeração de linhas na margem, o
         # recuo de "7 Em 2016, ..." se perde quando o número sai (PC/MA 2017).
         new = (

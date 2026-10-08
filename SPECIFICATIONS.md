@@ -66,7 +66,7 @@ emmoni/
 │   ├── manifests/           # um YAML por concurso aprovado (seção 7.2)
 │   │   ├── _pending/        # manifestos propostos pelo crawler, aguardando aprovação
 │   │   └── _rejected/       # propostas rejeitadas, com o motivo (decisão 0007)
-│   ├── ocr/                 # revisão do OCR pelo agente, um YAML por PDF (<sha256>.yaml; decisão 0018)
+│   ├── ocr/                 # correções revisadas pelo agente (OCR e fonte sem mapeamento), um YAML por PDF (decisões 0018 e 0020)
 │   ├── parsers/             # um módulo por banca: cebraspe.py, fgv.py, ...
 │   ├── cli.py               # comando `emmoni`
 │   └── ...
@@ -502,7 +502,7 @@ exams:
 | Etapa | Entrada → saída | Detalhes |
 |---|---|---|
 | `fetch` | manifesto → `data/raw/<sha256>.pdf` + `source_document` | Não baixa de novo se o sha256 já existe. Respeita `robots.txt`, 1 requisição/s por host, `User-Agent` identificado. |
-| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR (`ocrmypdf` + Tesseract `por`) se a página não tiver texto, com revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml` (decisão 0018); imagens exportadas para `data/assets/<sha256>.<ext>`. |
+| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR (`ocrmypdf` + Tesseract `por`) se a página não tiver texto, com revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml` (decisão 0018); nos cadernos do site antigo do Cebraspe (fonte `cespe-unb`), vão entre colunas, números de item, negrito/itálico e "ℓ" deduzidos do documento, e as mesmas correções revisadas valem para linhas em fonte sem mapeamento Unicode (decisão 0020); imagens exportadas para `data/assets/<sha256>.<ext>`. |
 | `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras. |
 | `structure` | questões brutas → `questions.json` | Agente só onde as regras falham (tabelas, fórmulas, layout em colunas), pelo mesmo mecanismo de tarefas/respostas do `classify`. Saída validada por pydantic; inválida → `review`. |
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |

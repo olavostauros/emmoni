@@ -15,6 +15,7 @@ import re
 import subprocess
 import sys
 from collections import Counter
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -24,6 +25,17 @@ from pydantic import BaseModel, ConfigDict
 
 ITALIC = 2
 BOLD = 16
+# Fonte sem nome de família: TrueType convertida em Type 1 pelo Distiller ("TTD0ABo00", PF 2012).
+UNNAMED_FONT = re.compile(r"^TT[0-9A-F]+o00$")
+# Fontes-padrão do PDF (embutidas no PyMuPDF) usadas para deduzir o estilo pelas larguras.
+STYLE_FONTS = {
+    "tiro": 0, "tibo": BOLD, "tiit": ITALIC, "tibi": BOLD | ITALIC,
+    "helv": 0, "hebo": BOLD, "heit": ITALIC, "hebi": BOLD | ITALIC,
+}  # fmt: skip
+UPRIGHT = {"tiit": "tiro", "tibi": "tibo", "heit": "helv", "hebi": "hebo"}
+STYLE_TIE = 0.002  # diferença média de largura (em corpos) abaixo da qual itálico = normal
+MAX_STYLE_DISTANCE = 0.02  # mais longe que isso de todas: fonte de símbolos, estilo desconhecido
+MIN_STYLE_CHARS = 20
 # Folga, em pontos, para considerar que a linha está de um lado do meio da página.
 COLUMN_SLACK = 12.0
 REPEATED_SHARE = 0.5  # linha presente em mais da metade das páginas = cabeçalho/rodapé
@@ -109,27 +121,43 @@ NUMBERED = re.compile(r"^(\d{1,3})(?:\s|$)")
 
 
 def extract(
-    pdf_path: Path, *, ocr_dir: Path | None = None, fixes_dir: Path = FIXES_DIR
+    pdf_path: Path,
+    *,
+    ocr_dir: Path | None = None,
+    fixes_dir: Path = FIXES_DIR,
+    legacy: bool = False,
 ) -> list[Page]:
-    """Páginas do PDF. Com `ocr_dir`, páginas sem texto passam pelo OCR (cache em `ocr_dir`)."""
-    pages = _read(pdf_path)
+    """Páginas do PDF. Com `ocr_dir`, páginas sem texto passam pelo OCR (cache em `ocr_dir`).
+
+    `legacy`: caderno do site antigo do Cebraspe (decisão 0020) — o vão entre as colunas, os
+    números de item, o negrito/itálico e o "ℓ" são deduzidos do documento.
+    """
+    pages = _read(pdf_path, legacy)
     scanned = {page.number for page in pages if not page.has_text}
     if ocr_dir is not None and scanned:
-        pages = _read(ocr(pdf_path, ocr_dir))
+        pages = _read(ocr(pdf_path, ocr_dir), legacy)
         for page in pages:
             if page.number in scanned:
                 page.figures = _without_glyphs(page)
                 _steady_sizes(page)
         _recover_item_numbers(pdf_path, pages, scanned)
-        fixes_path = fixes_dir / f"{pdf_path.stem}.yaml"
-        fixes = None
-        if fixes_path.exists():
-            fixes = OcrFixes.model_validate(yaml.safe_load(fixes_path.read_text("utf-8")))
-            apply_fixes(pages, fixes)
+    # Correções revisadas pelo agente: linhas do OCR e, em página com texto, linhas numa fonte sem
+    # mapeamento Unicode (o "PROVA OBJETIVA" do PF 2012 sai como "�������� ����").
+    fixes_path = fixes_dir / f"{pdf_path.stem}.yaml"
+    fixes = None
+    if fixes_path.exists() and (ocr_dir is not None or not scanned):
+        fixes = OcrFixes.model_validate(yaml.safe_load(fixes_path.read_text("utf-8")))
+        apply_fixes(pages, fixes)
+    if ocr_dir is not None and scanned:
         reader = OCR_ENGINE + (f"+revisado:{fixes.proofread_by}" if fixes else "")
         for page in pages:
             if page.number in scanned:
                 page.ocr = reader
+    if fixes:
+        fixed = {fix.page for fix in fixes.lines} - scanned
+        for page in pages:
+            if page.number in fixed:
+                page.ocr = f"revisado:{fixes.proofread_by}"
     _drop_repeated(pages)
     return pages
 
@@ -146,9 +174,132 @@ def apply_fixes(pages: list[Page], fixes: OcrFixes) -> None:
         line.plain = fix.text.replace("*", "")
 
 
-def _read(pdf_path: Path) -> list[Page]:
+def _read(pdf_path: Path, legacy: bool = False) -> list[Page]:
     with pymupdf.open(pdf_path) as document:  # type: ignore[no-untyped-call]
-        return [_page(page) for page in document]
+        raws = []
+        for page in document:
+            lines = [
+                raw for block in page.get_text("dict")["blocks"] for raw in block.get("lines", [])
+            ]
+            width = float(page.rect.width)
+            middle = _gutter([raw["bbox"] for raw in lines], width) if legacy else width / 2
+            raws.append((page, lines, middle))
+        fonts = None
+        if legacy:
+            fonts = _Fonts(
+                digits=_digit_fonts([(lines, middle) for _, lines, middle in raws]),
+                styles=_font_styles(document),
+            )
+        return [_page(page, lines, middle, fonts) for page, lines, middle in raws]
+
+
+@dataclass
+class _Fonts:
+    """O que o PDF não diz das fontes e foi deduzido do documento (PF 2012)."""
+
+    digits: dict[str, dict[str, str]]  # fonte → código → dígito
+    styles: dict[str, int]  # fonte → BOLD/ITALIC
+
+
+def _font_styles(document: Any) -> dict[str, int]:
+    """Negrito e itálico de fontes sem nome (PF 2012: "TTD0ACo00", descritor sem peso nem ângulo).
+
+    A largura de cada letra denuncia o estilo: comparada com a das fontes-padrão do PDF (Times e
+    Helvetica, normal, negrito, itálico, negrito itálico), a mais próxima dá o estilo. Helvetica
+    normal e oblíqua têm as mesmas larguras: no empate fica a normal.
+    """
+    advances: dict[str, list[tuple[str, float]]] = {}
+    for page in document:
+        for block in page.get_text("rawdict")["blocks"]:
+            for raw in block.get("lines", []):
+                for span in raw["spans"]:
+                    if not UNNAMED_FONT.match(span["font"]):
+                        continue
+                    for char in span["chars"]:
+                        if char["c"].isascii() and char["c"].isalpha():
+                            width = (char["bbox"][2] - char["bbox"][0]) / span["size"]
+                            advances.setdefault(span["font"], []).append((char["c"], width))
+    if not advances:
+        return {}
+    references = {name: pymupdf.Font(name) for name in STYLE_FONTS}  # type: ignore[no-untyped-call]
+    styles: dict[str, int] = {}
+    for font, chars in advances.items():
+        if len(chars) < MIN_STYLE_CHARS:
+            continue
+        distance = {
+            name: sum(
+                abs(width - ref.glyph_advance(ord(c)))  # type: ignore[no-untyped-call]
+                for c, width in chars
+            )
+            / len(chars)
+            for name, ref in references.items()
+        }
+        best = min(distance, key=lambda name: distance[name])
+        upright = UPRIGHT.get(best)
+        if upright and distance[upright] - distance[best] < STYLE_TIE:
+            best = upright
+        if distance[best] <= MAX_STYLE_DISTANCE:
+            styles[font] = STYLE_FONTS[best]
+    return styles
+
+
+def _gutter(boxes: list[Any], width: float) -> float:
+    """Meio do vão entre as colunas.
+
+    Em geral é a metade da largura. Há cadernos em que não é (PF 2012: colunas de 28–312 e 325–567
+    pt numa página de 595, e a coluna da esquerda passava do meio): se alguma linha cruza a metade
+    e outra posição entre 35% e 65% da largura é cruzada por menos linhas, o vão é a faixa menos
+    cruzada mais perto do meio. Página de uma coluna só: tudo empata e fica a metade.
+    """
+    middle = width / 2
+    xs = range(round(width * 0.35), round(width * 0.65) + 1)
+    crossing = {x: sum(1 for x0, _, x1, _ in boxes if x0 < x < x1) for x in xs}
+    fewest = min(crossing.values(), default=0)
+    if sum(1 for x0, _, x1, _ in boxes if x0 < middle < x1) == fewest:
+        return middle
+    runs: list[list[int]] = []
+    for x in xs:
+        if crossing[x] != fewest:
+            continue
+        if runs and runs[-1][-1] == x - 1:
+            runs[-1].append(x)
+        else:
+            runs.append([x])
+    best = min(runs, key=lambda run: min(abs(x - middle) for x in run))
+    return (best[0] + best[-1]) / 2
+
+
+def _digit_fonts(pages: list[tuple[list[dict[str, Any]], float]]) -> dict[str, dict[str, str]]:
+    """Fontes de número de item sem mapeamento Unicode → tabela código → dígito.
+
+    O PF 2012 escreve os números de item numa fonte subconjunto, com nomes de glifo opacos ("g20")
+    e sem ToUnicode: o texto sai em códigos de controle ("\\x02\\x0b" para 10). Os itens seguem 1,
+    2, 3..., então, na ordem de leitura, os nove primeiros números de um glifo só são os códigos de
+    1 a 9 e o código que sobra é o 0. A tabela só vale se todos os números da fonte virarem uma
+    sequência de um em um; senão a fonte é outra coisa (fórmula, símbolo) e fica como está.
+    """
+    tokens: dict[str, list[tuple[int, int, float, float, str]]] = {}
+    for index, (lines, middle) in enumerate(pages):
+        for raw in lines:
+            for span in raw["spans"]:
+                text = span["text"]
+                if not text or len(text) > 3 or any(ord(c) >= 32 for c in text):
+                    continue
+                x0, y0, x1, _ = (float(v) for v in span["bbox"])
+                key = (index, _column(x0, x1, middle), y0, x0, text)
+                tokens.setdefault(span["font"], []).append(key)
+    tables: dict[str, dict[str, str]] = {}
+    for font, found in tokens.items():
+        texts = [text for *_, text in sorted(found)]
+        singles = list(dict.fromkeys(text for text in texts if len(text) == 1))
+        zero = {c for text in texts for c in text} - set(singles)
+        if len(singles) != 9 or len(zero) != 1:
+            continue
+        table = {code: str(i + 1) for i, code in enumerate(singles)} | {zero.pop(): "0"}
+        numbers = [int("".join(table[c] for c in text)) for text in texts]
+        if numbers == list(range(numbers[0], numbers[0] + len(numbers))):
+            tables[font] = table
+    return tables
 
 
 def ocr(pdf_path: Path, ocr_dir: Path) -> Path:
@@ -274,15 +425,13 @@ def _gutter_digits(page: Any, left: float) -> list[tuple[float, float, int]]:
     return digits
 
 
-def _page(page: Any) -> Page:
+def _page(page: Any, raws: list[dict[str, Any]], middle: float, fonts: _Fonts | None) -> Page:
     width, height = float(page.rect.width), float(page.rect.height)
-    middle = width / 2
     lines: list[Line] = []
-    for block in page.get_text("dict")["blocks"]:
-        for raw in block.get("lines", []):
-            line = _line(raw, middle)
-            if line is not None:
-                lines.append(line)
+    for raw in raws:
+        line = _line(raw, middle, fonts)
+        if line is not None:
+            lines.append(line)
     return Page(
         number=page.number + 1,
         width=width,
@@ -327,21 +476,26 @@ def _box(rect: Any) -> dict[str, float]:
     return {"x0": x0, "y0": y0, "x1": x1, "y1": y1}
 
 
-def _line(raw: dict[str, Any], middle: float) -> Line | None:
+def _line(raw: dict[str, Any], middle: float, fonts: _Fonts | None = None) -> Line | None:
+    if fonts and any(s["font"] in fonts.digits or s["font"] in fonts.styles for s in raw["spans"]):
+        decoded = []
+        for s in raw["spans"]:
+            if s["font"] in fonts.digits:
+                s = s | {"text": "".join(fonts.digits[s["font"]].get(c, c) for c in s["text"])}
+            if s["font"] in fonts.styles and any(c.isalnum() for c in s["text"]):
+                # Só pontuação ("Austrália*.*"): o estilo não aparece e só suja o Markdown.
+                s = s | {"flags": s["flags"] | fonts.styles[s["font"]]}
+            decoded.append(s)
+        raw = raw | {"spans": decoded}
+    if fonts:
+        raw = raw | {"spans": _line_refs(raw["spans"])}
     spans = [s for s in raw["spans"] if s["text"].strip(" \xa0")]
     if not spans or max(float(s["size"]) for s in spans) < MIN_SIZE:
         return None  # texto invisível (marcas de diagramação em corpo 1)
     x0, y0, x1, y1 = (float(v) for v in raw["bbox"])
     plain = _clean("".join(s["text"] for s in raw["spans"]))
     markdown = _clean("".join(_markdown(s) for s in raw["spans"]))
-    if x0 >= middle:
-        column = 2  # começa na metade direita (vale para números estreitos de item)
-    elif x1 <= middle + COLUMN_SLACK:
-        column = 1  # inclui o fim de linha da esquerda que encosta no meio ("a")
-    elif x0 >= middle - COLUMN_SLACK:
-        column = 2
-    else:
-        column = 0
+    column = _column(x0, x1, middle)
     sizes = Counter(round(float(s["size"]), 1) for s in spans for _ in s["text"])
     main = sizes.most_common(1)[0][0]
     # O número do item no começo da linha costuma vir em corpo menor: não é índice.
@@ -358,6 +512,7 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
     odd_glyph = any(
         len(s["text"].strip()) == 1
         and s["text"].strip().isdigit()
+        and not (fonts and s["flags"] & BOLD)  # "julgue os itens de **5** a **11**" (PF 2012)
         and s["font"] != spans[i - 1]["font"]
         and s["font"] != spans[i + 1]["font"]
         and spans[i - 1]["text"].rstrip()[-1:].isalpha()
@@ -377,6 +532,41 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
         size=main,
         scripts=scripts,
     )
+
+
+def _line_refs(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """ "(ℓ.12)": o "ℓ" vem numa fonte de símbolos própria cujo glifo se chama "R" e que mapeia para
+    "R" (PF 2012). Um "R" sozinho em fonte diferente das vizinhas, entre "(" e ".<dígito>", é o ℓ."""
+    result = list(spans)
+    for i in range(1, len(spans) - 1):
+        before, span, after = spans[i - 1], spans[i], spans[i + 1]
+        if (
+            span["text"] == "R"
+            and span["font"] != before["font"]
+            and span["font"] != after["font"]
+            and before["text"].endswith("(")
+            and re.match(r"\.\s?\d", after["text"])
+        ):
+            result[i] = span | {"text": "ℓ"}
+        elif (
+            span["text"] == "In"
+            and span["font"] != before["font"]
+            and span["font"] != after["font"]
+            and after["text"].startswith(":")
+        ):
+            # "*In*:" do crédito numa fonte própria, com letras de menos para deduzir o estilo.
+            result[i] = span | {"flags": span["flags"] | ITALIC}
+    return result
+
+
+def _column(x0: float, x1: float, middle: float) -> int:
+    if x0 >= middle:
+        return 2  # começa na metade direita (vale para números estreitos de item)
+    if x1 <= middle + COLUMN_SLACK:
+        return 1  # inclui o fim de linha da esquerda que encosta no meio ("a")
+    if x0 >= middle - COLUMN_SLACK:
+        return 2
+    return 0
 
 
 def _markdown(span: dict[str, Any]) -> str:

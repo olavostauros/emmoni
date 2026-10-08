@@ -492,3 +492,60 @@ def test_source_credit_closes_its_paragraph() -> None:
     assert cebraspe._paragraphs(entries) == expected
     # Na múltipla escolha o crédito vem alinhado à direita e vai até a margem: não é "curto".
     assert cebraspe._choice_paragraphs(entries) == expected
+
+
+def test_scratch_label_is_not_content() -> None:
+    """Quadro "RASCUNHO" no alto da coluna vazia (PF 2012): não abre um texto-base para o grupo da
+    página seguinte nem entra no item."""
+    scratch = _line("RASCUNHO", 320, 40, x1=370)
+    scratch.column = 2
+    first = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50),
+            _line("**1** Primeiro item da página.", 28, 70),
+            scratch,
+        ]
+    )
+    second = _page(
+        [
+            _line("Julgue os itens seguintes, referentes a administração.", 28, 50),
+            _line("**2** Item da página seguinte.", 28, 70),
+        ]
+    )
+    second.number = 2
+    segmented = cebraspe.segment([first, second])
+    assert segmented.passages == []
+    assert all("RASCUNHO" not in q.statement_md for q in segmented.questions)
+
+
+def test_command_starting_mid_sentence_flags_layout() -> None:
+    """Corte errado entre texto e comando (lista com recuo deslocado, PF 2012 itens 83 e 84)."""
+    page = _page(
+        [
+            _line("prestados no mês de março, julgue os itens seguintes.", 28, 50),
+            _line("**1** Os resultados serão iguais.", 28, 70),
+        ]
+    )
+    assert cebraspe.segment([page]).questions[0].flags == ["layout"]
+
+
+def test_two_line_credit_is_one_paragraph() -> None:
+    """Crédito em letra miúda quebrado em duas linhas (PF 2012 q46, CBM/AL 2017): um parágrafo só,
+    com o negrito do título emendado."""
+    page = _page(
+        [
+            _line("Texto 1A1-I", 28, 30),
+            _line("Corpo do texto-base com uma frase completa e bem longa.", 28, 50),
+            _line(
+                "Clóvis Rossi. **Drogas, tema inescapável**. *In*: **Folha de**", 150, 70, size=6.0
+            ),
+            _line("**S.Paulo**, 12/4/2012, p. A14 (com adaptações).", 150, 78, size=6.0),
+            _line("Com base no texto 1A1-I, julgue o item a seguir.", 28, 100),
+            _line("**1** Item sobre o texto.", 28, 120),
+        ]
+    )
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.endswith(
+        "Clóvis Rossi. **Drogas, tema inescapável**. *In*: **Folha de S.Paulo**, 12/4/2012, p. A14 "
+        "(com adaptações)."
+    )

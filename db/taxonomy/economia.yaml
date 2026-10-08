@@ -1,0 +1,21 @@
+subject: economia
+name: Economia
+topics:
+  - slug: microeconomia
+    name: Microeconomia
+    children:
+      - {slug: oferta-e-demanda, name: "Oferta, demanda e elasticidade"}
+      - {slug: estruturas-de-mercado, name: "Estruturas de mercado"}
+  - slug: macroeconomia
+    name: Macroeconomia
+    children:
+      - {slug: politica-monetaria, name: "Política monetária e criação de moeda"}
+      - {slug: politica-fiscal, name: "Política fiscal"}
+      - {slug: inflacao, name: "Inflação"}
+      - {slug: contas-nacionais, name: "Contas nacionais"}
+  - slug: economia-do-setor-publico
+    name: Economia do setor público
+    children:
+      - {slug: funcoes-do-governo, name: "Funções do governo: alocativa, distributiva e estabilizadora"}
+      - {slug: deficit-e-divida-publica, name: "Déficit, dívida pública e necessidades de financiamento"}
+  - {slug: economia-brasileira, name: "Economia brasileira e planos de estabilização"}

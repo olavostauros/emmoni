@@ -5,7 +5,7 @@ from pathlib import Path
 import psycopg
 import pytest
 
-from ingest import catalog, cli, manifest, pipeline, taxonomy
+from ingest import catalog, cli, manifest, pipeline, sources, taxonomy
 from ingest.extract import extract
 from ingest.load import DocumentIds, LoadError, TopicAssignment, load_exam
 from ingest.manifest import Manifest
@@ -32,12 +32,17 @@ def test_manifests_are_valid_and_use_known_slugs(path: Path) -> None:
     assert loaded.agency in agencies
     positions = {p.slug for p in agencies[loaded.agency].positions}
     subjects = {s.slug for s in taxonomy.load_dir(taxonomy.TAXONOMY_DIR)}
+    known_sources = sources.load()
     for exam in loaded.exams:
         assert set(exam.positions) <= positions
         assert {r.subject for r in exam.subjects_by_range} <= subjects
         for kind in ("exam", "answer_key_preliminary", "answer_key_final"):
             for url in exam.documents.urls(kind):
-                assert url.startswith("https://")
+                # http só em fonte com a exceção ao HTTPS (decisão 0017: cespe-unb)
+                source = known_sources.source_for(url)
+                assert url.startswith("https://") or (
+                    url.startswith("http://") and source is not None and source.allow_http
+                )
 
 
 def test_manifest_requires_an_answer_key() -> None:
