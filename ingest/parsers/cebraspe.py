@@ -41,11 +41,34 @@ ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
 TEXT_LABEL = re.compile(r"^Texto\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")
 # Título de texto-base de múltipla escolha, citado pelas questões que o usam ("Figura 5A2",
 # "Caso hipotético 1A06-II", "situação hipotética 12A3-I").
-PASSAGE_TITLE = re.compile(
-    r"^\W*(?:Texto|Figura|Tabela|Quadro|Gr[áa]fico|Caso hipot[ée]tico|Situa[çc][ãa]o hipot[ée]tica)"
-    r"\s+([0-9][\w.]*(?:-[IVX]+)?)",
+_TITLE_WORDS = (
+    r"(?:Texto|Figura|Tabela|Quadro|Gr[áa]fico|Proposi[çc][ãa]o|Caso hipot[ée]tico"
+    r"|Situa[çc][ãa]o hipot[ée]tica)"
+)
+# Código da banca: dígito seguido de letra (2A1-I, CG1A5AAA, 12A3-I, 5A2); "P3" não é rótulo.
+_LABEL = r"([0-9A-Z]*\d[A-Z][A-Z0-9]*(?:-[IVX]+)?)"
+PASSAGE_TITLE = re.compile(rf"^\W*{_TITLE_WORDS}\s+{_LABEL}", re.I)
+TITLE_LINE = re.compile(rf"^\W*{_TITLE_WORDS}\s+{_LABEL}\W*$", re.I)  # linha que é só o título
+# Remissão a um texto-base pelo rótulo, dentro da questão ("texto 1A7-I", "proposição CG1A5AAA").
+LABEL_REF = re.compile(rf"\b{_TITLE_WORDS}\s+{_LABEL}", re.I)
+# Questão que remete a um texto sem rótulo ("do expediente", "no texto") e ficou sem texto-base.
+IMPLICIT_REF = re.compile(
+    r"\b(?:d[oa]s?|n[oa]s?|[oa]s?|dess[ea]s?|nest[ea]s?|ness[ea]s?|pel[oa]s?|ao)\s+"
+    r"(?:expediente|of[íi]cio|memorando|poema|tirinha|charge)\b"
+    r"(?!\s+(?:anterior|precedente|a seguir|abaixo|acima|seguinte|de\b|[0-9A-Z]+\d))",
     re.I,
 )
+# Figura da própria questão ("a figura precedente", "o gráfico a seguir"): sem imagem extraída, a
+# questão não se sustenta.
+FIGURE_REF = re.compile(
+    r"\b(?:figuras?|gr[áa]ficos?|imagens?|ilustra[çc][ãa]o|esquemas?|mapas?)\s+"
+    r"(?:precedentes?|anteriore?s?|a seguir|abaixo|acima|seguintes?|que segue|apresentad[ao]s?)\b",
+    re.I,
+)
+# Título de disciplina em caixa alta entre questões ("DIREITO FINANCEIRO E TRIBUTÁRIO",
+# "35. HISTÓRIA E GEOGRAFIA DE RONDÔNIA" em PC/RO 2022): encerra a alternativa e não é texto-base.
+SECTION_TITLE = re.compile(r"^(?:\d+\.\s+)?[A-ZÀ-Ú][A-ZÀ-Ú ,.()–-]{3,}$")
+BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extraído como "C"
 TEXT_REF = re.compile(r"\btexto\s+([0-9][\w.]*-[IVX]+|[0-9][A-Z0-9.]+)", re.I)
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
 # Cadernos "com justificativa" (PCDF 2020, PF 2025...): depois de cada item vem a justificativa
@@ -56,7 +79,7 @@ SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
 BROKEN_MATH = re.compile(  # inclui caracteres de controle: glifo sem mapeamento
-    "[\x00-\x08\x0b\x0c\x0e-\x1f\u0b00-\u0b7f\u0d00-\u0d7f\u1200-\u137f\U0001d400-\U0001d7ff]"
+    "[\x00-\x08\x0b\x0c\x0e-\x1f\u0b00-\u0b7f\u0d00-\u0d7f\u1200-\u137f\ue000-\uf8ff\ufffd\U0001d400-\U0001d7ff]"
 )
 
 SENTENCE_STOP = (".", ":", ";", "?", "!")
@@ -184,6 +207,7 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
         if key:
             question.passage_key = key
             question.flags = sorted({*question.flags, *passages[key].flags})
+        question.flags = sorted({*question.flags, *_reference_flags(question, labels)})
         questions.append(question)
         lead = _Unit(rest)
 
@@ -207,8 +231,11 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
             number = expected
             expected += 1
             skipping = False
+        elif skipping and not TITLE_LINE.match(entry.line.plain):
+            continue  # a justificativa termina no próximo título de questão ou de texto-base
         elif skipping:
-            continue
+            skipping = False  # título de texto-base (PC/PE 2023): abre o grupo seguinte
+            block.append(entry)
         elif number and JUSTIFICATION.match(entry.line.plain.lstrip("|* ")):
             skipping = True
         elif number:
@@ -267,7 +294,9 @@ def _choice_question(
         # seguir é a abertura do próximo grupo (texto rotulado, instrução).
         end = len(block)
         for i in range(starts[-1] + 1, len(block)):
-            if _at_margin(block[i]) and not block[i].line.plain[:1].islower():
+            plain = block[i].line.plain
+            starts_text = TITLE_LINE.match(plain) is not None or _section_title(plain)
+            if starts_text or (_at_margin(block[i]) and not block[i].line.plain[:1].islower()):
                 end = i
                 break
         rest = block[end:]
@@ -280,6 +309,7 @@ def _choice_question(
             options.append(RawOption(letter=letter, body_md=_join(lines)))
             flags |= set().union(*(e.flags for e in block[start:stop]))
     flags |= set().union(*(e.flags for e in statement_entries)) if statement_entries else set()
+    statement_entries = _bullets(statement_entries)
     statement = "\n\n".join(_choice_paragraphs(statement_entries))
     if not statement.strip():
         flags.add("empty_item")
@@ -300,6 +330,23 @@ def _choice_question(
     )
 
 
+def _bullets(entries: list[_Entry]) -> list[_Entry]:
+    """Lista com marcador "•" que a fonte decorativa entrega como "C" (PC/GO 2016): duas ou mais
+    linhas do enunciado começando por "C" na margem são itens de lista, não a alternativa C."""
+    marked = [e for e in entries if _at_margin(e) and BULLET_C.match(e.line.plain)]
+    if len(marked) < 2:
+        return entries
+    for entry in marked:
+        line = entry.line
+        entry.line = line.model_copy(
+            update={
+                "plain": BULLET_C.sub("• ", line.plain, count=1),
+                "text": re.sub(r"^(\*{0,2})C\s+", r"\1• ", line.text, count=1),
+            }
+        )
+    return entries
+
+
 def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     """Parágrafos do enunciado: recuo de primeira linha, linha curta anterior ou item
     enumerado (I, II, III; a), b)...) começam parágrafo novo."""
@@ -307,7 +354,9 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     previous: _Entry | None = None
     for entry in entries:
         indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
-        enumerated = _at_margin(entry) and ROMAN_ITEM.match(entry.line.plain) is not None
+        enumerated = _at_margin(entry) and (
+            ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
+        )
         new = previous is None or indented or previous.short or enumerated
         if new:
             paragraphs.append([])
@@ -337,10 +386,32 @@ def _referenced_passage(question: RawQuestion, labels: dict[str, str]) -> str | 
     return cited[-1] if cited else None
 
 
+def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
+    """Remissões que o parser não resolveu: rótulo citado sem texto-base com esse rótulo, texto sem
+    rótulo citado por questão sem texto-base, figura da própria questão (não há imagens)."""
+    text = " ".join([question.statement_md, *(o.body_md for o in question.options)])
+    flags: set[str] = set()
+    cited = {m.group(1) for m in LABEL_REF.finditer(text)}
+    if any(label not in labels for label in cited):
+        flags.add("missing_passage")
+    if question.passage_key is None and IMPLICIT_REF.search(question.statement_md):
+        flags.add("missing_passage")
+    if FIGURE_REF.search(text):
+        flags.add("figure")
+    return flags
+
+
+def _section_title(plain: str) -> bool:
+    return SECTION_TITLE.match(plain) is not None and len(plain.split()) >= 2
+
+
 def _bold_heading(entries: list[_Entry]) -> bool:
-    """Título de bloco em negrito ("**Atualidades e conhecimentos...**"): não é texto-base."""
+    """Título de bloco em negrito ("**Atualidades e conhecimentos...**") ou em caixa alta: não é
+    texto-base."""
     return len(entries) <= 2 and all(
-        e.line.text.strip().startswith("**") and e.line.text.strip().endswith("**") for e in entries
+        (e.line.text.strip().startswith("**") and e.line.text.strip().endswith("**"))
+        or _section_title(e.line.plain)
+        for e in entries
     )
 
 
@@ -686,9 +757,12 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     for entry in entries:
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
+        # Linha anterior curta também fecha o parágrafo: com numeração de linhas na margem, o
+        # recuo de "7 Em 2016, ..." se perde quando o número sai (PC/MA 2017).
         new = (
             previous is None
             or (indented and not title_goes_on)
+            or (previous.short and not title_goes_on)
             or abs(entry.line.size - previous.line.size) >= 1
         )
         if new:

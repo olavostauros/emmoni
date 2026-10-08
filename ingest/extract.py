@@ -173,8 +173,32 @@ def _markdown(span: dict[str, Any]) -> str:
     return f"{text[:start]}{mark}{core}{mark}{text[start + len(core) :]}"
 
 
+# Fonte Symbol embutida sem mapeamento Unicode: o glifo sai na área de uso privado (U+F0xx), com o
+# código da fonte Symbol no byte baixo. Os que aparecem nas provas viram o caractere certo; o resto
+# fica como está e cai na regra de fórmula do parser.
+SYMBOL_PUA = str.maketrans(
+    {
+        0xF020: " ",
+        0xF02D: "−",
+        0xF044: "Δ",
+        0xF065: "ε",
+        0xF06D: "μ",
+        0xF071: "θ",
+        0xF0AE: "→",
+        0xF0B4: "×",
+        0xF0B7: "•",
+        0xF0D7: "·",
+        0xF0DA: "∨",
+    }
+)
+
+
 def _clean(text: str) -> str:
-    text = text.replace("\xa0", " ").replace("­", "")
+    text = text.translate(SYMBOL_PUA).replace("\xa0", " ").replace("­", "")
+    text = text.replace("FimDoTexto", " ")  # marcador invisível de fim de texto (Cebraspe)
+    # Glifo de fonte matemática sem mapeamento sai como caractere de controle (\x0c para "μ"): vira
+    # U+FFFD antes de normalizar espaços, para o parser marcar fórmula em vez de sumir com ele.
+    text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "\ufffd", text)
     return re.sub(r"\s+", " ", text).strip()
 
 

@@ -22,6 +22,7 @@ FLAG_REASONS = {
     "no_command": "grupo de itens sem comando reconhecido",
     "orphan_text": "texto solto depois do último item (pode ser continuação perdida)",
     "empty_item": "item sem texto (só figura)",
+    "missing_passage": "remete a um texto-base que não foi encontrado",
 }
 
 

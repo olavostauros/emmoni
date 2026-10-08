@@ -226,6 +226,67 @@ def test_choice_passage_only_for_the_first_question_or_who_cites_it() -> None:
     assert [p.key for p in segmented.passages] == ["1A1-I", "g5"]
 
 
+def test_choice_labels_bullets_and_unresolved_references() -> None:
+    """Rótulo de texto um pouco fora da margem encerra a última alternativa; "Proposição X" é
+    rótulo; "C" como marcador de lista no enunciado vira "•"; remissão não resolvida e figura da
+    própria questão viram motivo de revisão."""
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        _line("Texto 1A7-I", 35, 100, x1=90),
+        _line("Considere o conjunto V.", 56, 112, x1=200),
+        *_choice(2, "A partir do texto 1A7-I, assinale.", 130),
+        _line("Proposição CG1A5AAA", 28, 210, x1=120),
+        _line("A educação sobe ou a violência cai.", 56, 222, x1=200),
+        *_choice(3, "A tabela-verdade da proposição CG1A5AAA tem", 240),
+        *_choice(4, "Questão de outra matéria.", 320),
+        *_choice(5, "A negação da proposição CG1A5AAA é", 400),
+        _line("Questão 6", 51, 480),
+        _line("Nas eleições de 2016,", 28, 492, x1=200),
+        _line("C Fernanda foi candidata;", 28, 504, x1=200),
+        _line("C Paulo foi mesário.", 28, 516, x1=200),
+        *(
+            _line(f"{letter} opção {letter}.", 28, 528 + 12 * i, x1=100)
+            for i, letter in enumerate("ABCDE")
+        ),
+        *_choice(7, "Considerando o conteúdo do expediente, assinale.", 600),
+        *_choice(8, "Com base no texto 9Z9-I, assinale.", 680),
+        *_choice(9, "A figura precedente mostra um pórtico.", 760),
+    ]
+    questions = {q.number: q for q in cebraspe.segment([_page(lines)]).questions}
+    assert questions[1].options[-1].body_md == "opção E."
+    assert [questions[n].passage_key for n in (2, 3, 4, 5)] == ["1A7-I", "g3", None, "g3"]
+    assert (
+        questions[6].statement_md
+        == "Nas eleições de 2016,\n\n• Fernanda foi candidata;\n\n• Paulo foi mesário."
+    )
+    assert [o.letter for o in questions[6].options] == ["A", "B", "C", "D", "E"]
+    assert "missing_passage" in questions[7].flags and "missing_passage" in questions[8].flags
+    assert "figure" in questions[9].flags
+    assert not {"missing_passage", "figure"} & {*questions[2].flags, *questions[5].flags}
+
+
+def test_choice_text_after_justification_and_section_title() -> None:
+    """PC/PE 2023: texto-base logo depois da tabela de justificativas abre o grupo seguinte.
+    PC/RO 2022: título de disciplina em caixa alta não gruda na alternativa E."""
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        _line("||JUSTIFICATIVAS||", 28, 100, x1=120),
+        _line("||A|| - 1 Lei. INCORRETA.", 28, 112),
+        _line("Situação hipotética 1A3-I", 28, 130, x1=150),
+        _line("Foram investigados 90 casos.", 56, 142, x1=200),
+        *_choice(2, "Quantos casos foram investigados?", 160),
+        *_choice(3, "Na situação hipotética 1A3-I, os roubos", 250),
+        _line("DIREITO FINANCEIRO E TRIBUTÁRIO", 120, 340, x1=250),
+        *_choice(4, "Questão de direito financeiro.", 360),
+    ]
+    segmented = cebraspe.segment([_page(lines)])
+    questions = {q.number: q for q in segmented.questions}
+    assert questions[1].options[-1].body_md == "opção E."
+    assert [questions[n].passage_key for n in (2, 3, 4)] == ["g2", "g2", None]
+    assert questions[3].options[-1].body_md == "opção E."
+    assert [p.key for p in segmented.passages] == ["g2"]
+
+
 def test_code_lines_flag_layout() -> None:
     page = _page(
         [
@@ -287,7 +348,7 @@ def test_pf_2018_line_numbered_passage_without_marker() -> None:
     body = segmented.passages[0].body_md
     assert body.startswith("Imagine uma operação de busca na selva.")
     assert "facão. Assim eram feitas" in body  # número de linha "4" removido no meio do texto
-    assert body.count("\n\n") == 6
+    assert body.count("\n\n") == 7  # parágrafo que começa no número de linha "7" não se funde
     assert segmented.questions[0].statement_md.endswith(
         "Infere-se do texto que o Nudetective foi desenvolvido especificamente para o combate à"
         " pornografia infantil."
