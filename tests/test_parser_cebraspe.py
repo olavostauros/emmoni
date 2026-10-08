@@ -446,3 +446,25 @@ def test_consecutive_period_items_go_to_review() -> None:
     segmented = cebraspe.segment(extract(FIXTURES / "pdf/cebraspe/pf-2018-papiloscopista-p1.pdf"))
     flagged = [q.number for q in segmented.questions if "consecutive_items" in q.flags]
     assert flagged == list(range(6, 12))
+
+
+def _title_line(plain: str, y0: float, size: float, column: int = 2) -> Line:
+    return Line(
+        text=plain, plain=plain, x0=316, y0=y0, x1=555, y1=y0 + size, column=column, size=size
+    )
+
+
+def test_large_knowledge_title_is_a_heading_with_its_second_line() -> None:
+    # CBM/TO 2022 (12 pt) e 2021 (15 pt, em duas linhas) contra 10 pt do texto: o título no alto
+    # da coluna grudava na última alternativa da questão anterior.
+    one_line = _title_line("Conhecimentos acerca do Estado do Tocantins", 48, 12)
+    assert cebraspe._subject_heading(one_line)
+    first = _title_line("Conhecimentos acerca do estado", 51, 15)
+    second = _title_line("do Tocantins", 68, 15)
+    assert cebraspe._subject_heading(first)
+    assert cebraspe._heading_continuation(first, second)
+    # Texto comum no corpo da prova não é título, nem a linha seguinte a ele.
+    body = _title_line("Conhecimentos de informática são exigidos", 48, 10)
+    assert not cebraspe._subject_heading(body)
+    assert not cebraspe._heading_continuation(body, _title_line("no edital", 59, 10))
+    assert not cebraspe._subject_heading(_title_line("Conhecimentos gerais.", 48, 12))

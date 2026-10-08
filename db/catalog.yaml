@@ -350,7 +350,7 @@ agencies:
     level: federal
     aliases: [DEPEN]
     positions:
-      - {slug: agente, name: Agente Federal de Execução Penal, education_level: superior}
+      - {slug: agente, name: Agente Federal de Execução Penal, education_level: medio}
   - slug: seapma
     name: Secretaria de Estado de Administração Penitenciária do Maranhão
     short_name: SEAP-MA

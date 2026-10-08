@@ -56,6 +56,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     rev_sample = rev_commands.add_parser("sample", help="gera a amostra para conferência")
     rev_sample.add_argument("exam", help="<concurso>/<prova>")
     rev_sample.add_argument("--n", type=int, default=10)
+    rev_sample.add_argument(
+        "--also", type=int, nargs="+", default=[], help="questões além do sorteio (que mudaram)"
+    )
     rev_approve = rev_commands.add_parser("approve", help="publica a prova após a amostragem")
     rev_approve.add_argument("exam", help="<concurso>/<prova>")
     rev_approve.add_argument("--by", help="quem conferiu a amostra (modelo e versão do agente)")
@@ -203,7 +206,7 @@ def _review(args: argparse.Namespace) -> int:
                         print(f"  motivo: {reason}")
             elif args.review_command == "sample":
                 assert ref is not None
-                page = review.write_sample(conn, ref, args.n, fetch.data_dir())
+                page = review.write_sample(conn, ref, args.n, fetch.data_dir(), args.also)
                 print(f"amostra: {page}")
             elif args.review_command == "approve":
                 assert ref is not None

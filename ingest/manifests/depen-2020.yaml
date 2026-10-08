@@ -1,4 +1,6 @@
 # depen-2020: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# O cargo 8 é de nível médio: complementares (81–120) no gabarito CG2, não no CG1 de nível
+# superior (91–120) — decisão 0016.
 contest: depen-2020
 name: DEPEN 2020
 agency: depen
@@ -13,9 +15,9 @@ exams:
   first_number: 31
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_008_00.PDF
-    answer_key_final:   # específicos (31–80) e complementares de nível superior (81–120)
+    answer_key_final:   # específicos (31–80) e complementares de nível médio (81–120)
     - https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_008_00.PDF
-    - https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG1_00.PDF
+    - https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG2_00.PDF
   subjects_by_range:
   - {from: 31, to: 36, subject: direito-constitucional}
   - {from: 37, to: 44, subject: direito-administrativo}
@@ -120,7 +122,7 @@ evidence:
     url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_007_00.PDF
     reason: gabarito sem prova correspondente
   - label: CONHECIMENTOS COMPLEMENTARES - CARGOS DE NIVEL SUPERIOR
-    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG1_00.PDF
+    url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG2_00.PDF
     reason: gabarito sem prova correspondente
   - label: CONHECIMENTOS COMPLEMENTARES - CARGO DE NIVEL MEDIO
     url: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/GAB_DEFINITIVO_MATRIZ_541_DEPEN_CG2_00.PDF

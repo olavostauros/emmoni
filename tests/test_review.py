@@ -61,6 +61,17 @@ def test_sample_is_deterministic_and_skips_review(tx: Conn) -> None:
     assert len(first) == 5 and not {3, 4} & set(first)
 
 
+def test_sample_also_includes_publishable_changed_questions(tx: Conn, tmp_path: Path) -> None:
+    ref, _ = _exam(tx)
+    drawn = review.sample_numbers(tx, ref, 3)
+    extra = next(n for n in (1, 2, 5, 6, 7, 8) if n not in drawn)
+    review.write_sample(tx, ref, 3, tmp_path, also=[extra, 3])  # 3 está em revisão: fica de fora
+    record = json.loads(
+        (review.sample_dir(tmp_path, ref) / "sample.json").read_text(encoding="utf-8")
+    )
+    assert record["numbers"] == sorted({*drawn, extra})
+
+
 def test_approve_requires_sample_then_publishes_exam(tx: Conn, tmp_path: Path) -> None:
     ref, exam_id = _exam(tx)
     with pytest.raises(review.ReviewError, match="amostra"):
@@ -114,6 +125,26 @@ def test_reconcile_keeps_approved_content_and_demotes_changed(tx: Conn, tmp_path
     )
     assert review.reconcile(tx, ref, approvals).startswith("volta para review")
     assert _status(tx, exam_id) == "review"
+
+
+def test_reconcile_ignores_content_of_questions_in_review(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id = _exam(tx)
+    approvals = tmp_path / "approvals"
+    review.write_sample(tx, ref, 3, tmp_path)
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    # A questão 3 está em revisão: fora do `api` e da amostra. Corrigir o texto dela não muda nada.
+    tx.execute(
+        "update question set statement_hash = repeat('1', 64) where exam_id = %s and number = 3",
+        (exam_id,),
+    )
+    assert review.reconcile(tx, ref, approvals) == "publicada"
+    # Sair da revisão muda o que o `api` mostra: reamostrar.
+    tx.execute(
+        "update question set publish_status = 'published', review_reasons = '{}'"
+        " where exam_id = %s and number = 3",
+        (exam_id,),
+    )
+    assert review.reconcile(tx, ref, approvals).startswith("volta para review")
 
 
 def test_restore_publishes_matching_exams_from_records(tx: Conn, tmp_path: Path) -> None:

@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-08 18:03 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-08 18:13 UTC. Não edite à mão.
 
-**4929 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5006 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -11,9 +11,10 @@ Gerado por `emmoni coverage` em 2026-10-08 18:03 UTC. Não edite à mão.
 | Cebraspe | CBMAL | 2017 | 3 | 138 |
 | Cebraspe | CBMAL | 2021 | 2 | 148 |
 | Cebraspe | CBMPA | 2023 | 2 | 66 |
-| Cebraspe | CBMRO | 2022 | 1 | 77 |
-| Cebraspe | CBMTO | 2021 | 2 | 62 |
-| Cebraspe | CBMTO | 2022 | 2 | 66 |
+| Cebraspe | CBMRO | 2022 | 1 | 73 |
+| Cebraspe | CBMTO | 2021 | 2 | 64 |
+| Cebraspe | CBMTO | 2022 | 2 | 63 |
+| Cebraspe | DEPEN | 2020 | 1 | 90 |
 | Cebraspe | PCAL | 2021 | 2 | 126 |
 | Cebraspe | PCAL | 2022 | 2 | 117 |
 | Cebraspe | PCCE | 2025 | 1 | 99 |
@@ -21,44 +22,44 @@ Gerado por `emmoni coverage` em 2026-10-08 18:03 UTC. Não edite à mão.
 | Cebraspe | PCDF | 2020 | 1 | 54 |
 | Cebraspe | PCDF | 2026 | 1 | 110 |
 | Cebraspe | PCES | 2022 | 2 | 74 |
-| Cebraspe | PCGO | 2016 | 4 | 89 |
-| Cebraspe | PCMA | 2017 | 7 | 246 |
+| Cebraspe | PCGO | 2016 | 4 | 88 |
+| Cebraspe | PCMA | 2017 | 7 | 241 |
 | Cebraspe | PCPB | 2021 | 20 | 541 |
 | Cebraspe | PCPE | 2023 | 5 | 195 |
 | Cebraspe | PCRJ | 2021 | 1 | 100 |
 | Cebraspe | PCRO | 2022 | 6 | 236 |
-| Cebraspe | PCSE | 2018 | 2 | 132 |
+| Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
 | Cebraspe | PF | 2018 | 4 | 414 |
 | Cebraspe | PF | 2021 | 4 | 233 |
-| Cebraspe | PF | 2025 | 6 | 244 |
+| Cebraspe | PF | 2025 | 6 | 248 |
 | Cebraspe | PMAL | 2017 | 2 | 94 |
 | Cebraspe | PMAL | 2018 | 1 | 108 |
 | Cebraspe | PMAL | 2021 | 2 | 190 |
 | Cebraspe | PMDF | 2025 | 2 | 78 |
-| Cebraspe | PMMA | 2017 | 3 | 117 |
+| Cebraspe | PMMA | 2017 | 3 | 115 |
 | Cebraspe | PMPA | 2023 | 4 | 111 |
 | Cebraspe | PMRO | 2022 | 1 | 89 |
 | Cebraspe | PMSC | 2023 | 2 | 117 |
-| Cebraspe | PMTO | 2020 | 1 | 47 |
-| Cebraspe | PRF | 2018 | 1 | 103 |
+| Cebraspe | PMTO | 2020 | 1 | 48 |
+| Cebraspe | PRF | 2018 | 1 | 101 |
 | Cebraspe | PRF | 2021 | 3 | 125 |
 
 ## Por disciplina
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 533 |
-| Informática | 425 |
-| Direito Processual Penal | 387 |
-| Direito Penal | 382 |
-| Direito Administrativo | 381 |
-| Direito Constitucional | 379 |
-| Legislação Penal Especial | 294 |
-| Medicina Legal | 183 |
-| Legislação Institucional | 161 |
+| Língua Portuguesa | 529 |
+| Informática | 424 |
+| Direito Processual Penal | 395 |
+| Direito Penal | 392 |
+| Direito Administrativo | 389 |
+| Direito Constitucional | 389 |
+| Legislação Penal Especial | 302 |
+| Legislação Institucional | 180 |
+| Medicina Legal | 178 |
+| Direitos Humanos | 128 |
 | Contabilidade Geral | 125 |
-| Direitos Humanos | 121 |
 | Geografia | 117 |
 | História | 116 |
 | Raciocínio Lógico | 97 |
@@ -68,16 +69,16 @@ Gerado por `emmoni coverage` em 2026-10-08 18:03 UTC. Não edite à mão.
 | Biologia | 75 |
 | Legislação de Trânsito | 71 |
 | Legislação Penal Militar | 68 |
-| Matemática | 67 |
-| Criminologia | 66 |
+| Matemática | 68 |
 | Química | 65 |
+| Criminologia | 63 |
 | Criminalística | 62 |
 | Atualidades | 47 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 36 |
 | Língua Inglesa | 36 |
-| Engenharia | 35 |
 | Direito Processual Civil | 31 |
+| Engenharia | 31 |
 | Direito Empresarial | 27 |
 | Física | 26 |
 | Direito Internacional | 24 |
@@ -86,11 +87,13 @@ Gerado por `emmoni coverage` em 2026-10-08 18:03 UTC. Não edite à mão.
 | Direito Previdenciário | 22 |
 | Administração Geral | 21 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
+| Execução Penal | 17 |
 | Redação Oficial | 11 |
+| Segurança Pública | 11 |
 | Direito Eleitoral | 9 |
-| Geopolítica | 9 |
 | Língua Espanhola | 8 |
 | Direito Financeiro | 7 |
+| Geopolítica | 7 |
 | Serviço Social | 7 |
 | Psicologia | 6 |
 | Saúde Pública | 6 |
@@ -98,14 +101,12 @@ Gerado por `emmoni coverage` em 2026-10-08 18:03 UTC. Não edite à mão.
 | Sociologia | 5 |
 | Administração Pública | 4 |
 | Direito do Consumidor | 4 |
-| Segurança Pública | 3 |
 | História da PRF | 2 |
 | Primeiros Socorros | 2 |
 
 ## Provas de manifestos aprovados fora do banco
 
 - `cbmal-2017/conhecimentos-basicos-cargo-1-oficial-combatente`
-- `depen-2020/agente`
 - `pcdf-2020/conhecimentos-basicos`
 - `pcientifica-pe-2016/auxiliar-de-legista`
 - `pcientifica-pe-2016/auxiliar-de-perito`

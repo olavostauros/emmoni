@@ -50,3 +50,21 @@ incluir `cespe.unb.br` nas fontes. Os demais eram de engenharia.
   cujo staging diverge do parser atual (decisão 0015) podem ser reprocessadas sem risco de
   publicar conteúdo não conferido.
 - `emmoni coverage` implementado (SPECIFICATIONS.md §8); `docs/coverage.md` é gerado.
+
+## Adendo (mesma data): reprocessamento, DEPEN 2020 e títulos de seção
+
+5. **Impressão digital só do que o `api` mostra.** Questão em `review` entra só com o número e a
+   pendência: corrigir o texto de uma questão escondida não tira a prova do ar; sair da revisão
+   tira (muda o que o `api` mostra). Os 109 registros foram migrados conferindo antes a impressão
+   antiga contra o banco; o único que não conferia (CBM/TO 2022 soldado, reprovado) ficou como
+   estava.
+6. **`emmoni review sample --also N...`**: questões além do sorteio. Na reamostragem de prova
+   reprocessada entram as questões que mudaram e são publicáveis — o sorteio determinístico
+   repetiria as já conferidas.
+7. **DEPEN 2020**: o cargo 8 (agente federal de execução penal) é de **nível médio**. Os itens
+   81–120 são os complementares de nível médio (gabarito `..._CG2_00`, 81–120), não os de nível
+   superior (`..._CG1_00`, 91–120) que o manifesto usava — daí os "itens 81–90 sem gabarito".
+   Manifesto e catálogo (`education_level: medio`) corrigidos; a prova carrega inteira.
+8. **Título de seção "Conhecimentos ..." sem negrito, em corpo maior** (CBM/TO 2021 e 2022, 12–15
+   pt contra 10 pt), inclusive quebrado em duas linhas, é título: não gruda mais na última
+   alternativa da coluna anterior. Com o parser antes e depois, só mudam as 4 questões visadas.

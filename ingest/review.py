@@ -25,6 +25,7 @@ import hashlib
 import html
 import json
 import random
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -139,15 +140,18 @@ def show(conn: Conn, ref: ExamRef, numbers: list[int]) -> list[QuestionView]:
     ]
 
 
-def sample_numbers(conn: Conn, ref: ExamRef, n: int) -> list[int]:
-    """Sorteio determinístico entre as questões sem motivo de revisão."""
-    exam_id = _exam_id(conn, ref)
+def _publishable(conn: Conn, ref: ExamRef) -> list[int]:
     rows = conn.execute(
         """select number from question
             where exam_id = %s and publish_status <> 'review' order by number""",
-        (exam_id,),
+        (_exam_id(conn, ref),),
     ).fetchall()
-    candidates = [int(str(r[0])) for r in rows]
+    return [int(str(r[0])) for r in rows]
+
+
+def sample_numbers(conn: Conn, ref: ExamRef, n: int) -> list[int]:
+    """Sorteio determinístico entre as questões sem motivo de revisão."""
+    candidates = _publishable(conn, ref)
     if not candidates:
         raise ReviewError(f"{ref}: nenhuma questão publicável para amostrar")
     return sorted(random.Random(str(ref)).sample(candidates, min(n, len(candidates))))
@@ -157,8 +161,12 @@ def sample_dir(data: Path, ref: ExamRef) -> Path:
     return data / "review" / ref.contest / ref.exam
 
 
-def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path) -> Path:
+def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path, also: Sequence[int] = ()) -> Path:
+    """`also`: questões que entram além do sorteio (ex.: as que mudaram no reprocessamento)."""
     numbers = sample_numbers(conn, ref, n)
+    if also:
+        publishable = set(_publishable(conn, ref))
+        numbers = sorted(set(numbers) | (set(also) & publishable))
     questions = show(conn, ref, numbers)
     directory = sample_dir(data, ref)
     directory.mkdir(parents=True, exist_ok=True)
@@ -184,11 +192,17 @@ def fingerprint(conn: Conn, exam_id: int) -> str:
     """Impressão digital do conteúdo conferido na amostragem.
 
     Por questão: número, `statement_hash` (enunciado, alternativas e texto-base), gabarito final,
-    status do gabarito, disciplina e se está em revisão. Assuntos ficam de fora: a classificação
-    tem amostragem própria (`review topics`) e muda sem mudar o que a amostra conferiu.
+    status do gabarito, disciplina e se está em revisão. Questão em revisão não aparece no `api`
+    nem entra na amostra: dela só contam o número e a pendência. Assuntos ficam de fora: a
+    classificação tem amostragem própria (`review topics`) e muda sem mudar o que a amostra
+    conferiu.
     """
     rows = conn.execute(
-        """select q.number, q.statement_hash, q.answer_final, q.answer_status::text, s.slug,
+        """select q.number,
+                  case when q.publish_status <> 'review' then q.statement_hash end,
+                  case when q.publish_status <> 'review' then q.answer_final end,
+                  case when q.publish_status <> 'review' then q.answer_status::text end,
+                  case when q.publish_status <> 'review' then s.slug end,
                   q.publish_status = 'review'
              from question q left join subject s on s.id = q.subject_id
             where q.exam_id = %s order by q.number""",

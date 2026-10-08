@@ -600,7 +600,11 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             if line.column == 0 and STOP.search(line.plain):
                 stream.extend(_with_figures(page, entries, skipped, start_y))
                 return stream
-            if SKIP.match(line.plain) or _subject_heading(line):
+            if (
+                SKIP.match(line.plain)
+                or _subject_heading(line)
+                or (skipped and _heading_continuation(skipped[-1], line))
+            ):
                 skipped.append(line)
                 gap = True
                 continue
@@ -645,14 +649,42 @@ def _stream(pages: list[Page]) -> list[_Entry]:
     return stream
 
 
+# Título de seção sem negrito, em corpo maior ("Conhecimentos acerca do Estado do Tocantins",
+# CBM/TO 2022, 12 pt contra 10 pt do texto): no alto da coluna, grudava na última alternativa.
+KNOWLEDGE_TITLE = re.compile(r"^Conhecimentos\b(?:\s+\S+){0,7}$", re.I)
+KNOWLEDGE_TITLE_MIN_SIZE = 11.5
+
+
 def _subject_heading(line: Line) -> bool:
-    """Linha só em negrito, curta, sem pontuação final, que começa com nome de disciplina."""
+    """Linha só em negrito, curta, sem pontuação final, que começa com nome de disciplina; ou
+    título de seção "Conhecimentos ..." em negrito ou em corpo maior."""
+    plain_text = line.plain.strip()
+    if (
+        KNOWLEDGE_TITLE.match(plain_text)
+        and not plain_text.endswith((".", ":", "?", ","))
+        and (line.text.strip().startswith("**") or (line.size or 0) >= KNOWLEDGE_TITLE_MIN_SIZE)
+    ):
+        return True
     text = line.text.strip()
     if not (text.startswith("**") and text.endswith("**")) or len(line.plain.split()) > 6:
         return False
     plain = line.plain.strip().casefold()
     return not plain.endswith((".", ":", "?")) and any(
         plain == name or plain.startswith(name + " ") for name in SUBJECT_NAMES
+    )
+
+
+def _heading_continuation(heading: Line, line: Line) -> bool:
+    """Segunda linha de um título "Conhecimentos ..." em corpo maior ("Conhecimentos acerca do
+    estado" / "do Tocantins", CBM/TO 2021): mesma coluna, mesmo corpo, logo abaixo, curta."""
+    return (
+        KNOWLEDGE_TITLE.match(heading.plain.strip()) is not None
+        and (heading.size or 0) >= KNOWLEDGE_TITLE_MIN_SIZE
+        and line.column == heading.column
+        and abs((line.size or 0) - (heading.size or 0)) < 0.5
+        and 0 < line.y0 - heading.y1 < (heading.size or 0)
+        and len(line.plain.split()) <= 4
+        and not line.plain.rstrip().endswith((".", ":", "?", ","))
     )
 
 
