@@ -3,7 +3,8 @@
 Três diretórios, três estados, tudo versionado no git:
 
 - `ingest/manifests/_pending/<concurso>.yaml` — proposto pelo crawler; **o crawler é dono** do
-  arquivo e o reescreve quando a fonte muda. Não edite: aprove e ajuste o aprovado.
+  arquivo, o reescreve quando a fonte muda e o apaga quando o concurso deixa de render proposta
+  (decisão 0012). Não edite: aprove e ajuste o aprovado.
 - `ingest/manifests/<concurso>.yaml` — aprovado (`emmoni manifests approve`); curado à mão
   depois disso. O crawler nunca reescreve; documentos novos só aparecem no relatório.
 - `ingest/manifests/_rejected/<concurso>.yaml` — rejeitado (`emmoni manifests reject`), com o
@@ -77,7 +78,11 @@ def build(contest: "ContestFound", exams: list["ExamFound"], source_slug: str) -
     evidence_exams: dict[str, Any] = {}
     exam_entries = []
     for exam in exams:
-        documents = {kind: doc.url for kind, doc in exam.documents.items()}
+        documents: dict[str, str | list[str]] = {
+            kind: doc.url for kind, doc in exam.documents.items()
+        }
+        for kind, more in exam.more_keys.items():
+            documents[kind] = [exam.documents[kind].url, *(doc.url for doc in more)]
         exam_entries.append(
             {
                 "slug": exam.slug,
@@ -97,6 +102,13 @@ def build(contest: "ContestFound", exams: list["ExamFound"], source_slug: str) -
                 for kind, doc in exam.documents.items()
             },
         }
+        for kind, more in exam.more_keys.items():
+            for position, doc in enumerate(more, start=2):
+                evidence_exams[exam.slug]["documents"][f"{kind}#{position}"] = {
+                    "url": doc.url,
+                    "link_text": doc.link_text,
+                    **doc.guessed.get("kind", {}),
+                }
     data: dict[str, Any] = {
         "contest": contest.slug,
         "name": contest.name,

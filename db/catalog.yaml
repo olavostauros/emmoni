@@ -153,7 +153,9 @@ agencies:
     career: policia_civil
     level: estadual
     state: PE
-    aliases: [PC_PE, PCPE]
+    # SDS_PE_16_CIVIL: concurso da PC-PE organizado pela secretaria (decisão 0012). O evento
+    # irmão SDS_PE_16_CIENTIFICA (Polícia Científica) não é da PC-PE e continua candidato.
+    aliases: [PC_PE, PCPE, SDS_PE_16_CIVIL]
     positions:
       - {slug: delegado, name: Delegado de Polícia, education_level: superior}
       - {slug: agente, name: Agente de Polícia, education_level: superior}

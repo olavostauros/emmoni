@@ -11,6 +11,9 @@
 - `emmoni review topics --n 50` / `--report`: amostra gerada em `data/review/assuntos/`, sem
   vereditos (registro de 2026-10-08).
 - Revisão humana substituída pela revisão do agente nos três pontos (decisão 0011).
+- Pontas soltas do M3 (decisão 0012): crawler propõe um gabarito por bloco em caderno único
+  (PCDF 2019), apaga propostas obsoletas de `_pending/`; SDS/PE 2016 entra como alias de evento
+  da PC-PE → `pcpe-2016` proposto e aprovado pelo agente.
 
 ## Em andamento
 - Nada em execução.
@@ -24,21 +27,20 @@
 3. Os 62 sem assunto: conferir se a disciplina do manifesto está certa antes de criar assunto
    novo; depois reclassificar.
 4. `ingest --step load` deveria seguir para as provas seguintes quando uma falha.
-5. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
-6. Etapa `structure` e exportação de imagens para as questões em `review` por figura, fórmula e
+5. `pcpe-2016` aprovado (sem ingestão): calibrar o parser nos cadernos de 2016, preencher
+   `first_number` e `subjects_by_range` e ingerir.
+6. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
+7. Etapa `structure` e exportação de imagens para as questões em `review` por figura, fórmula e
    layout (1.231).
 
 ## Bloqueios e perguntas em aberto
 - OCR (PDFs digitalizados) e itens sem gabarito legível: ver decisão 0009, adendo.
-- Proposta pendente que deixa de ser proposta (regra mudou) não é removida de `_pending/` pelo
-  crawler: `pmto-2020-qps` ficou e foi rejeitada à mão. Decidir se o crawler apaga ou marca.
-- SDS/PE (2016) continua fora do catálogo: a secretaria organizou concursos de PC-PE e de
-  Polícia Científica; decidir se entra como alias de `pcpe`.
-- PCDF 2019: um caderno com dois gabaritos definitivos (básicos e específicos); o manifesto aceita
-  um gabarito por prova. Mudar o modelo ou juntar os PDFs à mão na aprovação.
+- SDS/PE Polícia Científica (2016) segue órgão candidato: não é da PC-PE (decisão 0012).
+- DEPEN 2020: o gabarito de complementares (nível superior) ainda é acrescentado à mão; o nível
+  do cargo não está na API.
 - O registro de aprovação de provas (`data/review/<concurso>/<prova>/sample.json`) está no
   `.gitignore`: a aprovação só existe no banco de desenvolvimento. Decidir se vale versionar.
-- DPF 2014 (API do Cebraspe dá erro 500, tentado de novo diariamente) e concursos anteriores a
+- DPF 2014 e DEPEN 2015 (API do Cebraspe dá erro 500, tentado de novo diariamente) e concursos anteriores a
   2014 (`cespe.unb.br`, fora das fontes — incluir exige decisão).
 - `emmoni coverage` previsto na especificação, ainda não implementado.
 - Folga pequena em `facet_counts` sem filtros (281/300 ms), prevista na decisão 0002.
@@ -49,6 +51,6 @@
   1.231 `review` (extração) · 40 `draft` · 282 duplicatas marcadas
 - Provas: 18 aprovadas na amostragem; 90 sem amostragem; 5 não carregadas (DEPEN 2020, CBM/AL
   2017 básicos cargo 1, PCDF 2020 básicos, PM/TO 2020 QPE, PC/PB 2021 específicos cargo 8)
-- Propostas do crawler pendentes: 0 · manifestos aprovados: 41 · rejeitados: 1
+- Propostas do crawler pendentes: 0 · manifestos aprovados: 42 · rejeitados: 1
 - Taxonomia: 56 disciplinas, 863 assuntos
 - Contrato do front-end: **v1.1** (sem mudança)

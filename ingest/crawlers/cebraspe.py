@@ -494,6 +494,7 @@ def pair_exams(contest: ContestFound, cargos: dict[int, str], agency: Agency) ->
             )
             found = newer
         by_slug[slug] = found
+    _attach_block_keys(list(by_slug.values()), keys, used_keys)
     for key in keys:
         if key.url not in used_keys:
             key.reason = "gabarito sem prova correspondente"
@@ -501,6 +502,45 @@ def pair_exams(contest: ContestFound, cargos: dict[int, str], agency: Agency) ->
                 {"label": exam_label(key.link_text), "url": key.url, "reason": key.reason}
             )
     contest.exams = [e for e in by_slug.values() if any(k in e.documents for k in KEY_KINDS)]
+
+
+_BLOCK_ORDER = {"basicos": 0, "especificos": 1}
+
+
+def _attach_block_keys(exams: list[ExamFound], keys: list[FoundDocument], used: set[str]) -> None:
+    """Caderno único com um gabarito por bloco (PCDF 2019, decisão 0012).
+
+    O concurso tem uma só prova, sem bloco nem cargo no rótulo ('PROVA OBJETIVA'), já casada
+    com o gabarito de um bloco ('... CONHECIMENTOS ESPECÍFICOS'); os gabaritos dos outros blocos
+    ficaram sem prova. Eles entram na mesma prova, na ordem dos itens (básicos antes de
+    específicos). Mais de uma prova, ou gabarito sem bloco no rótulo: nada muda — o caso fica no
+    relatório como 'gabarito sem prova correspondente'.
+    """
+    if len(exams) != 1:
+        return
+    exam = exams[0]
+    label = exam_label(exam.documents["exam"].link_text)
+    if _scope_marker(label) or cargo_numbers(label):
+        return
+    for kind in KEY_KINDS:
+        paired = exam.documents.get(kind)
+        if paired is None:
+            continue
+        blocks = {_scope_marker(exam_label(paired.link_text)): paired}
+        if None in blocks:
+            continue
+        for key in sorted(keys, key=_sort_key):
+            marker = _scope_marker(exam_label(key.link_text))
+            if key.kind == kind and key.url not in used and marker and marker not in blocks:
+                blocks[marker] = key
+        if len(blocks) == 1:
+            continue
+        ordered = [blocks[m] for m in sorted(blocks, key=lambda m: _BLOCK_ORDER[str(m)])]
+        exam.documents[kind], exam.more_keys[kind] = ordered[0], ordered[1:]
+        used.update(doc.url for doc in ordered)
+        exam.evidence["pairing"][kind] = "caderno único com um gabarito por bloco: " + ", ".join(
+            exam_label(doc.link_text) for doc in ordered
+        )
 
 
 def _sort_key(doc: FoundDocument) -> tuple[datetime.datetime, str]:

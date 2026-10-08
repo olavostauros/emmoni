@@ -23,9 +23,11 @@ from pathlib import Path
 from typing import Any, Literal, Protocol
 
 import psycopg
+import yaml
 from psycopg.types.json import Jsonb
 
 from ingest import catalog as catalog_module
+from ingest import manifest as manifest_module
 from ingest import proposals
 from ingest.catalog import Catalog
 from ingest.crawlers.http import CrawlError, HostBlocked, NotAllowed, PoliteClient
@@ -58,6 +60,12 @@ class ExamFound:
     positions: list[str]
     documents: dict[str, FoundDocument]  # kind → documento ('exam' obrigatório)
     evidence: dict[str, Any] = field(default_factory=dict)
+    # Gabaritos do mesmo tipo além do primeiro, na ordem dos itens (caderno único com um gabarito
+    # por bloco, PCDF 2019; decisão 0012). O manifesto recebe a lista `[documents[k], *more[k]]`.
+    more_keys: dict[str, list[FoundDocument]] = field(default_factory=dict)
+
+    def all_documents(self) -> list[FoundDocument]:
+        return [*self.documents.values(), *(d for docs in self.more_keys.values() for d in docs)]
 
 
 ContestScope = Literal["in_scope", "candidate_agency", "out_of_scope"]
@@ -320,6 +328,7 @@ class Report:
     rejected: list[str] = field(default_factory=list)
     proposed: dict[str, str] = field(default_factory=dict)  # slug → nova | atualizada | sem mudança
     without_proposal: dict[str, str] = field(default_factory=dict)  # slug → motivo
+    removed: dict[str, str] = field(default_factory=dict)  # proposta apagada de _pending → motivo
     errors: list[str] = field(default_factory=list)
     blocked: dict[str, str] = field(default_factory=dict)
 
@@ -339,6 +348,8 @@ class Report:
             out.append(f"  proposta {slug}: {what}")
         for slug, why in sorted(self.without_proposal.items()):
             out.append(f"  sem proposta {slug}: {why}")
+        for slug, why in sorted(self.removed.items()):
+            out.append(f"  proposta removida {slug}: {why}")
         for prefix, events in sorted(self.candidate_agencies.items()):
             out.append(f"  órgão candidato ao catálogo {prefix}: {', '.join(events)}")
         out.extend(f"  host bloqueado {host}: {why}" for host, why in self.blocked.items())
@@ -388,7 +399,40 @@ def run_source(
         _sync_contest(
             contest, catalog, conn, source, manifests_dir, approved_urls, ingested, report
         )
+    _remove_stale_proposals(contests, source, manifests_dir, report)
     return report
+
+
+def _remove_stale_proposals(
+    contests: list[ContestFound], source: Source, manifests_dir: Path, report: Report
+) -> None:
+    """Apaga de `_pending/` a proposta que esta execução não refez (decisão 0012).
+
+    Só vale para concurso **visto e lido** nesta execução: a regra mudou e ele deixou de render
+    proposta, saiu do escopo ou mudou de slug. Concurso que sumiu da listagem, ou cujo detalhe
+    falhou, mantém a proposta — falha de rede não apaga nada. O git guarda o arquivo apagado.
+    """
+    by_url = {c.url: c for c in contests}
+    for path in proposals.list_pending(manifests_dir):
+        try:
+            pending = manifest_module.load(path)
+        except (ValueError, OSError, yaml.YAMLError):
+            continue  # proposta inválida: fica para quem aprova ver o erro
+        if pending.evidence.get("source") != source.slug:
+            continue
+        contest = by_url.get(pending.source_url or "")
+        if contest is None or contest.note:
+            continue
+        if contest.slug == path.stem and path.stem in report.proposed:
+            continue
+        if contest.scope != "in_scope":
+            why = f"concurso fora do escopo: {contest.reason}"
+        elif contest.slug != path.stem:
+            why = f"concurso agora proposto como {contest.slug}"
+        else:
+            why = report.without_proposal.get(path.stem, "sem proposta nesta execução")
+        path.unlink()
+        report.removed[path.stem] = why
 
 
 def _sync_contest(
@@ -444,7 +488,7 @@ def _sync_contest(
         return
     report.proposed[slug] = proposals.write_pending(manifest, manifests_dir)
     _upsert(conn, source, contest, status="proposed", reason=None)
-    proposed_urls = {doc.url for exam in proposable for doc in exam.documents.values()}
+    proposed_urls = {doc.url for exam in proposable for doc in exam.all_documents()}
     for doc in contest.documents:
         _upsert_document(
             conn, source, doc, slug, approved_urls, ingested, proposed=doc.url in proposed_urls
@@ -468,7 +512,7 @@ def _sync_approved(
         {
             doc.url
             for exam in contest.exams
-            for doc in exam.documents.values()
+            for doc in exam.all_documents()
             if doc.url not in approved_urls
         }
     )

@@ -440,7 +440,11 @@ crawler é obrigado a usar):
 reescrita quando a fonte muda (e só então; não tem data). O manifesto aprovado é curado à mão e
 **nunca** é reescrito pelo crawler: documento que chegar depois (ex.: o gabarito definitivo) para
 um concurso aprovado aparece no relatório e em `discovered_document` como `pending`, e a pessoa
-edita o manifesto e reroda a ingestão daquela prova (decisão 0007).
+edita o manifesto e reroda a ingestão daquela prova (decisão 0007). Proposta cujo concurso foi
+visto e lido na execução e não rendeu proposta com aquele slug (regra mudou, saiu do escopo, mudou
+de slug) é apagada de `_pending/`, com o motivo no relatório; falha de rede não apaga nada
+(decisão 0012). Caderno único com um gabarito por bloco (básicos, específicos) recebe a lista dos
+gabaritos, na ordem dos itens (decisão 0012).
 
 **Aprovação:** `emmoni manifests approve <slug>` valida a proposta (modelo da seção 7.2 e slugs do
 catálogo) e a move para `ingest/manifests/`. `emmoni manifests reject <slug> --reason "..."` move

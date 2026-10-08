@@ -160,7 +160,8 @@ def _event(url: str, name: str, year: int | None = None) -> cebraspe._Event:
         ("PM_TO_20_QPE", "PMTO QPE 2020", 2020, "in_scope", "pmto"),
         ("CBMTO_21", "CBMTO 2021", 2021, "in_scope", "cbmto"),
         ("DEPEN_20", "DEPEN 20", 2020, "in_scope", "depen"),
-        ("SDS_PE_16_CIVIL", "SDS/PE POLÍCIA CIVIL 2016", 2016, "candidate_agency", None),
+        ("SDS_PE_16_CIVIL", "SDS/PE POLÍCIA CIVIL 2016", 2016, "in_scope", "pcpe"),  # 0012
+        ("SDS_PE_16_CIENTIFICA", "SDS/PE Polícia Científica 2016", 2016, "candidate_agency", None),
         ("TJ_CE_25_NOTARIOS", "TJ CE 25 NOTÁRIOS", 2025, "out_of_scope", None),
         ("PRF_XX", "PRF sem ano", None, "out_of_scope", None),
     ],
@@ -298,8 +299,8 @@ def test_proposals_reproduce_the_manual_manifests(run: tuple[Runner, FakeSite, P
         # nunca ter prova que o crawler não achou.
         assert set(manual_exams) <= set(proposed_exams), path.stem
         for url, exam in manual_exams.items():
-            # O manifesto curado pode ter gabaritos a mais (PCDF 2019: dois PDFs para um caderno,
-            # decisão 0009); o crawler acha ao menos um, e nunca um que não esteja no manifesto.
+            # O manifesto curado pode ter gabaritos a mais (DEPEN 2020: complementares de nível
+            # superior, decisão 0009); o crawler acha ao menos um, e nunca um fora do manifesto.
             found = {
                 kind: set(proposed_exams[url].documents.urls(kind))
                 for kind in ("answer_key_preliminary", "answer_key_final")
@@ -322,8 +323,11 @@ def test_proposes_new_police_contests_and_reports_candidates(
     assert [e.positions for e in pcdf.exams] == [["agente"], ["agente"]]
     assert pcdf.evidence["contest"]["agency"]["rule"] == "prefixo PC_DF da URL do evento"
     # Órgãos policiais fora do catálogo só vão para o relatório; o detalhe não é buscado.
-    assert set(report.candidate_agencies) == {"SDS"}
-    assert not any("SDS_PE_16" in url for url in site.requested)
+    # SDS/PE: só o concurso da PC-PE entra, pelo alias do evento (decisão 0012).
+    assert report.candidate_agencies == {"SDS": ["SDS/PE Polícia Científica 2016"]}
+    assert not any("SDS_PE_16_CIENTIFICA" in url for url in site.requested)
+    pcpe2016 = manifest.load(manifests_dir / "_pending" / "pcpe-2016.yaml")
+    assert {e.slug: e.positions for e in pcpe2016.exams}["delegado"] == ["delegado"]
     # Órgãos estaduais e polícia penal (decisão 0008): propostos a partir das fixtures.
     # Slugs com sufixo: PM_PA_23_CFO/CFP, CBM_PA_23_CFO/CFP e PM_SC_23_OFICIAL/SOLDADO colidem.
     assert {
@@ -365,6 +369,65 @@ def test_proposes_new_police_contests_and_reports_candidates(
         "select next_fetch_at from crawl.page where url like '%%DPF_14_AGENTE'",
     )
     assert next_at == T0 + crawl.RETRY_AFTER_ERROR
+
+
+def test_single_booklet_gets_one_answer_key_per_block(run: tuple[Runner, FakeSite, Path]) -> None:
+    """PCDF 2019: caderno único, gabaritos de básicos e de específicos (decisão 0012)."""
+    runner, _, manifests_dir = run
+    runner()
+    proposed = manifest.load(manifests_dir / "_pending" / "pcdf-2019.yaml")
+    manual = manifest.load(manifest.MANIFESTS_DIR / "pcdf-2019.yaml")
+    [exam] = proposed.exams
+    assert exam.documents.urls("answer_key_final") == manual.exams[0].documents.urls(
+        "answer_key_final"
+    )  # básicos (CB1) antes de específicos
+    assert (
+        "um gabarito por bloco"
+        in proposed.evidence["exams"]["objetiva"]["pairing"]["answer_key_final"]
+    )
+    assert not any("CB1" in item["url"] for item in proposed.evidence["skipped"])
+    # Provas separadas por bloco (PCDF 2020) continuam com um gabarito cada.
+    pcdf2020 = manifest.load(manifests_dir / "_pending" / "pcdf-2020.yaml")
+    assert all(isinstance(e.documents.answer_key_final, str) for e in pcdf2020.exams)
+
+
+def _write_pending(manifests_dir: Path, slug: str, event: str, source: str = "cebraspe") -> Path:
+    path = manifests_dir / "_pending" / f"{slug}.yaml"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    url = f"https://www.cebraspe.org.br/concursos/{event}"
+    path.write_text(
+        f"""contest: {slug}
+name: proposta antiga
+agency: pcal
+exam_board: cebraspe
+year: 2026
+source_url: {url}
+exams:
+- slug: objetiva
+  name: prova
+  positions: [agente]
+  documents: {{exam: {url}/p.pdf, answer_key_final: {url}/g.pdf}}
+evidence: {{source: {source}}}
+""",
+        encoding="utf-8",
+    )
+    return path
+
+
+def test_stale_proposals_are_removed(run: tuple[Runner, FakeSite, Path]) -> None:
+    """Proposta que a regra atual não refaz sai de `_pending/` (decisão 0012)."""
+    runner, _, manifests_dir = run
+    no_exam = _write_pending(manifests_dir, "pcal-2026", "PC_AL_26")  # só edital na fonte
+    renamed = _write_pending(manifests_dir, "pmpa-2023", "PM_PA_23_CFP")  # agora pmpa-2023-cfp
+    unseen = _write_pending(manifests_dir, "pcxx-2020", "PC_XX_20")  # fora da listagem
+    failed = _write_pending(manifests_dir, "pf-2014", "DPF_14_AGENTE")  # detalhe com erro 500
+    other = _write_pending(manifests_dir, "pcal-2026-x", "PC_AL_26", source="outra")
+    report = runner()
+    assert not no_exam.exists() and not renamed.exists()
+    assert "nenhuma prova" in report.removed["pcal-2026"]
+    assert report.removed["pmpa-2023"] == "concurso agora proposto como pmpa-2023-cfp"
+    assert unseen.exists() and failed.exists() and other.exists()  # outra fonte: não é dele
+    assert set(report.removed) == {"pcal-2026", "pmpa-2023"}
 
 
 def test_skipped_exams_keep_their_reason(run: tuple[Runner, FakeSite, Path], tx: Conn) -> None:
@@ -470,5 +533,6 @@ def test_blocked_host_stops_without_proposals(tx: Conn, tmp_path: Path) -> None:
         log=lambda _: None,
     )
     assert "apis.cebraspe.org.br" in report.blocked
+    assert report.removed == {}
     assert report.proposed == {} and report.contests_seen == 0
     assert len([u for u in site.requested if "robots" not in u]) == 1

@@ -1,0 +1,150 @@
+{
+ "eventoURL": "SDS_PE_16_CIVIL",
+ "eventoNomeAbreviado": "SDS/PE POLÍCIA CIVIL 2016",
+ "eventoNomeCompleto": "Secretaria de Defesa Social do Estado de Pernambuco",
+ "eventoAno": 2016,
+ "eventoCargos": [
+  {
+   "idArea": "01",
+   "area": "Cargo 1: Agente de Polícia"
+  },
+  {
+   "idArea": "02",
+   "area": "Cargo 2: Delegado de Polícia "
+  },
+  {
+   "idArea": "03",
+   "area": "Cargo 3: Escrivão de Polícia "
+  }
+ ],
+ "arquivosEdital": [
+  {
+   "nomeArquivo": "ED_15_2016_SDS_PE_16_CIVIL_CONV_PCF_AGENTE_E_DELEGADO.PDF",
+   "descricaoArquivo": "Edital n. 15 - Inclusão do subitem 13.5.1 no edital de abertura, convocação para a prova de capacidade física (Agente e Delegado) e data de divulgação do resultado da prova prática de digitação (Escrivão)",
+   "dataArquivoObj": "2016-09-02T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "ED_1_2016_SDS_PE_16_CIVIL_ABT.PDF",
+   "descricaoArquivo": "Edital n. 1 - Abertura",
+   "dataArquivoObj": "2016-04-05T00:00:00",
+   "isGuid": false
+  }
+ ],
+ "arquivosGabarito": [
+  {
+   "nomeArquivo": "Texto 02.PDF",
+   "descricaoArquivo": "Prova de digitação - Gabarito - Primeira convocação",
+   "dataArquivoObj": "2016-08-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Texto 04.PDF",
+   "descricaoArquivo": "Prova de digitação - Gabarito - Segunda convocação",
+   "dataArquivoObj": "2016-08-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Texto 01.PDF",
+   "descricaoArquivo": "Prova de digitação - Gabarito - Terceira convocação",
+   "dataArquivoObj": "2016-08-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Texto 03.PDF",
+   "descricaoArquivo": "Prova de digitação - Gabarito - Quarta convocação",
+   "dataArquivoObj": "2016-08-24T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_257_SDS_PE_001_01.PDF",
+   "descricaoArquivo": "Gabarito definitivo - CARGO 2 - DELEGADO DE POLÍCIA",
+   "dataArquivoObj": "2016-07-15T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PadraoRespostaDefinitivo.PDF",
+   "descricaoArquivo": "Padrão definitivo de resposta - CARGO 2 - DELEGADO DE POLÍCIA PEÇA DE NATUREZA CAUTELAR",
+   "dataArquivoObj": "2016-07-15T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PadraoRespostaDefinitivo_01.PDF",
+   "descricaoArquivo": "Padrão definitivo de resposta - CARGO 2 - DELEGADO DE POLÍCIA QUESTÃO 1",
+   "dataArquivoObj": "2016-07-15T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PadraoRespostaDefinitivo_02.PDF",
+   "descricaoArquivo": "Padrão definitivo de resposta - CARGO 2 - DELEGADO DE POLÍCIA QUESTÃO 2",
+   "dataArquivoObj": "2016-07-15T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "257_SDS_PE_001_01.PDF",
+   "descricaoArquivo": "Caderno de prova - CARGO 2 - DELEGADO DE POLÍCIA",
+   "dataArquivoObj": "2016-06-21T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "257_SDS_PE_001_DISC_01.PDF",
+   "descricaoArquivo": "Prova discursiva - CARGO 2 - DELEGADO DE POLÍCIA",
+   "dataArquivoObj": "2016-06-21T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "258_SDS_PE_DISC_001_01.PDF",
+   "descricaoArquivo": "Prova discursiva",
+   "dataArquivoObj": "2016-06-14T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "258_SDS_PE_DISC_SUPER_001_01.PDF",
+   "descricaoArquivo": "Prova discursiva - Super Ampliada",
+   "dataArquivoObj": "2016-06-14T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "258_SDS_PE_001_01.PDF",
+   "descricaoArquivo": "Caderno de prova - Agente de polícia",
+   "dataArquivoObj": "2016-06-14T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "258_SDS_PE_002_01.PDF",
+   "descricaoArquivo": "Caderno de prova - Escrivão de polícia",
+   "dataArquivoObj": "2016-06-14T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "258_SDS_PE_CG1_01.PDF",
+   "descricaoArquivo": "Caderno de prova - Conhecimentos gerais",
+   "dataArquivoObj": "2016-06-14T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "PadraoRespostaDefinitivo_258001A06_001.PDF",
+   "descricaoArquivo": "Padrão definitivo de resposta da prova discursiva realizada no dia 12/06/2016",
+   "dataArquivoObj": "2016-06-11T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_258_SDS_PE_001_01.PDF",
+   "descricaoArquivo": "Gabarito definitivo - Agente de polícia",
+   "dataArquivoObj": "2016-06-11T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_258_SDS_PE_002_01.PDF",
+   "descricaoArquivo": "Gabarito definitivo - Escrivão de polícia",
+   "dataArquivoObj": "2016-06-11T00:00:00",
+   "isGuid": false
+  },
+  {
+   "nomeArquivo": "Gab_Definitivo_258_SDS_PE_CG1_01.PDF",
+   "descricaoArquivo": "Gabarito definitivo - Conhecimentos gerais",
+   "dataArquivoObj": "2016-06-11T00:00:00",
+   "isGuid": false
+  }
+ ]
+}
