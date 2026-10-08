@@ -21,12 +21,8 @@
 - Nada em execução.
 
 ## Próximos passos
-0. **Rodada 2 da amostragem** (registro `2026-10-08-amostragem-rodada-1.md`): regerar as
-   amostras e revisar de novo; os vereditos da rodada 1 não valem.
-1. Amostragem por prova pelo agente (`emmoni review sample` / `approve --by <modelo>`) das 90
-   provas novas para publicá-las no `api`. O revisor de assuntos já viu texto-base errado em
-   pcgo-2016 (escrivão básicos) q14, pcpe-2023/p1-cargo-1 q6, cbmro-2022/oficial q84 e
-   pcma-2017-delegado q99: corrigir a segmentação antes de amostrar essas provas.
+0. **Reamostrar as 18 provas do M2** (pf/prf): foram reprocessadas depois de aprovadas
+   (registro `2026-10-08-publicacao-das-90-provas.md`).
 2. Começar o M5 (crawler e parser de outra banca).
 3. `ingest --step load` deveria seguir para as provas seguintes quando uma falha.
 4. `pcpe-2016` aprovado (sem ingestão): calibrar o parser nos cadernos de 2016, preencher
@@ -48,10 +44,10 @@
 - Folga pequena em `facet_counts` sem filtros (281/300 ms), prevista na decisão 0002.
 
 ## Números
-- Questões visíveis no esquema `api`: 1.190 (seed + as 18 provas aprovadas)
-- Reais: 6.314 carregadas (39 concursos, 108 provas) · 5.083 `published` (todas com assunto) ·
-  1.231 `review` (extração) · 0 `draft` · 282 duplicatas marcadas
-- Provas: 18 aprovadas na amostragem; 90 sem amostragem; 5 não carregadas (DEPEN 2020, CBM/AL
+- Questões visíveis no esquema `api`: 5.000 (seed + as 108 provas aprovadas)
+- Reais: 6.314 carregadas (39 concursos, 108 provas) · 5.301 `published` (todas com assunto) ·
+  1.013 `review` (extração) · 0 `draft` · 282 duplicatas marcadas
+- Provas: 108 aprovadas na amostragem (90 nesta sessão, decisão 0014); 5 não carregadas (DEPEN 2020, CBM/AL
   2017 básicos cargo 1, PCDF 2020 básicos, PM/TO 2020 QPE, PC/PB 2021 específicos cargo 8)
 - Propostas do crawler pendentes: 0 · manifestos aprovados: 42 · rejeitados: 1
 - Taxonomia: 56 disciplinas, 899 assuntos

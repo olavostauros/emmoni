@@ -563,7 +563,8 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 - Amostragem por prova (feita pelo agente, decisão 0011): para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
   (de forma determinística) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
   com cada questão ao lado da página do PDF; a prova só vai para `published` após a conferência
-  (`emmoni review approve --by <modelo>`, que registra quem aprovou em `sample.json`).
+  (`emmoni review approve --by <modelo>`, que registra quem aprovou em `sample.json`). A amostra traz também `amostra.md` e as páginas em PNG; o revisor segue
+  `ingest/prompts/review-sample@1.md` e grava `verdicts.json` (decisão 0014).
 - Amostragem da classificação: `emmoni review topics --n 50` sorteia 50 questões classificadas e
   gera `data/review/assuntos/amostra.{json,md}`; o agente revisor, em contexto separado do
   `classify`, grava `verdict` e `reviewed_by`, e `--report` mede o acerto (critério do M4,
