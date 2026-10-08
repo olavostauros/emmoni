@@ -42,6 +42,7 @@ class Line(BaseModel):
     column: int  # 0 = largura total, 1 = esquerda, 2 = direita
     size: float  # tamanho da fonte predominante
     scripts: bool = False  # trechos em fonte bem menor no meio da linha (índices, expoentes)
+    odd_glyph: bool = False  # dígito solto em fonte própria entre letras: símbolo sem mapeamento
 
 
 class Figure(BaseModel):
@@ -150,6 +151,17 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
         and not ORDINAL.match(s["text"].strip(" \xa0"))
         for s in body
     )
+    # "P→Q" vira "P6Q" quando a seta vem de uma fonte sem mapeamento Unicode (CBM/AL 2017).
+    odd_glyph = any(
+        len(s["text"].strip()) == 1
+        and s["text"].strip().isdigit()
+        and s["font"] != spans[i - 1]["font"]
+        and s["font"] != spans[i + 1]["font"]
+        and spans[i - 1]["text"].rstrip()[-1:].isalpha()
+        and spans[i + 1]["text"].lstrip()[:1].isalpha()
+        for i, s in enumerate(spans)
+        if 0 < i < len(spans) - 1
+    )
     return Line(
         text=markdown,
         plain=plain,
@@ -158,6 +170,7 @@ def _line(raw: dict[str, Any], middle: float) -> Line | None:
         x1=x1,
         y1=y1,
         column=column,
+        odd_glyph=odd_glyph,
         size=main,
         scripts=scripts,
     )
@@ -196,6 +209,7 @@ SYMBOL_PUA = str.maketrans(
 def _clean(text: str) -> str:
     text = text.translate(SYMBOL_PUA).replace("\xa0", " ").replace("­", "")
     text = text.replace("FimDoTexto", " ")  # marcador invisível de fim de texto (Cebraspe)
+    text = re.sub(r"\*\\t/\*|\\t/", "", text)  # span de lixo "\t/" em itálico (PC/SE 2018)
     # Glifo de fonte matemática sem mapeamento sai como caractere de controle (\x0c para "μ"): vira
     # U+FFFD antes de normalizar espaços, para o parser marcar fórmula em vez de sumir com ele.
     text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "\ufffd", text)

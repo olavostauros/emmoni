@@ -405,3 +405,23 @@ def test_items_before_first_do_not_leak_into_the_first_passage() -> None:
     (question,) = segmented.questions
     passage = next(p for p in segmented.passages if p.key == question.passage_key)
     assert passage.body_md == "Determinado órgão público publicou edital."
+
+
+def test_command_split_across_columns_is_rejoined() -> None:
+    """PM/AL 2018: o comando começa no fim do texto ("...aos sentidos do") e continua na outra
+    coluna ("texto 1A1-I, julgue"); a frase inacabada volta para o comando."""
+    page = _page(
+        [
+            _line("Texto 1A1-I", 28, 40, x1=90),
+            _line("A violência cresce nas cidades.", 57, 52),
+            _line("No que concerne aos aspectos linguísticos do", 28, 64),
+            _line("texto 1A1-I, julgue os itens a seguir.", 28, 76),
+            _line("**1** O texto é narrativo.", 28, 96),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    (question,) = segmented.questions
+    assert question.statement_md.startswith(
+        "No que concerne aos aspectos linguísticos do texto 1A1-I"
+    )
+    assert segmented.passages[0].body_md == "A violência cresce nas cidades."

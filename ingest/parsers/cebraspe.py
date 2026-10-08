@@ -85,6 +85,13 @@ FIGURE_REF = re.compile(
 # Título de disciplina em caixa alta entre questões ("DIREITO FINANCEIRO E TRIBUTÁRIO",
 # "35. HISTÓRIA E GEOGRAFIA DE RONDÔNIA" em PC/RO 2022): encerra a alternativa e não é texto-base.
 SECTION_TITLE = re.compile(r"^(?:\d+\.\s+)?[A-ZÀ-Ú][A-ZÀ-Ú ,.()–-]{3,}$")
+# Remissão a linha de texto ("(ℓ.18)", que algumas fontes entregam como "(R.18)").
+LINE_REF = re.compile(r"\((?:ℓ|R|l)\.\s?\d")
+# Texto-base que é só a legenda/crédito de uma imagem (tirinha, charge): o conteúdo ficou na figura.
+CREDIT_ONLY = re.compile(
+    r"^(?:Fonte:.*|Internet:.*|.*\((?:com adaptações|adapted|adaptado)\)\.?|Quino\..*)$",
+    re.I | re.S,
+)
 BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extraído como "C"
 TEXT_REF = re.compile(rf"\btexto?\s+{_LABEL}", re.I)  # "texto CG1A1-I", "text 1A2-II"
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
@@ -211,6 +218,7 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     labels = {label: p.key for p in passages.values() for label in _passage_labels(p)}
     for question in questions:
         question.flags = sorted({*question.flags, *_reference_flags(question, labels)})
+    _passage_flags(questions, passages)
     return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
 
 
@@ -283,6 +291,7 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
     close()
     if lead.entries and questions:
         questions[-1].flags = sorted({*questions[-1].flags, "orphan_text"})
+    _passage_flags(questions, passages)
     return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
 
 
@@ -432,7 +441,9 @@ def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
     cited = {m.group(1) for m in LABEL_REF.finditer(text)}
     if any(label not in labels for label in cited):
         flags.add("missing_passage")
-    if question.passage_key is None and IMPLICIT_REF.search(question.statement_md):
+    if question.passage_key is None and (
+        IMPLICIT_REF.search(question.statement_md) or LINE_REF.search(text)
+    ):
         flags.add("missing_passage")
     if FIGURE_REF.search(text):
         flags.add("figure")
@@ -441,6 +452,29 @@ def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
 
 def _section_title(plain: str) -> bool:
     return SECTION_TITLE.match(plain) is not None and len(plain.split()) >= 2
+
+
+def _bold_title(paragraph: str) -> bool:
+    text = paragraph.strip()
+    return (
+        text.startswith("**")
+        and text.endswith("**")
+        and text.count("**") == 2
+        and len(text.split()) <= 8
+        and not text.rstrip("*").endswith((".", ":", "?"))
+    )
+
+
+def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]) -> None:
+    """Texto-base que cita figura/tabela ou que é só o crédito de uma imagem: a questão depende de
+    uma figura que não foi extraída."""
+    for question in questions:
+        passage = passages.get(question.passage_key or "")
+        if passage is None:
+            continue
+        body = passage.body_md.strip()
+        if FIGURE_REF.search(body) or (len(body) < 250 and CREDIT_ONLY.match(body)):
+            question.flags = sorted({*question.flags, "figure"})
 
 
 def _bold_heading(entries: list[_Entry]) -> bool:
@@ -566,8 +600,11 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             ):
                 continue  # rótulos de gráfico desenhados sobre a imagem (título de questão não)
             if in_justification:
-                if line.x0 > lefts[line.column] + ITEM_INDENT:
-                    continue  # continuação da justificativa, recuada como continuação de item
+                indent = line.x0 - lefts[line.column]
+                # Continuação da justificativa fica no recuo de continuação de item (~18); recuo de
+                # parágrafo (~29) é o começo de um texto-base (PCDF 2019/2020): não é justificativa.
+                if ITEM_INDENT < indent < PARAGRAPH_INDENT_AT - 4:
+                    continue
                 in_justification = False  # linha na margem: próximo item ou comando
             # Tabela de justificativas (PC/PE 2023): fica no fluxo, e a múltipla escolha pula
             # tudo até o próximo título de questão (as linhas da tabela estão na margem).
@@ -590,6 +627,8 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 entry.flags.add("formula")
             if line.x0 > entry.left + ODD_INDENT and entry.short and line.size >= CITATION_SIZE:
                 entry.flags.add("layout")  # linha recuada e curta: código, tabela, fórmula
+            if line.odd_glyph:
+                entry.flags.add("formula")  # símbolo que saiu como dígito ("P6Q")
             if line.scripts:
                 entry.flags.add("formula")  # índices/expoentes que o texto puro achata
             entries.append(entry)
@@ -712,6 +751,8 @@ def _open_group(
         # ...a menos que remeta a um texto rotulado: aí o rotulado é o texto-base e a situação
         # abre o enunciado junto com o comando.
         return "\n\n".join([*situation, command] if command else situation), referenced, flags
+    if len(situation) == 1 and _bold_title(situation[0]):
+        situation = []  # título de seção em negrito ("**Legislação pertinente ao CBMAL**")
     if situation:
         key = f"g{first}"
         _add_passage(passages, key, situation, last_entries)
@@ -836,7 +877,18 @@ def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:
         if COMMAND.search(sentence):
             before = " ".join(sentences[:index]).strip()
             command = " ".join(sentences[index:]).strip()
-            return [*rest, before] if before else rest, command
+            if (
+                not before
+                and rest
+                and command[:1].islower()
+                and not rest[-1].rstrip().endswith(SENTENCE_STOP_FULL)
+            ):
+                # Comando partido na troca de coluna (PM/AL 2018): "No que concerne aos ... do" |
+                # "texto 1A1-I, julgue". A frase inacabada do parágrafo anterior abre o comando.
+                *done, unfinished = SENTENCE_END.split(rest[-1])
+                rest = [*rest[:-1], " ".join(done).strip()] if done else rest[:-1]
+                command = f"{unfinished.strip()} {command}"
+            return [*rest, before] if before else [p for p in rest if p], command
     if not last.rstrip().endswith(SENTENCE_STOP_FULL):
         # Sem "julgue": frase inacabada no fim ("Nessa situação hipotética,") que cada item completa.
         before = " ".join(sentences[:-1]).strip()
