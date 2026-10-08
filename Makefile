@@ -21,7 +21,7 @@ export EMMONI_DB_PORT EMMONI_API_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_UR
 UV     ?= uv
 DBMATE ?= dbmate --wait
 
-.PHONY: help db-up db-down db-reset api-up api-down api-smoke install migrate catalog seed seed-build test test-db migrations-roundtrip \
+.PHONY: help db-up db-down db-reset api-up api-down api-smoke prod-image prod-audit install migrate catalog seed seed-build test test-db migrations-roundtrip \
         lint format check crawl bench gates
 
 help:
@@ -46,6 +46,13 @@ api-down: ## Para a API HTTP
 
 api-smoke: ## Confere a API HTTP no ar (catálogo, busca, facetas, questão, erro 400)
 	scripts/api-smoke.sh
+
+SCOPE ?= seed
+prod-image: ## Imagem de produção da API (SCOPE=seed|all; decisão 0022, docs/DEPLOY.md)
+	deploy/build.sh $(SCOPE)
+
+prod-audit: ## Audita uma imagem de produção (IMAGE=<tag>) num container descartável
+	python3 -I deploy/audit.py --image $(IMAGE)
 
 install: ## Instala o ambiente Python
 	$(UV) sync --frozen

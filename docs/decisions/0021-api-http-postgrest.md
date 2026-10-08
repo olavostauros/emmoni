@@ -34,6 +34,6 @@ F2) ou para desenvolver contra o banco.
 - O contrato ganha a seção "Acesso por HTTP" (v1.3, sem mudança no esquema).
 - **Imagens não são servidas** pela API: `assets[].url` continua `/assets/<sha256>.<ext>`, a ser
   servido pelo front-end (o snapshot do Plantão já copia `data/assets/`).
-- **Não é deploy público.** Publicar exige outra decisão: senha própria do `emmoni_web`, TLS,
+- **Não é deploy público.** Publicar exige outra decisão (veio na 0022, Cloud Run): senha própria do `emmoni_web`, TLS,
   limite de taxa e de tempo de consulta (`statement_timeout`), CORS restrito ao domínio do site e
   hospedagem do banco. Até lá, o Plantão continua no snapshot.

@@ -40,6 +40,9 @@ A mesma interface deste documento, por HTTP (decisão 0021). Só local, sem depl
 - Erro `22023` → **HTTP 400** com `{"code": "22023", "message": "...", "hint": "...", "details": null}`.
 - Imagens não são servidas pela API: `assets[].url` (`/assets/...`) continua por conta do site.
 - CORS aberto; porta ajustável por `EMMONI_API_PORT`.
+- **Produção** (decisão 0022, `docs/DEPLOY.md`): a mesma API no Google Cloud Run, com CORS só para
+  `https://olavostauros.github.io`. A URL pública entra aqui quando o serviço for público; até lá,
+  só o seed será publicado sem o sim do dono para as questões reais.
 
 ## 2. Funções
 

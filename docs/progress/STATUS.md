@@ -10,11 +10,18 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
   (decisão 0020, `2026-10-08-pf-2012-site-antigo.md`).
 - Provas aprovadas reprocessadas com o parser novo: 67 créditos emendados no banco, as 117 provas
   seguem publicadas sem reamostragem (`2026-10-08-reprocessamento-creditos.md`).
+- API HTTP local por PostgREST (decisão 0021, contrato v1.3) e deploy no Google Cloud Run
+  preparado, sem nada criado na nuvem (decisão 0022, `docs/DEPLOY.md`, agentes atlas e cerberus;
+  `2026-10-08-api-http-e-deploy.md`).
 
 ## Em andamento
-- Nada em execução. Branch `worktree-credit-end-reprocess` ainda não integrado ao `main` (PR aberto).
+- PR #2 (`worktree-credit-end-reprocess`) e PR #3 (`api-http`, empilhado: API HTTP + deploy)
+  abertos como rascunho, sem merge.
+- Deploy: passo 0 de `docs/DEPLOY.md` §4 (estimativa) aguardando o "vai" do dono.
 
 ## Próximos passos
+0. Deploy (`docs/DEPLOY.md` §4), pelo agente atlas, um passo por sim do dono: projeto
+   `emmoni-prod` → contas → budget → corte → imagem seed → serviço privado → público com seed.
 1. Crédito em três linhas ou mais: só as duas últimas são emendadas (PM/MA 2017 g39, INFOPEN do
    DEPEN). Corrigir no parser e reprocessar como em `2026-10-08-reprocessamento-creditos.md`.
 2. Avaliar ligar o estilo pelas larguras (`legacy`) nos cadernos novos com fontes "TT…o00"
@@ -33,6 +40,9 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 10. PM/MA 2017: 6 documentos fora do manifesto (decisão 0009): confirmar e silenciar no relatório.
 
 ## Bloqueios e perguntas em aberto
+- Publicar as questões reais na API (imagem `all`) e no snapshot do Plantão: sim do dono.
+- O `emmoni-prod` vai usar o mesmo crédito do Usher; o `CYBERSECURITY.md` do Usher trata projeto
+  novo na conta como achado: registrar lá que é esperado.
 - CBM/AL 2017 básicos cargo 1 e PC/PB 2021 cargo 8 item 80 seguem fora.
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (estão também no site antigo: tentar por lá).
 - Sessões paralelas compartilham o Postgres; a regra é de processo, sem trava (decisão 0019).
@@ -44,4 +54,4 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
   banco, 21 delas de `pcpe-2016` e `pcientifica-pe-2016`
 - Propostas do crawler pendentes: 0 · manifestos: 44 (1 do `cespe-unb`) · rejeitados: 1
 - Taxonomia: 57 disciplinas, 911 assuntos
-- Contrato do front-end: **v1.2**
+- Contrato do front-end: **v1.3** (no branch `api-http`; o `main` ainda tem a v1.2)
