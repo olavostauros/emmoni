@@ -30,7 +30,7 @@ SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FI
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
     r"^(BLOCO [IVX]+|Espaço livre|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
     # título de seção no meio do caderno (PM/AL 2021, PCDF 2019), código da matriz, lixo "! !"
-    r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d)? ?-*|›+ ?Matriz_\S*|[!\s]+)$",
+    r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d)? ?-*|›* ?Matriz_\S*|P[áa]gina: ?\d+|[!\s]+)$",
     re.I,
 )
 # Nomes de disciplina (db/taxonomy): faixa de título de seção em negrito ("**Língua Portuguesa**",
@@ -79,7 +79,7 @@ IMPLICIT_REF = re.compile(
 # questão não se sustenta.
 FIGURE_REF = re.compile(
     r"\b(?:figuras?|gr[áa]ficos?|imagens?|ilustra[çc][ãa]o|esquemas?|mapas?|planilhas?|circuitos?|cartogramas?|tabelas?)\s+"
-    r"(?:precedentes?|anteriore?s?|a seguir|abaixo|acima|seguintes?|que segue|apresentad[ao]s?)\b",
+    r"(?:precedentes?|anteriore?s?|a seguir|abaixo|acima|seguintes?|que segue|apresentad[ao]s?|mostrad[ao]s?|ilustrad[ao]s?)\b",
     re.I,
 )
 # Título de disciplina em caixa alta entre questões ("DIREITO FINANCEIRO E TRIBUTÁRIO",

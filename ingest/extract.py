@@ -202,6 +202,7 @@ SYMBOL_PUA = str.maketrans(
         0xF0B7: "•",
         0xF0D7: "·",
         0xF0DA: "∨",
+        0x00FE: "…",  # "þ": reticências de fonte sem mapeamento (CBM/AL 2017); não existe em português
     }
 )
 
