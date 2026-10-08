@@ -878,11 +878,11 @@
  "115": {
   "topics": [
    {
-    "path": "legislacao_institucional.policiamento_e_operacoes",
-    "confidence": 0.55
+    "path": "legislacao_institucional.forca_nacional",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Força Nacional de Segurança Pública (Lei nº 11.473/2007)"
+  "suggested_topic": ""
  },
  "116": {
   "topics": [

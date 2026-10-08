@@ -170,29 +170,29 @@
  "67": {
   "topics": [
    {
-    "path": "quimica.quimica_analitica",
-    "confidence": 0.55
+    "path": "quimica.quimica_ambiental",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Química ambiental: qualidade da água, poluentes e química verde"
+  "suggested_topic": ""
  },
  "68": {
   "topics": [
    {
-    "path": "quimica.quimica_analitica",
-    "confidence": 0.5
+    "path": "quimica.quimica_ambiental",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Química ambiental: qualidade da água, poluentes e química verde"
+  "suggested_topic": ""
  },
  "69": {
   "topics": [
    {
-    "path": "quimica.quimica_analitica",
-    "confidence": 0.5
+    "path": "quimica.quimica_ambiental",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Química ambiental: qualidade da água, poluentes e química verde"
+  "suggested_topic": ""
  },
  "70": {
   "topics": [
@@ -281,20 +281,20 @@
  "78": {
   "topics": [
    {
-    "path": "quimica.quimica_analitica",
-    "confidence": 0.55
+    "path": "quimica.quimiometria",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Quimiometria: estatística aplicada, planejamento de experimentos e validação de métodos"
+  "suggested_topic": ""
  },
  "79": {
   "topics": [
    {
-    "path": "quimica.quimica_analitica",
-    "confidence": 0.55
+    "path": "quimica.quimiometria",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Quimiometria: estatística aplicada, planejamento de experimentos e validação de métodos"
+  "suggested_topic": ""
  },
  "80": {
   "topics": [

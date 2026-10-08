@@ -6,3 +6,6 @@ topics:
   - {slug: governanca-e-transparencia, name: "Governança, transparência e controle social"}
   - {slug: gestao-por-resultados, name: "Gestão por resultados e indicadores"}
   - {slug: reforma-do-estado, name: "Reforma do Estado e evolução da administração pública brasileira"}
+  - {slug: organizacao-da-administracao-publica, name: "Organização da administração pública: direta, indireta e agências reguladoras"}
+  - {slug: compras-publicas, name: "Compras e contratações públicas (Lei nº 14.133/2021)"}
+  - {slug: gestao-de-processos, name: "Gestão de processos no setor público"}

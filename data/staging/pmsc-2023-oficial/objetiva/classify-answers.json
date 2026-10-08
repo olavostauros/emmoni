@@ -293,11 +293,11 @@
  "28": {
   "topics": [
    {
-    "path": "direito_processual_penal.sujeitos_processuais.juiz",
-    "confidence": 0.5
+    "path": "direito_processual_penal.atos_processuais_e_prazos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Atos processuais e prazos: disposições gerais do CPP (arts. 798 a 803)"
+  "suggested_topic": ""
  },
  "29": {
   "topics": [

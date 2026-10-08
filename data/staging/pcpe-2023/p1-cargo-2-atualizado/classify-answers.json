@@ -436,20 +436,20 @@
  "43": {
   "topics": [
    {
-    "path": "direito_processual_penal.questoes_e_processos_incidentes",
-    "confidence": 0.5
+    "path": "direito_processual_penal.execucao_penal",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Execução penal: incidentes de execução (Lei nº 7.210/1984)"
+  "suggested_topic": ""
  },
  "44": {
   "topics": [
    {
-    "path": "direito_processual_penal.questoes_e_processos_incidentes",
-    "confidence": 0.5
+    "path": "direito_processual_penal.execucao_penal",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Execução penal: anistia, indulto e incidentes de execução (Lei nº 7.210/1984)"
+  "suggested_topic": ""
  },
  "45": {
   "topics": [
@@ -539,11 +539,11 @@
  "54": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
-    "confidence": 0.55
+    "path": "legislacao_penal_especial.lei_henry_borel",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Henry Borel (Lei nº 14.344/2022): violência doméstica e familiar contra a criança e o adolescente"
+  "suggested_topic": ""
  },
  "55": {
   "topics": [
@@ -924,11 +924,11 @@
  "95": {
   "topics": [
    {
-    "path": "direito_tributario.administracao_tributaria",
-    "confidence": 0.55
+    "path": "direito_tributario.ilicito_tributario",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Ilícito tributário e crimes contra a ordem tributária (Lei nº 8.137/1990)"
+  "suggested_topic": ""
  },
  "96": {
   "topics": [

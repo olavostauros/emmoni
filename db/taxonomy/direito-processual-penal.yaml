@@ -87,3 +87,5 @@ topics:
     name: Habeas corpus, revisão criminal e mandado de segurança
   - slug: relacoes-jurisdicionais-com-autoridade-estrangeira
     name: Relações jurisdicionais com autoridade estrangeira
+  - {slug: execucao-penal, name: "Execução penal: incidentes, anistia, graça e indulto"}
+  - {slug: atos-processuais-e-prazos, name: "Atos processuais e prazos"}

@@ -52,7 +52,8 @@ exams:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_006_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_006_01.PDF
   subjects_by_range:
-  - {from: 51, to: 72, subject: engenharia}
+  - {from: 51, to: 57, subject: fisica}
+  - {from: 58, to: 72, subject: engenharia}
   - {from: 73, to: 80, subject: criminalistica}
 - slug: conhecimentos-especificos-cargo-7
   name: PROVA OBJETIVA - CONHECIMENTOS ESPECÍFICOS - CARGO 7

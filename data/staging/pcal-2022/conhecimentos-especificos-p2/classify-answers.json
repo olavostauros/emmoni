@@ -780,11 +780,11 @@
  "105": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.crimes_ciberneticos",
-    "confidence": 0.5
+    "path": "legislacao_penal_especial.programa_de_computador",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Crimes contra a propriedade intelectual de programa de computador (Lei nº 9.609/1998)"
+  "suggested_topic": ""
  },
  "106": {
   "topics": [

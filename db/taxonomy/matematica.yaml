@@ -28,3 +28,6 @@ topics:
       - {slug: medidas-de-dispersao, name: "Mediana, moda e medidas de dispersão"}
   - {slug: unidades-de-medida, name: "Grandezas, unidades de medida e conversões"}
   - {slug: problemas-aritmeticos, name: "Problemas aritméticos e situações-problema"}
+  - {slug: numeros-complexos, name: "Números complexos"}
+  - {slug: polinomios, name: "Polinômios"}
+  - {slug: teoria-dos-conjuntos, name: "Teoria dos conjuntos e diagramas de Venn"}

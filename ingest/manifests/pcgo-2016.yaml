@@ -31,8 +31,8 @@ exams:
   subjects_by_range:
   - {from: 51, to: 55, subject: direito-constitucional}
   - {from: 56, to: 60, subject: direito-administrativo}
-  - {from: 61, to: 64, subject: direito-penal}
-  - {from: 65, to: 65, subject: legislacao-penal-especial}
+  - {from: 61, to: 63, subject: direito-penal}
+  - {from: 64, to: 65, subject: legislacao-penal-especial}
   - {from: 66, to: 70, subject: direito-processual-penal}
 - slug: conhecimentos-basicos-cargo-1-agente-de-policia-substituto
   name: 'Caderno de provas - Conhecimentos Básicos - cargo 1: agente de polícia substituto'

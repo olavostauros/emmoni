@@ -143,11 +143,11 @@
  "64": {
   "topics": [
    {
-    "path": "quimica.quimica_analitica",
-    "confidence": 0.55
+    "path": "quimica.quimiometria",
+    "confidence": 0.85
    }
   ],
-  "suggested_topic": "Quimiometria: estatística aplicada, planejamento de experimentos e validação de métodos"
+  "suggested_topic": ""
  },
  "65": {
   "topics": [

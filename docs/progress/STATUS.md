@@ -7,6 +7,8 @@
 - Amostra de 50 classificações conferida pelo agente revisor em contexto separado: **49/50
   (98%)**; o único erro (pf-2021/agente q2) foi corrigido na origem e recarregado
   (registro `2026-10-08-m4-revisao-de-assuntos.md`).
+- As 62 sem assunto confiante resolvidas: 2 faixas de disciplina corrigidas (pcpb-2021 cargo 6,
+  pcgo-2016 cargo 2), 36 assuntos novos, 0 `draft` (registro `2026-10-08-sem-assunto.md`).
 - Taxonomia ampliada para 863 assuntos; questão sem assunto confiante fica `draft` e volta às
   tarefas, e `review` passa a significar só defeito de extração (decisão 0010).
 - Classificação das 108 provas pelo agente: 6.472 classificadas, 62 sem assunto confiante.
@@ -24,13 +26,11 @@
    pcgo-2016 (escrivão básicos) q14, pcpe-2023/p1-cargo-1 q6, cbmro-2022/oficial q84 e
    pcma-2017-delegado q99: corrigir a segmentação antes de amostrar essas provas.
 2. Começar o M5 (crawler e parser de outra banca).
-3. Os 62 sem assunto: conferir se a disciplina do manifesto está certa antes de criar assunto
-   novo; depois reclassificar.
-4. `ingest --step load` deveria seguir para as provas seguintes quando uma falha.
-5. `pcpe-2016` aprovado (sem ingestão): calibrar o parser nos cadernos de 2016, preencher
+3. `ingest --step load` deveria seguir para as provas seguintes quando uma falha.
+4. `pcpe-2016` aprovado (sem ingestão): calibrar o parser nos cadernos de 2016, preencher
    `first_number` e `subjects_by_range` e ingerir.
-6. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
-7. Etapa `structure` e exportação de imagens para as questões em `review` por figura, fórmula e
+5. Instalar o timer do systemd (`docs/operations.md`) na máquina que vai rodar o crawl diário.
+6. Etapa `structure` e exportação de imagens para as questões em `review` por figura, fórmula e
    layout (1.231).
 
 ## Bloqueios e perguntas em aberto
@@ -46,11 +46,11 @@
 - Folga pequena em `facet_counts` sem filtros (281/300 ms), prevista na decisão 0002.
 
 ## Números
-- Questões visíveis no esquema `api`: 1.188 (seed + as 18 provas aprovadas)
-- Reais: 6.249 carregadas (39 concursos, 108 provas) · 5.043 `published` (todas com assunto) ·
-  1.231 `review` (extração) · 40 `draft` · 282 duplicatas marcadas
+- Questões visíveis no esquema `api`: 1.190 (seed + as 18 provas aprovadas)
+- Reais: 6.314 carregadas (39 concursos, 108 provas) · 5.083 `published` (todas com assunto) ·
+  1.231 `review` (extração) · 0 `draft` · 282 duplicatas marcadas
 - Provas: 18 aprovadas na amostragem; 90 sem amostragem; 5 não carregadas (DEPEN 2020, CBM/AL
   2017 básicos cargo 1, PCDF 2020 básicos, PM/TO 2020 QPE, PC/PB 2021 específicos cargo 8)
 - Propostas do crawler pendentes: 0 · manifestos aprovados: 42 · rejeitados: 1
-- Taxonomia: 56 disciplinas, 863 assuntos
+- Taxonomia: 56 disciplinas, 899 assuntos
 - Contrato do front-end: **v1.1** (sem mudança)

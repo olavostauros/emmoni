@@ -241,20 +241,20 @@
  "54": {
   "topics": [
    {
-    "path": "administracao_publica.reforma_do_estado",
-    "confidence": 0.55
+    "path": "administracao_publica.organizacao_da_administracao_publica",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Organização da administração pública: administração direta e indireta (autarquias e agências reguladoras)"
+  "suggested_topic": ""
  },
  "55": {
   "topics": [
    {
-    "path": "administracao_publica.governanca_e_transparencia",
-    "confidence": 0.4
+    "path": "administracao_publica.compras_publicas",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Administração de recursos materiais: licitações e contratos (Lei nº 14.133/2021)"
+  "suggested_topic": ""
  },
  "56": {
   "topics": [

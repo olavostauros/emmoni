@@ -11,11 +11,11 @@
  "2": {
   "topics": [
    {
-    "path": "direito_administrativo.improbidade_administrativa",
-    "confidence": 0.55
+    "path": "direito_administrativo.lei_anticorrupcao",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Anticorrupção (Lei nº 12.846/2013)"
+  "suggested_topic": ""
  },
  "3": {
   "topics": [
@@ -543,11 +543,11 @@
  "54": {
   "topics": [
    {
-    "path": "direito_empresarial.empresario_e_estabelecimento",
-    "confidence": 0.55
+    "path": "direito_empresarial.liberdade_economica",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Lei da Liberdade Econômica (Lei nº 13.874/2019)"
+  "suggested_topic": ""
  },
  "55": {
   "topics": [
@@ -956,20 +956,20 @@
  "95": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
-    "confidence": 0.55
+    "path": "legislacao_penal_especial.lei_henry_borel",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Henry Borel (Lei nº 14.344/2022)"
+  "suggested_topic": ""
  },
  "96": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
-    "confidence": 0.55
+    "path": "legislacao_penal_especial.lei_henry_borel",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Henry Borel (Lei nº 14.344/2022)"
+  "suggested_topic": ""
  },
  "97": {
   "topics": [

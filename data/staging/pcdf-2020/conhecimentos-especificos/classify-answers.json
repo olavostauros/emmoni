@@ -174,11 +174,11 @@
  "67": {
   "topics": [
    {
-    "path": "direito_penal.extincao_da_punibilidade.prescricao",
-    "confidence": 0.55
+    "path": "direito_penal.crimes_hediondos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Crimes hediondos (Lei nº 8.072/1990)"
+  "suggested_topic": ""
  },
  "68": {
   "topics": [

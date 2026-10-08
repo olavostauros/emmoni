@@ -265,11 +265,11 @@
  "44": {
   "topics": [
    {
-    "path": "contabilidade_geral.demonstracoes_contabeis.analise_de_demonstracoes",
-    "confidence": 0.5
+    "path": "contabilidade_geral.contabilidade_de_custos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Contabilidade de custos: análise custo-volume-lucro e ponto de equilíbrio"
+  "suggested_topic": ""
  },
  "45": {
   "topics": [
@@ -314,11 +314,11 @@
  "49": {
   "topics": [
    {
-    "path": "psicologia.psicologia_geral",
-    "confidence": 0.55
+    "path": "psicologia.etica_profissional",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Código de Ética Profissional do Psicólogo"
+  "suggested_topic": ""
  },
  "50": {
   "topics": [

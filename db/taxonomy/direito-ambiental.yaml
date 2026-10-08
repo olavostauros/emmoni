@@ -11,3 +11,5 @@ topics:
   - {slug: unidades-de-conservacao, name: "Unidades de conservação (SNUC)"}
   - {slug: biodiversidade, name: "Biodiversidade, biossegurança e conhecimento tradicional"}
   - {slug: residuos-e-poluicao, name: "Resíduos sólidos, poluição e recursos hídricos"}
+  - {slug: florestas-publicas, name: "Gestão de florestas públicas (Lei nº 11.284/2006)"}
+  - {slug: direito-urbanistico, name: "Direito urbanístico e Estatuto da Cidade (Lei nº 10.257/2001)"}

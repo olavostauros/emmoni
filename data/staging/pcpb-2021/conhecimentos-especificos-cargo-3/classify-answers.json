@@ -613,10 +613,10 @@
  "80": {
   "topics": [
    {
-    "path": "contabilidade_geral.conceitos_e_principios",
-    "confidence": 0.5
+    "path": "contabilidade_geral.pericia_contabil",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Perícia contábil (normas do CFC)"
+  "suggested_topic": ""
  }
 }

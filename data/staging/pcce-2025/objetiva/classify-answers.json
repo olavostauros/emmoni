@@ -203,11 +203,11 @@
  "22": {
   "topics": [
    {
-    "path": "direito_penal.principios",
-    "confidence": 0.5
+    "path": "direito_penal.escolas_penais",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Escolas penais e evolução histórica do direito penal"
+  "suggested_topic": ""
  },
  "23": {
   "topics": [
@@ -448,11 +448,11 @@
  "43": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.lei_de_crimes_contra_a_seguranca_nacional",
-    "confidence": 0.3
+    "path": "legislacao_penal_especial.crimes_eleitorais",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Crimes eleitorais (Código Eleitoral, Lei nº 4.737/1965)"
+  "suggested_topic": ""
  },
  "44": {
   "topics": [
@@ -506,11 +506,11 @@
  "49": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.eca.direitos_e_medidas_de_protecao",
-    "confidence": 0.55
+    "path": "legislacao_penal_especial.lei_henry_borel",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Henry Borel: violência doméstica contra a criança e o adolescente (Lei nº 14.344/2022)"
+  "suggested_topic": ""
  },
  "50": {
   "topics": [

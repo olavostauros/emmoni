@@ -225,20 +225,20 @@
  "54": {
   "topics": [
    {
-    "path": "administracao_publica.reforma_do_estado",
-    "confidence": 0.55
+    "path": "administracao_publica.organizacao_da_administracao_publica",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Organização da administração pública: administração direta e indireta (autarquias e agências reguladoras)"
+  "suggested_topic": ""
  },
  "55": {
   "topics": [
    {
-    "path": "administracao_publica.modelos_de_gestao",
-    "confidence": 0.5
+    "path": "administracao_publica.gestao_de_processos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Gestão de processos no setor público"
+  "suggested_topic": ""
  },
  "56": {
   "topics": [

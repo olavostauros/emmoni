@@ -96,11 +96,11 @@
  "21": {
   "topics": [
    {
-    "path": "direito_penal.crimes_contra_o_patrimonio",
-    "confidence": 0.4
+    "path": "direito_penal.crimes_contra_a_propriedade_imaterial",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Crimes contra a propriedade imaterial (violação de direito autoral)"
+  "suggested_topic": ""
  },
  "22": {
   "topics": [
@@ -176,11 +176,11 @@
  "29": {
   "topics": [
    {
-    "path": "direito_penal.penas",
-    "confidence": 0.5
+    "path": "direito_penal.execucao_penal",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Execução penal: faltas disciplinares (Lei nº 7.210/1984)"
+  "suggested_topic": ""
  },
  "30": {
   "topics": [
@@ -633,11 +633,11 @@
  "74": {
   "topics": [
    {
-    "path": "direito_administrativo.controle_da_administracao",
-    "confidence": 0.45
+    "path": "direito_administrativo.lei_anticorrupcao",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Anticorrupção (Lei nº 12.846/2013)"
+  "suggested_topic": ""
  },
  "75": {
   "topics": [
@@ -713,11 +713,11 @@
  "82": {
   "topics": [
    {
-    "path": "direito_ambiental.codigo_florestal",
-    "confidence": 0.5
+    "path": "direito_ambiental.florestas_publicas",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Gestão de florestas públicas (Lei nº 11.284/2006)"
+  "suggested_topic": ""
  },
  "83": {
   "topics": [
@@ -744,11 +744,11 @@
  "85": {
   "topics": [
    {
-    "path": "direito_ambiental.competencias",
-    "confidence": 0.4
+    "path": "direito_ambiental.direito_urbanistico",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Direito urbanístico: Estatuto da Cidade (Lei nº 10.257/2001)"
+  "suggested_topic": ""
  },
  "86": {
   "topics": [

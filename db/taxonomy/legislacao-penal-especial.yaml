@@ -81,3 +81,7 @@ topics:
     name: Crimes do Estatuto do Torcedor e da Lei Geral do Esporte
   - slug: lei-de-crimes-contra-a-seguranca-nacional
     name: Crimes contra a segurança nacional e o Estado democrático de direito
+  - {slug: lei-henry-borel, name: "Lei Henry Borel (Lei nº 14.344/2022)"}
+  - {slug: programa-de-computador, name: "Propriedade intelectual de programa de computador (Lei nº 9.609/1998)"}
+  - {slug: crimes-eleitorais, name: "Crimes eleitorais (Código Eleitoral)"}
+  - {slug: juizados-especiais-federais, name: "Juizados especiais federais (Lei nº 10.259/2001)"}

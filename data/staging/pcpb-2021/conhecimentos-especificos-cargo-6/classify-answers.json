@@ -2,44 +2,52 @@
  "51": {
   "topics": [
    {
-    "path": "engenharia.engenharia_civil.estruturas",
-    "confidence": 0.4
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Física aplicada (mecânica, gravitação e eletromagnetismo)"
+  "suggested_topic": ""
  },
  "52": {
   "topics": [
    {
-    "path": "engenharia.engenharia_civil.estruturas",
-    "confidence": 0.4
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.85
+   },
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.65
    }
   ],
-  "suggested_topic": "Física aplicada (mecânica, gravitação e eletromagnetismo)"
+  "suggested_topic": ""
  },
  "53": {
   "topics": [
    {
-    "path": "engenharia.geoprocessamento.cartografia_e_geodesia",
-    "confidence": 0.4
+    "path": "fisica.mecanica.gravitacao",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Física aplicada (mecânica, gravitação e eletromagnetismo)"
+  "suggested_topic": ""
  },
  "54": {
   "topics": [
    {
-    "path": "engenharia.geoprocessamento.cartografia_e_geodesia",
-    "confidence": 0.4
+    "path": "fisica.mecanica.gravitacao",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Física aplicada (mecânica, gravitação e eletromagnetismo)"
+  "suggested_topic": ""
  },
  "55": {
   "topics": [
    {
-    "path": "engenharia.engenharia_eletrica",
-    "confidence": 0.7
+    "path": "fisica.eletricidade.eletrodinamica",
+    "confidence": 0.85
+   },
+   {
+    "path": "fisica.eletricidade.eletrostatica",
+    "confidence": 0.6
    }
   ],
   "suggested_topic": ""
@@ -47,8 +55,12 @@
  "56": {
   "topics": [
    {
-    "path": "engenharia.engenharia_eletrica",
-    "confidence": 0.65
+    "path": "fisica.eletricidade.eletrostatica",
+    "confidence": 0.9
+   },
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.6
    }
   ],
   "suggested_topic": ""
@@ -56,8 +68,12 @@
  "57": {
   "topics": [
    {
-    "path": "engenharia.engenharia_eletrica",
-    "confidence": 0.65
+    "path": "fisica.eletricidade.eletrostatica",
+    "confidence": 0.9
+   },
+   {
+    "path": "fisica.mecanica.cinematica",
+    "confidence": 0.6
    }
   ],
   "suggested_topic": ""

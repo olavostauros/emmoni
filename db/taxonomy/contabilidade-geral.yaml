@@ -38,3 +38,5 @@ topics:
     name: Lei nº 6.404/1976 (aspectos contábeis)
   - slug: contabilidade-publica
     name: Contabilidade aplicada ao setor público
+  - {slug: contabilidade-de-custos, name: "Contabilidade de custos e análise custo-volume-lucro"}
+  - {slug: pericia-contabil, name: "Perícia contábil"}

@@ -91,11 +91,11 @@
  "10": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto.argumentacao",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.funcoes_da_linguagem",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Funções da linguagem"
+  "suggested_topic": ""
  },
  "11": {
   "topics": [
@@ -199,11 +199,11 @@
  "22": {
   "topics": [
    {
-    "path": "matematica.equacoes_e_inequacoes",
-    "confidence": 0.5
+    "path": "matematica.numeros_complexos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Números complexos e polinômios"
+  "suggested_topic": ""
  },
  "23": {
   "topics": [

@@ -209,11 +209,11 @@
  "40": {
   "topics": [
    {
-    "path": "matematica.problemas_aritmeticos",
-    "confidence": 0.55
+    "path": "matematica.teoria_dos_conjuntos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Teoria dos conjuntos: operações, diagramas de Venn e problemas de contagem"
+  "suggested_topic": ""
  },
  "41": {
   "topics": [

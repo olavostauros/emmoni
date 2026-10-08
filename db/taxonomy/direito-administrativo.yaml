@@ -68,3 +68,5 @@ topics:
     name: Convênios, consórcios públicos e contratos de repasse
   - slug: carreiras-policiais-federais
     name: Carreiras policiais federais (Lei nº 9.654/1998, Lei nº 4.878/1965)
+  - {slug: lei-anticorrupcao, name: "Lei Anticorrupção (Lei nº 12.846/2013)"}
+  - {slug: lindb-e-seguranca-juridica, name: "LINDB no direito público e segurança jurídica (Lei nº 13.655/2018)"}

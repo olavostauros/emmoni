@@ -68,15 +68,11 @@
  "27": {
   "topics": [
    {
-    "path": "direito_eleitoral.direitos_politicos_e_alistamento",
-    "confidence": 0.55
-   },
-   {
-    "path": "direito_eleitoral.partidos_e_candidaturas",
-    "confidence": 0.5
+    "path": "direito_eleitoral.garantias_eleitorais",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Garantias eleitorais: prisão em período eleitoral (Código Eleitoral, arts. 234–239)"
+  "suggested_topic": ""
  },
  "28": {
   "topics": [
@@ -198,11 +194,11 @@
  "41": {
   "topics": [
    {
-    "path": "legislacao_penal_especial.juizados_especiais_criminais",
-    "confidence": 0.55
+    "path": "legislacao_penal_especial.juizados_especiais_federais",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Juizados Especiais Federais (Lei nº 10.259/2001): competência cível"
+  "suggested_topic": ""
  },
  "42": {
   "topics": [

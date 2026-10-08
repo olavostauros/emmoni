@@ -143,11 +143,11 @@
  "14": {
   "topics": [
    {
-    "path": "direito_civil.direitos_reais",
-    "confidence": 0.55
+    "path": "direito_civil.direito_agrario",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Direito agrário: desapropriação para fins de reforma agrária (Lei nº 8.629/1993)"
+  "suggested_topic": ""
  },
  "15": {
   "topics": [
@@ -677,11 +677,11 @@
  "64": {
   "topics": [
    {
-    "path": "direito_penal.crimes_contra_o_patrimonio",
-    "confidence": 0.5
+    "path": "direito_penal.crimes_contra_a_propriedade_imaterial",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Crimes contra a propriedade imaterial (violação de direito autoral, art. 184 do CP)"
+  "suggested_topic": ""
  },
  "65": {
   "topics": [

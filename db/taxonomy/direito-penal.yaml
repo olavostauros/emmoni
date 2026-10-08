@@ -92,3 +92,8 @@ topics:
     name: Crimes contra o Estado democrático de direito
   - slug: crimes-contra-a-organizacao-do-trabalho
     name: Crimes contra a organização do trabalho e o sentimento religioso
+  - {slug: escolas-penais, name: "Escolas penais e evolução histórica do direito penal"}
+  - {slug: crimes-contra-a-propriedade-imaterial, name: "Crimes contra a propriedade imaterial"}
+  - {slug: crimes-hediondos, name: "Crimes hediondos (Lei nº 8.072/1990)"}
+  - {slug: crimes-de-preconceito, name: "Crimes resultantes de preconceito (Lei nº 7.716/1989)"}
+  - {slug: execucao-penal, name: "Execução penal (Lei nº 7.210/1984)"}

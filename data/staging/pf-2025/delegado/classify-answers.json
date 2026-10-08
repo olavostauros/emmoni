@@ -527,20 +527,20 @@
  "58": {
   "topics": [
    {
-    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
-    "confidence": 0.5
+    "path": "direito_penal.crimes_de_preconceito",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Crimes de racismo e preconceito (Lei nº 7.716/1989)"
+  "suggested_topic": ""
  },
  "59": {
   "topics": [
    {
-    "path": "direito_penal.crimes_contra_a_pessoa.crimes_contra_a_honra",
-    "confidence": 0.5
+    "path": "direito_penal.crimes_de_preconceito",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Crimes de racismo e preconceito (Lei nº 7.716/1989)"
+  "suggested_topic": ""
  },
  "60": {
   "topics": [

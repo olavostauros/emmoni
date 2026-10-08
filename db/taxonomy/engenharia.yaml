@@ -9,6 +9,7 @@ topics:
       - {slug: hidraulica-e-instalacoes, name: "Hidráulica e instalações prediais"}
       - {slug: planejamento-e-custos, name: "Planejamento, orçamento e custos de obras"}
       - {slug: transportes-e-vias, name: "Engenharia de transportes e vias"}
+      - {slug: mecanica-dos-solos, name: "Mecânica dos solos e fundações"}
   - slug: seguranca-do-trabalho
     name: Segurança do trabalho
     children:
@@ -22,3 +23,4 @@ topics:
       - {slug: cartografia-e-geodesia, name: "Cartografia, geodésia e topografia"}
       - {slug: sig, name: "Sistemas de informação geográfica"}
   - {slug: engenharia-eletrica, name: "Engenharia elétrica e eletrônica"}
+  - {slug: exercicio-profissional, name: "Exercício profissional: sistema Confea/Crea e ART"}

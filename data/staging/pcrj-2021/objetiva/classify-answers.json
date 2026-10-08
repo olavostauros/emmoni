@@ -175,10 +175,10 @@
   "topics": [
    {
     "path": "legislacao_penal_especial.abuso_de_autoridade",
-    "confidence": 0.5
+    "confidence": 0.7
    }
   ],
-  "suggested_topic": "Vitimização secundária e atendimento à vítima de violência sexual (Lei nº 14.245/2021 e criminologia crítica)"
+  "suggested_topic": ""
  },
  "18": {
   "topics": [
@@ -551,11 +551,11 @@
  "50": {
   "topics": [
    {
-    "path": "direito_administrativo.principios",
-    "confidence": 0.55
+    "path": "direito_administrativo.lindb_e_seguranca_juridica",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "LINDB e direito público (arts. 20 a 30, Lei nº 13.655/2018)"
+  "suggested_topic": ""
  },
  "51": {
   "topics": [
@@ -890,11 +890,11 @@
  "81": {
   "topics": [
    {
-    "path": "direito_civil.pessoas_e_domicilio.pessoa_natural",
-    "confidence": 0.55
+    "path": "direito_civil.protecao_de_dados_pessoais",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei Geral de Proteção de Dados (Lei nº 13.709/2018)"
+  "suggested_topic": ""
  },
  "82": {
   "topics": [

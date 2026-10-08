@@ -495,11 +495,11 @@
  "50": {
   "topics": [
    {
-    "path": "matematica.equacoes_e_inequacoes",
-    "confidence": 0.55
+    "path": "matematica.polinomios",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Polinômios: operações, divisão e raízes"
+  "suggested_topic": ""
  },
  "51": {
   "topics": [

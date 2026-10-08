@@ -147,15 +147,11 @@
  "64": {
   "topics": [
    {
-    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_espaco",
-    "confidence": 0.55
-   },
-   {
-    "path": "direito_penal.penas.aplicacao_da_pena",
-    "confidence": 0.5
+    "path": "legislacao_penal_especial.contravencoes_penais",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Lei das Contravenções Penais (Decreto-Lei nº 3.688/1941): parte geral (tentativa, reincidência, territorialidade)"
+  "suggested_topic": ""
  },
  "65": {
   "topics": [

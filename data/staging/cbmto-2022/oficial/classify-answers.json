@@ -398,15 +398,15 @@
  "41": {
   "topics": [
    {
-    "path": "matematica.geometria_analitica",
-    "confidence": 0.55
+    "path": "matematica.numeros_complexos",
+    "confidence": 0.85
    },
    {
-    "path": "matematica.equacoes_e_inequacoes",
-    "confidence": 0.5
+    "path": "matematica.geometria_analitica",
+    "confidence": 0.6
    }
   ],
-  "suggested_topic": "Números complexos e polinômios"
+  "suggested_topic": ""
  },
  "42": {
   "topics": [

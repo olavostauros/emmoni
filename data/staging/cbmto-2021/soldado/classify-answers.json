@@ -73,11 +73,11 @@
  "8": {
   "topics": [
    {
-    "path": "lingua_portuguesa.interpretacao_de_texto.argumentacao",
-    "confidence": 0.5
+    "path": "lingua_portuguesa.funcoes_da_linguagem",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Funções da linguagem"
+  "suggested_topic": ""
  },
  "9": {
   "topics": [
@@ -122,11 +122,15 @@
  "13": {
   "topics": [
    {
-    "path": "matematica.equacoes_e_inequacoes",
-    "confidence": 0.5
+    "path": "matematica.numeros_complexos",
+    "confidence": 0.85
+   },
+   {
+    "path": "matematica.polinomios",
+    "confidence": 0.8
    }
   ],
-  "suggested_topic": "Números complexos e polinômios"
+  "suggested_topic": ""
  },
  "14": {
   "topics": [
@@ -140,11 +144,11 @@
  "15": {
   "topics": [
    {
-    "path": "matematica.equacoes_e_inequacoes",
-    "confidence": 0.5
+    "path": "matematica.polinomios",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Números complexos e polinômios"
+  "suggested_topic": ""
  },
  "16": {
   "topics": [

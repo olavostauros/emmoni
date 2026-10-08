@@ -535,20 +535,20 @@
  "54": {
   "topics": [
    {
-    "path": "engenharia.engenharia_civil",
-    "confidence": 0.55
+    "path": "engenharia.engenharia_civil.mecanica_dos_solos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Mecânica dos solos e fundações"
+  "suggested_topic": ""
  },
  "55": {
   "topics": [
    {
-    "path": "engenharia.engenharia_civil",
-    "confidence": 0.55
+    "path": "engenharia.engenharia_civil.mecanica_dos_solos",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Mecânica dos solos e fundações"
+  "suggested_topic": ""
  },
  "56": {
   "topics": [
@@ -669,11 +669,11 @@
  "68": {
   "topics": [
    {
-    "path": "engenharia.engenharia_civil",
-    "confidence": 0.5
+    "path": "engenharia.exercicio_profissional",
+    "confidence": 0.95
    }
   ],
-  "suggested_topic": "Legislação profissional: sistema CONFEA/CREA e ART"
+  "suggested_topic": ""
  },
  "69": {
   "topics": [

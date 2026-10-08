@@ -17,3 +17,5 @@ topics:
   - {slug: familia, name: "Direito de família"}
   - {slug: sucessoes, name: "Direito das sucessões"}
   - {slug: direito-de-empresa, name: "Direito de empresa e sociedades"}
+  - {slug: protecao-de-dados-pessoais, name: "Proteção de dados pessoais (LGPD, Lei nº 13.709/2018)"}
+  - {slug: direito-agrario, name: "Direito agrário e reforma agrária (Lei nº 8.629/1993)"}

@@ -33,11 +33,11 @@
  "44": {
   "topics": [
    {
-    "path": "administracao_geral.gestao_de_projetos_e_processos",
-    "confidence": 0.5
+    "path": "administracao_geral.administracao_de_recursos_materiais",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Administração de recursos materiais e patrimoniais (compras e estoques)"
+  "suggested_topic": ""
  },
  "45": {
   "topics": [
