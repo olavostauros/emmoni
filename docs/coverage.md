@@ -1,6 +1,6 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-08 19:43 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-08 19:54 UTC. Não edite à mão.
 
 **5152 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
