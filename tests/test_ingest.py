@@ -1,5 +1,6 @@
 """Manifestos, catálogo, validate e load (SPECIFICATION.md §7.2, §7.3, §9)."""
 
+import json
 from pathlib import Path
 
 import psycopg
@@ -329,3 +330,34 @@ def test_ingest_continues_after_a_load_error(
     assert cli.main(["ingest", "pf-2021", "--step", "load"]) == 1
     assert ran == [first, *rest]
     assert f"não carregada(s): {first}" in capsys.readouterr().out
+
+
+def test_font_styles_only_for_the_booklet_of_the_marked_exam(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    """`infer_font_styles` no manifesto liga o estilo pelas larguras só no caderno daquela prova
+    (decisão 0020, emenda de 2026-10-13); o gabarito e as outras provas seguem como antes."""
+    loaded = manifest.load(manifest.resolve("pf-2021"))
+    calls: dict[tuple[str, str], bool] = {}
+
+    def fake_extract(raw: Path, **kwargs: object) -> list[object]:
+        calls[(slug, raw.stem)] = bool(kwargs.get("styles"))
+        return []
+
+    monkeypatch.setattr(pipeline, "extract", fake_extract)
+    for slug in ("delegado", "agente"):
+        run = pipeline.ExamRun(loaded, loaded.exam(slug), data=tmp_path)
+        run.log = lambda _: None
+        run.dir.mkdir(parents=True, exist_ok=True)
+        documents = {
+            kind: {"url": url, "sha256": f"{slug}-{kind}"}
+            for kind, (_, url) in run.documents().items()
+        }
+        run.path("documents.json").write_text(json.dumps(documents))
+        run.extract()
+    assert calls == {
+        ("delegado", "delegado-exam"): True,
+        ("delegado", "delegado-answer_key_final"): False,
+        ("agente", "agente-exam"): False,
+        ("agente", "agente-answer_key_final"): False,
+    }

@@ -41,6 +41,9 @@ exams:
     applied_on: 2021-05-23
     shift: manhã
     canonical_booklet: "único"
+    # Fontes "TT…o00" sem nome de estilo: o itálico de "habeas corpus" (q26) e "habeas data" (q25)
+    # sai pelas larguras (decisão 0020, emenda de 2026-10-13).
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/CARGO_1_DELEGADO_DE_POLCIA_FEDERAL.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_001_00.PDF

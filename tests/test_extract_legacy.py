@@ -90,3 +90,24 @@ def test_font_styles_from_widths(monkeypatch: pytest.MonkeyPatch) -> None:
     for y, font in enumerate(("tiro", "tibo", "tiit")):
         page.insert_text((40, 60 + 20 * y), sample, fontname=font, fontsize=10)
     assert sorted(ex._font_styles(document).values()) == [0, ex.ITALIC, ex.BOLD]
+
+
+DELEGADO = FIXTURE.with_name("pf-2021-delegado-p3.pdf")
+
+
+def test_styles_only_recovers_italic_in_new_booklets() -> None:
+    """PF 2021 delegado: fontes "TT…o00" sem nome de estilo; o itálico sai pelas larguras com
+    `styles`, sem o resto do `legacy` (decisão 0020, emenda de 2026-10-13)."""
+    text = _text(ex.extract(DELEGADO, styles=True))
+    assert "recurso ordinário de *habeas corpus*" in text
+    assert "julgar *habeas data*" in text
+    assert "*habeas corpus*" not in _text(ex.extract(DELEGADO))  # desligado: como antes
+
+
+def test_styles_only_keeps_the_rest_of_legacy_off() -> None:
+    """No PF 2012, `styles` dá o negrito, mas as colunas e os números de item seguem sem `legacy`."""
+    styled, plain = ex.extract(FIXTURE, styles=True), ex.extract(FIXTURE)
+    assert "**caso se execute alguém**" in _text(styled)
+    assert [[(e.plain, e.column) for e in p.lines] for p in styled] == [
+        [(e.plain, e.column) for e in p.lines] for p in plain
+    ]

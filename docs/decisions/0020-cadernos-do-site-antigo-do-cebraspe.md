@@ -63,3 +63,21 @@ O OCR dos números na margem (Tesseract só com dígitos) foi tentado e descarta
   soldado e oficial (itens perdem `figure`/`layout` falsos vindos do "RASCUNHO"), PM/TO 2020 QPE q50 e QPPM
   q35 (idem) e PF 2021 agente q97–101 (ganham `layout`: o comando começa no meio da tabela). Nada
   muda no banco até essas provas serem reprocessadas.
+
+## Emenda de 2026-10-13 — estilo pelas larguras por prova (`infer_font_styles`)
+
+**Contexto.** O minos reprovou a amostra do PF 2021 delegado: o itálico de "*habeas corpus*" (q26)
+e "*habeas data*" (q25) não chega ao banco. O caderno usa fontes "TT…o00" sem nome de estilo, e o
+item 4 só vale com `legacy`, que é só da fonte `cespe-unb`.
+
+**Decisão.** `extract(..., styles=True)` liga só o item 4 (negrito/itálico pelas larguras das fontes
+sem nome); vão entre colunas, números de item, "ℓ" de fonte própria, "*In*:" e fonte monoespaçada
+seguem como sem `legacy`. Documento sem fonte sem nome não muda. No manifesto, a prova liga com
+`infer_font_styles: true`, e vale só para o caderno (o gabarito não tem marcação). Ligado por
+enquanto só no PF 2021 delegado.
+
+**Por que por prova.** Comparado `extract`+`segment` com e sem `styles` em todos os PDFs do staging
+fora do `cespe-unb`: o texto muda em quase todas as provas já publicadas (só a marcação; o texto puro
+não muda), e em algumas mudam também as pendências (`flags`) de itens. Ligar para todas deixaria o
+banco diferente do `main` até reprocessar e reamostrar tudo. Cada prova liga a opção quando for
+reprocessada e reamostrada; quando todas tiverem passado, a opção pode virar o padrão.

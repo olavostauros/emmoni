@@ -50,6 +50,10 @@ class Exam(_Strict):
     shift: str | None = None
     canonical_booklet: str | None = None
     first_number: int = Field(default=1, gt=0)  # caderno que começa no meio (PRF 2021: item 9)
+    # Negrito/itálico das fontes sem nome ("TT…o00") deduzidos pelas larguras no caderno (decisão
+    # 0020, emenda de 2026-10-13). Por prova: ligar muda o texto de provas já aprovadas, que então
+    # precisam de reprocessamento e amostra nova.
+    infer_font_styles: bool = False
     documents: Documents
     subjects_by_range: list[SubjectRange] = []
 

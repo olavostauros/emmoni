@@ -507,6 +507,7 @@ exams:
     applied_on: 2021-05-23
     canonical_booklet: "1"
     first_number: 1                # opcional; caderno que começa no meio (PRF 2021: 9)
+    infer_font_styles: false       # opcional; estilo pelas larguras das fontes "TT…o00" (decisão 0020)
     documents:
       exam: https://.../prova_agente.pdf
       answer_key_preliminary: https://.../gabarito_preliminar.pdf
@@ -520,7 +521,7 @@ exams:
 | Etapa | Entrada → saída | Detalhes |
 |---|---|---|
 | `fetch` | manifesto → `data/raw/<sha256>.pdf` + `source_document` | Não baixa de novo se o sha256 já existe. Respeita `robots.txt`, 1 requisição/s por host, `User-Agent` identificado. |
-| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR (`ocrmypdf` + Tesseract `por`) se a página não tiver texto, com revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml` (decisão 0018); nos cadernos do site antigo do Cebraspe (fonte `cespe-unb`), vão entre colunas, números de item, negrito/itálico e "ℓ" deduzidos do documento, e as mesmas correções revisadas valem para linhas em fonte sem mapeamento Unicode (decisão 0020); imagens exportadas para `data/assets/<sha256>.<ext>`. |
+| `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR (`ocrmypdf` + Tesseract `por`) se a página não tiver texto, com revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml` (decisão 0018); nos cadernos do site antigo do Cebraspe (fonte `cespe-unb`), vão entre colunas, números de item, negrito/itálico e "ℓ" deduzidos do documento, e as mesmas correções revisadas valem para linhas em fonte sem mapeamento Unicode (decisão 0020); nas demais provas, só o negrito/itálico das fontes sem nome é deduzido, e só quando o manifesto marca a prova com `infer_font_styles: true` (decisão 0020, emenda de 2026-10-13); imagens exportadas para `data/assets/<sha256>.<ext>`. |
 | `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras. |
 | `structure` | questões brutas → `questions.json` | Agente só onde as regras falham (tabelas, fórmulas, layout em colunas), pelo mesmo mecanismo de tarefas/respostas do `classify`. Saída validada por pydantic; inválida → `review`. |
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |

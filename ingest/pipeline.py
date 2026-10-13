@@ -95,7 +95,9 @@ class ExamRun:
             raw = self._raw(kind)
             source = sources.source_for(str(document["url"]))
             legacy = source is not None and source.slug in LEGACY_SOURCES
-            pages = extract(raw, ocr_dir=self.data / "ocr", legacy=legacy)
+            # O estilo pelas larguras vale só para o caderno; o gabarito não tem marcação.
+            styles = kind == "exam" and self.exam.infer_font_styles
+            pages = extract(raw, ocr_dir=self.data / "ocr", legacy=legacy, styles=styles)
             self.path(f"pages.{kind}.json").write_bytes(_pages.dump_json(pages, indent=1))
             ocr_note = " (OCR)" if (self.data / "ocr" / raw.name).exists() else ""
             empty = [p.number for p in pages if not p.has_text]

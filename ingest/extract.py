@@ -130,16 +130,20 @@ def extract(
     ocr_dir: Path | None = None,
     fixes_dir: Path = FIXES_DIR,
     legacy: bool = False,
+    styles: bool = False,
 ) -> list[Page]:
     """Páginas do PDF. Com `ocr_dir`, páginas sem texto passam pelo OCR (cache em `ocr_dir`).
 
     `legacy`: caderno do site antigo do Cebraspe (decisão 0020) — o vão entre as colunas, os
     números de item, o negrito/itálico e o "ℓ" são deduzidos do documento.
+    `styles`: só o negrito/itálico das fontes sem nome ("TT…o00") é deduzido pelas larguras
+    (decisão 0020, emenda de 2026-10-13); o resto segue como sem `legacy`. Sem fonte sem nome no
+    documento, não muda nada.
     """
-    pages = _read(pdf_path, legacy)
+    pages = _read(pdf_path, legacy, styles)
     scanned = {page.number for page in pages if not page.has_text}
     if ocr_dir is not None and scanned:
-        pages = _read(ocr(pdf_path, ocr_dir), legacy)
+        pages = _read(ocr(pdf_path, ocr_dir), legacy, styles)
         for page in pages:
             if page.number in scanned:
                 page.figures = _without_glyphs(page)
@@ -178,7 +182,7 @@ def apply_fixes(pages: list[Page], fixes: OcrFixes) -> None:
         line.plain = fix.text.replace("*", "")
 
 
-def _read(pdf_path: Path, legacy: bool = False) -> list[Page]:
+def _read(pdf_path: Path, legacy: bool = False, styles: bool = False) -> list[Page]:
     with pymupdf.open(pdf_path) as document:  # type: ignore[no-untyped-call]
         raws = []
         for page in document:
@@ -196,6 +200,8 @@ def _read(pdf_path: Path, legacy: bool = False) -> list[Page]:
                 ell=_ell_fonts([lines for _, lines, _ in raws]),
                 mono=_mono_fonts(document),
             )
+        elif styles:
+            fonts = _Fonts(digits={}, styles=_font_styles(document), legacy=False)
         decoded = frozenset(fonts.digits) if fonts else frozenset()  # dígitos já têm tradução
         return [
             _page(page, lines, middle, fonts, _symbol_fonts(lines) - decoded)
@@ -234,6 +240,9 @@ class _Fonts:
     styles: dict[str, int]  # fonte → BOLD/ITALIC
     ell: frozenset[str] = frozenset()  # fontes de símbolos do "ℓ" de "(ℓ.12)"
     mono: frozenset[str] = frozenset()  # fontes monoespaçadas (caminhos, comandos): código inline
+    # False: só o estilo foi deduzido (`styles`); números de item, "ℓ", "*In*" e o dígito em negrito
+    # seguem as regras de quem não é `legacy`.
+    legacy: bool = True
 
 
 MONO_MIN_LETTERS = 8  # letras distintas para afirmar que a fonte é monoespaçada
@@ -508,7 +517,9 @@ def _page(
         width=width,
         height=height,
         has_text=bool(lines),
-        lines=_reading_order(_attach_item_numbers(lines) if fonts is not None else lines),
+        lines=_reading_order(
+            _attach_item_numbers(lines) if fonts is not None and fonts.legacy else lines
+        ),
         figures=_figures(page, width),
     )
 
@@ -587,7 +598,7 @@ def _line(
                 s = s | {"flags": s["flags"] | fonts.styles[s["font"]]}
             decoded.append(s)
         raw = raw | {"spans": decoded}
-    raw = raw | {"spans": _line_refs(raw["spans"], legacy=fonts is not None)}
+    raw = raw | {"spans": _line_refs(raw["spans"], legacy=fonts is not None and fonts.legacy)}
     spans = [s for s in raw["spans"] if s["text"].strip(" \xa0")]
     if not spans or max(float(s["size"]) for s in spans) < MIN_SIZE:
         return None  # texto invisível (marcas de diagramação em corpo 1)
@@ -615,7 +626,8 @@ def _line(
         any(
             len(s["text"].strip()) == 1
             and s["text"].strip().isdigit()
-            and not (fonts and s["flags"] & BOLD)  # "julgue os itens de **5** a **11**" (PF 2012)
+            # "julgue os itens de **5** a **11**" (PF 2012)
+            and not (fonts and fonts.legacy and s["flags"] & BOLD)
             and s["font"] != spans[i - 1]["font"]
             and s["font"] != spans[i + 1]["font"]
             and spans[i - 1]["text"].rstrip()[-1:].isalpha()
@@ -624,7 +636,7 @@ def _line(
             if 0 < i < len(spans) - 1
         )
         or any(s["font"] in symbol_fonts and s["text"].strip(" \xa0þ") for s in spans)
-        or (fonts is not None and _odd_ell_glyph(spans, fonts.ell))
+        or (fonts is not None and fonts.legacy and _odd_ell_glyph(spans, fonts.ell))
     )
     return Line(
         text=markdown,
