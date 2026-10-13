@@ -31,6 +31,9 @@ STOP = re.compile(r"^-* ?PROVA DISCURSIVA( P\d)? ?-*$")
 # papiloscopista); só vale no fim da página (`PAGE_FOOTER_AT` da altura).
 PAGE_FOOTER = re.compile(r"^[–-] ?\d{1,3} ?[–-]$")
 PAGE_FOOTER_AT = 0.9
+# "PROVA DISCURSIVA" centrado em corpo grande no site antigo (PF 2012 escrivão e papiloscopista)
+# cai na coluna 1; sem parar ali, as instruções da discursiva viravam texto solto após o item 120.
+STOP_TITLE_SIZE = 12.0
 # Título de seção que abre a prova quando não há "PROVA OBJETIVA" (CBM/AL e PM/AL 2017).
 SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
@@ -81,6 +84,16 @@ IMPLICIT_REF = re.compile(
     # "do expediente forense": horário do fórum, não um documento (PCDF 2020 item 41)
     r"(?!\s+(?:anterior|precedente|a seguir|abaixo|acima|seguinte|forense|de\b|[0-9A-Z]+\d))",
     re.I,
+)
+# Comando que aponta um documento mostrado na prova ("o expediente acima", "o ofício hipotético
+# apresentado"). "Itens a seguir/seguintes/que se seguem" fala dos itens, não de um documento.
+SHOWN_DOCUMENT = re.compile(
+    r"\b(?:acima|precedentes?|anteriores?|abaixo|a seguir|seguintes?|apresentad[oa]s?"
+    r"|transcrit[oa]s?|reproduzid[oa]s?|hipot[ée]tic[oa]s?|texto|trecho|fragmento|excerto)\b",
+    re.I,
+)
+ITEMS_PHRASE = re.compile(
+    r"\bite(?:ns|m)\s+(?:a seguir|seguintes?|subsequentes?|que se seguem|que segue)\b", re.I
 )
 # Figura da própria questão ("a figura precedente", "o gráfico a seguir"): sem imagem extraída, a
 # questão não se sustenta.
@@ -138,6 +151,12 @@ PARAGRAPH_INDENT = 15.0  # primeira linha de parágrafo de texto-base
 PARAGRAPH_INDENT_AT = 29.0  # recuo típico de parágrafo (a continuação de item fica em ~18)
 SHORT_LINE = 40.0  # linha que termina antes disso da margem direita quebra de propósito
 ODD_INDENT = 30.0
+# Vocativo ou fecho de correspondência sozinho na linha ("Senhor Delegado,", "Atenciosamente,").
+LETTER_LINE = re.compile(
+    r"^(?:(?:Excelent[íi]ssim[oa]|Ilustr[íi]ssim[oa]|Magn[íi]fic[oa]|Prezad[oa]s?|Car[oa]s?)\s+)?"
+    r"(?:Senhora?|Senhores|Senhoras|Atenciosamente|Respeitosamente|Cordialmente)\b[^.;:!?]{0,60},$"
+)
+FIGURE_CREDIT_GAP = 20.0  # crédito da figura logo abaixo dela
 CITATION_SIZE = 9.0  # letra menor que isso: citação da fonte do texto  # recuo maior que isso dentro de item = layout especial (código, tabela)
 
 
@@ -468,12 +487,24 @@ def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
     if any(label not in labels for label in cited):
         flags.add("missing_passage")
     if question.passage_key is None and (
-        IMPLICIT_REF.search(question.statement_md) or LINE_REF.search(text)
+        (IMPLICIT_REF.search(question.statement_md) and not _generic_command(question))
+        or LINE_REF.search(text)
     ):
         flags.add("missing_passage")
     if FIGURE_REF.search(text):
         flags.add("figure")
     return flags
+
+
+def _generic_command(question: RawQuestion) -> bool:
+    """Item certo/errado cujo comando não aponta documento nenhum ("Com relação à função e à
+    linguagem das correspondências oficiais, julgue os itens seguintes."): "o expediente" e "o
+    memorando" do item são o gênero, não um texto que faltou (PF 2012 escrivão 18, papiloscopista
+    19, agente 26). Múltipla escolha não tem comando separado e segue a regra antiga."""
+    if question.type != "true_false" or "\n\n" not in question.statement_md:
+        return False
+    command = question.statement_md.split("\n\n")[0]
+    return SHOWN_DOCUMENT.search(ITEMS_PHRASE.sub(" ", command)) is None
 
 
 def _section_title(plain: str) -> bool:
@@ -620,7 +651,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 )
                 start_y = line.y1
                 continue
-            if line.column == 0 and STOP.search(line.plain):
+            if STOP.search(line.plain) and (line.column == 0 or line.size >= STOP_TITLE_SIZE):
                 stream.extend(_with_figures(page, entries, skipped, start_y))
                 return stream
             if PAGE_FOOTER.match(line.plain.strip()) and line.y0 > page.height * PAGE_FOOTER_AT:
@@ -745,11 +776,37 @@ def _with_figures(
         same = [e for e in entries if column == 0 or e.line.column in (column, 0)]
         above = [e for e in same if e.line.y0 < figure.y0]
         below = [e for e in same if e.line.y0 >= figure.y0 - 2]
-        if above:
+        first_below = min(below, key=lambda e: e.line.y0) if below else None
+        if (
+            above
+            and first_below is not None
+            and first_below.line.y0 - figure.y1 <= FIGURE_CREDIT_GAP
+            and _credit_below(below, first_below)
+            and max(above, key=lambda e: e.line.y0).line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
+        ):
+            # Figura com crédito logo abaixo: é a abertura do grupo seguinte, não fim do item de
+            # cima (PF 2012 papiloscopista: impressões digitais entre o item 58 e o comando).
+            first_below.flags.add("figure")
+        elif above:
             max(above, key=lambda e: e.line.y0).flags.add("figure")
         elif below:
             min(below, key=lambda e: e.line.y0).flags.add("figure")
     return entries
+
+
+def _credit_below(below: list[_Entry], first: _Entry) -> bool:
+    """Logo abaixo da figura vem o crédito dela: linhas miúdas, do mesmo corpo, até a que o
+    encerra ("... (com adaptações)."), em no máximo `CREDIT_MAX_LINES` linhas."""
+    size = first.line.size
+    if size >= CITATION_SIZE:
+        return False
+    lines = sorted(below, key=lambda e: e.line.y0)
+    for entry in lines[:CREDIT_MAX_LINES]:
+        if entry.line.size != size:
+            return False
+        if CREDIT_END.search(entry.line.plain.strip()):
+            return True
+    return False
 
 
 def _contains(figure: Figure, line: Line) -> bool:
@@ -865,7 +922,15 @@ def _question(
     text_lines = [ITEM_MD.sub("", first.line.text, count=1)] + [
         e.line.text for e in item.entries[1:]
     ]
-    body = _join(text_lines)
+    breaks = _letter_breaks(item.entries)
+    pieces: list[list[str]] = [[]]
+    for index, text in enumerate(text_lines):
+        pieces[-1].append(text)
+        if index in breaks:
+            pieces.append([])
+    # Vocativo e fecho de correspondência ficam na própria linha ("Senhor Delegado," |
+    # "Atenciosamente," | "José da Silva"): quebra de linha do Markdown (docs/content-format.md).
+    body = "\\\n".join(_join(piece) for piece in pieces if piece)
     empty = not body.strip()
     if not command:
         statement = body
@@ -876,7 +941,10 @@ def _question(
     flags = item.flags | group_flags
     if empty:
         flags.add("empty_item")  # o item é só uma figura
-    if any(e.short and not e.line.plain.endswith(SENTENCE_STOP) for e in item.entries[:-1]):
+    if any(
+        e.short and not e.line.plain.endswith(SENTENCE_STOP) and i not in breaks
+        for i, e in enumerate(item.entries[:-1])
+    ):
         flags.add("layout")  # quebras de linha com significado (código, versos, listas)
     if re.search(r"sublinhad", statement, re.I) and "<u>" not in statement:
         flags.add("underline")
@@ -893,6 +961,27 @@ def _question(
         command_page=command_page if command else None,
         flags=sorted(flags),
     )
+
+
+def _letter_breaks(entries: list[_Entry]) -> set[int]:
+    """Índices das linhas do item depois das quais vem quebra de linha: o vocativo ou o fecho de
+    uma correspondência, curto e terminado em vírgula, e a linha curta terminada em ponto que
+    antecede o fecho (PF 2012 escrivão 21–22, papiloscopista 14 e 17)."""
+    breaks: set[int] = set()
+    for index, entry in enumerate(entries[:-1]):
+        plain = entry.line.plain.strip()
+        if index == 0:
+            plain = re.sub(r"^\d{1,3}\s+", "", plain)  # número do item
+        if entry.short and LETTER_LINE.match(plain):
+            breaks.add(index)
+            previous = entries[index - 1] if index else None
+            if (
+                previous is not None
+                and previous.short
+                and previous.line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
+            ):
+                breaks.add(index - 1)
+    return breaks
 
 
 def _text_paragraphs(entries: list[_Entry]) -> list[str]:

@@ -2,18 +2,18 @@
  "exam": "pf-2012/agente",
  "numbers": [
   3,
-  22,
-  46,
-  55,
-  75,
-  88,
-  89,
-  90,
-  112,
-  114
+  20,
+  43,
+  48,
+  72,
+  81,
+  82,
+  87,
+  109,
+  111
  ],
- "sampled_at": "2026-10-08T19:41:10.526976+00:00",
- "approved_at": "2026-10-08T19:42:12.043701+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "d80c5ad15e41c5cd89841eb0fef8ede7975ecc36d56bce501b3d2d4aa6212a64"
+ "sampled_at": "2026-10-13T17:29:33.978229+00:00",
+ "approved_at": "2026-10-13T17:32:54.398431+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "e97134a2db9859b317456b8bc3a487e5361a866b5526dae3433803efc424ee8d"
 }

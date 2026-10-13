@@ -92,7 +92,7 @@ Variáveis: `P=emmoni-prod R=southamerica-east1 BA=01F985-1C44C6-40CDE9`.
 |---|---|---|---|
 | 0 | Estimativa (§2) conferida pelo dono | dono disse "vai" | feito em 2026-10-13 ("vai" repassado pela sessão coordenadora; saída de rede somada ao §2) |
 | 1 | Projeto e APIs | `gcloud projects describe $P` tem `emmoni=prod`; conta ligada | feito em 2026-10-13 (número 27333211980; ver a nota do passo 1) |
-| 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | pendente |
+| 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | parcial em 2026-10-13: 3 contas criadas, 0 chaves, Compute padrão sem `editor`; papel customizado e vínculos não criados (ver a nota do passo 2) |
 | 3 | Tópico e budget | budget lista o tópico | pendente |
 | 4 | Função de corte + teste | teste com 100% muda o ingresso; voltar com `--ingress=all` | pendente |
 | 5 | Repositório e primeira imagem (seed) | `audit.py --image` 0 falhas; push por digest | pendente |
@@ -148,6 +148,22 @@ done
 Depois: `gcloud projects get-iam-policy $P`. Se a conta padrão do Compute
 (`<número>-compute@developer.gserviceaccount.com`) aparecer com `roles/editor`, o caronte propõe
 `gcloud projects remove-iam-policy-binding $P --role=roles/editor --member=serviceAccount:<ela>`.
+
+Nota de 2026-10-13 (passo parcial): as três contas (`emmoni-api`, `emmoni-budget-cap`,
+`emmoni-build`) foram criadas, com 0 chaves de usuário. O `gcloud iam roles create
+emmoniIngressCap` foi negado pelo classificador de permissões da sessão do agente ("Protected-Scope
+IaC Apply"); o caronte não contornou a negação, então o papel customizado e os seis vínculos
+(papel customizado, `eventarc.eventReceiver`, `iam.serviceAccountUser` na `emmoni-api` e os três da
+`emmoni-build`) ficaram por criar. O próximo ciclo retoma daí, ou o dono roda o resto do bloco
+acima (sem os `service-accounts create`) ou libera o comando nas permissões. O
+`get-iam-policy` de agora não tem mais o `roles/editor` das contas padrão do Compute e do App Engine
+(nota do passo 1). Em compensação, apareceu o
+`roles/cloudbuild.builds.builder` para a conta legada do Cloud Build
+(`27333211980@cloudbuild.gserviceaccount.com`), concedido pelo Google ao ligar o `cloudbuild`. Ele
+fica fora do §3 e o build da função usa a `emmoni-build`. Tirar o vínculo é uma remoção e vai
+para a fila do dono. `audit.py --cloud emmoni-prod`: 26 verificações, 2 falhas: esse vínculo,
+e as APIs `serviceusage` e `source`, que estão fora do §3 (`source` veio do `cloudapis`, nota do
+passo 1; `serviceusage` é a API que lista as APIs).
 
 ### 3. Tópico e budget
 
@@ -249,3 +265,4 @@ dias restantes, observação. Fonte: console de faturamento (só leitura) ou o r
 | 2026-10-08 | — | R$ 1.779,29 (última leitura do Usher, 2026-10-07) | 90 | nada criado ainda |
 | 2026-10-13 | R$ 0 (`emmoni-prod` não existe) | R$ 1.752,45 (98%, console, Créditos) | 85 | passo 0; nada criado; R$ 26,84 usados, todos do Usher |
 | 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 1: projeto `emmoni-prod` criado, ligado à conta, 8 APIs do §3; nada pago existe; budget `emmoni` ainda nenhum |
+| 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 2 parcial: 3 contas de serviço (sem custo); papel customizado e vínculos negados pela permissão da sessão; nada pago existe; `audit.py --cloud` sem budget `emmoni-monthly` |
