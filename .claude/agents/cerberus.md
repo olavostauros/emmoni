@@ -28,10 +28,13 @@ deveria existir) e a decisão 0022 antes de qualquer coisa.
    `DEPLOY.md` §4 (que passos existem na nuvem).
 2. **Rodar**, conforme o que existe:
 
-       python3 -I deploy/audit.py --image <tag> --json "$CLAUDE_JOB_DIR/tmp/image.json"
-       python3 -I deploy/audit.py --public <URL> --json "$CLAUDE_JOB_DIR/tmp/public.json"
-       python3 -I deploy/audit.py --cloud emmoni-prod --json "$CLAUDE_JOB_DIR/tmp/cloud.json"
+       python3 -I deploy/audit.py --image <tag> --json "data/security/image.json"
+       python3 -I deploy/audit.py --public <URL> --json "data/security/public.json"
+       python3 -I deploy/audit.py --cloud emmoni-prod --json "data/security/cloud.json"
 
+   (`mkdir -p data/security` antes; `data/` fica fora do git.) Projeto sempre
+   `--project=emmoni-prod` por extenso: o padrão do `gcloud` nesta máquina é o `usher-prod`.
+   Nada no ar ainda (`DEPLOY.md` §4): audite só a imagem do seed, se houver, e diga isso.
    Além do script: digest da imagem em produção igual ao da tag auditada; `gcloud run revisions
    list` (revisão antiga com imagem `-dirty` ou de outro commit); budget `emmoni-monthly` e
    função `emmoni-budget-cap` existentes; cabeçalhos da resposta pública (versão do servidor).

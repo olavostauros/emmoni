@@ -13,11 +13,11 @@ Em caso de conflito: o SPECIFICATION.md manda nas decisões técnicas; este arqu
 
 | Agente | Responsabilidade |
 |---|---|
-| **Sessão principal** (coordenadora) | Orienta, despacha para os subagentes, junta os resultados, registra o progresso e faz commit/PR quando pedido. Não constrói nem aprova (decisão 0024). |
+| **Sessão principal** (coordenadora) | Orienta, despacha para os subagentes, junta os resultados, registra o progresso e faz commit e push no `main` ao fim de cada ciclo (decisão 0026). Não constrói nem aprova (decisão 0024). |
 | **hefesto** (banco de dados, missão atual) | Esquema, migrações, crawler, ingestão das provas, qualidade dos dados, contrato e seed para o front-end. Produz e propõe; nunca aprova (`.claude/agents/hefesto.md`). |
 | **minos** (revisão) | As três revisões de "Revisão pelo agente", em contexto separado de quem produziu; aprova ou reprova, nunca corrige (`.claude/agents/minos.md`). |
 | **Front-end** | O site que os concurseiros usam. Consome o contrato publicado pelo agente de banco de dados. |
-| **atlas** (deploy) | Leva a API ao Google Cloud Run seguindo `docs/DEPLOY.md`; pede o sim do dono antes de cada recurso (`.claude/agents/atlas.md`). |
+| **atlas** (deploy) | Leva a API ao Google Cloud Run seguindo `docs/DEPLOY.md`; passos 1–7 sozinho, o passo 8 e as remoções só com o sim do dono (decisão 0026, `.claude/agents/atlas.md`). |
 | **cerberus** (segurança) | Audita imagem, API pública e projeto, só leitura; relatório no contrato de `docs/CYBERSECURITY.md` (`.claude/agents/cerberus.md`). |
 
 Regras de fronteira:
@@ -113,7 +113,8 @@ comandos e limiares, e se registra como revisor com o nome e o modelo
 - **Amostra por prova** — `emmoni review sample <concurso>/<prova>`: comparar cada questão da
   amostra com a página do PDF (enunciado, texto-base, alternativas, gabarito final, disciplina).
   Tudo confere: `emmoni review approve <concurso>/<prova> --by <modelo>`. Algo não confere: não
-  aprovar; corrigir a causa e amostrar de novo.
+  aprovar; a causa volta ao hefesto pela coordenadora, e depois da correção o minos amostra de novo
+  com outra semente.
 - **Amostra de assuntos** — `emmoni review topics`: em contexto separado do `classify` — um
   subagente que lê só `data/review/assuntos/amostra.{md,json}` e `db/taxonomy/*.yaml`, sem abrir
   `classify-answers.json`, o prompt nem o raciocínio da classificação —, julgar se os assuntos
@@ -145,9 +146,10 @@ O que fica com a coordenadora:
   0019); não dispare hefesto e minos em paralelo sobre o banco.
 - **Fechar o ciclo**: reprovação do minos volta ao hefesto com a causa; a prova só segue depois de
   amostra nova aprovada pelo minos.
-- **Registrar**: commit e PR quando pedidos (a mensagem diz quem aprovou, ex.: "aprovado por
-  minos (claude-opus-5-5)"), `docs/progress/` e `STATUS.md` antes de encerrar.
-- Perguntas, leituras e respostas ao dono ela faz direto, sem subagente.
+- **Registrar**: `docs/progress/` e `STATUS.md`, commit e push ao fim de cada ciclo (a mensagem
+  diz quem aprovou, ex.: "aprovado por minos (claude-opus-5-5)").
+- Leituras e respostas ao dono ela faz direto, sem subagente. Ela não pergunta: o que só o dono
+  decide vai para a fila do `STATUS.md` (decisão 0026).
 
 ## Fluxo de trabalho
 
@@ -170,6 +172,32 @@ O que fica com a coordenadora:
    O `STATUS.md` não é histórico: o que foi feito fica no registro da sessão; no `STATUS.md` ficam
    só o marco, o que está em andamento, os próximos passos, os bloqueios e os números de agora.
 
+## Ciclo autônomo
+
+Os agentes trabalham sozinhos, sem perguntar ao dono (decisão 0026). O timer `emmoni-ciclo.timer`
+roda `scripts/ciclo.sh` a cada 3 h, e ele abre uma sessão coordenadora com o pedido de
+`scripts/ciclo-prompt.md`. Um ciclo:
+
+1. **Orienta** pelo passo 1 do "Fluxo de trabalho" e lê a fila do dono ("Bloqueios e perguntas em
+   aberto" do `STATUS.md`): o que o dono respondeu ali sai da fila e vira trabalho.
+2. **Escolhe** nesta ordem: reprovação do minos ainda aberta; propostas pendentes do crawler
+   (minos); o primeiro dos "Próximos passos" que não depende do dono; um passo do deploy (atlas,
+   passos 1–7 do `DEPLOY.md`, um por ciclo); a auditoria (cerberus) quando a nuvem ou o `deploy/`
+   mudou desde o último relatório.
+3. **Faz** em incrementos pequenos: hefesto produz, minos revisa, nunca os dois ao mesmo tempo no
+   banco. Reprovação volta ao hefesto; depois de três reprovações seguidas no mesmo item, ele vai
+   para os bloqueios e o ciclo passa ao próximo.
+4. **Fecha**: `make gates`, registro em `docs/progress/`, `STATUS.md`, commit e
+   `git push origin main`. Gates vermelhos: commit num branch `ciclo/AAAA-MM-DD-<assunto>`, push
+   do branch e o motivo nos bloqueios; o `main` não recebe código com gates vermelhos.
+
+Ninguém pergunta, nem a coordenadora, nem os subagentes. Dúvida técnica: a escolha mais
+conservadora que caiba nas regras, registrada no registro da sessão. Decisão que só o dono toma
+(publicar as questões reais, gastar fora do `DEPLOY.md`, remover recurso, mexer em outro projeto,
+mandar mensagem para fora): entra na fila do `STATUS.md` e o ciclo segue com outro item. Nada a
+fazer: o ciclo registra isso e termina cedo. Nunca `--force`, nunca reescrever histórico
+publicado.
+
 ## Sessões paralelas e worktrees
 
 Várias sessões podem rodar ao mesmo tempo, cada uma num worktree do git (decisão 0019). Elas
@@ -179,8 +207,9 @@ para o checkout principal.
 
 - Comandos que escrevem no banco — `make gates`, `make test`, `make migrate`, `make seed`,
   `make db-reset`, `emmoni ingest`, `emmoni review approve`, `emmoni crawl` — rodam em **uma
-  sessão por vez**. Antes de rodá-los, confira se outra sessão não está no meio de um deles; em
-  dúvida, pergunte ao dono.
+  sessão por vez**, garantida pela trava do banco (decisão 0025): quem chega com o banco ocupado
+  espera a trava; não pergunta. Estourou a espera: faça trabalho que não escreve no banco e tente
+  depois.
 - O que precisa sobreviver ao worktree vai para o git: aprovações (`ingest/approvals/`), revisões
   de OCR (`ingest/ocr/`), `classify-answers.json`, manifestos. O resto de `data/` (PDFs, staging,
   amostras) é reproduzível e fica para trás quando o worktree é apagado.

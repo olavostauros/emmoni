@@ -1,7 +1,9 @@
 # Deploy da API no Google Cloud
 
-Contrato do agente **atlas** (`.claude/agents/atlas.md`). Decisão 0022. Nada aqui roda sem o sim
-do dono para **aquele** passo.
+Contrato do agente **atlas** (`.claude/agents/atlas.md`). Decisões 0022 e 0026. Os passos 1–7
+rodam sem perguntar, um por ciclo autônomo; o passo 8, as remoções e o que o §1 proíbe continuam
+dependendo do sim do dono. Todo comando leva `--project=emmoni-prod` por extenso: o projeto padrão
+do `gcloud` nesta máquina é o `usher-prod`.
 
 ## 1. Dinheiro
 
@@ -24,7 +26,7 @@ Regras:
 - Todo recurso fica no projeto `emmoni-prod` e leva a label `emmoni=prod`. Nunca tocar em
   `usher-prod`, `My First Project` nem outro projeto.
 
-## 2. Estimativa (preços do Billing Catalog, BRL, verificados em 2026-10-08)
+## 2. Estimativa (preços do Billing Catalog, BRL, verificados em 2026-10-08 e reconferidos em 2026-10-13)
 
 Fonte: `cloudbilling.googleapis.com/v1/services/<id>/skus?currencyCode=BRL` (Cloud Run
 `152E-C115-5142`, Artifact Registry `149C-F9EC-3994`).
@@ -34,13 +36,24 @@ Fonte: `cloudbilling.googleapis.com/v1/services/<id>/skus?currencyCode=BRL` (Clo
 | Cloud Run CPU (Tier 2, por requisição) | R$ 0,000199279 / vCPU·s | ~2.000 s (partidas a frio + consultas) | ~0,40 |
 | Cloud Run memória (Tier 2) | R$ 0,000020758 / GiB·s | 0,5 GiB × ~2.000 s | ~0,02 |
 | Requisições | grátis até 2 M; depois R$ 2,37 / milhão | < 100 mil | 0 |
+| Saída de rede (internet, América do Sul) | R$ 0,71 / GiB (SKU `3C96-B34E-58BC`) | < 100 mil respostas × ~20–50 KB ≈ 2–5 GiB | ~1,40–3,60 |
+| Imagem da função de corte (`gcf-artifacts`) e fonte no Cloud Storage | soma nos 0,5 GiB grátis do Artifact Registry; depois R$ 0,59 / GiB·mês | ~0,1–0,3 GiB | ~0–0,20 |
 | Artifact Registry | grátis até 0,5 GiB; depois R$ 0,59 / GiB·mês | 2 versões (~200 MB comprimidos, camadas compartilhadas) | 0 |
-| Pub/Sub, função de corte, budgets, Cloud Logging (< 50 GiB) | nível gratuito | | 0 |
+| Pub/Sub, função de corte, budgets, Cloud Build (< 2.500 min), Cloud Logging (< 50 GiB) | nível gratuito | | 0 |
 | **Total esperado** | | | **< 5** |
 | **Pior caso** (abuso 24 h, 1 instância de 1 vCPU) | | 2,63 M s | ~550, **cortado a R$ 40** |
 
 O pior caso é o motivo de `max-instances=1` e do corte: com o atraso do faturamento (até ~1 dia)
 o mês fecha perto de R$ 80, não de R$ 550.
+
+**Ressalva de 2026-10-13:** o pior caso acima conta só CPU. A saída de rede também escala com o
+abuso e não tem nível gratuito na América do Sul: a ~100 respostas/s de ~50 KB seriam ~400 GiB
+por dia, ~R$ 300/dia, bem acima dos ~R$ 18/dia de CPU. A vazão real de uma instância (1 vCPU,
+concorrência 40) e o tamanho real das respostas não foram medidos; até serem, o atraso de ~1 dia
+do faturamento pode deixar o mês passar bastante de R$ 80 antes do corte.
+Os preços de CPU e memória (Tier 2, por requisição, inclui `southamerica-east1`), requisições e
+Artifact Registry conferem com os de 2026-10-08. O nível gratuito do Cloud Run (180 mil vCPU·s,
+360 mil GiB·s) é por conta de faturamento e não foi descontado acima.
 
 ## 3. Arquitetura e recursos
 
@@ -68,12 +81,15 @@ usuário do agente e hook de guarda aqui simplesmente não existe.
 
 ## 4. Passos
 
-Cada passo: o atlas mostra o comando, o custo e a label, espera o sim, roda, confere e marca aqui.
+Cada passo: o atlas confere as pré-condições, registra o comando, o custo e a label no registro da
+sessão, roda, confere e marca aqui. O passo 7 só roda depois do teste do corte (passo 4) e da
+medição da ressalva do §2 (tamanho real das respostas e vazão de uma instância, com o serviço
+privado), com o pior caso diário recalculado no §2; acima de R$ 100/dia, vai para a fila do dono.
 Variáveis: `P=emmoni-prod R=southamerica-east1 BA=01F985-1C44C6-40CDE9`.
 
 | # | Passo | Feito quando | Estado |
 |---|---|---|---|
-| 0 | Estimativa (§2) conferida pelo dono | dono disse "vai" | **pendente** |
+| 0 | Estimativa (§2) conferida pelo dono | dono disse "vai" | feito em 2026-10-13 ("vai" repassado pela sessão coordenadora; saída de rede somada ao §2) |
 | 1 | Projeto e APIs | `gcloud projects describe $P` tem `emmoni=prod`; conta ligada | pendente |
 | 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | pendente |
 | 3 | Tópico e budget | budget lista o tópico | pendente |
@@ -195,7 +211,7 @@ gcloud run services add-iam-policy-binding emmoni-api --project=$P --region=$R \
 python3 -I deploy/audit.py --public "$URL" --cloud $P
 ```
 
-Avisar o Plantão (sessão do agente de front-end) com a URL; o contrato ganha a URL pública.
+O contrato ganha a URL pública; o aviso ao Plantão vai para a fila do dono no `STATUS.md` (decisão 0026).
 
 ### 8. Questões reais
 
@@ -219,3 +235,4 @@ dias restantes, observação. Fonte: console de faturamento (só leitura) ou o r
 | Data | Gasto no mês | Crédito restante | Dias | Observação |
 |---|---:|---:|---:|---|
 | 2026-10-08 | — | R$ 1.779,29 (última leitura do Usher, 2026-10-07) | 90 | nada criado ainda |
+| 2026-10-13 | R$ 0 (`emmoni-prod` não existe) | R$ 1.752,45 (98%, console, Créditos) | 85 | passo 0; nada criado; R$ 26,84 usados, todos do Usher |

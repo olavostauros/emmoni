@@ -39,6 +39,9 @@ tem padrões de desenvolvimento para todas as URLs do banco, então um repositó
 | `EMMONI_DATA_DIR` | Raiz de `raw/`, `staging/`, `assets/`, `crawl/`. |
 | `EMMONI_CRAWL_CONTACT` | Contato no `User-Agent` do crawler. |
 | `EMMONI_API_PORT` | Porta da API HTTP no host (padrão `53000`). |
+| `EMMONI_DB_LOCK` | Arquivo da trava do banco (padrão `${XDG_RUNTIME_DIR:-/tmp}/emmoni-db.lock`; decisão 0025). |
+| `EMMONI_DB_LOCK_WAIT` | Espera máxima pela trava do banco, em segundos (padrão `1800`); estourou, sai com 75. |
+| `EMMONI_DB_LOCKED` | Definida pelo processo que segura a trava; os filhos não travam de novo. Não definir à mão. |
 
 ---
 
@@ -621,6 +624,15 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
 | `make crawl` | `emmoni crawl --all` (operação diária, `docs/operations.md`). |
 | `make bench` | Mede as funções do contrato (seção 6). |
 | `make gates` | db-up + migrate + lint + migrations-roundtrip + test + check. **Obrigatório passar antes de entregar.** |
+
+**Trava do banco** (decisão 0025): o Postgres é um só por máquina, compartilhado pelos worktrees
+(decisão 0019). Os alvos que escrevem nele (`gates`, `test`, `test-db`, `migrate`, `seed`,
+`catalog`, `db-reset`, `db-down`, `migrations-roundtrip`, `crawl`, `bench`, `prod-image`) e os
+subcomandos `emmoni ingest`, `crawl`, `catalog load`, `taxonomy load`, `review approve` e
+`review restore` rodam um por vez: tomam a trava `flock` de `EMMONI_DB_LOCK` (`scripts/db-lock.sh`
+no Makefile, `ingest/dblock.py` no `emmoni`). Quem chega com o banco ocupado espera até
+`EMMONI_DB_LOCK_WAIT` segundos, dizendo quem segura; não pergunta a ninguém. Outro comando que
+escreva no banco fora do make: `scripts/db-lock.sh "<descrição>" <comando>`.
 
 Testes obrigatórios:
 

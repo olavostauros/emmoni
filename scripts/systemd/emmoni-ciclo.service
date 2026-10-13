@@ -1,0 +1,8 @@
+[Unit]
+Description=emmoni: ciclo autônomo da coordenadora (decisão 0026)
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h/Work/emmoni
+ExecStart=%h/Work/emmoni/scripts/ciclo.sh
+TimeoutStartSec=4h

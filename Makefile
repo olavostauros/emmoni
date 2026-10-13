@@ -16,16 +16,35 @@ BENCH_URL_OWNER  ?= $(call db_url,emmoni_owner,emmoni_bench)
 BENCH_URL_INGEST ?= $(call db_url,emmoni_ingest,emmoni_bench)
 BENCH_URL_WEB    ?= $(call db_url,emmoni_web,emmoni_bench)
 
-export EMMONI_DB_PORT EMMONI_API_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB EMMONI_CRAWL_CONTACT
+export EMMONI_DB_PORT EMMONI_API_PORT DATABASE_URL DATABASE_URL_TEST DATABASE_URL_TEST_OWNER DATABASE_URL_TEST_WEB EMMONI_CRAWL_CONTACT \
+       EMMONI_DB_LOCK EMMONI_DB_LOCK_WAIT
 
 UV     ?= uv
 DBMATE ?= dbmate --wait
+
+# Trava do banco (decisão 0025): os alvos abaixo escrevem no Postgres (ou o derrubam, ou leem o
+# emmoni_test que o `test` recria) e rodam um por vez na máquina. Pedido algum deles, o make de
+# fora roda a si mesmo sob scripts/db-lock.sh com EMMONI_DB_LOCKED=1; os makes de dentro (e o
+# comando emmoni) veem a variável e não travam de novo. Quem chega com o banco ocupado espera.
+DB_TARGETS := gates test test-db migrate seed catalog db-reset db-down migrations-roundtrip \
+              crawl bench prod-image
+db_goals := $(if $(EMMONI_DB_LOCKED),,$(filter $(DB_TARGETS),$(MAKECMDGOALS)))
+
+ifneq ($(db_goals),)
+
+.PHONY: $(MAKECMDGOALS)
+$(firstword $(MAKECMDGOALS)):
+	@scripts/db-lock.sh "make $(MAKECMDGOALS)" $(MAKE) --no-print-directory $(MAKECMDGOALS)
+$(filter-out $(firstword $(MAKECMDGOALS)),$(MAKECMDGOALS)):
+	@:
+
+else
 
 .PHONY: help db-up db-down db-reset api-up api-down api-smoke prod-image prod-audit install migrate catalog seed seed-build test test-db migrations-roundtrip \
         lint format check crawl bench gates
 
 help:
-	@grep -E '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/'
+	@grep -hE '^[a-z-]+:.*## ' $(MAKEFILE_LIST) | sed 's/:.*## /\t/'
 
 db-up: ## Sobe o Postgres local
 	docker compose up -d --wait db
@@ -113,3 +132,5 @@ bench: install ## Mede as funções do contrato com 100 mil questões (banco emm
 
 gates: db-up migrate lint migrations-roundtrip test check ## Obrigatório antes de entregar
 	@echo "gates: ok"
+
+endif

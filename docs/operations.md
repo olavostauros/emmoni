@@ -11,6 +11,12 @@ Pré-requisitos: Postgres no ar (`make db-up`), migrações aplicadas (`make mig
 carregado (`make catalog`) e um `.env` com `DATABASE_URL` e `EMMONI_CRAWL_CONTACT` **real** (o
 cliente HTTP recusa o contato de exemplo).
 
+`make crawl` toma a trava do banco (decisão 0025): se outra sessão estiver no meio de um
+`make gates` ou `emmoni ingest`, ele espera até `EMMONI_DB_LOCK_WAIT` segundos (padrão 1800) e,
+estourado o tempo, sai com erro; a próxima execução tenta de novo. A trava fica em
+`$XDG_RUNTIME_DIR/emmoni-db.lock`; o systemd de usuário define `XDG_RUNTIME_DIR`, o cron não
+(sem ela, a trava cai em `/tmp` e não enxerga a das sessões): no cron, defina a variável.
+
 ### Timer do systemd (usuário)
 
 `~/.config/systemd/user/emmoni-crawl.service`:
@@ -49,7 +55,7 @@ journalctl --user -u emmoni-crawl.service   # relatório de cada execução
 ### cron
 
 ```
-17 6 * * *  cd $HOME/Work/emmoni && make crawl >> data/crawl/crawl.log 2>&1
+17 6 * * *  cd $HOME/Work/emmoni && XDG_RUNTIME_DIR=/run/user/$(id -u) make crawl >> data/crawl/crawl.log 2>&1
 ```
 
 ## Depois de cada execução

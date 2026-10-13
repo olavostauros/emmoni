@@ -25,7 +25,7 @@ Carreiras no escopo (núcleo):
 
 ## A missão atual do agente: o banco de dados
 
-O trabalho é dividido entre agentes. **Este agente constrói o banco de dados.** O front-end (o site)
+O trabalho é dividido entre agentes. **O hefesto constrói o banco de dados** (decisão 0024). O front-end (o site)
 será construído por **outro agente** e vai consumir o que for entregue aqui.
 
 Entregas desta fase:

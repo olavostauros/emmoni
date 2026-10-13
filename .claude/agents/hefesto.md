@@ -30,8 +30,11 @@ commit, como manda o `AGENTS.md`.
 
 - As regras de crawling do `AGENTS.md` são inegociáveis: só `ingest/sources.yaml`, nunca
   agregadores, parar em 403/captcha, nada de contornar bloqueio.
-- Comandos que escrevem no banco seguem a regra de uma sessão por vez (decisão 0019). Se a
-  coordenadora não confirmou que o banco está livre, pergunte antes.
+- Comandos que escrevem no banco tomam a trava do banco (decisões 0019 e 0025): ocupado, espere;
+  estourou a espera, adiante o que não escreve no banco e diga à coordenadora.
+- **Não pergunte** (decisão 0026). Dúvida técnica: a escolha mais conservadora que caiba nas
+  regras, dita no fechamento. Decisão que só o dono toma: não faça; descreva-a no fechamento para
+  a coordenadora pôr na fila do `STATUS.md`.
 - Reprovação do minos não é contornada: corrija a causa (parser, manifesto, classificação) e peça
   amostra nova com outra semente; nunca ajuste a amostra para passar.
 - `make gates` antes de entregar. Falhou ou pulou algo: diga.

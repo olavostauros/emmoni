@@ -1,6 +1,7 @@
 """Comando `emmoni`."""
 
 import argparse
+import sys
 from collections.abc import Sequence
 from pathlib import Path
 
@@ -10,6 +11,7 @@ from ingest import (
     coverage,
     crawl,
     db,
+    dblock,
     fetch,
     manifest,
     pipeline,
@@ -93,6 +95,34 @@ def main(argv: Sequence[str] | None = None) -> int:
     man_reject.add_argument("--reason", required=True)
 
     args = parser.parse_args(argv)
+    if not _writes_db(args):
+        return _run(parser, args)
+    label = "emmoni " + " ".join(sys.argv[1:] if argv is None else argv)
+    try:
+        with dblock.hold(label):
+            return _run(parser, args)
+    except dblock.DbLockError as error:
+        print(f"emmoni: {error}", file=sys.stderr)
+        return dblock.TIMEOUT_EXIT
+
+
+# Subcomandos que escrevem no banco: tomam a trava (decisão 0025).
+_DB_WRITERS = {
+    ("ingest", None),
+    ("crawl", None),
+    ("catalog", "load"),
+    ("taxonomy", "load"),
+    ("review", "approve"),
+    ("review", "restore"),
+}
+
+
+def _writes_db(args: argparse.Namespace) -> bool:
+    sub = getattr(args, f"{args.command}_command", None)
+    return (args.command, sub) in _DB_WRITERS
+
+
+def _run(parser: argparse.ArgumentParser, args: argparse.Namespace) -> int:
     if args.command == "crawl":
         return _crawl(args.source, args.all, args.force)
     if args.command == "manifests":

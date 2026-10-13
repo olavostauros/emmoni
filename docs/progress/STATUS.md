@@ -16,15 +16,17 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - Capa do PM/AL 2021, fonte de símbolos, escape do `$` (decisão 0023, contrato v1.4) e "(ℓ.N)" em
   todos os cadernos; 13 provas reamostradas e reaprovadas (`2026-10-13-defeitos-e-cifrao.md`,
   `2026-10-13-referencia-de-linha.md`). No `main`.
+- Trava do banco (decisão 0025) e ciclo autônomo (decisão 0026), ainda sem timer ligado
+  (`2026-10-13-ciclo-autonomo.md`).
 
 ## Em andamento
 - PF 2018 agente q51–56 e papiloscopista q48–50 em `review` por fórmula (símbolos sem mapeamento).
 - Plantão: contrato v1.4 permite religar `$...$` (o `$` literal chega como `\$`).
-- Deploy: passo 0 de `docs/DEPLOY.md` §4 (estimativa) aguardando o "vai" do dono.
+- Deploy: passo 0 feito (2026-10-13); passos 1–7 pelo atlas, um por ciclo autônomo (decisão 0026).
 
 ## Próximos passos
-0. Deploy (`docs/DEPLOY.md` §4), pelo agente atlas, um passo por sim do dono: projeto
-   `emmoni-prod` → contas → budget → corte → imagem seed → serviço privado → público com seed.
+0. Deploy (`docs/DEPLOY.md` §4), pelo atlas, um passo por ciclo: projeto `emmoni-prod` → contas →
+   budget → corte → imagem seed → serviço privado → medição da ressalva do §2 → público com seed.
 1. Crédito em três linhas ou mais: só as duas últimas são emendadas (PM/MA 2017 g39, INFOPEN do
    DEPEN). Corrigir no parser e reprocessar como em `2026-10-08-reprocessamento-creditos.md`.
 2. Avaliar ligar o estilo pelas larguras (`legacy`) nos cadernos novos com fontes "TT…o00"
@@ -37,18 +39,23 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 5. Começar o crawler e o parser de outra banca.
 6. `pcpe-2016` e `pcientifica-pe-2016`: calibrar o parser, preencher `first_number` e
    `subjects_by_range` e ingerir.
-7. Instalar o timer do systemd (`docs/operations.md`).
+7. Crawl diário: o ciclo autônomo roda `make crawl` uma vez por dia (o timer próprio de
+   `docs/operations.md` fica dispensado enquanto o ciclo rodar).
 8. Etapa `structure` e imagens para as questões em `review` por figura, fórmula e layout.
 9. Amostra: incluir a página do comando quando ele está antes da página da questão (PCDF 2026 q96).
 10. PM/MA 2017: 6 documentos fora do manifesto (decisão 0009): confirmar e silenciar no relatório.
 
 ## Bloqueios e perguntas em aberto
 - Publicar as questões reais na API (imagem `all`) e no snapshot do Plantão: sim do dono.
-- O `emmoni-prod` vai usar o mesmo crédito do Usher; o `CYBERSECURITY.md` do Usher trata projeto
-  novo na conta como achado: registrar lá que é esperado.
+- O `emmoni-prod` vai usar o mesmo crédito do Usher: PR #130 do Usher (automerge, 2026-10-13)
+  registra no `CYBERSECURITY.md` de lá que o projeto é esperado e que o burn log lê o total da
+  conta. Falta só o merge.
 - CBM/AL 2017 básicos cargo 1 e PC/PB 2021 cargo 8 item 80 seguem fora.
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (estão também no site antigo: tentar por lá).
-- Sessões paralelas compartilham o Postgres; a regra é de processo, sem trava (decisão 0019).
+- Sessões paralelas compartilham o Postgres, agora com trava (decisão 0025).
+- Ciclo autônomo (decisão 0026): falta o dono pôr no `.claude/settings.json` as negações da
+  decisão (`usher-prod`, `gcloud projects delete`, `gcloud billing accounts`, `git push --force`;
+  o modo automático não deixa o agente editar as próprias permissões) e ligar `emmoni-ciclo.timer`. Esta é a fila do dono: o ciclo escreve aqui o que só ele decide.
 
 ## Números
 - Questões visíveis no esquema `api`: 5.143 reais, sem duplicatas e sem o seed (`docs/coverage.md`)
