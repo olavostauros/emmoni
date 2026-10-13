@@ -9,6 +9,16 @@ from collections.abc import Sequence
 ASSET_REF = re.compile(r"!\[([^\]]*)\]\(asset:([0-9a-f]{64})\)")
 
 
+# Caracteres do original que o Markdown restrito leria como marcação: "R$ 10 e R$ 20" viraria
+# fórmula, "Austrália*" abriria itálico (docs/content-format.md, "Texto literal").
+MD_SPECIAL = re.compile(r"([\\`*_$<])")
+
+
+def escape_md(text: str) -> str:
+    """Texto puro do PDF → Markdown restrito que se lê igual."""
+    return MD_SPECIAL.sub(r"\\\1", text)
+
+
 def asset_refs(md: str) -> list[str]:
     """sha256 dos assets referenciados, na ordem em que aparecem."""
     return [sha for _, sha in ASSET_REF.findall(md)]

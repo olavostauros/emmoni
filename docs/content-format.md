@@ -1,6 +1,6 @@
 # Formato do conteúdo
 
-**Versão 1.0** · vale para `statement_md` (enunciado), `body_md` das alternativas e `body_md` /
+**Versão 1.1** · vale para `statement_md` (enunciado), `body_md` das alternativas e `body_md` /
 `passage_md` dos textos-base. Faz parte do [contrato](contract.md).
 
 O conteúdo é **Markdown restrito**: CommonMark + tabelas GFM, com as regras abaixo. A ingestão
@@ -22,6 +22,15 @@ biblioteca CommonMark/GFM com HTML desabilitado, mais os dois acréscimos (subli
 | Fórmulas | `$x^2$` inline, `$$...$$` em bloco | LaTeX (renderizar com KaTeX/MathJax) |
 | Imagens | `![texto alternativo](asset:<sha256>)` | ver abaixo |
 
+## Texto literal
+
+Caractere do original que o Markdown leria como marcação vem **escapado com `\`** (escape padrão do
+CommonMark): `\$`, `\*`, `\_`, `` \` ``, `\<` e `\\`. Assim "R\$ 10,00 e R\$ 20,00" não vira
+fórmula, e o asterisco de nota ("Austrália\*") não abre itálico. Um renderizador CommonMark mostra o
+caractere sem a barra; a extensão de fórmulas precisa respeitar `\$` (o KaTeX auto-render e o
+`remark-math` respeitam). Quem exibe o texto sem renderizar deve tirar a barra antes desses
+caracteres.
+
 ## Imagens
 
 - O destino é sempre `asset:` seguido do sha256 (64 hex minúsculos) do arquivo. Nunca há URL
@@ -41,5 +50,13 @@ biblioteca CommonMark/GFM com HTML desabilitado, mais os dois acréscimos (subli
 - Unicode NFC.
 - Hifenização de fim de linha do PDF removida (`investi-\ngação` → `investigação`).
 - Espaços repetidos colapsados; espaços nas pontas removidos.
+- `$`, `*`, `_`, `` ` ``, `<` e `\` literais escapados ("Texto literal", acima; desde a v1.1).
 - Aspas (“ ”, ‘ ’) e travessões (—, –) do original preservados.
 - O texto não é "corrigido": erros do original ficam, porque a questão pode ser justamente sobre eles.
+
+## Histórico
+
+| Versão | Data | Mudança |
+|---|---|---|
+| 1.0 | 2026-10-07 | Primeira versão. |
+| 1.1 | 2026-10-13 | Caracteres literais escapados com `\` (decisão 0023). Antes, `R$` do original chegava sem escape e podia abrir fórmula. |

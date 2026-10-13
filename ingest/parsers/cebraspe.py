@@ -23,12 +23,14 @@ from ingest.staging import AnswerKey, AnswerMark, RawOption, RawPassage, RawQues
 
 PARSER = "cebraspe-parser@1"
 
-START = re.compile(r"^-* ?PROVA OBJETIVA( P\d)? ?-*$")  # "-- PROVA OBJETIVA P1 --" (2025)
+START = re.compile(
+    r"^-* ?PROVAS? OBJETIVAS?( P\d)? ?-*$"
+)  # "-- PROVA OBJETIVA P1 --" (2025), "-- PROVAS OBJETIVAS --"
 STOP = re.compile(r"^-* ?PROVA DISCURSIVA( P\d)? ?-*$")
 # Título de seção que abre a prova quando não há "PROVA OBJETIVA" (CBM/AL e PM/AL 2017).
 SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
-    r"^(BLOCO [IVX]+|Espaço livre|RASCUNHO|-+ ?PROVA OBJETIVA ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
+    r"^(BLOCO [IVX]+|Espaço livre|RASCUNHO|-+ ?PROVAS? OBJETIVAS? ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
     # título de seção no meio do caderno (PM/AL 2021, PCDF 2019), código da matriz, lixo "! !"
     r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d)? ?-*|›* ?Matriz_\S*|P[áa]gina: ?\d+|[!\s]+)$",
     re.I,

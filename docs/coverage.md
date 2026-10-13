@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-08 19:54 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-13 12:43 UTC. Não edite à mão.
 
-**5152 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**4858 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -31,12 +31,12 @@ Gerado por `emmoni coverage` em 2026-10-08 19:54 UTC. Não edite à mão.
 | Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
 | Cebraspe | PF | 2012 | 1 | 90 |
-| Cebraspe | PF | 2018 | 4 | 414 |
+| Cebraspe | PF | 2018 | 2 | 222 |
 | Cebraspe | PF | 2021 | 4 | 233 |
 | Cebraspe | PF | 2025 | 6 | 248 |
 | Cebraspe | PMAL | 2017 | 2 | 94 |
 | Cebraspe | PMAL | 2018 | 1 | 108 |
-| Cebraspe | PMAL | 2021 | 2 | 190 |
+| Cebraspe | PMAL | 2021 | 1 | 88 |
 | Cebraspe | PMDF | 2025 | 2 | 78 |
 | Cebraspe | PMMA | 2017 | 3 | 115 |
 | Cebraspe | PMPA | 2023 | 4 | 111 |
@@ -50,46 +50,46 @@ Gerado por `emmoni coverage` em 2026-10-08 19:54 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 560 |
-| Informática | 428 |
-| Direito Processual Penal | 404 |
-| Direito Penal | 401 |
-| Direito Administrativo | 398 |
-| Direito Constitucional | 394 |
-| Legislação Penal Especial | 308 |
-| Legislação Institucional | 181 |
+| Língua Portuguesa | 494 |
+| Direito Processual Penal | 393 |
+| Direito Penal | 390 |
+| Direito Administrativo | 385 |
+| Direito Constitucional | 381 |
+| Informática | 350 |
+| Legislação Penal Especial | 302 |
+| Legislação Institucional | 178 |
 | Medicina Legal | 178 |
-| Contabilidade Geral | 132 |
-| Direitos Humanos | 128 |
-| Geografia | 123 |
-| História | 116 |
-| Raciocínio Lógico | 114 |
+| Direitos Humanos | 123 |
+| Geografia | 118 |
+| Contabilidade Geral | 114 |
+| História | 111 |
+| Raciocínio Lógico | 100 |
 | Legislação Estadual | 93 |
 | Direito Civil | 90 |
-| Arquivologia | 76 |
-| Biologia | 75 |
 | Legislação de Trânsito | 71 |
+| Arquivologia | 70 |
 | Legislação Penal Militar | 68 |
 | Matemática | 67 |
+| Biologia | 66 |
 | Química | 65 |
 | Criminologia | 63 |
 | Criminalística | 62 |
 | Atualidades | 56 |
-| Língua Inglesa | 45 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 36 |
+| Língua Inglesa | 33 |
 | Direito Processual Civil | 31 |
 | Engenharia | 31 |
 | Direito Empresarial | 27 |
-| Física | 26 |
 | Administração Geral | 24 |
 | Direito Internacional | 24 |
-| Estatística | 23 |
+| Física | 24 |
 | Ética no Serviço Público | 23 |
 | Direito Previdenciário | 22 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
 | Redação Oficial | 18 |
 | Execução Penal | 17 |
+| Estatística | 16 |
 | Segurança Pública | 11 |
 | Direito Financeiro | 10 |
 | Direito Eleitoral | 9 |
@@ -99,8 +99,6 @@ Gerado por `emmoni coverage` em 2026-10-08 19:54 UTC. Não edite à mão.
 | Serviço Social | 7 |
 | Psicologia | 6 |
 | Saúde Pública | 6 |
-| Filosofia | 5 |
-| Sociologia | 5 |
 | Administração Pública | 4 |
 | Direito do Consumidor | 4 |
 | História da PRF | 2 |
@@ -136,7 +134,9 @@ Gerado por `emmoni coverage` em 2026-10-08 19:54 UTC. Não edite à mão.
 
 ## Provas carregadas e não publicadas
 
-Nenhuma.
+- `pf-2018/agente` (review)
+- `pf-2018/papiloscopista` (review)
+- `pmal-2021/oficial` (review)
 
 ## Propostas do crawler pendentes
 

@@ -549,3 +549,28 @@ def test_two_line_credit_is_one_paragraph() -> None:
         "Clóvis Rossi. **Drogas, tema inescapável**. *In*: **Folha de S.Paulo**, 12/4/2012, p. A14 "
         "(com adaptações)."
     )
+
+
+def test_pmal_2021_cover_stays_out_of_the_first_command() -> None:
+    """PM/AL 2021: "-- PROVAS OBJETIVAS --" no plural abre a prova; a capa (fonte quebrada) não
+    entra no comando dos itens 1–4."""
+    segmented = cebraspe.segment(extract(FIXTURES / "pdf/cebraspe/pmal-2021-oficial-p1-2.pdf"))
+    assert segmented.questions[0].number == 1
+    for question in segmented.questions[:4]:
+        assert question.statement_md.startswith(
+            "Considerando as ideias do texto CB1A1-I, julgue os itens que se seguem."
+        )
+        assert question.flags == []
+
+
+def test_pf_2018_symbol_font_without_mapping_flags_formula() -> None:
+    """PF 2018 papiloscopista: "≤ −" e "≥" saem como "# !" e "$" de uma fonte de símbolos; no item
+    49 a linha ainda se junta ao número do item, e a marca tem de sobreviver à junção."""
+    pages = extract(FIXTURES / "pdf/cebraspe/pf-2018-papiloscopista-p4.pdf")
+    odd = [line.plain for line in pages[0].lines if line.odd_glyph]
+    assert any("P(Z # !2)" in plain for plain in odd)
+    assert "49 P(X < 60 litros) = P(X $ 40 litros)." in odd
+    questions = {q.number: q for q in cebraspe.segment(pages, first=41).questions}
+    assert "formula" in questions[48].flags
+    assert "formula" in questions[49].flags
+    assert questions[49].statement_md.endswith(r"P(X \< 60 litros) = P(X \$ 40 litros).")

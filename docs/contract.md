@@ -1,6 +1,6 @@
 # Contrato com o front-end
 
-**Versão 1.3** · 2026-10-08
+**Versão 1.4** · 2026-10-13
 
 Este documento é tudo o que o agente de front-end precisa para trabalhar com o banco do emmoni.
 Ele descreve o esquema `api` do PostgreSQL: o que existe, o formato de cada resposta e como os
@@ -198,3 +198,4 @@ Para montar a árvore de assuntos: `api.topic` ordenada por `path`, ligando cada
 | 1.1 | 2026-10-07 | Sem mudança de interface. Documenta o comando no início do enunciado (Cebraspe) e `answer_preliminary` nulo quando o preliminar não está disponível. |
 | 1.2 | 2026-10-08 | Novo valor de `career`: `policia_cientifica` (perícia oficial fora da Polícia Civil, ex.: Polícia Científica de Pernambuco). Compatível: trate valores desconhecidos como `outra`. |
 | 1.3 | 2026-10-08 | Sem mudança no esquema. Acesso opcional por HTTP (PostgREST, `make api-up`), seção 1. |
+| 1.4 | 2026-10-13 | Sem mudança no esquema. [Formato do conteúdo](content-format.md) v1.1: `$`, `*`, `_`, `` ` ``, `<` e `\` literais do original vêm escapados com `\` ("R\$ 10,00"). Renderizador CommonMark com a extensão de fórmulas já trata; quem mostra texto cru deve tirar a barra. |

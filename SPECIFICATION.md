@@ -313,6 +313,7 @@ especificado em `docs/content-format.md`:
 - Fórmulas em LaTeX: `$...$` inline, `$$...$$` em bloco.
 - Imagens: `![texto alternativo](asset:<sha256>)` — o front-end resolve `asset:` para uma URL.
 - Proibido: HTML arbitrário, links externos, cabeçalhos (`#`).
+- Texto literal: `$`, `*`, `_`, `` ` ``, `<` e `\` do original escapados com `\` (`R\$ 10,00`), decisão 0023.
 - Normalização: Unicode NFC, hifenização de fim de linha do PDF removida, espaços colapsados,
   aspas e travessões preservados.
 

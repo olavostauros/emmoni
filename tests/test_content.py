@@ -1,6 +1,6 @@
 """Hash de deduplicação e referências a assets (SPECIFICATION.md §5)."""
 
-from ingest.content import asset_refs, statement_hash
+from ingest.content import asset_refs, escape_md, statement_hash
 
 SHA = "a" * 64
 OTHER_SHA = "b" * 64
@@ -33,3 +33,15 @@ def test_hash_uses_image_identity_not_alt_text() -> None:
 def test_asset_refs_in_order() -> None:
     md = f"![a](asset:{OTHER_SHA}) texto ![b](asset:{SHA}) ![c](https://exemplo.com/x.png)"
     assert asset_refs(md) == [OTHER_SHA, SHA]
+
+
+def test_escape_keeps_literal_text_literal() -> None:
+    assert escape_md("R$ 10,00 e R$ 20,00") == r"R\$ 10,00 e R\$ 20,00"
+    assert escape_md("Austrália* e nome_do_arquivo") == r"Austrália\* e nome\_do\_arquivo"
+    assert escape_md(r"C:\Temp `x` <b>") == r"C:\\Temp \`x\` \<b>"
+    assert escape_md("sem nada especial (A) 1.") == "sem nada especial (A) 1."
+
+
+def test_escape_does_not_change_the_hash() -> None:
+    text = "Pagou R$ 10,00 pelo arquivo_final.txt*"
+    assert statement_hash(escape_md(text)) == statement_hash(text)

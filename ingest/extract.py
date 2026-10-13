@@ -23,6 +23,8 @@ import pymupdf
 import yaml
 from pydantic import BaseModel, ConfigDict
 
+from ingest.content import escape_md
+
 ITALIC = 2
 BOLD = 16
 # Fonte sem nome de família: TrueType convertida em Type 1 pelo Distiller ("TTD0ABo00", PF 2012).
@@ -62,7 +64,9 @@ class Line(BaseModel):
     column: int  # 0 = largura total, 1 = esquerda, 2 = direita
     size: float  # tamanho da fonte predominante
     scripts: bool = False  # trechos em fonte bem menor no meio da linha (índices, expoentes)
-    odd_glyph: bool = False  # dígito solto em fonte própria entre letras: símbolo sem mapeamento
+    # Símbolo sem mapeamento: dígito solto em fonte própria entre letras, ou glifo de fonte de
+    # símbolos que só tem pontuação ASCII na página.
+    odd_glyph: bool = False
 
 
 class Figure(BaseModel):
@@ -190,7 +194,11 @@ def _read(pdf_path: Path, legacy: bool = False) -> list[Page]:
                 digits=_digit_fonts([(lines, middle) for _, lines, middle in raws]),
                 styles=_font_styles(document),
             )
-        return [_page(page, lines, middle, fonts) for page, lines, middle in raws]
+        decoded = frozenset(fonts.digits) if fonts else frozenset()  # dígitos já têm tradução
+        return [
+            _page(page, lines, middle, fonts, _symbol_fonts(lines) - decoded)
+            for page, lines, middle in raws
+        ]
 
 
 @dataclass
@@ -425,11 +433,17 @@ def _gutter_digits(page: Any, left: float) -> list[tuple[float, float, int]]:
     return digits
 
 
-def _page(page: Any, raws: list[dict[str, Any]], middle: float, fonts: _Fonts | None) -> Page:
+def _page(
+    page: Any,
+    raws: list[dict[str, Any]],
+    middle: float,
+    fonts: _Fonts | None,
+    symbol_fonts: frozenset[str],
+) -> Page:
     width, height = float(page.rect.width), float(page.rect.height)
     lines: list[Line] = []
     for raw in raws:
-        line = _line(raw, middle, fonts)
+        line = _line(raw, middle, fonts, symbol_fonts)
         if line is not None:
             lines.append(line)
     return Page(
@@ -476,7 +490,31 @@ def _box(rect: Any) -> dict[str, float]:
     return {"x0": x0, "y0": y0, "x1": x1, "y1": y1}
 
 
-def _line(raw: dict[str, Any], middle: float, fonts: _Fonts | None = None) -> Line | None:
+# Fonte de símbolos matemáticos sem mapeamento Unicode que sai como pontuação ASCII: "P(Z ≤ −2)"
+# vira "P(Z # !2)" e "≥" vira "$" (PF 2018). O nome embutido não diz qual fonte é, então o glifo não
+# tem tradução segura: a linha fica marcada como fórmula e a questão vai para revisão.
+SYMBOL_ASCII = frozenset(
+    "!\"#$%&'*+/<=>@[\\]^_`{|}~þ"
+)  # "þ": reticências da mesma fonte (ver SYMBOL_PUA)
+
+
+def _symbol_fonts(raws: list[dict[str, Any]]) -> frozenset[str]:
+    """Fontes da página cujo texto inteiro é pontuação ASCII isolada: símbolos sem mapeamento."""
+    chars: dict[str, set[str]] = {}
+    for raw in raws:
+        for span in raw["spans"]:
+            chars.setdefault(span["font"], set()).update(span["text"].replace("\xa0", " "))
+    return frozenset(
+        font for font, used in chars.items() if (used - {" "}) and used - {" "} <= SYMBOL_ASCII
+    )
+
+
+def _line(
+    raw: dict[str, Any],
+    middle: float,
+    fonts: _Fonts | None = None,
+    symbol_fonts: frozenset[str] = frozenset(),
+) -> Line | None:
     if fonts and any(s["font"] in fonts.digits or s["font"] in fonts.styles for s in raw["spans"]):
         decoded = []
         for s in raw["spans"]:
@@ -509,16 +547,19 @@ def _line(raw: dict[str, Any], middle: float, fonts: _Fonts | None = None) -> Li
         for s in body
     )
     # "P→Q" vira "P6Q" quando a seta vem de uma fonte sem mapeamento Unicode (CBM/AL 2017).
-    odd_glyph = any(
-        len(s["text"].strip()) == 1
-        and s["text"].strip().isdigit()
-        and not (fonts and s["flags"] & BOLD)  # "julgue os itens de **5** a **11**" (PF 2012)
-        and s["font"] != spans[i - 1]["font"]
-        and s["font"] != spans[i + 1]["font"]
-        and spans[i - 1]["text"].rstrip()[-1:].isalpha()
-        and spans[i + 1]["text"].lstrip()[:1].isalpha()
-        for i, s in enumerate(spans)
-        if 0 < i < len(spans) - 1
+    odd_glyph = (
+        any(
+            len(s["text"].strip()) == 1
+            and s["text"].strip().isdigit()
+            and not (fonts and s["flags"] & BOLD)  # "julgue os itens de **5** a **11**" (PF 2012)
+            and s["font"] != spans[i - 1]["font"]
+            and s["font"] != spans[i + 1]["font"]
+            and spans[i - 1]["text"].rstrip()[-1:].isalpha()
+            and spans[i + 1]["text"].lstrip()[:1].isalpha()
+            for i, s in enumerate(spans)
+            if 0 < i < len(spans) - 1
+        )
+        or any(s["font"] in symbol_fonts and s["text"].strip(" \xa0þ") for s in spans)
     )
     return Line(
         text=markdown,
@@ -570,7 +611,7 @@ def _column(x0: float, x1: float, middle: float) -> int:
 
 
 def _markdown(span: dict[str, Any]) -> str:
-    text: str = span["text"]
+    text = escape_md(span["text"])
     core = text.strip(" \xa0")
     if not core or not span["flags"] & (ITALIC | BOLD):
         return text
@@ -603,7 +644,8 @@ SYMBOL_PUA = str.maketrans(
 def _clean(text: str) -> str:
     text = text.translate(SYMBOL_PUA).replace("\xa0", " ").replace("­", "")
     text = text.replace("FimDoTexto", " ")  # marcador invisível de fim de texto (Cebraspe)
-    text = re.sub(r"\*\\t/\*|\\t/", "", text)  # span de lixo "\t/" em itálico (PC/SE 2018)
+    # span de lixo "\t/" em itálico (PC/SE 2018); no Markdown a barra vem escapada
+    text = re.sub(r"\*\\{1,2}t/\*|\\{1,2}t/", "", text)
     # Glifo de fonte matemática sem mapeamento sai como caractere de controle (\x0c para "μ"): vira
     # U+FFFD antes de normalizar espaços, para o parser marcar fórmula em vez de sumir com ele.
     text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "\ufffd", text)
@@ -664,6 +706,7 @@ def _merge(row: list[Line]) -> Line:
         x1=max(line.x1 for line in row),
         y1=max(line.y1 for line in row),
         column=row[0].column,
+        odd_glyph=any(line.odd_glyph for line in row),
         size=main.size,
         scripts=any(line.scripts for line in row)
         or any(
