@@ -23,7 +23,7 @@ e atualize este arquivo no mesmo commit.
 | Testes | **pytest** contra um Postgres descartável (docker compose, banco `emmoni_test`) | |
 | Qualidade de código | **ruff** (lint + format), **mypy** em modo estrito no pacote `ingest` | |
 | Ambiente local | **docker compose** (serviço `db`, porta `55432` no host), **Makefile** como ponto de entrada | Porta alta para não colidir com outros Postgres da máquina. |
-| Produção da API | **Google Cloud Run** (`emmoni-prod`, `southamerica-east1`): imagem imutável com Postgres 17 + PostgREST e os dados dentro, `max-instances=1`, corte de gasto por budget (decisão 0022, `docs/DEPLOY.md`) | Só leitura em produção: sem VM, sem rede de banco, sem segredo, escala a zero. |
+| Produção da API | **Google Cloud Run** (`emmoni-prod`, `southamerica-east1`): imagem imutável com Postgres 17 + PostgREST e os dados dentro, `max-instances=1`, corte de gasto por budget (decisão 0022, `docs/DEPLOY.md`); único caminho das questões reais para o público, nunca um repositório público (decisão 0027) | Só leitura em produção: sem VM, sem rede de banco, sem segredo, escala a zero. |
 | API HTTP (opcional) | **PostgREST v12.2.3** sobre o esquema `api` como `emmoni_web` (serviço `api`, perfil `api`, porta `53000`; decisão 0021) | O contrato por HTTP sem código de servidor: views e funções do `api`, e nada mais. |
 | Versões das ferramentas | **mise** (`mise.toml`) fixa uv e dbmate e ativa o `.venv`; o uv instala o Python de `.python-version` | Ambiente reproduzível sem instalar nada globalmente. |
 

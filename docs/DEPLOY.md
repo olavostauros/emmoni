@@ -97,7 +97,7 @@ Variáveis: `P=emmoni-prod R=southamerica-east1 BA=01F985-1C44C6-40CDE9`.
 | 5 | Repositório e primeira imagem (seed) | `audit.py --image` 0 falhas; push por digest | pendente |
 | 6 | Serviço privado (seed) | `audit.py --public` (com token) 0 falhas | pendente |
 | 7 | Público com seed | `allUsers` invoker; `audit.py --public` e `--cloud` 0 falhas; Plantão avisado | pendente |
-| 8 | Imagem `all` | **só com o sim do dono para publicar as questões reais** | pendente |
+| 8 | Imagem `all` | **só com o sim do dono para publicar as questões reais**; é o único caminho delas para o público (decisão 0027) | pendente |
 | 9 | Três dias de observação, cerberus re-audita, decisão 0022 aceita | relatório em `docs/security/reports/` | pendente |
 
 ### 1. Projeto e APIs
