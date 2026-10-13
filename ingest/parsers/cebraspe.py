@@ -765,10 +765,11 @@ def _with_figures(
     vem antes dela); se a figura abre a coluna, marca a linha seguinte."""
     middle = page.width / 2
     titles = [e.line for e in entries if QUESTION_TITLE.match(e.line.plain)]
+    frames = _skipped_frames(page.figures, skipped)
     for figure in page.figures:
         if (
             figure.y1 <= start_y
-            or any(_contains(figure, line) for line in skipped)
+            or id(figure) in frames
             or any(_overlaps(figure, line) for line in titles)
         ):
             continue  # faixa de fundo de título ("BLOCO II", "Questão 7")
@@ -807,6 +808,42 @@ def _credit_below(below: list[_Entry], first: _Entry) -> bool:
         if CREDIT_END.search(entry.line.plain.strip()):
             return True
     return False
+
+
+FRAME_TOUCH = 1.5  # pt entre traços de um mesmo quadro desenhado
+
+
+def _skipped_frames(figures: list[Figure], skipped: list[Line]) -> set[int]:
+    """Desenhos que formam o quadro de uma linha ignorada ("RASCUNHO", "BLOCO II"): os traços que
+    se tocam são juntados, e o grupo cuja caixa contém a linha ignorada não é figura. No site antigo
+    do Cebraspe o quadro do "RASCUNHO" vem em quatro traços e um filete à direita, nenhum com a
+    linha inteira dentro (PF 2012 escrivão, item 57)."""
+    groups: list[list[Figure]] = []
+    for figure in figures:
+        touching = [g for g in groups if any(_touch(figure, other) for other in g)]
+        merged = [figure, *(f for g in touching for f in g)]
+        groups = [g for g in groups if not any(g is t for t in touching)] + [merged]
+    frames: set[int] = set()
+    for group in groups:
+        box = Figure(
+            kind="drawing",
+            x0=min(f.x0 for f in group),
+            y0=min(f.y0 for f in group),
+            x1=max(f.x1 for f in group),
+            y1=max(f.y1 for f in group),
+        )
+        if any(_contains(box, line) for line in skipped):
+            frames.update(id(f) for f in group)
+    return frames
+
+
+def _touch(a: Figure, b: Figure) -> bool:
+    return (
+        a.x0 <= b.x1 + FRAME_TOUCH
+        and b.x0 <= a.x1 + FRAME_TOUCH
+        and a.y0 <= b.y1 + FRAME_TOUCH
+        and b.y0 <= a.y1 + FRAME_TOUCH
+    )
 
 
 def _contains(figure: Figure, line: Line) -> bool:
@@ -1025,6 +1062,7 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     com a da coluna (textos com numeração de linhas)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
+    leading = _leading(entries)
     for index, entry in enumerate(entries):
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
@@ -1040,12 +1078,64 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             or (previous.short and not title_goes_on)
             or abs(entry.line.size - previous.line.size) >= 1
             or bool(CREDIT_END.search(previous.line.plain.strip()))
+            or (not title_goes_on and _block_gap(previous, entry, leading))
+            or (
+                bool(PROPOSITION.match(entry.line.plain))
+                and previous.line.plain.rstrip().endswith(SENTENCE_STOP)
+            )
         )
         if new:
             paragraphs.append([])
         paragraphs[-1].append(entry.line.text)
         previous = entry
     return [_join(lines) for lines in paragraphs]
+
+
+# Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é..."): abre parágrafo.
+PROPOSITION = re.compile(r"^P\d{1,2}\s?:\s")
+# Espaço, em pt, além do entrelinha comum: blocos separados (PF 2012 escrivão, item 57).
+BLOCK_GAP = 3.0
+
+
+def _vertical_gap(previous: _Entry, entry: _Entry) -> float | None:
+    """Espaço entre duas linhas seguidas da mesma coluna e página; None se não dá para medir."""
+    if previous.page != entry.page or previous.line.column != entry.line.column:
+        return None
+    gap = entry.line.y0 - previous.line.y1
+    return gap if gap >= 0 else None
+
+
+def _leading(entries: list[_Entry]) -> float | None:
+    """Espaço comum entre as linhas do trecho (a mediana); None com poucas linhas para medir."""
+    gaps = sorted(
+        gap
+        for previous, entry in zip(entries, entries[1:], strict=False)
+        if (gap := _vertical_gap(previous, entry)) is not None
+    )
+    if len(gaps) < 3:
+        return None
+    return gaps[len(gaps) // 2]
+
+
+def _block_gap(previous: _Entry, entry: _Entry, leading: float | None) -> bool:
+    """Espaço vertical entre as duas linhas bem maior que o entrelinha do trecho: o original
+    separa ali dois blocos, mesmo que a linha anterior vá até a margem e a seguinte não tenha
+    recuo (PF 2012 escrivão, item 57: introdução | P1 e P2 | "Diante dessa situação..." | P3 e P4).
+    Linha com índice ou expoente tem a caixa mais alta e não conta; frase que segue de uma linha à
+    outra também não (fórmula ou figura no meio da linha empurra a seguinte: PF 2012
+    papiloscopista, item 109)."""
+    if leading is None or previous.line.scripts or entry.line.scripts:
+        return False
+    if not previous.line.plain.rstrip().endswith(SENTENCE_STOP) or entry.line.plain[:1].islower():
+        return False
+    if COMMAND.search(entry.line.plain) or COMMAND.search(previous.line.plain):
+        # O corte entre a situação e o comando tem regra própria (`_split_command`); o espaço não
+        # a substitui. No PF 2012 agente (itens 83 e 84) ele tirava do comando o pedaço de lista
+        # partido na troca de coluna, que era o que mandava os itens para revisão; no PF 2018
+        # papiloscopista (item 51) separava "julgue ..., acerca da seguinte proposição:" de "P: ...".
+        return False
+    gap = _vertical_gap(previous, entry)
+    return gap is not None and gap > leading + BLOCK_GAP
 
 
 CREDIT_MAX_LINES = 6  # crédito mais longo que isso não é crédito
@@ -1127,6 +1217,8 @@ def _join(lines: list[str]) -> str:
 def _normalize(text: str) -> str:
     text = re.sub(r"\*\*\s+\*\*", " ", text)  # negrito quebrado em pedaços
     text = re.sub(r"(?<!\*)\*\s+\*(?!\*)", " ", text)  # itálico quebrado em pedaços
+    # Código inline quebrado na troca de linha ("`Bibliotecas >`" | "`Documentos > Projetos`").
+    text = re.sub(r"(?<![`\\])`([^`]+)` `([^`]+)`(?!`)", r"`\1 \2`", text)
     return re.sub(r"\s+", " ", text).strip()
 
 

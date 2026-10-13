@@ -1,4 +1,4 @@
-"""Modo --cloud do deploy/audit.py (achados E-004, E-005 e E-006). Sem rede nem banco: o `gcloud`
+"""Modo --cloud do deploy/audit.py (achados E-002, E-004, E-005, E-006, E-009 e E-010). Sem rede nem banco: o `gcloud`
 é falso."""
 
 from __future__ import annotations
@@ -27,6 +27,9 @@ KEYS_ERR = "ERROR: (gcloud.iam.service-accounts.keys.list) PERMISSION_DENIED: de
 ROLE_NOT_FOUND = "ERROR: (gcloud.iam.roles.describe) NOT_FOUND: The role ... was not found."
 TOPIC_NOT_FOUND = "ERROR: (gcloud.pubsub.topics.describe) NOT_FOUND: Resource not found"
 FN_NOT_FOUND = "ERROR: (gcloud.functions.describe) ResponseError: status=[404], code=[]"
+REPO_NOT_FOUND = (
+    "ERROR: (gcloud.artifacts.repositories.describe) NOT_FOUND: Requested entity was not found."
+)
 
 Answer = tuple[int, object]
 
@@ -52,6 +55,7 @@ def fake_gcloud(overrides: dict[str, Answer]) -> Callable[[list[str]], tuple[int
         "billing budgets list": (0, []),
         "pubsub topics describe": (1, TOPIC_NOT_FOUND),
         "functions describe": (1, FN_NOT_FOUND),
+        "artifacts repositories describe": (1, REPO_NOT_FOUND),
         "services list": (0, [{"config": {"name": a}} for a in sorted(audit.ALLOWED_APIS)]),
         "billing projects describe": (
             0,
@@ -189,7 +193,7 @@ def test_lista_de_apis_e_a_do_deploy_md_secao_3() -> None:
         "bigquerystorage.googleapis.com",
         "cloudtrace.googleapis.com",
         "dataform.googleapis.com",
-        "serviceusage.googleapis.com",
+        "source.googleapis.com",
         "monitoring.googleapis.com",
         "storage.googleapis.com",
     ],
@@ -205,6 +209,14 @@ def test_api_fora_do_secao_3_falha(monkeypatch: pytest.MonkeyPatch, api: str) ->
 
 def test_so_apis_do_secao_3_e_ok(monkeypatch: pytest.MonkeyPatch) -> None:
     assert cloud(monkeypatch)["nenhuma API além das previstas"][0] == "ok"
+
+
+def test_serviceusage_documentada_e_source_nao(monkeypatch: pytest.MonkeyPatch) -> None:
+    """E-002: com as 16 APIs do relatório de 2026-10-13, só o `source` (remoção do dono) falha."""
+    assert "serviceusage.googleapis.com" in _section3_apis()
+    enabled = sorted(audit.ALLOWED_APIS | {"source.googleapis.com"})
+    got = cloud(monkeypatch, {"services list": (0, [{"config": {"name": a}} for a in enabled])})
+    assert got["nenhuma API além das previstas"] == ("FAIL", "['source.googleapis.com']")
 
 
 # --- E-006 ----------------------------------------------------------------------------------
@@ -223,11 +235,15 @@ def bindings(*pairs: tuple[str, str]) -> dict[str, object]:
     return {"bindings": [{"role": r, "members": [mem]} for r, mem in pairs]}
 
 
+INGRESS_CAP = f"projects/{PROJECT}/roles/emmoniIngressCap"
+# Vínculos do projeto que o passo 2 antigo criou e o §3 trocou por vínculos no recurso.
+REPLACED = (
+    (INGRESS_CAP, CAP),  # E-009: no serviço emmoni-api
+    ("roles/artifactregistry.writer", BUILD),  # E-010: no repositório gcf-artifacts
+)
 PLANNED = (
-    (f"projects/{PROJECT}/roles/emmoniIngressCap", CAP),
     ("roles/eventarc.eventReceiver", CAP),
     ("roles/logging.logWriter", BUILD),
-    ("roles/artifactregistry.writer", BUILD),
     ("roles/storage.objectViewer", BUILD),
     ("roles/owner", OWNER),
     (
@@ -302,6 +318,12 @@ def complete(**overrides: Answer) -> dict[str, Answer]:
         "billing budgets list": (0, [BUDGET]),
         "pubsub topics describe": (0, {"labels": {"emmoni": "prod"}}),
         "functions describe": (0, FUNCTION),
+        "artifacts repositories describe": (0, {"format": "DOCKER"}),
+        "artifacts repositories get-iam-policy gcf-artifacts": (
+            0,
+            bindings(("roles/artifactregistry.writer", BUILD)),
+        ),
+        "artifacts repositories get-iam-policy emmoni": (0, {"etag": "ACAB"}),
         **overrides,
     }
 
@@ -323,6 +345,11 @@ E006 = [
     "tópico emmoni-budget com label emmoni=prod",
     "função emmoni-budget-cap como no §3",
 ]
+E009_E010 = [
+    "nenhum vínculo de projeto trocado por vínculo no recurso (E-009, E-010)",
+    "IAM do repositório gcf-artifacts como no §3",
+    "IAM do repositório emmoni como no §3",
+]
 
 
 def test_passos_feitos_lidos_do_deploy_md() -> None:
@@ -343,7 +370,9 @@ def test_passos_feitos_de_tabela_sintetica(tmp_path: Path) -> None:
 
 def test_projeto_completo_e_tudo_ok(monkeypatch: pytest.MonkeyPatch) -> None:
     got = cloud(monkeypatch, complete(), done=ALL_STEPS)
-    assert {n: got[n][0] for n in E006} == {n: "ok" for n in E006}
+    names = E006 + E009_E010
+    assert {n: got[n][0] for n in names} == {n: "ok" for n in names}
+    assert got["IAM do serviço emmoni-api como no §3"] == ("skip", "serviço não existe")
 
 
 def test_estado_de_hoje_acusa_e003_e_pula_o_que_e_pendente(
@@ -386,6 +415,8 @@ def test_estado_de_hoje_acusa_e003_e_pula_o_que_e_pendente(
         ("budget emmoni-monthly como no §3", 3),
         ("tópico emmoni-budget com label emmoni=prod", 3),
         ("função emmoni-budget-cap como no §3", 4),
+        ("IAM do repositório gcf-artifacts como no §3", 4),
+        ("IAM do repositório emmoni como no §3", 5),
     ]:
         status, evidence = got[name]
         assert status == "skip", name
@@ -402,6 +433,8 @@ def test_estado_de_hoje_acusa_e003_e_pula_o_que_e_pendente(
         ("budget emmoni-monthly como no §3", 3),
         ("tópico emmoni-budget com label emmoni=prod", 3),
         ("função emmoni-budget-cap como no §3", 4),
+        ("IAM do repositório gcf-artifacts como no §3", 4),
+        ("IAM do repositório emmoni como no §3", 5),
     ],
 )
 def test_ausente_com_passo_feito_falha(
@@ -641,6 +674,7 @@ def test_budget_lido_so_na_conta_do_emmoni(monkeypatch: pytest.MonkeyPatch) -> N
         ("billing budgets list", "budget emmoni-monthly como no §3"),
         ("pubsub topics describe", "tópico emmoni-budget com label emmoni=prod"),
         ("functions describe", "função emmoni-budget-cap como no §3"),
+        ("artifacts repositories describe", "IAM do repositório gcf-artifacts como no §3"),
     ],
 )
 def test_erro_do_gcloud_nas_verificacoes_novas_falha(
@@ -686,3 +720,158 @@ def test_funcao_diferente_do_secao_3_falha(
     got = cloud(monkeypatch, complete(**{"functions describe": (0, fn)}), done=ALL_STEPS)
     status, evidence = got["função emmoni-budget-cap como no §3"]
     assert status == "FAIL" and fragment in evidence
+
+
+# --- E-009 e E-010 --------------------------------------------------------------------------
+
+SVC = {
+    "metadata": {"labels": {"emmoni": "prod"}},
+    "spec": {
+        "template": {
+            "metadata": {"annotations": {"autoscaling.knative.dev/maxScale": "1"}},
+            "spec": {
+                "serviceAccountName": f"emmoni-api@{PROJECT}.iam.gserviceaccount.com",
+                "containers": [{"image": "x/emmoni-api@sha256:abc"}],
+            },
+        }
+    },
+}
+
+
+def test_estado_depois_do_passo_2_acusa_e009_e_e010(monkeypatch: pytest.MonkeyPatch) -> None:
+    """A política do relatório de 2026-10-13 (segundo): os dois vínculos de projeto do passo 2
+    antigo falham na verificação própria, com o achado na evidência, e não na genérica."""
+    iam = bindings(*PLANNED, *REPLACED)
+    got = cloud(monkeypatch, complete(**{"projects get-iam-policy": (0, iam)}), done=ALL_STEPS)
+    assert got["vínculos do projeto só os do DEPLOY.md §3"][0] == "ok"
+    assert got["vínculos do §3 presentes"][0] == "ok"
+    status, evidence = got[
+        "nenhum vínculo de projeto trocado por vínculo no recurso (E-009, E-010)"
+    ]
+    assert status == "FAIL" and evidence.startswith("remoção do dono")
+    assert f"{INGRESS_CAP}={CAP} (E-009" in evidence
+    assert f"roles/artifactregistry.writer={BUILD} (E-010" in evidence
+
+
+@pytest.mark.parametrize("pair", REPLACED)
+def test_cada_vinculo_trocado_falha_sozinho(
+    monkeypatch: pytest.MonkeyPatch, pair: tuple[str, str]
+) -> None:
+    iam = bindings(*PLANNED, pair)
+    got = cloud(monkeypatch, complete(**{"projects get-iam-policy": (0, iam)}), done=ALL_STEPS)
+    status, evidence = got[
+        "nenhum vínculo de projeto trocado por vínculo no recurso (E-009, E-010)"
+    ]
+    assert status == "FAIL" and f"{pair[0]}={pair[1]}" in evidence
+
+
+def test_vinculos_do_projeto_nao_esperam_mais_os_trocados() -> None:
+    planned = audit.planned_bindings(PROJECT)
+    assert not set(REPLACED) & planned
+    assert set(audit.replaced_bindings(PROJECT)) == set(REPLACED)
+
+
+@pytest.mark.parametrize(
+    ("policy", "expected"),
+    [
+        (bindings((INGRESS_CAP, CAP)), "ok"),
+        (bindings((INGRESS_CAP, CAP), ("roles/run.invoker", "allUsers")), "ok"),
+        ({"etag": "ACAB"}, "FAIL"),
+        (bindings((INGRESS_CAP, CAP), ("roles/run.admin", CAP)), "FAIL"),
+        (bindings((INGRESS_CAP, CAP), ("roles/run.invoker", BUILD)), "FAIL"),
+        (bindings((INGRESS_CAP, BUILD)), "FAIL"),
+    ],
+)
+def test_iam_do_servico(
+    monkeypatch: pytest.MonkeyPatch, policy: dict[str, object], expected: str
+) -> None:
+    """E-009: com o serviço no ar, o `emmoniIngressCap` da `emmoni-budget-cap` está no serviço,
+    e nada além dele (o `allUsers` invoker tem verificação própria)."""
+    got = cloud(
+        monkeypatch,
+        complete(
+            **{
+                "run services describe": (0, SVC),
+                "run services get-iam-policy": (0, policy),
+            }
+        ),
+        done=frozenset({0, 1, 2, 3, 4, 5}),
+    )
+    status, evidence = got["IAM do serviço emmoni-api como no §3"]
+    assert status == expected, evidence
+    if policy == {"etag": "ACAB"}:
+        assert evidence.startswith("serviço no ar e ausente")
+
+
+@pytest.mark.parametrize(
+    ("repo", "policy"),
+    [
+        (
+            "gcf-artifacts",
+            bindings(("roles/artifactregistry.writer", BUILD), ("roles/viewer", CAP)),
+        ),
+        ("gcf-artifacts", bindings(("roles/artifactregistry.admin", BUILD))),
+        ("emmoni", bindings(("roles/artifactregistry.writer", BUILD))),
+        ("emmoni", bindings(("roles/artifactregistry.reader", "allUsers"))),
+    ],
+)
+def test_repositorio_com_vinculo_fora_do_secao_3_falha(
+    monkeypatch: pytest.MonkeyPatch, repo: str, policy: dict[str, object]
+) -> None:
+    """E-010: a `emmoni-build` escreve só no `gcf-artifacts`; o `emmoni` não dá papel a ninguém."""
+    key = f"artifacts repositories get-iam-policy {repo}"
+    got = cloud(monkeypatch, complete(**{key: (0, policy)}), done=ALL_STEPS)
+    status, evidence = got[f"IAM do repositório {repo} como no §3"]
+    assert status == "FAIL" and evidence.startswith("fora do §3")
+
+
+def test_gcf_artifacts_sem_o_vinculo_da_build(monkeypatch: pytest.MonkeyPatch) -> None:
+    key = "artifacts repositories get-iam-policy gcf-artifacts"
+    over = {key: (0, {"etag": "ACAB"})}
+    status, evidence = cloud(monkeypatch, complete(**over), done=ALL_STEPS)[
+        "IAM do repositório gcf-artifacts como no §3"
+    ]
+    assert status == "FAIL" and evidence.startswith("passo 4 marcado feito e ausente")
+    status, _ = cloud(monkeypatch, complete(**over), done=frozenset({0, 1, 2, 3}))[
+        "IAM do repositório gcf-artifacts como no §3"
+    ]
+    assert status == "skip"
+
+
+def test_politica_do_repositorio_com_erro_falha(monkeypatch: pytest.MonkeyPatch) -> None:
+    key = "artifacts repositories get-iam-policy emmoni"
+    got = cloud(monkeypatch, complete(**{key: (1, "ERROR: denied")}), done=ALL_STEPS)
+    assert got["IAM do repositório emmoni como no §3"] == ("FAIL", "ERROR: denied")
+
+
+def _deploy_block(step: int) -> str:
+    """O primeiro bloco `sh` do passo no DEPLOY.md §4 (o comando do passo, sem as notas)."""
+    text = (ROOT / "docs" / "DEPLOY.md").read_text()
+    section = text.split(f"\n### {step}. ", 1)[1].split("\n### ", 1)[0]
+    block = re.search(r"```sh\n(.*?)```", section, re.S)
+    assert block, step
+    return block.group(1)
+
+
+def test_deploy_md_vincula_no_recurso_e_nao_no_projeto() -> None:
+    """E-009 e E-010 no documento: o passo 2 não vincula mais no projeto o `emmoniIngressCap`
+    nem o `artifactregistry.writer`; o passo 4 vincula o writer no `gcf-artifacts` e o passo 6,
+    o papel no serviço."""
+    step2 = re.sub(r"#[^\n]*", "", _deploy_block(2))  # sem os comentários
+    assert "roles/emmoniIngressCap" not in step2
+    assert "artifactregistry.writer" not in step2
+    assert "iam roles create emmoniIngressCap" in step2
+    step4 = re.sub(r"\s*\\\n\s*", " ", _deploy_block(4))
+    assert re.search(
+        r"artifacts repositories add-iam-policy-binding gcf-artifacts --project=\$P "
+        r"--location=\$R --role=roles/artifactregistry.writer "
+        r"--member=serviceAccount:emmoni-build@",
+        step4,
+    )
+    step6 = re.sub(r"\s*\\\n\s*", " ", _deploy_block(6))
+    assert re.search(
+        r"run services add-iam-policy-binding emmoni-api --project=\$P --region=\$R "
+        r"--role=projects/\$P/roles/emmoniIngressCap "
+        r"--member=serviceAccount:emmoni-budget-cap@",
+        step6,
+    )

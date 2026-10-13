@@ -8,8 +8,9 @@ Só leitura. Três modos, combináveis:
   --image TAG       confere a imagem num container descartável (usuário, rede do Postgres,
                     pg_hba, papéis, configuração do emmoni_web, segredos no ambiente)
   --cloud PROJETO   confere o projeto no Google Cloud com `gcloud` só de leitura
-                    (label, serviço Cloud Run, IAM do projeto e das contas, contas de
-                    serviço, papel customizado, chaves, budget, tópico, função de corte, APIs)
+                    (label, serviço Cloud Run, IAM do projeto, do serviço, dos
+                    repositórios e das contas, contas de serviço, papel customizado, chaves,
+                    budget, tópico, função de corte, APIs)
 
 Saída: uma linha por verificação (`ok`/`FAIL`/`skip`) e, com --json, o relatório em JSON
 para o cerberus triar. Código de saída: 0 tudo ok, 1 alguma falha, 2 não conseguiu rodar.
@@ -26,6 +27,7 @@ import urllib.error
 import urllib.request
 from dataclasses import asdict, dataclass, field
 from pathlib import Path
+from typing import Any
 
 SITE_ORIGIN = "https://olavostauros.github.io"
 # Cabeçalhos em toda sonda (--header), ex.: X-Serverless-Authorization com o serviço privado.
@@ -59,6 +61,10 @@ API_DEPENDENCIES = {
         "cloudbuild guarda imagens de contêiner nele (grupo aninhado "
         "services/containerregistry.googleapis.com/groups/dependencies)"
     ),
+    # Única que não é dependência declarada (achado E-002): é a API de gestão das APIs. O
+    # `gcloud services list/enable/disable`, inclusive o "nenhuma API além das previstas" abaixo,
+    # passa por ela; desligada, ninguém mais lista nem liga API no projeto.
+    "serviceusage.googleapis.com": "gestão das APIs; o `gcloud services list` do audit.py usa",
 }
 ALLOWED_APIS = PLANNED_APIS | set(API_DEPENDENCIES)
 
@@ -70,6 +76,10 @@ BUILD_SA = "emmoni-build"
 PLANNED_SAS = {RUNTIME_SA, CAP, BUILD_SA}
 CUSTOM_ROLE = "emmoniIngressCap"
 CUSTOM_ROLE_PERMISSIONS = {"run.services.get", "run.services.update"}
+# Repositórios do Artifact Registry (§3): `gcf-artifacts` nasce no deploy da função (passo 4) e
+# só a `emmoni-build` escreve nele; `emmoni` (passo 5) não dá papel a ninguém (achado E-010).
+FUNCTION_REPO = "gcf-artifacts"
+IMAGE_REPO = "emmoni"
 BUDGET = "emmoni-monthly"
 BUDGET_AMOUNT = ("BRL", "40")
 BUDGET_THRESHOLDS = {
@@ -442,15 +452,42 @@ def sa_email(name: str, project: str) -> str:
 
 
 def planned_bindings(project: str) -> set[tuple[str, str]]:
-    """Vínculos (papel, membro) do projeto previstos no docs/DEPLOY.md §3 e §4 passo 2."""
+    """Vínculos (papel, membro) do projeto previstos no docs/DEPLOY.md §3 e §4 passo 2. O
+    `emmoniIngressCap` vai no serviço (E-009) e o `artifactregistry.writer` no repositório
+    `gcf-artifacts` (E-010), não aqui."""
     cap = f"serviceAccount:{sa_email(CAP, project)}"
     build = f"serviceAccount:{sa_email(BUILD_SA, project)}"
     return {
-        (f"projects/{project}/roles/{CUSTOM_ROLE}", cap),
         ("roles/eventarc.eventReceiver", cap),
         ("roles/logging.logWriter", build),
-        ("roles/artifactregistry.writer", build),
         ("roles/storage.objectViewer", build),
+    }
+
+
+def replaced_bindings(project: str) -> dict[tuple[str, str], str]:
+    """Vínculos do projeto que a versão antiga do passo 2 criou e o §3 trocou por vínculos no
+    recurso. Presentes, são FAIL numa verificação própria até o dono removê-los (não são
+    tolerados: só ficam fora da lista genérica para a evidência dizer o achado)."""
+    cap = f"serviceAccount:{sa_email(CAP, project)}"
+    build = f"serviceAccount:{sa_email(BUILD_SA, project)}"
+    return {
+        (f"projects/{project}/roles/{CUSTOM_ROLE}", cap): f"E-009, vai no serviço {SERVICE}",
+        ("roles/artifactregistry.writer", build): f"E-010, vai no repositório {FUNCTION_REPO}",
+    }
+
+
+def service_bindings(project: str) -> set[tuple[str, str]]:
+    """Vínculos previstos na política do serviço `emmoni-api` (passo 6), fora o `allUsers`
+    invoker do passo 7, que tem verificação própria."""
+    return {(f"projects/{project}/roles/{CUSTOM_ROLE}", f"serviceAccount:{sa_email(CAP, project)}")}
+
+
+def repo_bindings(project: str) -> dict[str, tuple[int, set[tuple[str, str]]]]:
+    """Repositório -> (passo do §4 que o cria, vínculos previstos na política dele)."""
+    build = f"serviceAccount:{sa_email(BUILD_SA, project)}"
+    return {
+        FUNCTION_REPO: (4, {("roles/artifactregistry.writer", build)}),
+        IMAGE_REPO: (5, set()),
     }
 
 
@@ -524,6 +561,7 @@ def audit_cloud(project: str, rep: Report) -> None:
     absent = Absent(rep, deploy_steps_done(), service_exists)
 
     invoker = "invocação pública (allUsers) — só com o sim do dono"
+    pol: object = None
     if not service_exists:
         # O get-iam-policy de um serviço inexistente sai 0 com {"etag": ...}: não prova nada.
         rep.add(m, invoker, None, "serviço não existe")
@@ -548,6 +586,7 @@ def audit_cloud(project: str, rep: Report) -> None:
             )
         else:
             rep.add(m, invoker, False, err or f"resposta inesperada: {pol!r}")
+    audit_service_iam(project, pol, service_exists, absent, rep)
 
     iam, err = gcloud_json(["projects", "get-iam-policy", project])
     if isinstance(iam, dict):
@@ -594,6 +633,7 @@ def audit_cloud(project: str, rep: Report) -> None:
         audit_service_accounts(project, [sa["email"] for sa in sas], absent, rep)
 
     audit_custom_roles(project, absent, rep)
+    audit_repositories(project, absent, rep)
     audit_budget(project, number, absent, rep)
     audit_topic(project, absent, rep)
     audit_function(project, absent, rep)
@@ -618,21 +658,32 @@ def audit_cloud(project: str, rep: Report) -> None:
 
 
 def audit_project_bindings(
-    project: str, iam: dict, number: str | None, absent: Absent, rep: Report
+    project: str, iam: dict[str, Any], number: str | None, absent: Absent, rep: Report
 ) -> None:
     """Vínculos do projeto: os do §3, o owner do dono e os agentes de serviço do Google com
     papéis `*serviceAgent`; qualquer outro é FAIL (E-006)."""
     m = "cloud"
     planned = planned_bindings(project)
+    replaced = replaced_bindings(project)
     have = {(b["role"], mem) for b in iam.get("bindings", []) for mem in b.get("members", [])}
     extra = sorted(
         f"{role}={mem}"
         for role, mem in have
         if (role, mem) not in planned
+        and (role, mem) not in replaced
         and (role, mem) != ("roles/owner", OWNER)
         and not is_service_agent(role, mem, number)
     )
     rep.add(m, "vínculos do projeto só os do DEPLOY.md §3", not extra, f"{extra}")
+    stale = sorted(
+        f"{role}={mem} ({why})" for (role, mem), why in replaced.items() if (role, mem) in have
+    )
+    rep.add(
+        m,
+        "nenhum vínculo de projeto trocado por vínculo no recurso (E-009, E-010)",
+        not stale,
+        f"remoção do dono: {stale}",
+    )
     owners = sorted(mem for role, mem in have if role == "roles/owner")
     rep.add(m, f"roles/owner só para {OWNER}", owners == [OWNER], f"{owners}")
     missing = sorted(f"{role}={mem}" for role, mem in planned - have)
@@ -709,6 +760,68 @@ def audit_custom_roles(project: str, absent: Absent, rep: Report) -> None:
     else:
         perms = sorted(role.get("includedPermissions", []))
         rep.add(m, name, set(perms) == CUSTOM_ROLE_PERMISSIONS, f"{perms}")
+
+
+def compare_bindings(
+    pol: dict[str, Any],
+    expected: set[tuple[str, str]],
+    ignore: frozenset[tuple[str, str]] = frozenset(),
+) -> tuple[list[str], list[str]]:
+    """(fora do previsto, faltando) entre a política lida e os vínculos previstos."""
+    have = {(b["role"], mem) for b in pol.get("bindings", []) for mem in b.get("members", [])}
+    extra = sorted(f"{r}={mem}" for r, mem in have - expected - ignore)
+    missing = sorted(f"{r}={mem}" for r, mem in expected - have)
+    return extra, missing
+
+
+def audit_service_iam(
+    project: str, pol: object, service_exists: bool, absent: Absent, rep: Report
+) -> None:
+    """Política do serviço `emmoni-api`: só o `emmoniIngressCap` da `emmoni-budget-cap` (passo 6,
+    E-009) e, depois do passo 7, o `allUsers` invoker (conferido à parte)."""
+    m = "cloud"
+    name = f"IAM do serviço {SERVICE} como no §3"
+    if not service_exists:
+        rep.add(m, name, None, "serviço não existe")
+        return
+    if not isinstance(pol, dict):
+        return  # o erro do get-iam-policy já é FAIL na verificação do allUsers
+    extra, missing = compare_bindings(
+        pol, service_bindings(project), frozenset({("roles/run.invoker", "allUsers")})
+    )
+    if extra:
+        rep.add(m, name, False, f"fora do §3: {extra}; faltam: {missing}")
+    elif missing:
+        absent.add(name, 6, f"faltam: {missing}")
+    else:
+        rep.add(m, name, True)
+
+
+def audit_repositories(project: str, absent: Absent, rep: Report) -> None:
+    """Repositórios do Artifact Registry: existência e política (E-010). Lê o `describe` antes
+    do `get-iam-policy` para não tomar a política vazia de um repositório inexistente por ok."""
+    m = "cloud"
+    for repo, (step, expected) in repo_bindings(project).items():
+        name = f"IAM do repositório {repo} como no §3"
+        where = [f"--location={REGION}", f"--project={project}"]
+        info, err = gcloud_json(["artifacts", "repositories", "describe", repo, *where])
+        if info is None and not_found(err):
+            absent.add(name, step, err)
+            continue
+        if not isinstance(info, dict):
+            rep.add(m, name, False, err or f"resposta inesperada: {info!r}")
+            continue
+        pol, err = gcloud_json(["artifacts", "repositories", "get-iam-policy", repo, *where])
+        if not isinstance(pol, dict):
+            rep.add(m, name, False, err or f"resposta inesperada: {pol!r}")
+            continue
+        extra, missing = compare_bindings(pol, expected)
+        if extra:
+            rep.add(m, name, False, f"fora do §3: {extra}; faltam: {missing}")
+        elif missing:
+            absent.add(name, step, f"faltam: {missing}")
+        else:
+            rep.add(m, name, True)
 
 
 def audit_budget(project: str, number: str | None, absent: Absent, rep: Report) -> None:

@@ -182,3 +182,253 @@ def test_figure_with_credit_below_opens_the_next_group() -> None:
     first, second = cebraspe.segment([page]).questions
     assert "figure" not in first.flags
     assert "figure" in second.flags
+
+
+def _span(text: str, font: str = "TT331o00", size: float = 9.98) -> dict[str, object]:
+    return {"text": text, "font": font, "size": size, "flags": 4}
+
+
+def _raw(spans: list[dict[str, object]], x0: float, x1: float) -> dict[str, object]:
+    return {"spans": spans, "bbox": (x0, 498.1, x1, 508.0)}
+
+
+def test_item_number_does_not_set_the_size_of_a_justified_line() -> None:
+    """PF 2012 delegado, item 106: na linha justificada cada palavra vem numa linha própria, e a
+    primeira ("106" em 8 pt + "É" em 10 pt) tinha mais letras no corpo do número. Unida às
+    vizinhas, parecia índice ou expoente e o item caía em `review` por fórmula."""
+    fonts = ex._Fonts(digits={}, styles={})
+    first = ex._line(
+        _raw([_span("106", "TT334o00", 8.05), _span(" "), _span("É ")], 28.3, 55.3), 297, fonts
+    )
+    assert first is not None
+    assert first.size == 10.0
+    words = [ex._line(_raw([_span(w)], x, x + 40), 297, fonts) for w, x in (("legalmente ", 63.6),)]
+    merged = ex._merge([first, *(w for w in words if w is not None)])
+    assert not merged.scripts
+
+
+def test_unmapped_glyph_of_the_ell_font_is_a_formula() -> None:
+    """A fonte de símbolos do "ℓ" (o glifo sai "R") traz também "∧", que sai "v": "P∧Q" virava
+    "PvQ" sem aviso (PF 2012 agente 53, papiloscopista 40). Fora de "(ℓ.N)", outro glifo dela no
+    meio do texto marca a linha; glifo sozinho na linha (a tecla Enter, "<") não."""
+    ell = "TTFF21o00"
+    spans = [_span("(", "TTFF18o00"), _span("R", ell), _span(".12)", "TTFF18o00")]
+    line_spans = [
+        _span("representada por P", "TTFF18o00"),
+        _span("v", ell),
+        _span("Q.", "TTFF18o00"),
+    ]
+    assert ex._ell_fonts([[{"spans": spans}]]) == frozenset({ell})
+    fonts = ex._Fonts(digits={}, styles={}, ell=frozenset({ell}))
+    ref = ex._line(_raw(spans, 28, 60), 297, fonts)
+    pvq = ex._line(_raw(line_spans, 28, 200), 297, fonts)
+    enter = ex._line(_raw([_span("<", ell)], 400, 410), 297, fonts)
+    assert ref is not None and ref.plain == "(ℓ.12)" and not ref.odd_glyph
+    assert pvq is not None and pvq.odd_glyph
+    assert enter is not None and not enter.odd_glyph
+
+
+def test_rascunho_frame_in_pieces_is_not_a_figure() -> None:
+    """PF 2012 escrivão, item 57: o quadro do "RASCUNHO" logo abaixo do item vem em quatro traços e
+    um filete à direita, nenhum com a palavra inteira dentro; o item ganhava `figure`."""
+    frame = [
+        Figure(kind="drawing", x0=304.4, y0=437.6, x1=360.8, y1=446.2),
+        Figure(kind="drawing", x0=304.4, y0=437.6, x1=360.8, y1=438.6),
+        Figure(kind="drawing", x0=304.4, y0=446.2, x1=360.8, y1=451.8),
+        Figure(kind="drawing", x0=304.4, y0=450.8, x1=360.8, y1=451.8),
+        Figure(kind="drawing", x0=360.8, y0=446.2, x1=566.9, y1=447.1),
+    ]
+    page = Page(
+        number=1,
+        width=595,
+        height=842,
+        has_text=True,
+        lines=[
+            _line("-- PROVA OBJETIVA --", 217, 10, x1=380, size=15, column=0),
+            _line(
+                "Considerando essa situação hipotética, julgue os itens.", 304, 380, 566, column=2
+            ),
+            _line(
+                "**1** Com base nas proposições P1 e P2, é correto concluir",
+                304,
+                400,
+                566,
+                column=2,
+            ),
+            _line("que a organização deseja obter informações.", 322, 412, 500, column=2),
+            Line(
+                text="RASCUNHO",
+                plain="RASCUNHO",
+                x0=311.8,
+                y0=441.8,
+                x1=353.4,
+                y1=448.8,
+                column=2,
+                size=7.0,
+            ),
+        ],
+        figures=frame,
+    )
+    (question,) = cebraspe.segment([page]).questions
+    assert "figure" not in question.flags
+    # Sem o RASCUNHO, os mesmos traços seguem sendo figura do item de cima.
+    page.lines = page.lines[:-1]
+    (question,) = cebraspe.segment([page]).questions
+    assert "figure" in question.flags
+
+
+def test_vertical_space_between_blocks_opens_a_paragraph() -> None:
+    """PF 2012 escrivão, item 57: a situação tem quatro blocos separados por espaço vertical
+    (introdução | P1 e P2 | "Diante dessa situação..." | P3 e P4), com linhas que vão até a margem
+    e sem recuo. A introdução e P1 viravam um parágrafo, P2 e "Diante dessa situação" outro."""
+    right = 566.0
+    rows = [
+        ("Suspeita-se de que um chefe de organização criminosa", 339.7, 50.8, right),
+        ("tenha assumido as despesas de determinado candidato em curso de", 304.4, 63.1, right),
+        ("preparação para concurso para provimento de vagas do órgão X.", 304.4, 75.4, right),
+        ("P1: Existe a convicção por parte dos servidores do órgão X de que,", 304.4, 95.1, right),
+        ("se um chefe pagou o curso, ou o chefe é amigo de infância do", 304.4, 107.3, right),
+        ("candidato ou então esse candidato foi recrutado pela organização", 304.4, 119.7, right),
+        ("criminosa para ser aprovado no concurso;", 304.4, 131.9, right - 5),
+        (
+            "P2: Há, ainda, entre os servidores do órgão X, a certeza de que, se",
+            304.4,
+            144.3,
+            right,
+        ),
+        ("o candidato foi recrutado, então essa organização deseja obter", 304.4, 156.5, right),
+        ("informações sigilosas ou influenciar as decisões do órgão X.", 304.4, 168.9, right),
+        ("Diante dessa situação, o candidato, inquirido a respeito, disse o", 304.4, 184.9, right),
+        ("seguinte:", 304.4, 197.1, 345.0),
+        ("P3: Ele é meu amigo de infância, e eu não sabia que ele é chefe de", 304.4, 216.8, right),
+        ("organização criminosa;", 304.4, 229.1, 410.0),
+        ("P4: Pedi a ele que pagasse meu curso de preparação, mas ele não", 304.4, 241.4, right),
+        ("pagou.", 304.4, 253.7, 335.0),
+        (
+            "Considerando essa situação hipotética, julgue os itens subsecutivos.",
+            304.4,
+            273.4,
+            right,
+        ),
+        ("**55** Com fundamento nas proposições P1, P2, P3 e P4, confirma-se", 304.4, 293.1, right),
+        ("a suspeita.", 322.8, 305.3, 380.0),
+    ]
+    page = _page([_line(text, x0, y0, x1, column=2) for text, x0, y0, x1 in rows])
+    segmented = cebraspe.segment([page], first=55)
+    paragraphs = segmented.passages[0].body_md.split("\n\n")
+    assert [p.split(" ")[0] for p in paragraphs] == [
+        "Suspeita-se",
+        "P1:",
+        "P2:",
+        "Diante",
+        "P3:",
+        "P4:",
+    ]
+    assert paragraphs[0].endswith("do órgão X.")
+    assert (
+        paragraphs[3]
+        == "Diante dessa situação, o candidato, inquirido a respeito, disse o seguinte:"
+    )
+    assert segmented.questions[0].statement_md.startswith("Considerando essa situação hipotética")
+
+
+def test_vertical_space_does_not_cut_the_command_nor_a_sentence() -> None:
+    """O espaço entre blocos não parte o comando ("julgue ..., acerca da seguinte proposição:" |
+    "P: ...", PF 2018 papiloscopista, item 51) nem uma frase que segue na linha de baixo (fórmula
+    no meio da linha empurra a seguinte, PF 2012 papiloscopista, item 109)."""
+    rows = [
+        ("A figura ilustra o espectro na região da luz visível. No caso de", 28.0, 50.0, 290.0),
+        ("átomos hidrogenoides, o comprimento de onda é expresso por , em", 28.0, 62.3, 290.0),
+        ("que N é o", 28.0, 74.6, 290.0),
+        ("número de prótons no núcleo atômico e m e n são números inteiros.", 28.0, 92.0, 290.0),
+        ("A constante de Rydberg é dada no próprio texto da questão.", 28.0, 104.3, 290.0),
+        ("Julgue os próximos itens, acerca da seguinte proposição:", 28.0, 124.0, 260.0),
+        ("P: “A nomeação ocorre para reposição de vacância”.", 28.0, 143.7, 250.0),
+        ("**1** A proposição P é uma disjunção.", 28.0, 163.4, 220.0),
+    ]
+    page = _page([_line(text, x0, y0, x1) for text, x0, y0, x1 in rows])
+    segmented = cebraspe.segment([page])
+    (question,) = segmented.questions
+    assert question.statement_md.startswith(
+        "Julgue os próximos itens, acerca da seguinte proposição: P: “A nomeação"
+    )
+    assert "no_command" not in question.flags
+    assert segmented.passages[0].body_md.startswith(
+        "A figura ilustra o espectro na região da luz visível. No caso de átomos hidrogenoides,"
+        " o comprimento de onda é expresso por , em que N é o número de prótons"
+    )
+
+
+class _RawDocument:
+    """Documento falso para `_mono_fonts`: uma página com os spans dados (rawdict)."""
+
+    def __init__(self, spans: list[tuple[str, str, float]]) -> None:
+        self.spans = spans
+
+    def __iter__(self):  # type: ignore[no-untyped-def]
+        return iter([self])
+
+    def get_text(self, kind: str) -> dict[str, object]:
+        assert kind == "rawdict"
+        spans = [
+            {
+                "font": font,
+                "size": 9.0,
+                "chars": [
+                    {"c": c, "bbox": (i * width * 9.0, 0, (i + 1) * width * 9.0, 9)}
+                    for i, c in enumerate(text)
+                ],
+            }
+            for text, font, width in self.spans
+        ]
+        return {"blocks": [{"lines": [{"spans": spans}]}]}
+
+
+def test_monospaced_font_becomes_inline_code() -> None:
+    """PF 2012 escrivão, item 32: "joao_jose", "Bibliotecas > Documentos > Projetos" e os caminhos
+    "C:\\..." vêm numa fonte sem nome monoespaçada (Courier convertida, toda letra com 0,6 corpo) e
+    viravam texto comum; docs/content-format.md pede código inline para comandos e caminhos."""
+    document = _RawDocument(
+        [
+            ("C:UsersjoaojoseDocumentsProjetos", "TT55o00", 0.6),
+            ("Considere que um usuário de login", "TT49o00", 0.45),
+            ("ilmw", "TT49o00", 0.3),
+        ]
+    )
+    assert ex._mono_fonts(document) == frozenset({"TT55o00"})
+    fonts = ex._Fonts(digits={}, styles={}, mono=frozenset({"TT55o00"}))
+    first = ex._line(
+        _raw(
+            [
+                _span("de login ", "TT49o00"),
+                _span("joao_jose", "TT55o00", 9.0),
+                _span(" observa: ", "TT49o00"),
+                _span("Bibliotecas >", "TT55o00", 9.0),
+            ],
+            304,
+            566,
+        ),
+        297,
+        fonts,
+    )
+    second = ex._line(
+        _raw(
+            [
+                _span("Documentos > Projetos", "TT55o00", 9.0),
+                _span(" e não ", "TT49o00"),
+                _span("C:\\Users\\joao_jose", "TT55o00", 9.0),
+                _span(".", "TT49o00"),
+            ],
+            304,
+            566,
+        ),
+        297,
+        fonts,
+    )
+    assert first is not None and second is not None
+    assert first.text == "de login `joao_jose` observa: `Bibliotecas >`"
+    assert first.plain == "de login joao_jose observa: Bibliotecas >"
+    assert cebraspe._join([first.text, second.text]) == (
+        "de login `joao_jose` observa: `Bibliotecas > Documentos > Projetos` e não"
+        " `C:\\Users\\joao_jose`."
+    )

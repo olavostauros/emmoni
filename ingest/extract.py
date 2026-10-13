@@ -193,6 +193,8 @@ def _read(pdf_path: Path, legacy: bool = False) -> list[Page]:
             fonts = _Fonts(
                 digits=_digit_fonts([(lines, middle) for _, lines, middle in raws]),
                 styles=_font_styles(document),
+                ell=_ell_fonts([lines for _, lines, _ in raws]),
+                mono=_mono_fonts(document),
             )
         decoded = frozenset(fonts.digits) if fonts else frozenset()  # dígitos já têm tradução
         return [
@@ -201,12 +203,67 @@ def _read(pdf_path: Path, legacy: bool = False) -> list[Page]:
         ]
 
 
+def _ell_fonts(pages: list[list[dict[str, Any]]]) -> frozenset[str]:
+    """Fontes de símbolos sem mapeamento em que o glifo do "ℓ" sai como "R" (decisão 0020): as que
+    trazem um "R" sozinho entre "(" e ".<dígito>"."""
+    fonts: set[str] = set()
+    for raws in pages:
+        for raw in raws:
+            spans = raw["spans"]
+            for before, span, after in zip(spans, spans[1:], spans[2:], strict=False):
+                if _is_ell(before, span, after):
+                    fonts.add(span["font"])
+    return frozenset(fonts)
+
+
+def _is_ell(before: dict[str, Any], span: dict[str, Any], after: dict[str, Any]) -> bool:
+    return (
+        span["text"] == "R"
+        and span["font"] != before["font"]
+        and span["font"] != after["font"]
+        and before["text"].endswith("(")
+        and re.match(r"\.\s?\d", after["text"]) is not None
+    )
+
+
 @dataclass
 class _Fonts:
     """O que o PDF não diz das fontes e foi deduzido do documento (PF 2012)."""
 
     digits: dict[str, dict[str, str]]  # fonte → código → dígito
     styles: dict[str, int]  # fonte → BOLD/ITALIC
+    ell: frozenset[str] = frozenset()  # fontes de símbolos do "ℓ" de "(ℓ.12)"
+    mono: frozenset[str] = frozenset()  # fontes monoespaçadas (caminhos, comandos): código inline
+
+
+MONO_MIN_LETTERS = 8  # letras distintas para afirmar que a fonte é monoespaçada
+MONO_SPREAD = 0.01  # diferença máxima de largura (em corpos) entre as letras
+
+
+def _mono_fonts(document: Any) -> frozenset[str]:
+    """Fontes sem nome em que toda letra tem a mesma largura (Courier convertida pelo Distiller,
+    PF 2012 escrivão: "C:\\Users\\joao_jose", "print://<IP_da_impressora>"). O original usa a
+    fonte monoespaçada para caminhos, endereços e comandos: no Markdown viram código inline
+    (docs/content-format.md). Com letras de menos, a largura não prova nada e a fonte fica de fora."""
+    widths: dict[str, dict[str, list[float]]] = {}
+    for page in document:
+        for block in page.get_text("rawdict")["blocks"]:
+            for raw in block.get("lines", []):
+                for span in raw["spans"]:
+                    if not UNNAMED_FONT.match(span["font"]):
+                        continue
+                    for char in span["chars"]:
+                        if char["c"].isascii() and char["c"].isalpha():
+                            width = (char["bbox"][2] - char["bbox"][0]) / span["size"]
+                            widths.setdefault(span["font"], {}).setdefault(char["c"], []).append(
+                                width
+                            )
+    mono: set[str] = set()
+    for font, letters in widths.items():
+        means = [sum(ws) / len(ws) for ws in letters.values()]
+        if len(means) >= MONO_MIN_LETTERS and max(means) - min(means) <= MONO_SPREAD:
+            mono.add(font)
+    return frozenset(mono)
 
 
 def _font_styles(document: Any) -> dict[str, int]:
@@ -515,12 +572,17 @@ def _line(
     fonts: _Fonts | None = None,
     symbol_fonts: frozenset[str] = frozenset(),
 ) -> Line | None:
-    if fonts and any(s["font"] in fonts.digits or s["font"] in fonts.styles for s in raw["spans"]):
+    if fonts and any(
+        s["font"] in fonts.digits or s["font"] in fonts.styles or s["font"] in fonts.mono
+        for s in raw["spans"]
+    ):
         decoded = []
         for s in raw["spans"]:
             if s["font"] in fonts.digits:
                 s = s | {"text": "".join(fonts.digits[s["font"]].get(c, c) for c in s["text"])}
-            if s["font"] in fonts.styles and any(c.isalnum() for c in s["text"]):
+            if s["font"] in fonts.mono:
+                s = s | {"mono": True}
+            elif s["font"] in fonts.styles and any(c.isalnum() for c in s["text"]):
                 # Só pontuação ("Austrália*.*"): o estilo não aparece e só suja o Markdown.
                 s = s | {"flags": s["flags"] | fonts.styles[s["font"]]}
             decoded.append(s)
@@ -533,12 +595,15 @@ def _line(
     plain = _clean("".join(s["text"] for s in raw["spans"]))
     markdown = _clean("".join(_markdown(s) for s in raw["spans"]))
     column = _column(x0, x1, middle)
-    sizes = Counter(round(float(s["size"]), 1) for s in spans for _ in s["text"])
-    main = sizes.most_common(1)[0][0]
     # O número do item no começo da linha costuma vir em corpo menor: não é índice.
     body = list(spans)
     while body and LEADING_MARK.match(body[0]["text"].strip(" \xa0")):
         body.pop(0)  # número do item ou de linha, glifo decorativo
+    # O corpo da linha sai do texto, sem o número do item: em linha justificada, cada palavra pode
+    # vir numa linha própria, e "106 É" tinha mais letras no corpo do número (8 pt) que no do texto
+    # (10 pt); unida às vizinhas, a linha parecia um índice (PF 2012 delegado, item 106).
+    sizes = Counter(round(float(s["size"]), 1) for s in (body or spans) for _ in s["text"])
+    main = sizes.most_common(1)[0][0]
     scripts = any(
         float(s["size"]) < main - SCRIPT_DROP
         and s["text"].strip(" \xa0")
@@ -559,6 +624,7 @@ def _line(
             if 0 < i < len(spans) - 1
         )
         or any(s["font"] in symbol_fonts and s["text"].strip(" \xa0þ") for s in spans)
+        or (fonts is not None and _odd_ell_glyph(spans, fonts.ell))
     )
     return Line(
         text=markdown,
@@ -574,6 +640,15 @@ def _line(
     )
 
 
+def _odd_ell_glyph(spans: list[dict[str, Any]], ell: frozenset[str]) -> bool:
+    """Outro glifo da fonte do "ℓ" no meio do texto: símbolo sem mapeamento ("P∧Q" sai "PvQ",
+    "kJ·mol" sai "kJ@mol", "Cℓ" fora de "(ℓ.N)" sai "CR"; PF 2012). Glifo sozinho na linha (a
+    tecla Enter desenhada como "<") não é texto."""
+    if not any(s["font"] not in ell for s in spans):
+        return False
+    return any(s["font"] in ell and s["text"].strip(" \xa0") not in ("", "ℓ") for s in spans)
+
+
 def _line_refs(spans: list[dict[str, Any]], legacy: bool = False) -> list[dict[str, Any]]:
     """ "(ℓ.12)": o "ℓ" vem numa fonte de símbolos própria cujo glifo se chama "R" e que mapeia para
     "R" (PF 2012, PF 2018, PM/AL 2017...). Um "R" sozinho em fonte diferente das vizinhas, entre "("
@@ -581,13 +656,7 @@ def _line_refs(spans: list[dict[str, Any]], legacy: bool = False) -> list[dict[s
     result = list(spans)
     for i in range(1, len(spans) - 1):
         before, span, after = spans[i - 1], spans[i], spans[i + 1]
-        if (
-            span["text"] == "R"
-            and span["font"] != before["font"]
-            and span["font"] != after["font"]
-            and before["text"].endswith("(")
-            and re.match(r"\.\s?\d", after["text"])
-        ):
+        if _is_ell(before, span, after):
             result[i] = span | {"text": "ℓ"}
         elif (
             legacy
@@ -612,6 +681,8 @@ def _column(x0: float, x1: float, middle: float) -> int:
 
 
 def _markdown(span: dict[str, Any]) -> str:
+    if span.get("mono"):
+        return _code(span["text"])
     text = escape_md(span["text"])
     core = text.strip(" \xa0")
     if not core or not span["flags"] & (ITALIC | BOLD):
@@ -619,6 +690,18 @@ def _markdown(span: dict[str, Any]) -> str:
     mark = "**" if span["flags"] & BOLD else "*"
     start = text.index(core)
     return f"{text[:start]}{mark}{core}{mark}{text[start + len(core) :]}"
+
+
+def _code(text: str) -> str:
+    """Trecho em fonte monoespaçada → código inline. Dentro do código o Markdown não tem escape:
+    o texto vai como está, e a crase do original pede delimitador mais longo."""
+    core = text.strip(" \xa0")
+    if not core:
+        return text
+    start = text.index(core)
+    fence = "``" if "`" in core else "`"
+    inner = f" {core} " if fence == "``" else core
+    return f"{text[:start]}{fence}{inner}{fence}{text[start + len(core) :]}"
 
 
 # Fonte Symbol embutida sem mapeamento Unicode: o glifo sai na área de uso privado (U+F0xx), com o

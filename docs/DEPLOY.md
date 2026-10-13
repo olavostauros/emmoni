@@ -67,15 +67,26 @@ budget emmoni-monthly ─▶ Pub/Sub emmoni-budget ─▶ função emmoni-budget
 |---|---|---|
 | Projeto | `emmoni-prod` | novo, ligado à conta acima |
 | APIs | `run`, `artifactregistry`, `pubsub`, `cloudfunctions`, `cloudbuild`, `eventarc`, `billingbudgets`, `iam` | nada além destas e das dependências abaixo (o `audit.py --cloud` confere, com a mesma lista em `ALLOWED_APIS`) |
-| Dependências de API | `logging`, `telemetry`, `storage-api`, `storage-component`, `iamcredentials`, `containerregistry` | declaradas pelo Google para as APIs acima (Service Usage v2beta, `services/<api>/groups/dependencies/members`, recursivo nos grupos aninhados, lido em 2026-10-13): `logging` de `run`, `cloudfunctions` e `cloudbuild` (logs); `telemetry` do `logging`; `storage-api` de `cloudfunctions` e `cloudbuild` (fonte e logs de build); `storage-component` de `cloudfunctions` (fonte enviada); `iamcredentials` do `iam` (tokens de acesso e JWT); `containerregistry` do `cloudbuild`, pelo grupo aninhado `services/containerregistry.googleapis.com/groups/dependencies` (imagens de contêiner; o grupo traz só `pubsub` e `storage-api`, já na lista). Ligam junto; não se desligam sem desligar quem depende delas |
-| Repositório | `southamerica-east1-docker.pkg.dev/emmoni-prod/emmoni` | política de limpeza: manter as 2 mais novas |
+| Dependências de API | `logging`, `telemetry`, `storage-api`, `storage-component`, `iamcredentials`, `containerregistry`, `serviceusage` | declaradas pelo Google para as APIs acima (Service Usage v2beta, `services/<api>/groups/dependencies/members`, recursivo nos grupos aninhados, lido em 2026-10-13): `logging` de `run`, `cloudfunctions` e `cloudbuild` (logs); `telemetry` do `logging`; `storage-api` de `cloudfunctions` e `cloudbuild` (fonte e logs de build); `storage-component` de `cloudfunctions` (fonte enviada); `iamcredentials` do `iam` (tokens de acesso e JWT); `containerregistry` do `cloudbuild`, pelo grupo aninhado `services/containerregistry.googleapis.com/groups/dependencies` (imagens de contêiner; o grupo traz só `pubsub` e `storage-api`, já na lista). Ligam junto; não se desligam sem desligar quem depende delas. A exceção é o `serviceusage` (achado E-002): não é dependência declarada, é a API de gestão das APIs; o `gcloud services list/enable/disable`, inclusive o do `audit.py --cloud`, passa por ela |
+| Repositório | `southamerica-east1-docker.pkg.dev/emmoni-prod/emmoni` | política de limpeza: manter as 2 mais novas; **nenhum papel** no repositório |
+| Repositório | `gcf-artifacts` (`southamerica-east1`) | criado pelo deploy da função (passo 4), guarda a imagem dela; `artifactregistry.writer` só para a `emmoni-build` |
 | Conta de serviço | `emmoni-api` | runtime do serviço; **nenhum papel** |
-| Conta de serviço | `emmoni-budget-cap` | papel customizado `emmoniIngressCap` (`run.services.get`, `run.services.update`) + `iam.serviceAccountUser` só na `emmoni-api` + `eventarc.eventReceiver` + `run.invoker` na própria função |
-| Conta de serviço | `emmoni-build` | build da função: `logging.logWriter`, `artifactregistry.writer`, `storage.objectViewer` |
+| Conta de serviço | `emmoni-budget-cap` | papel customizado `emmoniIngressCap` (`run.services.get`, `run.services.update`) **só no serviço `emmoni-api`** + `iam.serviceAccountUser` só na `emmoni-api` + `eventarc.eventReceiver` no projeto + `run.invoker` na própria função |
+| Conta de serviço | `emmoni-build` | build da função: `logging.logWriter` e `storage.objectViewer` no projeto; `artifactregistry.writer` **só no repositório `gcf-artifacts`** |
 | Serviço | `emmoni-api` | 1 vCPU, 512 MiB, `min 0`, `max 1`, concorrência 40, timeout 10 s, imagem **por digest** |
 | Budget | `emmoni-monthly` | R$ 40, `exclude-all-credits`, alertas 50/90/100% real e 100% previsto, publica em `emmoni-budget` |
 | Tópico | `emmoni-budget` | |
 | Função | `emmoni-budget-cap` | `deploy/budget-cap/`, gen2, Python 3.12, `max-instances=1`, só interna |
+
+Escopo dos papéis (achados E-009 e E-010, 2026-10-13): papel que dá para pôr no recurso vai no
+recurso, não no projeto. O `run.services.update` do `emmoniIngressCap` não se limita ao ingresso:
+no projeto, a `emmoni-budget-cap` trocaria imagem e configuração de qualquer serviço do Cloud Run
+(as funções gen2 também são serviços); no `emmoni-api`, só dele, que é o único que ela precisa
+cortar. Do mesmo modo, o `artifactregistry.writer` da `emmoni-build` no projeto a deixaria
+retaguear imagens no repositório `emmoni`, de onde sai a API; no `gcf-artifacts`, só a imagem da
+função. Os dois vínculos no recurso só podem ser criados depois que o recurso existe: o do
+`gcf-artifacts` no passo 4, o do serviço no passo 6. O `audit.py --cloud` confere a política do
+serviço e dos dois repositórios, e acusa os vínculos de projeto antigos numa verificação própria.
 
 Não há VM, disco, rede, firewall, SSH, túnel nem segredo. O que o Usher protege com IAP, OS Login,
 usuário do agente e hook de guarda aqui simplesmente não existe.
@@ -92,11 +103,11 @@ Variáveis: `P=emmoni-prod R=southamerica-east1 BA=01F985-1C44C6-40CDE9`.
 |---|---|---|---|
 | 0 | Estimativa (§2) conferida pelo dono | dono disse "vai" | feito em 2026-10-13 ("vai" repassado pela sessão coordenadora; saída de rede somada ao §2) |
 | 1 | Projeto e APIs | `gcloud projects describe $P` tem `emmoni=prod`; conta ligada | feito em 2026-10-13 (número 27333211980; ver a nota do passo 1) |
-| 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | parcial em 2026-10-13: 3 contas criadas, 0 chaves, Compute padrão sem `editor`; papel customizado e vínculos não criados (ver a nota do passo 2) |
+| 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | feito em 2026-10-13 (3 contas, 0 chaves, Compute padrão sem `editor`; papel `emmoniIngressCap` e os seis vínculos no segundo ciclo; ver a nota do passo 2) |
 | 3 | Tópico e budget | budget lista o tópico | pendente |
-| 4 | Função de corte + teste | teste com 100% muda o ingresso; voltar com `--ingress=all` | pendente |
+| 4 | Função de corte + teste | `emmoni-build` com `artifactregistry.writer` no `gcf-artifacts`; teste com 100% muda o ingresso; voltar com `--ingress=all` | pendente |
 | 5 | Repositório e primeira imagem (seed) | `audit.py --image` 0 falhas; push por digest | pendente |
-| 6 | Serviço privado (seed) | `audit.py --public` (com token) 0 falhas | pendente |
+| 6 | Serviço privado (seed) | `emmoniIngressCap` da `emmoni-budget-cap` no serviço; `audit.py --public` (com token) 0 falhas | pendente |
 | 7 | Público com seed | `allUsers` invoker; `audit.py --public` e `--cloud` 0 falhas; Plantão avisado | pendente |
 | 8 | Imagem `all` | **só com o sim do dono para publicar as questões reais**; é o único caminho delas para o público (decisão 0028) | pendente; sim do dono dado em 2026-10-13, vale depois do passo 7 |
 | 9 | Três dias de observação, cerberus re-audita, decisão 0022 aceita | relatório em `docs/security/reports/` | pendente |
@@ -132,17 +143,17 @@ for sa in emmoni-api emmoni-budget-cap emmoni-build; do
 done
 gcloud iam roles create emmoniIngressCap --project=$P --title="emmoni ingress cap" \
   --permissions=run.services.get,run.services.update
-gcloud projects add-iam-policy-binding $P --role=projects/$P/roles/emmoniIngressCap \
-  --member=serviceAccount:emmoni-budget-cap@$P.iam.gserviceaccount.com --condition=None
+# o emmoniIngressCap é vinculado no serviço, no passo 6 (E-009), não no projeto
 gcloud projects add-iam-policy-binding $P --role=roles/eventarc.eventReceiver \
   --member=serviceAccount:emmoni-budget-cap@$P.iam.gserviceaccount.com --condition=None
 gcloud iam service-accounts add-iam-policy-binding emmoni-api@$P.iam.gserviceaccount.com \
   --role=roles/iam.serviceAccountUser --project=$P \
   --member=serviceAccount:emmoni-budget-cap@$P.iam.gserviceaccount.com
-for role in logging.logWriter artifactregistry.writer storage.objectViewer; do
+for role in logging.logWriter storage.objectViewer; do
   gcloud projects add-iam-policy-binding $P --role=roles/$role --condition=None \
     --member=serviceAccount:emmoni-build@$P.iam.gserviceaccount.com
 done
+# o artifactregistry.writer é vinculado no repositório gcf-artifacts, no passo 4 (E-010)
 ```
 
 Depois: `gcloud projects get-iam-policy $P`. Se a conta padrão do Compute
@@ -164,6 +175,40 @@ fica fora do §3 e o build da função usa a `emmoni-build`. Tirar o vínculo é
 para a fila do dono. `audit.py --cloud emmoni-prod`: 26 verificações, 2 falhas: esse vínculo,
 e as APIs `serviceusage` e `source`, que estão fora do §3 (`source` veio do `cloudapis`, nota do
 passo 1; `serviceusage` é a API que lista as APIs).
+
+Nota de 2026-10-13, segundo ciclo (passo feito): o mesmo bloco, sem os `service-accounts create`,
+rodou desta vez sem negação: papel `projects/emmoni-prod/roles/emmoniIngressCap` (só
+`run.services.get` e `run.services.update`, estágio `ALPHA`, o padrão do `gcloud`), vinculado à
+`emmoni-budget-cap` no projeto, mais `roles/eventarc.eventReceiver` para ela,
+`roles/iam.serviceAccountUser` para ela só na conta `emmoni-api`, e `roles/logging.logWriter`,
+`roles/artifactregistry.writer` e `roles/storage.objectViewer` para a `emmoni-build`. Nada disso
+custa. `audit.py --cloud emmoni-prod`: 26 verificações, 2 falhas, as mesmas de antes (o
+`roles/cloudbuild.builds.builder` da conta legada do Cloud Build e as APIs `serviceusage` e
+`source`), ambas remoções na fila do dono; "vínculos do §3 presentes", IAM das três contas e o
+papel customizado passam. O `gcloud billing budgets list` de conferência foi negado pela permissão
+da sessão (só leitura; o `audit.py` leu a conta e não achou budget `emmoni`, como esperado antes
+do passo 3).
+
+Nota de 2026-10-13, depois da auditoria `docs/security/reports/2026-10-13-cloud-passo2.md`
+(achados E-009 e E-010, defeitos deste plano, não da execução): o bloco acima mudou. Ele não
+vincula mais no projeto o `emmoniIngressCap` (vai no serviço, passo 6) nem o
+`artifactregistry.writer` da `emmoni-build` (vai no `gcf-artifacts`, passo 4). Os dois vínculos de
+projeto que a versão antiga criou **continuam no `emmoni-prod`** e serão trocados: o caronte cria os
+novos nos passos 4 e 6; tirar os antigos é remoção, do dono, e está na fila do `STATUS.md`:
+
+```sh
+# depois do passo 4 conferido (o primeiro build da função ainda usa o vínculo de projeto)
+gcloud projects remove-iam-policy-binding emmoni-prod --role=roles/artifactregistry.writer \
+  --member=serviceAccount:emmoni-build@emmoni-prod.iam.gserviceaccount.com --condition=None
+# depois do passo 6, com o vínculo novo no serviço
+gcloud projects remove-iam-policy-binding emmoni-prod \
+  --role=projects/emmoni-prod/roles/emmoniIngressCap \
+  --member=serviceAccount:emmoni-budget-cap@emmoni-prod.iam.gserviceaccount.com --condition=None
+```
+
+Até lá, o `audit.py --cloud` falha em "nenhum vínculo de projeto trocado por vínculo no recurso
+(E-009, E-010)". Como o passo 7 exige `--cloud` com 0 falhas, as duas remoções vêm antes dele.
+Nenhum dos dois vínculos custa.
 
 ### 3. Tópico e budget
 
@@ -189,7 +234,17 @@ gcloud functions deploy emmoni-budget-cap --gen2 --project=$P --region=$R \
   --update-labels=emmoni=prod
 gcloud functions add-invoker-policy-binding emmoni-budget-cap --project=$P --region=$R \
   --member=serviceAccount:emmoni-budget-cap@$P.iam.gserviceaccount.com
+# o gcf-artifacts nasce no deploy acima; a escrita da emmoni-build fica só nele (E-010)
+gcloud artifacts repositories add-iam-policy-binding gcf-artifacts --project=$P --location=$R \
+  --role=roles/artifactregistry.writer \
+  --member=serviceAccount:emmoni-build@$P.iam.gserviceaccount.com
 ```
+
+Ordem (E-010): o repositório `gcf-artifacts` só existe depois do primeiro `functions deploy`, e o
+build desse primeiro deploy escreve nele com o `artifactregistry.writer` de projeto que o passo 2
+antigo deixou. Depois do vínculo no repositório e do teste abaixo, o dono tira o de projeto (nota
+do passo 2). Se um build posterior da função falhar sem o vínculo de projeto, o caronte registra e
+põe na fila do dono; não recria o vínculo no projeto.
 
 Teste (depois do passo 6, com o serviço no ar):
 
@@ -223,6 +278,10 @@ gcloud run deploy emmoni-api --project=$P --region=$R \
   --service-account=emmoni-api@$P.iam.gserviceaccount.com \
   --cpu=1 --memory=512Mi --concurrency=40 --min-instances=0 --max-instances=1 --timeout=10 \
   --port=8080 --no-allow-unauthenticated --ingress=all --labels=emmoni=prod
+# a função de corte só muda este serviço (E-009); antes do teste do passo 4
+gcloud run services add-iam-policy-binding emmoni-api --project=$P --region=$R \
+  --role=projects/$P/roles/emmoniIngressCap \
+  --member=serviceAccount:emmoni-budget-cap@$P.iam.gserviceaccount.com
 URL=$(gcloud run services describe emmoni-api --project=$P --region=$R --format='value(status.url)')
 python3 -I deploy/audit.py --public "$URL" \
   --header "X-Serverless-Authorization: Bearer $(gcloud auth print-identity-token)"
@@ -266,3 +325,5 @@ dias restantes, observação. Fonte: console de faturamento (só leitura) ou o r
 | 2026-10-13 | R$ 0 (`emmoni-prod` não existe) | R$ 1.752,45 (98%, console, Créditos) | 85 | passo 0; nada criado; R$ 26,84 usados, todos do Usher |
 | 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 1: projeto `emmoni-prod` criado, ligado à conta, 8 APIs do §3; nada pago existe; budget `emmoni` ainda nenhum |
 | 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 2 parcial: 3 contas de serviço (sem custo); papel customizado e vínculos negados pela permissão da sessão; nada pago existe; `audit.py --cloud` sem budget `emmoni-monthly` |
+| 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 2 concluído: papel `emmoniIngressCap` e seis vínculos (sem custo); nada pago existe; `audit.py --cloud` 26 verificações, 2 falhas já na fila do dono |
+| 2026-10-13 | não lido (sessão sem Chrome; sessão só de documento); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | nenhum passo; nada criado nem lido na nuvem: E-009, E-010 e E-002 (parcial) corrigidos no plano (§3, passos 2, 4 e 6) e no `audit.py` |
