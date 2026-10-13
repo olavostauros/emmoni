@@ -27,6 +27,10 @@ START = re.compile(
     r"^-* ?PROVAS? OBJETIVAS?( P\d)? ?-*$"
 )  # "-- PROVA OBJETIVA P1 --" (2025), "-- PROVAS OBJETIVAS --"
 STOP = re.compile(r"^-* ?PROVA DISCURSIVA( P\d)? ?-*$")
+# Número da página no rodapé, "– 3 –" (cadernos do site antigo: PF 2012 delegado, escrivão e
+# papiloscopista); só vale no fim da página (`PAGE_FOOTER_AT` da altura).
+PAGE_FOOTER = re.compile(r"^[–-] ?\d{1,3} ?[–-]$")
+PAGE_FOOTER_AT = 0.9
 # Título de seção que abre a prova quando não há "PROVA OBJETIVA" (CBM/AL e PM/AL 2017).
 SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
@@ -98,6 +102,9 @@ CREDIT_ONLY = re.compile(
 BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extraído como "C"
 TEXT_REF = re.compile(rf"\btexto?\s+{_LABEL}", re.I)  # "texto CG1A1-I", "text 1A2-II"
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
+# No corte entre texto-base e comando, "julgador" e "julgamento" são substantivos do texto, não o
+# comando (PF 2012 papiloscopista, itens 111–113: "... para auxiliar o julgador.").
+COMMAND_VERB = re.compile(r"\b(julg(?!ador|amento)|jug|judge|juzg)", re.I)
 # "Os itens a seguir apresentam, de forma consecutiva, os períodos que compõem um parágrafo" (PF
 # 2018): cada item é um período do mesmo parágrafo e depende dos anteriores ("Nessas situações").
 CONSECUTIVE_ITEMS = re.compile(r"\bitens\b[^.]{0,60}\b(consecutiv|sucessiv)", re.I)
@@ -616,6 +623,8 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             if line.column == 0 and STOP.search(line.plain):
                 stream.extend(_with_figures(page, entries, skipped, start_y))
                 return stream
+            if PAGE_FOOTER.match(line.plain.strip()) and line.y0 > page.height * PAGE_FOOTER_AT:
+                continue
             if (
                 SKIP.match(line.plain)
                 or _subject_heading(line)
@@ -927,19 +936,12 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     com a da coluna (textos com numeração de linhas)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
-    for entry in entries:
+    for index, entry in enumerate(entries):
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
-        # Crédito do texto em letra miúda, alinhado à direita e quebrado em duas linhas (PF 2012):
-        # segue até a linha que o encerra ("(com adaptações).").
-        credit_goes_on = (
-            previous is not None
-            and previous.line.size < CITATION_SIZE
-            and entry.line.size == previous.line.size
-            and min(previous.line.x0, entry.line.x0) > entry.left + ODD_INDENT  # alinhado à direita
-            and not CREDIT_END.search(previous.line.plain.strip())
-            and bool(CREDIT_END.search(entry.line.plain.strip()))
-        )
+        # Crédito do texto em letra miúda, alinhado à direita e quebrado em duas linhas ou mais
+        # (PF 2012, PM/MA 2017): segue até a linha que o encerra ("(com adaptações).").
+        credit_goes_on = _credit_goes_on(entries, index)
         title_goes_on = title_goes_on or credit_goes_on
         # Linha anterior curta também fecha o parágrafo: com numeração de linhas na margem, o
         # recuo de "7 Em 2016, ..." se perde quando o número sai (PC/MA 2017).
@@ -957,6 +959,35 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     return [_join(lines) for lines in paragraphs]
 
 
+CREDIT_MAX_LINES = 6  # crédito mais longo que isso não é crédito
+
+
+def _credit_line(entry: _Entry, size: float) -> bool:
+    """Linha de crédito: letra miúda, do mesmo tamanho das outras, alinhada à direita."""
+    return (
+        entry.line.size < CITATION_SIZE
+        and entry.line.size == size
+        and entry.line.x0 > entry.left + ODD_INDENT
+    )
+
+
+def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
+    """A linha `index` continua o crédito aberto na anterior: as duas e as seguintes são linhas de
+    crédito, e alguma delas, até `CREDIT_MAX_LINES`, o encerra. Sem a linha de fecho não emenda."""
+    if index == 0:
+        return False
+    previous = entries[index - 1]
+    size = previous.line.size
+    if not _credit_line(previous, size) or CREDIT_END.search(previous.line.plain.strip()):
+        return False
+    for entry in entries[index : index - 1 + CREDIT_MAX_LINES]:
+        if not _credit_line(entry, size):
+            return False
+        if CREDIT_END.search(entry.line.plain.strip()):
+            return True
+    return False
+
+
 def _is_title(entry: _Entry) -> bool:
     text = entry.line.text
     return text.startswith("**") and text.endswith("**")
@@ -969,7 +1000,7 @@ def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:
     *rest, last = paragraphs
     sentences = SENTENCE_END.split(last)
     for index, sentence in enumerate(sentences):
-        if COMMAND.search(sentence):
+        if COMMAND_VERB.search(sentence):
             before = " ".join(sentences[:index]).strip()
             command = " ".join(sentences[index:]).strip()
             if (

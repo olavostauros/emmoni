@@ -1,0 +1,109 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-13 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve pf-2012-escrivao` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: pf-2012-escrivao
+name: PF 2012 — Escrivão
+agency: pf
+exam_board: cebraspe
+year: 2012
+source_url: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/
+exams:
+- slug: escrivao
+  name: Escrivão de Polícia Federal — prova objetiva
+  positions:
+  - escrivao
+  applied_on: '2013-07-21'
+  shift: manhã
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/arquivos/DPF13ESC_001_01.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/arquivos/Gab_Definitivo_DPF13ESC_001_01.PDF
+  subjects_by_range:  # faixas conferidas lendo os itens e os comandos do caderno (2026-10-13, hefesto)
+  - {from: 1, to: 16, subject: lingua-portuguesa}
+  - {from: 17, to: 22, subject: redacao-oficial}
+  - {from: 23, to: 40, subject: informatica}
+  - {from: 41, to: 47, subject: atualidades}
+  - {from: 48, to: 57, subject: raciocinio-logico}
+  - {from: 58, to: 61, subject: administracao-publica}
+  - {from: 62, to: 63, subject: administracao-geral}
+  - {from: 64, to: 65, subject: direito-financeiro}
+  - {from: 66, to: 67, subject: etica-no-servico-publico}
+  - {from: 68, to: 78, subject: direito-penal}
+  - {from: 79, to: 89, subject: direito-processual-penal}
+  - {from: 90, to: 95, subject: direito-administrativo}
+  - {from: 96, to: 101, subject: direito-constitucional}
+  - {from: 102, to: 108, subject: legislacao-penal-especial}
+  - {from: 109, to: 120, subject: arquivologia}
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-13'
+  contest:
+    url: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: DPF ESCRIVÃO 2012
+    cached: data/crawl/cespe-unb/concursos__DPF_12_ESCRIVAO__
+    agency:
+      value: pf
+      rule: prefixo DPF da URL do evento (alias do catálogo)
+    year:
+      value: 2012
+      rule: 'token 12 da URL do evento, como no crawler do Cebraspe; a capa diz ''Concurso Público 2013'' e a aplicação
+        foi em 2013: quem aprova decide se o ano é 2013'
+    slug:
+      value: pf-2012-escrivao
+      rule: 'pf-2012 já é o Agente (aprovado): sufixo do resto da URL (decisão 0007, item 8)'
+  exams:
+    escrivao:
+      position:
+        value: escrivao
+        rule: cargo na capa, no rodapé das páginas e no gabarito
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/arquivos/DPF13ESC_001_01.pdf
+          cached: data/crawl/cespe-unb/concursos__DPF_12_ESCRIVAO__arquivos__DPF13ESC_001_01.pdf
+          sha256: f3529a07bb823684ca9ad64d39354e5692ac8980c55720dc8377c778508dea26
+          pages: 12
+          link_text: Caderno de questões - Tipo I
+          kind: exam
+          cover: 'capa (imagem): DEPARTAMENTO DE POLÍCIA FEDERAL · CONCURSO PÚBLICO 2013 · CARGO: ESCRIVÃO DE POLÍCIA
+            FEDERAL · TURNO: MANHÃ · CADERNO DE PROVAS OBJETIVA E DISCURSIVA'
+          page_header: 'CESPE/UnB – MJ/DPF/2013 · rodapé CARGO: ESCRIVÃO DE POLÍCIA FEDERAL; itens 1–120 nas páginas
+            2–10, prova discursiva nas páginas 11–12'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/arquivos/Gab_Definitivo_DPF13ESC_001_01.PDF
+          cached: data/crawl/cespe-unb/concursos__DPF_12_ESCRIVAO__arquivos__Gab_Definitivo_DPF13ESC_001_01.PDF
+          sha256: df8132b13e21e61f5b4ef17960a1de1b5e675e4dc65449b4a051cc4f3daf9fcb
+          pages: 1
+          header:
+          - 'Aplicação: 21/7/2013'
+          - DPF13ESC_001_01
+          - 'CARGO: ESCRIVÃO DE POLÍCIA FEDERAL'
+          items: 120
+          annulled:
+          - 1
+          - 24
+          - 37
+          - 38
+          - 39
+          - 57
+          - 58
+          - 65
+          - 91
+          - 98
+          - 104
+          link_text: Gabarito definitivo - Tipo I
+          kind: answer_key_final
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/arquivos/DPF13ESC_001_01.PDF
+    link_text: Prova discursiva
+    reason: 'mesmo nome do caderno, só a extensão em maiúsculas: provavelmente o mesmo arquivo (caderno único de
+      provas objetiva e discursiva; não baixado para conferir); a discursiva fica fora do núcleo'
+  - url: http://www.cespe.unb.br/concursos/DPF_12_ESCRIVAO/arquivos/DPF_ESCRIV__O_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativas de alteração de gabarito de itens
+    reason: 'justificativas: não é prova nem gabarito'

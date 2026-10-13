@@ -1,0 +1,19 @@
+{
+ "exam": "pf-2012-papiloscopista/papiloscopista",
+ "numbers": [
+  1,
+  6,
+  7,
+  21,
+  50,
+  52,
+  55,
+  80,
+  85,
+  114
+ ],
+ "sampled_at": "2026-10-13T16:48:25.423410+00:00",
+ "approved_at": "2026-10-13T16:50:14.081927+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "6038292674467839c9dab8fa14b931030e24536240846394d35e4593e4828f21"
+}

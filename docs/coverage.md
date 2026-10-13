@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-13 12:53 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-13 16:52 UTC. Não edite à mão.
 
-**5143 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5426 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -30,7 +30,7 @@ Gerado por `emmoni coverage` em 2026-10-13 12:53 UTC. Não edite à mão.
 | Cebraspe | PCRO | 2022 | 6 | 236 |
 | Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
-| Cebraspe | PF | 2012 | 1 | 90 |
+| Cebraspe | PF | 2012 | 4 | 373 |
 | Cebraspe | PF | 2018 | 4 | 405 |
 | Cebraspe | PF | 2021 | 4 | 233 |
 | Cebraspe | PF | 2025 | 6 | 248 |
@@ -50,49 +50,50 @@ Gerado por `emmoni coverage` em 2026-10-13 12:53 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 560 |
-| Informática | 428 |
-| Direito Processual Penal | 404 |
-| Direito Penal | 401 |
-| Direito Administrativo | 398 |
-| Direito Constitucional | 394 |
-| Legislação Penal Especial | 308 |
+| Língua Portuguesa | 583 |
+| Informática | 453 |
+| Direito Penal | 433 |
+| Direito Processual Penal | 431 |
+| Direito Administrativo | 416 |
+| Direito Constitucional | 412 |
+| Legislação Penal Especial | 336 |
+| Medicina Legal | 182 |
 | Legislação Institucional | 181 |
-| Medicina Legal | 178 |
 | Contabilidade Geral | 132 |
 | Direitos Humanos | 128 |
 | Geografia | 123 |
+| Raciocínio Lógico | 117 |
 | História | 116 |
-| Raciocínio Lógico | 108 |
+| Direito Civil | 93 |
 | Legislação Estadual | 93 |
-| Direito Civil | 90 |
-| Arquivologia | 76 |
-| Biologia | 75 |
+| Arquivologia | 92 |
+| Biologia | 84 |
+| Criminologia | 72 |
 | Legislação de Trânsito | 71 |
+| Atualidades | 69 |
 | Legislação Penal Militar | 68 |
 | Matemática | 67 |
+| Criminalística | 65 |
 | Química | 65 |
-| Criminologia | 63 |
-| Criminalística | 62 |
-| Atualidades | 56 |
 | Língua Inglesa | 45 |
 | Direito Ambiental | 39 |
-| Direito Tributário | 36 |
-| Direito Processual Civil | 31 |
+| Direito Tributário | 38 |
+| Direito Processual Civil | 36 |
+| Direito Empresarial | 33 |
 | Engenharia | 31 |
-| Direito Empresarial | 27 |
+| Direito Internacional | 30 |
+| Direito Previdenciário | 30 |
 | Física | 26 |
-| Administração Geral | 24 |
-| Direito Internacional | 24 |
-| Ética no Serviço Público | 23 |
-| Direito Previdenciário | 22 |
+| Administração Geral | 25 |
+| Estatística | 25 |
+| Ética no Serviço Público | 25 |
+| Redação Oficial | 21 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
-| Estatística | 20 |
-| Redação Oficial | 18 |
 | Execução Penal | 17 |
+| Direito Financeiro | 14 |
 | Segurança Pública | 11 |
-| Direito Financeiro | 10 |
 | Direito Eleitoral | 9 |
+| Administração Pública | 8 |
 | Economia | 8 |
 | Língua Espanhola | 8 |
 | Geopolítica | 7 |
@@ -101,7 +102,6 @@ Gerado por `emmoni coverage` em 2026-10-13 12:53 UTC. Não edite à mão.
 | Saúde Pública | 6 |
 | Filosofia | 5 |
 | Sociologia | 5 |
-| Administração Pública | 4 |
 | Direito do Consumidor | 4 |
 | História da PRF | 2 |
 | Primeiros Socorros | 2 |
@@ -146,4 +146,4 @@ Nenhuma.
 
 | Fonte | Última requisição (UTC) | Páginas | Hosts com 403/429 |
 |---|---|---:|---|
-| cebraspe | 2026-10-08 17:52 | 59 | — |
+| cebraspe | 2026-10-13 13:23 | 59 | — |

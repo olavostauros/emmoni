@@ -1,0 +1,100 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-13 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve pf-2012-papiloscopista` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: pf-2012-papiloscopista
+name: PF 2012 — Papiloscopista
+agency: pf
+exam_board: cebraspe
+year: 2012
+source_url: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/
+exams:
+- slug: papiloscopista
+  name: Papiloscopista Policial Federal — prova objetiva
+  positions:
+  - papiloscopista
+  applied_on: '2012-05-06'
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/arquivos/DPF12_PAP_002_01.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/arquivos/Gab_Definitivo_DPF12_PAP_002_01.PDF
+  subjects_by_range:  # faixas conferidas lendo os itens e os comandos do caderno (2026-10-13, hefesto)
+  - {from: 1, to: 12, subject: lingua-portuguesa}
+  - {from: 13, to: 20, subject: redacao-oficial}
+  - {from: 21, to: 32, subject: informatica}
+  - {from: 33, to: 38, subject: atualidades}
+  - {from: 39, to: 44, subject: raciocinio-logico}
+  - {from: 45, to: 50, subject: estatistica}
+  - {from: 51, to: 54, subject: medicina-legal}
+  - {from: 55, to: 60, subject: criminalistica}
+  - {from: 61, to: 65, subject: direito-penal}
+  - {from: 66, to: 70, subject: direito-processual-penal}
+  - {from: 71, to: 75, subject: direito-administrativo}
+  - {from: 76, to: 80, subject: direito-constitucional}
+  - {from: 81, to: 85, subject: legislacao-penal-especial}
+  - {from: 86, to: 90, subject: arquivologia}
+  - {from: 91, to: 100, subject: quimica}
+  - {from: 101, to: 110, subject: fisica}
+  - {from: 111, to: 120, subject: biologia}
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-13'
+  contest:
+    url: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: DPF PAPILOSCOPISTA 2012
+    cached: data/crawl/cespe-unb/concursos__DPF_12_PAPILOSCOPISTA__
+    agency:
+      value: pf
+      rule: prefixo DPF da URL do evento (alias do catálogo)
+    year:
+      value: 2012
+      rule: token 12 da URL do evento, como no crawler do Cebraspe; aplicação em 6/5/2012
+    slug:
+      value: pf-2012-papiloscopista
+      rule: 'pf-2012 já é o Agente (aprovado): sufixo do resto da URL (decisão 0007, item 8)'
+  exams:
+    papiloscopista:
+      position:
+        value: papiloscopista
+        rule: cargo na capa, no rodapé das páginas e no gabarito
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/arquivos/DPF12_PAP_002_01.pdf
+          cached: data/crawl/cespe-unb/concursos__DPF_12_PAPILOSCOPISTA__arquivos__DPF12_PAP_002_01.pdf
+          sha256: 3e7c676f7f95ab4622934bf71153afbfd9c07855477718886b6d34b3cec89200
+          pages: 16
+          link_text: Caderno de questões - Tipo I
+          kind: exam
+          cover: 'capa (imagem): MINISTÉRIO DA JUSTIÇA · DEPARTAMENTO DE POLÍCIA FEDERAL · Concurso Público · CARGO
+            Papiloscopista Policial Federal · Provas Objetiva e Discursiva (sem turno)'
+          page_header: 'CESPE/UnB – DPF · Cargo: Papiloscopista Policial Federal; itens 1–120 nas páginas 2–13,
+            prova discursiva nas páginas 14–15'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/arquivos/Gab_Definitivo_DPF12_PAP_002_01.PDF
+          cached: data/crawl/cespe-unb/concursos__DPF_12_PAPILOSCOPISTA__arquivos__Gab_Definitivo_DPF12_PAP_002_01.PDF
+          sha256: e5cde34c8ad3649ca23d304423c0da8ca711b2dc80d4d574df71d878e5ae2bdd
+          pages: 1
+          header:
+          - 'Aplicação: 6/5/2012'
+          - DPF12_PAP_002_01
+          - 'Cargo: Papiloscopista Policial Federal'
+          items: 120
+          annulled:
+          - 22
+          - 61
+          - 73
+          - 85
+          - 88
+          - 111
+          link_text: Gabarito definitivo - Tipo I
+          kind: answer_key_final
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/DPF_12_PAPILOSCOPISTA/arquivos/DPF_2012_PAPILOSCOPISTA_JUSTIFICATIVAS_DE_MANUTEN____O_E_ANULA____O_DE_ITENS.PDF
+    link_text: Justificativas de manutenção e anulação de itens das provas objetivas
+    reason: 'justificativas: não é prova nem gabarito'

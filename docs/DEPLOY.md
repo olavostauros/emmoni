@@ -66,7 +66,8 @@ budget emmoni-monthly ─▶ Pub/Sub emmoni-budget ─▶ função emmoni-budget
 | Recurso | Nome | Observação |
 |---|---|---|
 | Projeto | `emmoni-prod` | novo, ligado à conta acima |
-| APIs | `run`, `artifactregistry`, `pubsub`, `cloudfunctions`, `cloudbuild`, `eventarc`, `billingbudgets`, `iam` | nada além (o `audit.py --cloud` confere) |
+| APIs | `run`, `artifactregistry`, `pubsub`, `cloudfunctions`, `cloudbuild`, `eventarc`, `billingbudgets`, `iam` | nada além destas e das dependências abaixo (o `audit.py --cloud` confere, com a mesma lista em `ALLOWED_APIS`) |
+| Dependências de API | `logging`, `telemetry`, `storage-api`, `storage-component`, `iamcredentials`, `containerregistry` | declaradas pelo Google para as APIs acima (Service Usage v2beta, `services/<api>/groups/dependencies/members`, recursivo nos grupos aninhados, lido em 2026-10-13): `logging` de `run`, `cloudfunctions` e `cloudbuild` (logs); `telemetry` do `logging`; `storage-api` de `cloudfunctions` e `cloudbuild` (fonte e logs de build); `storage-component` de `cloudfunctions` (fonte enviada); `iamcredentials` do `iam` (tokens de acesso e JWT); `containerregistry` do `cloudbuild`, pelo grupo aninhado `services/containerregistry.googleapis.com/groups/dependencies` (imagens de contêiner; o grupo traz só `pubsub` e `storage-api`, já na lista). Ligam junto; não se desligam sem desligar quem depende delas |
 | Repositório | `southamerica-east1-docker.pkg.dev/emmoni-prod/emmoni` | política de limpeza: manter as 2 mais novas |
 | Conta de serviço | `emmoni-api` | runtime do serviço; **nenhum papel** |
 | Conta de serviço | `emmoni-budget-cap` | papel customizado `emmoniIngressCap` (`run.services.get`, `run.services.update`) + `iam.serviceAccountUser` só na `emmoni-api` + `eventarc.eventReceiver` + `run.invoker` na própria função |
@@ -90,7 +91,7 @@ Variáveis: `P=emmoni-prod R=southamerica-east1 BA=01F985-1C44C6-40CDE9`.
 | # | Passo | Feito quando | Estado |
 |---|---|---|---|
 | 0 | Estimativa (§2) conferida pelo dono | dono disse "vai" | feito em 2026-10-13 ("vai" repassado pela sessão coordenadora; saída de rede somada ao §2) |
-| 1 | Projeto e APIs | `gcloud projects describe $P` tem `emmoni=prod`; conta ligada | pendente |
+| 1 | Projeto e APIs | `gcloud projects describe $P` tem `emmoni=prod`; conta ligada | feito em 2026-10-13 (número 27333211980; ver a nota do passo 1) |
 | 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | pendente |
 | 3 | Tópico e budget | budget lista o tópico | pendente |
 | 4 | Função de corte + teste | teste com 100% muda o ingresso; voltar com `--ingress=all` | pendente |
@@ -111,6 +112,17 @@ gcloud services enable run.googleapis.com artifactregistry.googleapis.com pubsub
 ```
 
 O ID `emmoni-prod` é global; se estiver tomado, o caronte propõe outro e atualiza este arquivo.
+
+Nota de 2026-10-13 (passo feito): o `gcloud projects create` liga sozinho o
+`cloudapis.googleapis.com`, que traz um pacote de APIs fora do §3 (BigQuery e afins, Dataform,
+Dataplex, Datastore, `sql-component`, `storage-api`/`storage-component`, `source`,
+`iamcredentials`, `servicemanagement`, `telemetry`, `apptopology`, `analyticshub`). Ligadas e sem
+uso, não cobram nada. Dessas, `storage-api`, `storage-component`, `iamcredentials` e `telemetry`
+(mais o `logging` e o `containerregistry`) são dependências declaradas das APIs do §3 e ficam (§3, "Dependências de API"). O projeto também nasceu com `roles/editor` para a conta padrão do Compute
+(`27333211980-compute@developer.gserviceaccount.com`) **e** para a do App Engine
+(`emmoni-prod@appspot.gserviceaccount.com`). `audit.py --cloud emmoni-prod` logo depois do passo:
+8 verificações, 2 falhas (essas duas). Desligar APIs e tirar os vínculos são remoções: estão na
+fila do dono no `STATUS.md`.
 
 ### 2. Contas de serviço
 
@@ -236,3 +248,4 @@ dias restantes, observação. Fonte: console de faturamento (só leitura) ou o r
 |---|---:|---:|---:|---|
 | 2026-10-08 | — | R$ 1.779,29 (última leitura do Usher, 2026-10-07) | 90 | nada criado ainda |
 | 2026-10-13 | R$ 0 (`emmoni-prod` não existe) | R$ 1.752,45 (98%, console, Créditos) | 85 | passo 0; nada criado; R$ 26,84 usados, todos do Usher |
+| 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 1: projeto `emmoni-prod` criado, ligado à conta, 8 APIs do §3; nada pago existe; budget `emmoni` ainda nenhum |

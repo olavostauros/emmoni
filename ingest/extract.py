@@ -451,7 +451,7 @@ def _page(
         width=width,
         height=height,
         has_text=bool(lines),
-        lines=_reading_order(lines),
+        lines=_reading_order(_attach_item_numbers(lines) if fonts is not None else lines),
         figures=_figures(page, width),
     )
 
@@ -651,6 +651,49 @@ def _clean(text: str) -> str:
     # U+FFFD antes de normalizar espaços, para o parser marcar fórmula em vez de sumir com ele.
     text = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "\ufffd", text)
     return re.sub(r"\s+", " ", text).strip()
+
+
+ITEM_NUMBER_ONLY = re.compile(r"^\d{1,3}$")
+ITEM_NUMBER_GAP = 25.0  # pt entre o número na margem e o começo do texto do item
+
+
+def _attach_item_numbers(lines: list[Line]) -> list[Line]:
+    """Número de item sozinho na margem, ao lado de uma linha de largura total (site antigo do
+    Cebraspe, decisão 0020: página de química do PF 2012 papiloscopista em uma coluna só).
+
+    O número vem em fonte menor, numa linha própria um pouco abaixo do topo do texto; na ordem de
+    leitura ele caía depois da linha do item, e cada item ficava com o texto do seguinte. Na mesma
+    altura e logo à esquerda do texto, o número passa a abrir a linha de largura total."""
+    wide = [line for line in lines if line.column == 0]
+    attached: dict[int, Line] = {}  # id da linha de largura total → linha já com o número
+    dropped: set[int] = set()
+    for number in lines:
+        if number.column == 0 or not ITEM_NUMBER_ONLY.match(number.plain.strip()):
+            continue
+        target = next(
+            (
+                line
+                for line in wide
+                if _same_row(line, number)
+                and 0 <= line.x0 - number.x1 <= ITEM_NUMBER_GAP
+                and number.size <= line.size
+                and id(line) not in attached
+            ),
+            None,
+        )
+        if target is None:
+            continue
+        attached[id(target)] = target.model_copy(
+            update={
+                "text": f"{number.text} {target.text}",
+                "plain": f"{number.plain.strip()} {target.plain}",
+                "x0": number.x0,
+                "y0": min(number.y0, target.y0),
+                "y1": max(number.y1, target.y1),
+            }
+        )
+        dropped.add(id(number))
+    return [attached.get(id(line), line) for line in lines if id(line) not in dropped]
 
 
 def _reading_order(lines: list[Line]) -> list[Line]:

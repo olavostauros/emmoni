@@ -562,6 +562,64 @@ def test_two_line_credit_is_one_paragraph() -> None:
     )
 
 
+def test_three_line_credit_is_one_paragraph() -> None:
+    """Crédito em letra miúda quebrado em três linhas (PM/MA 2017 g39, PM/SC 2023 1A9-I): antes só
+    as duas últimas se emendavam e a primeira ficava num parágrafo à parte."""
+    page = _page(
+        [
+            _line("Texto 1A1-I", 28, 30),
+            _line("Corpo do texto-base com uma frase completa e bem longa.", 28, 50),
+            _line(
+                "Bernardo Mançano. Educação do campo e território. Núcleo de Estudos,",
+                99,
+                70,
+                size=6.0,
+            ),
+            _line(
+                "Pesquisas e Projetos de Reforma Agrária – NERA, Universidade Estadual Paulista",
+                99,
+                77,
+                size=6.0,
+            ),
+            _line(
+                "– UNESP, campus de Presidente Prudente – SP, 2017 (com adaptações).",
+                99,
+                84,
+                size=6.0,
+            ),
+            _line("Com base no texto 1A1-I, julgue o item a seguir.", 28, 100),
+            _line("**1** Item sobre o texto.", 28, 120),
+        ]
+    )
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.endswith(
+        "uma frase completa e bem longa.\n\nBernardo Mançano. Educação do campo e território. "
+        "Núcleo de Estudos, Pesquisas e Projetos de Reforma Agrária – NERA, Universidade Estadual "
+        "Paulista – UNESP, campus de Presidente Prudente – SP, 2017 (com adaptações)."
+    )
+
+
+def test_credit_run_without_closing_line_stays_split() -> None:
+    """Linhas miúdas à direita que não terminam no fecho do crédito não se emendam: sem o
+    "(com adaptações)" ou o "Internet: <...>" não há como saber que são um crédito só."""
+    page = _page(
+        [
+            _line("Texto 1A1-I", 28, 30),
+            _line("Corpo do texto-base com uma frase completa e bem longa.", 28, 50),
+            _line("Primeira nota em letra miúda.", 150, 70, size=6.0),
+            _line("Segunda nota em letra miúda.", 150, 77, size=6.0),
+            _line("Terceira nota em letra miúda.", 150, 84, size=6.0),
+            _line("Com base no texto 1A1-I, julgue o item a seguir.", 28, 100),
+            _line("**1** Item sobre o texto.", 28, 120),
+        ]
+    )
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.endswith(
+        "Primeira nota em letra miúda.\n\nSegunda nota em letra miúda.\n\n"
+        "Terceira nota em letra miúda."
+    )
+
+
 def test_pmal_2021_cover_stays_out_of_the_first_command() -> None:
     """PM/AL 2021: "-- PROVAS OBJETIVAS --" no plural abre a prova; a capa (fonte quebrada) não
     entra no comando dos itens 1–4."""
