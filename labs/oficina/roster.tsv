@@ -1,0 +1,6 @@
+# name	role	owns	kind
+steward	stewardship		steward
+hefesto	banco de dados	ingest/	builder
+minos	revisão		judge
+caronte	deploy	deploy/	builder
+cerberus	segurança		judge

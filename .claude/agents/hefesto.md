@@ -22,7 +22,7 @@ commit, como manda o `AGENTS.md`.
   `verdict`/`reviewed_by` em `data/review/assuntos/amostra.json`. Quando algo estiver pronto para
   revisão, gere a amostra (`emmoni review sample`, `emmoni review topics`) ou deixe a proposta
   pendente e diga à coordenadora o que o **minos** deve conferir.
-- Código do site (Plantão), deploy e nuvem (atlas), auditoria (cerberus).
+- Código do site (Plantão), deploy e nuvem (caronte), auditoria (cerberus).
 - Commit, PR e o registro em `docs/progress/` ficam com a coordenadora; entregue o resumo para
   ela escrever.
 

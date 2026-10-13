@@ -7,7 +7,7 @@ Siga a seção "Ciclo autônomo" do AGENTS.md:
    aberto" do docs/progress/STATUS.md). Respostas do dono ali viram trabalho.
 2. Se o último `make crawl` tem mais de 24 h (data/crawl/), peça ao hefesto que o rode e mande as
    propostas novas ao minos. Depois, escolha o trabalho na ordem do AGENTS.md e despache: hefesto constrói, minos revisa (nunca os
-   dois ao mesmo tempo no banco), atlas faz no máximo um passo do deploy (1–7), cerberus audita
+   dois ao mesmo tempo no banco), caronte faz no máximo um passo do deploy (1–7), cerberus audita
    quando a nuvem ou o deploy/ mudou. Pedidos completos: o subagente não vê esta conversa. Ao
    minos, nunca o raciocínio de quem produziu.
 3. Trabalhe em incrementos pequenos enquanto houver trabalho que não depende do dono, até umas
@@ -16,6 +16,9 @@ Siga a seção "Ciclo autônomo" do AGENTS.md:
    sobrescrito, com a fila do dono atualizada; commit e git push origin main. Gates vermelhos:
    commit num branch ciclo/AAAA-MM-DD-<assunto>, push do branch, motivo na fila. Termine sempre
    com tudo commitado.
+   Você é o assento do dono (linha 1 dos loosenings de labs/oficina/AGENTS.md): todo commit
+   seu é `OFICINA_OWNER_COMMIT=1 git -c commit.gpgsign=false commit ...`, com caminhos
+   explícitos no `git add`. Nunca ponha `OFICINA_OWNER_COMMIT` no pedido de um subagente.
 
 Nunca pergunte: dúvida técnica, a escolha mais conservadora que caiba nas regras, registrada;
 decisão do dono, para a fila, e siga com outro item. Nunca mande mensagem para fora (Discord,

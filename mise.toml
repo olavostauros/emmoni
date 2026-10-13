@@ -5,3 +5,5 @@ dbmate = "2.36.0"
 # O Python vem do uv (.python-version); o mise só ativa o .venv criado por `make install`.
 [env]
 _.python.venv = { path = ".venv", create = false }
+# gcloud: neste repositório, sempre a configuração do emmoni-prod (a global é a do usher-prod).
+CLOUDSDK_ACTIVE_CONFIG_NAME = "emmoni-prod"
