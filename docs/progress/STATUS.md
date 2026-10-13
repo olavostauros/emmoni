@@ -22,7 +22,7 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 ## Em andamento
 - PF 2018 agente q51–56 e papiloscopista q48–50 em `review` por fórmula (símbolos sem mapeamento).
 - Plantão: contrato v1.4 permite religar `$...$` (o `$` literal chega como `\$`). Dados reais só
-  pela API (decisão 0027).
+  pela API (decisão 0028).
 - Deploy: passo 0 feito (2026-10-13); passos 1–7 pelo atlas, um por ciclo autônomo (decisão 0026).
 
 ## Próximos passos
@@ -48,8 +48,8 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 
 ## Bloqueios e perguntas em aberto
 - Publicar as questões reais na API (imagem `all`, passo 8): sim do dono. Elas saem só pela API,
-  nunca no snapshot do Plantão (decisão 0027).
-- Plantão lendo a API em vez do snapshot real (decisão 0027): mudança no repositório do Plantão,
+  nunca no snapshot do Plantão (decisão 0028).
+- Plantão lendo a API em vez do snapshot real (decisão 0028): mudança no repositório do Plantão,
   que o dono abre lá; escolher entre ler no navegador ou gerar no build sem versionar.
 - O `emmoni-prod` vai usar o mesmo crédito do Usher: PR #130 do Usher (automerge, 2026-10-13)
   registra no `CYBERSECURITY.md` de lá que o projeto é esperado e que o burn log lê o total da

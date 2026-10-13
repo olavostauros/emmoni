@@ -1,4 +1,4 @@
-# 0027 — Questões reais saem só pela API
+# 0028 — Questões reais saem só pela API
 
 **Data:** 2026-10-13 · **Marco:** M5
 
