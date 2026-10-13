@@ -24,6 +24,8 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - Plantão: contrato v1.4 permite religar `$...$` (o `$` literal chega como `\$`). Dados reais só
   pela API (decisão 0028).
 - Deploy: passo 0 feito (2026-10-13); passos 1–7 pelo atlas, um por ciclo autônomo (decisão 0026).
+  Passo 8 (imagem `all`, questões reais na API): sim do dono dado em 2026-10-13; o atlas o faz
+  depois do 7, só pela API (decisão 0028).
 
 ## Próximos passos
 0. Deploy (`docs/DEPLOY.md` §4), pelo atlas, um passo por ciclo: projeto `emmoni-prod` → contas →
@@ -47,10 +49,8 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 10. PM/MA 2017: 6 documentos fora do manifesto (decisão 0009): confirmar e silenciar no relatório.
 
 ## Bloqueios e perguntas em aberto
-- Publicar as questões reais na API (imagem `all`, passo 8): sim do dono. Elas saem só pela API,
-  nunca no snapshot do Plantão (decisão 0028).
-- Plantão lendo a API em vez do snapshot real (decisão 0028): mudança no repositório do Plantão,
-  que o dono abre lá; escolher entre ler no navegador ou gerar no build sem versionar.
+- Plantão lendo a API em vez do snapshot real (decisão 0028): pedido enviado à sessão do Plantão
+  em 2026-10-13; a escolha (navegador ou build sem versionar) é de lá.
 - O `emmoni-prod` vai usar o mesmo crédito do Usher: PR #130 do Usher (automerge, 2026-10-13)
   registra no `CYBERSECURITY.md` de lá que o projeto é esperado e que o burn log lê o total da
   conta. Falta só o merge.
