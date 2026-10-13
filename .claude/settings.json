@@ -8,7 +8,29 @@
       "Bash(ffprobe *)",
       "Bash(git grep *)",
       "Bash(gh search prs *)",
-      "Bash(gh run watch *)"
+      "Bash(gh run watch *)",
+      "Bash(journalctl *)",
+      "Bash(systemctl list-timers *)",
+      "Bash(systemctl --user list-timers *)",
+      "Bash(systemctl status *)",
+      "Bash(systemctl --user status *)",
+      "Bash(herdr machine list *)",
+      "Bash(herdr machine status *)",
+      "Bash(herdr agent list *)",
+      "Bash(gcloud config list *)",
+      "Bash(gcloud config configurations list *)",
+      "Bash(gcloud services list *)",
+      "Bash(gcloud projects get-iam-policy *)",
+      "Bash(pdfinfo *)"
+    ],
+    "deny": [
+      "Bash(*usher-prod*)",
+      "Bash(gcloud projects delete *)",
+      "Bash(gcloud billing *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)",
+      "Bash(git push * --force*)",
+      "Bash(git push * -f)"
     ]
   }
 }

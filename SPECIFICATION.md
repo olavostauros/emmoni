@@ -53,7 +53,7 @@ emmoni/
 ├── Makefile  docker-compose.yml  .env.example  pyproject.toml  mise.toml  .python-version
 ├── docs/
 │   ├── contract.md          # contrato com o front-end (seção 6)
-│   ├── DEPLOY.md            # deploy da API no Google Cloud (agente atlas, decisão 0022)
+│   ├── DEPLOY.md            # deploy da API no Google Cloud (agente caronte, decisão 0022)
 │   ├── CYBERSECURITY.md     # segurança da produção e contrato de correção (agente cerberus)
 │   ├── security/reports/    # relatórios datados do cerberus
 │   ├── content-format.md    # formato do conteúdo das questões (seção 5)
@@ -80,7 +80,8 @@ emmoni/
 │   ├── cli.py               # comando `emmoni`
 │   └── ...
 ├── deploy/                  # imagem de produção (Dockerfile, build.sh), audit.py, budget-cap/ (decisão 0022)
-├── .claude/agents/          # atlas (deploy) e cerberus (segurança)
+├── .claude/agents/          # hefesto, minos, caronte, cerberus e oficina (o steward do lab)
+├── labs/oficina/            # lab oficina: contrato dos agentes, roster, fila e notas (decisão 0029)
 ├── scripts/                 # scripts de apoio chamados pelo Makefile
 ├── fixtures/                # PDFs (pdf/) e respostas gravadas das fontes (crawl/<fonte>/) para testes
 ├── tests/

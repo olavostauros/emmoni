@@ -11,7 +11,7 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - Provas aprovadas reprocessadas com o parser novo: 67 créditos emendados no banco, as 117 provas
   seguem publicadas sem reamostragem (`2026-10-08-reprocessamento-creditos.md`).
 - API HTTP local por PostgREST (decisão 0021, contrato v1.3) e deploy no Google Cloud Run
-  preparado, sem nada criado na nuvem (decisão 0022, `docs/DEPLOY.md`, agentes atlas e cerberus;
+  preparado, sem nada criado na nuvem (decisão 0022, `docs/DEPLOY.md`, agentes caronte e cerberus;
   `2026-10-08-api-http-e-deploy.md`).
 - Capa do PM/AL 2021, fonte de símbolos, escape do `$` (decisão 0023, contrato v1.4) e "(ℓ.N)" em
   todos os cadernos; 13 provas reamostradas e reaprovadas (`2026-10-13-defeitos-e-cifrao.md`,
@@ -23,12 +23,12 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - PF 2018 agente q51–56 e papiloscopista q48–50 em `review` por fórmula (símbolos sem mapeamento).
 - Plantão: contrato v1.4 permite religar `$...$` (o `$` literal chega como `\$`). Dados reais só
   pela API (decisão 0028).
-- Deploy: passo 0 feito (2026-10-13); passos 1–7 pelo atlas, um por ciclo autônomo (decisão 0026).
-  Passo 8 (imagem `all`, questões reais na API): sim do dono dado em 2026-10-13; o atlas o faz
+- Deploy: passo 0 feito (2026-10-13); passos 1–7 pelo caronte, um por ciclo autônomo (decisão 0026).
+  Passo 8 (imagem `all`, questões reais na API): sim do dono dado em 2026-10-13; o caronte o faz
   depois do 7, só pela API (decisão 0028).
 
 ## Próximos passos
-0. Deploy (`docs/DEPLOY.md` §4), pelo atlas, um passo por ciclo: projeto `emmoni-prod` → contas →
+0. Deploy (`docs/DEPLOY.md` §4), pelo caronte, um passo por ciclo: projeto `emmoni-prod` → contas →
    budget → corte → imagem seed → serviço privado → medição da ressalva do §2 → público com seed.
 1. Crédito em três linhas ou mais: só as duas últimas são emendadas (PM/MA 2017 g39, INFOPEN do
    DEPEN). Corrigir no parser e reprocessar como em `2026-10-08-reprocessamento-creditos.md`.
@@ -57,9 +57,14 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - CBM/AL 2017 básicos cargo 1 e PC/PB 2021 cargo 8 item 80 seguem fora.
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (estão também no site antigo: tentar por lá).
 - Sessões paralelas compartilham o Postgres, agora com trava (decisão 0025).
-- Ciclo autônomo (decisão 0026): falta o dono pôr no `.claude/settings.json` as negações da
-  decisão (`usher-prod`, `gcloud projects delete`, `gcloud billing accounts`, `git push --force`;
-  o modo automático não deixa o agente editar as próprias permissões) e ligar `emmoni-ciclo.timer`. Esta é a fila do dono: o ciclo escreve aqui o que só ele decide.
+- Ciclo autônomo (decisão 0026): `emmoni-ciclo.timer` ligado; negações da decisão no
+  `.claude/settings.json` desde 2026-10-13. O ciclo é o assento do dono no lab `oficina`
+  (decisão 0029, loosening 1) e faz commit com `OFICINA_OWNER_COMMIT=1`, sem assinatura.
+- O ciclo das 10:22 de 2026-10-13 bateu no limite de sessão e não fechou: a sobra está em
+  `git stash` ("ciclo 2026-10-13-1120: sobra") — parser e `extract.py` do DPF 2012, correções do
+  E-006 e dois furos no `deploy/audit.py` (80 testes), `DEPLOY.md`, `CYBERSECURITY.md`. As três
+  provas do DPF 2012 (360 itens) já estão no banco, sem amostra aprovada pelo minos. A linha do
+  gcloud no `mise.toml` já voltou do stash.
 
 ## Números
 - Questões visíveis no esquema `api`: 5.143 reais, sem duplicatas e sem o seed (`docs/coverage.md`)

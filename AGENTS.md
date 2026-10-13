@@ -17,8 +17,14 @@ Em caso de conflito: o SPECIFICATION.md manda nas decisões técnicas; este arqu
 | **hefesto** (banco de dados, missão atual) | Esquema, migrações, crawler, ingestão das provas, qualidade dos dados, contrato e seed para o front-end. Produz e propõe; nunca aprova (`.claude/agents/hefesto.md`). |
 | **minos** (revisão) | As três revisões de "Revisão pelo agente", em contexto separado de quem produziu; aprova ou reprova, nunca corrige (`.claude/agents/minos.md`). |
 | **Front-end** | O site que os concurseiros usam. Consome o contrato publicado pelo agente de banco de dados. |
-| **atlas** (deploy) | Leva a API ao Google Cloud Run seguindo `docs/DEPLOY.md`; passos 1–7 sozinho, o passo 8 e as remoções só com o sim do dono (decisão 0026, `.claude/agents/atlas.md`). |
+| **caronte** (deploy) | Leva a API ao Google Cloud Run seguindo `docs/DEPLOY.md`; passos 1–7 sozinho, o passo 8 e as remoções só com o sim do dono (decisão 0026, `.claude/agents/caronte.md`). |
 | **cerberus** (segurança) | Audita imagem, API pública e projeto, só leitura; relatório no contrato de `docs/CYBERSECURITY.md` (`.claude/agents/cerberus.md`). |
+| **steward** (registro) | A voz do lab `oficina`: mede fila, backlog, notas, roster, branches, stash e `STATUS.md` contra o disco; corrige só `labs/oficina/notes/`, propõe o resto. Sem voz para fora, nunca faz push (decisão 0029, `.claude/agents/oficina.md`). |
+
+Os agentes formam o lab **oficina**, em [`labs/oficina/`](labs/oficina/AGENTS.md) (decisão 0029): roster, fila,
+backlog, notas de identidade e o contrato de autoridade (tiers, loosenings e regras de domínio).
+Em autoridade — quem pode o quê sem perguntar — manda o `labs/oficina/AGENTS.md`; no processo técnico,
+este arquivo; nas decisões técnicas, o SPECIFICATION.md.
 
 Regras de fronteira:
 
@@ -26,7 +32,7 @@ Regras de fronteira:
   à coordenadora, que a manda ao hefesto.
 - O agente de banco de dados **não** escreve código do site. O agente de front-end **não** altera
   esquema nem migrações — pede a mudança.
-- O atlas e o cerberus não mudam esquema, ingestão nem dados; o atlas publica imagens, o
+- O caronte e o cerberus não mudam esquema, ingestão nem dados; o caronte publica imagens, o
   cerberus só lê. Publicar as questões reais na API exige o sim explícito do dono (decisão 0022).
 - A interface entre os dois é o esquema `api` do banco, acessado com o papel `emmoni_web`,
   documentado em `docs/contract.md`, mais o **seed** (SPECIFICATION.md §6). Mudança incompatível no
@@ -134,8 +140,9 @@ esquema, parser nem ingestão, e não aprova nada; delega:
 |---|---|
 | Construir: esquema, migrações, crawl, parser, ingestão, OCR, classificação, contrato, seed | `hefesto` |
 | Revisar e aprovar: propostas, amostra por prova, amostra de assuntos | `minos` |
-| Deploy, nuvem, gasto | `atlas` |
+| Deploy, nuvem, gasto | `caronte` |
 | Auditoria de segurança | `cerberus` |
+| Conferir o registro (fila, notas, branches, stash, `STATUS.md`) | `oficina` (o steward) |
 
 O que fica com a coordenadora:
 
@@ -181,7 +188,7 @@ roda `scripts/ciclo.sh` a cada 3 h, e ele abre uma sessão coordenadora com o pe
 1. **Orienta** pelo passo 1 do "Fluxo de trabalho" e lê a fila do dono ("Bloqueios e perguntas em
    aberto" do `STATUS.md`): o que o dono respondeu ali sai da fila e vira trabalho.
 2. **Escolhe** nesta ordem: reprovação do minos ainda aberta; propostas pendentes do crawler
-   (minos); o primeiro dos "Próximos passos" que não depende do dono; um passo do deploy (atlas,
+   (minos); o primeiro dos "Próximos passos" que não depende do dono; um passo do deploy (caronte,
    passos 1–7 do `DEPLOY.md`, um por ciclo); a auditoria (cerberus) quando a nuvem ou o `deploy/`
    mudou desde o último relatório.
 3. **Faz** em incrementos pequenos: hefesto produz, minos revisa, nunca os dois ao mesmo tempo no

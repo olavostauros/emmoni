@@ -1,6 +1,6 @@
 # Deploy da API no Google Cloud
 
-Contrato do agente **atlas** (`.claude/agents/atlas.md`). Decisões 0022 e 0026. Os passos 1–7
+Contrato do agente **caronte** (`.claude/agents/caronte.md`). Decisões 0022 e 0026. Os passos 1–7
 rodam sem perguntar, um por ciclo autônomo; o passo 8, as remoções e o que o §1 proíbe continuam
 dependendo do sim do dono. Todo comando leva `--project=emmoni-prod` por extenso: o projeto padrão
 do `gcloud` nesta máquina é o `usher-prod`.
@@ -81,7 +81,7 @@ usuário do agente e hook de guarda aqui simplesmente não existe.
 
 ## 4. Passos
 
-Cada passo: o atlas confere as pré-condições, registra o comando, o custo e a label no registro da
+Cada passo: o caronte confere as pré-condições, registra o comando, o custo e a label no registro da
 sessão, roda, confere e marca aqui. O passo 7 só roda depois do teste do corte (passo 4) e da
 medição da ressalva do §2 (tamanho real das respostas e vazão de uma instância, com o serviço
 privado), com o pior caso diário recalculado no §2; acima de R$ 100/dia, vai para a fila do dono.
@@ -110,7 +110,7 @@ gcloud services enable run.googleapis.com artifactregistry.googleapis.com pubsub
   billingbudgets.googleapis.com iam.googleapis.com --project=$P
 ```
 
-O ID `emmoni-prod` é global; se estiver tomado, o atlas propõe outro e atualiza este arquivo.
+O ID `emmoni-prod` é global; se estiver tomado, o caronte propõe outro e atualiza este arquivo.
 
 ### 2. Contas de serviço
 
@@ -134,7 +134,7 @@ done
 ```
 
 Depois: `gcloud projects get-iam-policy $P`. Se a conta padrão do Compute
-(`<número>-compute@developer.gserviceaccount.com`) aparecer com `roles/editor`, o atlas propõe
+(`<número>-compute@developer.gserviceaccount.com`) aparecer com `roles/editor`, o caronte propõe
 `gcloud projects remove-iam-policy-binding $P --role=roles/editor --member=serviceAccount:<ela>`.
 
 ### 3. Tópico e budget
@@ -229,7 +229,7 @@ Rollback: `gcloud run revisions list --service=emmoni-api --project=$P --region=
 
 ## 6. Registro de gasto
 
-Uma linha por sessão do atlas: data, gasto do mês (`emmoni-prod`), crédito restante da conta,
+Uma linha por sessão do caronte: data, gasto do mês (`emmoni-prod`), crédito restante da conta,
 dias restantes, observação. Fonte: console de faturamento (só leitura) ou o relatório de custos.
 
 | Data | Gasto no mês | Crédito restante | Dias | Observação |
