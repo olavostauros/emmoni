@@ -50,7 +50,8 @@ def test_legacy_line_reference_and_bold() -> None:
     assert "(ℓ.12)" in text and "(R.12)" not in text
     assert "**caso se execute alguém**" in text
     plain = _text(ex.extract(FIXTURE))
-    assert "(R.12)" in plain and "**caso se execute alguém**" not in plain
+    # o ℓ vale para todo caderno; o estilo pelas larguras, só para o site antigo
+    assert "(ℓ.12)" in plain and "**caso se execute alguém**" not in plain
 
 
 def test_gutter_moves_only_when_the_middle_is_crossed() -> None:

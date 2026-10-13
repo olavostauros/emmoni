@@ -525,8 +525,7 @@ def _line(
                 s = s | {"flags": s["flags"] | fonts.styles[s["font"]]}
             decoded.append(s)
         raw = raw | {"spans": decoded}
-    if fonts:
-        raw = raw | {"spans": _line_refs(raw["spans"])}
+    raw = raw | {"spans": _line_refs(raw["spans"], legacy=fonts is not None)}
     spans = [s for s in raw["spans"] if s["text"].strip(" \xa0")]
     if not spans or max(float(s["size"]) for s in spans) < MIN_SIZE:
         return None  # texto invisível (marcas de diagramação em corpo 1)
@@ -575,9 +574,10 @@ def _line(
     )
 
 
-def _line_refs(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def _line_refs(spans: list[dict[str, Any]], legacy: bool = False) -> list[dict[str, Any]]:
     """ "(ℓ.12)": o "ℓ" vem numa fonte de símbolos própria cujo glifo se chama "R" e que mapeia para
-    "R" (PF 2012). Um "R" sozinho em fonte diferente das vizinhas, entre "(" e ".<dígito>", é o ℓ."""
+    "R" (PF 2012, PF 2018, PM/AL 2017...). Um "R" sozinho em fonte diferente das vizinhas, entre "("
+    e ".<dígito>", é o ℓ. O "*In*" só vale no site antigo (`legacy`)."""
     result = list(spans)
     for i in range(1, len(spans) - 1):
         before, span, after = spans[i - 1], spans[i], spans[i + 1]
@@ -590,7 +590,8 @@ def _line_refs(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
         ):
             result[i] = span | {"text": "ℓ"}
         elif (
-            span["text"] == "In"
+            legacy
+            and span["text"] == "In"
             and span["font"] != before["font"]
             and span["font"] != after["font"]
             and after["text"].startswith(":")

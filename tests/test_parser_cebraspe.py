@@ -574,3 +574,15 @@ def test_pf_2018_symbol_font_without_mapping_flags_formula() -> None:
     assert "formula" in questions[48].flags
     assert "formula" in questions[49].flags
     assert questions[49].statement_md.endswith(r"P(X \< 60 litros) = P(X \$ 40 litros).")
+
+
+def test_line_reference_symbol_is_ell_outside_the_old_site() -> None:
+    """PF 2018: o "ℓ" de "(ℓ.2)" vem de uma fonte de símbolos que mapeia para "R", também fora dos
+    cadernos do site antigo."""
+    text = " ".join(
+        line.text
+        for page in extract(FIXTURES / "pdf/cebraspe/pf-2018-agente-p1.pdf")
+        for line in page.lines
+    )
+    assert "“Assim” (ℓ.2)" in text
+    assert "(R." not in text
