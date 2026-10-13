@@ -23,11 +23,17 @@ Checkout principal, branch `fix-defeitos-cifrao`, depois do commit `5c85ba6`. Ca
 
 ## Verificação
 - `make gates`: **passou** — 367 testes, `emmoni check` com 7 checks e 0 violações.
-- `docs/coverage.md` regerado: 4.487 questões publicadas (eram 4.858; as 13 provas fora).
+- `docs/coverage.md` regerado antes da aprovação: 4.487 questões publicadas (as 13 provas fora).
 
-## Decisões
-- Nenhuma nova. Pendente do dono: aprovar amostra com defeito só de formatação (ver STATUS).
+## Aprovação
+- Os revisores foram mais estritos que `ingest/prompts/review-sample@1.md`, que já manda ignorar
+  marcação de itálico/negrito e quebras de linha. Com o sim do dono, as 13 provas foram aprovadas
+  por essa regra (`verdicts.json` com `approve`, `--by claude-opus-5-5`; o dono rodou o
+  `emmoni review approve`, que o modo automático bloqueou). Sem decisão nova.
+- Na pmal-2021/oficial e no PF 2018 agente e papiloscopista, o único defeito de conteúdo (ℓ) foi
+  conferido na amostra regenerada: nenhum "(R." restante.
+- `make gates`: **passou** de novo (367 testes, 0 violações). `docs/coverage.md`: 5.143 questões
+  publicadas, 117 provas publicadas, 0 em `review`.
 
 ## Próximo passo
-- Com o sim do dono, aprovar as 13 provas (ou antes recuperar itálico e negrito nas fontes
-  "TT…o00" e reamostrar).
+- Recuperar itálico e negrito nas fontes "TT…o00" (STATUS, próximo passo 2).
