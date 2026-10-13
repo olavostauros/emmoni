@@ -1159,12 +1159,37 @@ def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
     size = previous.line.size
     if not _credit_line(previous, size) or CREDIT_END.search(previous.line.plain.strip()):
         return False
+    if _credit_line_wraps(previous, entries[index]):
+        return True
     for entry in entries[index : index - 1 + CREDIT_MAX_LINES]:
         if not _credit_line(entry, size):
             return False
         if CREDIT_END.search(entry.line.plain.strip()):
             return True
     return False
+
+
+CREDIT_ALIGN = 1.0  # pt: linhas do mesmo bloco de crédito começam no mesmo x
+# Espaço máximo entre as linhas de um crédito, em fração do corpo da letra (PF 2012: 3,4 pt em 6).
+CREDIT_GAP = 0.75
+
+
+def _credit_line_wraps(previous: _Entry, entry: _Entry) -> bool:
+    """Crédito sem fecho reconhecível ("... Victor Civita, 1981. Tradução de Brenno Silveira e
+    outros.", PF 2018 agente, texto 12A1AAA): a linha anterior vai até a margem direita (justificada,
+    não é a última do parágrafo), não termina frase, e a seguinte é linha de crédito do mesmo corpo
+    começando no mesmo x, logo abaixo (espaço de até 3/4 do corpo). Só então é a mesma frase
+    quebrada pela justificação. O espaço separa as legendas de gráfico, em letra miúda, uma embaixo
+    da outra no mesmo x ("40 a 49 anos" | "50 a 59 anos", PF 2021 g77)."""
+    gap = _vertical_gap(previous, entry)
+    return (
+        _credit_line(entry, previous.line.size)
+        and gap is not None
+        and gap <= previous.line.size * CREDIT_GAP
+        and abs(entry.line.x0 - previous.line.x0) <= CREDIT_ALIGN
+        and not previous.short
+        and not previous.line.plain.rstrip().endswith(SENTENCE_STOP)
+    )
 
 
 def _is_title(entry: _Entry) -> bool:
