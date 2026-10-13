@@ -5,6 +5,7 @@ from collections.abc import Iterator
 from pathlib import Path
 
 import psycopg
+import pymupdf
 import pytest
 
 from ingest import review
@@ -70,6 +71,95 @@ def test_sample_also_includes_publishable_changed_questions(tx: Conn, tmp_path: 
         (review.sample_dir(tmp_path, ref) / "sample.json").read_text(encoding="utf-8")
     )
     assert record["numbers"] == sorted({*drawn, extra})
+
+
+def _paged_exam(tx: Conn, tmp_path: Path) -> tuple[review.ExamRef, int]:
+    """Prova de 6 páginas em PDF de verdade, sem questões: os testes das páginas da amostra."""
+    pdf = tmp_path / "prova.pdf"
+    with pymupdf.open() as document:  # type: ignore[no-untyped-call]
+        for _ in range(6):
+            document.new_page()
+        document.save(pdf)
+    exam_id = factories.exam(tx, published=False)
+    document_id = scalar(
+        tx,
+        "insert into source_document (kind, url, sha256, local_path, fetched_at)"
+        " values ('exam', 'https://x/prova.pdf', %s, %s, now()) returning id",
+        ("ab" * 32, str(pdf)),
+    )
+    tx.execute("update exam set exam_document_id = %s where id = %s", (document_id, exam_id))
+    contest = scalar(
+        tx,
+        "select c.slug from contest c join exam e on e.contest_id = c.id where e.id = %s",
+        (exam_id,),
+    )
+    return review.ExamRef(str(contest), "prova"), exam_id
+
+
+def _sample_pages(tx: Conn, ref: review.ExamRef, numbers: list[int], data: Path) -> list[str]:
+    questions = review.show(tx, ref, numbers)
+    return review._write_pages(data / "paginas", questions, [])[str(numbers[0])]
+
+
+COMMAND = "Julgue os itens a seguir, a respeito da Lei Maria da Penha."
+
+
+def test_sample_pages_include_stored_command_page(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id = _paged_exam(tx, tmp_path)
+    # Comando gravado pelo parser na página 2; o item está na 4.
+    factories.question(
+        tx,
+        exam_id,
+        number=1,
+        source_page=4,
+        command_page=2,
+        statement_md=f"{COMMAND}\n\nItem um.",
+    )
+    factories.question(
+        tx,
+        exam_id,
+        number=2,
+        source_page=4,
+        command_page=4,
+        statement_md=f"{COMMAND}\n\nItem dois.",
+    )
+    assert _sample_pages(tx, ref, [1], tmp_path) == [
+        "paginas/prova-p002.png",
+        "paginas/prova-p003.png",
+        "paginas/prova-p004.png",
+        "paginas/prova-p005.png",
+    ]
+    # Comando na mesma página do item: nada a mais, nada repetido.
+    assert _sample_pages(tx, ref, [2], tmp_path) == [
+        "paginas/prova-p004.png",
+        "paginas/prova-p005.png",
+    ]
+
+
+def test_sample_pages_find_command_of_older_rows_by_group(tx: Conn, tmp_path: Path) -> None:
+    """Sem `command_page` (carregadas antes da coluna): o grupo vem do comando repetido."""
+    ref, exam_id = _paged_exam(tx, tmp_path)
+    other = "Com relação ao processo penal, julgue os itens seguintes."
+    rows = [
+        (1, 2, other, "Item um."),
+        (2, 3, COMMAND, "Item dois."),  # abre o grupo: o comando fica entre a p. 2 e a p. 3
+        (3, 3, COMMAND, "Item três."),
+        (4, 5, COMMAND, "Item quatro."),  # PCDF 2026 q96: item numa página, comando antes
+    ]
+    for number, page, command, body in rows:
+        factories.question(
+            tx, exam_id, number=number, source_page=page, statement_md=f"{command}\n\n{body}"
+        )
+    views = {q.number: q for q in review.show(tx, ref, [1, 2, 3, 4])}
+    assert {n: q.command_page for n, q in views.items()} == {1: 2, 2: 2, 3: 2, 4: 2}
+    assert _sample_pages(tx, ref, [4], tmp_path) == [
+        f"paginas/prova-p{page:03d}.png" for page in (2, 3, 4, 5, 6)
+    ]
+    # Primeiro item da prova, comando na página dele: só ela e a seguinte.
+    assert _sample_pages(tx, ref, [1], tmp_path) == [
+        "paginas/prova-p002.png",
+        "paginas/prova-p003.png",
+    ]
 
 
 def test_approve_requires_sample_then_publishes_exam(tx: Conn, tmp_path: Path) -> None:

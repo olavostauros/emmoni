@@ -100,14 +100,15 @@ def load_exam(
                 """insert into question
                      (exam_id, number, type, subject_id, passage_id, statement_md,
                       answer_preliminary, answer_final, answer_status, statement_hash,
-                      source_page, extracted_by, publish_status, review_reasons)
-                   values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+                      source_page, command_page, extracted_by, publish_status, review_reasons)
+                   values (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
                    on conflict (exam_id, number) do update set
                      type = excluded.type, subject_id = excluded.subject_id,
                      passage_id = excluded.passage_id, statement_md = excluded.statement_md,
                      answer_preliminary = excluded.answer_preliminary,
                      answer_final = excluded.answer_final, answer_status = excluded.answer_status,
                      statement_hash = excluded.statement_hash, source_page = excluded.source_page,
+                     command_page = excluded.command_page,
                      extracted_by = excluded.extracted_by,
                      publish_status = excluded.publish_status,
                      review_reasons = excluded.review_reasons
@@ -124,6 +125,7 @@ def load_exam(
                     question.answer_status,
                     digest,
                     question.page,
+                    question.command_page,
                     question.extracted_by,
                     status,
                     reasons,

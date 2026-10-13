@@ -875,6 +875,7 @@ CREATE TABLE public.question (
     created_at timestamp with time zone DEFAULT now() NOT NULL,
     updated_at timestamp with time zone DEFAULT now() NOT NULL,
     review_reasons text[] DEFAULT '{}'::text[] NOT NULL,
+    command_page smallint,
     CONSTRAINT question_answer_format CHECK (
 CASE type
     WHEN 'true_false'::public.question_type THEN ((COALESCE(answer_preliminary, 'C'::text) = ANY (ARRAY['C'::text, 'E'::text])) AND (COALESCE(answer_final, 'C'::text) = ANY (ARRAY['C'::text, 'E'::text])))
@@ -887,6 +888,7 @@ CASE answer_status
     WHEN 'changed'::public.answer_status THEN ((answer_preliminary IS NOT NULL) AND (answer_final IS NOT NULL) AND (answer_final <> answer_preliminary))
     ELSE ((answer_preliminary IS NULL) OR (answer_final IS NULL) OR (answer_final = answer_preliminary))
 END),
+    CONSTRAINT question_command_page_check CHECK ((command_page > 0)),
     CONSTRAINT question_not_own_duplicate CHECK ((duplicate_of <> id)),
     CONSTRAINT question_number_check CHECK ((number > 0)),
     CONSTRAINT question_publishable CHECK (((publish_status <> 'published'::public.publish_status) OR ((subject_id IS NOT NULL) AND ((type = 'essay'::public.question_type) OR (answer_final IS NOT NULL) OR (answer_status = 'annulled'::public.answer_status))))),
@@ -2338,4 +2340,5 @@ INSERT INTO public.schema_migrations (version) VALUES
     ('20261007200000'),
     ('20261007210000'),
     ('20261008000000'),
-    ('20261008000100');
+    ('20261008000100'),
+    ('20261013000000');

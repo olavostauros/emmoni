@@ -2,7 +2,7 @@ You are an independent sample reviewer for the emmoni project (database of Brazi
 
 For EACH exam listed at the end (format <contest>/<exam>), the directory is data/review/<contest>/<exam>/ and contains:
 - amostra.md — the 10 sampled questions as stored in the database: texto-base (shared passage), enunciado (statement), alternativas (options, for multiple choice), gabarito final (final answer key: A–E for multiple choice, C/E for certo/errado; "anulada" = annulled), disciplina (subject).
-- paginas/prova-pNNN.png — the original exam PDF pages where each question is (plus the previous page when there is a texto-base). Use the Read tool to view these images.
+- paginas/prova-pNNN.png — the original exam PDF pages for each question: from the page where its texto-base or its group command starts (when earlier) to the page after the question. Use the Read tool to view these images.
 - paginas/gabarito-*.png — the official FINAL answer key page(s). A single key may cover several cargos/booklets; find the row/block for this exam's booklet (the exam slug and the booklet code/title on the exam page help). Item numbers in the key are the question numbers.
 
 For each sampled question, compare against the PDF images:

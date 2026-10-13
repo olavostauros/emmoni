@@ -34,6 +34,7 @@ class StagedQuestion(BaseModel):
     options: list[RawOption]
     passage_key: str | None
     page: int
+    command_page: int | None = None
     subject: str | None
     answer_preliminary: str | None
     answer_final: str | None
@@ -116,6 +117,7 @@ def validate(
                 options=question.options,
                 passage_key=question.passage_key,
                 page=question.page,
+                command_page=question.command_page,
                 subject=subject,
                 answer_preliminary=pre,
                 answer_final=fin,

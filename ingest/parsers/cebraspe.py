@@ -164,6 +164,7 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     lead = _Unit()
     item: _Unit | None = None
     group_command = ""
+    group_command_page: int | None = None
     group_passage: str | None = None
     group_flags: set[str] = set()
     skipped_items = 0  # itens anteriores a `first` (PC/AL 2021: os básicos no mesmo PDF)
@@ -172,7 +173,11 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     def close_item() -> None:
         if item is None:
             return
-        questions.append(_question(expected - 1, item, group_command, group_passage, group_flags))
+        questions.append(
+            _question(
+                expected - 1, item, group_command, group_passage, group_flags, group_command_page
+            )
+        )
 
     for entry in stream:
         line = entry.line
@@ -197,6 +202,7 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
             close_item()
             if lead.entries:
                 group_command, group_passage, group_flags = _open_group(lead, expected, passages)
+                group_command_page = _command_page(lead) if group_command else None
                 lead = _Unit()
             item = _Unit([entry])
             expected += 1
@@ -811,6 +817,22 @@ def _open_group(
     return command, referenced, flags
 
 
+def _command_page(lead: _Unit) -> int:
+    """Página onde começa o comando do grupo (para a amostra mostrar a página certa).
+
+    O comando sai do último trecho da abertura (depois do último rótulo de texto) ou, sem rótulo,
+    da abertura inteira; a primeira linha desse trecho dá a página. Quando há situação antes do
+    comando no mesmo trecho, a página é a do início da situação, que é anterior ou igual: a
+    amostra mostra uma página a mais, nunca uma a menos.
+    """
+    labeled = [i for i, e in enumerate(lead.entries) if TEXT_LABEL.match(e.line.plain)]
+    if labeled and labeled[0] > 0:
+        return lead.entries[0].page  # texto antes do primeiro rótulo abre o comando
+    start = labeled[-1] + 1 if labeled else 0
+    rest = lead.entries[start:] or lead.entries
+    return rest[0].page
+
+
 def _add_passage(
     passages: dict[str, RawPassage], key: str, paragraphs: list[str], entries: list[_Entry]
 ) -> None:
@@ -823,7 +845,12 @@ def _add_passage(
 
 
 def _question(
-    number: int, item: _Unit, command: str, passage: str | None, group_flags: set[str]
+    number: int,
+    item: _Unit,
+    command: str,
+    passage: str | None,
+    group_flags: set[str],
+    command_page: int | None = None,
 ) -> RawQuestion:
     first = item.entries[0]
     text_lines = [ITEM_MD.sub("", first.line.text, count=1)] + [
@@ -854,6 +881,7 @@ def _question(
         statement_md=statement,
         passage_key=passage,
         page=first.page,
+        command_page=command_page if command else None,
         flags=sorted(flags),
     )
 

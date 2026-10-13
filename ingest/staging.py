@@ -28,6 +28,8 @@ class RawQuestion(BaseModel):
     options: list[RawOption] = []
     passage_key: str | None = None
     page: int
+    # Certo/errado: página onde começa o comando do grupo, que pode ser anterior à do item.
+    command_page: int | None = None
     flags: list[str] = []
 
 

@@ -205,6 +205,7 @@ question (
   statement_hash   text not null,               -- sha256 da questão normalizada (seção 5)
   duplicate_of     uuid null references question,
   source_page      smallint not null,
+  command_page     smallint null,               -- onde começa o comando do grupo (decisão 0027)
   extracted_by     text not null,               -- ex.: 'cebraspe-parser@1 + claude-sonnet-5-5'
   publish_status   publish_status not null default 'draft',
   review_reasons   text[] not null default '{}', -- motivos da etapa validate (decisão 0005)
@@ -586,7 +587,7 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
   (de forma determinística) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
   com cada questão ao lado da página do PDF; a prova só vai para `published` após a conferência
   (`emmoni review approve --by <modelo>`, que registra quem aprovou e a impressão digital do
-  conteúdo em `ingest/approvals/<concurso>/<prova>.json`, versionado; decisão 0016). A amostra traz também `amostra.md` e as páginas em PNG; o revisor segue
+  conteúdo em `ingest/approvals/<concurso>/<prova>.json`, versionado; decisão 0016). A amostra traz também `amostra.md` e as páginas em PNG (da página onde começa o texto-base ou o comando do grupo até a seguinte à da questão; decisão 0027); o revisor segue
   `ingest/prompts/review-sample@1.md` e grava `verdicts.json` (decisão 0014). Prova reprocessada depois de aprovada é
   reamostrada; se reprovar, volta para `review` até nova aprovação (decisão 0015). Depois de cada
   `load`, a prova só continua publicada se o conteúdo tem a impressão digital aprovada (número,

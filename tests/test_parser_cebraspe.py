@@ -47,6 +47,17 @@ def test_command_opens_each_statement(segmented: Segmented) -> None:
     assert item.startswith("Infere-se do texto que a personagem")
 
 
+def test_command_page_is_where_the_group_opens(segmented: Segmented) -> None:
+    """A página do comando vai para a amostra (o item pode estar na página seguinte)."""
+    by_number = {q.number: q for q in segmented.questions}
+    assert all(q.command_page is not None for q in segmented.questions)
+    assert all(q.command_page <= q.page for q in segmented.questions)  # type: ignore[operator]
+    # Itens 9–14 na página 2; o texto 2A1-II e o comando deles começam na página 1.
+    assert (by_number[9].page, by_number[9].command_page) == (2, 1)
+    assert by_number[14].command_page == 1
+    assert (by_number[19].page, by_number[19].command_page) == (2, 2)
+
+
 def test_passages_keep_paragraphs_and_formatting(segmented: Segmented) -> None:
     passages = {p.key: p for p in segmented.passages}
     text = passages["2A1-I"].body_md
