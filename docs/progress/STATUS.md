@@ -13,14 +13,13 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - API HTTP local por PostgREST (decisão 0021, contrato v1.3) e deploy no Google Cloud Run
   preparado, sem nada criado na nuvem (decisão 0022, `docs/DEPLOY.md`, agentes atlas e cerberus;
   `2026-10-08-api-http-e-deploy.md`).
+- Capa do PM/AL 2021, fonte de símbolos, escape do `$` (decisão 0023, contrato v1.4) e "(ℓ.N)" em
+  todos os cadernos; 13 provas reamostradas e reaprovadas (`2026-10-13-defeitos-e-cifrao.md`,
+  `2026-10-13-referencia-de-linha.md`). No `main`.
 
 ## Em andamento
-- Branch `fix-defeitos-cifrao` (checkout principal, local): capa do PM/AL 2021, fonte de
-  símbolos, escape do `$` (decisão 0023, contrato v1.4) e "(ℓ.N)" em todos os cadernos. Carregado
-  no banco (`2026-10-13-defeitos-e-cifrao.md`, `2026-10-13-referencia-de-linha.md`).
-- As 13 provas que voltaram para `review` foram reamostradas e aprovadas de novo (formatação
-  ignorada, como manda `review-sample@1`). O PF 2018 agente q51–56 e papiloscopista q48–50 seguem
-  em `review` por fórmula.
+- PF 2018 agente q51–56 e papiloscopista q48–50 em `review` por fórmula (símbolos sem mapeamento).
+- Plantão: contrato v1.4 permite religar `$...$` (o `$` literal chega como `\$`).
 - Deploy: passo 0 de `docs/DEPLOY.md` §4 (estimativa) aguardando o "vai" do dono.
 
 ## Próximos passos
@@ -58,4 +57,4 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
   banco, 21 delas de `pcpe-2016` e `pcientifica-pe-2016`
 - Propostas do crawler pendentes: 0 · manifestos: 44 (1 do `cespe-unb`) · rejeitados: 1
 - Taxonomia: 57 disciplinas, 911 assuntos
-- Contrato do front-end: **v1.4** no branch `fix-defeitos-cifrao` (o `main` tem a v1.3)
+- Contrato do front-end: **v1.4**
