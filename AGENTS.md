@@ -13,13 +13,17 @@ Em caso de conflito: o SPECIFICATION.md manda nas decisões técnicas; este arqu
 
 | Agente | Responsabilidade |
 |---|---|
-| **Banco de dados** (missão atual) | Esquema, migrações, ingestão das provas, qualidade dos dados, contrato e seed para o front-end. |
+| **Sessão principal** (coordenadora) | Orienta, despacha para os subagentes, junta os resultados, registra o progresso e faz commit/PR quando pedido. Não constrói nem aprova (decisão 0024). |
+| **hefesto** (banco de dados, missão atual) | Esquema, migrações, crawler, ingestão das provas, qualidade dos dados, contrato e seed para o front-end. Produz e propõe; nunca aprova (`.claude/agents/hefesto.md`). |
+| **minos** (revisão) | As três revisões de "Revisão pelo agente", em contexto separado de quem produziu; aprova ou reprova, nunca corrige (`.claude/agents/minos.md`). |
 | **Front-end** | O site que os concurseiros usam. Consome o contrato publicado pelo agente de banco de dados. |
 | **atlas** (deploy) | Leva a API ao Google Cloud Run seguindo `docs/DEPLOY.md`; pede o sim do dono antes de cada recurso (`.claude/agents/atlas.md`). |
 | **cerberus** (segurança) | Audita imagem, API pública e projeto, só leitura; relatório no contrato de `docs/CYBERSECURITY.md` (`.claude/agents/cerberus.md`). |
 
 Regras de fronteira:
 
+- O hefesto **não** aprova o que produziu; o minos **não** corrige o que reprovou — devolve a causa
+  à coordenadora, que a manda ao hefesto.
 - O agente de banco de dados **não** escreve código do site. O agente de front-end **não** altera
   esquema nem migrações — pede a mudança.
 - O atlas e o cerberus não mudam esquema, ingestão nem dados; o atlas publica imagens, o
@@ -98,8 +102,9 @@ a implementação (cliente HTTP, limites, backoff) está no SPECIFICATION.md §7
 
 ## Revisão pelo agente
 
-Não há etapa de revisão humana (decisão 0011). O agente faz as três revisões, com os mesmos
-comandos e limiares, e registra o modelo e a versão como revisor:
+Não há etapa de revisão humana (decisão 0011). O **minos** faz as três revisões, com os mesmos
+comandos e limiares, e se registra como revisor com o nome e o modelo
+(`minos (claude-opus-5-5)`):
 
 - **Propostas do crawler** — `emmoni manifests show <slug>`: conferir a evidência e as páginas já
   guardadas pelo crawler (concurso policial, prova e gabarito certos, slugs do catálogo). Aprovar
@@ -113,10 +118,36 @@ comandos e limiares, e registra o modelo e a versão como revisor:
   subagente que lê só `data/review/assuntos/amostra.{md,json}` e `db/taxonomy/*.yaml`, sem abrir
   `classify-answers.json`, o prompt nem o raciocínio da classificação —, julgar se os assuntos
   descrevem a questão; gravar `verdict` (`ok`/`wrong`), `note` quando `wrong` e `reviewed_by`.
-  Depois, `--report`.
+  Depois, `--report`. O minos já roda em contexto próprio; a coordenadora não lhe passa nada do
+  `classify`.
 
 Seja estrito: em dúvida, o veredito é `wrong` e a prova não é aprovada. Um veredito humano
 posterior prevalece sobre o do agente.
+
+## Sessão principal e subagentes
+
+A sessão que o dono abre neste repositório é a **coordenadora** (decisão 0024). Ela não escreve
+esquema, parser nem ingestão, e não aprova nada; delega:
+
+| Trabalho | Para quem |
+|---|---|
+| Construir: esquema, migrações, crawl, parser, ingestão, OCR, classificação, contrato, seed | `hefesto` |
+| Revisar e aprovar: propostas, amostra por prova, amostra de assuntos | `minos` |
+| Deploy, nuvem, gasto | `atlas` |
+| Auditoria de segurança | `cerberus` |
+
+O que fica com a coordenadora:
+
+- **Orientar**: ler os arquivos do passo 1 do fluxo abaixo e decidir o próximo passo do marco.
+- **Despachar** com um pedido completo — o subagente não vê a conversa: tarefa, marco, worktree,
+  arquivos e decisões relevantes, o que entregar. Ao minos, nunca o raciocínio de quem produziu.
+- **Banco**: garantir que só um subagente por vez rode comandos que escrevem no banco (decisão
+  0019); não dispare hefesto e minos em paralelo sobre o banco.
+- **Fechar o ciclo**: reprovação do minos volta ao hefesto com a causa; a prova só segue depois de
+  amostra nova aprovada pelo minos.
+- **Registrar**: commit e PR quando pedidos (a mensagem diz quem aprovou, ex.: "aprovado por
+  minos (claude-opus-5-5)"), `docs/progress/` e `STATUS.md` antes de encerrar.
+- Perguntas, leituras e respostas ao dono ela faz direto, sem subagente.
 
 ## Fluxo de trabalho
 
