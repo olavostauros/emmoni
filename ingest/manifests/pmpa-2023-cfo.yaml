@@ -11,6 +11,8 @@ exams:
   positions:
   - oficial
   first_number: 21
+  # Negrito/itálico pelas larguras das fontes sem nome (emenda de 2026-10-13 da decisão 0020).
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/915_PMPA_CFO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/GAB_DEFINITIVO_915_PMPA_CFO_001_01.PDF
@@ -28,6 +30,8 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS BÁSICOS (P1)
   positions:
   - oficial
+  # Negrito/itálico pelas larguras das fontes sem nome (emenda de 2026-10-13 da decisão 0020).
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/915_PMPA_CFO_CB1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_PA_23_CFO/arquivos/GAB_DEFINITIVO_915_PMPA_CFO_CB1_01.PDF
