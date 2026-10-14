@@ -2,6 +2,7 @@
  "exam": "pf-2018/agente",
  "numbers": [
   6,
+  9,
   15,
   19,
   20,
@@ -12,8 +13,8 @@
   101,
   103
  ],
- "sampled_at": "2026-10-13T12:51:25.751339+00:00",
- "approved_at": "2026-10-13T12:53:10.442405+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "37cd4b00a1299843b591cd503d5be67ac8f02a14bbe68920f0096266986bfa57"
+ "sampled_at": "2026-10-14T01:46:47.332570+00:00",
+ "approved_at": "2026-10-14T01:49:45.978864+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "99085a358d777062b1e6e2644c649327fdef744021b5c92d1768fa04633004e4"
 }

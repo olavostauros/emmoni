@@ -104,7 +104,7 @@ Variáveis: `P=emmoni-prod R=southamerica-east1 BA=01F985-1C44C6-40CDE9`.
 | 0 | Estimativa (§2) conferida pelo dono | dono disse "vai" | feito em 2026-10-13 ("vai" repassado pela sessão coordenadora; saída de rede somada ao §2) |
 | 1 | Projeto e APIs | `gcloud projects describe $P` tem `emmoni=prod`; conta ligada | feito em 2026-10-13 (número 27333211980; ver a nota do passo 1) |
 | 2 | Contas de serviço e papel customizado | 3 contas, 0 chaves; Compute padrão sem `editor` | feito em 2026-10-13 (3 contas, 0 chaves, Compute padrão sem `editor`; papel `emmoniIngressCap` e os seis vínculos no segundo ciclo; ver a nota do passo 2) |
-| 3 | Tópico e budget | budget lista o tópico | pendente |
+| 3 | Tópico e budget | budget lista o tópico | parcial em 2026-10-13: tópico criado; `billing budgets create` negado pela permissão da sessão (ver a nota do passo 3) |
 | 4 | Função de corte + teste | `emmoni-build` com `artifactregistry.writer` no `gcf-artifacts`; teste com 100% muda o ingresso; voltar com `--ingress=all` | pendente |
 | 5 | Repositório e primeira imagem (seed) | `audit.py --image` 0 falhas; push por digest | pendente |
 | 6 | Serviço privado (seed) | `emmoniIngressCap` da `emmoni-budget-cap` no serviço; `audit.py --public` (com token) 0 falhas | pendente |
@@ -221,6 +221,16 @@ gcloud billing budgets create --billing-account=$BA --display-name=emmoni-monthl
   --notifications-rule-pubsub-topic=projects/$P/topics/emmoni-budget
 ```
 
+Nota de 2026-10-13 (passo parcial): o tópico `projects/emmoni-prod/topics/emmoni-budget`, label
+`emmoni=prod`, foi criado (Pub/Sub, nível gratuito, R$ 0). O `gcloud billing budgets create` acima
+(com `$P=emmoni-prod` e `$BA=01F985-1C44C6-40CDE9` por extenso) foi negado pela permissão da
+sessão do agente, como o `gcloud billing budgets list` de conferência; o caronte não contornou.
+Sem o budget, o passo 4 não começa (§1: budget, tópico e corte antes do serviço). O dono roda o
+`budgets create` à mão ou libera o comando nas permissões; o próximo ciclo confere com
+`audit.py --cloud`. `audit.py --cloud emmoni-prod` depois do tópico: 30 verificações, 3 falhas, as
+já na fila do dono (`cloudbuild.builds.builder` da conta legada, vínculos de projeto de E-009/E-010
+e a API `source`); "tópico emmoni-budget com label" passa; budget é skip (passo 3 pendente).
+
 ### 4. Função de corte
 
 ```sh
@@ -327,3 +337,4 @@ dias restantes, observação. Fonte: console de faturamento (só leitura) ou o r
 | 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 2 parcial: 3 contas de serviço (sem custo); papel customizado e vínculos negados pela permissão da sessão; nada pago existe; `audit.py --cloud` sem budget `emmoni-monthly` |
 | 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 2 concluído: papel `emmoniIngressCap` e seis vínculos (sem custo); nada pago existe; `audit.py --cloud` 26 verificações, 2 falhas já na fila do dono |
 | 2026-10-13 | não lido (sessão sem Chrome; sessão só de documento); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | nenhum passo; nada criado nem lido na nuvem: E-009, E-010 e E-002 (parcial) corrigidos no plano (§3, passos 2, 4 e 6) e no `audit.py` |
+| 2026-10-13 | não lido (sessão sem Chrome); R$ 0 esperado | não lido (última leitura R$ 1.752,45) | 85 | passo 3 parcial: tópico `emmoni-budget` (R$ 0); `billing budgets create` e `list` negados pela permissão da sessão; nada pago existe; `audit.py --cloud` 30 verificações, 3 falhas já na fila do dono |
