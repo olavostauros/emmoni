@@ -435,6 +435,26 @@ def test_choice_labels_bullets_and_unresolved_references() -> None:
     assert not {"missing_passage", "figure"} & {*questions[2].flags, *questions[5].flags}
 
 
+def test_choice_reference_glued_to_the_label() -> None:
+    """PM/SC 2023 soldado q37 e q39: "do texto1A5-I", sem espaço no próprio caderno, cita o texto
+    1A5-I como "texto 1A5-I"; o rótulo colado em minúsculas ("texto1a") não é remissão, e o
+    enunciado guarda a grafia do caderno."""
+    lines = [
+        _line("Texto 1A5-I", 28, 20, x1=90),
+        _line("Os algoritmos estão em toda parte.", 56, 32, x1=200),
+        *_choice(1, "A afirmação que inicia o texto 1A5-I é", 50),
+        *_choice(2, "Questão de outra matéria.", 130),
+        *_choice(3, "A correção gramatical do texto1A5-I seria mantida", 210),
+        *_choice(4, "Questão sobre o texto1a5 de outra matéria.", 290),
+        *_choice(5, "Segundo a Figura5A2, assinale.", 370),
+    ]
+    questions = {q.number: q for q in cebraspe.segment([_page(lines)]).questions}
+    keys = [questions[n].passage_key for n in (1, 2, 3, 4, 5)]
+    assert keys == ["1A5-I", None, "1A5-I", None, None]
+    assert questions[3].statement_md == "A correção gramatical do texto1A5-I seria mantida"
+    assert "missing_passage" in questions[5].flags  # rótulo citado sem texto-base
+
+
 def test_choice_text_after_justification_and_section_title() -> None:
     """PC/PE 2023: texto-base logo depois da tabela de justificativas abre o grupo seguinte.
     PC/RO 2022: título de disciplina em caixa alta não gruda na alternativa E."""
@@ -1535,3 +1555,107 @@ def test_bold_heading_after_the_last_option_ends_it() -> None:
         2, heading.line.model_copy(update={"text": "**Normas.**", "plain": "Normas."}), left=28.3
     )
     assert not cebraspe._heading_after_option(option, sentence)
+
+
+def test_poem_is_one_stanza_with_line_breaks() -> None:
+    """PM/AL 2021 soldado, pág. 3 (só o poema e os itens 20–24 da coluna 1): "À procura da
+    infância" é uma estrofe só; cada verso termina em quebra de linha (`\\`), não em parágrafo, e o
+    verso longo que vai até a margem continua na linha seguinte."""
+    pages = extract(FIXTURES / "pdf/cebraspe/pmal-2021-soldado-p3.pdf", styles=True)
+    segmented = cebraspe.segment(pages, first=20)
+    assert [(q.number, q.passage_key) for q in segmented.questions] == [
+        (n, "g20") for n in range(20, 25)
+    ]
+    title, stanza, credit = segmented.passages[0].body_md.split("\n\n")
+    assert title == "**À procura da infância**"
+    verses = stanza.split("\\\n")
+    assert len(verses) == 19
+    assert verses[:2] == ["Procuro ouvir na voz do vento", "o eco perdido da minha infância."]
+    assert verses[11] == (
+        "tão lindas, de tranças sedosas, a bonequinha de trapo que eu embalei nos meus braços."
+    )
+    assert verses[-1] == "que os anos guardaram no seu abismo."
+    assert credit.startswith("Anilda Leão.")
+
+
+def _verse(text: str, y0: float, x0: float = 28.4, x1: float | None = None) -> cebraspe._Entry:
+    """Linha de 10 pt com entrelinha de 13,2 (PM/AL 2021 soldado); curta se `x1` não vem."""
+    right = x1 if x1 is not None else x0 + 6 * len(text)
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=right, y1=y0 + 10, column=1, size=10.0)
+    return cebraspe._Entry(3, line, left=28.4, short=right < 294.4 - 40)
+
+
+def test_stanzas_split_only_on_vertical_space() -> None:
+    """Estrofe nova só com espaço vertical maior que o entrelinha; versos centralizados também são
+    estrofe (CBM/AL 2017 soldado, "O Xote das meninas")."""
+    first = [
+        "Disse ele que agora",
+        "Só me amava como esposa",
+        "Não como star",
+        "Me amassou as rosas",
+    ]
+    second = ["Nunca mais romance", "Nunca mais cinema", "Nunca mais cheese", "Nunca mais feliz"]
+    entries = [_verse(t, 100 + 13.2 * i) for i, t in enumerate(first)]
+    entries += [_verse(t, 170 + 13.2 * i) for i, t in enumerate(second)]
+    assert cebraspe._paragraphs(entries) == ["\\\n".join(first), "\\\n".join(second)]
+    assert cebraspe._choice_paragraphs(entries) == ["\\\n".join(first), "\\\n".join(second)]
+    xote = [
+        ("Mandacaru quando fulora na seca", 368.3, 502.9),
+        ("É o siná que a chuva chega no sertão", 362.3, 509.0),
+        ("Toda menina que enjoa da boneca", 367.4, 503.7),
+        ("É siná que o amor já chegou no coração...", 352.2, 518.9),
+    ]
+    centered = [
+        cebraspe._Entry(
+            4,
+            Line(
+                text=t,
+                plain=t,
+                x0=x0,
+                y0=88 + 18.3 * i,
+                x1=x1,
+                y1=98 + 18.3 * i,
+                column=2,
+                size=10.0,
+            ),
+            left=304.4,
+            short=True,
+        )
+        for i, (t, x0, x1) in enumerate(xote)
+    ]
+    assert cebraspe._paragraphs(centered) == ["\\\n".join(t for t, _, _ in xote)]
+
+
+def test_short_lines_that_are_not_verse_stay_paragraphs() -> None:
+    """Não é verso: linhas curtas que fecham a frase (prosa), item de lista, linha de tabela que
+    termina em número ou em letra solta (tabela-verdade), código e a correspondência oficial."""
+    prose = [
+        "Primeiro parágrafo curto.",
+        "Segundo parágrafo curto.",
+        "Terceiro parágrafo.",
+        "Quarto parágrafo curto.",
+    ]
+    listing = [
+        "I fazer massagem cardíaca",
+        "II desobstruir as vias aéreas",
+        "III imobilizar",
+        "IV transportar a vítima",
+    ]
+    accounts = [
+        "caixa e equivalentes R$ 10.000",
+        "estoques para revenda R$ 250.000",
+        "veículos R$ 120.000",
+        "fornecedores R$ 80.000",
+    ]
+    truth = ["V V V", "V V F", "V F V", "V F F", "F V V"]
+    code = ["`CREATE TABLE catalogo (`", "`id_tabela INT,`", "`descricao TEXT,`", "`colunas TEXT,`"]
+    letter = [
+        "Governo do Estado da Paraíba",
+        "Delegacia Geral de Polícia Civil",
+        "Superintendência Regional de Polícia",
+        "Senhora gerente,",
+        "Encaminho a solicitação",
+    ]
+    for lines in (prose, listing, accounts, truth, code, letter):
+        entries = [_verse(t, 100 + 13.2 * i) for i, t in enumerate(lines)]
+        assert cebraspe._paragraphs(entries) == lines, lines

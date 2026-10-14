@@ -319,3 +319,34 @@ questão das provas ligadas, fora os títulos que saem das alternativas; o "s*pe
 2021 é do original (o "s" vem em redondo). PM/AL 2021 soldado q42, q45 e q50 ganham itálico picado
 nas fórmulas, mas seguem em `review` pela fórmula. Questões que passam a publicáveis: PM/SC 2023 q8 e
 q42, CBM/TO 2022 soldado q20, CBM/RO 2022 oficial q75, PM/TO 2020 QPE q40.
+
+## Emenda de 2026-10-14 (9) — verso em quebra de linha, estrofe em parágrafo
+
+**Contexto.** O minos (semente r14) reprovou o PM/AL 2021 soldado: o poema "À procura da
+infância" (g20, pág. 3, itens 20–24) é uma estrofe só no caderno, mas cada linha curta abria
+parágrafo e o poema saía em 21 "estrofes" de uma linha. O `docs/content-format.md` já manda grafar
+a quebra de verso com `\` no fim da linha.
+
+**Decisão.** No texto-base e no enunciado (certo/errado e múltipla escolha), um bloco de linhas
+seguidas na mesma página e coluna, no mesmo corpo, alinhadas na margem sem recuo (ou com o mesmo
+meio, recuadas: versos centralizados), sem espaço vertical maior que o entrelinha, é estrofe quando
+tem 4 linhas ou mais, 3 linhas curtas no meio e, entre as curtas, pelo menos 2 que terminam em
+palavra (2 letras ou mais) ou vírgula e não menos que as que fecham a frase (`_verse_breaks`). Na
+estrofe, a linha curta termina em quebra de linha (`\`); a linha que vai até a margem é verso longo
+e continua na seguinte com espaço; estrofe nova só com o espaço vertical. Não entram no bloco
+título em negrito, item de lista (I, II; a); •; travessão; número; parêntese), linha com rótulo
+("P1:", "c(x):"), linha de código nem o crédito; linha que termina em número (tabela) ou em letra
+solta (tabela-verdade) não conta como verso aberto; correspondência oficial (vocativo ou fecho,
+`LETTER_LINE`) fica de fora inteira — cabeçalho e endereçamento seguem como antes.
+
+**Verificação.** Varredura das provas do staging, parser do HEAD × novo, com as mesmas páginas:
+mudam só quatro poemas, todos em provas publicadas — PM/AL 2021 soldado (g20), CBM/AL 2017
+básicos cargo 2 (g33, "A história de Lily Braun", duas estrofes), CBM/AL 2017 específicos cargo 2
+(g114, "O Xote das meninas", centralizado) e PC/SE 2018 conhecimentos gerais (g12, "Minha Alma").
+Nenhum enunciado, alternativa ou motivo de revisão muda. As tentativas intermediárias pegavam a
+lista de contas do PF 2018 agente (g100), os campos do PF 2018 escrivão (g93), o SQL do PF 2025
+bloco II (g91), a tabela-verdade do PF 2025 bloco I (g54) e do CBM/PA 2023 (q23/q44) e o cabeçalho
+do ofício do PC/PB 2021 (CG1A1-III): as exclusões acima existem por eles. A impressão digital da
+aprovação não vê parágrafo; as quatro provas seguem publicadas e precisam de amostra nova.
+Ficam como estão: o poema em duas colunas com números de verso do PF 2012 (agente g12,
+papiloscopista g8; próximos passos) e os endereços de correspondência.

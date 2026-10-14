@@ -77,6 +77,16 @@ PASSAGE_TITLE = re.compile(rf"^\W*{_TITLE_WORDS}\s+{_LABEL}", re.I)
 TITLE_LINE = re.compile(rf"^\W*{_TITLE_WORDS}\s+{_LABEL}\W*$", re.I)  # linha que é só o título
 # Remissão a um texto-base pelo rótulo, dentro da questão ("texto 1A7-I", "proposição CG1A5AAA").
 LABEL_REF = re.compile(rf"\b{_TITLE_WORDS}\s+{_LABEL}", re.I)
+# Remissão grafada sem espaço no próprio caderno ("do texto1A5-I", PM/SC 2023 soldado q37 e q39):
+# o rótulo colado à palavra do título, sempre em maiúsculas, ganha o espaço antes da busca.
+GLUED_REF = re.compile(rf"\b({_TITLE_WORDS})(?=(?-i:[0-9A-Z]*\d[A-Z]))", re.I)
+
+
+def _spaced_refs(text: str) -> str:
+    """O texto com "texto1A5-I" lido como "texto 1A5-I" (só para achar a remissão)."""
+    return GLUED_REF.sub(r"\1 ", text)
+
+
 # Questão que remete a um texto sem rótulo ("do expediente", "no texto") e ficou sem texto-base.
 IMPLICIT_REF = re.compile(
     r"\b(?:d[oa]s?|n[oa]s?|[oa]s?|dess[ea]s?|nest[ea]s?|ness[ea]s?|pel[oa]s?|ao)\s+"
@@ -603,11 +613,16 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     enumerado (I, II, III; a), b)...) começam parágrafo novo. O crédito em letra miúda, alinhado à
     direita e quebrado em várias linhas, é um parágrafo só, até a linha que o encerra (PC/PB 2021
     cargo 13, questão 65), como no certo/errado (`_paragraphs`)."""
-    paragraphs: list[list[str]] = []
+    paragraphs: list[list[list[str]]] = []
     previous: _Entry | None = None
     opener: _Entry | None = None  # primeira linha do parágrafo aberto
     leading = _leading(entries)
+    verses = _verse_breaks(entries, leading)
     for index, entry in enumerate(entries):
+        if index - 1 in verses:  # verso seguinte da mesma estrofe: quebra de linha
+            paragraphs[-1].append([entry.line.text])
+            previous = entry
+            continue
         # Citação recuada em bloco (lei transcrita em letra menor): todas as linhas têm o mesmo
         # recuo, e só a primeira abre parágrafo (`_indented_block_goes_on`).
         indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT and not (
@@ -634,11 +649,11 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
             or _labeled_line_opens(opener, previous, entry)
         )
         if new:
-            paragraphs.append([])
+            paragraphs.append([[]])
             opener = entry
-        paragraphs[-1].append(entry.line.text)
+        paragraphs[-1][-1].append(entry.line.text)
         previous = entry
-    return [_join(lines) for lines in paragraphs if lines]
+    return [_join_verses(pieces) for pieces in paragraphs if any(pieces)]
 
 
 # Diferença de recuo, em pt, que ainda conta como o mesmo recuo de bloco.
@@ -696,7 +711,7 @@ def _passage_labels(passage: RawPassage) -> list[str]:
 
 def _referenced_passage(question: RawQuestion, labels: dict[str, str]) -> str | None:
     """O último texto-base cujo rótulo aparece no enunciado ou nas alternativas."""
-    text = " ".join([question.statement_md, *(o.body_md for o in question.options)])
+    text = _spaced_refs(" ".join([question.statement_md, *(o.body_md for o in question.options)]))
     cited = [
         key
         for label, key in labels.items()
@@ -709,7 +724,7 @@ def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
     """Remissões que o parser não resolveu: rótulo citado sem texto-base com esse rótulo, texto sem
     rótulo citado por questão sem texto-base, figura da própria questão (não há imagens), comando
     que remete ao que vem antes dele sem texto-base."""
-    text = " ".join([question.statement_md, *(o.body_md for o in question.options)])
+    text = _spaced_refs(" ".join([question.statement_md, *(o.body_md for o in question.options)]))
     flags: set[str] = set()
     cited = {m.group(1) for m in LABEL_REF.finditer(text)}
     if any(label not in labels for label in cited):
@@ -1256,7 +1271,11 @@ def _open_group(
         return command, last_label, set()
     # Sem rótulo: o que vem antes do comando é situação hipotética (texto-base anônimo)...
     referenced = next(
-        (ref for ref in TEXT_REF.findall(" ".join([*situation, command])) if ref in passages),
+        (
+            ref
+            for ref in TEXT_REF.findall(_spaced_refs(" ".join([*situation, command])))
+            if ref in passages
+        ),
         None,
     )
     if situation and referenced:
@@ -1442,11 +1461,16 @@ def _base_x(entries: list[_Entry]) -> float:
 def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     """Junta linhas em parágrafos. `base` é a margem do corpo do texto quando ela não coincide
     com a da coluna (textos com numeração de linhas)."""
-    paragraphs: list[list[str]] = []
+    paragraphs: list[list[list[str]]] = []
     previous: _Entry | None = None
     opener: _Entry | None = None  # primeira linha do parágrafo aberto
     leading = _leading(entries)
+    verses = _verse_breaks(entries, leading, base)
     for index, entry in enumerate(entries):
+        if index - 1 in verses:  # verso seguinte da mesma estrofe: quebra de linha
+            paragraphs[-1].append([entry.line.text])
+            previous = entry
+            continue
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
         # Crédito do texto em letra miúda, alinhado à direita e quebrado em duas linhas ou mais
@@ -1465,11 +1489,11 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             or _labeled_line_opens(opener, previous, entry)
         )
         if new:
-            paragraphs.append([])
+            paragraphs.append([[]])
             opener = entry
-        paragraphs[-1].append(entry.line.text)
+        paragraphs[-1][-1].append(entry.line.text)
         previous = entry
-    return [_join(lines) for lines in paragraphs]
+    return [_join_verses(pieces) for pieces in paragraphs]
 
 
 # Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é...") ou a conclusão do
@@ -1715,6 +1739,95 @@ def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:
         before = " ".join(sentences[:-1]).strip()
         return [*rest, before] if before else rest, sentences[-1].strip()
     return paragraphs, ""
+
+
+def _join_verses(pieces: list[list[str]]) -> str:
+    """Junta os versos de uma estrofe com quebra de linha (`\\` no fim da linha,
+    docs/content-format.md); cada verso junta as suas linhas com `_join`."""
+    return "\\\n".join(_join(piece) for piece in pieces if piece)
+
+
+# Começo de linha que não é verso: item de lista (I, II; a), b); •; travessão; número), rótulo.
+NOT_VERSE_START = re.compile(r"^(?:[IVX]+\b|[a-e]\)|•|[–—-]|\d|\(|\[)")
+VERSE_OPEN_END = re.compile(r"[^\W\d_]{2},?$")
+VERSE_MIN_LINES = 4  # estrofe mais curta que isso não se distingue de linhas curtas soltas
+VERSE_MIN_OPEN = 2  # versos que terminam sem fechar a frase (em palavra ou vírgula)
+
+
+def _verse_open(entry: _Entry) -> bool:
+    """A linha acaba sem fechar a frase: em palavra ou vírgula (não em ponto, dois-pontos, ponto e
+    vírgula, aspas, parêntese nem número, que é coluna de tabela: PF 2018 agente, g100; nem em letra
+    solta, que é linha de tabela-verdade: "F F V", PF 2025 bloco I, g54)."""
+    return VERSE_OPEN_END.search(entry.line.plain.rstrip()) is not None
+
+
+def _verse_link(previous: _Entry, entry: _Entry, leading: float, base: float | None) -> bool:
+    """As duas linhas seguem uma à outra no mesmo bloco de linhas alinhadas: mesma página, coluna,
+    corpo e margem sem recuo (ou o mesmo meio, recuadas: versos centralizados), sem espaço vertical
+    maior que o entrelinha, nenhuma delas título, item de lista, linha com rótulo ou código."""
+    gap = _vertical_gap(previous, entry)
+    if gap is None or gap > leading + BLOCK_GAP:
+        return False
+    if abs(entry.line.size - previous.line.size) >= 1 or entry.line.size < CITATION_SIZE:
+        return False
+    margin = (base or entry.left) + PARAGRAPH_INDENT
+    aligned = abs(entry.line.x0 - previous.line.x0) <= BLOCK_INDENT_TOLERANCE
+    # Versos centralizados (CBM/AL 2017 soldado específicos, "O Xote das meninas", g114): o meio
+    # das linhas coincide, todas recuadas.
+    centered = (
+        abs(_center(entry) - _center(previous)) <= 2 * BLOCK_INDENT_TOLERANCE
+        and min(entry.line.x0, previous.line.x0) > margin
+    )
+    if not ((aligned and entry.line.x0 <= margin) or centered):
+        return False
+    for line in (previous, entry):
+        if _is_title(line) or _labeled(line) or NOT_VERSE_START.match(line.line.plain):
+            return False
+        if line.line.text.lstrip().startswith("`"):  # código não é verso (PF 2025 bloco II, g91)
+            return False
+    return not CREDIT_END.search(previous.line.plain.strip())
+
+
+def _center(entry: _Entry) -> float:
+    return (entry.line.x0 + entry.line.x1) / 2
+
+
+def _verse_breaks(
+    entries: list[_Entry], leading: float | None, base: float | None = None
+) -> set[int]:
+    """Índices das linhas de verso depois das quais vem quebra de linha, não parágrafo novo
+    (PM/AL 2021 soldado, "À procura da infância": uma estrofe de 21 versos, cada um virava um
+    parágrafo).
+
+    Estrofe é um bloco de linhas alinhadas, sem espaço vertical maior que o entrelinha
+    (`_verse_link`), com pelo menos `VERSE_MIN_LINES` linhas, três linhas curtas no meio e, entre
+    elas, pelo menos `VERSE_MIN_OPEN` que acabam sem fechar a frase e não menos que as que fecham.
+    Na prosa a linha curta fecha o parágrafo com ponto; no verso ela acaba em palavra ou vírgula.
+    Verso longo que vai até a margem continua na linha seguinte (junta com espaço). Estrofe nova
+    só com espaço vertical maior (`_block_gap`). Correspondência oficial fica de fora."""
+    if leading is None:
+        return set()
+    if any(LETTER_LINE.match(entry.line.plain.strip()) for entry in entries):
+        # Correspondência oficial (vocativo ou fecho, "Senhora gerente,"): o cabeçalho centralizado
+        # e o endereçamento têm regra própria, não são estrofe (PC/PB 2021 CG1A1-III).
+        return set()
+    breaks: set[int] = set()
+    start = 0
+    for end in range(1, len(entries) + 1):
+        if end < len(entries) and _verse_link(entries[end - 1], entries[end], leading, base):
+            continue
+        run = range(start, end - 1)  # quebras entre as linhas do bloco [start, end)
+        shorts = [i for i in run if entries[i].short]
+        opened = sum(1 for i in shorts if _verse_open(entries[i]))
+        if (
+            end - start >= VERSE_MIN_LINES
+            and len(shorts) >= 3
+            and opened >= VERSE_MIN_OPEN
+            and 2 * opened >= len(shorts)
+        ):
+            breaks.update(shorts)
+        start = end
+    return breaks
 
 
 def _join(lines: list[str]) -> str:

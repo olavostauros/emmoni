@@ -58,3 +58,12 @@ cita a figura 1A3-I, ganha o texto; segue em `review`), `pmsc-2023-soldado/objet
 título como texto-base; volta a `review` para reamostragem) e `pcientifica-pe-2016` (não
 ingerida). A heurística de termos pode errar em grupos sem termo próprio; a amostra por prova é
 onde isso aparece.
+
+## Emenda de 2026-10-14 (2) — remissão com o rótulo colado
+
+O PM/SC 2023 soldado grafa "do texto1A5-I" e "do texto1A5-II" sem espaço no próprio caderno
+(q37 e q39); a remissão só era reconhecida com espaço entre a palavra do título e o rótulo, e as
+duas questões ficavam sem texto-base. A palavra do título (texto, figura, tabela...) colada a um
+rótulo da banca em maiúsculas ("1A5-I") conta como remissão, só na busca (`GLUED_REF`); o
+enunciado guarda a grafia do caderno. Na varredura das provas do staging só essas duas questões
+mudam (ganham o texto-base); nenhuma outra prova tem a grafia colada.
