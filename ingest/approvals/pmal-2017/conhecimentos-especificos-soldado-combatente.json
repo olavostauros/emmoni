@@ -1,19 +1,21 @@
 {
  "exam": "pmal-2017/conhecimentos-especificos-soldado-combatente",
+ "seed": "r25",
  "numbers": [
-  52,
-  57,
   70,
-  72,
-  77,
-  80,
-  90,
-  91,
-  101,
-  109
+  75,
+  76,
+  83,
+  86,
+  95,
+  98,
+  110,
+  111,
+  118
  ],
- "sampled_at": "2026-10-08T13:32:22.652339+00:00",
- "approved_at": "2026-10-08T13:36:30.956659+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "27219237c3614d1da18fc33f60ad60d73e9cb60e2e19f85ada7e367c629827aa"
+ "sampled_at": "2026-10-14T23:34:17.533660+00:00",
+ "approved_at": "2026-10-14T23:34:50.488470+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "58e9cbf0d5ff03102de3234eb87031f0e8d5c4630b55a5a0be81445875601136",
+ "fingerprint_version": 2
 }
