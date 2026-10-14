@@ -201,21 +201,38 @@ def _publishable(conn: Conn, ref: ExamRef) -> list[int]:
     return [int(str(r[0])) for r in rows]
 
 
-def sample_numbers(conn: Conn, ref: ExamRef, n: int) -> list[int]:
-    """Sorteio determinístico entre as questões sem motivo de revisão."""
+def sample_seed(ref: ExamRef, seed: str | None = None) -> str:
+    """Semente do sorteio: a dada (`--seed`, para reamostrar depois de uma correção com outra
+    semente) ou, sem ela, o próprio `<concurso>/<prova>` (decisão 0031)."""
+    return str(ref) if seed is None else seed
+
+
+def sample_numbers(conn: Conn, ref: ExamRef, n: int, seed: str | None = None) -> list[int]:
+    """Sorteio determinístico (pela semente) entre as questões sem motivo de revisão."""
     candidates = _publishable(conn, ref)
     if not candidates:
         raise ReviewError(f"{ref}: nenhuma questão publicável para amostrar")
-    return sorted(random.Random(str(ref)).sample(candidates, min(n, len(candidates))))
+    rng = random.Random(sample_seed(ref, seed))
+    return sorted(rng.sample(candidates, min(n, len(candidates))))
 
 
 def sample_dir(data: Path, ref: ExamRef) -> Path:
     return data / "review" / ref.contest / ref.exam
 
 
-def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path, also: Sequence[int] = ()) -> Path:
-    """`also`: questões que entram além do sorteio (ex.: as que mudaram no reprocessamento)."""
-    numbers = sample_numbers(conn, ref, n)
+def write_sample(
+    conn: Conn,
+    ref: ExamRef,
+    n: int,
+    data: Path,
+    also: Sequence[int] = (),
+    seed: str | None = None,
+) -> Path:
+    """`also`: questões que entram além do sorteio (ex.: as que mudaram no reprocessamento).
+    `seed`: semente do sorteio (sem ela, `<concurso>/<prova>`); fica gravada no `sample.json`, no
+    `amostra.md` e, na aprovação, em `ingest/approvals/`."""
+    used_seed = sample_seed(ref, seed)
+    numbers = sample_numbers(conn, ref, n, used_seed)
     if also:
         publishable = set(_publishable(conn, ref))
         numbers = sorted(set(numbers) | (set(also) & publishable))
@@ -226,11 +243,12 @@ def write_sample(conn: Conn, ref: ExamRef, n: int, data: Path, also: Sequence[in
     page.write_text(_html(ref, questions), encoding="utf-8")
     keys = _answer_key_paths(conn, ref)
     (directory / "amostra.md").write_text(
-        _markdown(ref, questions, _write_pages(directory / "paginas", questions, keys)),
+        _markdown(ref, questions, _write_pages(directory / "paginas", questions, keys), used_seed),
         encoding="utf-8",
     )
     record = {
         "exam": str(ref),
+        "seed": used_seed,
         "numbers": numbers,
         "created_at": datetime.datetime.now(datetime.UTC).isoformat(),
         "approved_at": None,
@@ -302,6 +320,7 @@ def write_approval(approvals: Path, ref: ExamRef, sample: dict[str, object], dig
     path.parent.mkdir(parents=True, exist_ok=True)
     record = {
         "exam": str(ref),
+        "seed": sample.get("seed"),  # ausente nas amostras anteriores à decisão 0031
         "numbers": sample["numbers"],
         "sampled_at": sample["created_at"],
         "approved_at": sample["approved_at"],
@@ -536,9 +555,13 @@ def _write_pages(
     return files
 
 
-def _markdown(ref: ExamRef, questions: list[QuestionView], pages: dict[str, list[str]]) -> str:
+def _markdown(
+    ref: ExamRef, questions: list[QuestionView], pages: dict[str, list[str]], seed: str
+) -> str:
     lines = [
         f"# Amostra — {ref}",
+        "",
+        f"{len(questions)} questões (semente do sorteio: `{seed}`).",
         "",
         "Confira cada questão contra as páginas do PDF: enunciado, texto-base, alternativas,",
         "gabarito definitivo e disciplina. Gabarito definitivo: "

@@ -120,7 +120,7 @@ comandos e limiares, e se registra como revisor com o nome e o modelo
   amostra com a página do PDF (enunciado, texto-base, alternativas, gabarito final, disciplina).
   Tudo confere: `emmoni review approve <concurso>/<prova> --by <modelo>`. Algo não confere: não
   aprovar; a causa volta ao hefesto pela coordenadora, e depois da correção o minos amostra de novo
-  com outra semente.
+  com outra semente (`--seed <texto>`, decisão 0031).
 - **Amostra de assuntos** — `emmoni review topics`: em contexto separado do `classify` — um
   subagente que lê só `data/review/assuntos/amostra.{md,json}` e `db/taxonomy/*.yaml`, sem abrir
   `classify-answers.json`, o prompt nem o raciocínio da classificação —, julgar se os assuntos

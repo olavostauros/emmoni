@@ -532,7 +532,10 @@ exams:
 No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
 rotulado ou a situação hipotética vira texto-base. Na múltipla escolha, o texto-base vale para a
 primeira questão depois dele e para as que o citam pelo rótulo ("texto 2A1-I", "figura 5A2");
-as demais não o herdam (decisão 0013). O `load` grava `review` quando há motivo de
+as demais não o herdam (decisão 0013). Questão que cita figura, diagrama ou tabela que não foi
+extraída ("o modelo ER precedente", "a estrutura mostrada anteriormente"), ou item certo/errado sem
+texto-base cujo comando remete ao que vem antes dele ("os dados acima"), vai para `review` com o
+motivo correspondente, até existir a etapa de imagens (decisão 0030). O `load` grava `review` quando há motivo de
 revisão, `published` quando não há motivo e há assunto, e `draft` quando falta assunto. A prova só é
 publicada depois da amostragem (decisão 0005).
 
@@ -545,7 +548,7 @@ emmoni manifests pending|show <slug>|approve <slug>|reject <slug> --reason "..."
 emmoni ingest <manifest>            # todas as etapas
 emmoni ingest <manifest> --step <s> # uma etapa
 emmoni review list|show [<concurso>/<prova>]   # fila de questões em review, com motivos
-emmoni review sample <concurso>/<prova> [--n 10] # amostra em HTML, ao lado da página do PDF
+emmoni review sample <concurso>/<prova> [--n 10] [--also N...] [--seed <texto>] # amostra em HTML, ao lado da página do PDF
 emmoni review approve <concurso>/<prova>        # publica a prova (exige amostra)
 emmoni review restore                           # publica as provas que conferem com ingest/approvals/
 emmoni review topics [--n 50] [--report]        # amostra de classificações por assunto (M4)
@@ -586,7 +589,8 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
   alternativas; buraco na numeração de uma prova; `asset:` sem asset; duplicatas publicadas
   não marcadas; questão publicada sem assunto; texto-base sem questões.
 - Amostragem por prova (feita pelo agente, decisão 0011): para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
-  (de forma determinística) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
+  (de forma determinística; semente `<concurso>/<prova>` ou a de `--seed`, gravada no `sample.json`,
+  no `amostra.md` e na aprovação; decisão 0031) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
   com cada questão ao lado da página do PDF; a prova só vai para `published` após a conferência
   (`emmoni review approve --by <modelo>`, que registra quem aprovou e a impressão digital do
   conteúdo em `ingest/approvals/<concurso>/<prova>.json`, versionado; decisão 0016). A amostra traz também `amostra.md` e as páginas em PNG (da página onde começa o texto-base ou o comando do grupo até a seguinte à da questão; decisão 0027); o revisor segue

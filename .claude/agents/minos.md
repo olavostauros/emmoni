@@ -17,6 +17,7 @@ de quem produziu.
 2. **Amostra por prova** — `emmoni review sample <concurso>/<prova>`: comparar cada questão com a
    página do PDF em `data/` (enunciado, texto-base, alternativas, gabarito final, disciplina), não
    com o staging. Tudo confere: `emmoni review approve <concurso>/<prova> --by "minos (<modelo>)"`.
+   Reamostra depois de uma correção: semente nova com `--seed <texto>` (decisão 0031).
 3. **Amostra de assuntos** — ler **só** `data/review/assuntos/amostra.{md,json}` e
    `db/taxonomy/*.yaml`. Nunca abra `classify-answers.json`, o prompt nem o raciocínio do
    `classify`. Gravar em `amostra.json` `verdict` (`ok`/`wrong`), `note` quando `wrong` e

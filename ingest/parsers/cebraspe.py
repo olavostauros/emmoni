@@ -102,6 +102,38 @@ FIGURE_REF = re.compile(
     r"(?:precedentes?|anteriore?s?|a seguir|abaixo|acima|seguintes?|que segue|apresentad[ao]s?|mostrad[ao]s?|ilustrad[ao]s?)\b",
     re.I,
 )
+# Figura citada com palavras entre o nome e a remissão ("o modelo entidade-relacionamento (ER)
+# precedente", "o diagrama e a situação hipotética apresentados", PF 2018 agente 81–83, PC/DF 2020
+# 85–86) ou só pelo particípio ("cuja estrutura geral é mostrada anteriormente", "o tipo de
+# virtualização antes ilustrado", PC/PB 2021 cargo 7, 51 e 54). Decisão 0030.
+FIGURE_NOUNS = (
+    r"figuras?|gr[áa]ficos?|imagens?|ilustra[çc][õoã](?:es|o)|esquemas?|mapas?|planilhas?"
+    r"|circuitos?|cartogramas?|tabelas?|diagramas?|fluxogramas?|organogramas?"
+)
+FIGURE_REF_WIDE = re.compile(
+    rf"\b(?:{FIGURE_NOUNS})\b(?:\s+[^\s.,;:]+){{0,5}}?\s+(?:(?:é|são|foi|foram|está|estão)\s+)?"
+    r"(?:antes\s+)?(?:precedentes?|anteriore?s?|anteriormente|a seguir|abaixo|acima"
+    r"|apresentad[ao]s?|mostrad[ao]s?|ilustrad[ao]s?)\b",
+    re.I,
+)
+DEPICTED = re.compile(
+    r"\b(?:(?:antes|acima|anteriormente)\s+(?:ilustrad|mostrad|esquematizad|representad)[oa]s?"
+    r"|(?:ilustrad|mostrad|esquematizad)[oa]s?\s+(?:anteriormente|acima))\b"
+    # "quadro" e "modelo" só com remissão de lugar: "o quadro apresentado" é também o quadro
+    # clínico (PC/MA 2017 perito, 49) e "o modelo apresentado", uma função (PRF 2018, 27).
+    r"|\bquadros?\s+(?:precedentes?|anteriore?s?|a seguir|abaixo|acima|seguintes?)\b"
+    r"|\bmodelos?\b(?:\s+[^\s.,;:]+){0,5}?\s+(?:precedentes?|anteriore?s?|anteriormente|a seguir"
+    r"|abaixo|acima)\b",
+    re.I,
+)
+# Comando de grupo certo/errado que remete a algo antes dele ("Considerando o modelo ... precedente,
+# julgue", "Considerando que os dados acima ..."): sem texto-base, o que ele aponta não foi
+# extraído. Decisão 0030.
+BACK_REF = re.compile(
+    r"\b(?:precedentes?|anteriores?|anteriormente|acima"
+    r"|antes\s+(?:ilustrad|apresentad|mostrad|descrit)[oa]s?)\b",
+    re.I,
+)
 # Título de disciplina em caixa alta entre questões ("DIREITO FINANCEIRO E TRIBUTÁRIO",
 # "35. HISTÓRIA E GEOGRAFIA DE RONDÔNIA" em PC/RO 2022): encerra a alternativa e não é texto-base.
 SECTION_TITLE = re.compile(r"^(?:\d+\.\s+)?[A-ZÀ-Ú][A-ZÀ-Ú ,.()–-]{3,}$")
@@ -481,7 +513,8 @@ def _referenced_passage(question: RawQuestion, labels: dict[str, str]) -> str | 
 
 def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
     """Remissões que o parser não resolveu: rótulo citado sem texto-base com esse rótulo, texto sem
-    rótulo citado por questão sem texto-base, figura da própria questão (não há imagens)."""
+    rótulo citado por questão sem texto-base, figura da própria questão (não há imagens), comando
+    que remete ao que vem antes dele sem texto-base."""
     text = " ".join([question.statement_md, *(o.body_md for o in question.options)])
     flags: set[str] = set()
     cited = {m.group(1) for m in LABEL_REF.finditer(text)}
@@ -492,9 +525,20 @@ def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
         or LINE_REF.search(text)
     ):
         flags.add("missing_passage")
-    if FIGURE_REF.search(text):
+    if FIGURE_REF.search(text) or FIGURE_REF_WIDE.search(text) or DEPICTED.search(text):
         flags.add("figure")
+    elif question.passage_key is None and _command_points_back(question):
+        flags.add("missing_passage")
     return flags
+
+
+def _command_points_back(question: RawQuestion) -> bool:
+    """Comando de grupo certo/errado que remete ao que vem antes dele ("os dados acima"), numa
+    questão sem texto-base: o que o comando aponta ficou de fora."""
+    if question.type != "true_false" or "\n\n" not in question.statement_md:
+        return False
+    command = question.statement_md.split("\n\n")[0]
+    return BACK_REF.search(ITEMS_PHRASE.sub(" ", command)) is not None
 
 
 def _generic_command(question: RawQuestion) -> bool:
@@ -537,7 +581,12 @@ def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]
         if passage is None:
             continue
         body = passage.body_md.strip()
-        if FIGURE_REF.search(body) or (len(body) < 250 and CREDIT_ONLY.match(body)):
+        if (
+            FIGURE_REF.search(body)
+            or FIGURE_REF_WIDE.search(body)
+            or DEPICTED.search(body)
+            or (len(body) < 250 and CREDIT_ONLY.match(body))
+        ):
             question.flags = sorted({*question.flags, "figure"})
 
 

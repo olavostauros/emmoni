@@ -7,7 +7,7 @@ import pytest
 
 from ingest.extract import Figure, Line, Page, extract
 from ingest.parsers import cebraspe
-from ingest.staging import Segmented
+from ingest.staging import RawQuestion, Segmented
 
 FIXTURES = Path(__file__).resolve().parent.parent / "fixtures"
 EXAM_PDF = FIXTURES / "pdf/cebraspe/pf-2021-agente-p2-3.pdf"
@@ -125,6 +125,74 @@ def test_figure_after_item_text_flags_the_item() -> None:
     questions = cebraspe.segment([page]).questions
     assert questions[0].flags == ["figure"]
     assert questions[1].flags == []
+
+
+def test_command_citing_figure_not_extracted_flags_every_item() -> None:
+    """PF 2018 agente 81–83: o diagrama ER fica entre o item 80 e o comando "Considerando o modelo
+    entidade-relacionamento (ER) precedente, julgue..."; sem a figura, os itens do grupo vão para
+    revisão, e não só o item de cima (decisão 0030)."""
+    page = _page(
+        [
+            _line("Julgue o próximo item.", 28, 50),
+            _line("**1** Item anterior à figura.", 28, 70),
+            _line("Considerando o modelo entidade-relacionamento (ER)", 28, 200),
+            _line("precedente, julgue os seguintes itens.", 28, 212, x1=200),
+            _line("**2** Um produto tem um preço.", 28, 230),
+            _line("**3** Um tipo de produto tem um código.", 28, 250),
+            _line("Julgue o próximo item.", 28, 280),
+            _line("**4** Item sem figura.", 28, 300),
+        ],
+        [Figure(kind="image", x0=46, y0=100, x1=250, y1=180)],
+    )
+    questions = cebraspe.segment([page]).questions
+    assert [q.number for q in questions] == [1, 2, 3, 4]
+    assert "figure" in questions[0].flags  # a linha acima da figura continua marcada
+    assert questions[1].flags == ["figure"]
+    assert questions[2].flags == ["figure"]
+    assert questions[3].flags == []
+
+
+@pytest.mark.parametrize(
+    ("statement", "flag"),
+    [
+        (
+            "Considerando o diagrama e a situação hipotética apresentados, julgue.\n\nItem.",
+            "figure",
+        ),
+        (
+            "Considerando o modelo entidade-relacionamento (ER) precedente, julgue.\n\nItem.",
+            "figure",
+        ),
+        (
+            "Em um computador, cuja estrutura geral é mostrada anteriormente, o registrador",
+            "figure",
+        ),
+        ("O tipo de virtualização antes ilustrado é conhecido como", "figure"),
+        ("Considerando o quadro a seguir, julgue os itens.\n\nItem.", "figure"),
+        (
+            "Considerando que os dados acima correspondem ao balanço, julgue.\n\nItem.",
+            "missing_passage",
+        ),
+        ("Julgue os itens subsequentes, relativos ao direito penal.\n\nItem.", None),
+        ("Com referência ao caso clínico, o quadro apresentado e a gravidade desse quadro", None),
+        ("Segundo o modelo apresentado, após dez anos, o número de acidentes será", None),
+        ("Considere a equação química mostrada a seguir, que é", None),
+    ],
+)
+def test_reference_to_figure_or_to_something_before_the_command(
+    statement: str, flag: str | None
+) -> None:
+    question = RawQuestion(
+        number=1,
+        type="true_false" if "\n\n" in statement else "multiple_choice",
+        statement_md=statement,
+        options=[],
+        passage_key=None,
+        page=1,
+        flags=[],
+    )
+    flags = cebraspe._reference_flags(question, {})
+    assert flags == ({flag} if flag else set())
 
 
 def test_official_justifications_are_dropped() -> None:

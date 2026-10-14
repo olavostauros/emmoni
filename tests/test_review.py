@@ -62,6 +62,33 @@ def test_sample_is_deterministic_and_skips_review(tx: Conn) -> None:
     assert len(first) == 5 and not {3, 4} & set(first)
 
 
+def test_sample_seed_changes_the_draw_and_is_recorded(tx: Conn, tmp_path: Path) -> None:
+    """`--seed`: sem semente, o sorteio é o de sempre (`<concurso>/<prova>`); outra semente sorteia
+    outras questões, de forma reprodutível, e fica gravada na amostra e na aprovação."""
+    ref, _ = _exam(tx)
+    default = review.sample_numbers(tx, ref, 3)
+    assert default == review.sample_numbers(tx, ref, 3, str(ref))
+    draws = {tuple(review.sample_numbers(tx, ref, 3, f"r{i}")) for i in range(5)}
+    assert draws - {tuple(default)}  # alguma semente muda o sorteio
+    assert review.sample_numbers(tx, ref, 3, "r1") == review.sample_numbers(tx, ref, 3, "r1")
+    assert not {3, 4} & set(review.sample_numbers(tx, ref, 10, "r1"))
+
+    review.write_sample(tx, ref, 3, tmp_path, seed="r1")
+    directory = review.sample_dir(tmp_path, ref)
+    record = json.loads((directory / "sample.json").read_text(encoding="utf-8"))
+    assert record["seed"] == "r1"
+    assert record["numbers"] == review.sample_numbers(tx, ref, 3, "r1")
+    assert "semente do sorteio: `r1`" in (directory / "amostra.md").read_text(encoding="utf-8")
+    approvals = tmp_path / "approvals"
+    review.approve(tx, ref, tmp_path, by="minos (teste)", approvals=approvals)
+    approval = json.loads(review.approval_path(approvals, ref).read_text(encoding="utf-8"))
+    assert approval["seed"] == "r1"
+
+    review.write_sample(tx, ref, 3, tmp_path)
+    record = json.loads((directory / "sample.json").read_text(encoding="utf-8"))
+    assert record["seed"] == str(ref) and record["numbers"] == default
+
+
 def test_sample_also_includes_publishable_changed_questions(tx: Conn, tmp_path: Path) -> None:
     ref, _ = _exam(tx)
     drawn = review.sample_numbers(tx, ref, 3)
