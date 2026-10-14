@@ -1,4 +1,5 @@
 # cbmal-2017: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles ligado em 2026-10-14 (decisão 0020): reprovação do minos (r15).
 contest: cbmal-2017
 name: Corpo de Bombeiros Militar do Estado de Alagoas
 agency: cbmal
@@ -11,6 +12,7 @@ exams:
   positions:
   - oficial
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_001_01.PDF
@@ -28,6 +30,7 @@ exams:
   positions:
   - soldado
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_002_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_002_01.PDF
@@ -41,6 +44,7 @@ exams:
   positions:
   - oficial
   first_number: 6
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_CB1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_CB1_01.PDF
@@ -57,6 +61,7 @@ exams:
   positions:
   - soldado
   first_number: 6
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_CB2_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/Gab_Definitivo_340_CBMAL_CB2_01.PDF

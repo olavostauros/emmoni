@@ -208,6 +208,7 @@ LETTER_LINE = re.compile(
     r"^(?:(?:Excelent[íi]ssim[oa]|Ilustr[íi]ssim[oa]|Magn[íi]fic[oa]|Prezad[oa]s?|Car[oa]s?)\s+)?"
     r"(?:Senhora?|Senhores|Senhoras|Atenciosamente|Respeitosamente|Cordialmente)\b[^.;:!?]{0,60},$"
 )
+FIGURE_SOURCE = re.compile(r"^Fonte\s*:", re.I)  # crédito de figura ("Fonte: IBGE")
 FIGURE_CREDIT_GAP = 20.0  # crédito da figura logo abaixo dela
 CITATION_SIZE = 9.0  # letra menor que isso: citação da fonte do texto  # recuo maior que isso dentro de item = layout especial (código, tabela)
 
@@ -223,6 +224,7 @@ class _Entry:
     # Veio logo depois de uma justificativa do gabarito: a justificativa fecha o item, então esta
     # linha não o continua (PCDF 2020: o texto-base com recuo de parágrafo de 15 grudava no item).
     after_justification: bool = False
+    invisible: bool = False  # texto branco sem fundo (`_visible`)
 
 
 @dataclass
@@ -298,13 +300,25 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
                 continue
             skipped = None
             earlier = ITEM.match(line.plain) if not questions and first > 1 else None
+            number = int(earlier.group(1)) if earlier is not None else 0
             if (
                 earlier is not None
-                and int(earlier.group(1)) == skipped_items + 1 < first
+                # A numeração recomeça em 1 na outra língua estrangeira, depois do comando dela
+                # (CBM/AL 2017: espanhol e inglês, itens 1 a 5 cada, antes do item 6 da prova); sem
+                # comando, o "1" é número de linha do texto-base.
+                and (
+                    number == skipped_items + 1
+                    or (
+                        number == 1
+                        and skipped_items > 0
+                        and any(COMMAND.search(e.line.plain) for e in lead.entries)
+                    )
+                )
+                and number < first
                 and line.x0 <= entry.left + ITEM_INDENT
             ):
                 # Item de antes da prova: o que veio até aqui não é abertura do primeiro grupo.
-                skipped_items += 1
+                skipped_items = number
                 skipped = _Unit([entry])
                 lead = _Unit()
                 continue
@@ -861,6 +875,14 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
         return False
     indent = entry.line.x0 - entry.left
     last = item.entries[-1]
+    if (
+        "figure" in last.flags
+        and entry.line.size < CITATION_SIZE
+        and FIGURE_SOURCE.match(entry.line.plain)
+    ):
+        # "Fonte: IBGE" em letra miúda logo abaixo da figura do item é o crédito dela, não a
+        # abertura do grupo seguinte (CBM/AL 2017 específicos cargo 1, item 93).
+        return True
     if indent <= HANGING_MIN:
         # Só continua se a frase claramente segue (linha começa com minúscula).
         unfinished = not last.line.plain.rstrip().endswith((".", "?", "!", ":"))
@@ -987,6 +1009,12 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 after_gap=gap,
                 after_justification=closed,
             )
+            # Texto branco sem fundo desenhado é invisível: não está na página impressa (PC/SE
+            # 2018: "Texto" em 5 pt acima de cada texto-base). Sai depois de as figuras serem
+            # atribuídas, para não mudar a que linha cada figura se liga.
+            entry.invisible = line.color == WHITE and not any(
+                _behind(figure, line) for figure in page.figures
+            )
             gap = False
             if BROKEN_MATH.search(line.plain):
                 entry.flags.add("formula")
@@ -997,8 +1025,27 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             if line.scripts:
                 entry.flags.add("formula")  # índices/expoentes que o texto puro achata
             entries.append(entry)
-        stream.extend(_with_figures(page, entries, skipped, start_y))
+        stream.extend(_visible(_with_figures(page, entries, skipped, start_y)))
     return stream
+
+
+def _visible(entries: list[_Entry]) -> list[_Entry]:
+    """Tira as linhas invisíveis; as marcas que receberam (a figura logo abaixo) passam à linha
+    seguinte da mesma coluna, ou à anterior quando não há seguinte."""
+    kept: list[_Entry] = []
+    for index, entry in enumerate(entries):
+        if not entry.invisible:
+            kept.append(entry)
+            continue
+        if not entry.flags:
+            continue
+        column = entry.line.column
+        after = [e for e in entries[index + 1 :] if not e.invisible and e.line.column == column]
+        before = [e for e in kept if e.line.column == column]
+        heir = after[0] if after else before[-1] if before else None
+        if heir is not None:
+            heir.flags |= entry.flags
+    return kept
 
 
 def _justification_color(pages: list[Page]) -> int | None:
@@ -1219,6 +1266,16 @@ def _contains(figure: Figure, line: Line) -> bool:
         and line.x1 <= figure.x1 + 2
         and figure.y0 - 2 <= line.y0
         and line.y1 <= figure.y1 + 2
+    )
+
+
+def _behind(figure: Figure, line: Line) -> bool:
+    """Figura que cruza a caixa da linha: o fundo sobre o qual um texto branco fica visível."""
+    return (
+        figure.x0 <= line.x1
+        and line.x0 <= figure.x1
+        and figure.y0 <= line.y1
+        and line.y0 <= figure.y1
     )
 
 

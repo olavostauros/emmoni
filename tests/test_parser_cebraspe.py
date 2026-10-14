@@ -671,6 +671,85 @@ def test_items_before_first_do_not_leak_into_the_first_passage() -> None:
     assert passage.body_md == "Determinado órgão público publicou edital."
 
 
+def test_second_foreign_language_restarts_the_skipped_items() -> None:
+    """CBM/AL 2017: espanhol e inglês trazem os itens 1 a 5 cada antes do item 6 da prova. O bloco
+    da segunda língua não vira abertura do primeiro grupo; o "1" do número de linha do texto-base
+    seguinte (sem comando antes) não recomeça a contagem."""
+    page = _page(
+        [
+            _line("Basándose en el texto, juzgue los ítems siguientes.", 28, 50),
+            _line("1 Ítem uno.", 28, 62),
+            _line("2 Ítem dos.", 28, 74),
+            _line("LÍNGUA INGLESA", 87, 100, x1=200),
+            _line("1 Learning a second language is difficult.", 34, 112),
+            _line("Based on the text above, judge the following items.", 28, 130),
+            _line("1 Item one.", 28, 142),
+            _line("2 Item two, which goes", 28, 154),
+            _line("on here.", 47, 166, x1=120),
+            _line("Texto CB2A1AAA", 28, 190, x1=110),
+            _line("1 O açúcar arrasou o Nordeste.", 34, 202),
+            _line("Com relação às ideias do texto CB2A1AAA, julgue os itens.", 28, 220),
+            _line("3 Item da prova.", 28, 240),
+        ]
+    )
+    segmented = cebraspe.segment([page], first=3)
+    (question,) = segmented.questions
+    assert question.statement_md == (
+        "Com relação às ideias do texto CB2A1AAA, julgue os itens.\n\nItem da prova."
+    )
+    passage = next(p for p in segmented.passages if p.key == question.passage_key)
+    assert passage.key == "CB2A1AAA"
+    assert passage.body_md.endswith("O açúcar arrasou o Nordeste.")
+    assert "Learning" not in passage.body_md
+
+
+def test_figure_source_below_item_figure_stays_with_the_item() -> None:
+    """CBM/AL 2017 específicos cargo 1, item 93: "Fonte: IBGE" em letra miúda, à direita, logo
+    abaixo do mapa do item, é o crédito do mapa; os itens 94–96 seguem no mesmo comando."""
+    page = _page(
+        [
+            _line("Julgue os próximos itens, acerca do território.", 28, 50),
+            _line("93 O mapa a seguir representa Tordesilhas.", 28, 70),
+            _line("Fonte: IBGE", 250, 300, x1=285, size=6.0),
+            _line("94 Os estados da região Norte são agrários.", 28, 320),
+        ],
+        figures=[Figure(kind="image", x0=46, y0=90, x1=285, y1=295)],
+    )
+    first, second = cebraspe.segment([page], first=93).questions
+    assert "figure" in first.flags
+    assert first.statement_md.endswith("Tordesilhas. Fonte: IBGE")
+    assert second.statement_md == (
+        "Julgue os próximos itens, acerca do território.\n\nOs estados da região Norte são agrários."
+    )
+    assert "figure" not in second.flags
+
+
+def test_invisible_white_text_is_dropped() -> None:
+    """PC/SE 2018: "Texto" em branco, 5 pt, sem fundo, acima de cada texto-base: não está na página
+    impressa. Texto branco sobre um fundo desenhado fica."""
+    hidden = _line("Texto", 28, 40, x1=44, size=5.0).model_copy(update={"color": cebraspe.WHITE})
+    boxed = _line("Quadro", 28, 120, x1=80).model_copy(update={"color": cebraspe.WHITE})
+    page = _page(
+        [
+            hidden,
+            _line("1 A existência da polícia se justifica.", 29, 52),
+            _line("Acerca do texto, julgue os itens a seguir.", 28, 70),
+            _line("1 De acordo com o texto, a polícia atua.", 28, 86),
+            boxed,
+            _line("2 Outro item.", 28, 140),
+        ],
+        figures=[Figure(kind="drawing", x0=26, y0=118, x1=90, y1=133)],
+    )
+    segmented = cebraspe.segment([page])
+    first, second = segmented.questions
+    assert first.statement_md == (
+        "Acerca do texto, julgue os itens a seguir.\n\nDe acordo com o texto, a polícia atua."
+    )
+    passage = next(p for p in segmented.passages if p.key == first.passage_key)
+    assert "Texto" not in passage.body_md
+    assert "Quadro" in first.statement_md or "Quadro" in second.statement_md
+
+
 def test_command_split_across_columns_is_rejoined() -> None:
     """PM/AL 2018: o comando começa no fim do texto ("...aos sentidos do") e continua na outra
     coluna ("texto 1A1-I, julgue"); a frase inacabada volta para o comando."""

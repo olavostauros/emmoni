@@ -350,3 +350,40 @@ do ofício do PC/PB 2021 (CG1A1-III): as exclusões acima existem por eles. A im
 aprovação não vê parágrafo; as quatro provas seguem publicadas e precisam de amostra nova.
 Ficam como estão: o poema em duas colunas com números de verso do PF 2012 (agente g12,
 papiloscopista g8; próximos passos) e os endereços de correspondência.
+
+## Emenda de 2026-10-14 (10) — segunda língua estrangeira, texto invisível, crédito da figura do item; estilo no CBM/AL 2017
+
+**Contexto.** O minos (semente r15) reprovou três provas publicadas. CBM/AL 2017 básicos cargo 2:
+os itens 6–12 traziam no enunciado o bloco inteiro de LÍNGUA INGLESA da pág. 1 (texto, crédito e
+itens 1–5), e faltava negrito/itálico (crédito "As veias abertas da América Latina", q14, q16, q18,
+q26, o poema "Lily Braun"). CBM/AL 2017 específicos cargo 2: *Aedes aegypti* sem itálico (q110).
+PC/SE 2018 conhecimentos gerais: a q1 virou "Texto *1* A existência da polícia… Em outras" sem
+texto-base, e o texto-base das q12–14 começava com uma linha "Texto" que não está no caderno.
+
+**Decisão.**
+
+1. Itens de antes de `first_number`: a contagem dos pulados recomeça em 1 quando um "1" na margem
+   vem depois de um comando ("judge", "juzgue"): é a outra língua estrangeira (espanhol e inglês,
+   itens 1 a 5 cada, antes do item 6). Sem comando antes, o "1" é número de linha do texto-base e
+   não recomeça nada.
+2. Linha em branco (`color` 0xFFFFFF) sem figura desenhada atrás é invisível e sai do fluxo
+   (`_visible`), depois de as figuras serem atribuídas às linhas: a marca de figura que ela tenha
+   recebido passa à linha seguinte da mesma coluna. No PC/SE 2018, o "Texto" em 5 pt acima de
+   cada texto-base. Texto branco sobre faixa desenhada (títulos) segue como antes.
+3. No certo/errado, "Fonte: …" em letra miúda logo depois de um item cuja última linha recebeu a
+   figura é o crédito dela e continua o item (`FIGURE_SOURCE`); antes abria um grupo novo com
+   "Fonte: IBGE" de comando (CBM/AL 2017 específicos cargo 1, itens 93–96).
+4. `infer_font_styles` ligado nas quatro provas do CBM/AL 2017.
+
+**Verificação.** Varredura das 135 provas do staging, parser do HEAD × novo, com as mesmas
+páginas: o item 1 muda só o CBM/AL 2017 básicos cargos 1 e 2 (itens 6–12); o item 2 muda o PC/SE
+2018 gerais (q1–q7 e g8/g12 sem "Texto"; q2–q7 saem de `review`), o "-- PROVA DE REDAÇÃO --" colado
+na alternativa D da q50 do CBM/TO 2021 oficial e soldado (em `review`), três textos-base `\<X>`
+soltos do PM/TO 2020 QPE (g31, g36) e QPPM (g56), sem questão, e um parágrafo vazio no fim de
+textos do CBM/TO 2022 oficial (1A1-I) e do PC/PB 2021 cargo 6 (6A1-II, 6A1-III) e delegado
+(CG1A1-II); o item 3 só o CBM/AL 2017 específicos cargo 1 (q93–q96; q94–q96 saem de `review`,
+a q93 segue pela figura). Com o estilo, o CBM/AL 2017 ganha a marcação pedida; as tabelas das
+q73–q76 e q81–q83 do específicos cargo 2 mudam de corte, todas em `review`.
+
+Fica de fora: o CBM/AL 2017 básicos cargo 1 segue fora (itens 49 e 50 perdidos depois das
+proposições "P:"/"Q:" do item 48; gabarito com 45 itens para 43 questões).
