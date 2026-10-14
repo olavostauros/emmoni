@@ -283,12 +283,16 @@ def _font_styles(document: Any) -> dict[str, int]:
     normal e oblíqua têm as mesmas larguras: no empate fica a normal.
     """
     advances: dict[str, list[tuple[str, float]]] = {}
+    credit_in: set[str] = set()  # fontes do "*In*:" do crédito
     for page in document:
         for block in page.get_text("rawdict")["blocks"]:
             for raw in block.get("lines", []):
-                for span in raw["spans"]:
+                spans = raw["spans"]
+                for i, span in enumerate(spans):
                     if not UNNAMED_FONT.match(span["font"]):
                         continue
+                    if 0 < i < len(spans) - 1 and _credit_in(spans[i - 1], span, spans[i + 1]):
+                        credit_in.add(span["font"])
                     for char in span["chars"]:
                         if char["c"].isascii() and char["c"].isalpha():
                             width = (char["bbox"][2] - char["bbox"][0]) / span["size"]
@@ -314,7 +318,28 @@ def _font_styles(document: Any) -> dict[str, int]:
             best = upright
         if distance[best] <= MAX_STYLE_DISTANCE:
             styles[font] = STYLE_FONTS[best]
+    # Fonte com letras de menos para as larguras, mas que escreve o "In" de "*In*:" do crédito: é a
+    # itálica miúda do crédito, e o resto dela também é itálico ("*et al*.", PF 2018).
+    for font in credit_in - styles.keys():
+        if len(advances.get(font, [])) < MIN_STYLE_CHARS:
+            styles[font] = ITALIC
     return styles
+
+
+def _span_text(span: dict[str, Any]) -> str:
+    if "text" in span:
+        return str(span["text"])
+    return "".join(char["c"] for char in span.get("chars", []))
+
+
+def _credit_in(before: dict[str, Any], span: dict[str, Any], after: dict[str, Any]) -> bool:
+    """O "In" de "*In*:" do crédito, numa fonte própria entre vizinhas de outra fonte."""
+    return (
+        _span_text(span) == "In"
+        and span["font"] != before["font"]
+        and span["font"] != after["font"]
+        and _span_text(after).startswith(":")
+    )
 
 
 def _gutter(boxes: list[Any], width: float) -> float:
@@ -670,13 +695,7 @@ def _line_refs(spans: list[dict[str, Any]], legacy: bool = False) -> list[dict[s
         before, span, after = spans[i - 1], spans[i], spans[i + 1]
         if _is_ell(before, span, after):
             result[i] = span | {"text": "ℓ"}
-        elif (
-            legacy
-            and span["text"] == "In"
-            and span["font"] != before["font"]
-            and span["font"] != after["font"]
-            and after["text"].startswith(":")
-        ):
+        elif legacy and _credit_in(before, span, after):
             # "*In*:" do crédito numa fonte própria, com letras de menos para deduzir o estilo.
             result[i] = span | {"flags": span["flags"] | ITALIC}
     return result

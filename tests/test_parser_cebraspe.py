@@ -599,6 +599,77 @@ def test_three_line_credit_is_one_paragraph() -> None:
     )
 
 
+def test_justified_credit_without_closing_line_is_one_paragraph() -> None:
+    """PF 2018 agente, texto 12A1AAA (Poe): crédito sem "(com adaptações)", justificado em duas
+    linhas que começam no mesmo x; a primeira vai até a margem e para no meio do nome ("Victor" |
+    "Civita"). Com numeração de linhas a segunda parecia recuo de parágrafo e o crédito se partia."""
+    page = _page(
+        [
+            _line("Texto 12A1AAA", 28, 30),
+            _line("55 Corpo do texto-base com uma frase completa que segue", 31, 40),
+            _line("adiante na linha seguinte, sem recuo, até a margem e", 46, 47),
+            _line("mais uma linha do corpo, que continua a mesma frase", 46, 54),
+            _line("muito considerada como a razão par excellence.", 46, 61, x1=238),
+            _line(
+                "Edgar Allan Poe. **A carta roubada**. *In*: **Histórias extraordinárias**. Victor",
+                116.5,
+                75,
+                size=6.0,
+            ),
+            _line("Civita, 1981. Tradução de Brenno Silveira e outros.", 116.5, 86.5, size=6.0),
+            _line("Com base no texto 12A1AAA, julgue o item a seguir.", 28, 105),
+            _line("**1** Item sobre o texto.", 28, 125),
+        ]
+    )
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.endswith(
+        "\n\nEdgar Allan Poe. **A carta roubada**. *In*: **Histórias extraordinárias**. Victor "
+        "Civita, 1981. Tradução de Brenno Silveira e outros."
+    )
+
+
+def test_chart_legend_in_small_print_is_not_a_credit() -> None:
+    """Legendas de gráfico em letra miúda, uma embaixo da outra no mesmo x e até perto da margem
+    (PF 2021 g77, "40 a 49 anos" | "50 a 59 anos"): o espaço entre elas não é o de linhas de um
+    mesmo crédito, e cada uma fica no seu parágrafo."""
+    page = _page(
+        [
+            _line("Texto 1A1-I", 28, 30),
+            _line("Corpo do texto-base com uma frase completa e bem longa.", 28, 50),
+            _line("40 a 49 anos", 222.6, 70, x1=268.6, size=8.0),
+            _line("50 a 59 anos", 222.6, 89, x1=268.6, size=8.0),
+            _line("Com base no texto 1A1-I, julgue o item a seguir.", 28, 110),
+            _line("**1** Item sobre o texto.", 28, 130),
+        ]
+    )
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.endswith("40 a 49 anos\n\n50 a 59 anos")
+
+
+def test_credit_closed_by_translation_note_is_one_paragraph() -> None:
+    """ "(tradução livre, com adaptações)" também fecha o crédito (PF 2018 papiloscopista, texto dos
+    itens 1–5): antes cada linha do crédito virava um parágrafo."""
+    page = _page(
+        [
+            _line("Texto 1A1-I", 28, 30),
+            _line("Corpo do texto-base com uma frase completa e bem longa.", 28, 50),
+            _line("Z. Nateghian *et al*. **Frontal sinus pattern and evaluation of right**", 99, 70, size=6.0),
+            _line("**and left frontal sinus volume according to gender, using multi**", 99, 77, size=6.0),
+            _line("**detector CT scan**. *In*: **Journal of Forensic Science & Criminology**:", 99, 84, size=6.0),
+            _line("vol. 4, issue 4, ISSN: 2348-9804 (tradução livre, com adaptações).", 99, 91, size=6.0),
+            _line("Com base no texto 1A1-I, julgue o item a seguir.", 28, 110),
+            _line("**1** Item sobre o texto.", 28, 130),
+        ]
+    )  # fmt: skip
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.endswith(
+        "bem longa.\n\nZ. Nateghian *et al*. **Frontal sinus pattern and evaluation of right and"
+        " left frontal sinus volume according to gender, using multi detector CT scan**. *In*:"
+        " **Journal of Forensic Science & Criminology**: vol. 4, issue 4, ISSN: 2348-9804"
+        " (tradução livre, com adaptações)."
+    )
+
+
 def test_credit_run_without_closing_line_stays_split() -> None:
     """Linhas miúdas à direita que não terminam no fecho do crédito não se emendam: sem o
     "(com adaptações)" ou o "Internet: <...>" não há como saber que são um crédito só."""

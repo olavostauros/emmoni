@@ -13,6 +13,7 @@ exams:
     name: Agente de Polícia Federal — prova objetiva
     positions: [agente]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF012__PAG_9.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF012__PAG_9.PDF
@@ -31,6 +32,7 @@ exams:
     name: Escrivão de Polícia Federal — prova objetiva
     positions: [escrivao]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF013__PAG_8.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF013__PAG_8.PDF
@@ -50,6 +52,7 @@ exams:
     name: Papiloscopista Policial Federal — prova objetiva
     positions: [papiloscopista]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF014__PAG_9.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF014__PAG_9.PDF
@@ -71,6 +74,7 @@ exams:
     name: Delegado de Polícia Federal — prova objetiva
     positions: [delegado]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF001__PAG_8.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/GAB_DEFINITIVO_408_DGPPF001__PAG_8.PDF

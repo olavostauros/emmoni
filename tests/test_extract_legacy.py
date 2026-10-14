@@ -111,3 +111,18 @@ def test_styles_only_keeps_the_rest_of_legacy_off() -> None:
     assert [[(e.plain, e.column) for e in p.lines] for p in styled] == [
         [(e.plain, e.column) for e in p.lines] for p in plain
     ]
+
+
+PF_2018 = (
+    Path(__file__).resolve().parent.parent / "fixtures/pdf/cebraspe/pf-2018-papiloscopista-p1.pdf"
+)
+
+
+def test_credit_font_with_too_few_letters_is_italic() -> None:
+    """PF 2018 (`styles`, fora do site antigo): "et al" e "In" numa fonte própria, com letras de
+    menos para as larguras, mas o "In" antes de ":" no crédito diz que é a itálica."""
+    pages = ex.extract(PF_2018, styles=True)
+    credit = next(line.text for page in pages for line in page.lines if "Nateghian" in line.text)
+    assert credit.startswith("Z. Nateghian *et al*.")
+    assert "*In*:" in _text(pages)
+    assert "*et al*" not in _text(ex.extract(PF_2018))  # sem `styles`, nada muda

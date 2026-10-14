@@ -81,3 +81,11 @@ fora do `cespe-unb`: o texto muda em quase todas as provas já publicadas (só a
 não muda), e em algumas mudam também as pendências (`flags`) de itens. Ligar para todas deixaria o
 banco diferente do `main` até reprocessar e reamostrar tudo. Cada prova liga a opção quando for
 reprocessada e reamostrada; quando todas tiverem passado, a opção pode virar o padrão.
+
+**Adendo (2026-10-13, PF 2018).** O PF 2018 inteiro (agente, escrivão, papiloscopista, delegado) liga
+`infer_font_styles`: o banco dessas provas já tinha sido carregado com o estilo pelas larguras (código
+de um ciclo anterior que não chegou ao `main`), e o papiloscopista foi aprovado assim. Com ele vem
+uma regra do item 4 que também vale com `styles`: a fonte sem nome que escreve o "In" de "*In*:" no
+crédito e tem letras de menos para as larguras é a itálica miúda do crédito, e todo o texto nela
+fica itálico ("Z. Nateghian *et al*.", "K*ps*"). Nos cadernos do `cespe-unb` e no PF 2021 delegado
+o resultado não muda (comparado `extract`+`segment` antes e depois).
