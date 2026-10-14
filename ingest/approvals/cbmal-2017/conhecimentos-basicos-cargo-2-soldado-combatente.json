@@ -1,26 +1,21 @@
 {
  "exam": "cbmal-2017/conhecimentos-basicos-cargo-2-soldado-combatente",
- "seed": "r16",
+ "seed": "r19",
  "numbers": [
-  6,
-  7,
+  9,
   11,
   12,
-  13,
   14,
   16,
-  17,
   18,
-  26,
-  27,
-  29,
-  31,
-  32,
-  33,
-  41
+  19,
+  28,
+  30,
+  42
  ],
- "sampled_at": "2026-10-14T18:45:19.414611+00:00",
- "approved_at": "2026-10-14T18:45:55.589007+00:00",
+ "sampled_at": "2026-10-14T19:12:34.788451+00:00",
+ "approved_at": "2026-10-14T19:12:54.722191+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "6ef97d85dae884dc3787e250c46db3a2826825eff93a1e05b82b34c780e72d7d"
+ "fingerprint": "433be686b9b369ffef0398e8eb38e948a72b3db61e89a01ca289a94b73e19a7c",
+ "fingerprint_version": 2
 }
