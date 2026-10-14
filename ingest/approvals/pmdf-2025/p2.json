@@ -1,19 +1,20 @@
 {
  "exam": "pmdf-2025/p2",
+ "seed": "r7",
  "numbers": [
-  41,
-  45,
-  48,
-  50,
+  42,
   51,
   54,
-  65,
-  72,
+  61,
+  70,
+  71,
+  73,
   74,
-  77
+  76,
+  79
  ],
- "sampled_at": "2026-10-08T13:32:26.333802+00:00",
- "approved_at": "2026-10-08T13:37:15.940268+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "f6cc663b56779003c5325e58343d670c2f60db824dac7f2bd478714f77588a85"
+ "sampled_at": "2026-10-14T13:33:40.935038+00:00",
+ "approved_at": "2026-10-14T13:34:00.014815+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "76b19fe5572c2d0f00ba4aaa4fc0083b19dc622a7676f6e58a69a0b7d2ec7bf4"
 }

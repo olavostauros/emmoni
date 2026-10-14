@@ -1,19 +1,22 @@
 {
  "exam": "pmro-2022/objetiva",
+ "seed": "r7",
  "numbers": [
-  8,
-  9,
-  27,
-  39,
-  51,
-  54,
-  60,
-  80,
-  81,
-  97
+  31,
+  41,
+  44,
+  46,
+  64,
+  72,
+  77,
+  87,
+  92,
+  93,
+  96,
+  100
  ],
- "sampled_at": "2026-10-08T13:32:30.657055+00:00",
- "approved_at": "2026-10-08T13:37:16.720835+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "a363496ba6b56950596427d15ac9a20852f369fefbb7bd4c8e7f066558c7234d"
+ "sampled_at": "2026-10-14T13:33:14.729194+00:00",
+ "approved_at": "2026-10-14T13:33:36.449883+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "880da57185a1394fb845d67c874fb5d2e07ab9cdeb2601f24dcfc2e48f385ad0"
 }
