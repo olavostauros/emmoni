@@ -75,7 +75,7 @@ budget emmoni-monthly ─▶ Pub/Sub emmoni-budget ─▶ função emmoni-budget
 | Conta de serviço | `emmoni-build` | build da função: `logging.logWriter` e `storage.objectViewer` no projeto; `artifactregistry.writer` **só no repositório `gcf-artifacts`** |
 | Serviço | `emmoni-api` | 1 vCPU, 512 MiB, `min 0`, `max 1`, concorrência 40, timeout 10 s, imagem **por digest** |
 | Budget | `emmoni-monthly` | R$ 40, `exclude-all-credits`, alertas 50/90/100% real e 100% previsto, publica em `emmoni-budget` |
-| Tópico | `emmoni-budget` | |
+| Tópico | `emmoni-budget` | label `emmoni=prod`; política IAM vazia antes do budget e, depois, só `roles/pubsub.publisher` para `serviceAccount:billing-budget-alert@system.gserviceaccount.com` (a conta com que o Cloud Billing publica; nenhum outro vínculo, nunca `allUsers`/`allAuthenticatedUsers`); assinaturas: nenhuma antes do passo 4 e, depois, só a do gatilho Eventarc da `emmoni-budget-cap` (`projects/emmoni-prod/subscriptions/eventarc-southamerica-east1-emmoni-budget-cap-*`). O `audit.py --cloud` confere (E-011) |
 | Função | `emmoni-budget-cap` | `deploy/budget-cap/`, gen2, Python 3.12, `max-instances=1`, só interna |
 
 Escopo dos papéis (achados E-009 e E-010, 2026-10-13): papel que dá para pôr no recurso vai no

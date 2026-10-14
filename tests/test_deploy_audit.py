@@ -54,6 +54,8 @@ def fake_gcloud(overrides: dict[str, Answer]) -> Callable[[list[str]], tuple[int
         "iam roles describe": (1, ROLE_NOT_FOUND),
         "billing budgets list": (0, []),
         "pubsub topics describe": (1, TOPIC_NOT_FOUND),
+        "pubsub topics get-iam-policy": (0, {"etag": "ACAB"}),
+        "pubsub topics list-subscriptions": (0, []),
         "functions describe": (1, FN_NOT_FOUND),
         "artifacts repositories describe": (1, REPO_NOT_FOUND),
         "services list": (0, [{"config": {"name": a}} for a in sorted(audit.ALLOWED_APIS)]),
@@ -297,6 +299,12 @@ FUNCTION = {
 }
 
 
+BILLING = "serviceAccount:billing-budget-alert@system.gserviceaccount.com"
+TRIGGER_SUB = (
+    f"projects/{PROJECT}/subscriptions/eventarc-southamerica-east1-emmoni-budget-cap-123-sub-456"
+)
+
+
 def complete(**overrides: Answer) -> dict[str, Answer]:
     """O projeto depois dos passos 2–4, tudo como no §3."""
     return {
@@ -317,6 +325,8 @@ def complete(**overrides: Answer) -> dict[str, Answer]:
         ),
         "billing budgets list": (0, [BUDGET]),
         "pubsub topics describe": (0, {"labels": {"emmoni": "prod"}}),
+        "pubsub topics get-iam-policy": (0, bindings(("roles/pubsub.publisher", BILLING))),
+        "pubsub topics list-subscriptions": (0, [TRIGGER_SUB]),
         "functions describe": (0, FUNCTION),
         "artifacts repositories describe": (0, {"format": "DOCKER"}),
         "artifacts repositories get-iam-policy gcf-artifacts": (
@@ -343,6 +353,8 @@ E006 = [
     "papel emmoniIngressCap só com run.services.get/update",
     "budget emmoni-monthly como no §3",
     "tópico emmoni-budget com label emmoni=prod",
+    "IAM do tópico emmoni-budget como no §3",
+    "assinaturas do tópico emmoni-budget como no §3",
     "função emmoni-budget-cap como no §3",
 ]
 E009_E010 = [
@@ -414,6 +426,8 @@ def test_estado_de_hoje_acusa_e003_e_pula_o_que_e_pendente(
         ("papel emmoniIngressCap só com run.services.get/update", 2),
         ("budget emmoni-monthly como no §3", 3),
         ("tópico emmoni-budget com label emmoni=prod", 3),
+        ("IAM do tópico emmoni-budget como no §3", 3),
+        ("assinaturas do tópico emmoni-budget como no §3", 3),
         ("função emmoni-budget-cap como no §3", 4),
         ("IAM do repositório gcf-artifacts como no §3", 4),
         ("IAM do repositório emmoni como no §3", 5),
@@ -432,6 +446,8 @@ def test_estado_de_hoje_acusa_e003_e_pula_o_que_e_pendente(
         ("papel emmoniIngressCap só com run.services.get/update", 2),
         ("budget emmoni-monthly como no §3", 3),
         ("tópico emmoni-budget com label emmoni=prod", 3),
+        ("IAM do tópico emmoni-budget como no §3", 3),
+        ("assinaturas do tópico emmoni-budget como no §3", 3),
         ("função emmoni-budget-cap como no §3", 4),
         ("IAM do repositório gcf-artifacts como no §3", 4),
         ("IAM do repositório emmoni como no §3", 5),
@@ -875,3 +891,82 @@ def test_deploy_md_vincula_no_recurso_e_nao_no_projeto() -> None:
         r"--member=serviceAccount:emmoni-budget-cap@",
         step6,
     )
+
+
+# --- E-011 ----------------------------------------------------------------------------------
+
+IAM_TOPIC = "IAM do tópico emmoni-budget como no §3"
+SUBS_TOPIC = "assinaturas do tópico emmoni-budget como no §3"
+TOPIC_OK = {"pubsub topics describe": (0, {"labels": {"emmoni": "prod"}})}
+
+
+def test_topico_de_hoje_politica_vazia_e_sem_assinatura_e_ok(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Estado do relatório de 2026-10-14: tópico criado, budget e função ainda não."""
+    got = cloud(monkeypatch, TOPIC_OK, done=frozenset({0, 1, 2}))
+    assert got[IAM_TOPIC] == ("ok", "vazia (antes do budget)")
+    assert got[SUBS_TOPIC][0] == "ok"
+
+
+def test_topico_com_so_o_publicador_do_billing_e_ok(monkeypatch: pytest.MonkeyPatch) -> None:
+    pol = bindings(("roles/pubsub.publisher", BILLING))
+    got = cloud(monkeypatch, {**TOPIC_OK, "pubsub topics get-iam-policy": (0, pol)})
+    assert got[IAM_TOPIC] == ("ok", "só o Billing")
+
+
+@pytest.mark.parametrize(
+    ("role", "member"),
+    [
+        ("roles/pubsub.publisher", CAP),
+        ("roles/pubsub.publisher", "user:outra@example.com"),
+        ("roles/pubsub.publisher", "allUsers"),
+        ("roles/pubsub.subscriber", "allAuthenticatedUsers"),
+        ("roles/pubsub.subscriber", BILLING),
+        ("roles/pubsub.viewer", "allUsers"),
+    ],
+)
+def test_vinculo_extra_no_topico_falha(
+    monkeypatch: pytest.MonkeyPatch, role: str, member: str
+) -> None:
+    pol = bindings(("roles/pubsub.publisher", BILLING), (role, member))
+    got = cloud(monkeypatch, complete(**{"pubsub topics get-iam-policy": (0, pol)}), done=ALL_STEPS)
+    status, evidence = got[IAM_TOPIC]
+    assert status == "FAIL" and f"{role}={member}" in evidence
+    # Sem o publicador do Billing também falha: o extra não depende do budget existir.
+    got = cloud(
+        monkeypatch, {**TOPIC_OK, "pubsub topics get-iam-policy": (0, bindings((role, member)))}
+    )
+    assert got[IAM_TOPIC][0] == "FAIL"
+
+
+@pytest.mark.parametrize(
+    ("subs", "done"),
+    [
+        # antes do passo 4, nenhuma assinatura, nem uma com o nome do gatilho
+        ([f"projects/{PROJECT}/subscriptions/espiao"], frozenset({0, 1, 2, 3})),
+        ([TRIGGER_SUB], frozenset({0, 1, 2, 3})),
+        # depois do passo 4, só a do gatilho
+        ([TRIGGER_SUB, f"projects/{PROJECT}/subscriptions/espiao"], ALL_STEPS),
+        ([TRIGGER_SUB.replace(PROJECT, "outro-projeto")], ALL_STEPS),
+        ([f"projects/{PROJECT}/subscriptions/eventarc-us-central1-emmoni-budget-cap-1"], ALL_STEPS),
+        ([TRIGGER_SUB, TRIGGER_SUB + "-2"], ALL_STEPS),
+        ([], ALL_STEPS),
+    ],
+)
+def test_assinatura_fora_do_previsto_falha(
+    monkeypatch: pytest.MonkeyPatch, subs: list[str], done: frozenset[int]
+) -> None:
+    got = cloud(monkeypatch, complete(**{"pubsub topics list-subscriptions": (0, subs)}), done=done)
+    assert got[SUBS_TOPIC][0] == "FAIL"
+
+
+@pytest.mark.parametrize(
+    ("prefix", "name"),
+    [("pubsub topics get-iam-policy", IAM_TOPIC), ("pubsub topics list-subscriptions", SUBS_TOPIC)],
+)
+def test_erro_do_gcloud_no_topico_falha(
+    monkeypatch: pytest.MonkeyPatch, prefix: str, name: str
+) -> None:
+    got = cloud(monkeypatch, {**TOPIC_OK, prefix: (1, "ERROR: PERMISSION_DENIED")})
+    assert got[name] == ("FAIL", "ERROR: PERMISSION_DENIED")

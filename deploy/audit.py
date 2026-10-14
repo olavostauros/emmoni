@@ -89,6 +89,12 @@ BUDGET_THRESHOLDS = {
     (1.0, "FORECASTED_SPEND"),
 }
 TOPIC = "emmoni-budget"
+# Conta com que o Cloud Billing publica as notificações do budget no tópico (E-011); o
+# `billing budgets create` lhe dá `roles/pubsub.publisher` no tópico. Nome da documentação do
+# Cloud Billing: conferir na primeira execução depois do budget.
+BILLING_PUBLISHER = "serviceAccount:billing-budget-alert@system.gserviceaccount.com"
+# Assinatura que o Eventarc cria no tópico para o gatilho da função de corte (passo 4).
+TRIGGER_SUB_PREFIX = f"eventarc-{REGION}-{CAP}-"
 # Agentes de serviço do Google: criados ao ligar as APIs do §3, cada um só com o seu papel.
 # Os pares vêm de `gcloud projects get-iam-policy emmoni-prod` (2026-10-13), mais os agentes
 # de artifactregistry e eventarc, APIs do §3 cujos agentes aparecem nos passos 4–5. Domínio
@@ -871,16 +877,52 @@ def audit_budget(project: str, number: str | None, absent: Absent, rep: Report) 
 
 
 def audit_topic(project: str, absent: Absent, rep: Report) -> None:
+    """Tópico do budget (passo 3): label, política IAM e assinaturas (E-011). Publicador a mais
+    dispara o corte e derruba a API; assinatura a mais lê os valores de gasto da conta."""
     m = "cloud"
     name = f"tópico {TOPIC} com label emmoni=prod"
+    iam_name = f"IAM do tópico {TOPIC} como no §3"
+    subs_name = f"assinaturas do tópico {TOPIC} como no §3"
     topic, err = gcloud_json(["pubsub", "topics", "describe", TOPIC, f"--project={project}"])
     if topic is None and not_found(err):
-        absent.add(name, 3, err)
-    elif not isinstance(topic, dict):
-        rep.add(m, name, False, err or f"resposta inesperada: {topic!r}")
+        for n in (name, iam_name, subs_name):
+            absent.add(n, 3, err)
+        return
+    if not isinstance(topic, dict):
+        for n in (name, iam_name, subs_name):
+            rep.add(m, n, False, err or f"resposta inesperada: {topic!r}")
+        return
+    labels = topic.get("labels") or {}
+    rep.add(m, name, labels.get("emmoni") == "prod", f"{labels}")
+
+    pol, err = gcloud_json(["pubsub", "topics", "get-iam-policy", TOPIC, f"--project={project}"])
+    if not isinstance(pol, dict):
+        rep.add(m, iam_name, False, err or f"resposta inesperada: {pol!r}")
     else:
-        labels = topic.get("labels") or {}
-        rep.add(m, name, labels.get("emmoni") == "prod", f"{labels}")
+        # A sessão não lê `billing budgets list` (negado), então não sabe se o budget já existe:
+        # aceita a política vazia (antes do budget) ou exatamente o publicador do Cloud Billing
+        # (depois), nunca mais que isso. `allUsers`, `allAuthenticatedUsers`, outro papel ou
+        # outro membro caem em `extra` e são FAIL.
+        extra, missing = compare_bindings(pol, {("roles/pubsub.publisher", BILLING_PUBLISHER)})
+        if extra:
+            rep.add(m, iam_name, False, f"fora do §3: {extra}")
+        else:
+            rep.add(m, iam_name, True, "vazia (antes do budget)" if missing else "só o Billing")
+
+    subs, err = gcloud_json(
+        ["pubsub", "topics", "list-subscriptions", TOPIC, f"--project={project}"]
+    )
+    if not isinstance(subs, list):
+        rep.add(m, subs_name, False, err or f"resposta inesperada: {subs!r}")
+        return
+    # A listagem traz assinaturas de qualquer projeto: compara o caminho inteiro.
+    trigger = f"projects/{project}/subscriptions/{TRIGGER_SUB_PREFIX}"
+    paths = sorted(str(s) for s in subs)
+    if absent.pending(4):
+        rep.add(m, subs_name, not paths, f"passo 4 pendente, nenhuma prevista: {paths}")
+    else:
+        ok = len(paths) == 1 and paths[0].startswith(trigger)
+        rep.add(m, subs_name, ok, f"previsto só {trigger}*: {paths}")
 
 
 def audit_function(project: str, absent: Absent, rep: Report) -> None:
