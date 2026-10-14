@@ -225,6 +225,8 @@ class _Entry:
     # linha não o continua (PCDF 2020: o texto-base com recuo de parágrafo de 15 grudava no item).
     after_justification: bool = False
     invisible: bool = False  # texto branco sem fundo (`_visible`)
+    # Primeira linha da coluna logo abaixo de uma figura que abre a coluna (`_with_figures`).
+    below_figure: bool = False
 
 
 @dataclass
@@ -651,7 +653,7 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
             ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
         )
         credit_done = previous is not None and (
-            CREDIT_END.search(previous.line.plain.strip()) or _paren_credit_end(entries, index - 1)
+            _credit_closes(entries, index - 1) or _paren_credit_end(entries, index - 1)
         )
         # Espaço vertical entre blocos (`_block_gap`): o comando ("Assinale a opção correta.",
         # "Nessa situação hipotética, ...") separado da situação ou da lista que vem antes dele
@@ -913,6 +915,12 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
     bare_number = len(item.entries) == 1 and BARE_NUMBER.match(previous) is not None
     sentence_done = previous.endswith((".", "?", "!")) or bare_number
     title = entry.line.text.startswith("**") and entry.line.text.endswith("**")
+    if moved and sentence_done and entry.below_figure and entry.line.plain[:1].isupper():
+        # Coluna nova que abre com figura e, abaixo dela, frase com maiúscula depois do item
+        # terminado: é o texto-base do grupo seguinte ("Na figura precedente, o retângulo ABCD
+        # tem as seguintes" | "propriedades:", CBM/AL 2017 básicos cargo 1, depois do item 40),
+        # mesmo com o recuo de parágrafo igual ao de continuação (decisão 0020, emenda (16)).
+        return False
     if sentence_done and (entry.after_gap or title):
         return False  # "Espaço livre" ou título em negrito encerram o item
     starts_paragraph = abs(indent - PARAGRAPH_INDENT_AT) < 4 and entry.line.plain[:1].isupper()
@@ -1204,7 +1212,9 @@ def _with_figures(
         elif above:
             _mark_figure(max(above, key=lambda e: e.line.y0), figure)
         elif below:
-            _mark_figure(min(below, key=lambda e: e.line.y0), figure)
+            first = min(below, key=lambda e: e.line.y0)
+            first.below_figure = True
+            _mark_figure(first, figure)
     return entries
 
 
@@ -1569,7 +1579,7 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             or (indented and not title_goes_on)
             or (previous.short and not title_goes_on)
             or abs(entry.line.size - previous.line.size) >= 1
-            or bool(CREDIT_END.search(previous.line.plain.strip()))
+            or _credit_closes(entries, index - 1)
             or (not title_goes_on and _block_gap(previous, entry, leading))
             or _labeled_line_opens(opener, previous, entry)
         )
@@ -1684,7 +1694,7 @@ def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
         return False
     previous = entries[index - 1]
     size = previous.line.size
-    if CREDIT_END.search(previous.line.plain.strip()) or _paren_credit_end(entries, index - 1):
+    if _credit_closes(entries, index - 1) or _paren_credit_end(entries, index - 1):
         return False
     before = entries[index - 2] if index >= 2 else None
     if _credit_right_aligned(previous, entries[index], before):
@@ -1696,11 +1706,35 @@ def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
     for offset, entry in enumerate(entries[index : index - 1 + CREDIT_MAX_LINES]):
         if not _credit_line(entry, size):
             return False
-        if CREDIT_END.search(entry.line.plain.strip()):
+        if _credit_closes(entries, index + offset):
             return True
         if _paren_credit_end(entries, index + offset):
             return True
     return False
+
+
+def _credit_closes(entries: list[_Entry], index: int) -> bool:
+    """A linha `index` encerra o crédito: casa `CREDIT_END` sozinha ou, com o "(com" no fim da
+    linha de cima e o "adaptações)." nesta, junto da anterior, as duas linhas de crédito do mesmo
+    corpo ("... Brasília: FUNAG, 2014, p. 23-5 (com" | "adaptações).", CBM/AL 2017 básicos,
+    texto CB1A1AAA)."""
+    if index < 0:
+        return False
+    entry = entries[index]
+    plain = entry.line.plain.strip()
+    if CREDIT_END.search(plain):
+        return True
+    if index == 0:
+        return False
+    previous = entries[index - 1]
+    size = entry.line.size
+    if not (_credit_line(previous, size) and _credit_line(entry, size)):
+        return False
+    upper = previous.line.plain.strip()
+    if CREDIT_END.search(upper):
+        return False
+    match = CREDIT_END.search(f"{upper} {plain}")
+    return match is not None and match.start() < len(upper)
 
 
 def _paren_credit_end(entries: list[_Entry], index: int) -> bool:

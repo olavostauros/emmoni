@@ -1811,3 +1811,55 @@ def test_propositions_p_and_q_stay_in_the_item() -> None:
     assert by_number[49].statement_md.startswith(
         "A respeito de proposições lógicas, julgue os itens a seguir.\n\nA sentença Soldado,"
     )
+
+
+def test_credit_closing_split_across_lines_is_one_paragraph() -> None:
+    """CBM/AL 2017 básicos cargo 1, texto CB1A1AAA: o crédito começa no mesmo x nas três linhas,
+    a primeira termina em ponto e o "(com" fica no fim da segunda, com o "adaptações)." na
+    terceira. O fecho casa juntando as duas últimas (`_credit_closes`), e o crédito é um parágrafo
+    só, não partido antes de "*In*:"."""
+    entries = [
+        _gap_entry("concretas de desarmamento nuclear.", 564.3, x0=46.0, short=True),
+        _credit_entry("Sergio de Queiroz Duarte. **Esforços internacionais em prol do desarmamento**.", 81.2, 583.3, 290.8),
+        _credit_entry("*In*: **Desarmamento e temas correlatos**. Brasília: FUNAG, 2014, p. 23-5 (com", 81.2, 590.8, 290.7),
+        _credit_entry("adaptações).", 81.2, 598.1, 111.2),
+        _gap_entry("Julgue os itens a seguir.", 620.0),
+    ]  # fmt: skip
+    assert cebraspe._paragraphs(entries) == [
+        "concretas de desarmamento nuclear.",
+        "Sergio de Queiroz Duarte. **Esforços internacionais em prol do desarmamento**. *In*:"
+        " **Desarmamento e temas correlatos**. Brasília: FUNAG, 2014, p. 23-5 (com adaptações).",
+        "Julgue os itens a seguir.",
+    ]
+    # Sem o "(com" em cima, "adaptações)." sozinho não fecha nada e a nota solta fica separada.
+    loose = [entries[0], entries[1], _credit_entry("Dados de 2016.", 81.2, 590.8, 140.0)]
+    assert len(cebraspe._paragraphs(loose)) == 3
+    assert not cebraspe._credit_closes(loose, 2)
+
+
+def test_figure_opening_the_next_column_starts_the_next_passage() -> None:
+    """CBM/AL 2017 básicos cargo 1: o item 40 termina em frase fechada no pé da página 3; a página
+    4 abre com a figura e, abaixo dela, "Na figura precedente, o retângulo ABCD tem as seguintes",
+    com o recuo de parágrafo (17,7 pt) igual ao de continuação de item. A linha é do texto-base
+    das questões 41 a 44, não do item 40."""
+    item_line = Line(
+        text="objeto apresentado.", plain="objeto apresentado.",
+        x0=322.8, y0=777.6, x1=400.7, y1=787.6, column=2, size=10.0,
+    )  # fmt: skip
+    opener = Line(
+        text="Na figura precedente, o retângulo ABCD tem as seguintes",
+        plain="Na figura precedente, o retângulo ABCD tem as seguintes",
+        x0=46.0, y0=214.5, x1=290.7, y1=224.5, column=1, size=10.0,
+    )  # fmt: skip
+    page = Page(
+        number=4, width=595.0, height=842.0, has_text=True, lines=[opener],
+        figures=[Figure(kind="drawing", x0=49.0, y0=54.0, x1=271.0, y1=198.0)],
+    )  # fmt: skip
+    entry = cebraspe._Entry(4, opener, left=28.3)
+    cebraspe._with_figures(page, [entry], [])
+    assert entry.below_figure and "figure" in entry.flags
+    item = cebraspe._Unit(entries=[cebraspe._Entry(3, item_line, left=304.4, short=True)])
+    assert not cebraspe._continues(item, entry)
+    # Sem a figura acima, a linha com esse recuo segue no item, como antes.
+    plain = cebraspe._Entry(4, opener, left=28.3)
+    assert cebraspe._continues(item, plain)

@@ -528,3 +528,31 @@ para 45 questões). O q48 passa de "texto solto" a "figura não extraída": dois
 sem traço atrás da linha "Nesse caso, ..." contam como desenho (fica em `review`; filtrar desenho
 branco mexe em todas as provas e fica para depois). Fixtures `pf-2018-papiloscopista-p5.pdf` e
 `cbmal-2017-basicos-cargo-1-p4.pdf`.
+
+## Emenda de 2026-10-14 (16) — fecho do crédito partido em duas linhas; figura que abre a página
+
+**Contexto.** O minos (semente r24) reprovou o CBM/AL 2017 básicos cargo 1: o crédito do texto
+CB1A1AAA (pág. 2) saía em dois parágrafos, quebrado antes de "*In*:". As três linhas do crédito
+começam no mesmo x; a primeira termina em ponto ("... do desarmamento**.") e o "(com" fica no fim
+da segunda, com o "adaptações)." na terceira. Nenhuma linha casava `CREDIT_END` sozinha, e o
+ponto impedia `_credit_line_wraps`. Fora da amostra, no mesmo caderno, o item 40 (pé da pág. 3)
+levava "Na figura precedente, o retângulo ABCD tem as seguintes", primeira linha do texto-base das
+questões 41 a 44, que abre a pág. 4 logo abaixo da figura, com recuo de parágrafo (17,7 pt) igual
+ao de continuação de item; o texto-base começava em "propriedades:".
+
+**Decisão.**
+
+1. Uma linha de crédito encerra o crédito quando casa `CREDIT_END` sozinha ou quando, junto da
+   linha de crédito de cima (mesmo corpo miúdo, recuada), casa um fecho que começa na de cima
+   ("(com" | "adaptações).") e a de cima não fecha nada sozinha (`_credit_closes`). Vale onde o
+   fecho decide o parágrafo: `_credit_goes_on`, `_paragraphs` e `_choice_paragraphs`.
+2. No item certo/errado, a primeira linha de uma coluna nova (página ou coluna diferente da última
+   linha do item) logo abaixo de uma figura que abre a coluna, começando com maiúscula, não
+   continua o item cuja frase já terminou (`_Entry.below_figure`, em `_continues`): é o texto-base
+   do grupo seguinte, e a figura vai com ele.
+
+**Verificação.** As provas do `data/staging/` resegmentadas (segment, answer-key, validate) com o
+código do HEAD e com o novo: muda só o CBM/AL 2017 básicos cargo 1 (texto CB1A1AAA, questões 6, 8,
+9, 10 e 18: crédito num parágrafo só; q40 termina em "objeto apresentado."; o texto-base g41 das
+questões 41 a 44 começa em "Na figura precedente" e passa a levar a marca de figura). O básicos
+cargo 2 (soldado) usa outro texto (CB2A1AAA), com o crédito já inteiro.
