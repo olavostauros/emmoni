@@ -1,5 +1,6 @@
 {
  "exam": "pf-2025/papiloscopista-especificos",
+ "seed": "r12",
  "numbers": [
   99,
   100,
@@ -9,11 +10,11 @@
   109,
   111,
   112,
-  118,
-  120
+  117,
+  119
  ],
- "sampled_at": "2026-10-08T17:34:58.002852+00:00",
- "approved_at": "2026-10-08T17:37:14.610048+00:00",
- "approved_by": "claude-opus-5-5",
+ "sampled_at": "2026-10-14T14:49:40.384265+00:00",
+ "approved_at": "2026-10-14T14:50:26.164089+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
  "fingerprint": "7e508e0e80ebb10ee71e18211d2f135d9d1da24b1ed6de552745c55cb33d95ea"
 }
