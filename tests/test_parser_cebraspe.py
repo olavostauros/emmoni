@@ -990,6 +990,29 @@ def test_choice_hanging_item_continues_its_item() -> None:
     assert len(cebraspe._choice_paragraphs(table)) == 3
 
 
+def test_choice_hanging_item_continues_after_closing_quote() -> None:
+    """PC/PB 2021 gerais 14 a 17, questão 5: o item III termina a linha na aspa de fechamento e a
+    localização "(décimo segundo período)." vem na linha seguinte, no recuo pendente. É o mesmo
+    item; depois da aspa, linha que começa com maiúscula ou aspa nova segue separada."""
+    entries = [
+        _quote_entry(
+            "III “a cultura da violência que nos desumaniza a todos”", 641.5, x0=304.3, size=10.0
+        ),
+        _quote_entry("(décimo segundo período).", 653.6, x0=325.7, size=10.0, short=True),
+    ]
+    for entry in entries:
+        entry.left = 304.3
+    assert cebraspe._choice_paragraphs(entries) == [
+        "III “a cultura da violência que nos desumaniza a todos” (décimo segundo período)."
+    ]
+    quotes = [
+        entries[0],
+        _quote_entry("“Outra citação”", 653.6, x0=325.7, size=10.0, short=True),
+    ]
+    quotes[1].left = 304.3
+    assert len(cebraspe._choice_paragraphs(quotes)) == 2
+
+
 def test_scratch_label_is_not_content() -> None:
     """Quadro "RASCUNHO" no alto da coluna vazia (PF 2012): não abre um texto-base para o grupo da
     página seguinte nem entra no item."""
@@ -1634,6 +1657,12 @@ def test_bold_heading_after_the_last_option_ends_it() -> None:
         2, heading.line.model_copy(update={"text": "**Normas.**", "plain": "Normas."}), left=28.3
     )
     assert not cebraspe._heading_after_option(option, sentence)
+    # CBM/TO 2021 soldado, questão 40: "D Facebook" sem ponto e o título em corpo de título
+    # (15 pt) no alto da coluna seguinte também encerra a alternativa; em corpo de texto, não.
+    facebook = _gap_entry("D Facebook", 794.1)
+    big = cebraspe._Entry(2, heading.line.model_copy(update={"size": 15.0}), left=28.3)
+    assert cebraspe._heading_after_option(facebook, big)
+    assert not cebraspe._heading_after_option(facebook, heading)
 
 
 def test_poem_is_one_stanza_with_line_breaks() -> None:

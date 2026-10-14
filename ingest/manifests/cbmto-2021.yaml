@@ -1,4 +1,6 @@
 # cbmto-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles no oficial e no soldado (2026-10-14; decisão 0020): reprovação r17 do
+# oficial (itálico e negrito do texto-base 1A1-I e do crédito da q47 não saíam).
 contest: cbmto-2021
 name: CORPO DE BOMBEIROS MILITAR DO TOCANTINS
 agency: cbmto
@@ -10,6 +12,7 @@ exams:
   name: PROVA OBJETIVA - CARGO 1
   positions:
   - oficial
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_001_00.PDF
     answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_001_00.PDF
@@ -26,6 +29,7 @@ exams:
   name: PROVA OBJETIVA - CARGO 2
   positions:
   - soldado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_002_00.PDF
     answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/GAB_PRELIMINAR_MATRIZ_581_CBMTO_002_00.PDF

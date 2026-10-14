@@ -594,13 +594,18 @@ def _heading_after_option(previous: _Entry, entry: _Entry) -> bool:
     pontuação final, e a alternativa terminou a frase ("**Normas relativas ao CBMTO**" e
     "**Noções de Informática**", CBM/TO 2022 soldado, depois das questões 10 e 30; com o estilo
     ligado o título fica em negrito, e sem isso grudava na alternativa D). O título vai para a
-    abertura seguinte, onde `_bold_heading` o tira."""
+    abertura seguinte, onde `_bold_heading` o tira. Em corpo de título (`HEADING_MIN_SIZE`), o
+    título encerra a alternativa mesmo sem ponto nela ("D Facebook" | "**Normas relativas ao
+    CBMTO**" no alto da coluna seguinte, CBM/TO 2021 soldado, questão 40)."""
     plain = entry.line.plain.strip()
     return (
         _bold_only(entry.line)
         and 0 < len(plain.split()) <= 8
         and not plain.endswith((".", ":", "?", ",", ";"))
-        and previous.line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
+        and (
+            previous.line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
+            or (entry.line.size or 0) >= HEADING_MIN_SIZE > (previous.line.size or 0)
+        )
     )
 
 
@@ -701,11 +706,18 @@ def _indented_block_goes_on(previous: _Entry, entry: _Entry) -> bool:
         return False
     last = previous.line.plain.rstrip()[-1:]
     first = entry.line.plain.lstrip()[:1]
+    if last in CLOSING_QUOTES:
+        # Trecho citado e, na linha seguinte, a localização dele ("III “a cultura da violência
+        # que nos desumaniza a todos”" | "(décimo segundo período).", PC/PB 2021 gerais 14 a 17,
+        # questão 5): a aspa fecha a citação, não o item.
+        return first == "(" or first.islower()
     return (last.isalpha() or last in BLOCK_LINE_BREAKS) and (
         first.isalpha() or first in '“"(' or first in DASHES
     )
 
 
+# Aspa de fechamento no fim da linha: o item segue se a linha seguinte abre parêntese ou minúscula.
+CLOSING_QUOTES = ("”", '"')
 # Fim de linha que deixa a frase aberta dentro de um bloco recuado.
 BLOCK_LINE_BREAKS = (",", "-", "–", "—")
 # Começo de linha que continua a frase: o travessão do aposto ("...especializadas" | "— polícias

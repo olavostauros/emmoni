@@ -387,3 +387,34 @@ q73–q76 e q81–q83 do específicos cargo 2 mudam de corte, todas em `review`.
 
 Fica de fora: o CBM/AL 2017 básicos cargo 1 segue fora (itens 49 e 50 perdidos depois das
 proposições "P:"/"Q:" do item 48; gabarito com 45 itens para 43 questões).
+
+## Emenda de 2026-10-14 (11) — estilo no CBM/TO 2021; título sem ponto antes; aspa no item
+
+**Contexto.** O minos (semente r17) reprovou duas provas publicadas pela impressão da versão 1:
+o CBM/TO 2021 oficial saía sem nenhum itálico nem negrito (o manifesto não tinha
+`infer_font_styles`: *Crescentia cujete*, *gaapi*, *kipu-wahro* e o crédito do 1A1-I com
+"**O que contam os quintais…**", "*In*", "*et al.*", "**Vozes Vegetais**"; o crédito em negrito
+da q47), e o PC/PB 2021 gerais 14 a 17, q5, gravava o item III em dois parágrafos
+("III “a cultura da violência que nos desumaniza a todos”" | "(décimo segundo período).").
+
+**Decisão.**
+
+1. `infer_font_styles` ligado no CBM/TO 2021 oficial e soldado.
+2. Linha só em negrito, curta e sem pontuação final, em corpo de título (`HEADING_MIN_SIZE`)
+   maior que o da alternativa, encerra a última alternativa mesmo que ela não termine em ponto
+   (`_heading_after_option`): "D Facebook" | "**Normas relativas ao CBMTO**" (15 pt, no alto da
+   coluna seguinte), CBM/TO 2021 soldado q40. Em corpo de texto continua valendo a exigência do
+   ponto (item 4 da emenda (8)).
+3. No item com recuo pendente ou no bloco recuado (`_indented_block_goes_on`), linha anterior
+   terminada em aspa de fechamento continua o item quando a seguinte começa com "(" ou minúscula
+   (a localização do trecho citado); com maiúscula ou aspa nova, parágrafo próprio, como antes.
+
+**Verificação.** Varredura das provas do staging, parser do HEAD × novo, com as mesmas páginas:
+os itens 2 e 3 mudam só o PC/PB 2021 gerais 14 a 17 (q5) e, com o estilo ligado, o CBM/TO 2021
+soldado q40 (título sai da D) e q10 e oficial q15 (o título "Matemática"/"Física" em negrito sai
+da D; q10 do soldado e do oficial perdem a pendência de layout). O estilo muda, no oficial, os
+textos 1A1-I e 1A3-I a 1A3-IV e as q6, q10, q13, q15, q17, q19, q22–q25, q28, q29, q31, q32,
+q47 e q48 (variáveis em itálico nas fórmulas, crédito em negrito); no soldado, o texto 2A1-I e as
+q6, q9, q10, q13, q15, q19, q30, q31, q34, q36–q38, q40 e q46 (termos estrangeiros em itálico,
+`.pst`/`filetype:pdf` como código). Pontuação colada ao termo itálico fica dentro da marcação
+quando a fonte é a mesma ("*kipu-wahro.*", "3*i,*").
