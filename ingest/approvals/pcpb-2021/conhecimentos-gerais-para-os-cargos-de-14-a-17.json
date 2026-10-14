@@ -1,19 +1,22 @@
 {
  "exam": "pcpb-2021/conhecimentos-gerais-para-os-cargos-de-14-a-17",
+ "seed": "r18",
  "numbers": [
-  2,
   3,
   4,
   5,
-  9,
-  10,
+  6,
+  8,
   11,
+  12,
+  15,
   18,
   19,
   20
  ],
- "sampled_at": "2026-10-08T13:32:09.961206+00:00",
- "approved_at": "2026-10-08T13:36:17.747780+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "1f102a763ffb0730f91463c2e999bf7ea757b65473e23104f9998759f343fbd5"
+ "sampled_at": "2026-10-14T19:03:23.219178+00:00",
+ "approved_at": "2026-10-14T19:03:48.994003+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "b8dee31d9b3e6f91e24bc06d0802f5aba1678dc5c293e1149ed132e35ea9e03f",
+ "fingerprint_version": 2
 }
