@@ -190,3 +190,21 @@ def test_credit_in_at_line_start_or_with_colon() -> None:
     assert not ex._credit_in_at(spans(("B", "In"), ("A", " the beginning")), 0)
     assert not ex._credit_in_at(spans(("B", "In:")), 0)
     assert not ex._credit_in_at(spans(("A", "x "), ("A", "In:"), ("B", " Revista")), 1)
+
+
+CBMTO_SOLDADO = FIXTURE.with_name("cbmto-2021-soldado-p7.pdf")
+
+
+def test_style_from_the_distiller_name() -> None:
+    """Fonte "TT14422oI00": itálico simulado pelo Distiller, com as larguras da face normal (sem serifa) e
+    só 9 letras; o estilo vem do nome (CBM/TO 2021 soldado q36, emenda de 2026-10-14 da 0020)."""
+    assert ex._name_style("TT14422oI00") == ex.ITALIC
+    assert ex._name_style("TT14422oB00") == ex.BOLD
+    assert ex._name_style("TT14422oBI00") == ex.BOLD | ex.ITALIC
+    assert ex._name_style("TT14402o00") == 0
+    assert ex._name_style("Swiss721BT-RomanCondense") == 0
+    text = _text(ex.extract(CBMTO_SOLDADO, styles=True))
+    assert "D Gerenciador de *downloads*" in text
+    assert "dos *cookies* das páginas" in text
+    assert "*Favoritos*" not in text  # a sem serifa normal das alternativas segue normal
+    assert "*downloads*" not in _text(ex.extract(CBMTO_SOLDADO))  # desligado: como antes

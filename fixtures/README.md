@@ -14,6 +14,7 @@ Trechos de documentos oficiais do Cebraspe, usados só para testar o parser. A p
 | `pf-2018-agente-p1.pdf` | Página 1 de `MATRIZ_408_DGPPF012__PAG_9.PDF` — PF 2018, Agente. https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF012__PAG_9.PDF |
 | `pf-2018-papiloscopista-p4.pdf` | Página 4 de `MATRIZ_408_DGPPF014__PAG_9.PDF` — PF 2018, Papiloscopista (fonte de símbolos sem mapeamento). https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF014__PAG_9.PDF |
 | `pmal-2021-oficial-p1-2.pdf` | Páginas 1 e 2 de `596_PMAL_001_MATRIZ.PDF` — PM/AL 2021, Oficial (capa e "PROVAS OBJETIVAS"). https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/596_PMAL_001_MATRIZ.PDF |
+| `cbmto-2021-soldado-p7.pdf` | Página 7 de `MATRIZ_581_CBMTO_002_00.PDF` — CBM/TO 2021, Soldado (itálico simulado pelo Distiller, fonte "TT14422oI00": "Gerenciador de *downloads*"). https://cdn.cebraspe.org.br/concursos/CBM_TO_21/arquivos/MATRIZ_581_CBMTO_002_00.PDF |
 | `pf-2021-agente-gabarito-definitivo.pdf` | `GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF` — gabarito definitivo, PF 2021, Agente. https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF |
 
 ## `expected/`

@@ -61,7 +61,7 @@ ITEM = re.compile(r"^(\d{1,3})(?:\s+\S|$)")  # número sozinho: item que é só 
 # "Questão 7", "QUESTÃO 21 E" (2017, lixo), "QUESTÃO 1 <PMDF064CG1A01E1035>" (2025, código).
 QUESTION_TITLE = re.compile(r"^QUEST[ÃA]O\s+(\d{1,3})(?:\s+(?:\S{1,2}|<[^>]*>))?\s*$", re.I)
 OPTION = re.compile(r"^([A-E])(?:\s+\S|$)")
-OPTION_MD = re.compile(r"^(?:\*\*)?[A-E](?:\*\*)?(?:\s+|$)")
+OPTION_MD = re.compile(r"^(?:\*\*?)?[A-E](?:\*\*?)?(?:\s+|$)")  # "*E* intranet." (PC/PB 2021)
 ROMAN_ITEM = re.compile(r"^(?:[IVX]+|[a-e]\))\s+\S")
 ITEM_MD = re.compile(r"^(?:\*\*)?\d{1,3}(?:\*\*)?(?:\s+|$)")
 TEXT_LABEL = re.compile(r"^Texto?\s+([0-9A-Z][\w.]*(?:-[IVX]+)?)$")  # "Text" nas provas de inglês

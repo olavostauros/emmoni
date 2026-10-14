@@ -418,3 +418,27 @@ q47 e q48 (variáveis em itálico nas fórmulas, crédito em negrito); no soldad
 q6, q9, q10, q13, q15, q19, q30, q31, q34, q36–q38, q40 e q46 (termos estrangeiros em itálico,
 `.pst`/`filetype:pdf` como código). Pontuação colada ao termo itálico fica dentro da marcação
 quando a fonte é a mesma ("*kipu-wahro.*", "3*i,*").
+
+## Emenda de 2026-10-14 (12) — estilo que o Distiller põe no nome da fonte
+
+**Contexto.** O minos (semente r18) reprovou o CBM/TO 2021 soldado: q36, alternativa D,
+"Gerenciador de *downloads*" saía sem itálico. A palavra está na fonte `TT14422oI00`. Quando a
+TrueType não tem a face do estilo pedido, o Distiller simula o estilo (inclina a face normal) e
+marca no nome: "oI00" itálico, "oB00" negrito. O padrão de fonte sem nome (`TT…o00`) não casava
+com esses nomes, e as larguras, que são as da face normal, também não denunciariam o estilo.
+
+**Decisão.**
+
+1. Fontes `TT<hex>o00`, `TT<hex>oI00`, `TT<hex>oB00` e `TT<hex>oBI00` são todas fontes sem nome.
+   O estilo do nome (`I` itálico, `B` negrito) soma-se ao que as larguras ou o desenho derem para
+   a face de base, mesmo com letras de menos. A fonte simulada não serve de âncora para o desenho
+   dos glifos (desenha os da face normal).
+2. A letra da alternativa em fonte com estilo ("*E* intranet.", PC/PB 2021 gerais 14 a 17) sai do
+   corpo como a letra em negrito já saía.
+
+**Verificação.** O corpus inteiro (`data/raw/`) tem 11 PDFs com fontes "oI00" e nenhum com
+"oB00". Com o estilo ligado (ou no site antigo), mudam só: CBM/TO 2021 soldado q36 ("*downloads*");
+CBM/TO 2021 oficial q16 e q18 (variáveis das alternativas: "*h*/2.", "2*g*sen(*α*)."); CBM/AL
+2017 básicos cargo 2 q48 ("Se *k* é um número primo"); PF 2012 escrivão q29 ("servidor *proxy*").
+No PC/PB 2021 gerais 14 a 17, no PF 2025 papiloscopista específicos, no PC/MA 2017 cargo 5 e no
+PC/PE 2023 P2 cargo 3 a fonte "oI00" só tem a letra da alternativa, pontuação ou símbolo: nada muda.

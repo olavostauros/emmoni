@@ -32,7 +32,13 @@ ITALIC = 2
 BOLD = 16
 SUPERSCRIPT = 1
 # Fonte sem nome de família: TrueType convertida em Type 1 pelo Distiller ("TTD0ABo00", PF 2012).
-UNNAMED_FONT = re.compile(r"^TT[0-9A-F]+o00$")
+# "TT14422oI00": o Distiller marca no nome o estilo que ele mesmo simulou (itálico inclinando a
+# face normal, "I"; negrito, "B"), quando a TrueType não tem a face daquele estilo. As larguras
+# são as da face normal e não denunciam nada: o estilo vem do nome (CBM/TO 2021 soldado q36,
+# "Gerenciador de *downloads*"; emenda de 2026-10-14 da decisão 0020).
+UNNAMED_FONT = re.compile(r"^TT[0-9A-F]+oB?I?00$")
+DISTILLER_STYLE = re.compile(r"^TT[0-9A-F]+o(B?I?)00$")
+NAME_STYLES = {"B": BOLD, "I": ITALIC}
 # Fontes-padrão do PDF (embutidas no PyMuPDF) usadas para deduzir o estilo pelas larguras.
 STYLE_FONTS = {
     "tiro": 0, "tibo": BOLD, "tiit": ITALIC, "tibi": BOLD | ITALIC,
@@ -339,13 +345,34 @@ def _font_styles(document: Any) -> dict[str, int]:
     # 2026-10-14 da decisão 0020).
     unresolved = {font for font in advances if font not in styles}
     if unresolved:
-        anchors = {font: style for font, style in styles.items() if font not in credit_in}
+        # A simulada desenha os glifos da face normal: não serve de âncora.
+        anchors = {
+            font: style
+            for font, style in styles.items()
+            if font not in credit_in and not _name_style(font)
+        }
         styles.update(_styles_by_outline(document, unresolved, anchors))
     for font in unresolved - styles.keys():
         style = _small_font_style(advances[font], references)
         if style is not None:
             styles[font] = style
+    # Estilo simulado pelo Distiller ("oI00"): soma-se ao da face de base, mesmo sem letras
+    # bastantes para as larguras.
+    for font in advances:
+        if name_style := _name_style(font):
+            styles[font] = styles.get(font, 0) | name_style
     return styles
+
+
+def _name_style(font: str) -> int:
+    """Estilo que o Distiller pôs no nome da fonte sem nome ("TT14422oI00" → ITALIC)."""
+    match = DISTILLER_STYLE.match(font)
+    if not match:
+        return 0
+    style = 0
+    for letter in match.group(1):
+        style |= NAME_STYLES[letter]
+    return style
 
 
 MIN_SMALL_STYLE_CHARS = 6  # abaixo disso nem a diferença grande entre as larguras basta

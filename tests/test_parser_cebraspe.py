@@ -1767,3 +1767,10 @@ def test_short_lines_that_are_not_verse_stay_paragraphs() -> None:
     for lines in (prose, listing, accounts, truth, code, letter):
         entries = [_verse(t, 100 + 13.2 * i) for i, t in enumerate(lines)]
         assert cebraspe._paragraphs(entries) == lines, lines
+
+
+def test_option_letter_with_style_leaves_the_body() -> None:
+    """A letra da alternativa em fonte com estilo ("*E* intranet.", PC/PB 2021) não fica no corpo."""
+    for line in ("E intranet.", "*E* intranet.", "**E** intranet."):
+        assert cebraspe.OPTION_MD.sub("", line, count=1) == "intranet."
+    assert cebraspe.OPTION_MD.sub("", "A *h*/2.", count=1) == "*h*/2."
