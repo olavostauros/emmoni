@@ -19,6 +19,16 @@ def escape_md(text: str) -> str:
     return MD_SPECIAL.sub(r"\\\1", text)
 
 
+def normalize_md(md: str) -> str:
+    """Normalização da gravação (docs/content-format.md): Unicode NFC e sem espaço nas pontas.
+
+    Vale para todo texto que vai ao banco (enunciado, alternativas, texto-base). O parser monta o
+    texto-base juntando parágrafos e podia deixar "\\n\\n" no fim; PDF com acento decomposto
+    (CBM/AL 2021) chegava fora de NFC.
+    """
+    return unicodedata.normalize("NFC", md).strip()
+
+
 def asset_refs(md: str) -> list[str]:
     """sha256 dos assets referenciados, na ordem em que aparecem."""
     return [sha for _, sha in ASSET_REF.findall(md)]

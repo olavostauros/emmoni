@@ -12,7 +12,7 @@ from dataclasses import dataclass, field
 
 import psycopg
 
-from ingest.content import statement_hash
+from ingest.content import normalize_md, statement_hash
 from ingest.manifest import Exam, Manifest
 from ingest.staging import RawOption
 from ingest.validate import Validated
@@ -119,7 +119,7 @@ def load_exam(
                     question.type,
                     subject_ids.get(question.subject) if question.subject else None,
                     passage_id,
-                    question.statement_md,
+                    normalize_md(question.statement_md),
                     question.answer_preliminary,
                     question.answer_final,
                     question.answer_status,
@@ -248,7 +248,7 @@ def _passages(conn: Conn, exam_id: int, validated: Validated) -> dict[str, objec
                on conflict (exam_id, source_key) do update set
                  body_md = excluded.body_md, source_page = excluded.source_page
                returning id""",
-            (exam_id, passage.key, passage.body_md, passage.page),
+            (exam_id, passage.key, normalize_md(passage.body_md), passage.page),
         ).fetchone()
         assert row is not None
         ids[passage.key] = row[0]
@@ -271,7 +271,7 @@ def _options(conn: Conn, question_id: object, options: list[RawOption]) -> None:
         conn.execute(
             "insert into question_option (question_id, letter, body_md) values (%s, %s, %s)",
             # Alternativa só com figura: placeholder explícito; a questão fica em review (validate).
-            (question_id, option.letter, option.body_md.strip() or EMPTY_OPTION),
+            (question_id, option.letter, normalize_md(option.body_md) or EMPTY_OPTION),
         )
 
 

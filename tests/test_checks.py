@@ -121,6 +121,15 @@ def test_check_position_agency_mismatch(tx: Conn) -> None:
     assert failing(tx) == {"070_position_agency_mismatch"}
 
 
+@pytest.mark.parametrize("body", ["texto\n\n", " texto", "texto\u00a0", "ac\u0327a\u0303o"])
+def test_check_unnormalized_text(tx: Conn, body: str) -> None:
+    tx.execute(
+        "update question set statement_md = %s where id = %s",
+        (body, seed_question(tx, "seed-pf-2025", 1)),
+    )
+    assert failing(tx) == {"080_unnormalized_text"}
+
+
 def test_cli_exit_code(
     checks_dir: Path, ingest_url: str, monkeypatch: pytest.MonkeyPatch, tmp_path: Path
 ) -> None:

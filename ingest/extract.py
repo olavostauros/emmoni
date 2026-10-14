@@ -30,6 +30,7 @@ from ingest.content import escape_md
 
 ITALIC = 2
 BOLD = 16
+SUPERSCRIPT = 1
 # Fonte sem nome de família: TrueType convertida em Type 1 pelo Distiller ("TTD0ABo00", PF 2012).
 UNNAMED_FONT = re.compile(r"^TT[0-9A-F]+o00$")
 # Fontes-padrão do PDF (embutidas no PyMuPDF) usadas para deduzir o estilo pelas larguras.
@@ -760,6 +761,7 @@ def _line(
             decoded.append(s)
         raw = raw | {"spans": decoded}
     raw = raw | {"spans": _line_refs(raw["spans"], legacy=fonts is not None and fonts.legacy)}
+    raw = raw | {"spans": _degree_signs(raw["spans"])}
     spans = [s for s in raw["spans"] if s["text"].strip(" \xa0")]
     if not spans or max(float(s["size"]) for s in spans) < MIN_SIZE:
         return None  # texto invisível (marcas de diagramação em corpo 1)
@@ -812,6 +814,30 @@ def _line(
         scripts=scripts,
         color=_main_color(spans),
     )
+
+
+# "800 ºC": o original grafa o grau como "o" sobrescrito entre o número e o "C" (PC/PB 2021
+# cargo 11 q75, CBM/AL 2017 q74). Sem isso o texto saía "800 oC". O resto do corpus guarda o
+# glifo do original (º ou °); o "o" sobrescrito é o "º".
+DEGREE_BEFORE = re.compile(r"\d[ \xa0]?$")
+DEGREE_AFTER = re.compile(r"[ \xa0]?C(?![^\W\d_])")
+
+
+def _degree_signs(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = list(spans)
+    for i in range(1, len(result) - 1):
+        span = result[i]
+        if (
+            span["text"].strip(" \xa0") == "o"
+            and (
+                span["flags"] & SUPERSCRIPT
+                or float(span["size"]) < float(result[i - 1]["size"]) - SCRIPT_DROP
+            )
+            and DEGREE_BEFORE.search(result[i - 1]["text"])
+            and DEGREE_AFTER.match(result[i + 1]["text"])
+        ):
+            result[i] = span | {"text": span["text"].replace("o", "º")}
+    return result
 
 
 def _main_color(spans: list[dict[str, Any]]) -> int:

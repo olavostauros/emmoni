@@ -984,3 +984,18 @@ def test_parenthesis_closed_mid_credit_does_not_close_it() -> None:
     )
     entries_closed = cebraspe.segment([page]).questions[0].statement_md
     assert "(Org.) Sociologia. São Paulo: Ática,\n\n2020 (Coleção X)" in entries_closed
+
+
+def test_superscript_o_between_number_and_c_is_degree_sign() -> None:
+    """PC/PB 2021 cargo 11 q75: "800 " + "o" sobrescrito + "C." → "800 ºC." (não "800 oC")."""
+    spans = [
+        {"text": "temperatura limite de 800 ", "size": 10.0, "flags": 4},
+        {"text": "o", "size": 6.5, "flags": 5},
+        {"text": "C.  ", "size": 10.0, "flags": 4},
+    ]
+    assert "".join(s["text"] for s in extract_module._degree_signs(spans)).startswith(
+        "temperatura limite de 800 ºC."
+    )
+    # "n.o" sobrescrito e "o" sem número antes ficam como estão
+    other = [spans[0] | {"text": "n."}, spans[1], spans[2]]
+    assert extract_module._degree_signs(other)[1]["text"] == "o"

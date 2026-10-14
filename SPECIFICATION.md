@@ -587,7 +587,8 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
   saída ≠ 0).
 - Checks mínimos: questão publicada sem gabarito final e não anulada; múltipla escolha com < 4
   alternativas; buraco na numeração de uma prova; `asset:` sem asset; duplicatas publicadas
-  não marcadas; questão publicada sem assunto; texto-base sem questões.
+  não marcadas; questão publicada sem assunto; texto-base sem questões; texto fora da
+  normalização da gravação (espaço nas pontas ou fora de NFC, `docs/content-format.md`).
 - Amostragem por prova (feita pelo agente, decisão 0011): para cada prova nova, `emmoni review sample <concurso>/<prova> --n 10` sorteia
   (de forma determinística; semente `<concurso>/<prova>` ou a de `--seed`, gravada no `sample.json`,
   no `amostra.md` e na aprovação; decisão 0031) 10 questões sem pendência e gera `data/review/<concurso>/<prova>/amostra.html`
