@@ -45,3 +45,15 @@ espaço.
 
 **Verificação.** Varredura das 135 provas, HEAD × novo: só os dois créditos do CBM/RO 2022 oficial
 mudam.
+
+## Emenda de 2026-10-14 (2) — intervalo de meses partido no travessão
+
+**Contexto.** O minos (semente r10) apontou no crédito do g14 do PM/AL 2021 oficial "out.– dez./2009":
+a linha quebra logo depois do travessão, e o original é "out.–dez./2009".
+
+**Decisão.** No `_join`, linha que termina em mês abreviado seguido de travessão ou hífen ("out.–",
+"jul.-", sem letra antes do mês) e linha seguinte que começa com mês abreviado ("dez.") emendam sem
+espaço. Sem mês abreviado dos dois lados, o traço de fim de linha emenda com espaço, como antes.
+
+**Verificação.** Varredura das 135 provas, HEAD × novo: só o crédito do g14 do PM/AL 2021 oficial
+muda. O "jul.- dez./2013" do PF 2025 básicos fica como está: ali o espaço está na mesma linha do PDF.

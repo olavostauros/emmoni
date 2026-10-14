@@ -69,3 +69,22 @@ de figura; as que sobram são faixas de título, imagens da justificativa (PC/PE
 de itens fora da prova (DEPEN 2020 itens 25–26), e questões já em `review` por outro motivo (PM/MA
 2017 CG2A1BBB, PM/TO 2020 QPE q54). Desenhos vetoriais grandes fora de questões marcadas: só faixas
 de título. As quatro provas voltam a `review` pela impressão digital.
+
+## Emenda de 2026-10-14 (2) — régua do cabeçalho de disciplina não é figura
+
+**Contexto.** O minos (semente r10) achou em `review` por "figura ou tabela não extraída" a q15 do
+CBM/RO 2022 oficial, sem figura na página. O cabeçalho "MATEMÁTICA", logo abaixo da alternativa E,
+vem entre duas réguas desenhadas que não se tocam, e `_skipped_frames` só descarta o quadro que
+contém a linha ignorada; cada régua sobrava como figura e marcava a linha acima dela, a última da
+questão.
+
+**Decisão.** Em `_with_figures`, desenho fino (até 3 pt de altura) que cruza na horizontal uma linha
+ignorada (cabeçalho de disciplina, "RASCUNHO"...) e fica a até 6 pt acima ou abaixo dela é régua do
+cabeçalho e não marca nada (`_heading_rule`). Imagem e desenho mais alto continuam marcando.
+
+**Verificação.** Varredura das 135 provas, HEAD × novo: só cai a pendência de figura de 20 questões,
+todas a última antes de um cabeçalho de disciplina — CBM/RO 2022 oficial q15, q30, q50; PC/RO 2022
+específicos cargo 1 q65, q75, cargo 3 q20, q35, q60, q80, q90, q95, cargo 4 q75, q85, gerais cargo 1
+q15 e cargo 4 q15; PM/RO 2022 objetiva q10, q20, q45, q75, q95. Nenhuma cita figura; na página da q30
+do CBM/RO as imagens são o mapa da q31, que mantém a pendência. Texto, alternativas e gabarito não
+mudam. As 7 provas voltam a `review` pela impressão digital (as questões saem da pendência).

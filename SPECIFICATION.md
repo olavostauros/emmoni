@@ -321,7 +321,7 @@ especificado em `docs/content-format.md`:
 - Texto literal: `$`, `*`, `_`, `` ` ``, `<` e `\` do original escapados com `\` (`R\$ 10,00`), decisão 0023.
 - Normalização: Unicode NFC, espaços colapsados, aspas e travessões preservados; hífen de fim de
   linha do PDF mantido, sem espaço depois (o Cebraspe não separa palavra por sílaba; decisão 0032);
-  endereço da internet partido no fim da linha emendado sem espaço (emenda da 0032).
+  endereço da internet partido no fim da linha e intervalo de meses partido no travessão ("out.–" | "dez./2009") emendados sem espaço (emendas da 0032).
 
 `statement_hash` = sha256 de **enunciado + alternativas (em ordem) + texto-base**, cada parte
 normalizada: NFC → minúsculas → remover acentos → remover markdown e pontuação → colapsar espaços;
@@ -523,7 +523,7 @@ exams:
 |---|---|---|
 | `fetch` | manifesto → `data/raw/<sha256>.pdf` + `source_document` | Não baixa de novo se o sha256 já existe. Respeita `robots.txt`, 1 requisição/s por host, `User-Agent` identificado. |
 | `extract` | PDF → `data/staging/<exam>/pages.json` | PyMuPDF com blocos e posições; OCR (`ocrmypdf` + Tesseract `por`) se a página não tiver texto, com revisão linha a linha pelo agente em `ingest/ocr/<sha256>.yaml` (decisão 0018); nos cadernos do site antigo do Cebraspe (fonte `cespe-unb`), vão entre colunas, números de item, negrito/itálico e "ℓ" deduzidos do documento, e as mesmas correções revisadas valem para linhas em fonte sem mapeamento Unicode (decisão 0020); nas demais provas, só o negrito/itálico das fontes sem nome (pelas larguras ou, com letras de menos, pelo desenho dos glifos) e o código inline da fonte monoespaçada são deduzidos, e só quando o manifesto marca a prova com `infer_font_styles: true` (decisão 0020, emendas de 2026-10-13 e 2026-10-14; o "*In*:" do crédito, também no começo da linha); imagens exportadas para `data/assets/<sha256>.<ext>`. |
-| `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras; descarta as justificativas dos cadernos "com justificativa" pelo prefixo e, quando o caderno as traz em cor própria, pela cor da linha (decisão 0009, emenda de 2026-10-14); o crédito miúdo alinhado à direita é um parágrafo só, até a linha de fecho ("(com adaptações).", ou o ")" que fecha o "(" do começo; decisão 0020, emenda (2) de 2026-10-14) ou, sem fecho, enquanto as linhas coladas terminarem no mesmo x (emenda (4)); título de disciplina em corpo maior quebrado em duas linhas em negrito sai inteiro (emenda (4)); no item certo/errado, a linha só de código depois de frase terminada é parágrafo próprio (emenda (5)). |
+| `segment` | páginas → questões brutas | Parser da banca (`ingest/parsers/<banca>.py`): separa cabeçalhos de disciplina, textos-base, questões e alternativas por regras; descarta as justificativas dos cadernos "com justificativa" pelo prefixo e, quando o caderno as traz em cor própria, pela cor da linha (decisão 0009, emenda de 2026-10-14); o crédito miúdo alinhado à direita é um parágrafo só, até a linha de fecho ("(com adaptações).", ou o ")" que fecha o "(" do começo; decisão 0020, emenda (2) de 2026-10-14) ou, sem fecho, enquanto as linhas coladas terminarem no mesmo x (emenda (4)), com a primeira linha podendo começar na margem quando a de baixo o fecha (emenda (6)); título de disciplina em corpo maior quebrado em duas linhas em negrito sai inteiro (emenda (4)); no item certo/errado, a linha só de código depois de frase terminada é parágrafo próprio (emenda (5)). |
 | `structure` | questões brutas → `questions.json` | Agente só onde as regras falham (tabelas, fórmulas, layout em colunas), pelo mesmo mecanismo de tarefas/respostas do `classify`. Saída validada por pydantic; inválida → `review`. |
 | `answer-key` | PDFs de gabarito → gabaritos | Preliminar e definitivo; deriva `answer_status`. |
 | `validate` | `questions.json` | Numeração contínua, alternativas compatíveis com o tipo, gabarito válido, enunciado não vazio, imagens resolvidas. Falha → questão fica `review`, com motivo registrado. |
@@ -537,7 +537,7 @@ as demais não o herdam (decisão 0013). Questão que cita figura, diagrama ou t
 extraída ("o modelo ER precedente", "a estrutura mostrada anteriormente"), ou item certo/errado sem
 texto-base cujo comando remete ao que vem antes dele ("os dados acima"), vai para `review` com o
 motivo correspondente, até existir a etapa de imagens (decisão 0030); também a questão de múltipla escolha com
-imagem raster logo abaixo do título "Questão N" (emenda de 2026-10-14 da 0030). O `load` grava `review` quando há motivo de
+imagem raster logo abaixo do título "Questão N" (emenda de 2026-10-14 da 0030); a régua desenhada logo acima ou abaixo de um cabeçalho de disciplina não é figura (emenda (2)). O `load` grava `review` quando há motivo de
 revisão, `published` quando não há motivo e há assunto, e `draft` quando falta assunto. A prova só é
 publicada depois da amostragem (decisão 0005).
 

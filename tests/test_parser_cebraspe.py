@@ -1056,6 +1056,12 @@ def test_line_reference_symbol_is_ell_outside_the_old_site() -> None:
         (["(1956-", "1960)."], "(1956-1960)."),
         # Traço solto (espaço antes) não é hífen de palavra: a linha emenda com espaço.
         (["uma pausa -", "e segue"], "uma pausa - e segue"),
+        # Intervalo de meses partido no travessão (PM/AL 2021 oficial, g14): sem espaço. Sem mês
+        # abreviado dos dois lados, o travessão no fim da linha emenda com espaço.
+        (["Brasília, out.–", "dez./2009. Internet:"], "Brasília, out.–dez./2009. Internet:"),
+        (["de jul.-", "dez./2013"], "de jul.-dez./2013"),
+        (["o resultado –", "dez. dias depois"], "o resultado – dez. dias depois"),
+        (["no mês de out.–", "Em seguida"], "no mês de out.– Em seguida"),
     ],
 )
 def test_line_ending_hyphen_is_kept(lines: list[str], joined: str) -> None:
@@ -1195,6 +1201,28 @@ def test_right_aligned_reference_with_wide_first_line_is_one_paragraph() -> None
     ]
 
 
+def test_right_aligned_reference_starting_at_the_margin_is_one_paragraph() -> None:
+    """PM/AL 2021 oficial, texto CB1A1-I: a primeira linha da referência enche a coluna, da margem
+    à direita, e a de baixo, recuada e alinhada à direita, encerra o crédito ("\\<corteidh.or.cr>
+    (com adaptações)."). Um parágrafo só. Sem o fecho, linha miúda na margem fica separada."""
+    entries = [
+        _gap_entry("na construção da cidadania.", 505.0, short=True),
+        _credit_entry("Manoel Carlos Mendonça Filho *et al*. **Polícia**. Internet:", 28.4, 519.6, 293.5),
+        _credit_entry("\\<corteidh.or.cr> (com adaptações).", 207.7, 527.2, 293.5),
+    ]  # fmt: skip
+    assert cebraspe._paragraphs(entries) == [
+        "na construção da cidadania.",
+        "Manoel Carlos Mendonça Filho *et al*. **Polícia**. Internet: \\<corteidh.or.cr> (com"
+        " adaptações).",
+    ]
+    loose = [
+        entries[0],
+        _credit_entry("Nota do quadro: valores em milhares de reais, sem correção.", 28.4, 519.6, 293.5),
+        _credit_entry("Dados de 2020.", 207.7, 527.2, 293.5),
+    ]  # fmt: skip
+    assert len(cebraspe._paragraphs(loose)) == 3
+
+
 def test_right_aligned_chart_labels_stay_apart() -> None:
     """Legendas de gráfico alinhadas à direita, uma por linha, com espaço de 3/4 do corpo entre
     elas (PF 2021 g77, "9% 15 a 19 anos" | "20 a 29 anos"): não são uma referência."""
@@ -1279,6 +1307,27 @@ def test_photo_below_question_title_flags_the_question() -> None:
     frame = Figure(kind="drawing", x0=40, y0=125, x1=280, y1=225)
     questions = {q.number: q for q in cebraspe.segment([_page(lines(), [frame])]).questions}
     assert questions[2].flags == []
+
+
+def test_subject_heading_rules_do_not_flag_the_question_above() -> None:
+    """CBM/RO 2022 oficial, questão 15: o cabeçalho "MATEMÁTICA" vem entre duas réguas desenhadas.
+    As réguas são moldura do cabeçalho, não figura da questão de cima. Desenho grande no mesmo
+    lugar continua marcando."""
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        _line("**MATEMÁTICA**", 124, 113, x1=198),
+        *_choice(2, "Segunda questão.", 135),
+    ]
+    rules = [
+        Figure(kind="drawing", x0=29, y0=109.5, x1=290, y1=110.0),
+        Figure(kind="drawing", x0=29, y0=127.0, x1=290, y1=128.0),
+    ]
+    questions = {q.number: q for q in cebraspe.segment([_page(lines, rules)]).questions}
+    assert questions[1].flags == []
+    assert questions[2].flags == []
+    box = Figure(kind="drawing", x0=29, y0=100.0, x1=290, y1=110.0)
+    questions = {q.number: q for q in cebraspe.segment([_page(lines, [box])]).questions}
+    assert questions[1].flags == ["figure"]
 
 
 def test_code_line_of_the_item_is_a_paragraph() -> None:

@@ -245,3 +245,23 @@ próprio); no CBM/RO 2022 oficial, marcação em 2 textos-base e 15 questões, e
 no PF 2018 agente q93–96, o código separa-se da frase em parágrafo (o texto puro não muda). Carregadas
 as duas provas e o PF 2018 agente: nenhuma muda de status por isso (a impressão digital não vê
 marcação nem parágrafo; reamostrar).
+
+## Emenda de 2026-10-14 (6) — referência alinhada à direita que começa na margem
+
+**Contexto.** O minos (semente r10) reprovou o PM/AL 2021 oficial: o crédito do texto CB1A1-I saía em
+dois parágrafos ("Manoel Carlos Mendonça Filho *et al*. **Polícia, ...**. Internet:" |
+"\<corteidh.or.cr> (com adaptações)."). A primeira linha enche a coluna e começa na margem (x0 igual
+ao da coluna), e a regra da emenda (4) exigia recuo de parágrafo nela; o "<" não tinha papel.
+
+**Decisão.** Em `_credit_right_aligned`, a primeira linha pode começar na margem quando a linha de
+baixo encerra o crédito (`CREDIT_END`) e a linha de cima da primeira é de outro corpo (a
+referência abre ali, depois do texto; texto inteiro em letra miúda seguido do crédito, como no teste
+do PM/TO 2020 q23, fica separado). Sem o fecho, linha miúda na margem seguida de linha recuada
+continua separada (nota de quadro, legenda). As demais condições (mesmo corpo miúdo, colada, mesmo x
+final, x inicial diferente, de baixo recuada como crédito) ficam.
+
+**Verificação.** Varredura das 135 provas, HEAD × novo: mudam só dois créditos, em parágrafo — o
+CB1A1-I do PM/AL 2021 oficial e o g1 do PF 2025 básicos bloco I ("...narrativas policiais
+televisivas." | "In: Vozes & Diálogo, ... (com adaptações)."; primeira linha com recuo de 14,4 pt,
+abaixo do limite de 15). As duas provas carregadas seguem publicadas (a impressão digital não vê
+parágrafo; reamostrar).

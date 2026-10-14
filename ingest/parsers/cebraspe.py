@@ -950,8 +950,9 @@ def _with_figures(
             figure.y1 <= start_y
             or id(figure) in frames
             or any(_overlaps(figure, line) for line in titles)
+            or _heading_rule(figure, skipped)
         ):
-            continue  # faixa de fundo de título ("BLOCO II", "Questão 7")
+            continue  # faixa de fundo de título ("BLOCO II", "Questão 7") ou régua de cabeçalho
         column = 1 if figure.x1 <= middle + 12 else 2 if figure.x0 >= middle - 12 else 0
         same = [e for e in entries if column == 0 or e.line.column in (column, 0)]
         above = [e for e in same if e.line.y0 < figure.y0]
@@ -972,6 +973,26 @@ def _with_figures(
         elif below:
             _mark_figure(min(below, key=lambda e: e.line.y0), figure)
     return entries
+
+
+HEADING_RULE_GAP = 6.0  # pt entre a régua e a linha do cabeçalho de disciplina
+
+
+def _heading_rule(figure: Figure, skipped: list[Line]) -> bool:
+    """Filete desenhado logo acima ou logo abaixo de uma linha ignorada (cabeçalho de disciplina
+    "MATEMÁTICA" entre duas réguas, CBM/RO 2022 oficial, página 3): é moldura do cabeçalho, não
+    figura da questão de cima. Só traço fino (até 3 pt de altura) que cruza a linha na horizontal."""
+    if figure.kind != "drawing" or figure.y1 - figure.y0 > 3:
+        return False
+    return any(
+        figure.x0 < line.x1
+        and figure.x1 > line.x0
+        and (
+            0 <= line.y0 - figure.y1 <= HEADING_RULE_GAP
+            or 0 <= figure.y0 - line.y1 <= HEADING_RULE_GAP
+        )
+        for line in skipped
+    )
 
 
 def _mark_figure(entry: _Entry, figure: Figure) -> None:
@@ -1384,7 +1405,8 @@ def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
     size = previous.line.size
     if CREDIT_END.search(previous.line.plain.strip()) or _paren_credit_end(entries, index - 1):
         return False
-    if _credit_right_aligned(previous, entries[index]):
+    before = entries[index - 2] if index >= 2 else None
+    if _credit_right_aligned(previous, entries[index], before):
         return True
     if not _credit_line(previous, size):
         return False
@@ -1438,7 +1460,7 @@ CREDIT_RIGHT_ALIGN = 2.0
 CREDIT_RIGHT_GAP = 0.65
 
 
-def _credit_right_aligned(previous: _Entry, entry: _Entry) -> bool:
+def _credit_right_aligned(previous: _Entry, entry: _Entry, before: _Entry | None = None) -> bool:
     """Referência em letra miúda alinhada à direita, quebrada em linhas coladas e sem fecho
     reconhecível ("Hely Lopes Meirelles. **Direito Administrativo Brasileiro**." | "Editora
     Malheiros. 27.ª ed. São Paulo, 2002. p. 156.", PC/RO 2022 específicos cargo 3, questão 63; a
@@ -1447,15 +1469,26 @@ def _credit_right_aligned(previous: _Entry, entry: _Entry) -> bool:
     duas terminando no mesmo x e começando em x diferentes, e a de baixo recuada como crédito. A
     linha anterior pode terminar em ponto: a referência tem várias frases. Linhas miúdas que
     começam no mesmo x não contam (`_credit_line_wraps` cuida delas, e as notas soltas ficam
-    separadas); espaço maior também não (legendas de gráfico)."""
+    separadas); espaço maior também não (legendas de gráfico).
+
+    A primeira linha pode começar na margem quando enche a coluna e a de baixo encerra o crédito
+    ("Manoel Carlos Mendonça Filho *et al*. ... Internet:" | "\\<corteidh.or.cr> (com
+    adaptações).", PM/AL 2021 oficial, texto CB1A1-I), e a linha de cima dela (`before`) é de outro
+    corpo: a referência abre ali, depois do texto, e não é a última linha de um texto em letra
+    miúda. Sem o fecho, linha miúda na margem seguida de outra recuada pode ser nota ou legenda, e
+    fica separada."""
     gap = _vertical_gap(previous, entry)
     size = previous.line.size
+    opens = before is not None and before.line.size != size
     return (
         size < CITATION_SIZE
         and entry.line.size == size
         and gap is not None
         and gap <= size * CREDIT_RIGHT_GAP
-        and previous.line.x0 > previous.left + PARAGRAPH_INDENT
+        and (
+            previous.line.x0 > previous.left + PARAGRAPH_INDENT
+            or (opens and bool(CREDIT_END.search(entry.line.plain.strip())))
+        )
         and entry.line.x0 > entry.left + ODD_INDENT
         and abs(entry.line.x1 - previous.line.x1) <= CREDIT_RIGHT_ALIGN
         and abs(entry.line.x0 - previous.line.x0) > CREDIT_ALIGN
@@ -1527,11 +1560,24 @@ def _join(lines: list[str]) -> str:
     for line in lines:
         if not text:
             text = line
-        elif (HYPHEN_END.search(text) and HYPHEN_NEXT.match(line)) or _url_goes_on(text, line):
-            text += line  # hífen do original (decisão 0032) ou endereço partido (decisão 0030)
+        elif (
+            (HYPHEN_END.search(text) and HYPHEN_NEXT.match(line))
+            or _url_goes_on(text, line)
+            or (MONTH_RANGE_END.search(text) and MONTH_RANGE_NEXT.match(line))
+        ):
+            # hífen do original (decisão 0032), endereço partido (decisão 0030) ou intervalo de
+            # meses partido no travessão ("out.–" | "dez./2009", PM/AL 2021 oficial, g14)
+            text += line
         else:
             text = f"{text} {line}"
     return _normalize(text)
+
+
+# Intervalo de meses abreviados partido no travessão ou hífen de fim de linha ("out.–" |
+# "dez./2009"): o traço liga os dois meses, sem espaço. Só mês abreviado dos dois lados.
+MONTHS = r"(?:jan|fev|mar|abr|mai|jun|jul|ago|set|out|nov|dez)\."
+MONTH_RANGE_END = re.compile(rf"(?<![^\W_]){MONTHS}[–-]$", re.I)
+MONTH_RANGE_NEXT = re.compile(rf"{MONTHS}", re.I)
 
 
 # Endereço da internet ainda aberto no fim da linha ("Internet: https://…/files/"): começa com
