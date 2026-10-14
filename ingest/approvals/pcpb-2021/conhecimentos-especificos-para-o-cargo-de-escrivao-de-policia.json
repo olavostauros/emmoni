@@ -1,19 +1,23 @@
 {
  "exam": "pcpb-2021/conhecimentos-especificos-para-o-cargo-de-escrivao-de-policia",
+ "seed": "r23",
  "numbers": [
-  21,
-  29,
-  32,
-  49,
-  59,
-  61,
-  63,
-  68,
-  72,
-  77
+  26,
+  37,
+  41,
+  42,
+  45,
+  46,
+  50,
+  52,
+  55,
+  60,
+  65,
+  71
  ],
- "sampled_at": "2026-10-08T13:32:08.043038+00:00",
- "approved_at": "2026-10-08T13:36:30.168296+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "a65f54d9197760c83c14d60477083e02368b0304a707ec590b4df56e10296fd5"
+ "sampled_at": "2026-10-14T22:42:14.008730+00:00",
+ "approved_at": "2026-10-14T22:44:29.781346+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "c4bcac0c5d2e038ab11e27b21e6e3345bbf70f9e81c305b0d4364ca7e241c593",
+ "fingerprint_version": 2
 }

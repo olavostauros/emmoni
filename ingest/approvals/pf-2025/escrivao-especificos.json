@@ -1,19 +1,22 @@
 {
  "exam": "pf-2025/escrivao-especificos",
+ "seed": "r23",
  "numbers": [
-  100,
-  106,
+  99,
+  101,
   107,
+  108,
   109,
+  110,
   111,
-  112,
   114,
+  116,
   117,
-  118,
   119
  ],
- "sampled_at": "2026-10-08T17:34:57.626821+00:00",
- "approved_at": "2026-10-08T17:37:14.364438+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "e913a99797340dbc7312bc9429182b6910d887b8fe7636dd1a05e803458278f2"
+ "sampled_at": "2026-10-14T22:49:55.665189+00:00",
+ "approved_at": "2026-10-14T22:50:14.583811+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "77a632170d8c3079f0214ab4f89c1b0a5318d0fa9990a12666458a050cacbe12",
+ "fingerprint_version": 2
 }

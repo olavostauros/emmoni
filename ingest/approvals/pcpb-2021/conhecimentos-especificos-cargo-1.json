@@ -1,21 +1,22 @@
 {
  "exam": "pcpb-2021/conhecimentos-especificos-cargo-1",
- "seed": "r20",
+ "seed": "r23",
  "numbers": [
   26,
-  29,
-  32,
-  36,
   37,
-  41,
-  64,
+  42,
+  45,
+  46,
+  52,
+  55,
+  60,
+  62,
   65,
-  69,
-  75
+  71
  ],
- "sampled_at": "2026-10-14T19:15:05.147428+00:00",
- "approved_at": "2026-10-14T19:15:23.778815+00:00",
+ "sampled_at": "2026-10-14T22:45:40.740559+00:00",
+ "approved_at": "2026-10-14T22:46:21.261625+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "270cdb13b9da6540230bd0644e3e15bbd9eef03b3badae3e5d78a0dc8353fc1f",
+ "fingerprint": "eec7a791b4e3af7d705a06ae6c7d951818c22d2fcba9cfd5a308248fe4757c8b",
  "fingerprint_version": 2
 }
