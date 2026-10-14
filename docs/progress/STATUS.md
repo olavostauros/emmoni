@@ -1,4 +1,4 @@
-# Status — atualizado em 2026-10-14
+# Status — atualizado em 2026-10-14 (ciclo das 14:53)
 
 **Marco atual:** M5 — Mais bancas (SPECIFICATION.md §10). M0–M4 prontos (M4 em 2026-10-08).
 Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui ampliou o Cebraspe.
@@ -29,49 +29,60 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
   cabeçalho; estilo em pcce-2025, pcpe-2023, pcro-2022 cargo 3, pcma-2017, pmal-2021 oficial,
   cbmro-2022 oficial e pf-2025. 27 aprovações de minos (sementes r7–r12); `pmro-2022` e
   `pmdf-2025/p2` saíram de `review`.
+- Ciclo de 2026-10-14 14:53 (`2026-10-14-ciclo-texto-base-estilo-impressao-v2.md`): texto-base
+  sem rótulo depois da alternativa E (emenda da 0013); linhas com rótulo, versos em estrofe,
+  rótulo colado, texto branco invisível, 2ª língua estrangeira, fonte simulada do Distiller
+  (emendas (8)–(13) da 0020); check 090; impressão digital v2 (decisão 0033); estilo em pmsc-2023
+  soldado, pcse-2021, pmal-2021 soldado, cbmto-2022 soldado, cbmal-2017, cbmto-2021, cbmpa-2023-cfp.
+  39 aprovações de minos (r13–r22); nenhuma prova real em `review`.
 
 ## Em andamento
 - Estilo por prova ligado em: pcal-2022, pces-2022, pcgo-2016, pmpa-2023-cfp/cfo, pcpb-2021,
-  pcrj-2021, pcro-2022, cbmto-2022 oficial, pmro-2022, pf-2018, pf-2021 delegado, pcce-2025,
-  pcpe-2023, pcma-2017-apc, pcma-2017-delegado, pmal-2021 oficial, cbmro-2022 oficial, pf-2025.
-- Em `review`: `cbmro-2022/oficial` (reprovada em r11: texto-base de início de coluna).
+  pcrj-2021, pcro-2022, cbmto-2021, cbmto-2022, pmro-2022, pf-2018, pf-2021 delegado, pcce-2025,
+  pcpe-2023, pcma-2017-apc, pcma-2017-delegado, pmal-2021, cbmro-2022 oficial, pf-2025,
+  pmsc-2023-soldado, pcse-2021, cbmal-2017, cbmpa-2023-cfp.
+- Impressão digital v2 (decisão 0033): 19 das 115 aprovações já estão na v2; as outras 96 (v1) não
+  voltam a `review` quando só a marcação ou o parágrafo muda — por isso a reamostragem do item 3.
 - Plantão: contrato v1.4; dados reais só pela API (decisão 0028).
 - Deploy: passos 0–2 feitos; passo 3 parcial (tópico `emmoni-budget`; budget na fila do dono).
   Passo 8: sim do dono dado em 2026-10-13, depois do 7, só pela API (decisão 0028).
 
 ## Próximos passos
-1. Hefesto: `cbmro-2022/oficial` — texto-base que abre a coluna (ou vem do fim da anterior) não se
-   liga às questões seguintes: q28–q30 (tabela das ligações, pág. 4), q26 (árvore P, O, A, B), q23
-   (texto começa no meio da frase). Varredura em lote; depois minos com semente nova (≠ r7–r12).
-2. `review sample` com impressão digital que veja formatação e parágrafo (hoje mudança só de
-   marcação ou parágrafo não devolve a prova a `review`). Até lá, minos amostrar as publicadas que
-   mudaram sem amostra nova: as provas da varredura do `ae2d144` não reamostradas (lista no registro
-   de 2026-10-14 10:01), `pcgo-2016` (3), `pcma-2017-apc` gerais cargos 2 e 5, `pcpb-2021` gerais
-   14–17 e cargo 12, `cbmto-2022` oficial, `pmpa-2023-cfp` básicos, `pf-2025/agente-especificos`;
-   e as antigas: `cbmto-2021` oficial q47, `pcpb-2021` cargo 13 (q65).
-3. Novo check: texto com U+FFFD em questão publicada (`pcma-2017-apc` gerais cargos 1/2 q14 e
-   cargo 5 q17, "teclas � e �").
-4. Estilo nas provas restantes (lotes, hefesto → minos): `pcse-2021`, `pmal-2021` soldado,
-   `cbmto-2022/soldado` e os demais manifestos sem `infer_font_styles` (`pmdf-2025` não precisa).
-   Encerrar a última alternativa no espaço vertical (título colado na alternativa E: cbmpa-2023-cfo
-   p1 q25, cbmro-2022 q27, cbmto-2021 soldado q30, cbmto-2022 soldado q10/q26, pmsc-2023 soldado q42).
-5. Manifestos aprovados com documentos novos fora do manifesto: `pces-2022` (gabarito preliminar
+1. Hefesto: reprovação r22 de `pcpb-2021/conhecimentos-especificos-para-o-cargo-de-escrivao-de-policia`
+   (q52, q50 pág. 7): "n.o" com o "o" sobrescrito vira "n.º" (e "ª"), em lote; candidatas no
+   staging: `pcpb-2021` cargos 1 e 3, `pf-2025/escrivao-especificos`, `pcdf-2020` básicos,
+   `cbmal-2021` oficial. Depois minos com semente nova (≠ r2–r22).
+2. CBM/AL 2017 básicos cargo 1: itens 49–50 perdidos depois de "P:"/"Q:" do item 48 (gabarito com 45
+   itens para 43 questões).
+3. Reamostrar (minos, semente nova) as aprovações v1 mais antigas, em lotes de ~6, para passá-las à
+   v2: a partir de `pmal-2017` específicos soldado, `pmma-2017` gerais/específicos cargo 5,
+   `pcpe-2023` P1 cargos 1 e 3, `cbmpa-2023-cfo/p1`, `pcal-2021/escrivao`, `pmsc-2023-oficial` ...
+   (lista: `grep -L fingerprint_version -r ingest/approvals`, ordenada por `approved_at`).
+4. Estilo nas provas restantes sem `infer_font_styles` (lotes, hefesto → minos); `pmdf-2025` não
+   precisa. Título colado na alternativa E: cbmpa-2023-cfo p1 q25, cbmto-2021 soldado q30.
+5. Tirar a marca "layout" de versos já reconhecidos como estrofe (cbmal-2017 específicos cargo 2
+   q114–116, "O Xote das meninas").
+6. `pcma-2017-apc` gerais (cargos 1/2 q13–14, cargo 5 q16–17): teclas desenhadas sem mapeamento
+   (U+FFFD, fonte `TT333o00`), revisão em `ingest/ocr/` contra a imagem; seguem em `review`.
+7. Manifestos aprovados com documentos novos fora do manifesto: `pces-2022` (gabarito preliminar
    CG1_01) e `pmma-2017` (359_PMMA_001–003): incorporar ou registrar por que não entram.
-6. Deploy passo 4 (caronte) depois que o budget existir.
-7. Código em várias linhas como bloco (PF 2018 agente q93–96, PF 2025 bloco II g91); tabelas GFM
-   (PF 2025 agente g107, q107–110); LaTeX das fórmulas (PF 2025 papiloscopista q105/q110).
-8. PF 2012 agente g12 e papiloscopista g8: poema em duas colunas e números de verso.
-   cbmpa-2023-cfo/p1 1A6: estilo do crédito e subscrito de CH4/CS2.
-9. Amostra de assuntos dirigida para as 6 questões do PF 2012 com assunto novo; curadoria de
-   `comunicacao_e_equipes` × `cultura_organizacional`.
-10. Manifestos dos demais concursos policiais do `cespe-unb`: DPF 2009, DPRF 2013, PC/DF 2013,
+8. Deploy passo 4 (caronte) depois que o budget existir.
+9. Código em várias linhas como bloco (PF 2018 agente q93–96, PF 2025 bloco II g91); tabelas GFM
+   (PF 2025 agente g107, q107–110); LaTeX das fórmulas (PF 2025 papiloscopista q105/q110);
+   expoente perdido ("k2", "m2").
+10. PF 2012 agente g12 e papiloscopista g8: poema em duas colunas e números de verso.
+    cbmpa-2023-cfo/p1 1A6: estilo do crédito e subscrito de CH4/CS2.
+11. Amostra de assuntos dirigida para as 6 questões do PF 2012 com assunto novo; curadoria de
+    `comunicacao_e_equipes` × `cultura_organizacional`.
+12. Manifestos dos demais concursos policiais do `cespe-unb`: DPF 2009, DPRF 2013, PC/DF 2013,
     DEPEN 2013.
-11. Começar o crawler e o parser de outra banca.
-12. `pcpe-2016` e `pcientifica-pe-2016`: calibrar o parser e ingerir.
-13. Etapa `structure` e imagens para as questões em `review` por figura, fórmula e layout.
-14. `pmma-2017` gerais cargo 5: `passage_key` diverge em 4 questões ao reprocessar (staging do
-    pmma-2017 fora de sincronia com o HEAD).
-15. PC/PB 2021 CG1A1-III: "matrícula n.º" | "1.234-56" partido e endereço juntado.
+13. Começar o crawler e o parser de outra banca.
+14. `pcpe-2016` e `pcientifica-pe-2016`: calibrar o parser e ingerir (staging do pcientifica fora
+    de sincronia, q29/q30).
+15. Etapa `structure` e imagens para as questões em `review` por figura, fórmula e layout.
+16. `pmma-2017` gerais cargo 5: `passage_key` diverge em 4 questões ao reprocessar (staging fora de
+    sincronia com o HEAD).
+17. PC/PB 2021 CG1A1-III: "matrícula n.º" | "1.234-56" partido e endereço juntado.
 
 ## Bloqueios e perguntas em aberto
 - **Budget do passo 3 do deploy (dono, R$ 0)**: o tópico `emmoni-budget` já existe; o
@@ -96,10 +107,10 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (tentar pelo site antigo).
 
 ## Números
-- Questões visíveis no esquema `api`: 5.446 (com o seed)
-- Reais: 6.929 carregadas · 5.821 `published` · 1.108 `review` · 0 `draft`; provas: 114
-  publicadas, 1 em `review`
-- Registros de aprovação em `ingest/approvals/`: 115
+- Questões visíveis no esquema `api`: 5.535 (com o seed)
+- Reais: 6.994 carregadas · 5.902 `published` · 1.092 `review` · 0 `draft`; provas: 115
+  publicadas, 0 em `review` (mais 5 do seed)
+- Registros de aprovação em `ingest/approvals/`: 115 (19 na impressão v2)
 - Propostas do crawler pendentes: 0 · rejeitados: 1 · último crawl: 2026-10-14 10:25
 - Taxonomia: 57 disciplinas, 917 assuntos
 - Contrato do front-end: **v1.4**
