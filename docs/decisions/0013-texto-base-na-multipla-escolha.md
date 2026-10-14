@@ -29,3 +29,32 @@ fica na margem): a justificativa da questão anterior virava o texto-base da seg
   `review` (as figuras do texto não se espalham mais).
 - Questão que usa o texto sem citar o rótulo e não é a primeira do grupo fica sem texto-base.
   A amostragem por prova é onde isso aparece.
+
+## Emenda de 2026-10-14 — texto sem rótulo e fim da última alternativa
+
+O minos reprovou o `cbmro-2022/oficial` (semente r11): o texto da árvore (pág. 4, questões
+23–26) e o da tabela das ligações (questões 28–30) não têm rótulo. O primeiro começa recuado no
+alto da coluna seguinte à questão 22, o segundo logo abaixo da alternativa E da questão 27, e as
+linhas iniciais grudavam na alternativa E (a última alternativa só terminava em linha de margem
+começando com maiúscula). Mesmo separado, o texto valeria só para a primeira questão, e as
+outras do grupo não podem citá-lo.
+
+1. A última alternativa termina também na primeira linha com recuo de parágrafo (maior que o da
+   continuação), longa e em maiúscula, depois de frase terminada (`_paragraph_after_option`).
+2. Texto-base sem rótulo nem título, com 20 palavras ou mais, vale para a primeira questão depois
+   dele e para as seguintes enquanto cada uma retomar um termo que o texto introduz (radical de
+   5 letras ou sigla, fora dos termos genéricos de enunciado, que não aparece nas questões
+   anteriores ao texto). A cadeia para na primeira questão que não retoma, ou que abre a sua
+   própria situação: enunciado com recuo de parágrafo ou com figura (CBM/RO 2022 questão 27, o
+   tanque). Texto rotulado segue a decisão 1.
+3. Título de bloco em corpo de título (13,5 pt ou mais, sem pontuação final: "Normas relativas ao
+   CBMTO") e título em caixa alta quebrado em duas linhas ("NOÇÕES DE DIREITO PROCESSUAL PENAL" /
+   "COMUM", PM/SC 2023 soldado) não são texto-base.
+
+Consequências: na varredura das provas de múltipla escolha mudaram `cbmro-2022/oficial`
+(q22, q24–q30; as questões dos dois textos vão para `review` pela figura e pela tabela não
+extraídas), `cbmto-2021` oficial (q35) e soldado (título solto), `cbmpa-2023-cfo/p1` (q17, que
+cita a figura 1A3-I, ganha o texto; segue em `review`), `pmsc-2023-soldado/objetiva` (q17 perde o
+título como texto-base; volta a `review` para reamostragem) e `pcientifica-pe-2016` (não
+ingerida). A heurística de termos pode errar em grupos sem termo próprio; a amostra por prova é
+onde isso aparece.

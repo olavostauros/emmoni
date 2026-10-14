@@ -457,6 +457,80 @@ def test_choice_text_after_justification_and_section_title() -> None:
     assert [p.key for p in segmented.passages] == ["g2"]
 
 
+def test_choice_unlabeled_text_after_last_option_holds_for_who_takes_it_up() -> None:
+    """CBM/RO 2022 (decisão 0013, emenda de 2026-10-14): o texto sem rótulo começa com recuo de
+    parágrafo logo depois da alternativa E e não gruda nela; vale para a primeira questão e para
+    as seguintes que retomam termos dele, até a primeira que não retoma ou que abre a sua própria
+    situação (enunciado com recuo de parágrafo)."""
+
+    def text(lines: list[str], y: float) -> list[Line]:
+        return [_line(line, 56 if i == 0 else 28, y + 12 * i) for i, line in enumerate(lines)]
+
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        *text(
+            [
+                "Para cortar uma árvore de 20 m de altura, duas cordas foram",
+                "amarradas na árvore em um ponto P e nos pontos A e B do solo,",
+                "formando os triângulos AOB e APB, com o caule perpendicular ao solo.",
+            ],
+            100,
+        ),
+        *_choice(2, "A distância entre os pontos P e A é", 140),
+        *_choice(3, "A respeito dos triângulos AOB e APB, assinale.", 220),
+        *_choice(4, "Considere que o caule tenha caído.", 300),
+        _line("Questão 5", 51, 380),
+        _line("Um tanque de água com altura de 5 m foi inclinado até", 56, 392),
+        _line("um ângulo de 45° com a vertical.", 28, 404, x1=200),
+        *(
+            _line(f"{letter} opção {letter}.", 28, 416 + 12 * i, x1=100)
+            for i, letter in enumerate("ABCDE")
+        ),
+        *_choice(6, "As cordas amarradas na árvore medem", 480),
+        *text(
+            [
+                "Considere que, em uma central telefônica, tenha sido registrado o",
+                "tempo das ligações em segundos, conforme a tabela a seguir, e que",
+                "nenhuma das ligações tenha ultrapassado dois minutos de duração.",
+            ],
+            560,
+        ),
+        *_choice(7, "Considerando essas informações, a média é", 600),
+        *_choice(8, "A mediana do tempo das ligações é", 680),
+        *_choice(9, "Questão de outra matéria.", 760),
+        *_choice(10, "Das ligações registradas, a moda é", 840),
+    ]
+    segmented = cebraspe.segment([_page(lines)])
+    questions = {q.number: q for q in segmented.questions}
+    keys = {n: q.passage_key for n, q in questions.items()}
+    assert keys == {
+        1: None, 2: "g2", 3: "g2", 4: "g2", 5: None, 6: None,
+        7: "g7", 8: "g7", 9: None, 10: None,
+    }  # fmt: skip
+    assert questions[1].options[-1].body_md == "opção E."
+    assert questions[6].options[-1].body_md == "opção E."
+    passages = {p.key: p.body_md for p in segmented.passages}
+    assert passages["g2"].startswith("Para cortar uma árvore")
+    assert passages["g7"].startswith("Considere que, em uma central")
+
+
+def test_heading_in_title_size_or_split_in_caps_is_not_a_passage() -> None:
+    """CBM/TO 2021: "Normas relativas ao CBMTO" em corpo de título; PM/SC 2023: título em caixa
+    alta quebrado em duas linhas. Nenhum dos dois é texto-base da questão seguinte."""
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        _line("Normas relativas ao CBMTO", 60, 100, size=15),
+        *_choice(2, "A idoneidade moral do candidato é comprovada por", 130),
+        _line("NOÇÕES DE DIREITO PROCESSUAL PENAL", 60, 210),
+        _line("COMUM", 120, 222, x1=160),
+        *_choice(3, "Assinale a opção correta acerca do processo penal.", 240),
+    ]
+    segmented = cebraspe.segment([_page(lines)])
+    assert segmented.passages == []
+    assert [q.passage_key for q in segmented.questions] == [None, None, None]
+    assert segmented.questions[0].options[-1].body_md == "opção E."
+
+
 def test_code_lines_flag_layout() -> None:
     page = _page(
         [

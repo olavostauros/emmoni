@@ -320,7 +320,10 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
 
     Na múltipla escolha a questão cita o texto-base que usa ("texto 2A1-I", "figura 5A2"). O texto
     vale para a questão que o cita e para a primeira questão depois dele; as demais do grupo não
-    herdam o texto (o texto-base não se estende até a próxima abertura)."""
+    herdam o texto (o texto-base não se estende até a próxima abertura). O texto sem rótulo não
+    pode ser citado: vale também para as questões seguintes que retomam termos dele, até a
+    primeira que não retoma ou que abre a sua própria situação (decisão 0013, emenda de
+    2026-10-14)."""
     passages: dict[str, RawPassage] = {}
     questions: list[RawQuestion] = []
     expected = first
@@ -334,15 +337,28 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
     # questões 38 e 40): `_with_figures` marca a linha acima dela, que é o título; o título não
     # entra no bloco da questão, e a marca passa para a questão (decisão 0030, emenda).
     title_flags: set[str] = set()
+    chain: str | None = None  # texto sem rótulo que ainda vale para as questões seguintes
+    chain_terms: set[str] = set()
+    seen_terms: set[str] = set()  # termos das questões já lidas
 
     def close() -> None:
-        nonlocal lead
+        nonlocal lead, chain
         if not block:
             return
         question, rest = _choice_question(number, block, None, title_flags)
         key = _referenced_passage(question, labels) or (
             group_passage if number == group_first else None
         )
+        if number > group_first and chain:
+            if (
+                not key
+                and _terms(_question_text(question)) & chain_terms
+                and not _own_situation(block)
+            ):
+                key = chain
+            else:
+                chain = None
+        seen_terms.update(_terms(_question_text(question)))
         if key:
             question.passage_key = key
             question.flags = sorted({*question.flags, *passages[key].flags})
@@ -362,6 +378,9 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
                 )
                 group_passage = None if cover else _open_group_choice(lead, expected, passages)
                 group_first = expected
+                chain = group_passage if _unlabeled_situation(passages, group_passage) else None
+                if chain:  # termos que o texto introduz: não apareceram nas questões anteriores
+                    chain_terms = _terms(passages[chain].body_md) - seen_terms
                 for key, passage in passages.items():
                     for label in _passage_labels(passage):
                         labels.setdefault(label, key)
@@ -432,12 +451,19 @@ def _choice_question(
     else:
         statement_entries = block[: starts[0]]
         # A última alternativa termina na primeira linha de margem depois dela: o que vem a
-        # seguir é a abertura do próximo grupo (texto rotulado, instrução).
+        # seguir é a abertura do próximo grupo (texto rotulado, instrução). Também termina no
+        # recuo de parágrafo depois de frase terminada: o texto-base sem rótulo que abre o grupo
+        # seguinte começa recuado, às vezes no alto da coluna seguinte (CBM/RO 2022, antes das
+        # questões 23 e 28; decisão 0013, emenda de 2026-10-14).
         end = len(block)
         for i in range(starts[-1] + 1, len(block)):
             plain = block[i].line.plain
             starts_text = TITLE_LINE.match(plain) is not None or _section_title(plain)
-            if starts_text or (_at_margin(block[i]) and not block[i].line.plain[:1].islower()):
+            if (
+                starts_text
+                or (_at_margin(block[i]) and not block[i].line.plain[:1].islower())
+                or _paragraph_after_option(block[i - 1], block[i])
+            ):
                 end = i
                 break
         rest = block[end:]
@@ -468,6 +494,73 @@ def _choice_question(
             flags=sorted(flags),
         ),
         rest,
+    )
+
+
+# Termos de enunciado comuns a qualquer questão: não ligam a questão a um texto sem rótulo.
+_GENERIC_WORDS = (
+    "considere considerando considerando-se correto correta afirmar assinale opção opções seguir"
+    " seguinte seguintes acima abaixo informações situação questão questões respectivamente"
+    " conforme apresentado apresentada texto figura tabela então sobre entre ainda dessa nessa"
+    " essas esses desse nesse sendo tenha tenham sejam seria igual valor mesma mesmo forma"
+    " quando sabendo-se julgue itens acerca respeito relação base"
+)
+
+
+def _term(word: str) -> str:
+    return word.casefold()[:5]
+
+
+_GENERIC_TERMS = {_term(w) for w in _GENERIC_WORDS.split()}
+UNLABELED_MIN_WORDS = 20  # texto sem rótulo mais curto que isso é título ou instrução
+
+
+def _terms(text: str) -> set[str]:
+    """Termos de um texto: palavras de 5 letras ou mais pelo radical (as 5 primeiras letras, que
+    juntam "ligação" e "ligações") e siglas de 2 a 4 maiúsculas ("AOB")."""
+    out: set[str] = set()
+    for word in re.findall(r"[^\W\d_]+", text):
+        if 2 <= len(word) <= 4 and word.isupper():
+            out.add(word)
+        elif len(word) >= 5 and _term(word) not in _GENERIC_TERMS:
+            out.add(_term(word))
+    return out
+
+
+def _question_text(question: RawQuestion) -> str:
+    return " ".join([question.statement_md, *(o.body_md for o in question.options)])
+
+
+def _unlabeled_situation(passages: dict[str, RawPassage], key: str | None) -> bool:
+    """Texto-base sem rótulo nem título, com corpo de texto (não é título de bloco)."""
+    if key is None or not re.fullmatch(r"g\d+", key):
+        return False
+    passage = passages[key]
+    return not _passage_labels(passage) and len(passage.body_md.split()) >= UNLABELED_MIN_WORDS
+
+
+def _own_situation(block: list[_Entry]) -> bool:
+    """A questão abre a sua própria situação: o enunciado começa com recuo de parágrafo ou traz
+    figura (CBM/RO 2022 questão 27, o tanque, logo depois das questões da árvore)."""
+    starts = _find_options(block)
+    statement = block[: starts[0]] if starts else block
+    if not statement:
+        return False
+    return statement[0].line.x0 - statement[0].left > HANGING_MAX or any(
+        "figure" in e.flags for e in statement
+    )
+
+
+def _paragraph_after_option(previous: _Entry, entry: _Entry) -> bool:
+    """Primeira linha de parágrafo depois da última alternativa: recuo maior que o da
+    continuação, maiúscula, linha longa, e a alternativa terminou a frase. Fórmula ou tabela
+    centralizada dentro da alternativa é curta ou não vem depois de frase terminada."""
+    indent = entry.line.x0 - entry.left
+    return (
+        indent > HANGING_MAX
+        and entry.line.plain[:1].isupper()
+        and not entry.short
+        and previous.line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
     )
 
 
@@ -668,11 +761,22 @@ def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]
 
 
 def _bold_heading(entries: list[_Entry]) -> bool:
-    """Título de bloco em negrito ("**Atualidades e conhecimentos...**") ou em caixa alta: não é
-    texto-base."""
+    """Título de bloco em negrito ("**Atualidades e conhecimentos...**"), em caixa alta ou em
+    corpo de título, sem pontuação final ("Normas relativas ao CBMTO", CBM/TO 2021 oficial, antes
+    da questão 36): não é texto-base."""
+    if len(entries) == 2 and _section_title(entries[0].line.plain):
+        # título em caixa alta quebrado em duas linhas ("NOÇÕES DE DIREITO PROCESSUAL PENAL" /
+        # "COMUM", PM/SC 2023 soldado, antes da questão 17)
+        tail = entries[1].line.plain.strip()
+        if tail.isupper() and len(tail.split()) <= 3 and not tail.endswith((".", ":", "?", ",")):
+            return True
     return len(entries) <= 2 and all(
         (e.line.text.strip().startswith("**") and e.line.text.strip().endswith("**"))
         or _section_title(e.line.plain)
+        or (
+            (e.line.size or 0) >= HEADING_MIN_SIZE
+            and not e.line.plain.rstrip().endswith((".", ":", "?", ",", ";"))
+        )
         for e in entries
     )
 
@@ -877,6 +981,7 @@ def _justification_color(pages: list[Page]) -> int | None:
 # CBM/TO 2022, 12 pt contra 10 pt do texto): no alto da coluna, grudava na última alternativa.
 KNOWLEDGE_TITLE = re.compile(r"^Conhecimentos\b(?:\s+\S+){0,7}$", re.I)
 KNOWLEDGE_TITLE_MIN_SIZE = 11.5
+HEADING_MIN_SIZE = 13.5  # título de bloco em corpo de título (o texto corre em 10–11)
 
 
 def _subject_heading(line: Line) -> bool:

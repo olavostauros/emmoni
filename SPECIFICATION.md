@@ -533,7 +533,11 @@ exams:
 No Cebraspe (certo/errado), o **comando** do grupo abre o enunciado de cada item, e o texto
 rotulado ou a situação hipotética vira texto-base. Na múltipla escolha, o texto-base vale para a
 primeira questão depois dele e para as que o citam pelo rótulo ("texto 2A1-I", "figura 5A2");
-as demais não o herdam (decisão 0013). Questão que cita figura, diagrama ou tabela que não foi
+as demais não o herdam (decisão 0013). O texto sem rótulo, que não pode ser citado, vale também
+para as questões seguintes que retomam termos que ele introduz, até a primeira que não retoma ou
+que abre a sua própria situação (enunciado com recuo de parágrafo ou figura); a última
+alternativa termina no recuo de parágrafo depois de frase terminada, e título de bloco em corpo
+de título ou em caixa alta quebrado em duas linhas não é texto-base (emenda de 2026-10-14). Questão que cita figura, diagrama ou tabela que não foi
 extraída ("o modelo ER precedente", "a estrutura mostrada anteriormente"), ou item certo/errado sem
 texto-base cujo comando remete ao que vem antes dele ("os dados acima"), vai para `review` com o
 motivo correspondente, até existir a etapa de imagens (decisão 0030); também a questão de múltipla escolha com
