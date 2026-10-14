@@ -788,7 +788,7 @@ def _line(
             decoded.append(s)
         raw = raw | {"spans": decoded}
     raw = raw | {"spans": _line_refs(raw["spans"], legacy=fonts is not None and fonts.legacy)}
-    raw = raw | {"spans": _degree_signs(raw["spans"])}
+    raw = raw | {"spans": _ordinal_signs(_degree_signs(raw["spans"]))}
     spans = [s for s in raw["spans"] if s["text"].strip(" \xa0")]
     if not spans or max(float(s["size"]) for s in spans) < MIN_SIZE:
         return None  # texto invisível (marcas de diagramação em corpo 1)
@@ -864,6 +864,43 @@ def _degree_signs(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
             and DEGREE_AFTER.match(result[i + 1]["text"])
         ):
             result[i] = span | {"text": span["text"].replace("o", "º")}
+    return result
+
+
+# "Lei n.º 10.826/2003", "art. 1.º", "12.ª ed.", "Leis n.ºs": o original grafa o indicador
+# ordinal como "o"/"a" sobrescrito (corpo menor e linha de base acima da vizinha, ou a marca de
+# sobrescrito da fonte), e o texto saía "n.o" (PC/PB 2021 escrivão q50 e q52, reprovação r22 do
+# minos; emenda (14) da decisão 0020). Só depois de "n."/"N."/"n"/"N" isolado, de número com ponto
+# ("1.", "12.") ou de "§ 1": número sem ponto pode ser ângulo ("30o", "2o" no CBM/TO 2021) e letra
+# qualquer pode ser índice ("Vo", "Ka"); esses ficam como estão.
+ORDINAL_SIGN = re.compile(r"^([oa])(s?)$")
+ORDINAL_BEFORE = re.compile(r"(?:(?<![^\W\d_])[nN]\.?|\d\.|§[ \xa0]?\d+)$")
+ORDINAL_AFTER = re.compile(r"(?![^\W\d_])")
+ORDINAL_GLYPHS = {"o": "º", "a": "ª"}
+RAISED = 0.5  # pontos: linha de base do sobrescrito acima da do texto
+
+
+def _ordinal_signs(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = list(spans)
+    for i in range(1, len(result)):
+        span, before = result[i], result[i - 1]
+        core = span["text"].strip(" \xa0")
+        if not (m := ORDINAL_SIGN.match(core)):
+            continue
+        after = result[i + 1]["text"] if i + 1 < len(result) else ""
+        raised = (
+            float(span["size"]) < float(before["size"]) - SCRIPT_DROP
+            and "origin" in span
+            and "origin" in before
+            and float(span["origin"][1]) < float(before["origin"][1]) - RAISED
+        )
+        if (
+            (span["flags"] & SUPERSCRIPT or raised)
+            and ORDINAL_BEFORE.search(before["text"])
+            and (span["text"] != core or ORDINAL_AFTER.match(after))
+        ):
+            glyph = ORDINAL_GLYPHS[m.group(1)] + m.group(2)
+            result[i] = span | {"text": span["text"].replace(core, glyph, 1)}
     return result
 
 

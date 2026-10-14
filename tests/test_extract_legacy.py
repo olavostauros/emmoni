@@ -208,3 +208,51 @@ def test_style_from_the_distiller_name() -> None:
     assert "dos *cookies* das páginas" in text
     assert "*Favoritos*" not in text  # a sem serifa normal das alternativas segue normal
     assert "*downloads*" not in _text(ex.extract(CBMTO_SOLDADO))  # desligado: como antes
+
+
+PCPB_ESCRIVAO = FIXTURE.with_name("pcpb-2021-escrivao-p7.pdf")
+
+
+def test_superscript_ordinal_becomes_ordinal_sign() -> None:
+    """Lei n.º 8.072/1990": o "o" sobrescrito do original (corpo 6,5 sobre 10, marca de
+    sobrescrito) é o "º" (PC/PB 2021 escrivão, pág. 7; emenda (14) da 0020)."""
+    text = _text(ex.extract(PCPB_ESCRIVAO))
+    assert "conforme previsão da Lei n.º 8.072/1990" in text
+    assert "Estatuto do Desarmamento (Lei n.º" in text
+    assert "n.o" not in text
+
+
+def _sup(
+    text: str, size: float = 6.5, flags: int = ex.SUPERSCRIPT, y: float = 95.4
+) -> dict[str, object]:
+    return {"text": text, "size": size, "flags": flags, "origin": (0.0, y)}
+
+
+def _body(text: str) -> dict[str, object]:
+    return {"text": text, "size": 10.0, "flags": 0, "origin": (0.0, 100.0)}
+
+
+def _ordinal(*spans: dict[str, object]) -> str:
+    return "".join(str(s["text"]) for s in ex._ordinal_signs(list(spans)))
+
+
+def test_ordinal_sign_only_after_number_sign_or_numbered_abbreviation() -> None:
+    assert _ordinal(_body("Lei n."), _sup("o"), _body(" 9.296/1996")) == "Lei n.º 9.296/1996"
+    assert (
+        _ordinal(_body("das Leis n."), _sup("os"), _body(" 9.605/1998"))
+        == "das Leis n.ºs 9.605/1998"
+    )
+    assert _ordinal(_body("12."), _sup("a"), _body(" ed.")) == "12.ª ed."
+    assert _ordinal(_body("compra: 1."), _sup("o"), _body("/7/20x0.")) == "compra: 1.º/7/20x0."
+    assert _ordinal(_body("no § 1"), _sup("o"), _body(" do art.")) == "no § 1º do art."
+    assert _ordinal(_body("OFÍCIO N"), _sup("o"), _body(" 000/ano")) == "OFÍCIO Nº 000/ano"
+    # Sem a marca de sobrescrito, vale o corpo menor com a linha de base acima.
+    assert _ordinal(_body("Lei n."), _sup("o", flags=0), _body(" 1")) == "Lei n.º 1"
+    # Corpo menor na mesma linha de base é índice ("Vo", "n" com índice), não ordinal.
+    assert _ordinal(_body("Lei n."), _sup("o", flags=0, y=100.0), _body(" 1")) == "Lei n.o 1"
+    assert _ordinal(_body("V"), _sup("o"), _body(" é")) == "Vo é"
+    # Número sem ponto pode ser ângulo ("30o"): fica como está.
+    assert _ordinal(_body("que 30"), _sup("o"), _body(" foi")) == "que 30o foi"
+    # "o" do mesmo corpo é letra comum; "o" sobrescrito colado em palavra seguinte não é ordinal.
+    assert _ordinal(_body("Lei n."), _body("o"), _body(" 1")) == "Lei n.o 1"
+    assert _ordinal(_body("n."), _sup("o"), _body("utra")) == "n.outra"

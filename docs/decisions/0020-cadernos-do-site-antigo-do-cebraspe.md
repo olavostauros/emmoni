@@ -464,3 +464,29 @@ em negrito que não é "Texto X" e cuja saída muda: CBM/PA 2023 CFP P1 (g36 vol
 pela figura) e PM/TO 2020 QPE (g51, g54, g56; q51–57 continuam em `review`, agora pela figura).
 PC/MA 2017 gerais 1 e 2, PC/PB 2021 cargos 5, 12 e 13, PC/PE 2023 P2 cargo 1 e PM/RO 2022: saída
 idêntica.
+
+## Emenda de 2026-10-14 (14) — indicador ordinal sobrescrito
+
+**Contexto.** O minos (semente r22) reprovou o PC/PB 2021 escrivão específicos: q50 e q52 (pág. 7)
+saíam com "Lei n.o 10.826/2003", e o original tem o ordinal sobrescrito ("n.º"). No PDF o "o" é um
+span próprio da mesma fonte, em corpo 6,5 sobre 10, com a marca de sobrescrito da fonte e a linha de
+base 4,6 pt acima. Outros cadernos do corpus já trazem o glifo "º" e saem certos (PC/RJ 2021, PC/RO
+2022); só o grau ("800 ºC") tinha tratamento para o "o" sobrescrito.
+
+**Decisão.** No `extract`, um span "o", "a", "os" ou "as" sobrescrito — com a marca de sobrescrito
+da fonte, ou em corpo pelo menos 1,5 pt menor com a linha de base acima da do span anterior — vira
+"º", "ª", "ºs", "ªs" quando o texto anterior termina em "n."/"N." ou "n"/"N" isolado, em número
+com ponto ("1.", "12.") ou em "§ 1"; e quando o que vem depois não é letra colada. Fica de fora,
+de propósito: número sem ponto ("30o", "α + 2o": ângulos no CBM/TO 2021 soldado), letra qualquer
+("Vo", "Ka": índices, que nem sobem da linha de base) e o texto de OCR (sem corpo nem posição de
+glifo; no PC/DF 2020 básicos, o "n.o" está só nas justificativas, que não são gravadas). Nenhuma
+troca de "n.o" pelo texto: só o glifo sobrescrito conferido no PDF.
+
+**Verificação.** As 135 provas do `data/staging/` reprocessadas com e sem a regra (extract,
+segment, validate): só mudam "n.o" → "n.º", "n.os" → "n.ºs", "1.o"/"5.o" → "1.º"/"5.º" e "No" →
+"Nº", em PC/PB 2021 escrivão (q41–52), cargo 3 (q45–51, 53, 56, 72) e cargo 1 (q52, 62); PF 2018
+agente, escrivão e papiloscopista (q38–40; escrivão também o texto-base g97, "1.º/7/20x0"); PF
+2025 escrivão específicos (q110); PC/MA 2017 escrivão específicos (q31, "art. 5.º"); PM/SC 2023
+soldado (texto-base 1A5-III, "OFÍCIO Nº"). No PC/PE 2023 P1 cargo 2 e no CBM/AL 2021 oficial
+mudam só linhas que não são gravadas (justificativa, prova discursiva). Fixture
+`pcpb-2021-escrivao-p7.pdf`.
