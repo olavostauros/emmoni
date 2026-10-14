@@ -1,19 +1,23 @@
 {
  "exam": "pcpb-2021/conhecimentos-especificos-cargo-5",
+ "seed": "minos-2026-10-14-r4",
  "numbers": [
-  53,
+  51,
+  52,
   54,
+  55,
   56,
   58,
-  59,
   61,
-  68,
+  62,
+  63,
   71,
-  74,
-  77
+  72,
+  75,
+  78
  ],
- "sampled_at": "2026-10-08T13:32:05.915353+00:00",
- "approved_at": "2026-10-08T13:36:29.104343+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "1402acf490b829021baa5bffd4499231a312a551d64c8aca4a78361fa29ebf07"
+ "sampled_at": "2026-10-14T09:24:05.899551+00:00",
+ "approved_at": "2026-10-14T09:25:39.287002+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "bb597de1fe30dd2e9440e90e1095a15b2c6d07e35e56580bcc73e48ac819bf09"
 }
