@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-14 09:59 UTC. Não edite à mão.
 
-**5082 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5310 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -13,7 +13,7 @@ Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 | Cebraspe | CBMPA | 2023 | 2 | 66 |
 | Cebraspe | CBMRO | 2022 | 1 | 72 |
 | Cebraspe | CBMTO | 2021 | 2 | 64 |
-| Cebraspe | CBMTO | 2022 | 1 | 31 |
+| Cebraspe | CBMTO | 2022 | 2 | 66 |
 | Cebraspe | DEPEN | 2020 | 1 | 90 |
 | Cebraspe | PCAL | 2021 | 2 | 126 |
 | Cebraspe | PCAL | 2022 | 2 | 117 |
@@ -24,9 +24,10 @@ Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 | Cebraspe | PCES | 2022 | 2 | 74 |
 | Cebraspe | PCGO | 2016 | 4 | 88 |
 | Cebraspe | PCMA | 2017 | 7 | 241 |
-| Cebraspe | PCPB | 2021 | 18 | 493 |
+| Cebraspe | PCPB | 2021 | 20 | 539 |
 | Cebraspe | PCPE | 2023 | 5 | 195 |
-| Cebraspe | PCRO | 2022 | 4 | 189 |
+| Cebraspe | PCRJ | 2021 | 1 | 100 |
+| Cebraspe | PCRO | 2022 | 6 | 236 |
 | Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
 | Cebraspe | PF | 2012 | 4 | 390 |
@@ -48,30 +49,30 @@ Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 539 |
-| Informática | 441 |
-| Direito Penal | 408 |
-| Direito Processual Penal | 397 |
-| Direito Constitucional | 379 |
-| Direito Administrativo | 376 |
-| Legislação Penal Especial | 307 |
-| Legislação Institucional | 167 |
-| Medicina Legal | 143 |
+| Língua Portuguesa | 584 |
+| Informática | 446 |
+| Direito Penal | 420 |
+| Direito Processual Penal | 417 |
+| Direito Constitucional | 399 |
+| Direito Administrativo | 396 |
+| Legislação Penal Especial | 315 |
+| Medicina Legal | 182 |
+| Legislação Institucional | 177 |
 | Contabilidade Geral | 132 |
 | Direitos Humanos | 128 |
-| Geografia | 112 |
-| Raciocínio Lógico | 108 |
-| História | 100 |
+| Geografia | 121 |
+| Raciocínio Lógico | 118 |
+| História | 109 |
 | Arquivologia | 93 |
+| Direito Civil | 93 |
 | Legislação Estadual | 92 |
 | Biologia | 85 |
-| Direito Civil | 84 |
 | Criminologia | 72 |
 | Legislação de Trânsito | 71 |
 | Atualidades | 69 |
+| Matemática | 67 |
 | Criminalística | 66 |
-| Matemática | 66 |
-| Química | 59 |
+| Química | 65 |
 | Língua Inglesa | 45 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 39 |
@@ -81,11 +82,11 @@ Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 | Direito Internacional | 31 |
 | Engenharia | 31 |
 | Direito Previdenciário | 30 |
-| Redação Oficial | 27 |
+| Redação Oficial | 28 |
+| Física | 26 |
 | Estatística | 25 |
 | Ética no Serviço Público | 25 |
 | Administração Geral | 24 |
-| Física | 23 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
 | Execução Penal | 17 |
 | Direito Financeiro | 15 |
@@ -100,7 +101,7 @@ Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 | Saúde Pública | 6 |
 | Filosofia | 5 |
 | Sociologia | 5 |
-| Direito do Consumidor | 3 |
+| Direito do Consumidor | 4 |
 | História da PRF | 2 |
 | Primeiros Socorros | 2 |
 | Teoria Musical | 1 |
@@ -134,12 +135,6 @@ Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 
 ## Provas carregadas e não publicadas
 
-- `cbmto-2022/oficial` (review)
-- `pcpb-2021/conhecimentos-especificos-cargo-11` (review)
-- `pcpb-2021/conhecimentos-gerais-para-os-cargos-de-4-a-13` (review)
-- `pcrj-2021/objetiva` (review)
-- `pcro-2022/conhecimentos-gerais-para-o-cargo-1` (review)
-- `pcro-2022/conhecimentos-gerais-para-o-cargo-4` (review)
 - `pmdf-2025/p2` (review)
 - `pmro-2022/objetiva` (review)
 
