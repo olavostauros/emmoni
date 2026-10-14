@@ -1,19 +1,20 @@
 {
  "exam": "pcse-2021/conhecimentos-especificos-cargo-2",
+ "seed": "r14",
  "numbers": [
-  31,
-  38,
+  35,
+  36,
+  42,
+  46,
   58,
-  63,
-  85,
-  91,
-  92,
-  93,
-  94,
-  95
+  59,
+  72,
+  73,
+  95,
+  96
  ],
- "sampled_at": "2026-10-08T13:32:21.299404+00:00",
- "approved_at": "2026-10-08T13:36:30.426918+00:00",
- "approved_by": "claude-opus-5-5",
+ "sampled_at": "2026-10-14T18:19:46.680910+00:00",
+ "approved_at": "2026-10-14T18:19:57.655947+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
  "fingerprint": "9baff9b60200f592af96b45445892e0a9bae9082ff18def8075a22ad087ee0cb"
 }
