@@ -1,19 +1,21 @@
 {
  "exam": "pcpb-2021/conhecimentos-gerais-para-o-cargo-de-escrivao-de-policia",
+ "seed": "r22",
  "numbers": [
-  1,
-  2,
   3,
+  4,
   5,
+  6,
   9,
   10,
+  15,
   16,
   17,
-  18,
   19
  ],
- "sampled_at": "2026-10-08T13:32:09.505072+00:00",
- "approved_at": "2026-10-08T13:36:17.471397+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "c0b95804700f8e1422cabd54a725c81848db701941e73ce90a45c1a36f8ed387"
+ "sampled_at": "2026-10-14T19:27:44.557045+00:00",
+ "approved_at": "2026-10-14T19:28:26.135327+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "430c0ca03bfb79fda321c156fde67c01cfff5abc4dbb986090fbe81777385bc7",
+ "fingerprint_version": 2
 }
