@@ -177,6 +177,10 @@ CREDIT_END = re.compile(
 )
 
 SENTENCE_STOP = (".", ":", ";", "?", "!")
+# Linha que termina em hífen colado a letra ou algarismo, seguida de linha que começa por letra ou
+# algarismo: a palavra composta continua sem espaço, com o hífen (decisão 0032).
+HYPHEN_END = re.compile(r"[^\W_]-$")
+HYPHEN_NEXT = re.compile(r"[^\W_]")
 SENTENCE_STOP_FULL = (".", "?", "!")
 LINE_NUMBER = re.compile(
     r"^(?:[*\\/t]{0,10}?)\d{1,3}\*{0,2}\s+"
@@ -481,16 +485,21 @@ def _bullets(entries: list[_Entry]) -> list[_Entry]:
 
 def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     """Parágrafos do enunciado: recuo de primeira linha, linha curta anterior ou item
-    enumerado (I, II, III; a), b)...) começam parágrafo novo."""
+    enumerado (I, II, III; a), b)...) começam parágrafo novo. O crédito em letra miúda, alinhado à
+    direita e quebrado em várias linhas, é um parágrafo só, até a linha que o encerra (PC/PB 2021
+    cargo 13, questão 65), como no certo/errado (`_paragraphs`)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
-    for entry in entries:
+    for index, entry in enumerate(entries):
         indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
         enumerated = _at_margin(entry) and (
             ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
         )
         credit_done = previous is not None and CREDIT_END.search(previous.line.plain.strip())
-        new = previous is None or indented or previous.short or enumerated or bool(credit_done)
+        broken = (indented or (previous is not None and previous.short)) and not _credit_goes_on(
+            entries, index
+        )
+        new = previous is None or broken or enumerated or bool(credit_done)
         if new:
             paragraphs.append([])
         paragraphs[-1].append(entry.line.text)
@@ -1327,12 +1336,18 @@ def _split_command(paragraphs: list[str]) -> tuple[list[str], str]:
 
 
 def _join(lines: list[str]) -> str:
+    """Junta as linhas de um parágrafo com espaço.
+
+    Hífen colado no fim da linha é do original e fica, sem espaço depois: o Cebraspe não separa
+    palavra por sílaba, e a linha só quebra no hífen de composto, ênclise ou rótulo ("pós-" |
+    "morte", "aplica-" | "se", "Jaci-" | "Paraná", "1A1-" | "I"). Decisão 0032.
+    """
     text = ""
     for line in lines:
         if not text:
             text = line
-        elif re.search(r"[a-záéíóúâêôãõç]-$", text) and re.match(r"[a-záéíóúâêôãõç]", line):
-            text = text[:-1] + line  # hifenização de fim de linha
+        elif HYPHEN_END.search(text) and HYPHEN_NEXT.match(line):
+            text += line
         else:
             text = f"{text} {line}"
     return _normalize(text)

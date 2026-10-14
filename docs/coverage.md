@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-14 01:54 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-14 09:22 UTC. Não edite à mão.
 
-**5443 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**4842 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -13,34 +13,31 @@ Gerado por `emmoni coverage` em 2026-10-14 01:54 UTC. Não edite à mão.
 | Cebraspe | CBMPA | 2023 | 2 | 66 |
 | Cebraspe | CBMRO | 2022 | 1 | 72 |
 | Cebraspe | CBMTO | 2021 | 2 | 64 |
-| Cebraspe | CBMTO | 2022 | 2 | 63 |
+| Cebraspe | CBMTO | 2022 | 1 | 31 |
 | Cebraspe | DEPEN | 2020 | 1 | 90 |
 | Cebraspe | PCAL | 2021 | 2 | 126 |
 | Cebraspe | PCAL | 2022 | 2 | 117 |
 | Cebraspe | PCCE | 2025 | 1 | 99 |
 | Cebraspe | PCDF | 2019 | 1 | 94 |
-| Cebraspe | PCDF | 2020 | 2 | 104 |
+| Cebraspe | PCDF | 2020 | 2 | 102 |
 | Cebraspe | PCDF | 2026 | 1 | 110 |
-| Cebraspe | PCES | 2022 | 2 | 74 |
+| Cebraspe | PCES | 2022 | 1 | 17 |
 | Cebraspe | PCGO | 2016 | 4 | 88 |
 | Cebraspe | PCMA | 2017 | 7 | 241 |
-| Cebraspe | PCPB | 2021 | 20 | 541 |
+| Cebraspe | PCPB | 2021 | 12 | 348 |
 | Cebraspe | PCPE | 2023 | 5 | 195 |
-| Cebraspe | PCRJ | 2021 | 1 | 100 |
-| Cebraspe | PCRO | 2022 | 6 | 236 |
+| Cebraspe | PCRO | 2022 | 4 | 189 |
 | Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
 | Cebraspe | PF | 2012 | 4 | 390 |
-| Cebraspe | PF | 2018 | 4 | 405 |
+| Cebraspe | PF | 2018 | 4 | 402 |
 | Cebraspe | PF | 2021 | 4 | 233 |
 | Cebraspe | PF | 2025 | 6 | 248 |
 | Cebraspe | PMAL | 2017 | 2 | 94 |
 | Cebraspe | PMAL | 2018 | 1 | 108 |
 | Cebraspe | PMAL | 2021 | 2 | 190 |
-| Cebraspe | PMDF | 2025 | 2 | 78 |
 | Cebraspe | PMMA | 2017 | 3 | 115 |
 | Cebraspe | PMPA | 2023 | 4 | 111 |
-| Cebraspe | PMRO | 2022 | 1 | 89 |
 | Cebraspe | PMSC | 2023 | 2 | 117 |
 | Cebraspe | PMTO | 2020 | 2 | 55 |
 | Cebraspe | PRF | 2018 | 1 | 101 |
@@ -50,44 +47,44 @@ Gerado por `emmoni coverage` em 2026-10-14 01:54 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 583 |
-| Informática | 453 |
-| Direito Penal | 433 |
-| Direito Processual Penal | 431 |
-| Direito Administrativo | 416 |
-| Direito Constitucional | 412 |
-| Legislação Penal Especial | 336 |
-| Medicina Legal | 182 |
-| Legislação Institucional | 181 |
+| Língua Portuguesa | 531 |
+| Informática | 441 |
+| Direito Penal | 385 |
+| Direito Processual Penal | 381 |
+| Direito Constitucional | 368 |
+| Direito Administrativo | 359 |
+| Legislação Penal Especial | 297 |
+| Legislação Institucional | 162 |
 | Contabilidade Geral | 132 |
-| Direitos Humanos | 128 |
-| Geografia | 123 |
-| Raciocínio Lógico | 118 |
-| História | 116 |
-| Arquivologia | 93 |
-| Direito Civil | 93 |
-| Legislação Estadual | 93 |
-| Biologia | 85 |
-| Criminologia | 72 |
+| Geografia | 109 |
+| Direitos Humanos | 108 |
+| Medicina Legal | 106 |
+| Raciocínio Lógico | 106 |
+| História | 100 |
+| Legislação Estadual | 89 |
+| Arquivologia | 83 |
+| Direito Civil | 80 |
 | Legislação de Trânsito | 71 |
 | Atualidades | 69 |
-| Legislação Penal Militar | 68 |
-| Matemática | 67 |
-| Criminalística | 66 |
-| Química | 65 |
-| Língua Inglesa | 45 |
+| Biologia | 68 |
+| Matemática | 66 |
+| Criminologia | 60 |
+| Química | 45 |
+| Criminalística | 42 |
+| Língua Inglesa | 41 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 39 |
+| Legislação Penal Militar | 39 |
 | Direito Processual Civil | 36 |
 | Direito Empresarial | 34 |
 | Direito Internacional | 31 |
 | Engenharia | 31 |
 | Direito Previdenciário | 30 |
-| Administração Geral | 28 |
 | Redação Oficial | 27 |
-| Física | 26 |
 | Estatística | 25 |
 | Ética no Serviço Público | 25 |
+| Administração Geral | 24 |
+| Física | 23 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
 | Execução Penal | 17 |
 | Direito Financeiro | 15 |
@@ -102,7 +99,7 @@ Gerado por `emmoni coverage` em 2026-10-14 01:54 UTC. Não edite à mão.
 | Saúde Pública | 6 |
 | Filosofia | 5 |
 | Sociologia | 5 |
-| Direito do Consumidor | 4 |
+| Direito do Consumidor | 3 |
 | História da PRF | 2 |
 | Primeiros Socorros | 2 |
 | Teoria Musical | 1 |
@@ -136,7 +133,22 @@ Gerado por `emmoni coverage` em 2026-10-14 01:54 UTC. Não edite à mão.
 
 ## Provas carregadas e não publicadas
 
-Nenhuma.
+- `cbmto-2022/oficial` (review)
+- `pces-2022/conhecimentos-especificos` (review)
+- `pcpb-2021/conhecimentos-complementares-para-os-cargos-de-14-a-17` (review)
+- `pcpb-2021/conhecimentos-complementares-para-os-cargos-de-4-a-13` (review)
+- `pcpb-2021/conhecimentos-especificos-cargo-10` (review)
+- `pcpb-2021/conhecimentos-especificos-cargo-11` (review)
+- `pcpb-2021/conhecimentos-especificos-cargo-12` (review)
+- `pcpb-2021/conhecimentos-especificos-cargo-15` (review)
+- `pcpb-2021/conhecimentos-especificos-cargo-5` (review)
+- `pcpb-2021/conhecimentos-gerais-para-os-cargos-de-4-a-13` (review)
+- `pcrj-2021/objetiva` (review)
+- `pcro-2022/conhecimentos-gerais-para-o-cargo-1` (review)
+- `pcro-2022/conhecimentos-gerais-para-o-cargo-4` (review)
+- `pmdf-2025/p1` (review)
+- `pmdf-2025/p2` (review)
+- `pmro-2022/objetiva` (review)
 
 ## Propostas do crawler pendentes
 

@@ -885,3 +885,54 @@ def test_line_reference_symbol_is_ell_outside_the_old_site() -> None:
     )
     assert "“Assim” (ℓ.2)" in text
     assert "(R." not in text
+
+
+@pytest.mark.parametrize(
+    ("lines", "joined"),
+    [
+        # Composto e ênclise quebrados no hífen (PC/PB 2021 cargo 12 q66, cargo 11 q73): o hífen
+        # é do original e fica (decisão 0032).
+        (["para espécies-", "alvo, sendo"], "para espécies-alvo, sendo"),
+        (["o intervalo pós-", "morte de um cadáver."], "o intervalo pós-morte de um cadáver."),
+        (["função aplica-", "se nas lesões"], "função aplica-se nas lesões"),
+        (["consiste em limpá-", "la de voos"], "consiste em limpá-la de voos"),
+        # Maiúscula e algarismo depois do hífen também emendam, sem espaço (CBM/RO 2022 q38,
+        # CBM/TO 2022 q7, PC/RO 2022 cargo 1 q26).
+        (["o trajeto de Jaci-", "Paraná até"], "o trajeto de Jaci-Paraná até"),
+        (["no texto 1A1-", "I, julgue"], "no texto 1A1-I, julgue"),
+        (["(1956-", "1960)."], "(1956-1960)."),
+        # Traço solto (espaço antes) não é hífen de palavra: a linha emenda com espaço.
+        (["uma pausa -", "e segue"], "uma pausa - e segue"),
+    ],
+)
+def test_line_ending_hyphen_is_kept(lines: list[str], joined: str) -> None:
+    assert cebraspe._join(lines) == joined
+
+
+def test_choice_statement_credit_is_one_paragraph() -> None:
+    """Crédito alinhado à direita, em três linhas que começam em x diferentes, no enunciado da
+    múltipla escolha (PC/PB 2021 cargo 13, q65): um parágrafo só, com a URL inteira."""
+    page = _page(
+        [
+            _line("Questão 1", 51, 50),
+            _line("Atualmente, o combustível contém 27% de etanol misturado à gasolina.", 28, 70),
+            _line("F. Amarato e F. Matoso. **Mistura de etanol na gasolina**.", 152, 90, size=6.0),
+            _line(
+                "Internet: <http://g1.globo.com/2015/03/mistura-de-etanol-na-", 100, 97, size=6.0
+            ),
+            _line("gasolina-sobe-para-27.html> (com adaptações).", 121, 104, size=6.0),
+            _line("A densidade do combustível é", 28, 120, x1=150),
+            *(
+                _line(f"{letter} {i},7 g/mL.", 28, 132 + 12 * i, x1=100)
+                for i, letter in enumerate("ABCDE")
+            ),
+        ]
+    )
+    question = cebraspe.segment([page]).questions[0]
+    assert question.statement_md.split("\n\n") == [
+        "Atualmente, o combustível contém 27% de etanol misturado à gasolina.",
+        "F. Amarato e F. Matoso. **Mistura de etanol na gasolina**. Internet: "
+        "<http://g1.globo.com/2015/03/mistura-de-etanol-na-gasolina-sobe-para-27.html> "
+        "(com adaptações).",
+        "A densidade do combustível é",
+    ]

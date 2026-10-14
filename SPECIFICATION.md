@@ -319,8 +319,8 @@ especificado em `docs/content-format.md`:
 - Imagens: `![texto alternativo](asset:<sha256>)` — o front-end resolve `asset:` para uma URL.
 - Proibido: HTML arbitrário, links externos, cabeçalhos (`#`).
 - Texto literal: `$`, `*`, `_`, `` ` ``, `<` e `\` do original escapados com `\` (`R\$ 10,00`), decisão 0023.
-- Normalização: Unicode NFC, hifenização de fim de linha do PDF removida, espaços colapsados,
-  aspas e travessões preservados.
+- Normalização: Unicode NFC, espaços colapsados, aspas e travessões preservados; hífen de fim de
+  linha do PDF mantido, sem espaço depois (o Cebraspe não separa palavra por sílaba; decisão 0032).
 
 `statement_hash` = sha256 de **enunciado + alternativas (em ordem) + texto-base**, cada parte
 normalizada: NFC → minúsculas → remover acentos → remover markdown e pontuação → colapsar espaços;

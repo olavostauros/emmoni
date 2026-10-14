@@ -48,7 +48,8 @@ caracteres.
 ## Normalização aplicada na ingestão
 
 - Unicode NFC.
-- Hifenização de fim de linha do PDF removida (`investi-\ngação` → `investigação`).
+- Hífen de fim de linha do PDF mantido, sem espaço depois (`pós-\nmorte` → `pós-morte`,
+  `aplica-\nse` → `aplica-se`): o Cebraspe não separa palavra por sílaba (decisão 0032).
 - Espaços repetidos colapsados; espaços nas pontas removidos.
 - `$`, `*`, `_`, `` ` ``, `<` e `\` literais escapados ("Texto literal", acima; desde a v1.1).
 - Aspas (“ ”, ‘ ’) e travessões (—, –) do original preservados.
