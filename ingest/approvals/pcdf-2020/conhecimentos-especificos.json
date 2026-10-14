@@ -1,19 +1,20 @@
 {
  "exam": "pcdf-2020/conhecimentos-especificos",
+ "seed": "minos-2026-10-14-r3",
  "numbers": [
-  52,
-  66,
-  73,
-  74,
-  75,
-  78,
-  93,
-  115,
-  116,
-  118
+  54,
+  56,
+  58,
+  59,
+  63,
+  77,
+  90,
+  104,
+  119,
+  120
  ],
- "sampled_at": "2026-10-08T13:47:01.006267+00:00",
- "approved_at": "2026-10-08T13:48:58.453782+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "d244411889ca88858423df83be8fdfe8b4f2ae52e595d763a586871d3c024e42"
+ "sampled_at": "2026-10-14T09:07:55.942517+00:00",
+ "approved_at": "2026-10-14T09:08:59.977111+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "c92dc80bfa459362188b2cde0bf7b489f5ae8e155a94de91f5da24de8ad525a1"
 }
