@@ -527,7 +527,7 @@ def _indented_block_goes_on(previous: _Entry, entry: _Entry) -> bool:
     """A linha continua a anterior dentro de um bloco recuado inteiro — as duas com o mesmo recuo
     (além do de parágrafo), ou a anterior é o começo de um item (I, II; a), b); •) na margem e esta
     tem o recuo pendente —, a anterior indo até a margem direita e a frase partida no meio — a
-    anterior termina em palavra, vírgula ou travessão e a seguinte começa por letra. Sem isso, cada
+    anterior termina em palavra, vírgula ou travessão e a seguinte começa por letra ou travessão. Sem isso, cada
     linha da citação vira um parágrafo: PC/RJ 2021, questão 39, incisos II e IX do art. 7.º da Lei
     n.º 8.137/1990; itens I, II, III com recuo pendente (PC/MA 2017, PC/GO 2016). Linha de tabela
     ou de equação termina em número ou parêntese e continua separada (PC/RO 2022 específicos,
@@ -550,11 +550,16 @@ def _indented_block_goes_on(previous: _Entry, entry: _Entry) -> bool:
         return False
     last = previous.line.plain.rstrip()[-1:]
     first = entry.line.plain.lstrip()[:1]
-    return (last.isalpha() or last in BLOCK_LINE_BREAKS) and (first.isalpha() or first in '“"(')
+    return (last.isalpha() or last in BLOCK_LINE_BREAKS) and (
+        first.isalpha() or first in '“"(' or first in DASHES
+    )
 
 
 # Fim de linha que deixa a frase aberta dentro de um bloco recuado.
 BLOCK_LINE_BREAKS = (",", "-", "–", "—")
+# Começo de linha que continua a frase: o travessão do aposto ("...especializadas" | "— polícias
+# civis e militares —, enquanto...", PC/MA 2017 investigador, questões 26 e 47).
+DASHES = ("—", "–")
 
 
 def _passage_labels(passage: RawPassage) -> list[str]:
@@ -890,16 +895,27 @@ def _subject_heading(line: Line) -> bool:
 
 def _heading_continuation(heading: Line, line: Line) -> bool:
     """Segunda linha de um título "Conhecimentos ..." em corpo maior ("Conhecimentos acerca do
-    estado" / "do Tocantins", CBM/TO 2021): mesma coluna, mesmo corpo, logo abaixo, curta."""
+    estado" / "do Tocantins", CBM/TO 2021), ou de um título de disciplina em negrito quebrado em
+    duas linhas, a segunda também só em negrito ("DIREITO TRIBUTÁRIO E DIREITO" / "EMPRESARIAL",
+    PC/MA 2017 delegado, antes da questão 16; sem isso a segunda linha grudava na alternativa E
+    da questão 15): em corpo maior, mesma coluna, mesmo corpo, logo abaixo, curta."""
+    if (heading.size or 0) < KNOWLEDGE_TITLE_MIN_SIZE:
+        return False  # título no corpo do texto: a linha de baixo é rótulo ("Texto 1A1-I")
+    knowledge = KNOWLEDGE_TITLE.match(heading.plain.strip()) is not None
+    subject = _subject_heading(heading) and _bold_only(heading) and _bold_only(line)
     return (
-        KNOWLEDGE_TITLE.match(heading.plain.strip()) is not None
-        and (heading.size or 0) >= KNOWLEDGE_TITLE_MIN_SIZE
+        (knowledge or subject)
         and line.column == heading.column
         and abs((line.size or 0) - (heading.size or 0)) < 0.5
         and 0 < line.y0 - heading.y1 < (heading.size or 0)
         and len(line.plain.split()) <= 4
         and not line.plain.rstrip().endswith((".", ":", "?", ","))
     )
+
+
+def _bold_only(line: Line) -> bool:
+    text = line.text.strip()
+    return text.startswith("**") and text.endswith("**") and "**" not in text[2:-2]
 
 
 def _before(line: Line, index: int) -> Line:
@@ -1322,9 +1338,11 @@ def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
         return False
     previous = entries[index - 1]
     size = previous.line.size
-    if not _credit_line(previous, size) or CREDIT_END.search(previous.line.plain.strip()):
+    if CREDIT_END.search(previous.line.plain.strip()) or _paren_credit_end(entries, index - 1):
         return False
-    if _paren_credit_end(entries, index - 1):
+    if _credit_right_aligned(previous, entries[index]):
+        return True
+    if not _credit_line(previous, size):
         return False
     if _credit_line_wraps(previous, entries[index]):
         return True
@@ -1366,6 +1384,39 @@ def _paren_credit_end(entries: list[_Entry], index: int) -> bool:
 CREDIT_ALIGN = 1.0  # pt: linhas do mesmo bloco de crédito começam no mesmo x
 # Espaço máximo entre as linhas de um crédito, em fração do corpo da letra (PF 2012: 3,4 pt em 6).
 CREDIT_GAP = 0.75
+
+
+# pt: linhas de um crédito alinhado à direita terminam no mesmo x (o ponto final pode sobrar).
+CREDIT_RIGHT_ALIGN = 2.0
+# Espaço máximo entre as linhas do crédito alinhado à direita, em fração do corpo (PC/PB 2021
+# cargos 14 a 17, questão 47: 3,5 pt em 6). As legendas de gráfico do PF 2021 g77, também
+# alinhadas à direita, têm 6 pt em 8.
+CREDIT_RIGHT_GAP = 0.65
+
+
+def _credit_right_aligned(previous: _Entry, entry: _Entry) -> bool:
+    """Referência em letra miúda alinhada à direita, quebrada em linhas coladas e sem fecho
+    reconhecível ("Hely Lopes Meirelles. **Direito Administrativo Brasileiro**." | "Editora
+    Malheiros. 27.ª ed. São Paulo, 2002. p. 156.", PC/RO 2022 específicos cargo 3, questão 63; a
+    referência do texto 1A1-I do PC/PE 2023 P2 cargo 1, cuja primeira linha quase enche a coluna):
+    as duas linhas do mesmo corpo miúdo, a de baixo colada (espaço de até 0,65 do corpo), as
+    duas terminando no mesmo x e começando em x diferentes, e a de baixo recuada como crédito. A
+    linha anterior pode terminar em ponto: a referência tem várias frases. Linhas miúdas que
+    começam no mesmo x não contam (`_credit_line_wraps` cuida delas, e as notas soltas ficam
+    separadas); espaço maior também não (legendas de gráfico)."""
+    gap = _vertical_gap(previous, entry)
+    size = previous.line.size
+    return (
+        size < CITATION_SIZE
+        and entry.line.size == size
+        and gap is not None
+        and gap <= size * CREDIT_RIGHT_GAP
+        and previous.line.x0 > previous.left + PARAGRAPH_INDENT
+        and entry.line.x0 > entry.left + ODD_INDENT
+        and abs(entry.line.x1 - previous.line.x1) <= CREDIT_RIGHT_ALIGN
+        and abs(entry.line.x0 - previous.line.x0) > CREDIT_ALIGN
+        and not previous.short
+    )
 
 
 def _credit_line_wraps(previous: _Entry, entry: _Entry) -> bool:

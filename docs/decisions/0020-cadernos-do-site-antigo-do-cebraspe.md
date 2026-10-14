@@ -182,3 +182,39 @@ I, II… e • com recuo pendente (PC/MA 2017, PC/GO 2016, PC/PB 2021 gerais de 
 
 **Verificação.** Varredura das provas do staging, parser do HEAD × novo: só mudam parágrafos, em 42
 questões de 11 provas de múltipla escolha. Carregadas as 18 provas afetadas; nenhuma muda de status.
+
+## Emenda de 2026-10-14 (4) — referência alinhada à direita sem fecho, travessão no item, estilo no PC/MA 2017
+
+**Contexto.** O minos (semente r8) reprovou três provas publicadas. No PC/RO 2022 cargo 3
+específicos (q63) e no PC/PE 2023 P2 cargo 1 (texto 1A1-I), a referência em letra miúda alinhada
+à direita, sem "(com adaptações)" na última linha ou com a primeira linha quase enchendo a coluna,
+saía partida em parágrafos: `_credit_goes_on` só emendava até uma linha de fecho, e só linhas
+recuadas além de `ODD_INDENT`. No PC/MA 2017 investigador (q26, q47), a linha do item que começa com
+o travessão do aposto ("— polícias civis e militares —, ...") abria parágrafo. No PC/MA 2017 (APC),
+sem `infer_font_styles`, faltava o itálico de "habeas corpus" (fontes `TT…o00` sem nome).
+
+**Decisão.**
+
+1. Duas linhas de letra miúda (menor que `CITATION_SIZE`) do mesmo corpo são o mesmo crédito quando
+   a de baixo vem colada (espaço até 0,65 do corpo), as duas terminam no mesmo x (até 2 pt), começam
+   em x diferentes, a de cima está recuada além do recuo de parágrafo, a de baixo além de
+   `ODD_INDENT`, e a de cima vai até a margem. Vale para o certo/errado e para a múltipla escolha.
+   As legendas de gráfico alinhadas à direita (PF 2021 g77: 6 pt de espaço em corpo 8) ficam
+   separadas; linhas miúdas que começam no mesmo x seguem as regras antigas.
+2. No bloco recuado da múltipla escolha (`_indented_block_goes_on`), linha que começa com travessão
+   ("—", "–") continua a frase aberta, como a que começa por letra.
+3. `infer_font_styles` ligado nas seis provas do PC/MA 2017 APC e no PC/MA 2017 delegado. No
+   delegado, o negrito revela o título "DIREITO TRIBUTÁRIO E DIREITO" | "EMPRESARIAL" (14 pt, duas
+   linhas): a segunda linha de um título de disciplina em negrito e corpo maior (a partir de
+   `KNOWLEDGE_TITLE_MIN_SIZE`), logo abaixo, curta e só em negrito, também é título
+   (`_heading_continuation`); sem isso "**EMPRESARIAL**" grudava na alternativa E da q15. Com o
+   título em negrito saem do texto o falso texto-base g16 da q16 e o "CRIMINOLOGIA" colado na
+   alternativa E da q92, e a moldura do título "DIREITO CIVIL" deixa de marcar figura na q5.
+
+**Verificação.** Varredura das 135 provas do staging, parser do HEAD × novo: mudam só parágrafos,
+em 8 questões e 3 textos-base de 9 provas (cbmro-2022 oficial q38/q40 — legenda e crédito da
+figura num parágrafo só —, cbmto-2022 oficial q22, pcma-2017-apc investigador q26/q47, pcpb-2021
+cargo 12 q78 e complementares 14–17 q47, pcpe-2023 P2 cargo 1 1A1-I, pcro-2022 cargo 3 q63,
+pmal-2021 oficial g14, pmpa-2023-cfp básicos CB1A1-II). No PC/MA 2017 APC o estilo só muda
+marcação. Carregadas as 15 provas; o delegado volta a `review` (texto de q16 e q92 mudou; as duas
+passam a publicáveis, a q5 perde o motivo de figura).

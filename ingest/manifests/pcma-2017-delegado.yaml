@@ -1,4 +1,7 @@
 # pcma-2017-delegado: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles (2026-10-14; decisão 0020, emenda 4): muda a marcação e, com o título de
+# disciplina em negrito, tira "DIREITO TRIBUTÁRIO E DIREITO" | "EMPRESARIAL" do texto-base g16 e
+# "CRIMINOLOGIA" da alternativa E da q92.
 contest: pcma-2017-delegado
 name: Polícia Civil do Estado do Maranhão
 agency: pcma
@@ -10,6 +13,7 @@ exams:
   name: CADERNO DE PROVAS - DELEGADO DE POLÍCIA CIVIL
   positions:
   - delegado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_MA_17_DELEGADO/arquivos/372_PCMADELEGADO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_MA_17_DELEGADO/arquivos/GAB_DEFINITIVO_372_PCMADELEGADO_001_01.PDF

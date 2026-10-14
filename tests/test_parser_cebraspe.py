@@ -1152,3 +1152,103 @@ def test_superscript_o_between_number_and_c_is_degree_sign() -> None:
     # "n.o" sobrescrito e "o" sem número antes ficam como estão
     other = [spans[0] | {"text": "n."}, spans[1], spans[2]]
     assert extract_module._degree_signs(other)[1]["text"] == "o"
+
+
+def _credit_entry(text: str, x0: float, y0: float, x1: float, size: float = 6.0) -> cebraspe._Entry:
+    """Linha da coluna 1 (margem 28,4; direita 294,4)."""
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x1, y1=y0 + size, column=1, size=size)
+    return cebraspe._Entry(12, line, left=28.4)
+
+
+def test_right_aligned_reference_without_closing_line_is_one_paragraph() -> None:
+    """Referência em letra miúda alinhada à direita, em linhas coladas que terminam no mesmo x e
+    começam em x diferentes, sem "(com adaptações)": um parágrafo só, mesmo com a linha de cima
+    terminando em ponto (PC/RO 2022 específicos cargo 3, questão 63)."""
+    entries = [
+        _gap_entry("particular na sua utilização.", 155.4, short=True),
+        _credit_entry("Hely Lopes Meirelles. **Direito Administrativo Brasileiro**.", 148.0, 175.6, 294.4),
+        _credit_entry("Editora Malheiros. 27.ª ed. São Paulo, 2002. p. 156.", 166.7, 184.3, 292.8),
+        _gap_entry("O trecho citado descreve o atributo do ato administrativo relativo à", 203.5),
+    ]  # fmt: skip
+    assert cebraspe._choice_paragraphs(entries) == [
+        "particular na sua utilização.",
+        "Hely Lopes Meirelles. **Direito Administrativo Brasileiro**. Editora Malheiros. 27.ª ed."
+        " São Paulo, 2002. p. 156.",
+        "O trecho citado descreve o atributo do ato administrativo relativo à",
+    ]
+
+
+def test_right_aligned_reference_with_wide_first_line_is_one_paragraph() -> None:
+    """PC/PE 2023 P2 cargo 1, texto 1A1-I: a primeira linha da referência quase enche a coluna
+    (recuo de 16 pt), as outras duas são recuadas; as três terminam na margem direita e o texto
+    não se partia depois de "no Brasil**."."""
+    entries = [
+        _gap_entry("comerciais (-15,6%) e a residências (-13,3%).", 760.5, short=True),
+        _credit_entry("Renato Sérgio de Lima e Samira Bueno. **As novas configurações**.", 44.3, 781.7, 294.4),
+        _credit_entry("*In:* **Anuário Brasileiro de Segurança Pública**.", 70.3, 788.5, 294.4),
+        _credit_entry("São Paulo: FBSP, 2023, pp. 90-91 (com adaptações).", 163.7, 795.5, 292.7),
+    ]  # fmt: skip
+    assert cebraspe._paragraphs(entries) == [
+        "comerciais (-15,6%) e a residências (-13,3%).",
+        "Renato Sérgio de Lima e Samira Bueno. **As novas configurações**. *In:* **Anuário"
+        " Brasileiro de Segurança Pública**. São Paulo: FBSP, 2023, pp. 90-91 (com adaptações).",
+    ]
+
+
+def test_right_aligned_chart_labels_stay_apart() -> None:
+    """Legendas de gráfico alinhadas à direita, uma por linha, com espaço de 3/4 do corpo entre
+    elas (PF 2021 g77, "9% 15 a 19 anos" | "20 a 29 anos"): não são uma referência."""
+    entries = [
+        _credit_entry("9% 15 a 19 anos", 81.6, 102.3, 268.6, size=8.0),
+        _credit_entry("20 a 29 anos", 222.6, 116.3, 268.6, size=8.0),
+    ]
+    assert len(cebraspe._paragraphs(entries)) == 2
+    assert len(cebraspe._choice_paragraphs(entries)) == 2
+
+
+def test_hanging_item_line_starting_with_dash_continues_the_item() -> None:
+    """Linha do item que começa com o travessão do aposto continua a frase (PC/MA 2017
+    investigador, questões 26 e 47: "...especializadas" | "— polícias civis e militares —, ...";
+    "— mistas ou híbridas" | "—, aplica-se ...")."""
+    entries = [
+        _quote_entry(
+            "III A polícia judiciária é privativa de corporações especializadas",
+            470.5,
+            x0=28.4,
+            size=10.0,
+        ),
+        _quote_entry(
+            "— polícias civis e militares —, enquanto a polícia", 482.2, x0=46.1, size=10.0
+        ),
+        _quote_entry("administração.", 494.0, x0=46.1, size=10.0, short=True),
+        _quote_entry(
+            "II Em caso de normas processuais materiais — mistas ou híbridas",
+            505.7,
+            x0=28.4,
+            size=10.0,
+        ),
+        _quote_entry(
+            "—, aplica-se a retroatividade da lei mais benéfica.", 517.4, x0=46.1, size=10.0
+        ),
+    ]
+    assert cebraspe._choice_paragraphs(entries) == [
+        "III A polícia judiciária é privativa de corporações especializadas — polícias civis e"
+        " militares —, enquanto a polícia administração.",
+        "II Em caso de normas processuais materiais — mistas ou híbridas —, aplica-se a"
+        " retroatividade da lei mais benéfica.",
+    ]
+
+
+def test_bold_subject_title_in_two_lines_is_a_heading() -> None:
+    """Título de disciplina em negrito e corpo maior quebrado em duas linhas ("DIREITO TRIBUTÁRIO
+    E DIREITO" | "EMPRESARIAL", PC/MA 2017 delegado): a segunda linha também é título e não gruda
+    na alternativa E da questão anterior. Rótulo em negrito no corpo do texto, abaixo de um título
+    do mesmo corpo, não é continuação."""
+    first = _title_line("**DIREITO TRIBUTÁRIO E DIREITO**", 55.4, 14)
+    first = first.model_copy(update={"plain": "DIREITO TRIBUTÁRIO E DIREITO"})
+    second = _title_line("**EMPRESARIAL**", 71.8, 14).model_copy(update={"plain": "EMPRESARIAL"})
+    assert cebraspe._subject_heading(first)
+    assert cebraspe._heading_continuation(first, second)
+    small = first.model_copy(update={"size": 10.0, "y1": 65.4})
+    label = _title_line("**Texto 1A1-I**", 69.0, 10).model_copy(update={"plain": "Texto 1A1-I"})
+    assert not cebraspe._heading_continuation(small, label)
