@@ -1,19 +1,25 @@
 {
  "exam": "pmsc-2023-soldado/objetiva",
+ "seed": "r15",
  "numbers": [
+  1,
+  6,
   9,
-  14,
-  20,
-  30,
-  31,
+  10,
+  11,
+  21,
+  33,
+  34,
+  35,
   36,
-  47,
-  50,
-  51,
-  58
+  37,
+  38,
+  39,
+  44,
+  50
  ],
- "sampled_at": "2026-10-08T13:32:32.003746+00:00",
- "approved_at": "2026-10-08T13:37:16.990129+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "77fdc5b6484da5ab698ffb6138f95d1b698ec284e38be88ede0dbdb2dce83488"
+ "sampled_at": "2026-10-14T18:29:46.783713+00:00",
+ "approved_at": "2026-10-14T18:30:38.812355+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "cacfcb952596b33a8ae6685b0e52c6b32e12b74d2129268662292c4fd7371c90"
 }
