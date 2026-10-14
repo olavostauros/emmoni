@@ -170,3 +170,23 @@ def test_styles_turn_monospaced_font_into_inline_code() -> None:
     assert "diretório `/home/fulano/`" in text
     assert "`ls /home/fulano/xpto| proc`." in text
     assert "`" not in _text(ex.extract(CEBRASPE / "pcgo-2016-basicos-p4.pdf"))  # desligado
+
+
+def test_credit_in_at_line_start_or_with_colon() -> None:
+    """O "In" do crédito também no começo da linha ("In" | ": Renato S. de Lima…", PC/PB 2021) e com
+    os dois-pontos na própria fonte ("In:" | " " | "Revista da EMERJ", PC/RO 2022)."""
+
+    def spans(*parts: tuple[str, str]) -> list[dict[str, str]]:
+        return [{"font": font, "text": text} for font, text in parts]
+
+    line_start = spans(("TT1ADC2o00", "In"), ("TT1ACA2o00", ": Renato S. de Lima (Org.)."))
+    assert ex._credit_in_at(line_start, 0)
+    with_colon = spans(("TT641E2o00", "In:"), ("TT641A2o00", " "), ("TT641C2o00", "Revista"))
+    assert ex._credit_in_at(with_colon, 0)
+    middle = spans(("A", "violência. "), ("B", "In"), ("A", ": Renato"))
+    assert ex._credit_in_at(middle, 1)
+    # Mesma fonte que a vizinha, "In" sem dois-pontos depois ou nada depois: não é o do crédito.
+    assert not ex._credit_in_at(spans(("A", "In"), ("A", ": Renato")), 0)
+    assert not ex._credit_in_at(spans(("B", "In"), ("A", " the beginning")), 0)
+    assert not ex._credit_in_at(spans(("B", "In:")), 0)
+    assert not ex._credit_in_at(spans(("A", "x "), ("A", "In:"), ("B", " Revista")), 1)

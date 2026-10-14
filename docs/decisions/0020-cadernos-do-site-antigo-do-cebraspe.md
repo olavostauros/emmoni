@@ -128,3 +128,34 @@ os três itálicos/negritos acima e código inline em PC/GO 2016 básicos q15 (a
 PC/AL 2022 gerais q25, PC/ES 2022 gerais q10, q11, q13 e q14, PF 2018 agente q77, q81, q83 e
 q93–96 e PF 2018 escrivão q93–96 (texto-base). Nenhuma mudança nos cadernos do `cespe-unb` nem no
 PF 2021 delegado.
+
+## Emenda de 2026-10-14 (2) — "*In*:" no começo da linha e crédito entre parênteses
+
+**Contexto.** O minos reprovou, por formatação, provas em `review`: sem `infer_font_styles`,
+PC/RJ 2021, PC/RO 2022 (gerais cargos 1 e 4), CBM/TO 2022 oficial e PM/RO 2022 não têm itálico nem
+negrito; com ele, o "In:" do crédito do CG2A1-I do PC/RO 2022 e do CG2A1-II do PC/PB 2021 (cargos
+de 4 a 13) seguia sem itálico. No PC/PB 2021 cargo 11, o crédito "(FRANÇA, … reimpr." | "Rio de
+Janeiro: Guanabara Koogan, 2021, p. 474)." saía em dois parágrafos e a segunda linha colava no
+comando da q66 (e no texto-base da q61).
+
+**Decisão.**
+
+1. A regra do "In" do crédito (adendo do PF 2018) vale também com o "In" no começo da linha ("In" |
+   ": Renato S. de Lima…") e com os dois-pontos na mesma fonte ("In:" | " " | "Revista da
+   EMERJ"): fonte própria, diferente das vizinhas que existem, e texto em outra fonte depois.
+2. No parser do Cebraspe, o crédito em letra miúda alinhado à direita também se encerra na linha
+   que termina em ")" ou ")." fechando o "(" com que começa a primeira linha do crédito (no máximo
+   `CREDIT_MAX_LINES` linhas); é um parágrafo só, e o que vem depois é outro.
+3. `infer_font_styles` ligado em PC/RJ 2021, PM/RO 2022, CBM/TO 2022 oficial e PC/RO 2022 (menos o
+   cargo 3 específicos). O CBM/TO 2022 soldado e o PC/RO 2022 cargo 3 específicos ficam para a
+   próxima reamostragem: neles o negrito tira o título de disciplina da última alternativa
+   ("… militar. Matemática", "… inconsumível. CRIMINOLOGIA") e muda a pendência de questões que
+   seguem em `review` por figura, além da marcação. O PM/DF 2025 tem fontes com nome (o estilo já
+   chega) e não precisa da opção.
+
+**Verificação.** Reprocessado `extract`→`classify` de todas as 135 provas do staging e comparado com
+o banco: fora as provas ligadas agora, só mudam o PC/PB 2021 gerais de 4 a 13 (q5–8, "*In*") e o
+cargo 11 (q61 e q66, parágrafos do crédito); o texto puro (hash) não muda em nenhuma questão
+publicada. No CBM/TO 2022 oficial, q10 e q40 saem de `review` (o título "Física"/"Matemática" deixa
+a alternativa E) e a q20 perde a pendência de layout. Seguem como antes as divergências conhecidas
+(PM/MA 2017 gerais cargo 5; provas fora do banco).

@@ -1,4 +1,6 @@
 # pcrj-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles (2026-10-14): itálico e negrito pelas larguras das fontes sem nome (decisão
+# 0020); o reprocessamento só muda a marcação.
 contest: pcrj-2021
 name: POLÍCIA CIVIL DO ESTADO DO RIO DE JANEIRO
 agency: pcrj
@@ -10,6 +12,7 @@ exams:
   name: PROVA OBJETIVA
   positions:
   - delegado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/662_PCRJ_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RJ_21_DELEGADO/arquivos/GAB_DEFINITIVO_662_PCRJ_001_01.PDF

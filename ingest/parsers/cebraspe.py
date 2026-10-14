@@ -495,7 +495,9 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
         enumerated = _at_margin(entry) and (
             ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
         )
-        credit_done = previous is not None and CREDIT_END.search(previous.line.plain.strip())
+        credit_done = previous is not None and (
+            CREDIT_END.search(previous.line.plain.strip()) or _paren_credit_end(entries, index - 1)
+        )
         broken = (indented or (previous is not None and previous.short)) and not _credit_goes_on(
             entries, index
         )
@@ -1260,20 +1262,50 @@ def _credit_line(entry: _Entry, size: float) -> bool:
 
 def _credit_goes_on(entries: list[_Entry], index: int) -> bool:
     """A linha `index` continua o crédito aberto na anterior: as duas e as seguintes são linhas de
-    crédito, e alguma delas, até `CREDIT_MAX_LINES`, o encerra. Sem a linha de fecho não emenda."""
+    crédito, e alguma delas, até `CREDIT_MAX_LINES`, o encerra. Sem a linha de fecho não emenda.
+    Também fecha o crédito o ")" que fecha o "(" da primeira linha dele (`_paren_credit_end`)."""
     if index == 0:
         return False
     previous = entries[index - 1]
     size = previous.line.size
     if not _credit_line(previous, size) or CREDIT_END.search(previous.line.plain.strip()):
         return False
+    if _paren_credit_end(entries, index - 1):
+        return False
     if _credit_line_wraps(previous, entries[index]):
         return True
-    for entry in entries[index : index - 1 + CREDIT_MAX_LINES]:
+    for offset, entry in enumerate(entries[index : index - 1 + CREDIT_MAX_LINES]):
         if not _credit_line(entry, size):
             return False
         if CREDIT_END.search(entry.line.plain.strip()):
             return True
+        if _paren_credit_end(entries, index + offset):
+            return True
+    return False
+
+
+def _paren_credit_end(entries: list[_Entry], index: int) -> bool:
+    """A linha `index` encerra um crédito entre parênteses ("(FRANÇA, Genival Veloso de. *Medicina
+    Legal*, 11.ª ed., reimpr." | "Rio de Janeiro: Guanabara Koogan, 2021, p. 474).", PC/PB 2021
+    cargo 11, questão 66): ela e as anteriores, até a que abre com "(", são linhas de crédito do
+    mesmo corpo, no máximo `CREDIT_MAX_LINES`, e o ")" do fim fecha o "(" do começo."""
+    if index < 0:
+        return False
+    last = entries[index]
+    size = last.line.size
+    if not _credit_line(last, size) or not last.line.plain.strip().endswith((")", ").")):
+        return False
+    for start in range(index, max(-1, index - CREDIT_MAX_LINES), -1):
+        if not _credit_line(entries[start], size):
+            return False
+        if entries[start].line.plain.lstrip().startswith("("):
+            text = " ".join(e.line.plain.strip() for e in entries[start : index + 1])
+            depth = 0
+            for position, char in enumerate(text):
+                depth += {"(": 1, ")": -1}.get(char, 0)
+                if depth <= 0 and position < len(text.rstrip(".")) - 1:
+                    return False  # o "(" do começo fecha antes do fim: não é um crédito só
+            return depth == 0
     return False
 
 

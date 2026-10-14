@@ -1,4 +1,7 @@
 # pcro-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles em todas as provas menos o cargo 3 específicos (2026-10-14; decisão 0020): nos
+# demais, o reprocessamento só muda a marcação. No cargo 3, o negrito tira o título "CRIMINOLOGIA"
+# da alternativa da q95 e muda a pendência dela: fica para a próxima reamostragem da prova.
 contest: pcro-2022
 name: POLÍCIA JUDICIÁRIA CIVIL DO ESTADO DE RONDÔNIA
 agency: pcro
@@ -37,6 +40,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO 3
   positions:
   - delegado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/732_PCRO_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_732_PCRO_CG2_01.PDF
@@ -50,6 +54,7 @@ exams:
   positions:
   - agente
   first_number: 31
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_001_01.PDF
@@ -76,6 +81,7 @@ exams:
   positions:
   - escrivao
   first_number: 31
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_002_01.PDF
@@ -98,6 +104,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO 1
   positions:
   - agente
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_CG1_01.PDF
@@ -113,6 +120,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO 4
   positions:
   - escrivao
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/733_PCROAGENTE_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_733_PCROAGENTE_CG2_01.PDF

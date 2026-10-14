@@ -1,4 +1,6 @@
 # pmro-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles (2026-10-14): itálico e negrito pelas larguras das fontes sem nome (decisão
+# 0020); o reprocessamento só muda a marcação.
 contest: pmro-2022
 name: POLÍCIA MILITAR DO ESTADO DE RONDÔNIA
 agency: pmro
@@ -10,6 +12,7 @@ exams:
   name: PROVA OBJETIVA
   positions:
   - oficial
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_RO_22/arquivos/731_SESDEC_PM_RO_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_RO_22/arquivos/GAB_DEFINITIVO_731_SESDEC_PM_RO_001_01.PDF

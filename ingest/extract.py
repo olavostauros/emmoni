@@ -301,7 +301,7 @@ def _font_styles(document: Any) -> dict[str, int]:
                 for i, span in enumerate(spans):
                     if not UNNAMED_FONT.match(span["font"]):
                         continue
-                    if 0 < i < len(spans) - 1 and _credit_in(spans[i - 1], span, spans[i + 1]):
+                    if _credit_in_at(spans, i):
                         credit_in.add(span["font"])
                     for char in span["chars"]:
                         if char["c"].isascii() and char["c"].isalpha():
@@ -460,6 +460,22 @@ def _credit_in(before: dict[str, Any], span: dict[str, Any], after: dict[str, An
         and span["font"] != after["font"]
         and _span_text(after).startswith(":")
     )
+
+
+def _credit_in_at(spans: list[dict[str, Any]], i: int) -> bool:
+    """`_credit_in` também no começo da linha ("In" | ": Renato S. de Lima…", PC/PB 2021) e com os
+    dois-pontos na mesma fonte ("In:" | " " | "Revista da EMERJ", PC/RO 2022): a fonte do "In" é
+    própria, diferente das vizinhas que existem, e depois dele vem texto em outra fonte."""
+    span = spans[i]
+    text = _span_text(span)
+    if i + 1 >= len(spans) or spans[i + 1]["font"] == span["font"]:
+        return False
+    if i > 0 and spans[i - 1]["font"] == span["font"]:
+        return False
+    after = _span_text(spans[i + 1])
+    if text == "In":
+        return after.startswith(":")
+    return text == "In:" and after[:1] in (" ", "\xa0")
 
 
 def _gutter(boxes: list[Any], width: float) -> float:

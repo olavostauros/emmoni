@@ -936,3 +936,51 @@ def test_choice_statement_credit_is_one_paragraph() -> None:
         "(com adaptações).",
         "A densidade do combustível é",
     ]
+
+
+def test_parenthesized_credit_before_the_command_is_one_paragraph() -> None:
+    """Crédito entre parênteses, alinhado à direita em duas linhas, antes do comando (PC/PB 2021
+    cargo 11, q66): o ")" que fecha o "(" da primeira linha encerra o crédito, que sai num parágrafo
+    só, e o comando começa outro."""
+    page = _page(
+        [
+            _line("Questão 1", 51, 50),
+            _line('"É o processo de destruição celular, de forma rápida e intensa".', 28, 70),
+            _line(
+                "(FRANÇA, Genival Veloso de. *Medicina Legal*, 11.ª ed., reimpr.", 134, 90, size=6.0
+            ),
+            _line("Rio de Janeiro: Guanabara Koogan, 2021, p. 474).", 170, 97, size=6.0),
+            _line("O conceito descrito no texto precedente refere-se ao fenômeno", 28, 112),
+            _line("denominado de", 28, 124, x1=100),
+            *(
+                _line(f"{letter} opção {i}.", 28, 136 + 12 * i, x1=100)
+                for i, letter in enumerate("ABCDE")
+            ),
+        ]
+    )
+    question = cebraspe.segment([page]).questions[0]
+    assert question.statement_md.split("\n\n") == [
+        '"É o processo de destruição celular, de forma rápida e intensa".',
+        "(FRANÇA, Genival Veloso de. *Medicina Legal*, 11.ª ed., reimpr. Rio de Janeiro: Guanabara"
+        " Koogan, 2021, p. 474).",
+        "O conceito descrito no texto precedente refere-se ao fenômeno denominado de",
+    ]
+
+
+def test_parenthesis_closed_mid_credit_does_not_close_it() -> None:
+    """O ")" do fim tem de fechar o "(" do começo: "(Org.)" no meio de outra linha não basta."""
+    page = _page(
+        [
+            _line("Questão 1", 51, 50),
+            _line("Um texto qualquer termina aqui.", 28, 70),
+            _line("(Org.) Sociologia. São Paulo: Ática,", 134, 90, size=6.0),
+            _line("2020 (Coleção X)", 170, 97, size=6.0),
+            _line("Assinale a opção correta.", 28, 112, x1=150),
+            *(
+                _line(f"{letter} opção {i}.", 28, 124 + 12 * i, x1=100)
+                for i, letter in enumerate("ABCDE")
+            ),
+        ]
+    )
+    entries_closed = cebraspe.segment([page]).questions[0].statement_md
+    assert "(Org.) Sociologia. São Paulo: Ática,\n\n2020 (Coleção X)" in entries_closed

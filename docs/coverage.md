@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-14 09:22 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-14 09:45 UTC. Não edite à mão.
 
-**4842 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5082 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -21,10 +21,10 @@ Gerado por `emmoni coverage` em 2026-10-14 09:22 UTC. Não edite à mão.
 | Cebraspe | PCDF | 2019 | 1 | 94 |
 | Cebraspe | PCDF | 2020 | 2 | 102 |
 | Cebraspe | PCDF | 2026 | 1 | 110 |
-| Cebraspe | PCES | 2022 | 1 | 17 |
+| Cebraspe | PCES | 2022 | 2 | 74 |
 | Cebraspe | PCGO | 2016 | 4 | 88 |
 | Cebraspe | PCMA | 2017 | 7 | 241 |
-| Cebraspe | PCPB | 2021 | 12 | 348 |
+| Cebraspe | PCPB | 2021 | 18 | 493 |
 | Cebraspe | PCPE | 2023 | 5 | 195 |
 | Cebraspe | PCRO | 2022 | 4 | 189 |
 | Cebraspe | PCSE | 2018 | 2 | 129 |
@@ -36,6 +36,7 @@ Gerado por `emmoni coverage` em 2026-10-14 09:22 UTC. Não edite à mão.
 | Cebraspe | PMAL | 2017 | 2 | 94 |
 | Cebraspe | PMAL | 2018 | 1 | 108 |
 | Cebraspe | PMAL | 2021 | 2 | 190 |
+| Cebraspe | PMDF | 2025 | 1 | 38 |
 | Cebraspe | PMMA | 2017 | 3 | 115 |
 | Cebraspe | PMPA | 2023 | 4 | 111 |
 | Cebraspe | PMSC | 2023 | 2 | 117 |
@@ -47,31 +48,31 @@ Gerado por `emmoni coverage` em 2026-10-14 09:22 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 531 |
+| Língua Portuguesa | 539 |
 | Informática | 441 |
-| Direito Penal | 385 |
-| Direito Processual Penal | 381 |
-| Direito Constitucional | 368 |
-| Direito Administrativo | 359 |
-| Legislação Penal Especial | 297 |
-| Legislação Institucional | 162 |
+| Direito Penal | 408 |
+| Direito Processual Penal | 397 |
+| Direito Constitucional | 379 |
+| Direito Administrativo | 376 |
+| Legislação Penal Especial | 307 |
+| Legislação Institucional | 167 |
+| Medicina Legal | 143 |
 | Contabilidade Geral | 132 |
-| Geografia | 109 |
-| Direitos Humanos | 108 |
-| Medicina Legal | 106 |
-| Raciocínio Lógico | 106 |
+| Direitos Humanos | 128 |
+| Geografia | 112 |
+| Raciocínio Lógico | 108 |
 | História | 100 |
-| Legislação Estadual | 89 |
-| Arquivologia | 83 |
-| Direito Civil | 80 |
+| Arquivologia | 93 |
+| Legislação Estadual | 92 |
+| Biologia | 85 |
+| Direito Civil | 84 |
+| Criminologia | 72 |
 | Legislação de Trânsito | 71 |
 | Atualidades | 69 |
-| Biologia | 68 |
+| Criminalística | 66 |
 | Matemática | 66 |
-| Criminologia | 60 |
-| Química | 45 |
-| Criminalística | 42 |
-| Língua Inglesa | 41 |
+| Química | 59 |
+| Língua Inglesa | 45 |
 | Direito Ambiental | 39 |
 | Direito Tributário | 39 |
 | Legislação Penal Militar | 39 |
@@ -134,19 +135,11 @@ Gerado por `emmoni coverage` em 2026-10-14 09:22 UTC. Não edite à mão.
 ## Provas carregadas e não publicadas
 
 - `cbmto-2022/oficial` (review)
-- `pces-2022/conhecimentos-especificos` (review)
-- `pcpb-2021/conhecimentos-complementares-para-os-cargos-de-14-a-17` (review)
-- `pcpb-2021/conhecimentos-complementares-para-os-cargos-de-4-a-13` (review)
-- `pcpb-2021/conhecimentos-especificos-cargo-10` (review)
 - `pcpb-2021/conhecimentos-especificos-cargo-11` (review)
-- `pcpb-2021/conhecimentos-especificos-cargo-12` (review)
-- `pcpb-2021/conhecimentos-especificos-cargo-15` (review)
-- `pcpb-2021/conhecimentos-especificos-cargo-5` (review)
 - `pcpb-2021/conhecimentos-gerais-para-os-cargos-de-4-a-13` (review)
 - `pcrj-2021/objetiva` (review)
 - `pcro-2022/conhecimentos-gerais-para-o-cargo-1` (review)
 - `pcro-2022/conhecimentos-gerais-para-o-cargo-4` (review)
-- `pmdf-2025/p1` (review)
 - `pmdf-2025/p2` (review)
 - `pmro-2022/objetiva` (review)
 
