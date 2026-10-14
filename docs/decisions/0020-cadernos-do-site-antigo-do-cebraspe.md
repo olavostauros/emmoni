@@ -442,3 +442,25 @@ CBM/TO 2021 oficial q16 e q18 (variáveis das alternativas: "*h*/2.", "2*g*sen(*
 2017 básicos cargo 2 q48 ("Se *k* é um número primo"); PF 2012 escrivão q29 ("servidor *proxy*").
 No PC/PB 2021 gerais 14 a 17, no PF 2025 papiloscopista específicos, no PC/MA 2017 cargo 5 e no
 PC/PE 2023 P2 cargo 3 a fonte "oI00" só tem a letra da alternativa, pontuação ou símbolo: nada muda.
+
+## Emenda de 2026-10-14 (13) — título de figura em negrito
+
+**Contexto.** O minos (semente r20) reprovou o CBM/PA 2023 CFP P1 por falta de marcação (título do
+poema e crédito do texto 1A1, "*debye*" na q32): o manifesto não tinha `infer_font_styles`. Ligado
+o estilo, o título "**Figura 1A03**" (pág. 7, abre a coluna) passou a ser lido como título de bloco
+em negrito e saiu do fluxo; as questões 36–40 perderam o texto-base. O mesmo já acontecia no PM/TO
+2020 QPE (q51–57, "**Figura 1A5-I**" a "**Figura 1A5-III**", partituras), que ia para `review` por
+"texto-base não encontrado".
+
+**Decisão.**
+
+1. Linha que é o título de um texto-base (`TITLE_LINE`: "Figura 1A03", "Tabela 2A1", "Caso
+   hipotético 1A06-I") não é título de bloco, mesmo só em negrito.
+2. Texto-base cujo corpo é só esse título (o conteúdo era imagem) marca a questão com `figure`:
+   vai para `review` ("figura ou tabela não extraída"), nunca publicada sem a figura.
+
+**Verificação.** No `data/staging/` inteiro, só duas provas têm título de figura/caso/proposição
+em negrito que não é "Texto X" e cuja saída muda: CBM/PA 2023 CFP P1 (g36 volta, q36–40 em `review`
+pela figura) e PM/TO 2020 QPE (g51, g54, g56; q51–57 continuam em `review`, agora pela figura).
+PC/MA 2017 gerais 1 e 2, PC/PB 2021 cargos 5, 12 e 13, PC/PE 2023 P2 cargo 1 e PM/RO 2022: saída
+idêntica.

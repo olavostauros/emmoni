@@ -551,6 +551,22 @@ def test_heading_in_title_size_or_split_in_caps_is_not_a_passage() -> None:
     assert segmented.questions[0].options[-1].body_md == "opção E."
 
 
+def test_bold_figure_title_is_a_passage_and_flags_the_figure() -> None:
+    """CBM/PA 2023 CFP (questões 36–40) e PM/TO 2020 QPE (51–57): com o estilo ligado, o título
+    "**Figura 1A03**" não é título de bloco; vira o texto-base de quem o cita e, sendo só o título
+    (o conteúdo era imagem), manda a questão para revisão."""
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        _line("**Figura 1A03**", 28, 100, x1=85),
+        *_choice(2, "O elemento A, na tabela periódica da figura 1A03, é um", 130),
+    ]
+    segmented = cebraspe.segment([_page(lines)])
+    assert [(p.key, p.body_md) for p in segmented.passages] == [("g2", "**Figura 1A03**")]
+    assert segmented.questions[1].passage_key == "g2"
+    assert "figure" in segmented.questions[1].flags
+    assert "missing_passage" not in segmented.questions[1].flags
+
+
 def test_code_lines_flag_layout() -> None:
     page = _page(
         [

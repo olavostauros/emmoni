@@ -804,8 +804,8 @@ def _bold_title(paragraph: str) -> bool:
 
 def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]) -> None:
     """Texto-base que cita figura/tabela ou que é só o crédito de uma imagem: a questão depende de
-    uma figura que não foi extraída. Itens que são períodos consecutivos de um parágrafo: cada um
-    depende dos outros itens, que não ficam no texto-base."""
+    uma figura que não foi extraída; texto-base que é só o título também. Itens que são períodos
+    consecutivos de um parágrafo: cada um depende dos outros itens, que não ficam no texto-base."""
     for question in questions:
         passage = passages.get(question.passage_key or "")
         opening = question.statement_md.split("\n\n")[0]
@@ -821,6 +821,8 @@ def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]
             or FIGURE_REF_WIDE.search(body)
             or DEPICTED.search(body)
             or (len(body) < 250 and CREDIT_ONLY.match(body))
+            # só o título ("**Figura 1A5-I**", PM/TO 2020 QPE): o conteúdo era imagem
+            or TITLE_LINE.match(body.replace("*", "").strip())
         ):
             question.flags = sorted({*question.flags, "figure"})
 
@@ -828,7 +830,10 @@ def _passage_flags(questions: list[RawQuestion], passages: dict[str, RawPassage]
 def _bold_heading(entries: list[_Entry]) -> bool:
     """Título de bloco em negrito ("**Atualidades e conhecimentos...**"), em caixa alta ou em
     corpo de título, sem pontuação final ("Normas relativas ao CBMTO", CBM/TO 2021 oficial, antes
-    da questão 36): não é texto-base."""
+    da questão 36): não é texto-base. Linha que é o título de um texto-base ("**Figura 1A03**",
+    CBM/PA 2023 CFP, antes da questão 36) não é título de bloco, mesmo em negrito."""
+    if any(TITLE_LINE.match(e.line.plain.strip()) for e in entries):
+        return False
     if len(entries) == 2 and _section_title(entries[0].line.plain):
         # título em caixa alta quebrado em duas linhas ("NOÇÕES DE DIREITO PROCESSUAL PENAL" /
         # "COMUM", PM/SC 2023 soldado, antes da questão 17)
