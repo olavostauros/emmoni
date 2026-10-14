@@ -1,19 +1,21 @@
 {
  "exam": "pf-2025/agente-especificos",
+ "seed": "r17",
  "numbers": [
+  102,
   103,
-  104,
   105,
   106,
-  112,
+  111,
   113,
-  114,
   115,
   116,
-  120
+  117,
+  118
  ],
- "sampled_at": "2026-10-08T17:34:55.747740+00:00",
- "approved_at": "2026-10-08T17:37:13.384064+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "0df56596b2fbfbe865d624194fad18599417a31ba17d6907bd9ea4f8cc0595a3"
+ "sampled_at": "2026-10-14T18:54:14.357341+00:00",
+ "approved_at": "2026-10-14T18:54:23.007362+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "0b6dd25c49316b23aa4508e38c787e13ba2a4db45a064785a55959877922dde6",
+ "fingerprint_version": 2
 }
