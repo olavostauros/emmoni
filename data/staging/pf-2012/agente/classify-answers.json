@@ -681,11 +681,11 @@
  "60": {
   "topics": [
    {
-    "path": "administracao_geral.processo_administrativo",
-    "confidence": 0.35
+    "path": "administracao_geral.etica_e_deveres_do_servidor",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Deveres e ética do servidor público"
+  "suggested_topic": ""
  },
  "61": {
   "topics": [
@@ -703,11 +703,11 @@
  "62": {
   "topics": [
    {
-    "path": "administracao_geral.teorias_da_administracao",
-    "confidence": 0.45
+    "path": "administracao_geral.evolucao_da_administracao_publica",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Evolução da administração pública no Brasil"
+  "suggested_topic": ""
  },
  "63": {
   "topics": [
@@ -730,11 +730,11 @@
  "65": {
   "topics": [
    {
-    "path": "direito_financeiro.receita_e_despesa",
-    "confidence": 0.5
+    "path": "direito_financeiro.execucao_financeira",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Conta Única do Tesouro e SIAFI"
+  "suggested_topic": ""
  },
  "66": {
   "topics": [

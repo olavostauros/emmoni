@@ -1,8 +1,8 @@
 # Cobertura
 
-Gerado por `emmoni coverage` em 2026-10-13 22:39 UTC. Não edite à mão.
+Gerado por `emmoni coverage` em 2026-10-14 01:54 UTC. Não edite à mão.
 
-**5341 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
+**5443 questões publicadas** (visíveis no esquema `api`, sem duplicatas e sem o seed).
 
 ## Por banca, órgão e ano
 
@@ -30,8 +30,8 @@ Gerado por `emmoni coverage` em 2026-10-13 22:39 UTC. Não edite à mão.
 | Cebraspe | PCRO | 2022 | 6 | 236 |
 | Cebraspe | PCSE | 2018 | 2 | 129 |
 | Cebraspe | PCSE | 2021 | 3 | 89 |
-| Cebraspe | PF | 2012 | 4 | 384 |
-| Cebraspe | PF | 2018 | 3 | 309 |
+| Cebraspe | PF | 2012 | 4 | 390 |
+| Cebraspe | PF | 2018 | 4 | 405 |
 | Cebraspe | PF | 2021 | 4 | 233 |
 | Cebraspe | PF | 2025 | 6 | 248 |
 | Cebraspe | PMAL | 2017 | 2 | 94 |
@@ -50,20 +50,20 @@ Gerado por `emmoni coverage` em 2026-10-13 22:39 UTC. Não edite à mão.
 
 | Disciplina | Questões |
 |---|---:|
-| Língua Portuguesa | 559 |
-| Direito Penal | 431 |
-| Direito Processual Penal | 428 |
-| Informática | 422 |
-| Direito Administrativo | 412 |
-| Direito Constitucional | 408 |
-| Legislação Penal Especial | 333 |
+| Língua Portuguesa | 583 |
+| Informática | 453 |
+| Direito Penal | 433 |
+| Direito Processual Penal | 431 |
+| Direito Administrativo | 416 |
+| Direito Constitucional | 412 |
+| Legislação Penal Especial | 336 |
 | Medicina Legal | 182 |
 | Legislação Institucional | 181 |
+| Contabilidade Geral | 132 |
 | Direitos Humanos | 128 |
 | Geografia | 123 |
+| Raciocínio Lógico | 118 |
 | História | 116 |
-| Raciocínio Lógico | 115 |
-| Contabilidade Geral | 114 |
 | Arquivologia | 93 |
 | Direito Civil | 93 |
 | Legislação Estadual | 93 |
@@ -79,18 +79,18 @@ Gerado por `emmoni coverage` em 2026-10-13 22:39 UTC. Não edite à mão.
 | Direito Ambiental | 39 |
 | Direito Tributário | 39 |
 | Direito Processual Civil | 36 |
-| Direito Empresarial | 33 |
+| Direito Empresarial | 34 |
+| Direito Internacional | 31 |
 | Engenharia | 31 |
-| Direito Internacional | 30 |
 | Direito Previdenciário | 30 |
+| Administração Geral | 28 |
 | Redação Oficial | 27 |
 | Física | 26 |
-| Administração Geral | 25 |
+| Estatística | 25 |
 | Ética no Serviço Público | 25 |
-| Estatística | 21 |
 | Defesa Civil e Prevenção de Incêndios | 20 |
 | Execução Penal | 17 |
-| Direito Financeiro | 14 |
+| Direito Financeiro | 15 |
 | Segurança Pública | 11 |
 | Direito Eleitoral | 9 |
 | Administração Pública | 8 |
@@ -136,7 +136,7 @@ Gerado por `emmoni coverage` em 2026-10-13 22:39 UTC. Não edite à mão.
 
 ## Provas carregadas e não publicadas
 
-- `pf-2018/agente` (review)
+Nenhuma.
 
 ## Propostas do crawler pendentes
 

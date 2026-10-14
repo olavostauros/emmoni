@@ -1043,11 +1043,11 @@
  "110": {
   "topics": [
    {
-    "path": "direito_internacional.fontes_e_sujeitos",
-    "confidence": 0.5
+    "path": "direito_internacional.relacoes_diplomaticas_e_consulares",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Relações diplomáticas e consulares"
+  "suggested_topic": ""
  },
  "111": {
   "topics": [
@@ -1106,11 +1106,11 @@
  "117": {
   "topics": [
    {
-    "path": "direito_empresarial.empresario_e_estabelecimento",
-    "confidence": 0.5
+    "path": "direito_empresarial.evolucao_historica",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Evolução histórica do direito comercial"
+  "suggested_topic": ""
  },
  "118": {
   "topics": [

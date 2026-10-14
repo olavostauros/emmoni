@@ -13,3 +13,6 @@ topics:
   - {slug: gestao-da-qualidade, name: "Gestão da qualidade (PDCA, ferramentas)"}
   - {slug: gestao-de-projetos-e-processos, name: "Gestão de projetos e processos"}
   - {slug: administracao-de-recursos-materiais, name: "Administração de recursos materiais e patrimoniais"}
+  - {slug: cultura-organizacional, name: "Cultura e clima organizacional"}
+  - {slug: evolucao-da-administracao-publica, name: "Evolução da administração pública no Brasil (patrimonialista, burocrática e gerencial)"}
+  - {slug: etica-e-deveres-do-servidor, name: "Ética e deveres do servidor público"}

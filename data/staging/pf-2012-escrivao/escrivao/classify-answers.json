@@ -668,11 +668,11 @@
  "63": {
   "topics": [
    {
-    "path": "administracao_geral.gestao_de_pessoas",
-    "confidence": 0.5
+    "path": "administracao_geral.cultura_organizacional",
+    "confidence": 0.9
    }
   ],
-  "suggested_topic": "Cultura organizacional"
+  "suggested_topic": ""
  },
  "64": {
   "topics": [
