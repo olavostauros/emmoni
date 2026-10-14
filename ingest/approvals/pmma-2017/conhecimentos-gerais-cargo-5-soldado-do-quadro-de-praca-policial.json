@@ -1,19 +1,22 @@
 {
  "exam": "pmma-2017/conhecimentos-gerais-cargo-5-soldado-do-quadro-de-praca-policial",
+ "seed": "r26",
  "numbers": [
-  15,
+  16,
+  17,
+  19,
   20,
-  30,
-  32,
-  39,
+  23,
+  33,
+  34,
   40,
   42,
-  44,
-  53,
-  54
+  54,
+  58
  ],
- "sampled_at": "2026-10-08T13:32:27.867576+00:00",
- "approved_at": "2026-10-08T13:36:53.715696+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "88e11d823e7a20d2e3469ff483881fea63c3a1d29e36583dbb0ac13453c093ea"
+ "sampled_at": "2026-10-14T23:48:59.807185+00:00",
+ "approved_at": "2026-10-14T23:49:22.873321+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "7ea0c6f633e60ac6a047f088a5cdbd0559275b06b6ab1420c38d93480012f1ba",
+ "fingerprint_version": 2
 }

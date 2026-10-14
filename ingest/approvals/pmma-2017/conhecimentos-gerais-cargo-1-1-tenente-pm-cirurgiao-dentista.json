@@ -1,19 +1,21 @@
 {
  "exam": "pmma-2017/conhecimentos-gerais-cargo-1-1-tenente-pm-cirurgiao-dentista",
+ "seed": "r26",
  "numbers": [
-  5,
-  22,
-  24,
-  31,
-  32,
+  2,
+  13,
+  15,
+  16,
+  17,
+  20,
   35,
-  41,
-  48,
-  58,
-  59
+  43,
+  44,
+  57
  ],
- "sampled_at": "2026-10-13T12:48:43.209572+00:00",
- "approved_at": "2026-10-13T12:53:13.450452+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "a18a846576444f3bb881113ce2122027eec2bb48175f03efcf731c699b6e443f"
+ "sampled_at": "2026-10-14T23:51:06.160654+00:00",
+ "approved_at": "2026-10-14T23:51:30.582571+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "c6ce833a5e13a0c4ea3bdd5c61109cce010d33b21c9bafb8b4b5ea2d33611114",
+ "fingerprint_version": 2
 }
