@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "Banco de questões de concursos para carreiras policiais"
 requires-python = ">=3.12"
 dependencies = [
+  "fonttools>=4.66",
   "httpx>=0.28",
   "ocrmypdf>=17.13.0",
   "psycopg[binary]>=3.2",

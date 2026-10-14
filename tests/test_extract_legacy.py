@@ -126,3 +126,47 @@ def test_credit_font_with_too_few_letters_is_italic() -> None:
     assert credit.startswith("Z. Nateghian *et al*.")
     assert "*In*:" in _text(pages)
     assert "*et al*" not in _text(ex.extract(PF_2018))  # sem `styles`, nada muda
+
+
+CEBRASPE = Path(__file__).resolve().parent.parent / "fixtures/pdf/cebraspe"
+
+
+def test_small_font_inherits_style_from_same_outlines() -> None:
+    """PM/PA 2023 CFP (decisão 0020, emenda de 2026-10-14): "chip" numa fonte própria de 4 letras,
+    que desenha os glifos como a itálica deduzida pelas larguras ("*habeas corpus*"): herda o
+    itálico. Pelas larguras não daria: c, h, i, p medem o mesmo no Times normal e no itálico."""
+    pages = ex.extract(CEBRASPE / "pmpa-2023-cfp-especificos-p1-2.pdf", styles=True)
+    text = _text(pages)
+    assert "a *chip* telefônico" in text
+    assert "*habeas corpus* e *habeas data*" in text
+    assert "*chip*" not in _text(ex.extract(CEBRASPE / "pmpa-2023-cfp-especificos-p1-2.pdf"))
+
+
+def test_small_font_style_with_clear_margin() -> None:
+    """PM/PA 2023 CFO: o título do crédito numa fonte de 19 letras, abaixo das 20 do item 4, mas
+    com o negrito bem mais perto que os outros estilos."""
+    pages = ex.extract(CEBRASPE / "pmpa-2023-cfo-basicos-p1.pdf", styles=True)
+    assert "Marshall Rosenberg. **Comunicação não violenta**." in _text(pages)
+
+
+def test_small_font_style_needs_evidence() -> None:
+    """Letras de menos, letras repetidas ou letras que medem o mesmo nos dois estilos: nada."""
+    refs = {name: pymupdf.Font(name) for name in ex.STYLE_FONTS}  # type: ignore[no-untyped-call]
+
+    def widths(text: str, ref: str) -> list[tuple[str, float]]:
+        return [(c, refs[ref].glyph_advance(ord(c))) for c in text]  # type: ignore[no-untyped-call]
+
+    assert ex._small_font_style(widths("ComunicaonoviolentaT", "tibo"), refs) == ex.BOLD
+    assert ex._small_font_style(widths("chip", "tiit"), refs) is None  # poucas letras
+    assert ex._small_font_style(widths("chipchip", "tiit"), refs) is None  # sem margem
+    assert ex._small_font_style(widths("NnNnNnNn", "tibo"), refs) is None  # letras repetidas
+
+
+def test_styles_turn_monospaced_font_into_inline_code() -> None:
+    """PC/GO 2016 básicos, q15: comandos e caminhos em fonte monoespaçada sem nome viram código
+    inline também com `styles` (decisão 0020, emenda de 2026-10-14)."""
+    text = _text(ex.extract(CEBRASPE / "pcgo-2016-basicos-p4.pdf", styles=True))
+    assert "o programa `xpto`, gravado no" in text
+    assert "diretório `/home/fulano/`" in text
+    assert "`ls /home/fulano/xpto| proc`." in text
+    assert "`" not in _text(ex.extract(CEBRASPE / "pcgo-2016-basicos-p4.pdf"))  # desligado

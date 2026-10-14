@@ -16,7 +16,7 @@ biblioteca CommonMark/GFM com HTML desabilitado, mais os dois acréscimos (subli
 | Itálico | `*texto*` | termos estrangeiros, nomes de leis em latim (*habeas corpus*) |
 | Negrito | `**texto**` | ênfase do original (ex.: "**não** é prevista") |
 | Sublinhado | `<u>texto</u>` | **única tag HTML aceita**; questões que pedem "o termo sublinhado" |
-| Código inline | `` `=SOMA(A1:A3)` `` | fórmulas de planilha, comandos, atalhos |
+| Código inline | `` `=SOMA(A1:A3)` `` | fórmulas de planilha, comandos, atalhos; o que o original grafa em fonte monoespaçada (caminhos, nomes de arquivo, URLs, código, nomes de campo) |
 | Listas | `- item` ou `1. item` | |
 | Tabelas | GFM (`\| a \| b \|` + `\|---\|`) | alinhamento com `:` permitido |
 | Fórmulas | `$x^2$` inline, `$$...$$` em bloco | LaTeX (renderizar com KaTeX/MathJax) |

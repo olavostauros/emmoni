@@ -11,6 +11,7 @@ linhas de OCR são revisadas pelo agente contra a imagem da página, e as corre�
 em `ingest/ocr/<sha256>.yaml`.
 """
 
+import io
 import re
 import subprocess
 import sys
@@ -21,6 +22,8 @@ from typing import Any
 
 import pymupdf
 import yaml
+from fontTools.cffLib import CFFFontSet  # type: ignore[import-untyped]
+from fontTools.pens.recordingPen import RecordingPen  # type: ignore[import-untyped]
 from pydantic import BaseModel, ConfigDict
 
 from ingest.content import escape_md
@@ -137,7 +140,8 @@ def extract(
     `legacy`: caderno do site antigo do Cebraspe (decisão 0020) — o vão entre as colunas, os
     números de item, o negrito/itálico e o "ℓ" são deduzidos do documento.
     `styles`: só o negrito/itálico das fontes sem nome ("TT…o00") é deduzido pelas larguras
-    (decisão 0020, emenda de 2026-10-13); o resto segue como sem `legacy`. Sem fonte sem nome no
+    (decisão 0020, emenda de 2026-10-13), e a fonte monoespaçada vira código inline (emenda de
+    2026-10-14); o resto segue como sem `legacy`. Sem fonte sem nome no
     documento, não muda nada.
     """
     pages = _read(pdf_path, legacy, styles)
@@ -201,7 +205,9 @@ def _read(pdf_path: Path, legacy: bool = False, styles: bool = False) -> list[Pa
                 mono=_mono_fonts(document),
             )
         elif styles:
-            fonts = _Fonts(digits={}, styles=_font_styles(document), legacy=False)
+            fonts = _Fonts(
+                digits={}, styles=_font_styles(document), mono=_mono_fonts(document), legacy=False
+            )
         decoded = frozenset(fonts.digits) if fonts else frozenset()  # dígitos já têm tradução
         return [
             _page(page, lines, middle, fonts, _symbol_fonts(lines) - decoded)
@@ -323,7 +329,117 @@ def _font_styles(document: Any) -> dict[str, int]:
     for font in credit_in - styles.keys():
         if len(advances.get(font, [])) < MIN_STYLE_CHARS:
             styles[font] = ITALIC
+    # Fonte com letras de menos: primeiro o desenho dos glifos (é a mesma fonte de outra já
+    # deduzida), depois as larguras, se a diferença para o outro estilo for grande (emenda de
+    # 2026-10-14 da decisão 0020).
+    unresolved = {font for font in advances if font not in styles}
+    if unresolved:
+        anchors = {font: style for font, style in styles.items() if font not in credit_in}
+        styles.update(_styles_by_outline(document, unresolved, anchors))
+    for font in unresolved - styles.keys():
+        style = _small_font_style(advances[font], references)
+        if style is not None:
+            styles[font] = style
     return styles
+
+
+MIN_SMALL_STYLE_CHARS = 6  # abaixo disso nem a diferença grande entre as larguras basta
+MIN_SMALL_STYLE_LETTERS = 4  # letras distintas: "N", "n", "P" repetidos não dizem o estilo
+SMALL_MAX_STYLE_DISTANCE = 0.008  # mais longe que isso, a fonte não é Times nem Helvetica de fato
+SMALL_STYLE_MARGIN = 0.006  # quanto (em corpos) o outro estilo mais próximo fica além
+MIN_SHARED_GLYPHS = 3  # glifos desenhados em comum para afirmar que duas fontes são a mesma
+
+
+def _small_font_style(chars: list[tuple[str, float]], references: dict[str, Any]) -> int | None:
+    """Estilo de uma fonte com menos de `MIN_STYLE_CHARS` letras ("**Comunicação não violenta**",
+    19 letras; "*habeas corpus*", 12): vale a referência mais próxima quando a de outro estilo fica
+    pelo menos `SMALL_STYLE_MARGIN` mais longe. Com letras que não distinguem os estilos ("chip":
+    c, h, i, p têm a mesma largura no Times normal e no itálico), a margem é zero e nada se deduz."""
+    if len(chars) < MIN_SMALL_STYLE_CHARS or len({c for c, _ in chars}) < MIN_SMALL_STYLE_LETTERS:
+        return None
+    distance = {
+        name: sum(abs(width - ref.glyph_advance(ord(c))) for c, width in chars) / len(chars)
+        for name, ref in references.items()
+    }
+    best = min(distance, key=lambda name: distance[name])
+    upright = UPRIGHT.get(best)
+    if upright and distance[upright] - distance[best] < STYLE_TIE:
+        best = upright
+    if distance[best] > SMALL_MAX_STYLE_DISTANCE:
+        return None
+    style = STYLE_FONTS[best]
+    # A Helvetica oblíqua tem as larguras da normal: o gêmeo não conta como rival. No Times, o
+    # empate entre normal e itálico ("chip") é falta de evidência e derruba a margem.
+    rivals = [
+        value
+        for name, value in distance.items()
+        if STYLE_FONTS[name] != style and not (name.startswith("he") and UPRIGHT.get(name) == best)
+    ]
+    if min(rivals) - distance[best] < SMALL_STYLE_MARGIN:
+        return None
+    return style
+
+
+def _styles_by_outline(document: Any, fonts: set[str], anchors: dict[str, int]) -> dict[str, int]:
+    """Fonte sem estilo deduzido que desenha os glifos exatamente como uma fonte já deduzida pelas
+    larguras é a mesma fonte, em outro subconjunto: herda o estilo dela (PM/PA 2023: "*chip*" numa
+    fonte própria de 4 letras, com os mesmos "c", "h" e "p" da itálica do "*habeas corpus*"). O
+    Distiller dá a cada página um subconjunto próprio, com os glifos com o mesmo nome ("g70") e o
+    mesmo desenho; normal, negrito e itálico têm desenhos diferentes. Vale só com pelo menos
+    `MIN_SHARED_GLYPHS` glifos desenhados em comum, todos iguais, e sem fontes de estilos
+    diferentes casando."""
+    outlines = _outlines(document, fonts | anchors.keys())
+    found: dict[str, int] = {}
+    for font in fonts:
+        glyphs = outlines.get(font)
+        if not glyphs:
+            continue
+        matches = set()
+        for anchor, style in anchors.items():
+            other = outlines.get(anchor)
+            if not other or other[0] != glyphs[0]:  # FontMatrix diferente: desenho em outra escala
+                continue
+            shared = glyphs[1].keys() & other[1].keys()
+            if len(shared) >= MIN_SHARED_GLYPHS and all(
+                glyphs[1][name] == other[1][name] for name in shared
+            ):
+                matches.add(style)
+        if len(matches) == 1:
+            found[font] = matches.pop()
+    return found
+
+
+def _outlines(
+    document: Any, fonts: set[str]
+) -> dict[str, tuple[tuple[float, ...], dict[str, tuple[Any, ...]]]]:
+    """Fonte → (FontMatrix, glifo → desenho), só dos glifos com desenho, das fontes CFF embutidas.
+    Fonte que não é CFF ou que não se deixa ler fica de fora (sem estilo)."""
+    found: dict[str, tuple[tuple[float, ...], dict[str, tuple[Any, ...]]]] = {}
+    for number in range(len(document)):
+        for entry in document.get_page_fonts(number):
+            xref, name = entry[0], str(entry[3]).split("+")[-1]
+            if name not in fonts or name in found:
+                continue
+            try:
+                _, ext, _, content = document.extract_font(xref)
+                if ext != "cff" or not content:
+                    continue
+                cff = CFFFontSet()
+                cff.decompile(io.BytesIO(content), None)
+                top = cff[cff.fontNames[0]]
+                glyphs: dict[str, tuple[Any, ...]] = {}
+                for glyph in top.charset:
+                    pen = RecordingPen()
+                    top.CharStrings[glyph].draw(pen)
+                    if pen.value:
+                        glyphs[glyph] = tuple(
+                            (op, tuple(tuple(point) for point in points))
+                            for op, points in pen.value
+                        )
+                found[name] = (tuple(top.FontMatrix), glyphs)
+            except Exception:  # fonte que o fontTools não lê: sem desenho, sem estilo deduzido
+                continue
+    return found
 
 
 def _span_text(span: dict[str, Any]) -> str:

@@ -89,3 +89,42 @@ uma regra do item 4 que também vale com `styles`: a fonte sem nome que escreve 
 crédito e tem letras de menos para as larguras é a itálica miúda do crédito, e todo o texto nela
 fica itálico ("Z. Nateghian *et al*.", "K*ps*"). Nos cadernos do `cespe-unb` e no PF 2021 delegado
 o resultado não muda (comparado `extract`+`segment` antes e depois).
+
+## Emenda de 2026-10-14 — fontes com letras de menos e fonte monoespaçada com `infer_font_styles`
+
+**Contexto.** O minos reprovou 4 provas do lote 2 do `infer_font_styles`: no PM/PA 2023 CFP
+(específicos), "*chip*" (q37) e "*habeas corpus*" (q58) sem itálico, cada um numa fonte "TT…o00"
+própria com 4 e 13 letras; no PM/PA 2023 CFO (básicos p1), o título do crédito "**Comunicação não
+violenta**" sem negrito (fonte de 6 pt com 19 letras ASCII); no PC/GO 2016 básicos (agente e
+escrivão, mesmo caderno), q15 com comandos e caminhos em fonte monoespaçada sem código inline. As
+duas primeiras ficam abaixo das 20 letras do item 4; a terceira é o `mono` do `legacy`, que a
+emenda de 2026-10-13 deixou de fora do `styles`.
+
+**Decisão.** Valem com `legacy` e com `styles`, só para fontes sem nome sem estilo deduzido pelo
+item 4:
+
+1. **Mesmo desenho, mesmo estilo.** O Distiller dá a cada página um subconjunto próprio da fonte,
+   com os glifos de mesmo nome e mesmo desenho; normal, negrito e itálico têm desenhos diferentes.
+   A fonte sem estilo que desenha (CFF embutida, mesma `FontMatrix`) pelo menos 3 glifos em comum
+   exatamente como uma fonte já deduzida pelas larguras herda o estilo dela. Fontes de estilos
+   diferentes casando ao mesmo tempo: nada. A fonte do "*In*:" (adendo do PF 2018) não serve de
+   referência.
+2. **Larguras com margem.** Sem desenho que case, a fonte com pelo menos 6 letras ASCII, 4 delas
+   distintas, recebe o estilo da referência mais próxima (Times/Helvetica, quatro estilos) se a
+   distância média for até 0,008 corpo e a referência de outro estilo mais próxima ficar pelo
+   menos 0,006 corpo além. Letras que medem o mesmo em dois estilos ("chip" no Times normal e
+   itálico) zeram a margem e nada se deduz; a Helvetica oblíqua não conta como rival da normal.
+3. **Fonte monoespaçada vira código inline também com `styles`**: a mesma regra do `legacy` (fonte
+   sem nome com pelo menos 8 letras distintas, todas da mesma largura, a 0,01 corpo), e o trecho
+   nela vai entre crases (docs/content-format.md).
+
+`fonttools` (já instalado como dependência do `ocrmypdf`) passa a ser dependência direta, para ler
+o desenho dos glifos.
+
+**Verificação.** Reprocessado `extract`→`validate` de todas as provas com `infer_font_styles` e
+das quatro do `cespe-unb` e comparado com o banco: nenhum texto puro (hash do enunciado) nem
+pendência muda; com o código anterior o reprocessamento é idêntico ao banco. Mudam só marcações:
+os três itálicos/negritos acima e código inline em PC/GO 2016 básicos q15 (agente e escrivão),
+PC/AL 2022 gerais q25, PC/ES 2022 gerais q10, q11, q13 e q14, PF 2018 agente q77, q81, q83 e
+q93–96 e PF 2018 escrivão q93–96 (texto-base). Nenhuma mudança nos cadernos do `cespe-unb` nem no
+PF 2021 delegado.

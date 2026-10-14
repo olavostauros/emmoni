@@ -412,6 +412,7 @@ name = "emmoni"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "fonttools" },
     { name = "httpx" },
     { name = "ocrmypdf" },
     { name = "psycopg", extra = ["binary"] },
@@ -431,6 +432,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "fonttools", specifier = ">=4.66" },
     { name = "httpx", specifier = ">=0.28" },
     { name = "ocrmypdf", specifier = ">=17.13.0" },
     { name = "psycopg", extras = ["binary"], specifier = ">=3.2" },
