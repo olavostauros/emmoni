@@ -1,19 +1,21 @@
 {
  "exam": "pcpb-2021/conhecimentos-gerais-para-o-cargo-de-delegado",
+ "seed": "r20",
  "numbers": [
-  2,
-  6,
-  7,
-  8,
+  3,
+  4,
+  5,
+  9,
+  11,
+  12,
   13,
   14,
-  15,
-  16,
   17,
   20
  ],
- "sampled_at": "2026-10-08T13:32:09.006566+00:00",
- "approved_at": "2026-10-08T13:36:17.185219+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "590f9edccda497a1a589f8258aebb7d123f75d43094bffe536f3a4b20c0597d0"
+ "sampled_at": "2026-10-14T19:17:25.348474+00:00",
+ "approved_at": "2026-10-14T19:17:49.042469+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "dc8b3491f3951f0e7625e2a8f5d7beeca111e4d0476d2c89106fb40bfaaf695c",
+ "fingerprint_version": 2
 }
