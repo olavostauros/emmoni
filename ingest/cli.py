@@ -240,6 +240,8 @@ def _review(args: argparse.Namespace) -> int:
                         print(f"  motivo: {reason}")
             elif args.review_command == "sample":
                 assert ref is not None
+                for number, reason in review.also_discarded(conn, ref, args.also):
+                    print(f"aviso: --also {number} fica fora da amostra: {reason}", file=sys.stderr)
                 page = review.write_sample(
                     conn, ref, args.n, fetch.data_dir(), args.also, args.seed
                 )

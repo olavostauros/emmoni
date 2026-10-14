@@ -604,10 +604,13 @@ pelo código. Não há SDK, chave de API nem cache de respostas (decisão 0006).
   conteúdo em `ingest/approvals/<concurso>/<prova>.json`, versionado; decisão 0016). A amostra traz também `amostra.md` e as páginas em PNG (da página onde começa o texto-base ou o comando do grupo até a seguinte à da questão; decisão 0027); o revisor segue
   `ingest/prompts/review-sample@1.md` e grava `verdicts.json` (decisão 0014). Prova reprocessada depois de aprovada é
   reamostrada; se reprovar, volta para `review` até nova aprovação (decisão 0015). Depois de cada
-  `load`, a prova só continua publicada se o conteúdo tem a impressão digital aprovada (número,
-  hash do enunciado, gabarito, disciplina e pendência de cada questão; assuntos ficam de fora);
-  senão volta para `review` até ser reamostrada. `emmoni review restore` republica, num banco novo,
-  as provas que conferem.
+  `load`, a prova só continua publicada se o conteúdo tem a impressão digital aprovada (versão 2,
+  decisão 0033: número e pendência de cada questão e, fora de `review`, o texto como gravado —
+  enunciado, alternativas e texto-base com marcação e parágrafos —, tipo, gabaritos, disciplina e
+  assets; assuntos ficam de fora; registro sem `fingerprint_version` confere na versão 1 da decisão
+  0016 até a próxima aprovação); senão volta para `review` até ser reamostrada. `review sample
+  --also` avisa as questões que descarta (em `review` ou inexistentes). `emmoni review restore`
+  republica, num banco novo, as provas que conferem.
 - Amostragem da classificação: `emmoni review topics --n 50` sorteia 50 questões classificadas e
   gera `data/review/assuntos/amostra.{json,md}`; o agente revisor, em contexto separado do
   `classify`, grava `verdict` e `reviewed_by`, e `--report` mede o acerto (critério do M4,

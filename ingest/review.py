@@ -10,7 +10,7 @@
 - `approve`: publica a **prova** (`exam.publish_status = 'published'`) depois da amostragem. O
   comando exige que a amostra tenha sido gerada e registra quem aprovou (`--by`, o modelo) em
   `ingest/approvals/<concurso>/<prova>.json`, versionado, com a impressão digital do conteúdo
-  aprovado (decisão 0016).
+  aprovado (decisão 0016; texto como gravado, versão 2, decisão 0033).
 - `reconcile`/`restore`: a prova só fica publicada se o conteúdo no banco tem a impressão digital
   aprovada. Roda depois de cada `load`; `restore` refaz a publicação num banco novo.
 - `topics`: amostra determinística de N questões classificadas, de todas as provas reais, para
@@ -216,6 +216,28 @@ def sample_numbers(conn: Conn, ref: ExamRef, n: int, seed: str | None = None) ->
     return sorted(rng.sample(candidates, min(n, len(candidates))))
 
 
+def also_discarded(conn: Conn, ref: ExamRef, also: Sequence[int]) -> list[tuple[int, str]]:
+    """Questões do `--also` que a amostra não pode incluir, com o motivo: em `review` (fora do
+    `api` e da amostra; com os motivos gravados) ou inexistentes na prova."""
+    rows = conn.execute(
+        """select number, publish_status = 'review', review_reasons from question
+            where exam_id = %s and number = any(%s)""",
+        (_exam_id(conn, ref), list(also)),
+    ).fetchall()
+    found: dict[int, tuple[bool, list[str]]] = {}
+    for number, in_review, reasons in rows:
+        assert isinstance(reasons, list)
+        found[int(str(number))] = (bool(in_review), [str(x) for x in reasons])
+    discarded = []
+    for number in sorted(set(also)):
+        if number not in found:
+            discarded.append((number, "não existe na prova"))
+        elif found[number][0]:
+            reasons = "; ".join(found[number][1]) or "sem motivo gravado"
+            discarded.append((number, f"em review ({reasons})"))
+    return discarded
+
+
 def sample_dir(data: Path, ref: ExamRef) -> Path:
     return data / "review" / ref.contest / ref.exam
 
@@ -258,15 +280,68 @@ def write_sample(
     return page
 
 
-def fingerprint(conn: Conn, exam_id: int) -> str:
+# Formato da impressão digital gravada em `ingest/approvals/` (decisão 0033). Registro sem
+# `fingerprint_version` é da versão 1.
+FINGERPRINT_VERSION = 2
+
+
+def fingerprint(conn: Conn, exam_id: int, version: int = FINGERPRINT_VERSION) -> str:
     """Impressão digital do conteúdo conferido na amostragem.
 
-    Por questão: número, `statement_hash` (enunciado, alternativas e texto-base), gabarito final,
-    status do gabarito, disciplina e se está em revisão. Questão em revisão não aparece no `api`
-    nem entra na amostra: dela só contam o número e a pendência. Assuntos ficam de fora: a
-    classificação tem amostragem própria (`review topics`) e muda sem mudar o que a amostra
-    conferiu.
+    Por questão: número, se está em revisão e, fora dela, o conteúdo. Questão em revisão não
+    aparece no `api` nem entra na amostra: dela só contam o número e a pendência. Assuntos ficam
+    de fora: a classificação tem amostragem própria (`review topics`) e muda sem mudar o que a
+    amostra conferiu.
+
+    - Versão 1 (decisão 0016): `statement_hash` (normalizado: sem marcação, pontuação nem quebra
+      de parágrafo), gabarito final, status do gabarito e disciplina.
+    - Versão 2 (decisão 0033): o texto como gravado — enunciado, alternativas e texto-base em
+      Markdown, com marcação e parágrafos —, tipo, gabaritos preliminar e final, status do
+      gabarito, disciplina e os assets da questão e do texto-base. Qualquer mudança no que o
+      `api` mostra muda a impressão.
     """
+    if version == 1:
+        return _fingerprint_v1(conn, exam_id)
+    if version != 2:
+        raise ReviewError(f"versão de impressão digital desconhecida: {version}")
+    rows = conn.execute(
+        """select q.number,
+                  q.publish_status = 'review',
+                  case when q.publish_status <> 'review' then jsonb_build_object(
+                    'type', q.type::text,
+                    'statement', q.statement_md,
+                    'options', coalesce((select jsonb_agg(jsonb_build_array(o.letter, o.body_md)
+                                                          order by o.letter)
+                                           from question_option o where o.question_id = q.id),
+                                        '[]'::jsonb),
+                    'passage', p.body_md,
+                    'answer_preliminary', q.answer_preliminary,
+                    'answer_final', q.answer_final,
+                    'answer_status', q.answer_status::text,
+                    'subject', s.slug,
+                    'assets', coalesce((select jsonb_agg(a.sha256 order by qa.position, a.sha256)
+                                          from question_asset qa join asset a on a.id = qa.asset_id
+                                         where qa.question_id = q.id), '[]'::jsonb),
+                    'passage_assets', coalesce((select jsonb_agg(a.sha256
+                                                                 order by pa.position, a.sha256)
+                                                  from passage_asset pa
+                                                  join asset a on a.id = pa.asset_id
+                                                 where pa.passage_id = q.passage_id), '[]'::jsonb)
+                  ) end
+             from question q
+             left join subject s on s.id = q.subject_id
+             left join passage p on p.id = q.passage_id
+            where q.exam_id = %s order by q.number""",
+        (exam_id,),
+    ).fetchall()
+    payload = json.dumps(
+        [list(r) for r in rows], separators=(",", ":"), sort_keys=True, ensure_ascii=False
+    )
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
+def _fingerprint_v1(conn: Conn, exam_id: int) -> str:
+    """Formato da decisão 0016: só para conferir as aprovações gravadas antes da decisão 0033."""
     rows = conn.execute(
         """select q.number,
                   case when q.publish_status <> 'review' then q.statement_hash end,
@@ -326,6 +401,7 @@ def write_approval(approvals: Path, ref: ExamRef, sample: dict[str, object], dig
         "approved_at": sample["approved_at"],
         "approved_by": sample["approved_by"],
         "fingerprint": digest,
+        "fingerprint_version": FINGERPRINT_VERSION,
     }
     path.write_text(json.dumps(record, indent=1) + "\n", encoding="utf-8")
     return path
@@ -341,12 +417,14 @@ def reconcile(conn: Conn, ref: ExamRef, approvals: Path = APPROVALS_DIR) -> str:
     """
     exam_id = _exam_id(conn, ref)
     path = approval_path(approvals, ref)
-    approved = (
-        json.loads(path.read_text(encoding="utf-8"))["fingerprint"] if path.exists() else None
-    )
+    record = json.loads(path.read_text(encoding="utf-8")) if path.exists() else None
+    approved = record["fingerprint"] if record else None
+    # Registro anterior à decisão 0033: confere na versão 1 enquanto o conteúdo não mudar; a
+    # próxima aprovação grava a versão atual. Nunca se reescreve a impressão de uma aprovação.
+    version = int(record.get("fingerprint_version", 1)) if record else FINGERPRINT_VERSION
     current = conn.execute("select publish_status::text from exam where id = %s", (exam_id,))
     status = str(current.fetchone()[0])  # type: ignore[index]
-    if approved is not None and approved == fingerprint(conn, exam_id):
+    if approved is not None and approved == fingerprint(conn, exam_id, version):
         if status != "published":
             conn.execute("update exam set publish_status = 'published' where id = %s", (exam_id,))
             return "publicada (aprovação registrada confere)"

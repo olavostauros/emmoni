@@ -98,6 +98,10 @@ def test_sample_also_includes_publishable_changed_questions(tx: Conn, tmp_path: 
         (review.sample_dir(tmp_path, ref) / "sample.json").read_text(encoding="utf-8")
     )
     assert record["numbers"] == sorted({*drawn, extra})
+    assert review.also_discarded(tx, ref, [extra, 3, 99]) == [
+        (3, "em review (figura ou tabela não extraída)"),
+        (99, "não existe na prova"),
+    ]
 
 
 def _paged_exam(tx: Conn, tmp_path: Path) -> tuple[review.ExamRef, int]:
@@ -262,6 +266,107 @@ def test_reconcile_ignores_content_of_questions_in_review(tx: Conn, tmp_path: Pa
         (exam_id,),
     )
     assert review.reconcile(tx, ref, approvals).startswith("volta para review")
+
+
+def _approved(tx: Conn, tmp_path: Path) -> tuple[review.ExamRef, int, Path]:
+    ref, exam_id = _exam(tx)
+    approvals = tmp_path / "approvals"
+    review.write_sample(tx, ref, 3, tmp_path)
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    return ref, exam_id, approvals
+
+
+def test_approval_records_fingerprint_version(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id, approvals = _approved(tx, tmp_path)
+    approval = json.loads(review.approval_path(approvals, ref).read_text(encoding="utf-8"))
+    assert approval["fingerprint_version"] == review.FINGERPRINT_VERSION == 2
+    assert approval["fingerprint"] == review.fingerprint(tx, exam_id)
+
+
+@pytest.mark.parametrize(
+    "change",
+    [
+        # Só itálico: o `statement_hash` (normalizado) não muda; o texto gravado muda.
+        "update question set statement_md = '*' || statement_md || '*'"
+        " where exam_id = %s and number = 2",
+        # Só parágrafo: uma quebra a mais entre duas palavras.
+        "update question set statement_md = replace(statement_md, ' de ', E'\n\nde ')"
+        " where exam_id = %s and number = 2",
+    ],
+    ids=["italico", "paragrafo"],
+)
+def test_reconcile_v2_sees_markup_and_paragraphs(tx: Conn, tmp_path: Path, change: str) -> None:
+    """Decisão 0033: com a impressão da versão 2, mudança só de marcação ou de parágrafo numa
+    prova publicada a devolve a `review`."""
+    ref, exam_id, approvals = _approved(tx, tmp_path)
+    v1_before = review.fingerprint(tx, exam_id, 1)
+    tx.execute(change, (exam_id,))
+    assert review.fingerprint(tx, exam_id, 1) == v1_before  # a versão 1 não via a mudança
+    assert review.reconcile(tx, ref, approvals).startswith("volta para review")
+    assert _status(tx, exam_id) == "review"
+
+
+def test_reconcile_v2_sees_option_and_passage_markup(tx: Conn, tmp_path: Path) -> None:
+    ref, exam_id = _exam(tx)
+    question_id = scalar(
+        tx, "select id from question where exam_id = %s and number = 5", (exam_id,)
+    )
+    factories.options(tx, str(question_id), "AB")
+    passage_id = scalar(
+        tx,
+        "insert into passage (exam_id, body_md, source_page) values (%s, 'Texto base.', 1)"
+        " returning id",
+        (exam_id,),
+    )
+    tx.execute("update question set passage_id = %s where id = %s", (passage_id, question_id))
+    approvals = tmp_path / "approvals"
+    review.write_sample(tx, ref, 3, tmp_path)
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    tx.execute(
+        "update question_option set body_md = '**Alternativa** A.'"
+        " where question_id = %s and letter = 'A'",
+        (question_id,),
+    )
+    assert review.reconcile(tx, ref, approvals).startswith("volta para review")
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    tx.execute("update passage set body_md = 'Texto `base`.' where id = %s", (passage_id,))
+    assert review.reconcile(tx, ref, approvals).startswith("volta para review")
+
+
+def test_reconcile_old_record_checks_v1_until_reapproved(tx: Conn, tmp_path: Path) -> None:
+    """Aprovação anterior à 0033 (sem `fingerprint_version`): confere na versão 1 enquanto o
+    conteúdo não mudar — mudança só de marcação ainda passa —, e a impressão gravada não é
+    reescrita; mudança que a versão 1 vê devolve a prova a `review`."""
+    ref, exam_id, approvals = _approved(tx, tmp_path)
+    path = review.approval_path(approvals, ref)
+    record = json.loads(path.read_text(encoding="utf-8"))
+    del record["fingerprint_version"]
+    record["fingerprint"] = review.fingerprint(tx, exam_id, 1)
+    path.write_text(json.dumps(record, indent=1) + "\n", encoding="utf-8")
+    before = path.read_text(encoding="utf-8")
+    assert review.reconcile(tx, ref, approvals) == "publicada"
+    tx.execute(
+        "update question set statement_md = '*' || statement_md || '*'"
+        " where exam_id = %s and number = 2",
+        (exam_id,),
+    )
+    assert review.reconcile(tx, ref, approvals) == "publicada"
+    assert path.read_text(encoding="utf-8") == before
+    tx.execute(
+        "update question set answer_final = 'E', answer_preliminary = 'E'"
+        " where exam_id = %s and number = 2",
+        (exam_id,),
+    )
+    assert review.reconcile(tx, ref, approvals).startswith("volta para review")
+    # A reaprovação grava a versão 2.
+    review.approve(tx, ref, tmp_path, approvals=approvals)
+    assert json.loads(path.read_text(encoding="utf-8"))["fingerprint_version"] == 2
+
+
+def test_fingerprint_rejects_unknown_version(tx: Conn) -> None:
+    _, exam_id = _exam(tx)
+    with pytest.raises(review.ReviewError, match="versão"):
+        review.fingerprint(tx, exam_id, 9)
 
 
 def test_restore_publishes_matching_exams_from_records(tx: Conn, tmp_path: Path) -> None:
