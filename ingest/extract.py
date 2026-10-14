@@ -70,6 +70,10 @@ class Line(BaseModel):
     # Símbolo sem mapeamento: dígito solto em fonte própria entre letras, ou glifo de fonte de
     # símbolos que só tem pontuação ASCII na página.
     odd_glyph: bool = False
+    # Cor predominante das letras (RGB inteiro, 0 = preto). Cadernos "com justificativa" (PCDF
+    # 2019/2020/2026) trazem a justificativa do gabarito em azul, às vezes sem o prefixo
+    # "JUSTIFICATIVA -" (PCDF 2020, item 84): a cor separa a justificativa do item.
+    color: int = 0
 
 
 class Figure(BaseModel):
@@ -790,7 +794,21 @@ def _line(
         odd_glyph=odd_glyph,
         size=main,
         scripts=scripts,
+        color=_main_color(spans),
     )
+
+
+def _main_color(spans: list[dict[str, Any]]) -> int:
+    """Cor da maioria das letras e dígitos da linha; sem letras ("[...]”", "(...)"), a da maioria
+    dos caracteres visíveis."""
+    for counts in (str.isalnum, lambda c: not c.isspace()):
+        weights: Counter[int] = Counter()
+        for span in spans:
+            weights[int(span.get("color", 0))] += sum(1 for c in span["text"] if counts(c))
+        color, weight = weights.most_common(1)[0] if weights else (0, 0)
+        if weight:
+            return color
+    return 0
 
 
 def _odd_ell_glyph(spans: list[dict[str, Any]], ell: frozenset[str]) -> bool:
@@ -987,7 +1005,15 @@ def _merge(row: list[Line]) -> Line:
             line.size < main.size - SCRIPT_DROP and not LEADING_MARK.match(line.plain)
             for line in row
         ),
+        color=_row_color(row),
     )
+
+
+def _row_color(row: list[Line]) -> int:
+    weights: Counter[int] = Counter()
+    for line in row:
+        weights[line.color] += sum(c.isalnum() for c in line.plain) or len(line.plain.strip())
+    return weights.most_common(1)[0][0]
 
 
 def _drop_repeated(pages: list[Page]) -> None:

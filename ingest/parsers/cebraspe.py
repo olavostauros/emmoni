@@ -157,6 +157,11 @@ CONSECUTIVE_ITEMS = re.compile(r"\bitens\b[^.]{0,60}\b(consecutiv|sucessiv)", re
 # oficial do gabarito, às vezes grudada na última linha do item ("...administrativo.JUSTIFICATIVA").
 # PC/PE 2023 traz, depois de cada questão, uma tabela "||JUSTIFICATIVAS||".
 JUSTIFICATION = re.compile(r"JUSTIFICATIVAS?\b|\bITEM ANULADO\b")  # sempre em maiúsculas
+# Justificativa sem o prefixo ("ERRADO. O Hyper-V dá suporte...", PCDF 2020 item 84): só é
+# reconhecida pela cor das justificativas do caderno (azul), nunca pelo texto sozinho.
+VERDICT = re.compile(r"^(?:CERTO|ERRADO)\b")
+BARE_NUMBER = re.compile(r"^\d{1,3}$")
+WHITE = 0xFFFFFF  # texto invisível
 SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
@@ -201,6 +206,9 @@ class _Entry:
     short: bool = False  # termina bem antes da margem direita da coluna
     after_gap: bool = False  # veio depois de um "Espaço livre" ou de um título de bloco
     flags: set[str] = field(default_factory=set)
+    # Veio logo depois de uma justificativa do gabarito: a justificativa fecha o item, então esta
+    # linha não o continua (PCDF 2020: o texto-base com recuo de parágrafo de 15 grudava no item).
+    after_justification: bool = False
 
 
 @dataclass
@@ -637,6 +645,8 @@ def _inside_labeled_text(lead: _Unit) -> bool:
 
 def _continues(item: _Unit, entry: _Entry) -> bool:
     """Linha com recuo continua o item, salvo recuo de parágrafo depois de frase terminada."""
+    if entry.after_justification:
+        return False
     indent = entry.line.x0 - entry.left
     last = item.entries[-1]
     if indent <= HANGING_MIN:
@@ -647,12 +657,15 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
     if moved and indent > HANGING_MAX:
         return False  # em coluna nova, só o recuo típico de continuação prende ao item
     previous = last.line.plain.rstrip()
-    sentence_done = previous.endswith((".", "?", "!"))
+    # Item que é só o número (as opções são figuras, PRF 2018 item 26): não há frase em aberto, e
+    # o parágrafo recuado que vem depois é o texto-base seguinte, não continuação.
+    bare_number = len(item.entries) == 1 and BARE_NUMBER.match(previous) is not None
+    sentence_done = previous.endswith((".", "?", "!")) or bare_number
     title = entry.line.text.startswith("**") and entry.line.text.endswith("**")
     if sentence_done and (entry.after_gap or title):
         return False  # "Espaço livre" ou título em negrito encerram o item
     starts_paragraph = abs(indent - PARAGRAPH_INDENT_AT) < 4 and entry.line.plain[:1].isupper()
-    if starts_paragraph and previous.endswith((".", "?", "!", ":")):
+    if starts_paragraph and (previous.endswith((".", "?", "!", ":")) or bare_number):
         return False
     # Primeira linha de parágrafo com recuo maior que o de costume (varia entre provas): longa,
     # começando com maiúscula, depois de frase terminada. Fórmula centralizada é curta e fica.
@@ -665,6 +678,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
     stream: list[_Entry] = []
     gap = False
     in_justification = False
+    justification_color = _justification_color(pages)
     # Sem o marcador "PROVA OBJETIVA", começa do início; instruções numeradas da capa não viram
     # itens porque item só começa depois de um comando ("julgue").
     started = not any(START.search(line.plain) for page in pages for line in page.lines)
@@ -718,28 +732,48 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 line.plain
             ):
                 continue  # rótulos de gráfico desenhados sobre a imagem (título de questão não)
+            table = line.plain.startswith("||")
+            closed = False  # esta linha vem logo depois de uma justificativa
             if in_justification:
-                indent = line.x0 - lefts[line.column]
-                # Continuação da justificativa fica no recuo de continuação de item (~18); recuo de
-                # parágrafo (~29) é o começo de um texto-base (PCDF 2019/2020): não é justificativa.
-                if ITEM_INDENT < indent < PARAGRAPH_INDENT_AT - 4:
-                    continue
-                in_justification = False  # linha na margem: próximo item ou comando
+                if justification_color is not None:
+                    # Caderno com cor: a justificativa vai até a primeira linha de outra cor. O
+                    # marcador "<FimJust>" em branco (invisível, PCDF 2026) ainda é dela.
+                    if line.color in (justification_color, WHITE) and not JUSTIFICATION.search(
+                        line.plain
+                    ):
+                        continue
+                else:
+                    indent = line.x0 - lefts[line.column]
+                    # Sem cor (OCR): a continuação da justificativa fica no recuo de continuação
+                    # de item (~18); recuo de parágrafo (~29) é o começo de um texto-base (PCDF
+                    # 2019/2020): não é justificativa.
+                    if ITEM_INDENT < indent < PARAGRAPH_INDENT_AT - 4:
+                        continue
+                in_justification = False  # próximo item, comando ou texto-base
+                closed = True
             # Tabela de justificativas (PC/PE 2023): fica no fluxo, e a múltipla escolha pula
             # tudo até o próximo título de questão (as linhas da tabela estão na margem).
-            table = line.plain.startswith("||")
             cut = None if table else JUSTIFICATION.search(line.plain)
             if cut is not None:
                 in_justification = True
                 if not line.plain[: cut.start()].strip():
                     continue
                 line = _before(line, cut.start())
+            elif (
+                not table
+                and justification_color is not None
+                and line.color == justification_color
+                and VERDICT.match(line.plain)
+            ):
+                in_justification = True  # justificativa sem o prefixo "JUSTIFICATIVA -"
+                continue
             entry = _Entry(
                 page.number,
                 line,
                 lefts[line.column],
                 short=line.x1 < rights[line.column] - SHORT_LINE,
                 after_gap=gap,
+                after_justification=closed,
             )
             gap = False
             if BROKEN_MATH.search(line.plain):
@@ -753,6 +787,21 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             entries.append(entry)
         stream.extend(_with_figures(page, entries, skipped, start_y))
     return stream
+
+
+def _justification_color(pages: list[Page]) -> int | None:
+    """Cor das justificativas do caderno: a das linhas que começam com "JUSTIFICATIVA", se não
+    for preta (PCDF: azul). Sem cor (OCR, cadernos em preto) a justificativa sai pelo recuo."""
+    colors = Counter(
+        line.color
+        for page in pages
+        for line in page.lines
+        if line.plain.lstrip("|* ").startswith("JUSTIFICATIVA")
+    )
+    if not colors:
+        return None
+    color = colors.most_common(1)[0][0]
+    return color or None
 
 
 # Título de seção sem negrito, em corpo maior ("Conhecimentos acerca do Estado do Tocantins",

@@ -66,3 +66,26 @@ calibrado no M2 só em provas certo/errado de PF e PRF:
   (relatórios com as dúvidas em `docs/progress/2026-10-07-ingestao-36-manifestos.md`). A
   taxonomia ganhou mais `teoria-musical`, `engenharia`, `saude-publica`, `execucao-penal` e
   `servico-social` (56 disciplinas).
+
+## Emenda de 2026-10-14 — justificativa pela cor e item que é só número
+
+Contexto: no PCDF 2020 específicos, a justificativa do item 84 começa com "ERRADO." sem o prefixo
+"JUSTIFICATIVA -" e não foi cortada; a primeira linha do texto-base seguinte (recuo de 15) grudou
+nela, e o texto-base g85 começou no meio da frase (reprovação do minos). No PRF 2018, a primeira
+linha do texto-base g27 grudou no item 26, que é só o número (as opções são figuras).
+
+Decisão:
+
+1. A etapa `extract` grava a cor predominante de cada linha (`Line.color`, RGB inteiro, 0 =
+   preto; sem letras, a dos caracteres visíveis).
+2. A cor das justificativas do caderno é a das linhas que começam com "JUSTIFICATIVA" (azul nos
+   PCDF 2019, 2020 e 2026). Havendo essa cor, a justificativa vai até a primeira linha de outra
+   cor (o marcador branco "<FimJust>" do PCDF 2026 ainda é dela), e uma linha nessa cor que começa
+   com "CERTO"/"ERRADO" abre uma justificativa sem o prefixo. Só pelo texto, sem a cor, nunca. Sem
+   cor (OCR, cadernos em preto) vale a regra do recuo de antes.
+3. A linha depois de uma justificativa nunca continua o item.
+4. Item que é só o número: o parágrafo recuado que vem depois abre o texto seguinte.
+
+Consequências: muda só o PCDF 2020 específicos (q84 e g85; q89, q99 e q111 perdem pedaços de
+justificativa em azul; a tabela das contas passa da q111 para o g112) e o PRF 2018 (q26 e g27).
+Nas demais 133 provas reprocessadas, nada muda.

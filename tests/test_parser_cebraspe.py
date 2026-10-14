@@ -5,6 +5,7 @@ from pathlib import Path
 
 import pytest
 
+from ingest import extract as extract_module
 from ingest.extract import Figure, Line, Page, extract
 from ingest.parsers import cebraspe
 from ingest.staging import RawQuestion, Segmented
@@ -220,6 +221,96 @@ def test_official_justifications_are_dropped() -> None:
     assert questions[2].statement_md.endswith("A variância de X é igual a S.")
     assert questions[3].statement_md == "Julgue o próximo item.\n\nTexto sem justificativa."
     assert not any("JUSTIFICATIVA" in q.statement_md for q in questions)
+
+
+BLUE = 0x0000FF
+
+
+def test_justification_without_prefix_is_found_by_color() -> None:
+    """PCDF 2020 item 84: a justificativa (em azul) começa com "ERRADO." sem "JUSTIFICATIVA -";
+    a primeira linha do texto-base seguinte, com recuo de parágrafo de 15, grudava no item."""
+    blue = {"color": BLUE}
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50),
+            _line("**1** O Hyper-V não suporta máquinas virtuais Linux.", 28, 70),
+            _line("JUSTIFICATIVA - ERRADO. Suporta, com dispositivos", 46, 82).model_copy(
+                update=blue
+            ),
+            _line("emulados.", 46, 94, x1=100).model_copy(update=blue),
+            _line("**2** Caso o programa fosse compatível somente com o", 28, 110),
+            _line("Linux, seria impossível executá-lo no Windows 10.", 46, 122, x1=200),
+            _line("ERRADO. O Hyper-V dá suporte a dispositivos emulados e", 46, 134).model_copy(
+                update=blue
+            ),
+            _line("específicos para máquinas virtuais Linux.", 46, 146, x1=200).model_copy(
+                update=blue
+            ),
+            _line("[...]”", 46, 158, x1=80).model_copy(update=blue),  # sem letras
+            _line("<FimJust>", 46, 170, x1=90).model_copy(update={"color": 0xFFFFFF}),  # PCDF 2026
+            _line("Uma agente, a partir do computador de sua casa, necessitava", 43, 300),
+            _line("acessar, com segurança, os serviços de PaaS na nuvem.", 28, 312, x1=200),
+            _line("Considerando essa situação hipotética, julgue o item a seguir.", 28, 330),
+            _line("**3** A VPN cifra o tráfego.", 28, 350),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    questions = segmented.questions
+    assert [q.number for q in questions] == [1, 2, 3]
+    assert questions[1].statement_md.endswith("seria impossível executá-lo no Windows 10.")
+    assert not any("ERRADO" in q.statement_md or "Uma agente" in q.statement_md for q in questions)
+    passage = next(p for p in segmented.passages if p.key == questions[2].passage_key)
+    assert passage.body_md.startswith("Uma agente, a partir do computador de sua casa, necessitava")
+
+
+def test_line_color_is_the_color_of_most_letters() -> None:
+    """A cor da linha é a da maioria das letras; sem letras, a dos caracteres visíveis."""
+    spans = [
+        {"text": "Linux. ", "color": 0},
+        {"text": "ERRADO. O Hyper-V", "color": BLUE},
+    ]
+    assert extract_module._main_color(spans) == BLUE
+    assert extract_module._main_color([{"text": "[...]”", "color": BLUE}]) == BLUE
+    assert (
+        extract_module._main_color([{"text": "Texto", "color": 0}, {"text": " ", "color": BLUE}])
+        == 0
+    )
+
+
+def test_verdict_in_black_is_item_text() -> None:
+    """Sem a cor das justificativas, "CERTO."/"ERRADO." no começo da linha é texto do item."""
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50),
+            _line("**1** No exemplo, a resposta do aluno foi marcada como", 28, 70),
+            _line("ERRADO. Essa marcação está correta.", 46, 82, x1=200),
+        ]
+    )
+    questions = cebraspe.segment([page]).questions
+    assert questions[0].statement_md.endswith("marcada como ERRADO. Essa marcação está correta.")
+
+
+def test_paragraph_after_bare_number_item_is_next_passage() -> None:
+    """PRF 2018 item 26: item que é só o número (opções em figura); o parágrafo recuado depois
+    dele abre o texto-base seguinte, não continua o item."""
+    page = _page(
+        [
+            _line("A partir das figuras, julgue os itens a seguir.", 28, 50),
+            _line("**25**", 28, 70, x1=50),
+            _line("**26**", 28, 150, x1=50),
+            _line("Para avaliar a resposta dos motoristas a uma campanha", 57, 250),
+            _line("educativa promovida pela PRF, foi proposta a função f.", 28, 262, x1=250),
+            _line("Com referência a essa situação hipotética, julgue o item.", 28, 280),
+            _line("**27** Após dez anos haverá menos de 300 acidentes.", 28, 300),
+        ]
+    )
+    segmented = cebraspe.segment([page], first=25)
+    questions = segmented.questions
+    assert [q.number for q in questions] == [25, 26, 27]
+    by_number = {q.number: q for q in questions}
+    assert "Para avaliar" not in by_number[26].statement_md
+    passage = next(p for p in segmented.passages if p.key == by_number[27].passage_key)
+    assert passage.body_md.startswith("Para avaliar a resposta dos motoristas a uma campanha")
 
 
 def test_multiple_choice_questions_with_options_and_shared_text() -> None:

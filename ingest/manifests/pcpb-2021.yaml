@@ -1,4 +1,6 @@
 # pcpb-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles em todas as provas (2026-10-14): itálico e código inline pelas larguras das
+# fontes sem nome (emenda de 2026-10-13 da decisão 0020); o reprocessamento só muda a marcação.
 contest: pcpb-2021
 name: POLÍCIA CIVIL DO ESTADO DA PARAÍBA
 agency: pcpb
@@ -11,6 +13,7 @@ exams:
   positions:
   - delegado
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_001_01.PDF
@@ -27,6 +30,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_004_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_004_01.PDF
@@ -37,6 +41,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_005_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_005_01.PDF
@@ -48,6 +53,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_006_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_006_01.PDF
@@ -60,6 +66,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_007_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_007_01.PDF
@@ -71,6 +78,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_008_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_008_01.PDF
@@ -81,6 +89,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_009_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_009_01.PDF
@@ -91,6 +100,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_010_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_010_01.PDF
@@ -101,6 +111,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_011_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_011_01.PDF
@@ -111,6 +122,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_012_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_012_01.PDF
@@ -127,6 +139,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_013_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_013_01.PDF
@@ -137,6 +150,7 @@ exams:
   positions:
   - perito-criminal
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CC1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CC1_01.PDF
@@ -150,6 +164,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE DELEGADO
   positions:
   - delegado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG1_01.PDF
@@ -164,6 +179,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 4 A 13
   positions:
   - perito-criminal
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_627_PCPB_CG2_01.PDF
@@ -176,6 +192,7 @@ exams:
   positions:
   - escrivao
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_002_01.PDF
@@ -189,6 +206,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE ESCRIVÃO DE POLÍCIA
   positions:
   - escrivao
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_628_PCPB_CG1_01.PDF
@@ -205,6 +223,7 @@ exams:
   positions:
   - agente
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_003_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_003_01_VF.PDF
@@ -219,6 +238,7 @@ exams:
   positions:
   - papiloscopista
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_015_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_015_01.PDF
@@ -231,6 +251,7 @@ exams:
   positions:
   - papiloscopista
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CC1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CC1_01.PDF
@@ -247,6 +268,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA O CARGO DE AGENTE DE INVESTIGAÇÃO
   positions:
   - agente
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG1_01_VF.PDF
@@ -263,6 +285,7 @@ exams:
   name: PROVA OBJETIVA - CONHECIMENTOS GERAIS PARA OS CARGOS DE 14 A 17
   positions:
   - papiloscopista
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/629_PC_PB_CG2_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/GAB_DEFINITIVO_629_PC_PB_CG2_01.PDF
