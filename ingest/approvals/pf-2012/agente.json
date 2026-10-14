@@ -1,19 +1,22 @@
 {
  "exam": "pf-2012/agente",
+ "seed": "r27",
  "numbers": [
-  3,
-  20,
-  43,
-  48,
-  72,
+  23,
+  24,
+  26,
+  57,
   81,
-  82,
-  87,
-  109,
-  111
+  83,
+  92,
+  98,
+  99,
+  104,
+  120
  ],
- "sampled_at": "2026-10-13T17:29:33.978229+00:00",
- "approved_at": "2026-10-13T17:32:54.398431+00:00",
+ "sampled_at": "2026-10-14T23:57:23.738457+00:00",
+ "approved_at": "2026-10-14T23:58:10.255377+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "e97134a2db9859b317456b8bc3a487e5361a866b5526dae3433803efc424ee8d"
+ "fingerprint": "679fd0a1f0fe7b61f184cddbf76f4fd1cf4ec6339c82a413f5b81a8fd091a51e",
+ "fingerprint_version": 2
 }
