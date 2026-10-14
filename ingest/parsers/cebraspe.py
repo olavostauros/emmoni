@@ -172,7 +172,9 @@ JUSTIFICATION = re.compile(r"JUSTIFICATIVAS?\b|\bITEM ANULADO\b")  # sempre em m
 VERDICT = re.compile(r"^(?:CERTO|ERRADO)\b")
 BARE_NUMBER = re.compile(r"^\d{1,3}$")
 WHITE = 0xFFFFFF  # texto invisível
-SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÁÉÍÓÚÂÊÔÃÕÇ“])")
+# Inclui a crase maiúscula ("... R$ 5.700,00. À luz do regime de caixa, julgue ...", PF 2012 agente,
+# itens 83 e 84): sem ela, a frase do comando engolia o item IV da lista que vem antes.
+SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÀÁÉÍÓÚÂÊÔÃÕÇ“])")
 # Glifos de fontes matemáticas sem mapeamento Unicode correto (Cambria Math exportada pelo
 # Distiller sai como etíope, malaiala, oriá...) e letras matemáticas (𝑋, 𝛾).
 BROKEN_MATH = re.compile(  # inclui caracteres de controle: glifo sem mapeamento
@@ -703,6 +705,10 @@ def _hanging_item_goes_on(opener: _Entry | None, previous: _Entry | None, entry:
         return False
     last = previous.line.plain.rstrip()[-1:]
     first = entry.line.plain.lstrip()[:1]
+    if last.isalpha() and first.isdigit():
+        # A frase partida antes de um número ("... relativos ao mês de abril de" | "2012, no valor
+        # de R$ 1.800,00;", PF 2012 agente, item II do texto dos itens 83 e 84). Emenda (18) da 0020.
+        return True
     return (last.isalpha() or last in BLOCK_LINE_BREAKS) and (first.isalpha() or first in DASHES)
 
 
@@ -1619,6 +1625,7 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             or _credit_closes(entries, index - 1)
             or (not title_goes_on and _block_gap(previous, entry, leading))
             or _labeled_line_opens(opener, previous, entry)
+            or _next_list_item(opener, previous, entry)
         )
         if new:
             paragraphs.append([[]])
@@ -1626,6 +1633,49 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
         paragraphs[-1][-1].append(entry.line.text)
         previous = entry
     return [_join_verses(pieces) for pieces in paragraphs]
+
+
+ROMAN_VALUES = {"I": 1, "V": 5, "X": 10}
+
+
+def _roman(numeral: str) -> int | None:
+    """Valor de um numeral romano curto (I a XXXIX); None se não é numeral bem formado."""
+    if not numeral or any(ch not in ROMAN_VALUES for ch in numeral):
+        return None
+    total = 0
+    for index, ch in enumerate(numeral):
+        value = ROMAN_VALUES[ch]
+        following = ROMAN_VALUES[numeral[index + 1]] if index + 1 < len(numeral) else 0
+        total += -value if value < following else value
+    return total if total > 0 else None
+
+
+def _list_label(plain: str) -> tuple[str, int] | None:
+    """Rótulo de item de lista no começo da linha → (tipo, ordem): "III recebimento" → ("roman",
+    3); "b) o ponto" → ("letter", 2)."""
+    match = re.match(r"^([IVX]+|[a-e]\))\s+\S", plain)
+    if not match:
+        return None
+    label = match.group(1)
+    if label.endswith(")"):
+        return "letter", ord(label[0]) - ord("a") + 1
+    value = _roman(label)
+    return ("roman", value) if value else None
+
+
+def _next_list_item(opener: _Entry | None, previous: _Entry | None, entry: _Entry) -> bool:
+    """A linha abre o item seguinte da lista aberta (I → II, III → IV; a) → b)) na mesma margem do
+    item aberto, e a anterior fecha o item (";", "."). Sem isso, item cuja última linha vai até a
+    margem direita grudava no seguinte (PF 2012 agente, itens 83 e 84: "III recebimento ...
+    3.600,00;" | "IV prestação de serviços ..."). Emenda (18) da 0020."""
+    if opener is None or previous is None:
+        return False
+    opened, label = _list_label(opener.line.plain), _list_label(entry.line.plain)
+    if opened is None or label is None or opened[0] != label[0] or label[1] != opened[1] + 1:
+        return False
+    if abs((entry.line.x0 - entry.left) - (opener.line.x0 - opener.left)) > BLOCK_INDENT_TOLERANCE:
+        return False
+    return previous.line.plain.rstrip().endswith(SENTENCE_STOP)
 
 
 # Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é...") ou a conclusão do

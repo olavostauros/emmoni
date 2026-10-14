@@ -598,3 +598,28 @@ g117; CBM/PA 2023 CFO P1 (q1, q6, q10, q17–19, q22, q25, q28, q32, q35–37, q
 (g76, g83; q83 e q84: o item III inteiro passa do texto-base ao começo do comando, em vez de partido
 entre os dois, e as duas perdem a marca "layout"); PC/PE 2023 P1 cargo 1 (q14) e PC/MA 2017 APC
 gerais cargo 5 (q16, "*mouse*").
+
+## Emenda de 2026-10-14 (18) — item seguinte da lista; item partido antes de número; crase no comando
+
+**Contexto.** Reprovação do minos (semente r26) no PF 2012 agente, itens 83 e 84: o texto-base
+terminava no item II, partido ("... relativos ao mês de abril de" | "2012, no valor de R\$
+1.800,00;"), e os itens III e IV vinham colados ao comando "À luz do regime de caixa ..., julgue
+...". Três causas: (a) a linha em recuo pendente que começa por algarismo não continuava o item
+(a emenda (17) só aceitava letra ou travessão); (b) o III vai até a margem direita e termina em
+";", e o IV, na mesma margem, não abria parágrafo (nem recuo, nem linha curta, nem espaço); (c) o
+corte de frase de `_split_command` (`SENTENCE_END`) não conhecia o "À" maiúsculo, e a frase do
+comando engolia o item IV.
+
+**Decisão.**
+
+1. No texto-base do certo/errado, a linha em recuo pendente que começa por algarismo continua o
+   item rotulado quando a anterior termina em letra (frase aberta antes de um número).
+2. Linha que começa com o rótulo seguinte da lista aberta (I → II, III → IV; a) → b)), na mesma
+   margem do rótulo que abriu o parágrafo, abre parágrafo quando a anterior fecha o item (".", ":",
+   ";", "?", "!"). Fora da sequência, noutra margem ou com o item aberto, nada muda.
+3. `SENTENCE_END` inclui o "À" maiúsculo (a crase; o português não usa outro acento grave).
+
+**Verificação.** As 140 provas do `data/staging/` segmentadas com o código do HEAD (824ba1a) e com
+o novo, a partir do mesmo `pages.exam.json`, e comparadas. Mudam só: PF 2012 agente (g83 passa a
+ter a introdução e os itens I a IV, cada um em seu parágrafo, com o II inteiro; q83 e q84 começam
+no comando "À luz ...") e PM/DF 2025 P2 (g80: "b) ...;" e "c) ..." passam a parágrafos separados).

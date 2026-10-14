@@ -1901,3 +1901,58 @@ def test_hanging_labeled_item_in_passage_is_one_paragraph() -> None:
         _gap_entry("Ba laranja incolor incolor incolor incolor incolor", 112.0, x0=46.0),
     ]
     assert len(cebraspe._paragraphs(table)) == 2
+
+
+def _pf2012_entry(text: str, y0: float, x0: float = 28.3, x1: float = 290.8) -> cebraspe._Entry:
+    """Linha de 10 pt da coluna 1 do PF 2012 agente, página 8 (geometria do caderno)."""
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x1, y1=y0 + 10, column=1, size=10.0)
+    return cebraspe._Entry(8, line, left=28.3, short=x1 < 290.8 - cebraspe.SHORT_LINE)
+
+
+def test_list_items_split_and_command_after_list() -> None:
+    """PF 2012 agente, itens 83 e 84 (reprovação do minos, semente r26): texto-base com a
+    introdução e os eventos I a IV, cada um em seu parágrafo, e o comando "À luz ..." à parte.
+    O item II partido antes de um número ("... abril de" | "2012, no valor ...") continua o item;
+    o IV abre parágrafo mesmo com o III indo até a margem; a crase maiúscula separa o comando."""
+    entries = [
+        _pf2012_entry("Determinada entidade apresentou os seguintes eventos no mês de", 135.8),
+        _pf2012_entry("abril de 2012.", 149.5, x1=83.9),
+        _pf2012_entry("I pagamento de R\\$ 4.200,00, no mês de abril de 2012, referentes", 171.2),
+        _pf2012_entry("a aluguel dos meses de abril e maio de 2012;", 184.9, x0=46.0, x1=224.8),
+        _pf2012_entry("II consumo e pagamento de despesas, em abril de 2012, com", 198.4),
+        _pf2012_entry(
+            "serviços de limpeza e conservação, relativos ao mês de abril de", 212.1, x0=46.0
+        ),
+        _pf2012_entry("2012, no valor de R\\$ 1.800,00;", 225.7, x0=46.0, x1=170.9),
+        _pf2012_entry("III recebimento, em abril de 2012, em dinheiro, por serviços", 239.4),
+        _pf2012_entry(
+            "prestados no mês de março de 2012, no valor de R\\$ 3.600,00;", 252.9, x0=46.0
+        ),
+        _pf2012_entry("IV prestação de serviços, no mês de abril de 2012, para", 266.6),
+        _pf2012_entry(
+            "recebimento em maio de 2012, no valor de R\\$ 5.700,00.", 280.2, 46.0, 271.3
+        ),
+        _pf2012_entry("À luz do regime de caixa e do regime de competência, julgue os", 302.0),
+        _pf2012_entry(
+            "itens seguintes, relativos à apuração de resultado do mês de abril de", 315.6
+        ),
+        _pf2012_entry("2012 da entidade considerada.", 329.2, x1=149.7),
+    ]
+    situation, command = cebraspe._split_command(cebraspe._text_paragraphs(entries))
+    assert situation == [
+        "Determinada entidade apresentou os seguintes eventos no mês de abril de 2012.",
+        "I pagamento de R\\$ 4.200,00, no mês de abril de 2012, referentes a aluguel dos meses de"
+        " abril e maio de 2012;",
+        "II consumo e pagamento de despesas, em abril de 2012, com serviços de limpeza e"
+        " conservação, relativos ao mês de abril de 2012, no valor de R\\$ 1.800,00;",
+        "III recebimento, em abril de 2012, em dinheiro, por serviços prestados no mês de março de"
+        " 2012, no valor de R\\$ 3.600,00;",
+        "IV prestação de serviços, no mês de abril de 2012, para recebimento em maio de 2012, no"
+        " valor de R\\$ 5.700,00.",
+    ]
+    assert command.startswith("À luz do regime de caixa")
+    # Fora da sequência (II depois de IV), noutra margem ou sem fechar o item: não abre parágrafo.
+    third, fourth = entries[7], entries[9]
+    assert cebraspe._next_list_item(third, entries[8], fourth)
+    assert not cebraspe._next_list_item(fourth, entries[10], entries[4])
+    assert not cebraspe._next_list_item(third, entries[7], fourth)  # "serviços" não fecha o III
