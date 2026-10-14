@@ -1,4 +1,6 @@
 # pcce-2025: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles (2026-10-14; decisão 0020): itálico e negrito das fontes sem nome
+# (TTD7E2o00...); o reprocessamento só muda a marcação (14 trechos).
 contest: pcce-2025
 name: Concurso Público de Delegado de Polícia Civil
 agency: pcce
@@ -10,6 +12,7 @@ exams:
   name: PROVA OBJETIVA
   positions:
   - delegado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_CE_25_DELEGADO/arquivos/084_PC_CE_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_CE_25_DELEGADO/arquivos/Gab_Definitivo_084_PC_CE_001_01.pdf

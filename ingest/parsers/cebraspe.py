@@ -493,7 +493,11 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     previous: _Entry | None = None
     leading = _leading(entries)
     for index, entry in enumerate(entries):
-        indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
+        # Citação recuada em bloco (lei transcrita em letra menor): todas as linhas têm o mesmo
+        # recuo, e só a primeira abre parágrafo (`_indented_block_goes_on`).
+        indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT and not (
+            previous is not None and _indented_block_goes_on(previous, entry)
+        )
         enumerated = _at_margin(entry) and (
             ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
         )
@@ -513,6 +517,44 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
         paragraphs[-1].append(entry.line.text)
         previous = entry
     return [_join(lines) for lines in paragraphs if lines]
+
+
+# Diferença de recuo, em pt, que ainda conta como o mesmo recuo de bloco.
+BLOCK_INDENT_TOLERANCE = 1.5
+
+
+def _indented_block_goes_on(previous: _Entry, entry: _Entry) -> bool:
+    """A linha continua a anterior dentro de um bloco recuado inteiro — as duas com o mesmo recuo
+    (além do de parágrafo), ou a anterior é o começo de um item (I, II; a), b); •) na margem e esta
+    tem o recuo pendente —, a anterior indo até a margem direita e a frase partida no meio — a
+    anterior termina em palavra, vírgula ou travessão e a seguinte começa por letra. Sem isso, cada
+    linha da citação vira um parágrafo: PC/RJ 2021, questão 39, incisos II e IX do art. 7.º da Lei
+    n.º 8.137/1990; itens I, II, III com recuo pendente (PC/MA 2017, PC/GO 2016). Linha de tabela
+    ou de equação termina em número ou parêntese e continua separada (PC/RO 2022 específicos,
+    questão 57; PC/PB 2021 cargo 12, questão 80; CBM/TO 2021 oficial, questão 32)."""
+    if previous.page != entry.page or previous.line.column != entry.line.column or previous.short:
+        return False
+    offset = previous.line.x0 - previous.left
+    indent = entry.line.x0 - entry.left
+    if offset > PARAGRAPH_INDENT:
+        if abs(indent - offset) > BLOCK_INDENT_TOLERANCE:
+            return False
+    elif not (
+        _at_margin(previous)
+        and (ROMAN_ITEM.match(previous.line.plain) or previous.line.plain.startswith("• "))
+    ):
+        # Recuo pendente: a primeira linha do item ("III São objetivos...") fica na margem e as
+        # seguintes, recuadas além do recuo de parágrafo.
+        return False
+    elif indent > ODD_INDENT:
+        return False
+    last = previous.line.plain.rstrip()[-1:]
+    first = entry.line.plain.lstrip()[:1]
+    return (last.isalpha() or last in BLOCK_LINE_BREAKS) and (first.isalpha() or first in '“"(')
+
+
+# Fim de linha que deixa a frase aberta dentro de um bloco recuado.
+BLOCK_LINE_BREAKS = (",", "-", "–", "—")
 
 
 def _passage_labels(passage: RawPassage) -> list[str]:

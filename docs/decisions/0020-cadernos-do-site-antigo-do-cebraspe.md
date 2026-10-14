@@ -159,3 +159,26 @@ cargo 11 (q61 e q66, parágrafos do crédito); o texto puro (hash) não muda em 
 publicada. No CBM/TO 2022 oficial, q10 e q40 saem de `review` (o título "Física"/"Matemática" deixa
 a alternativa E) e a q20 perde a pendência de layout. Seguem como antes as divergências conhecidas
 (PM/MA 2017 gerais cargo 5; provas fora do banco).
+
+## Emenda de 2026-10-14 (3) — estilo no PC/CE 2025, PC/PE 2023 e PC/RO 2022 cargo 3; bloco recuado na múltipla escolha
+
+**Contexto.** O minos (semente r7) reprovou PC/RJ 2021, PC/CE 2025, PC/RO 2022 cargo 3 específicos e
+PC/PE 2023 P1 cargo 2: na PC/RJ q39, cada linha da citação da Lei n.º 8.137/1990 (9 pt, recuada em
+bloco) virava um parágrafo; nas outras, faltava itálico e negrito das fontes sem nome. A causa da
+PC/RJ não era o espaço vertical (`_block_gap`): a citação inteira está recuada além do recuo de
+parágrafo, e `_choice_paragraphs` abria parágrafo a cada linha recuada. O mesmo partia os itens
+I, II… e • com recuo pendente (PC/MA 2017, PC/GO 2016, PC/PB 2021 gerais de 14 a 17).
+
+**Decisão.**
+
+1. Na múltipla escolha, linha recuada continua a anterior quando as duas têm o mesmo recuo de bloco
+   (ou a anterior é um item I, II; a); • na margem e esta tem o recuo pendente, até `ODD_INDENT`),
+   a anterior vai até a margem direita e a frase fica aberta: termina em letra, vírgula ou traço e a
+   seguinte começa por letra (ou aspas, parêntese). Linha de tabela ou de equação, que termina em
+   número ou ")", segue separada. O certo/errado (`_paragraphs`) não muda.
+2. `infer_font_styles` ligado no PC/CE 2025, nas cinco provas do PC/PE 2023 e no PC/RO 2022 cargo 3
+   específicos (o negrito tira o título "CRIMINOLOGIA" da alternativa E da q95, que segue em
+   `review` pela figura).
+
+**Verificação.** Varredura das provas do staging, parser do HEAD × novo: só mudam parágrafos, em 42
+questões de 11 provas de múltipla escolha. Carregadas as 18 provas afetadas; nenhuma muda de status.

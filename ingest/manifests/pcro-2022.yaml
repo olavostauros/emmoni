@@ -1,7 +1,8 @@
 # pcro-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
-# infer_font_styles em todas as provas menos o cargo 3 específicos (2026-10-14; decisão 0020): nos
-# demais, o reprocessamento só muda a marcação. No cargo 3, o negrito tira o título "CRIMINOLOGIA"
-# da alternativa da q95 e muda a pendência dela: fica para a próxima reamostragem da prova.
+# infer_font_styles em todas as provas (2026-10-14; decisão 0020): o reprocessamento só muda a
+# marcação. No cargo 3 específicos, o negrito tira também o título de disciplina "CRIMINOLOGIA"
+# que grudava na alternativa E da q95 (correção; a q95 perde a pendência `layout` e segue em
+# `review` pela `figure`).
 contest: pcro-2022
 name: POLÍCIA JUDICIÁRIA CIVIL DO ESTADO DE RONDÔNIA
 agency: pcro
@@ -14,6 +15,7 @@ exams:
   positions:
   - delegado
   first_number: 11
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/732_PCRO_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_RO_22/arquivos/GAB_DEFINITIVO_732_PCRO_002_01.PDF

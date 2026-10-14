@@ -720,6 +720,103 @@ def test_choice_command_after_vertical_space_is_its_own_paragraph() -> None:
     assert len(cebraspe._choice_paragraphs(lower)) == 1
 
 
+def _quote_entry(
+    text: str,
+    y0: float,
+    x0: float = 56.8,
+    size: float = 9.0,
+    short: bool = False,
+    x1: float = 293.4,
+) -> cebraspe._Entry:
+    """Linha da coluna 1 do PC/RJ 2021 (margem 28,4): a citação da lei vem em 9 pt, recuada."""
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x1, y1=y0 + size, column=1, size=size)
+    return cebraspe._Entry(12, line, left=28.4, short=short)
+
+
+def test_choice_indented_quote_is_one_paragraph_per_block() -> None:
+    """Citação recuada em bloco, em letra menor: só a primeira linha de cada bloco abre parágrafo;
+    as seguintes, com o mesmo recuo, continuam a frase (PC/RJ 2021, questão 39, incisos II e IX do
+    art. 7.º da Lei n.º 8.137/1990, que viravam um parágrafo por linha)."""
+    entries = [
+        _quote_entry(
+            "A autoridade policial autuou Juvenal no art. 7.º, II e IX,", 207.5, size=10.0
+        ),
+        _quote_entry("da Lei n.º 8.137/90, in verbis:", 218.4, x0=28.4, size=10.0, short=True),
+        _quote_entry("Art. 7.º Constitui crime contra as relações de consumo:", 229.1, short=True),
+        _quote_entry("[...]", 238.9, short=True),
+        _quote_entry("II – vender ou expor à venda mercadoria cuja embalagem, tipo,", 248.7),
+        _quote_entry("especificação, peso ou composição esteja em desacordo com as", 258.5),
+        _quote_entry("prescrições legais, ou que não corresponda à respectiva", 268.3),
+        _quote_entry("classificação oficial;", 278.0, short=True),
+        _quote_entry("[...]", 287.8, short=True),
+        _quote_entry("IX – vender, ter em depósito para vender ou expor à venda ou,", 297.7),
+        _quote_entry("de qualquer forma, entregar matéria-prima ou mercadoria, em", 307.4),
+        _quote_entry("condições impróprias ao consumo;", 317.2, short=True),
+        _quote_entry("Pena – detenção, de 2 (dois) a 5 (cinco) anos, ou multa.", 327.0, short=True),
+        _quote_entry("Nessa situação hipotética,", 342.9, x0=28.4, size=10.0, short=True),
+    ]
+    assert cebraspe._choice_paragraphs(entries) == [
+        "A autoridade policial autuou Juvenal no art. 7.º, II e IX, da Lei n.º 8.137/90, in verbis:",
+        "Art. 7.º Constitui crime contra as relações de consumo:",
+        "[...]",
+        "II – vender ou expor à venda mercadoria cuja embalagem, tipo, especificação, peso ou"
+        " composição esteja em desacordo com as prescrições legais, ou que não corresponda à"
+        " respectiva classificação oficial;",
+        "[...]",
+        "IX – vender, ter em depósito para vender ou expor à venda ou, de qualquer forma, entregar"
+        " matéria-prima ou mercadoria, em condições impróprias ao consumo;",
+        "Pena – detenção, de 2 (dois) a 5 (cinco) anos, ou multa.",
+        "Nessa situação hipotética,",
+    ]
+
+
+def test_choice_hanging_item_continues_its_item() -> None:
+    """Item I, II... (ou •) na margem com as linhas seguintes em recuo pendente maior que o de
+    parágrafo: o item é um parágrafo só (PC/MA 2017 investigador, questão 31; PC/GO 2016,
+    questão 32). Linha de tabela, recuada e terminada em número, segue separada (PC/RO 2022
+    específicos, questão 57)."""
+    entries = [
+        _quote_entry(
+            "III São objetivos fundamentais da República Federativa do Brasil",
+            146.7,
+            x0=28.4,
+            size=10.0,
+        ),
+        _quote_entry(
+            "a erradicação da pobreza e da marginalização e a redução das",
+            157.0,
+            x0=46.1,
+            size=10.0,
+        ),
+        _quote_entry("desigualdades sociais.", 167.3, x0=46.1, size=10.0, short=True),
+        _quote_entry(
+            "• Júlia, professora de ensino fundamental, teve conhecimento de",
+            177.7,
+            x0=28.4,
+            size=10.0,
+        ),
+        _quote_entry(
+            "caso que envolvia suspeita de maus-tratos contra uma aluna de",
+            188.0,
+            x0=46.1,
+            size=10.0,
+        ),
+        _quote_entry("competente.", 198.3, x0=46.1, size=10.0, short=True),
+    ]
+    assert cebraspe._choice_paragraphs(entries) == [
+        "III São objetivos fundamentais da República Federativa do Brasil a erradicação da pobreza"
+        " e da marginalização e a redução das desigualdades sociais.",
+        "• Júlia, professora de ensino fundamental, teve conhecimento de caso que envolvia"
+        " suspeita de maus-tratos contra uma aluna de competente.",
+    ]
+    table = [
+        _quote_entry("fornecedores 22.000", 300.0, x0=60.0, size=10.0),
+        _quote_entry("ativo imobilizado 35.000", 311.0, x0=60.0, size=10.0),
+        _quote_entry("estoques 24.000", 322.0, x0=60.0, size=10.0),
+    ]
+    assert len(cebraspe._choice_paragraphs(table)) == 3
+
+
 def test_scratch_label_is_not_content() -> None:
     """Quadro "RASCUNHO" no alto da coluna vazia (PF 2012): não abre um texto-base para o grupo da
     página seguinte nem entra no item."""

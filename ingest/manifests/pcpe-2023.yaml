@@ -1,4 +1,6 @@
 # pcpe-2023: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles em todas as provas (2026-10-14; decisão 0020): o reprocessamento só muda a
+# marcação (itálico, negrito e, na P2 cargo 1 q34, as fórmulas da planilha como código inline).
 contest: pcpe-2023
 name: POLÍCIA CIVIL DE PERNAMBUCO (PC/PE)
 agency: pcpe
@@ -11,6 +13,7 @@ exams:
   positions:
   - agente
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE001_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE001_00.PDF
@@ -27,6 +30,7 @@ exams:
   positions:
   - escrivao
   first_number: 21
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PE002_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PE002_00.PDF
@@ -41,6 +45,7 @@ exams:
   name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 1
   positions:
   - agente
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB1_00.PDF
@@ -58,6 +63,7 @@ exams:
   name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 3
   positions:
   - escrivao
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB2_00_COM_JUSTIFICATIVA.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_954PC_PECB2_00.PDF
@@ -74,6 +80,7 @@ exams:
   name: PROVA OBJETIVA (P1) E GABARITO PRELIMINAR COM JUSTIFICATIVAS - CARGO 2_ATUALIZADO
   positions:
   - delegado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_955PC_PE_DELEGADO001_00_COM_JUSTIFICATIVAS_ATUALIZADO.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/GAB_DEFINITIVO_MATRIZ_955PC_PE_DELEGADO001_00.PDF
