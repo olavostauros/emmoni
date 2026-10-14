@@ -556,3 +556,45 @@ código do HEAD e com o novo: muda só o CBM/AL 2017 básicos cargo 1 (texto CB1
 9, 10 e 18: crédito num parágrafo só; q40 termina em "objeto apresentado."; o texto-base g41 das
 questões 41 a 44 começa em "Na figura precedente" e passa a levar a marca de figura). O básicos
 cargo 2 (soldado) usa outro texto (CB2A1AAA), com o crédito já inteiro.
+
+## Emenda de 2026-10-14 (17) — estilo no PM/MA 2017 e no CBM/PA 2023 CFO; itálico de poucas letras; item com recuo pendente no certo/errado
+
+**Contexto.** O minos (semente r25) reprovou, por estilo perdido: PM/MA 2017 gerais cargo 5 (q40,
+crédito "**Educação do campo e território**", "*campus*"; texto das q49–51, "**Formação econômica
+do Maranhão**") e específicos cargo 5 (q118, "*ransomware*", "*worm*"), e CBM/PA 2023 CFO P1 (q13
+e q14, "*Trypanosoma cruzi*"), provas sem `infer_font_styles`; e PC/PE 2023 P1 cargo 1 (q14,
+"*blitz*"), que já tem a opção ligada. No PC/PE, "blitz" está numa fonte "TT…o00" própria de 5
+letras, abaixo das 6 de `_small_font_style`, e a página não tem itálica deduzida com que casar o
+desenho. No PM/MA específicos (texto das q117–120, situações I a III) e no CBM/AL 2017 básicos
+cargo 1 (texto das q41–44, "• o ponto F ... entre EB e" | "EF mede 45º;"), cada linha recuada de
+item com recuo pendente virava um parágrafo: a regra da múltipla escolha
+(`_indented_block_goes_on`) não valia no texto-base do certo/errado.
+
+**Decisão.**
+
+1. `infer_font_styles: true` nas três provas do PM/MA 2017 e na P1 do CBM/PA 2023 CFO.
+2. Só com `styles` (no `legacy`, os índices miúdos do PF 2012 papiloscopista, "*v*max", sairiam
+   itálicos): fonte sem estilo deduzido que tem pelo menos 3 glifos de mesmo nome que uma fonte
+   normal já deduzida (mesma `FontMatrix`) e desenha **todos** de outro jeito não é a face normal;
+   com pelo menos 4 letras distintas, o estilo vem das larguras: a referência não normal mais
+   próxima até 0,008 corpo e todas as normais pelo menos 0,006 além; das referências não normais
+   dentro dessa margem da melhor, vale o estilo comum (Times itálico e negrito itálico medem igual
+   "blitz": itálico). Sem estilo comum, nada.
+3. No texto-base do certo/errado (`_paragraphs`, sem numeração de linhas), a linha recuada continua
+   o item rotulado (I, II; a), b); •) aberto acima — na margem ou já recuado — quando fica além do
+   rótulo (6 a 30 pt), no mesmo recuo da linha anterior do item, na mesma página e coluna, e a
+   anterior vai até a margem direita e deixa a frase aberta (letra, vírgula ou travessão) e a
+   linha começa por letra. Tabela e título recuados, sem item rotulado, seguem separados.
+
+**Verificação.** Todas as 135 provas do `data/staging/` reprocessadas (extract → validate) com o
+código do HEAD (388a4ea) e com o novo, e comparadas. Mudam: PM/MA 2017 específicos cargo 5 (q62,
+q87, q88, q93, q101–112, q117–120; textos g108 e g117), gerais cargo 5 (q1, q13; g15, g39, g49) e
+gerais cargo 1 (q7, q9, q57–60; CG1A1AAA, CG1A1BBB, g36, g38, g41, g49, g53), só marcação fora o
+g117; CBM/PA 2023 CFO P1 (q1, q6, q10, q17–19, q22, q25, q28, q32, q35–37, q39, q40, q42–45; 1A1-I,
+1A2-II, 1A6, g16, g18): marcação e, com os títulos de disciplina agora em negrito, "FÍSICA",
+"QUÍMICA" e "BIOLOGIA" saem do fim de q32, q39 e q25 (cada uma perde a marca "layout"), o
+"MATEMÁTICA E RACIOCÍNIO LÓGICO" sai do texto g16 (q17 acha o texto-base) e a régua do cabeçalho
+"LÍNGUA INGLESA" deixa de ser figura da q10; CBM/AL 2017 básicos cargo 1 (g41); PF 2012 agente
+(g76, g83; q83 e q84: o item III inteiro passa do texto-base ao começo do comando, em vez de partido
+entre os dois, e as duas perdem a marca "layout"); PC/PE 2023 P1 cargo 1 (q14) e PC/MA 2017 APC
+gerais cargo 5 (q16, "*mouse*").

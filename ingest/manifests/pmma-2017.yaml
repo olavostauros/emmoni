@@ -2,6 +2,7 @@
 # conhecimentos específicos (odontologia, medicina, veterinária) excluídas: fora da carreira policial
 # (MISSION.md). Fica a prova de conhecimentos gerais dos oficiais (um PDF, igual para os três) e as do soldado.
 # pmma-2017: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles nas três provas (2026-10-14; emenda (17) da decisão 0020).
 contest: pmma-2017
 name: Polícia Militar do Estado do Maranhão
 agency: pmma
@@ -13,6 +14,7 @@ exams:
   name: 'Caderno de provas - Conhecimentos Específicos - cargo 5: soldado do quadro de praça policial'
   positions:
   - soldado
+  infer_font_styles: true
   first_number: 61
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_005_01.pdf
@@ -24,6 +26,7 @@ exams:
   name: 'Caderno de provas - Conhecimentos Gerais - cargo 1: 1 tenente pm - cirurgião-dentista'
   positions:
   - oficial
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG1_01.pdf
@@ -40,6 +43,7 @@ exams:
   name: 'Caderno de provas - Conhecimentos Gerais - cargo 5: soldado do quadro de praça policial'
   positions:
   - soldado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/359_PMMA_CG2_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_MA_17/arquivos/Gab_Definitivo_359_PMMA_CG2_01.pdf

@@ -18,6 +18,7 @@ Trechos de documentos oficiais do Cebraspe, usados só para testar o parser. A p
 | `pcpb-2021-escrivao-p7.pdf` | Página 7 de `628_PCPB_002_01.PDF` — PC/PB 2021, Escrivão, conhecimentos específicos (ordinal "o" sobrescrito: "Lei n.º 8.072/1990"). https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/628_PCPB_002_01.PDF |
 | `pf-2018-papiloscopista-p5.pdf` | Página 5 de `MATRIZ_408_DGPPF014__PAG_9.PDF` — PF 2018, Papiloscopista ("Bcc" e "no" numa Courier sem nome com só 4 letras). https://cdn.cebraspe.org.br/concursos/PF_18/arquivos/MATRIZ_408_DGPPF014__PAG_9.PDF |
 | `cbmal-2017-basicos-cargo-1-p4.pdf` | Página 4 de `340_CBMAL_CB1_01.pdf` — CBM/AL 2017, Conhecimentos Básicos, cargo 1 (proposições "P:" e "Q:" recuadas no item 48). https://cdn.cebraspe.org.br/concursos/CBM_AL_17_COMBATENTE/arquivos/340_CBMAL_CB1_01.pdf |
+| `pcpe-2023-p1-cargo-1-p7.pdf` | Página 7 de `MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF` — PC/PE 2023, P1 cargo 1 ("*blitz*" numa fonte "TT…o00" de 5 letras, desenho diferente da face normal). https://cdn.cebraspe.org.br/concursos/PC_PE_23/arquivos/MATRIZ_954PC_PECB1_00_COM_JUSTIFICATIVA.PDF |
 | `pf-2021-agente-gabarito-definitivo.pdf` | `GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF` — gabarito definitivo, PF 2021, Agente. https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF |
 
 ## `expected/`

@@ -265,3 +265,26 @@ def test_ordinal_sign_only_after_number_sign_or_numbered_abbreviation() -> None:
     # "o" do mesmo corpo é letra comum; "o" sobrescrito colado em palavra seguinte não é ordinal.
     assert _ordinal(_body("Lei n."), _body("o"), _body(" 1")) == "Lei n.o 1"
     assert _ordinal(_body("n."), _sup("o"), _body("utra")) == "n.outra"
+
+
+def test_few_letters_font_drawn_unlike_upright_takes_style_from_widths() -> None:
+    """PC/PE 2023 P1 cargo 1, q14 (pág. 7): "*blitz*" numa fonte própria de 5 letras, abaixo das 6
+    da margem por larguras e sem itálica deduzida na página para casar o desenho. Os glifos de
+    mesmo nome da face normal têm outro desenho, e as larguras ("z" de 0,384) são as do Times
+    itálico (emenda (17) da 0020). Só com `styles`."""
+    pdf = CEBRASPE / "pcpe-2023-p1-cargo-1-p7.pdf"
+    assert "Durante uma *blitz* de trânsito" in _text(ex.extract(pdf, styles=True))
+    assert "*blitz*" not in _text(ex.extract(pdf))
+
+
+def test_few_letters_style_needs_margin_from_upright() -> None:
+    """Itálico e negrito itálico do Times medem igual "blitz": fica o estilo comum, o itálico.
+    Larguras da face normal ou letras distintas de menos: nada."""
+    refs = {name: pymupdf.Font(name) for name in ex.STYLE_FONTS}  # type: ignore[no-untyped-call]
+
+    def widths(text: str, ref: str) -> list[tuple[str, float]]:
+        return [(c, refs[ref].glyph_advance(ord(c))) for c in text]  # type: ignore[no-untyped-call]
+
+    assert ex._few_letters_style(widths("blitz", "tiit"), refs) == ex.ITALIC
+    assert ex._few_letters_style(widths("blitz", "tiro"), refs) == 0
+    assert ex._few_letters_style(widths("zzt", "tiit"), refs) == 0

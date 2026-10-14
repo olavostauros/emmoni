@@ -681,6 +681,38 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
 BLOCK_INDENT_TOLERANCE = 1.5
 
 
+def _hanging_item_goes_on(opener: _Entry | None, previous: _Entry | None, entry: _Entry) -> bool:
+    """No texto-base do certo/errado, a linha continua o item rotulado aberto (I, II; a), b); •),
+    com recuo pendente: o item abre na margem ou num recuo de lista ("• o ponto F ... entre EB e",
+    CBM/AL 2017 básicos cargo 1) e as linhas seguintes ficam todas no mesmo recuo, além do rótulo
+    (`ITEM_INDENT` a `ODD_INDENT`); a anterior vai até a margem direita e deixa a frase aberta
+    (termina em letra, vírgula ou travessão) e a linha começa por letra. Emenda (17) da 0020."""
+    if opener is None or previous is None or previous.short:
+        return False
+    plain = opener.line.plain
+    if not (ROMAN_ITEM.match(plain) or plain.startswith("• ")):
+        return False
+    if previous.page != entry.page or previous.line.column != entry.line.column:
+        return False
+    if opener.page != entry.page or opener.line.column != entry.line.column:
+        return False
+    hang = entry.line.x0 - opener.line.x0
+    if not ITEM_INDENT < hang <= ODD_INDENT:
+        return False
+    if previous is not opener and abs(entry.line.x0 - previous.line.x0) > BLOCK_INDENT_TOLERANCE:
+        return False
+    last = previous.line.plain.rstrip()[-1:]
+    first = entry.line.plain.lstrip()[:1]
+    return (last.isalpha() or last in BLOCK_LINE_BREAKS) and (first.isalpha() or first in DASHES)
+
+
+def _labeled_item_at_margin(entry: _Entry) -> bool:
+    """Começo de item enumerado na margem (I, II; a), b); •)."""
+    return _at_margin(entry) and (
+        ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
+    )
+
+
 def _indented_block_goes_on(previous: _Entry, entry: _Entry) -> bool:
     """A linha continua a anterior dentro de um bloco recuado inteiro — as duas com o mesmo recuo
     (além do de parágrafo), ou a anterior é o começo de um item (I, II; a), b); •) na margem e esta
@@ -697,10 +729,7 @@ def _indented_block_goes_on(previous: _Entry, entry: _Entry) -> bool:
     if offset > PARAGRAPH_INDENT:
         if abs(indent - offset) > BLOCK_INDENT_TOLERANCE:
             return False
-    elif not (
-        _at_margin(previous)
-        and (ROMAN_ITEM.match(previous.line.plain) or previous.line.plain.startswith("• "))
-    ):
+    elif not _labeled_item_at_margin(previous):
         # Recuo pendente: a primeira linha do item ("III São objetivos...") fica na margem e as
         # seguintes, recuadas além do recuo de parágrafo.
         return False
@@ -1566,7 +1595,15 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             paragraphs[-1].append([entry.line.text])
             previous = entry
             continue
-        indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
+        # Item rotulado com recuo pendente ("I Um usuário, após sequestro de seus dados, recebeu a"
+        # | "informação de que, ..."; "• o ponto F ... entre EB e" | "EF mede 45º;"): a linha
+        # recuada continua o item, como na múltipla escolha (`_indented_block_goes_on`; PM/MA 2017
+        # específicos cargo 5, situações I a III; CBM/AL 2017 básicos cargo 1, texto das questões
+        # 41 a 44). Só dentro de item rotulado: tabela e título recuados seguem separados. Com
+        # numeração de linhas (`base`) a margem é outra, e a regra não vale.
+        indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT and not (
+            base is None and previous is not None and _hanging_item_goes_on(opener, previous, entry)
+        )
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
         # Crédito do texto em letra miúda, alinhado à direita e quebrado em duas linhas ou mais
         # (PF 2012, PM/MA 2017): segue até a linha que o encerra ("(com adaptações).").

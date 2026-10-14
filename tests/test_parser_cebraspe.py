@@ -1863,3 +1863,41 @@ def test_figure_opening_the_next_column_starts_the_next_passage() -> None:
     # Sem a figura acima, a linha com esse recuo segue no item, como antes.
     plain = cebraspe._Entry(4, opener, left=28.3)
     assert cebraspe._continues(item, plain)
+
+
+def test_hanging_labeled_item_in_passage_is_one_paragraph() -> None:
+    """Texto-base do certo/errado com itens de recuo pendente (emenda (17) da 0020). PM/MA 2017
+    específicos cargo 5, situações I a III: o rótulo na margem e as linhas seguintes recuadas;
+    cada item é um parágrafo. CBM/AL 2017 básicos cargo 1, texto das questões 41 a 44: o
+    marcador "•" já recuado, a continuação mais recuada. Linhas recuadas sem item rotulado
+    (tabela, título) seguem separadas."""
+    entries = [
+        _gap_entry("A seguir são apresentadas três situações hipotéticas.", 343.0, short=True),
+        _gap_entry("I Um usuário, após sequestro de seus dados, recebeu a", 363.1),
+        _gap_entry("informação de que, para reavê-los, seria necessário realizar", 375.7, x0=46.0),
+        _gap_entry("um pagamento ao sequestrador.", 388.2, x0=46.0, short=True),
+        _gap_entry("II Um usuário recebeu informação, por meio do setor de", 408.2),
+        _gap_entry("segurança da informação do seu órgão, de que seu computador,", 420.8, x0=46.0),
+        _gap_entry("rede de outro órgão.", 433.3, x0=46.0, short=True),
+    ]
+    assert cebraspe._paragraphs(entries) == [
+        "A seguir são apresentadas três situações hipotéticas.",
+        "I Um usuário, após sequestro de seus dados, recebeu a informação de que, para reavê-los,"
+        " seria necessário realizar um pagamento ao sequestrador.",
+        "II Um usuário recebeu informação, por meio do setor de segurança da informação do seu"
+        " órgão, de que seu computador, rede de outro órgão.",
+    ]
+    bullets = [
+        _gap_entry("• o ponto E sobre o lado AB é tal que AE = 2 cm;", 256.9, x0=46.0, short=True),
+        _gap_entry("• o ponto F sobre o lado BD é tal que o ângulo entre EB e", 268.6, x0=46.0),
+        _gap_entry("EF mede 45º;", 280.4, x0=63.6, short=True),
+    ]
+    assert cebraspe._paragraphs(bullets) == [
+        "• o ponto E sobre o lado AB é tal que AE = 2 cm;",
+        "• o ponto F sobre o lado BD é tal que o ângulo entre EB e EF mede 45º;",
+    ]
+    table = [
+        _gap_entry("Pb vermelho cinza rosa incolor incolor incolor", 100.0, x0=46.0),
+        _gap_entry("Ba laranja incolor incolor incolor incolor incolor", 112.0, x0=46.0),
+    ]
+    assert len(cebraspe._paragraphs(table)) == 2

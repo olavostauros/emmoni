@@ -217,7 +217,10 @@ def _read(pdf_path: Path, legacy: bool = False, styles: bool = False) -> list[Pa
             )
         elif styles:
             fonts = _Fonts(
-                digits={}, styles=_font_styles(document), mono=_mono_fonts(document), legacy=False
+                digits={},
+                styles=_font_styles(document, few_letters=True),
+                mono=_mono_fonts(document),
+                legacy=False,
             )
         decoded = frozenset(fonts.digits) if fonts else frozenset()  # dígitos já têm tradução
         return [
@@ -306,7 +309,7 @@ def _mono_fonts(document: Any) -> frozenset[str]:
     return frozenset(mono)
 
 
-def _font_styles(document: Any) -> dict[str, int]:
+def _font_styles(document: Any, few_letters: bool = False) -> dict[str, int]:
     """Negrito e itálico de fontes sem nome (PF 2012: "TTD0ACo00", descritor sem peso nem ângulo).
 
     A largura de cada letra denuncia o estilo: comparada com a das fontes-padrão do PDF (Times e
@@ -370,6 +373,21 @@ def _font_styles(document: Any) -> dict[str, int]:
         style = _small_font_style(advances[font], references)
         if style is not None:
             styles[font] = style
+    # Fonte com letras de menos que desenha diferente da face normal: não é a normal, e as
+    # larguras dizem qual das outras (PC/PE 2023 P1 cargo 1 q14, "*blitz*"; emenda (17) da 0020).
+    # Só com `styles` (`few_letters`): no `legacy` (PF 2012 papiloscopista) a fonte miúda dos
+    # índices ("*v*max", "*d*i") sairia itálica.
+    still = unresolved - styles.keys() if few_letters else set()
+    if still:
+        normal_faces = {
+            font: style
+            for font, style in styles.items()
+            if style == 0 and font not in credit_in and not _name_style(font)
+        }
+        for font in _not_upright(document, still, normal_faces):
+            style = _few_letters_style(advances[font], references)
+            if style:
+                styles[font] = style
     # Estilo simulado pelo Distiller ("oI00"): soma-se ao da face de base, mesmo sem letras
     # bastantes para as larguras.
     for font in advances:
@@ -423,6 +441,58 @@ def _small_font_style(chars: list[tuple[str, float]], references: dict[str, Any]
     ]
     if min(rivals) - distance[best] < SMALL_STYLE_MARGIN:
         return None
+    return style
+
+
+MIN_FEW_STYLE_LETTERS = 4  # letras distintas na fonte que desenha diferente da normal
+
+
+def _not_upright(document: Any, fonts: set[str], upright: dict[str, int]) -> set[str]:
+    """Fontes sem estilo deduzido que, com a mesma `FontMatrix` de uma fonte normal já deduzida,
+    têm pelo menos `MIN_SHARED_GLYPHS` glifos de mesmo nome que ela e desenham todos eles de outro
+    jeito: não são outro subconjunto da face normal (que desenharia igual), são outra face. Sem
+    fonte normal com glifos em comum, nada se afirma."""
+    outlines = _outlines(document, fonts | upright.keys())
+    found: set[str] = set()
+    for font in fonts:
+        glyphs = outlines.get(font)
+        if not glyphs:
+            continue
+        verdicts = []
+        for anchor in upright:
+            other = outlines.get(anchor)
+            if not other or other[0] != glyphs[0]:
+                continue
+            shared = glyphs[1].keys() & other[1].keys()
+            if len(shared) >= MIN_SHARED_GLYPHS:
+                verdicts.append(all(glyphs[1][name] != other[1][name] for name in shared))
+        if verdicts and all(verdicts):
+            found.add(font)
+    return found
+
+
+def _few_letters_style(chars: list[tuple[str, float]], references: dict[str, Any]) -> int:
+    """Estilo de uma fonte que não é a normal (`_not_upright`), com poucas letras ("blitz"): as
+    referências de estilo não normal até `SMALL_MAX_STYLE_DISTANCE`, com a mais próxima a pelo
+    menos `SMALL_STYLE_MARGIN` de toda referência normal; das que ficam dentro da margem da mais
+    próxima, vale o estilo comum (itálico e negrito itálico do Times medem igual "blitz": fica
+    só o itálico). Nada em comum, ou letras de menos: 0."""
+    if len({c for c, _ in chars}) < MIN_FEW_STYLE_LETTERS:
+        return 0
+    distance = {
+        name: sum(abs(width - ref.glyph_advance(ord(c))) for c, width in chars) / len(chars)
+        for name, ref in references.items()
+    }
+    styled = {name: value for name, value in distance.items() if STYLE_FONTS[name]}
+    best = min(styled.values())
+    if best > SMALL_MAX_STYLE_DISTANCE:
+        return 0
+    if min(v for n, v in distance.items() if not STYLE_FONTS[n]) - best < SMALL_STYLE_MARGIN:
+        return 0
+    style = BOLD | ITALIC
+    for name, value in styled.items():
+        if value - best < SMALL_STYLE_MARGIN:
+            style &= STYLE_FONTS[name]
     return style
 
 
