@@ -490,3 +490,41 @@ agente, escrivão e papiloscopista (q38–40; escrivão também o texto-base g97
 soldado (texto-base 1A5-III, "OFÍCIO Nº"). No PC/PE 2023 P1 cargo 2 e no CBM/AL 2021 oficial
 mudam só linhas que não são gravadas (justificativa, prova discursiva). Fixture
 `pcpb-2021-escrivao-p7.pdf`.
+
+## Emenda de 2026-10-14 (15) — monoespaçada em palavra curta; "P:"/"Q:" no item
+
+**Contexto.** O minos (semente r23) reprovou o PF 2018 papiloscopista: na pág. 5, "Bcc" (q61) e
+"no" (q65, "tem o sentido da preposição no") estão em Courier e saíam sem código inline. A fonte
+sem nome (`TT1A61o00`) só tem essas 4 letras no caderno, todas com 0,599 corpo, e `_mono_fonts`
+pedia 8 letras distintas para afirmar que a fonte é monoespaçada. No PF 2018 agente a mesma fonte
+tem letras bastantes e já saía certa. Também do STATUS (item 2): no CBM/AL 2017 básicos cargo 1, o
+item 48 traz as proposições "P: ..." e "Q: ..." recuadas (36,9 pt), e o "Q:", depois de "planeta.",
+era lido como o começo do texto-base seguinte; sem comando nele, os itens 49 e 50 não abriam e o
+gabarito tinha 45 itens para 43 questões.
+
+**Decisão.**
+
+1. Fonte sem nome com menos de 8 letras distintas é monoespaçada se tem ao menos 3 letras
+   distintas e todas medem a largura da Courier (0,600 corpo, ±0,005). Nenhuma letra das Times e
+   Helvetica (as referências de `_font_styles`) cabe nessa margem; com 1 ou 2 letras (o "V"/"F"
+   de uma tabela-verdade em Courier, PC/PB 2021 agente) a fonte continua de fora.
+2. Vírgula de frase no fim de um trecho monoespaçado, com texto comum depois dela na mesma linha
+   (".gif, " | "para então", PC/PB 2021 gerais 4 a 13, q12), sai do código: "`.gif`, para". No fim
+   da linha (código SQL em linhas, "id_tabela INT,", PF 2025 bloco II g91), a vírgula é do código.
+3. No item certo/errado, linha que começa com proposição rotulada ("P:", "Q:", "R:", "S:", com ou
+   sem índice, ou "C:") continua o item quando outra linha do mesmo item, na mesma página e coluna,
+   também começa com rótulo e com a mesma margem (±2 pt), mesmo recuada depois de frase fechada
+   (`ITEM_PROPOSITION`, em `_continues`). Não muda o parágrafo (o `PROPOSITION` da emenda (8) segue
+   sem "P:"/"Q:": o comando "...acerca da seguinte proposição:" | "P: ..." do PF 2018
+   papiloscopista continua inteiro).
+4. `cbmal-2017` básicos cargo 1: `raciocinio-logico` vai de 48 a 50 no `subjects_by_range`.
+
+**Verificação.** As 135 provas do `data/staging/` reprocessadas com o código do HEAD e com o novo
+(extract, segment, answer-key, validate; as 4 do `pcpe-2016` não têm staging): mudam só PF 2018
+papiloscopista (q61 "`Bcc`", q65 "`no`"), PC/PB 2021 gerais 4 a 13 (q12, alternativa E: "`.gif`,"
+e "`.pdf`"), PC/RO 2022 específicos cargo 1 (q36, alternativa D: "`.mil`.") e CBM/AL 2017 básicos
+cargo 1 (q48 inteira com "Q: ..." e "Nesse caso, ... equivalentes."; q49 e q50 novas; 45 itens
+para 45 questões). O q48 passa de "texto solto" a "figura não extraída": dois retângulos brancos
+sem traço atrás da linha "Nesse caso, ..." contam como desenho (fica em `review`; filtrar desenho
+branco mexe em todas as provas e fica para depois). Fixtures `pf-2018-papiloscopista-p5.pdf` e
+`cbmal-2017-basicos-cargo-1-p4.pdf`.

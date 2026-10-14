@@ -1,5 +1,6 @@
 # cbmal-2017: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 # infer_font_styles ligado em 2026-10-14 (decisão 0020): reprovação do minos (r15).
+# Itens 49 e 50 dos básicos do cargo 1 (2026-10-14): voltaram com o "Q:" do item 48 (emenda (15) da 0020).
 contest: cbmal-2017
 name: Corpo de Bombeiros Militar do Estado de Alagoas
 agency: cbmal
@@ -55,7 +56,7 @@ exams:
   - {from: 28, to: 35, subject: atualidades}
   - {from: 36, to: 40, subject: informatica}
   - {from: 41, to: 47, subject: matematica}
-  - {from: 48, to: 48, subject: raciocinio-logico}
+  - {from: 48, to: 50, subject: raciocinio-logico}
 - slug: conhecimentos-basicos-cargo-2-soldado-combatente
   name: 'Caderno de provas - Conhecimentos Básicos - cargo 2: soldado combatente'
   positions:

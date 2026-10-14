@@ -172,6 +172,15 @@ def test_styles_turn_monospaced_font_into_inline_code() -> None:
     assert "`" not in _text(ex.extract(CEBRASPE / "pcgo-2016-basicos-p4.pdf"))  # desligado
 
 
+def test_styles_monospaced_short_words() -> None:
+    """PF 2018 papiloscopista, pág. 5: "Bcc" (q61) e "no" (q65) vêm numa fonte sem nome monoespaçada
+    que só tem essas 4 letras, todas com a largura da Courier; viravam texto comum porque a regra
+    pedia 8 letras distintas (emenda (15) da 0020)."""
+    text = _text(ex.extract(CEBRASPE / "pf-2018-papiloscopista-p5.pdf", styles=True))
+    assert "a opção `Bcc` (" in text
+    assert "preposição `no`, sendo utilizado" in text
+
+
 def test_credit_in_at_line_start_or_with_colon() -> None:
     """O "In" do crédito também no começo da linha ("In" | ": Renato S. de Lima…", PC/PB 2021) e com
     os dois-pontos na própria fonte ("In:" | " " | "Revista da EMERJ", PC/RO 2022)."""

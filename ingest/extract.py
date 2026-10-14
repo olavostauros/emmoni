@@ -264,13 +264,22 @@ class _Fonts:
 
 MONO_MIN_LETTERS = 8  # letras distintas para afirmar que a fonte é monoespaçada
 MONO_SPREAD = 0.01  # diferença máxima de largura (em corpos) entre as letras
+# Com menos letras (palavra curta: "no", "Bcc", ".bat"), a fonte só é monoespaçada se toda letra
+# mede a largura da Courier (600/1000 do corpo). Nenhuma letra das Times e Helvetica cabe nessa
+# margem (a mais perto, 0,611, fica fora).
+MONO_FEW_LETTERS = 3
+COURIER_WIDTH = 0.6
+COURIER_SLACK = 0.005
 
 
 def _mono_fonts(document: Any) -> frozenset[str]:
     """Fontes sem nome em que toda letra tem a mesma largura (Courier convertida pelo Distiller,
     PF 2012 escrivão: "C:\\Users\\joao_jose", "print://<IP_da_impressora>"). O original usa a
     fonte monoespaçada para caminhos, endereços e comandos: no Markdown viram código inline
-    (docs/content-format.md). Com letras de menos, a largura não prova nada e a fonte fica de fora."""
+    (docs/content-format.md). Com menos de `MONO_MIN_LETTERS` letras, só entra a fonte em que
+    toda letra (ao menos `MONO_FEW_LETTERS` distintas) tem a largura da Courier (PF 2018
+    papiloscopista q61 "Bcc" e q65 "no", emenda (15) da 0020); com menos ainda (o "V"/"F" de uma
+    tabela-verdade), a largura não prova nada e a fonte fica de fora."""
     widths: dict[str, dict[str, list[float]]] = {}
     for page in document:
         for block in page.get_text("rawdict")["blocks"]:
@@ -287,7 +296,12 @@ def _mono_fonts(document: Any) -> frozenset[str]:
     mono: set[str] = set()
     for font, letters in widths.items():
         means = [sum(ws) / len(ws) for ws in letters.values()]
-        if len(means) >= MONO_MIN_LETTERS and max(means) - min(means) <= MONO_SPREAD:
+        if max(means) - min(means) > MONO_SPREAD:
+            continue
+        if len(means) >= MONO_MIN_LETTERS or (
+            len(means) >= MONO_FEW_LETTERS
+            and all(abs(m - COURIER_WIDTH) <= COURIER_SLACK for m in means)
+        ):
             mono.add(font)
     return frozenset(mono)
 
@@ -794,7 +808,7 @@ def _line(
         return None  # texto invisível (marcas de diagramação em corpo 1)
     x0, y0, x1, y1 = (float(v) for v in raw["bbox"])
     plain = _clean("".join(s["text"] for s in raw["spans"]))
-    markdown = _clean("".join(_markdown(s) for s in raw["spans"]))
+    markdown = _clean("".join(_markdown(s) for s in _prose_commas(raw["spans"])))
     column = _column(x0, x1, middle)
     # O número do item no começo da linha costuma vir em corpo menor: não é índice.
     body = list(spans)
@@ -973,6 +987,23 @@ def _code(text: str) -> str:
     fence = "``" if "`" in core else "`"
     inner = f" {core} " if fence == "``" else core
     return f"{text[:start]}{fence}{inner}{fence}{text[start + len(core) :]}"
+
+
+def _prose_commas(spans: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Vírgula de frase que o original deixou na fonte monoespaçada (".gif, " | "para então...",
+    PC/PB 2021 gerais 4 a 13, q12): com texto comum depois dela na mesma linha, sai do código.
+    No fim da linha (código SQL em linhas, "id_tabela INT,", PF 2025), a vírgula é do código."""
+    result: list[dict[str, Any]] = []
+    for i, span in enumerate(spans):
+        core = span["text"].rstrip(" \xa0")
+        follows = any(not s.get("mono") and s["text"].strip(" \xa0") for s in spans[i + 1 :])
+        if span.get("mono") and core.endswith(",") and core.strip(" \xa0,") and follows:
+            cut = len(core) - 1
+            rest = {k: v for k, v in span.items() if k != "mono"}
+            result += [span | {"text": span["text"][:cut]}, rest | {"text": span["text"][cut:]}]
+        else:
+            result.append(span)
+    return result
 
 
 # Fonte Symbol embutida sem mapeamento Unicode: o glifo sai na área de uso privado (U+F0xx), com o

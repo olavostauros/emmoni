@@ -444,8 +444,34 @@
  "48": {
   "topics": [
    {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.9
+   },
+   {
     "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
-    "confidence": 0.85
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.tautologia_e_contradicao",
+    "confidence": 0.95
+   },
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.6
    }
   ],
   "suggested_topic": ""

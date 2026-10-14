@@ -1790,3 +1790,24 @@ def test_option_letter_with_style_leaves_the_body() -> None:
     for line in ("E intranet.", "*E* intranet.", "**E** intranet."):
         assert cebraspe.OPTION_MD.sub("", line, count=1) == "intranet."
     assert cebraspe.OPTION_MD.sub("", "A *h*/2.", count=1) == "*h*/2."
+
+
+def test_propositions_p_and_q_stay_in_the_item() -> None:
+    """CBM/AL 2017 básicos cargo 1, item 48: "P: ..." e "Q: ..." recuados, depois de frase fechada.
+    O "Q:" abria o texto-base seguinte e os itens 49 e 50 se perdiam (gabarito com 45 itens para
+    43 questões); proposição alinhada com outra do mesmo item continua o item (emenda (15) da
+    0020)."""
+    pages = extract(FIXTURES / "pdf/cebraspe/cbmal-2017-basicos-cargo-1-p4.pdf", styles=True)
+    segmented = cebraspe.segment(pages, first=45)
+    assert [q.number for q in segmented.questions] == [45, 46, 47, 48, 49, 50]
+    by_number = {q.number: q for q in segmented.questions}
+    assert "orphan_text" not in by_number[48].flags
+    assert by_number[48].statement_md.endswith(
+        "degradar a vida no planeta. Q: A humanidade diminui a produção de material plástico e"
+        " encontra uma solução para o problema do lixo desse material ou o acúmulo de plástico no"
+        " meio ambiente degradará a vida no planeta. Nesse caso, é correto afirmar que as"
+        " proposições P e Q são equivalentes."
+    )
+    assert by_number[49].statement_md.startswith(
+        "A respeito de proposições lógicas, julgue os itens a seguir.\n\nA sentença Soldado,"
+    )

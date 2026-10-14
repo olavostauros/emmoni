@@ -384,6 +384,19 @@ class _RawDocument:
         return {"blocks": [{"lines": [{"spans": spans}]}]}
 
 
+def test_monospaced_font_with_few_letters() -> None:
+    """Menos de 8 letras: só com 3 ou mais distintas, todas com a largura da Courier (0,6 corpo)."""
+    assert ex._mono_fonts(_RawDocument([("Bcc", "TT61o00", 0.599), ("no", "TT61o00", 0.599)])) == {
+        "TT61o00"
+    }
+    assert ex._mono_fonts(_RawDocument([(".bat", "TT62o00", 0.6)])) == {"TT62o00"}
+    # Duas letras ("V"/"F" de tabela-verdade) não provam nada.
+    assert ex._mono_fonts(_RawDocument([("VVFF", "TT63o00", 0.6)])) == frozenset()
+    # Mesma largura, mas fora da Courier (0,611 é o "F"/"L" da Times): fica de fora.
+    assert ex._mono_fonts(_RawDocument([("FLT", "TT64o00", 0.611)])) == frozenset()
+    assert ex._mono_fonts(_RawDocument([("abc", "TT65o00", 0.5)])) == frozenset()
+
+
 def test_monospaced_font_becomes_inline_code() -> None:
     """PF 2012 escrivão, item 32: "joao_jose", "Bibliotecas > Documentos > Projetos" e os caminhos
     "C:\\..." vêm numa fonte sem nome monoespaçada (Courier convertida, toda letra com 0,6 corpo) e
@@ -432,3 +445,22 @@ def test_monospaced_font_becomes_inline_code() -> None:
         "de login `joao_jose` observa: `Bibliotecas > Documentos > Projetos` e não"
         " `C:\\Users\\joao_jose`."
     )
+
+
+def test_prose_comma_leaves_the_code() -> None:
+    """PC/PB 2021 gerais 4 a 13, q12: ".gif, " em monoespaçada, vírgula e espaço no mesmo trecho; a
+    vírgula é da frase. Linha de código terminada em vírgula (SQL do PF 2025) fica como está."""
+    fonts = ex._Fonts(digits={}, styles={}, mono=frozenset({"TT55o00"}))
+
+    def text(*spans: dict[str, object]) -> str:
+        line = ex._line(_raw(list(spans), 304, 566), 297, fonts)
+        assert line is not None
+        return line.text
+
+    prose = text(
+        _span("em formato ", "TT49o00"),
+        _span(".gif, ", "TT55o00", 9.0),
+        _span("para então", "TT49o00"),
+    )
+    assert prose == "em formato `.gif`, para então"
+    assert text(_span("id_tabela INT, ", "TT55o00", 9.0)) == "`id_tabela INT,`"

@@ -918,6 +918,17 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
     starts_paragraph = abs(indent - PARAGRAPH_INDENT_AT) < 4 and entry.line.plain[:1].isupper()
     if starts_paragraph and (previous.endswith((".", "?", "!", ":")) or bare_number):
         return False
+    if ITEM_PROPOSITION.match(entry.line.plain) and any(
+        ITEM_PROPOSITION.match(e.line.plain)
+        and e.page == entry.page
+        and e.line.column == entry.line.column
+        and abs(e.line.x0 - entry.line.x0) <= LABEL_ALIGN
+        for e in item.entries[1:]
+    ):
+        # Proposição rotulada alinhada com outra do mesmo item: a lista continua ("P: ..." |
+        # "Q: ...", CBM/AL 2017 básicos cargo 1, item 48), mesmo com o recuo e a frase fechada
+        # que abririam o texto-base seguinte (decisão 0020, emenda (15)).
+        return True
     # Primeira linha de parágrafo com recuo maior que o de costume (varia entre provas): longa,
     # começando com maiúscula, depois de frase terminada. Fórmula centralizada é curta e fica.
     new_paragraph = indent > HANGING_MAX and entry.line.plain[:1].isupper() and not entry.short
@@ -1573,6 +1584,10 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
 # Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é...") ou a conclusão do
 # argumento ("C: Logo, ..."): abre parágrafo.
 PROPOSITION = re.compile(r"^(?:P\d{1,2}|C)\s?:\s")
+# Proposição rotulada dentro do item, também sem índice ("P: ..." | "Q: ...", CBM/AL 2017 básicos,
+# item 48): só para decidir se a linha continua o item (`_continues`), não abre parágrafo.
+ITEM_PROPOSITION = re.compile(r"^(?:[PQRS]\d{0,2}|C)\s?:\s")
+LABEL_ALIGN = 2.0  # pt: proposições da mesma lista começam na mesma margem
 # Sentença aberta ou função definida no começo da linha ("c(x): a pessoa...", "P(x, y): ...").
 DEFINITION = re.compile(
     r"^[A-Za-z]{1,3}\d{0,2}\s?\(\s?[^\s(),]{1,12}(?:,\s?[^\s(),]{1,12})*\s?\)\s?:\s"
