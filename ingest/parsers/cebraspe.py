@@ -330,12 +330,16 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
     group_passage: str | None = None
     group_first = 0
     labels: dict[str, str] = {}  # rótulo citado pelas questões → chave do texto-base
+    # Figura logo abaixo do título "Questão N" (a fotografia que abre a questão, CBM/RO 2022
+    # questões 38 e 40): `_with_figures` marca a linha acima dela, que é o título; o título não
+    # entra no bloco da questão, e a marca passa para a questão (decisão 0030, emenda).
+    title_flags: set[str] = set()
 
     def close() -> None:
         nonlocal lead
         if not block:
             return
-        question, rest = _choice_question(number, block, None, set())
+        question, rest = _choice_question(number, block, None, title_flags)
         key = _referenced_passage(question, labels) or (
             group_passage if number == group_first else None
         )
@@ -366,6 +370,7 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
             number = expected
             expected += 1
             skipping = False
+            title_flags = entry.flags & {"figure"}
         elif skipping and not TITLE_LINE.match(entry.line.plain):
             continue  # a justificativa termina no próximo título de questão ou de texto-base
         elif skipping:
@@ -961,12 +966,21 @@ def _with_figures(
         ):
             # Figura com crédito logo abaixo: é a abertura do grupo seguinte, não fim do item de
             # cima (PF 2012 papiloscopista: impressões digitais entre o item 58 e o comando).
-            first_below.flags.add("figure")
+            _mark_figure(first_below, figure)
         elif above:
-            max(above, key=lambda e: e.line.y0).flags.add("figure")
+            _mark_figure(max(above, key=lambda e: e.line.y0), figure)
         elif below:
-            min(below, key=lambda e: e.line.y0).flags.add("figure")
+            _mark_figure(min(below, key=lambda e: e.line.y0), figure)
     return entries
+
+
+def _mark_figure(entry: _Entry, figure: Figure) -> None:
+    """Marca a linha vizinha da figura. No título "Questão N", só a imagem (fotografia, mapa, o
+    ícone de um botão) é da questão; os desenhos ali são a moldura do título ou a régua do
+    cabeçalho de disciplina (PC/GO 2016, PC/PE 2023) e seguem ignorados. A marca do título passa à
+    questão em `_segment_choice` (decisão 0030, emenda de 2026-10-14)."""
+    if figure.kind == "image" or not QUESTION_TITLE.match(entry.line.plain):
+        entry.flags.add("figure")
 
 
 def _credit_below(below: list[_Entry], first: _Entry) -> bool:
@@ -1134,14 +1148,22 @@ def _question(
         e.line.text for e in item.entries[1:]
     ]
     breaks = _letter_breaks(item.entries)
-    pieces: list[list[str]] = [[]]
+    code_breaks = _code_line_breaks(text_lines)
+    paragraphs: list[list[list[str]]] = [[[]]]
     for index, text in enumerate(text_lines):
-        pieces[-1].append(text)
+        if index in code_breaks and paragraphs[-1] != [[]]:
+            paragraphs.append([[]])
+        paragraphs[-1][-1].append(text)
         if index in breaks:
-            pieces.append([])
+            paragraphs[-1].append([])
     # Vocativo e fecho de correspondência ficam na própria linha ("Senhor Delegado," |
     # "Atenciosamente," | "José da Silva"): quebra de linha do Markdown (docs/content-format.md).
-    body = "\\\n".join(_join(piece) for piece in pieces if piece)
+    # O comando que o item mostra numa linha só em fonte monoespaçada é um parágrafo à parte.
+    body = "\n\n".join(
+        "\\\n".join(_join(piece) for piece in pieces if piece)
+        for pieces in paragraphs
+        if any(pieces)
+    )
     empty = not body.strip()
     if not command:
         statement = body
@@ -1172,6 +1194,28 @@ def _question(
         command_page=command_page if command else None,
         flags=sorted(flags),
     )
+
+
+CODE_LINE = re.compile(r"^`[^`]+`$|^`` [^`].*[^`] ``$")
+
+
+def _code_line_breaks(lines: list[str]) -> set[int]:
+    """Índices das linhas do item que abrem parágrafo por causa de uma linha só de código: o
+    comando que o item mostra à parte ("...pode ser utilizado o comando a seguir." |
+    "`head messages.log`", PM/AL 2021 oficial, item 37). Abre parágrafo a linha de código depois de
+    frase terminada e a primeira linha de texto que vem depois do código."""
+    found: set[int] = set()
+    for index, text in enumerate(lines):
+        if index == 0 or not CODE_LINE.match(text.strip()):
+            continue
+        if lines[index - 1].rstrip().endswith(SENTENCE_STOP):
+            found.add(index)
+            following = index + 1
+            while following < len(lines) and CODE_LINE.match(lines[following].strip()):
+                following += 1  # código em várias linhas: um bloco só, como antes
+            if following < len(lines):
+                found.add(following)
+    return found
 
 
 def _letter_breaks(entries: list[_Entry]) -> set[int]:
@@ -1483,11 +1527,34 @@ def _join(lines: list[str]) -> str:
     for line in lines:
         if not text:
             text = line
-        elif HYPHEN_END.search(text) and HYPHEN_NEXT.match(line):
-            text += line
+        elif (HYPHEN_END.search(text) and HYPHEN_NEXT.match(line)) or _url_goes_on(text, line):
+            text += line  # hífen do original (decisão 0032) ou endereço partido (decisão 0030)
         else:
             text = f"{text} {line}"
     return _normalize(text)
+
+
+# Endereço da internet ainda aberto no fim da linha ("Internet: https://…/files/"): começa com
+# "http(s)://" ou "www." e não foi fechado (">", espaço). O Markdown escapa "_" e "<" ("\\_").
+URL_OPEN = re.compile(r"(?:https?://|\bwww\.)[^\s<>]*$")
+URL_BREAK = ("/", "-", "_", "=", "&", "?", "#", "%", "~", ".")  # onde o endereço quebra de linha
+URL_PIECE = re.compile(r"[/_=?&%]|\.\w")  # o pedaço seguinte tem cara de endereço
+
+
+def _url_goes_on(text: str, line: str) -> bool:
+    """A linha anterior termina dentro de um endereço da internet, num separador ("/", "-", "_",
+    ".", "="...), e a seguinte começa com o resto dele: junta sem espaço ("…amazonaws.com/files/" |
+    "ferrovia\\_do\\_diabo…", "…wp-content/uploads/" | "2016/11/…", CBM/RO 2022 questões 38 e 40).
+    Linha seguinte que começa com palavra comum ("Acesso em…", "(com adaptações).") fica separada."""
+    match = URL_OPEN.search(text)
+    if match is None or not text.endswith(URL_BREAK):
+        return False
+    first = line.split(maxsplit=1)[0] if line.strip() else ""
+    return (
+        bool(first)
+        and line[:1] not in (" ", "(", "*")
+        and bool(URL_PIECE.search(first.rstrip(".,;:")))
+    )
 
 
 def _normalize(text: str) -> str:

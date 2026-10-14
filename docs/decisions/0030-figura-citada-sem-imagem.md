@@ -44,3 +44,28 @@ fica em `review` com a pendência certa até a etapa de imagens existir.
 - Sem mudança de texto: só `review_reasons` e o status.
 - Falso positivo deixa questão boa em revisão (custo aceito); falso negativo continua possível
   quando o comando nomeia a figura por outra palavra ("estrutura", "tela") sem particípio.
+
+## Emenda de 2026-10-14 — imagem logo abaixo do título "Questão N"
+
+**Contexto.** O minos (semente r9) achou publicadas as questões 38 e 40 do CBM/RO 2022 oficial, que
+abrem com uma fotografia (só a legenda virou texto). Na múltipla escolha, `_with_figures` marca a
+linha acima da figura; ali essa linha é o título "Questão N", que não entra no bloco da questão, e a
+marca se perdia. O comando não cita a figura com as palavras da regra textual.
+
+**Decisão.**
+
+1. A marca `figure` posta no título "Questão N" passa à questão que ele abre (`_segment_choice`).
+2. Só a imagem raster marca o título; desenho vetorial ali é a moldura do título ou a régua do
+   cabeçalho de disciplina (PC/GO 2016, PC/PE 2023, PM/MA 2017...) e segue ignorado, como antes
+   (`_mark_figure`).
+
+**Verificação.** Varredura das 135 provas, HEAD × novo: só mudam pendências de figura, em 9
+questões publicadas de 5 provas — CBM/RO 2022 oficial q38 e q40 (fotografias), PC/PB 2021
+específicos cargo 4 q77 (datilograma), PC/RO 2022 específicos cargo 1 q42 e q43 (ícone do botão do
+Word no meio do comando), PM/TO 2020 QPE q30 (mapa) e q59 (partitura). Auditoria independente (cada
+imagem raster das provas casada, pelo texto das linhas vizinhas, com a questão ou o texto-base, e
+conferida a pendência): depois da correção, nenhuma imagem cai em questão publicada sem pendência
+de figura; as que sobram são faixas de título, imagens da justificativa (PC/PE 2023 P2 cargo 1) ou
+de itens fora da prova (DEPEN 2020 itens 25–26), e questões já em `review` por outro motivo (PM/MA
+2017 CG2A1BBB, PM/TO 2020 QPE q54). Desenhos vetoriais grandes fora de questões marcadas: só faixas
+de título. As quatro provas voltam a `review` pela impressão digital.

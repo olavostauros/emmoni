@@ -1252,3 +1252,83 @@ def test_bold_subject_title_in_two_lines_is_a_heading() -> None:
     small = first.model_copy(update={"size": 10.0, "y1": 65.4})
     label = _title_line("**Texto 1A1-I**", 69.0, 10).model_copy(update={"plain": "Texto 1A1-I"})
     assert not cebraspe._heading_continuation(small, label)
+
+
+def test_photo_below_question_title_flags_the_question() -> None:
+    """CBM/RO 2022, questões 38 e 40: a fotografia vem logo abaixo do título "Questão N", e só a
+    legenda e o comando são texto. A linha acima da figura é o título, que não entra na questão; a
+    marca passa do título à questão. Desenho no mesmo lugar (moldura do título, PC/GO 2016) não
+    marca nada (decisão 0030, emenda de 2026-10-14)."""
+
+    def lines() -> list[Line]:
+        return [
+            *_choice(1, "Primeira questão.", 20),
+            _line("Questão 2", 51, 110),
+            _line("Trecho em construção da ferrovia.", 150, 230, x1=290, size=6),
+            _line("Relacionando a hidrografia, assinale a opção correta.", 28, 245),
+            *(
+                _line(f"{letter} opção {letter}.", 28, 260 + 12 * i, x1=100)
+                for i, letter in enumerate("ABCDE")
+            ),
+        ]
+
+    photo = Figure(kind="image", x0=40, y0=125, x1=280, y1=225)
+    questions = {q.number: q for q in cebraspe.segment([_page(lines(), [photo])]).questions}
+    assert questions[2].flags == ["figure"]
+    assert questions[1].flags == []
+    frame = Figure(kind="drawing", x0=40, y0=125, x1=280, y1=225)
+    questions = {q.number: q for q in cebraspe.segment([_page(lines(), [frame])]).questions}
+    assert questions[2].flags == []
+
+
+def test_code_line_of_the_item_is_a_paragraph() -> None:
+    """PM/AL 2021 oficial, item 37: o comando em fonte monoespaçada, numa linha à parte depois da
+    frase terminada, é um parágrafo; código em várias linhas segue num bloco só."""
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50),
+            _line("**1** Para visualizar as primeiras linhas de um arquivo de", 28, 70),
+            _line("nome `messages.log`, pode ser utilizado o comando a", 46, 82),
+            _line("seguir.", 46, 94, x1=80),
+            _line("`head messages.log`", 46, 116, x1=140, size=9),
+            _line("**2** Considere o programa a seguir.", 28, 140, x1=200),
+            _line("`x <- 1`", 46, 152, x1=100, size=9),
+            _line("`print(x)`", 46, 164, x1=100, size=9),
+            _line("O resultado será 1.", 46, 176, x1=150),
+        ]
+    )
+    questions = cebraspe.segment([page]).questions
+    assert questions[0].statement_md == (
+        "Julgue os itens a seguir.\n\nPara visualizar as primeiras linhas de um arquivo de nome"
+        " `messages.log`, pode ser utilizado o comando a seguir.\n\n`head messages.log`"
+    )
+    assert questions[1].statement_md.endswith(
+        "Considere o programa a seguir.\n\n`x <- 1 print(x)`\n\nO resultado será 1."
+    )
+
+
+def test_url_broken_across_lines_is_joined_without_space() -> None:
+    """CBM/RO 2022, questões 38 e 40: o endereço partido no crédito da figura não ganha espaço na
+    junção; a palavra comum depois do endereço continua separada."""
+    assert (
+        cebraspe._join(
+            [
+                "Internet: https://s3.amazonaws.com/files/",
+                "ferrovia\\_do\\_diabo\\_-\\_construcao\\_-",
+                "\\_obras.jpg.",
+            ]
+        )
+        == "Internet: https://s3.amazonaws.com/files/ferrovia\\_do\\_diabo\\_-\\_construcao\\_-\\_obras.jpg."
+    )
+    assert (
+        cebraspe._join(
+            ["Internet: https://www.soldepando.com/wp-content/uploads/", "2016/11/Tratado.jpg."]
+        )
+        == "Internet: https://www.soldepando.com/wp-content/uploads/2016/11/Tratado.jpg."
+    )
+    assert cebraspe._join(["Disponível em: https://www.gov.br/pf/", "Acesso em 3/2/2021."]) == (
+        "Disponível em: https://www.gov.br/pf/ Acesso em 3/2/2021."
+    )
+    assert cebraspe._join(["Internet: \\<http://funag.gov.br>", "(com adaptações)."]) == (
+        "Internet: \\<http://funag.gov.br> (com adaptações)."
+    )

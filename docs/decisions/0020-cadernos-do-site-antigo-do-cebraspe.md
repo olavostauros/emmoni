@@ -218,3 +218,30 @@ cargo 12 q78 e complementares 14–17 q47, pcpe-2023 P2 cargo 1 1A1-I, pcro-2022
 pmal-2021 oficial g14, pmpa-2023-cfp básicos CB1A1-II). No PC/MA 2017 APC o estilo só muda
 marcação. Carregadas as 15 provas; o delegado volta a `review` (texto de q16 e q92 mudou; as duas
 passam a publicáveis, a q5 perde o motivo de figura).
+
+## Emenda de 2026-10-14 (5) — estilo no PM/AL 2021 oficial e no CBM/RO 2022 oficial; linha de código no item
+
+**Contexto.** O minos (semente r9) reprovou duas provas publicadas sem `infer_font_styles`, com fontes
+`TT…o00` sem nome: no PM/AL 2021 oficial nenhum negrito, itálico ou código chegava ao banco (crédito
+do g14 e do g60, "**nem**" na q24, "**one specific special person**" e "*quilombo*" na q32,
+"*rootkits*", "*emails*", "*anti-spam*" nas q48–49), e o comando `head messages.log` da q37, numa
+linha à parte, colava no fim da frase; no CBM/RO 2022 oficial, "*Bolivian Syndicate*" (q40, A, C e
+E) saía sem itálico.
+
+**Decisão.**
+
+1. `infer_font_styles` ligado no PM/AL 2021 oficial e no CBM/RO 2022 oficial. A dedução pelas
+   larguras funciona nessas fontes (Type 1C com encoding próprio) sem mudar código. O PM/AL 2021
+   soldado fica para a próxima reamostragem.
+2. No item certo/errado, a linha que é só código (fonte monoespaçada inteira) depois de frase
+   terminada é um parágrafo à parte, e a primeira linha de texto depois dela abre outro
+   (`_code_line_breaks`). Código em linhas seguidas continua num bloco só, como antes (programa
+   do PF 2018 agente q93–96, próximo passo à parte).
+
+**Verificação.** Varredura das 135 provas do staging, parser do HEAD × novo: no PM/AL 2021 oficial
+mudam só marcação e parágrafos (6 textos-base, 35 questões; q37–39 e q44 com o comando em parágrafo
+próprio); no CBM/RO 2022 oficial, marcação em 2 textos-base e 15 questões, e o negrito tira o título
+"MATEMÁTICA" da alternativa E da q15 (segue em `review` pela figura, perde a pendência de layout);
+no PF 2018 agente q93–96, o código separa-se da frase em parágrafo (o texto puro não muda). Carregadas
+as duas provas e o PF 2018 agente: nenhuma muda de status por isso (a impressão digital não vê
+marcação nem parágrafo; reamostrar).

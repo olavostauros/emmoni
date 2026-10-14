@@ -49,7 +49,9 @@ caracteres.
 
 - Unicode NFC.
 - Hífen de fim de linha do PDF mantido, sem espaço depois (`pós-\nmorte` → `pós-morte`,
-  `aplica-\nse` → `aplica-se`): o Cebraspe não separa palavra por sílaba (decisão 0032).
+  `aplica-\nse` → `aplica-se`): o Cebraspe não separa palavra por sílaba (decisão 0032). Endereço
+  da internet partido no fim da linha também emenda sem espaço (`…/files/\nfoto.jpg` →
+  `…/files/foto.jpg`).
 - Espaços repetidos colapsados; espaços nas pontas removidos.
 - `$`, `*`, `_`, `` ` ``, `<` e `\` literais escapados ("Texto literal", acima; desde a v1.1).
 - Aspas (“ ”, ‘ ’) e travessões (—, –) do original preservados.

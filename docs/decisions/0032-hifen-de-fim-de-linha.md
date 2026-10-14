@@ -30,3 +30,18 @@ hifeniza por sílaba: a linha só quebra no hífen que já existe.
 - Reprocessamento: 22 provas mudam texto em 1 a 10 questões; a impressão digital muda e elas voltam a
   `review` até nova amostra. No CBM/TO 2022 q7, o rótulo "1A1-I" reconstituído liga a questão ao
   texto-base, e ela sai de `review`.
+
+## Emenda de 2026-10-14 — endereço da internet partido no fim da linha
+
+**Contexto.** O minos (semente r9) reprovou o CBM/RO 2022 oficial: nos créditos das fotografias das
+questões 38 e 40, o endereço partido ganhava espaço na junção
+("…amazonaws.com/files/ ferrovia\_do\_diabo…construcao\_- \_obras…", "…wp-content/uploads/ 2016/11/…").
+
+**Decisão.** No `_join`, a linha que termina dentro de um endereço ainda aberto ("http(s)://" ou
+"www." sem ">" nem espaço depois) e num separador ("/", "-", "_", ".", "=", "&", "?", "#", "%", "~"),
+seguida de linha cujo primeiro pedaço tem cara de endereço ("/", "_", "=", "?", "&", "%" ou ".x"),
+emenda sem espaço. Palavra comum depois do endereço ("Acesso em…", "(com adaptações).") segue com
+espaço.
+
+**Verificação.** Varredura das 135 provas, HEAD × novo: só os dois créditos do CBM/RO 2022 oficial
+mudam.
