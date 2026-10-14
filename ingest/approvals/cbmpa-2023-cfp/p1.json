@@ -1,19 +1,27 @@
 {
  "exam": "cbmpa-2023-cfp/p1",
+ "seed": "r21",
  "numbers": [
   1,
-  3,
+  2,
+  5,
+  6,
   8,
   9,
-  21,
-  27,
-  33,
-  41,
-  45,
-  47
+  10,
+  24,
+  30,
+  32,
+  43,
+  47,
+  50,
+  51,
+  52,
+  57
  ],
- "sampled_at": "2026-10-08T13:31:43.298376+00:00",
- "approved_at": "2026-10-08T13:35:11.229751+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "1b90056fa03b1a3eae6137bc436f113ae12e9b3ca160a5485043eb875e7d71f0"
+ "sampled_at": "2026-10-14T19:24:38.996550+00:00",
+ "approved_at": "2026-10-14T19:26:34.582195+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "0136d59d929068f789857c6c71b6c97b707c1523792becc7a20cfbc9e8b8dc96",
+ "fingerprint_version": 2
 }
