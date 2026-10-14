@@ -265,3 +265,21 @@ CB1A1-I do PM/AL 2021 oficial e o g1 do PF 2025 básicos bloco I ("...narrativas
 televisivas." | "In: Vozes & Diálogo, ... (com adaptações)."; primeira linha com recuo de 14,4 pt,
 abaixo do limite de 15). As duas provas carregadas seguem publicadas (a impressão digital não vê
 parágrafo; reamostrar).
+
+## Emenda de 2026-10-14 (7) — estilo no PF 2025
+
+**Contexto.** O minos (semente r11) reprovou o PF 2025 básicos bloco I por estilo ausente: o crédito
+do g1 sem negrito e itálico ("Camila Furuzawa. **Séries policiais**: ... *In*: **Vozes & Diálogo**"),
+"*best-sellers*" sem itálico no g1 e na q2 e "**Manual de Redação da Presidência da República**" sem
+negrito na q9. O manifesto do PF 2025 não tinha `infer_font_styles`.
+
+**Decisão.** `infer_font_styles` ligado nas seis provas do PF 2025, sem mudar código.
+
+**Verificação.** `extract`→`validate` com e sem estilo, prova por prova: o texto puro (sem `*`, `**`,
+crases e espaços) não muda em nenhuma questão, alternativa ou texto-base. Mudam só marcação: bloco I
+(g1, g54, q2, q4, q9, q10), bloco II (23 questões com itálico de estrangeirismo; g91, q91 e q92 com
+código inline — o código SQL do g91 vira uma crase por linha, como já saía uma linha por parágrafo,
+e o `\_` escapado vira `_` dentro da crase), agente (g107), papiloscopista (q102, q105–108, q110) e
+delegado (q52, q65, q76, q97–99, q116); o escrivão não muda. Nenhum motivo de revisão muda. Carregadas
+as cinco provas que mudaram: nenhuma questão nem prova muda de status (a impressão digital não vê
+marcação; reamostrar).

@@ -4,6 +4,8 @@
 # cargo). Cada caderno é uma prova no emmoni. Peritos (cargos 2 a 14) ficam para depois.
 # Numeração: Bloco I 1–60, Bloco II 61–96, específicos 97–120; Delegado 1–120 num caderno só.
 # Data de aplicação ainda não conferida em edital (applied_on omitido).
+# infer_font_styles em todas as provas (2026-10-14, emenda (7) da decisão 0020): negrito e itálico
+# das fontes sem nome (crédito, estrangeirismos, títulos de obra).
 contest: pf-2025
 name: PF 2025
 agency: pf
@@ -15,6 +17,7 @@ exams:
     name: Agente, Escrivão e Papiloscopista — conhecimentos básicos, Bloco I
     positions: [agente, escrivao, papiloscopista]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_CB2_01.pdf
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/D0F881898A969B6733B878291FC1201E6CFE079281391E04B7EE322628BC888C.pdf
@@ -33,6 +36,7 @@ exams:
     name: Agente, Escrivão e Papiloscopista — conhecimentos básicos, Bloco II
     positions: [agente, escrivao, papiloscopista]
     canonical_booklet: "único"
+    infer_font_styles: true
     first_number: 61
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_CG1_01.pdf
@@ -43,6 +47,7 @@ exams:
     name: Escrivão de Polícia Federal — conhecimentos específicos
     positions: [escrivao]
     canonical_booklet: "único"
+    infer_font_styles: true
     first_number: 97
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_015_01.pdf
@@ -54,6 +59,7 @@ exams:
     name: Agente de Polícia Federal — conhecimentos específicos
     positions: [agente]
     canonical_booklet: "único"
+    infer_font_styles: true
     first_number: 97
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_016_01.pdf
@@ -64,6 +70,7 @@ exams:
     name: Papiloscopista Policial Federal — conhecimentos específicos
     positions: [papiloscopista]
     canonical_booklet: "único"
+    infer_font_styles: true
     first_number: 97
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_017_01.pdf
@@ -76,6 +83,7 @@ exams:
     name: Delegado de Polícia Federal — conhecimentos específicos
     positions: [delegado]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/106_PF_001_01.pdf
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PF_25/arquivos/D202E48A0B1EBF5039E398F0B49D0186DD625DFF53498E36EE4D88DE4501E3A8.pdf
