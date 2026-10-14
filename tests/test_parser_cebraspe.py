@@ -664,6 +664,62 @@ def test_source_credit_closes_its_paragraph() -> None:
     assert cebraspe._choice_paragraphs(entries) == expected
 
 
+def _gap_entry(text: str, y0: float, x0: float = 28.3, short: bool = False) -> cebraspe._Entry:
+    """Linha de 11 pt da coluna 1 (PM/DF 2025, P2): `y0` dá o espaço até a linha anterior."""
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=290, y1=y0 + 11, column=1, size=10.0)
+    return cebraspe._Entry(12, line, left=28.3, short=short)
+
+
+def test_choice_command_after_vertical_space_is_its_own_paragraph() -> None:
+    """Múltipla escolha: o comando separado por espaço vertical da situação ou da lista que vem
+    antes dele abre parágrafo (`_block_gap`), mesmo com a linha anterior indo até a margem. PM/DF
+    2025 P2, questão 76 ("III ... cometidos por civis." | "Assinale a opção correta."): o
+    "julgar" do item III não é comando de certo/errado. PM/RO 2022, questão 41: situação |
+    "Considerando a situação hipotética apresentada, assinale a opção correta." """
+    entries = [
+        _gap_entry("De acordo com o disposto na Constituição Federal de 1988 (CF)", 276.8),
+        _gap_entry("e com a jurisprudência dos tribunais superiores, compete à justiça", 287.8),
+        _gap_entry("militar da União", 298.8, short=True),
+        _gap_entry("I processar e julgar os militares dos estados nos crimes", 315.8),
+        _gap_entry("militares definidos em lei.", 326.8, x0=42.5, short=True),
+        _gap_entry("II decidir sobre a perda do posto e da patente dos oficiais e da", 337.8),
+        _gap_entry("graduação das praças.", 348.8, x0=42.5, short=True),
+        _gap_entry("III processar e julgar os crimes militares cometidos por civis.", 359.8),
+        _gap_entry("Assinale a opção correta.", 376.8, short=True),
+    ]
+    assert cebraspe._choice_paragraphs(entries) == [
+        "De acordo com o disposto na Constituição Federal de 1988 (CF) e com a jurisprudência dos"
+        " tribunais superiores, compete à justiça militar da União",
+        "I processar e julgar os militares dos estados nos crimes militares definidos em lei.",
+        "II decidir sobre a perda do posto e da patente dos oficiais e da graduação das praças.",
+        "III processar e julgar os crimes militares cometidos por civis.",
+        "Assinale a opção correta.",
+    ]
+    situation = [
+        _gap_entry("Túlio, agente de polícia civil, recebeu ordem para", 62.5, x0=56.8),
+        _gap_entry("investigar a venda de entorpecentes. O delegado orientou", 74.3),
+        _gap_entry("Túlio a não agir, num primeiro momento, em relação aos", 86.1),
+        _gap_entry("portadores e vendedores de drogas.", 97.9),
+        _gap_entry("Considerando a situação hipotética apresentada, assinale a opção", 115.9),
+        _gap_entry("correta.", 127.7, short=True),
+    ]
+    assert cebraspe._choice_paragraphs(situation) == [
+        "Túlio, agente de polícia civil, recebeu ordem para investigar a venda de entorpecentes."
+        " O delegado orientou Túlio a não agir, num primeiro momento, em relação aos portadores e"
+        " vendedores de drogas.",
+        "Considerando a situação hipotética apresentada, assinale a opção correta.",
+    ]
+    # Sem o espaço, a frase segue no mesmo parágrafo; frase que continua em minúscula também.
+    glued = [*situation[:4], _gap_entry(situation[4].line.text, 109.7), situation[5]]
+    assert len(cebraspe._choice_paragraphs(glued)) == 1
+    lower = [
+        *situation[:3],
+        _gap_entry("portadores e vendedores de", 97.9),
+        _gap_entry("drogas, assinale a opção correta.", 115.9, short=True),
+    ]
+    assert len(cebraspe._choice_paragraphs(lower)) == 1
+
+
 def test_scratch_label_is_not_content() -> None:
     """Quadro "RASCUNHO" no alto da coluna vazia (PF 2012): não abre um texto-base para o grupo da
     página seguinte nem entra no item."""

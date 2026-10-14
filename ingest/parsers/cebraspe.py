@@ -484,12 +484,14 @@ def _bullets(entries: list[_Entry]) -> list[_Entry]:
 
 
 def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
-    """Parágrafos do enunciado: recuo de primeira linha, linha curta anterior ou item
+    """Parágrafos do enunciado: recuo de primeira linha, linha curta anterior, espaço vertical
+    entre blocos (`_block_gap`) ou item
     enumerado (I, II, III; a), b)...) começam parágrafo novo. O crédito em letra miúda, alinhado à
     direita e quebrado em várias linhas, é um parágrafo só, até a linha que o encerra (PC/PB 2021
     cargo 13, questão 65), como no certo/errado (`_paragraphs`)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
+    leading = _leading(entries)
     for index, entry in enumerate(entries):
         indented = entry.line.x0 > entry.left + PARAGRAPH_INDENT
         enumerated = _at_margin(entry) and (
@@ -498,9 +500,13 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
         credit_done = previous is not None and (
             CREDIT_END.search(previous.line.plain.strip()) or _paren_credit_end(entries, index - 1)
         )
-        broken = (indented or (previous is not None and previous.short)) and not _credit_goes_on(
-            entries, index
-        )
+        # Espaço vertical entre blocos (`_block_gap`): o comando ("Assinale a opção correta.",
+        # "Nessa situação hipotética, ...") separado da situação ou da lista que vem antes dele
+        # (PM/RO 2022 questões 41 e 100, PM/DF 2025 P2 questão 76).
+        gap = previous is not None and _block_gap(previous, entry, leading, command_rule=False)
+        broken = (
+            indented or (previous is not None and previous.short) or gap
+        ) and not _credit_goes_on(entries, index)
         new = previous is None or broken or enumerated or bool(credit_done)
         if new:
             paragraphs.append([])
@@ -1227,18 +1233,24 @@ def _leading(entries: list[_Entry]) -> float | None:
     return gaps[len(gaps) // 2]
 
 
-def _block_gap(previous: _Entry, entry: _Entry, leading: float | None) -> bool:
+def _block_gap(
+    previous: _Entry, entry: _Entry, leading: float | None, command_rule: bool = True
+) -> bool:
     """Espaço vertical entre as duas linhas bem maior que o entrelinha do trecho: o original
     separa ali dois blocos, mesmo que a linha anterior vá até a margem e a seguinte não tenha
     recuo (PF 2012 escrivão, item 57: introdução | P1 e P2 | "Diante dessa situação..." | P3 e P4).
     Linha com índice ou expoente tem a caixa mais alta e não conta; frase que segue de uma linha à
     outra também não (fórmula ou figura no meio da linha empurra a seguinte: PF 2012
-    papiloscopista, item 109)."""
+    papiloscopista, item 109).
+
+    `command_rule`: no certo/errado, o corte antes do comando ("julgue") é de `_split_command`.
+    Na múltipla escolha não há esse corte, e o espaço vale também ali (`_choice_paragraphs`); o
+    "julgar" de uma alternativa ou de um item romano não é comando."""
     if leading is None or previous.line.scripts or entry.line.scripts:
         return False
     if not previous.line.plain.rstrip().endswith(SENTENCE_STOP) or entry.line.plain[:1].islower():
         return False
-    if COMMAND.search(entry.line.plain) or COMMAND.search(previous.line.plain):
+    if command_rule and (COMMAND.search(entry.line.plain) or COMMAND.search(previous.line.plain)):
         # O corte entre a situação e o comando tem regra própria (`_split_command`); o espaço não
         # a substitui. No PF 2012 agente (itens 83 e 84) ele tirava do comando o pedaço de lista
         # partido na troca de coluna, que era o que mandava os itens para revisão; no PF 2018
