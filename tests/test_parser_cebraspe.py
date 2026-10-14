@@ -1455,3 +1455,83 @@ def test_url_broken_across_lines_is_joined_without_space() -> None:
     assert cebraspe._join(["Internet: \\<http://funag.gov.br>", "(com adaptações)."]) == (
         "Internet: \\<http://funag.gov.br> (com adaptações)."
     )
+
+
+def test_bold_caps_subject_title_in_body_size_keeps_its_second_line() -> None:
+    """PM/SC 2023 soldado, antes da questão 17: "NOÇÕES DE DIREITO PROCESSUAL PENAL" | "COMUM",
+    em negrito, caixa alta e corpo do texto. Com o estilo ligado, a primeira linha sai como título
+    e a segunda grudava na alternativa E da questão 16. Linha com número ou em caixa baixa abaixo
+    do título do mesmo corpo não é continuação."""
+    first = _title_line("**NOÇÕES DE DIREITO PROCESSUAL PENAL**", 50.0, 10)
+    first = first.model_copy(update={"plain": "NOÇÕES DE DIREITO PROCESSUAL PENAL"})
+    second = _title_line("**COMUM**", 60.7, 10).model_copy(update={"plain": "COMUM"})
+    assert cebraspe._subject_heading(first)
+    assert cebraspe._heading_continuation(first, second)
+    label = _title_line("**TEXTO 1A1-I**", 60.7, 10).model_copy(update={"plain": "TEXTO 1A1-I"})
+    assert not cebraspe._heading_continuation(first, label)
+    lower = _title_line("**Comum**", 60.7, 10).model_copy(update={"plain": "Comum"})
+    assert not cebraspe._heading_continuation(first, lower)
+
+
+def test_labeled_definitions_are_one_paragraph_each() -> None:
+    """PM/SC 2023 soldado, texto 1A7-I: as sentenças abertas "c(x): ...", "l(x): ...", "w(x): ..."
+    vêm em linhas seguidas, sem ponto nem recuo, e saíam num parágrafo só. Cada linha com rótulo
+    abre parágrafo quando o parágrafo aberto também começa com rótulo; a continuação sem rótulo
+    ("expressão confunde...") fica na definição. Vale também para as premissas "P1: “...”" e a
+    conclusão "C: “...”", que terminam em aspas (PC/PE 2023 P2 cargo 1, situação 1A3-II)."""
+    entries = [
+        _gap_entry("no conjunto universo V de todos os cidadãos de determinada", 127.0),
+        _gap_entry("cidade.", 140.0, short=True),
+        _gap_entry("c(x): a pessoa confunde crime com liberdade de expressão", 155.8),
+        _gap_entry("l(x): a pessoa confunde liberdade de expressão com crime", 168.8),
+        _gap_entry("w(x): a pessoa que confunde crime com liberdade de", 181.6),
+        _gap_entry("expressão confunde liberdade de expressão com crime", 194.5),
+    ]
+    expected = [
+        "no conjunto universo V de todos os cidadãos de determinada cidade.",
+        "c(x): a pessoa confunde crime com liberdade de expressão",
+        "l(x): a pessoa confunde liberdade de expressão com crime",
+        "w(x): a pessoa que confunde crime com liberdade de expressão confunde liberdade de"
+        " expressão com crime",
+    ]
+    assert cebraspe._paragraphs(entries) == expected
+    assert cebraspe._choice_paragraphs(entries) == expected
+    premises = [
+        _gap_entry("P4: “Se não preciso tentar roubá-lo, não cometi esse crime.”", 469.9),
+        _gap_entry("C: “Logo, não cometi esse crime.”", 483.4, short=True),
+    ]
+    assert len(cebraspe._paragraphs(premises)) == 2
+    # Linha comum que só começa com parênteses e dois-pontos no meio da frase não é rótulo.
+    prose = [
+        _gap_entry("a pessoa (x) disse que a função f(x) dada por", 100.0),
+        _gap_entry("f(x): definida no texto, é contínua", 111.0),
+    ]
+    assert len(cebraspe._paragraphs(prose)) == 1
+
+
+def test_bold_heading_after_the_last_option_ends_it() -> None:
+    """CBM/TO 2022 soldado, questão 10: o título "**Normas relativas ao CBMTO**" (12 pt,
+    centrado) grudava na alternativa D. Linha só em negrito, curta e sem pontuação depois de
+    alternativa terminada encerra a alternativa; negrito no meio da frase, não."""
+    option = _gap_entry("D referencial.", 608.5)
+    heading = cebraspe._Entry(
+        2,
+        Line(
+            text="**Normas relativas ao CBMTO**",
+            plain="Normas relativas ao CBMTO",
+            x0=84.5,
+            y0=622.6,
+            x1=238.4,
+            y1=634.6,
+            column=1,
+            size=12.0,
+        ),
+        left=28.3,
+    )
+    assert cebraspe._heading_after_option(option, heading)
+    open_sentence = _gap_entry("D a pessoa que confunde", 608.5)
+    assert not cebraspe._heading_after_option(open_sentence, heading)
+    sentence = cebraspe._Entry(
+        2, heading.line.model_copy(update={"text": "**Normas.**", "plain": "Normas."}), left=28.3
+    )
+    assert not cebraspe._heading_after_option(option, sentence)

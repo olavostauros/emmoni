@@ -1,6 +1,6 @@
 # pmal-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 # infer_font_styles no oficial (2026-10-14, emenda (5) da decisão 0020): negrito, itálico e código
-# das fontes sem nome; o soldado fica para a próxima reamostragem.
+# das fontes sem nome; o soldado liga em 2026-10-14 (emenda (8) da 0020).
 contest: pmal-2021
 name: POLÍCIA MILITAR DO ESTADO DE ALAGOAS
 agency: pmal
@@ -40,6 +40,7 @@ exams:
   name: PROVA OBJETIVA - CARGO 2
   positions:
   - soldado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/596_PMAL_002_MATRIZ.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_21/arquivos/GAB_DEFINITIVO_MATRIZ_596_PMAL_002_00_PAG_5.PDF

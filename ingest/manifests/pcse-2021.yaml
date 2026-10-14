@@ -1,4 +1,5 @@
 # pcse-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles nas três provas em 2026-10-14 (emenda (8) da decisão 0020).
 contest: pcse-2021
 name: POLÍCIA CIVIL DO ESTADO DE SERGIPE
 agency: pcse
@@ -11,6 +12,7 @@ exams:
   positions:
   - agente
   first_number: 31
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_001_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_001_01.PDF
@@ -33,6 +35,7 @@ exams:
   positions:
   - escrivao
   first_number: 31
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_002_01.PDF
@@ -56,6 +59,7 @@ exams:
   positions:
   - agente
   - escrivao
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/605_PCSE_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_SE_21/arquivos/GAB_DEFINITIVO_605_PCSE_CG1_01.PDF

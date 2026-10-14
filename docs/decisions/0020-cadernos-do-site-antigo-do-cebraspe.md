@@ -283,3 +283,39 @@ e o `\_` escapado vira `_` dentro da crase), agente (g107), papiloscopista (q102
 delegado (q52, q65, q76, q97–99, q116); o escrivão não muda. Nenhum motivo de revisão muda. Carregadas
 as cinco provas que mudaram: nenhuma questão nem prova muda de status (a impressão digital não vê
 marcação; reamostrar).
+
+## Emenda de 2026-10-14 (8) — estilo no PM/SC 2023, PC/SE 2021, PM/AL 2021 soldado e CBM/TO 2022 soldado; definições em linhas, títulos em negrito
+
+**Contexto.** O minos (semente r13) reprovou o PM/SC 2023 soldado: sem `infer_font_styles` faltava o
+itálico de "*post mortem*" (q29), "*chatbot*"/"*chat*" (texto 1A5-II, q38), "*Hiperlink*",
+"*Cookies*", "*Plug-ins*", "*browser*" (q48) e de *x*, *c*, *l*, *w* (texto 1A7-I e q51); e as
+sentenças abertas do texto 1A7-I ("c(x): …" | "l(x): …" | "w(x): …"), em linhas seguidas sem
+ponto nem recuo, saíam num parágrafo só. O item 4 dos próximos passos pedia o estilo também no
+PC/SE 2021, no PM/AL 2021 soldado e no CBM/TO 2022 soldado.
+
+**Decisão.**
+
+1. `infer_font_styles` ligado no PM/SC 2023 soldado, nas três provas do PC/SE 2021, no PM/AL 2021
+   soldado e no CBM/TO 2022 soldado, sem mudar a extração.
+2. Linha que começa com rótulo — proposição "P1:", conclusão "C:" ou sentença aberta/função
+   "c(x):", "P(x, y):" — abre parágrafo quando a anterior fecha a frase (como já valia para "P1:")
+   ou quando o parágrafo aberto também começa com rótulo (`_labeled_line_opens`, no certo/errado e
+   na múltipla escolha). A continuação sem rótulo fica na definição.
+3. Título de disciplina em negrito, caixa alta e corpo do texto quebrado em duas linhas ("NOÇÕES
+   DE DIREITO PROCESSUAL PENAL" | "COMUM", PM/SC 2023 antes da q17): a segunda linha, também
+   caixa alta e só negrito, sem número e com até 3 palavras, é título (`_heading_continuation`).
+   Com o estilo, a primeira linha já saía como título e "**COMUM**" grudava na alternativa E da q16.
+4. Na múltipla escolha, linha só em negrito, curta (até 8 palavras), sem pontuação final, depois de
+   alternativa terminada em ponto encerra a última alternativa (`_heading_after_option`); o título
+   vai para a abertura seguinte, onde `_bold_heading` o descarta ("**Normas relativas ao CBMTO**",
+   "**Noções de Informática**" no CBM/TO 2022 soldado q10 e q30).
+
+**Verificação.** Varredura das provas do staging, parser do HEAD × novo, com as mesmas páginas: os
+itens 2–4 mudam só PM/SC 2023 (1A7-I; q16), PC/PE 2023 P2 cargo 1 (situação 1A3-II: P1, P2 e "C:"
+em parágrafos próprios), CBM/TO 2022 oficial (q30 perde "Normas relativas ao CBMTO" da alternativa
+D) e soldado (q10, q30), CBM/RO 2022 oficial (q75 perde "INSTRUÇÕES TÉCNICAS DO CBM/RO" da E) e PM/TO
+2020 QPE q40 e QPPM q30 e q45 (título colado na E). Com o estilo, o texto puro não muda em nenhuma
+questão das provas ligadas, fora os títulos que saem das alternativas; o "s*pear phishing*" do PC/SE
+2021 é do original (o "s" vem em redondo). PM/AL 2021 soldado q42, q45 e q50 ganham itálico picado
+nas fórmulas, mas seguem em `review` pela fórmula. Questões que passam a publicáveis: PM/SC 2023 q8 e
+q42, CBM/TO 2022 soldado q20, CBM/RO 2022 oficial q75, PM/TO 2020 QPE q40.

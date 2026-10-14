@@ -1,8 +1,8 @@
 # cbmto-2022: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
-# infer_font_styles só no oficial (2026-10-14; decisão 0020). Com o negrito, os títulos de
+# infer_font_styles no oficial (2026-10-14; decisão 0020). Com o negrito, os títulos de
 # disciplina ("Física", "Química", "Matemática") saem da última alternativa da questão anterior
 # (oficial q10, q20, q40; soldado q20) e a pendência de layout cai; no soldado também muda a q32
-# (código inline). O soldado, publicado, liga na próxima reamostragem.
+# (código inline). O soldado liga em 2026-10-14 (emenda (8) da 0020).
 contest: cbmto-2022
 name: CORPO DE BOMBEIROS MILITAR DO TOCANTINS
 agency: cbmto
@@ -32,6 +32,7 @@ exams:
   name: PROVA OBJETIVA - CARGO 2
   positions:
   - soldado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/795_CBM_TO_002_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/CBM_TO_22/arquivos/GAB_DEFINITIVO_795_CBM_TO_002_01.PDF

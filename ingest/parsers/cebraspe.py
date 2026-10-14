@@ -463,6 +463,7 @@ def _choice_question(
                 starts_text
                 or (_at_margin(block[i]) and not block[i].line.plain[:1].islower())
                 or _paragraph_after_option(block[i - 1], block[i])
+                or _heading_after_option(block[i - 1], block[i])
             ):
                 end = i
                 break
@@ -564,6 +565,21 @@ def _paragraph_after_option(previous: _Entry, entry: _Entry) -> bool:
     )
 
 
+def _heading_after_option(previous: _Entry, entry: _Entry) -> bool:
+    """Título de bloco em negrito depois da última alternativa: linha só em negrito, curta, sem
+    pontuação final, e a alternativa terminou a frase ("**Normas relativas ao CBMTO**" e
+    "**Noções de Informática**", CBM/TO 2022 soldado, depois das questões 10 e 30; com o estilo
+    ligado o título fica em negrito, e sem isso grudava na alternativa D). O título vai para a
+    abertura seguinte, onde `_bold_heading` o tira."""
+    plain = entry.line.plain.strip()
+    return (
+        _bold_only(entry.line)
+        and 0 < len(plain.split()) <= 8
+        and not plain.endswith((".", ":", "?", ",", ";"))
+        and previous.line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
+    )
+
+
 def _bullets(entries: list[_Entry]) -> list[_Entry]:
     """Lista com marcador "•" que a fonte decorativa entrega como "C" (PC/GO 2016): duas ou mais
     linhas do enunciado começando por "C" na margem são itens de lista, não a alternativa C."""
@@ -589,6 +605,7 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
     cargo 13, questão 65), como no certo/errado (`_paragraphs`)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
+    opener: _Entry | None = None  # primeira linha do parágrafo aberto
     leading = _leading(entries)
     for index, entry in enumerate(entries):
         # Citação recuada em bloco (lei transcrita em letra menor): todas as linhas têm o mesmo
@@ -609,9 +626,16 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
         broken = (
             indented or (previous is not None and previous.short) or gap
         ) and not _credit_goes_on(entries, index)
-        new = previous is None or broken or enumerated or bool(credit_done)
+        new = (
+            previous is None
+            or broken
+            or enumerated
+            or bool(credit_done)
+            or _labeled_line_opens(opener, previous, entry)
+        )
         if new:
             paragraphs.append([])
+            opener = entry
         paragraphs[-1].append(entry.line.text)
         previous = entry
     return [_join(lines) for lines in paragraphs if lines]
@@ -1008,11 +1032,25 @@ def _heading_continuation(heading: Line, line: Line) -> bool:
     estado" / "do Tocantins", CBM/TO 2021), ou de um título de disciplina em negrito quebrado em
     duas linhas, a segunda também só em negrito ("DIREITO TRIBUTÁRIO E DIREITO" / "EMPRESARIAL",
     PC/MA 2017 delegado, antes da questão 16; sem isso a segunda linha grudava na alternativa E
-    da questão 15): em corpo maior, mesma coluna, mesmo corpo, logo abaixo, curta."""
-    if (heading.size or 0) < KNOWLEDGE_TITLE_MIN_SIZE:
-        return False  # título no corpo do texto: a linha de baixo é rótulo ("Texto 1A1-I")
-    knowledge = KNOWLEDGE_TITLE.match(heading.plain.strip()) is not None
+    da questão 15): em corpo maior, mesma coluna, mesmo corpo, logo abaixo, curta.
+
+    No corpo do texto, só o título de disciplina em caixa alta e negrito cuja segunda linha também
+    é caixa alta e só negrito, sem número ("NOÇÕES DE DIREITO PROCESSUAL PENAL" / "COMUM", PM/SC
+    2023 soldado, antes da questão 17: com o estilo ligado, a primeira linha sai como título e a
+    segunda grudava na alternativa E da questão 16); a linha de baixo de outro título no corpo do
+    texto é rótulo ("Texto 1A1-I")."""
     subject = _subject_heading(heading) and _bold_only(heading) and _bold_only(line)
+    if (heading.size or 0) < KNOWLEDGE_TITLE_MIN_SIZE:
+        plain = line.plain.strip()
+        if not (
+            subject
+            and heading.plain.strip().isupper()
+            and plain.isupper()
+            and not any(ch.isdigit() for ch in plain)
+            and len(plain.split()) <= 3
+        ):
+            return False
+    knowledge = KNOWLEDGE_TITLE.match(heading.plain.strip()) is not None
     return (
         (knowledge or subject)
         and line.column == heading.column
@@ -1406,6 +1444,7 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
     com a da coluna (textos com numeração de linhas)."""
     paragraphs: list[list[str]] = []
     previous: _Entry | None = None
+    opener: _Entry | None = None  # primeira linha do parágrafo aberto
     leading = _leading(entries)
     for index, entry in enumerate(entries):
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT
@@ -1423,20 +1462,44 @@ def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
             or abs(entry.line.size - previous.line.size) >= 1
             or bool(CREDIT_END.search(previous.line.plain.strip()))
             or (not title_goes_on and _block_gap(previous, entry, leading))
-            or (
-                bool(PROPOSITION.match(entry.line.plain))
-                and previous.line.plain.rstrip().endswith(SENTENCE_STOP)
-            )
+            or _labeled_line_opens(opener, previous, entry)
         )
         if new:
             paragraphs.append([])
+            opener = entry
         paragraphs[-1].append(entry.line.text)
         previous = entry
     return [_join(lines) for lines in paragraphs]
 
 
-# Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é..."): abre parágrafo.
-PROPOSITION = re.compile(r"^P\d{1,2}\s?:\s")
+# Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é...") ou a conclusão do
+# argumento ("C: Logo, ..."): abre parágrafo.
+PROPOSITION = re.compile(r"^(?:P\d{1,2}|C)\s?:\s")
+# Sentença aberta ou função definida no começo da linha ("c(x): a pessoa...", "P(x, y): ...").
+DEFINITION = re.compile(
+    r"^[A-Za-z]{1,3}\d{0,2}\s?\(\s?[^\s(),]{1,12}(?:,\s?[^\s(),]{1,12})*\s?\)\s?:\s"
+)
+
+
+def _labeled(entry: _Entry) -> bool:
+    """A linha começa com rótulo de proposição ou de sentença aberta seguido de dois-pontos."""
+    plain = entry.line.plain
+    return bool(PROPOSITION.match(plain) or DEFINITION.match(plain))
+
+
+def _labeled_line_opens(opener: _Entry | None, previous: _Entry | None, entry: _Entry) -> bool:
+    """Linha com rótulo ("P1: ...", "c(x): ...") abre parágrafo quando a anterior fecha a frase ou
+    quando o parágrafo aberto também começa com rótulo: as definições em linhas seguidas são uma
+    lista, mesmo que a anterior não termine em ponto nem seja curta (PM/SC 2023 soldado, texto
+    1A7-I: "c(x): a pessoa confunde..." | "l(x): ..." | "w(x): ..."; PC/PE 2023 P2 cargo 1,
+    situação 1A3-II: "P1: “...”" | "P2: ..." | "C: “Logo, ...”", que terminam em aspas)."""
+    if previous is None or not _labeled(entry):
+        return False
+    if previous.line.plain.rstrip().endswith(SENTENCE_STOP):
+        return True
+    return opener is not None and _labeled(opener)
+
+
 # Espaço, em pt, além do entrelinha comum: blocos separados (PF 2012 escrivão, item 57).
 BLOCK_GAP = 3.0
 

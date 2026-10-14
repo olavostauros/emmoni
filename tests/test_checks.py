@@ -137,3 +137,34 @@ def test_cli_exit_code(
     assert cli.main(["check", "--checks-dir", str(checks_dir)]) == 1
     (checks_dir / "002_falha.sql").unlink()
     assert cli.main(["check", "--checks-dir", str(checks_dir)]) == 0
+
+
+@pytest.mark.parametrize("column", ["statement", "option", "passage"])
+def test_check_replacement_character(tx: Conn, column: str) -> None:
+    """U+FFFD em questão publicada: no enunciado, numa alternativa ou no texto-base dela."""
+    qid = seed_question(tx, "seed-pmsp-2024", 1)
+    if column == "statement":
+        tx.execute(
+            "update question set statement_md = statement_md || ' teclas � e �' where id = %s",
+            (qid,),
+        )
+    elif column == "option":
+        tx.execute(
+            "update question_option set body_md = body_md || ' �'"
+            " where question_id = %s and letter = 'A'",
+            (qid,),
+        )
+    else:
+        tx.execute(
+            "insert into passage (exam_id, body_md, source_page)"
+            " select exam_id, 'texto com �', 1 from question where id = %s",
+            (qid,),
+        )
+        tx.execute(
+            "update question set passage_id = (select max(id::text)::uuid from passage"
+            " where body_md = 'texto com �') where id = %s",
+            (qid,),
+        )
+    assert failing(tx) == {"090_replacement_character"}
+    tx.execute("update question set publish_status = 'review' where id = %s", (qid,))
+    assert "090_replacement_character" not in failing(tx)
