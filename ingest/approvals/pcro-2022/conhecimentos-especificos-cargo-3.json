@@ -1,21 +1,25 @@
 {
  "exam": "pcro-2022/conhecimentos-especificos-cargo-3",
- "seed": "r39",
+ "seed": "r48",
  "numbers": [
   16,
-  18,
-  20,
-  23,
-  24,
-  60,
-  61,
-  76,
-  78,
-  81
+  27,
+  28,
+  37,
+  40,
+  41,
+  44,
+  49,
+  56,
+  84,
+  89,
+  96,
+  97,
+  99
  ],
- "sampled_at": "2026-10-15T11:44:16.485343+00:00",
- "approved_at": "2026-10-15T11:49:21.937775+00:00",
+ "sampled_at": "2026-10-15T13:21:47.179860+00:00",
+ "approved_at": "2026-10-15T13:23:53.797729+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "4f5c950da6ac9661370a550a191583ae257e2c7b377a948b2cb1f09ed5e8479b",
+ "fingerprint": "175c41ed5a00047ba5a08bb7c799e991095b16f1c908cefa29c380d536bb7455",
  "fingerprint_version": 2
 }

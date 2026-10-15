@@ -1,21 +1,23 @@
 {
  "exam": "pcpe-2023/p1-cargo-1",
- "seed": "r26",
+ "seed": "r48",
  "numbers": [
   1,
-  2,
   3,
-  4,
   5,
   7,
+  9,
+  10,
   12,
+  13,
   14,
+  16,
   17,
-  19
+  18
  ],
- "sampled_at": "2026-10-14T23:49:36.406998+00:00",
- "approved_at": "2026-10-14T23:49:52.292487+00:00",
+ "sampled_at": "2026-10-15T13:21:46.063084+00:00",
+ "approved_at": "2026-10-15T13:23:35.281396+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "a7e46abe6e107ee7dd06b7bd5eafb7f03d87e74f6c252bce713844b9634d97ec",
+ "fingerprint": "a3da5db785991d10100d7c83fe2309c615cbc8607e24c94f2a684618978a29e3",
  "fingerprint_version": 2
 }

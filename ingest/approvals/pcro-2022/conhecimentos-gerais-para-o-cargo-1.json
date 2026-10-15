@@ -1,21 +1,22 @@
 {
  "exam": "pcro-2022/conhecimentos-gerais-para-o-cargo-1",
- "seed": "r41",
+ "seed": "r48",
  "numbers": [
   1,
-  6,
-  8,
+  5,
+  7,
   9,
-  11,
-  13,
-  14,
+  18,
+  19,
   20,
-  23,
-  28
+  22,
+  25,
+  29,
+  30
  ],
- "sampled_at": "2026-10-15T12:09:18.493642+00:00",
- "approved_at": "2026-10-15T12:10:09.422306+00:00",
+ "sampled_at": "2026-10-15T13:21:48.006772+00:00",
+ "approved_at": "2026-10-15T13:28:26.332930+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "411ecd0f09dd7ae079368fe05c867924f93cbc4109184184646de718955c7b55",
+ "fingerprint": "27a69ea3012297cb43b098004d6363f595fc236380032140157f58b5b7b5f8b0",
  "fingerprint_version": 2
 }

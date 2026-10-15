@@ -1,25 +1,21 @@
 {
  "exam": "cbmal-2017/conhecimentos-basicos-cargo-1-oficial-combatente",
- "seed": "r25",
+ "seed": "r48",
  "numbers": [
-  6,
-  8,
-  9,
+  7,
   10,
   14,
-  15,
   18,
-  22,
   28,
-  29,
   32,
   37,
   39,
-  47
+  47,
+  48
  ],
- "sampled_at": "2026-10-14T23:32:43.505832+00:00",
- "approved_at": "2026-10-14T23:34:12.724296+00:00",
+ "sampled_at": "2026-10-15T13:21:36.363594+00:00",
+ "approved_at": "2026-10-15T13:22:07.645586+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "4e7da502febb882a94d2ddc5e6f42179da3a042fd6ddd8197ed5f177c7c7f0a7",
+ "fingerprint": "9800df702326cdba04b84aa4d8ffc2e9d1d878c27401765430af3b5d3cdc9efc",
  "fingerprint_version": 2
 }
