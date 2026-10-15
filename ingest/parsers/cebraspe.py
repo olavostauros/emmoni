@@ -235,6 +235,8 @@ class _Entry:
     justification_color: bool = False
     # Primeira linha da coluna logo abaixo de uma figura que abre a coluna (`_with_figures`).
     below_figure: bool = False
+    # Linha centralizada na coluna, com recuo dos dois lados (`_centered_line`).
+    centered: bool = False
 
 
 @dataclass
@@ -679,6 +681,7 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
             or enumerated
             or bool(credit_done)
             or _labeled_line_opens(opener, previous, entry)
+            or (previous is not None and _after_centered(previous, entry))
         )
         if new:
             paragraphs.append([[]])
@@ -958,7 +961,14 @@ def _continues(item: _Unit, entry: _Entry) -> bool:
     # o parágrafo recuado que vem depois é o texto-base seguinte, não continuação.
     bare_number = len(item.entries) == 1 and BARE_NUMBER.match(previous) is not None
     sentence_done = previous.endswith((".", "?", "!")) or bare_number
-    title = entry.line.text.startswith("**") and entry.line.text.endswith("**")
+    # Título de bloco não termina em ponto (`_bold_heading`); a frase inteira em negrito que o
+    # item anuncia é parte dele ("... conforme o exemplo a seguir." | "**Assunto: Realização de
+    # concurso público.**", PRF 2021, item 26). Emenda (19) da 0020.
+    title = (
+        entry.line.text.startswith("**")
+        and entry.line.text.endswith("**")
+        and not entry.line.plain.rstrip().endswith(".")
+    )
     if moved and sentence_done and entry.below_figure and entry.line.plain[:1].isupper():
         # Coluna nova que abre com figura e, abaixo dela, frase com maiúscula depois do item
         # terminado: é o texto-base do grupo seguinte ("Na figura precedente, o retângulo ABCD
@@ -1086,6 +1096,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 line,
                 lefts[line.column],
                 short=line.x1 < rights[line.column] - SHORT_LINE,
+                centered=_centered_line(line, lefts[line.column], rights[line.column]),
                 after_gap=gap,
                 after_justification=closed,
                 justification_color=justification_color is not None
@@ -1109,6 +1120,39 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             entries.append(entry)
         stream.extend(_visible(_with_figures(page, entries, skipped, start_y)))
     return stream
+
+
+# Diferença, em pt, entre o recuo da esquerda e a sobra da direita de uma linha centralizada.
+CENTER_TOLERANCE = 3.0
+
+
+def _centered_line(line: Line, left: float, right: float) -> bool:
+    """Linha centralizada na coluna: recuo da esquerda e sobra da direita maiores que o recuo de
+    parágrafo e iguais até `CENTER_TOLERANCE` (fórmula em linha própria, "((P ˄ S) → (Q ˅ R)) →
+    ...", PM/SC 2023 oficial, questão 66). Emenda (19) da 0020."""
+    indent = line.x0 - left
+    spare = right - line.x1
+    return (
+        indent > PARAGRAPH_INDENT
+        and spare > PARAGRAPH_INDENT
+        and abs(indent - spare) <= CENTER_TOLERANCE
+    )
+
+
+def _after_centered(previous: _Entry, entry: _Entry) -> bool:
+    """Linha na margem, em maiúscula, logo abaixo de uma linha centralizada da mesma coluna e
+    página: a centralizada (fórmula, expressão) é um parágrafo próprio e o texto abaixo abre
+    outro. Sem isso, a fórmula que não termina em ponto nem fica curta (`SHORT_LINE`) grudava no
+    comando ("... → (~Q ˅ ~S)" | "O número de linhas da tabela-verdade...", PM/SC 2023 oficial,
+    questão 66). Emenda (19) da 0020."""
+    return (
+        previous.centered
+        and not entry.centered
+        and previous.page == entry.page
+        and previous.line.column == entry.line.column
+        and entry.line.x0 - entry.left <= ITEM_INDENT
+        and entry.line.plain[:1].isupper()
+    )
 
 
 def _visible(entries: list[_Entry]) -> list[_Entry]:
@@ -1472,7 +1516,7 @@ def _question(
         e.line.text for e in item.entries[1:]
     ]
     breaks = _letter_breaks(item.entries)
-    code_breaks = _code_line_breaks(text_lines)
+    code_breaks = _code_line_breaks(text_lines) | _bold_line_breaks(item.entries, text_lines)
     paragraphs: list[list[list[str]]] = [[[]]]
     for index, text in enumerate(text_lines):
         if index in code_breaks and paragraphs[-1] != [[]]:
@@ -1539,6 +1583,30 @@ def _code_line_breaks(lines: list[str]) -> set[int]:
                 following += 1  # código em várias linhas: um bloco só, como antes
             if following < len(lines):
                 found.add(following)
+    return found
+
+
+BOLD_LINE = re.compile(r"^\*\*[^*]+\*\*$")
+
+
+def _bold_line_breaks(entries: list[_Entry], lines: list[str]) -> set[int]:
+    """Índices das linhas do item que abrem parágrafo por causa de uma linha inteira em negrito
+    depois de linha curta de frase terminada: o exemplo que o item mostra à parte ("... conforme
+    o exemplo a seguir." | "**Assunto: Realização de concurso público.**", PRF 2021, item 26).
+    Abre parágrafo a linha em negrito e a primeira linha que vem depois dela. Emenda (19) da
+    0020."""
+    found: set[int] = set()
+    for index in range(1, len(lines)):
+        previous = entries[index - 1]
+        if not (
+            BOLD_LINE.match(lines[index].strip())
+            and previous.short
+            and previous.line.plain.rstrip().endswith(SENTENCE_STOP)
+        ):
+            continue
+        found.add(index)
+        if index + 1 < len(lines):
+            found.add(index + 1)
     return found
 
 

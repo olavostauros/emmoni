@@ -1981,3 +1981,60 @@ def test_list_items_split_and_command_after_list() -> None:
     assert cebraspe._next_list_item(third, entries[8], fourth)
     assert not cebraspe._next_list_item(fourth, entries[10], entries[4])
     assert not cebraspe._next_list_item(third, entries[7], fourth)  # "serviços" não fecha o III
+
+
+def test_choice_centered_formula_is_its_own_paragraph() -> None:
+    """PM/SC 2023 oficial, questão 66: a fórmula centralizada em linha própria, que não termina
+    em ponto nem fica curta, é um parágrafo; o comando na margem abaixo dela abre outro. Linha
+    só recuada (primeira linha de parágrafo) não é centralizada. Emenda (19) da 0020."""
+    page = _page(
+        [
+            _line("Questão 66", 51, 50),
+            _line("((P ˄ S) → (Q ˅ R)) → ((~R ˅ P) → (~Q ˅ ~S)", 62.4, 68, x1=259.7),
+            _line("O número de linhas da tabela-verdade da proposição lógica", 28.4, 89, x1=293.6),
+            _line("precedente é igual a", 28.4, 103, x1=110),
+            *(
+                _line(f"{letter} {2**i}.", 28.4, 125 + 14 * i, x1=60)
+                for i, letter in enumerate("ABCDE", start=1)
+            ),
+            _line("Questão 67", 51, 210),
+            _line("Uma pesquisa revelou que 45% dos policiais militares de", 56.9, 222, x1=293.6),
+            _line("Santa Catarina haviam sido surfistas e, entre esses policiais", 28.4, 236),
+            _line("militares surfistas, construíam suas próprias pranchas", 28.4, 250, x1=293.6),
+            _line("Qual o percentual?", 28.4, 264, x1=120),
+            *(
+                _line(f"{letter} {i}%.", 28.4, 280 + 14 * i, x1=60)
+                for i, letter in enumerate("ABCDE", start=1)
+            ),
+        ]
+    )
+    first, second = cebraspe.segment([page], first=66).questions
+    assert first.statement_md == (
+        "((P ˄ S) → (Q ˅ R)) → ((~R ˅ P) → (~Q ˅ ~S)\n\n"
+        "O número de linhas da tabela-verdade da proposição lógica precedente é igual a"
+    )
+    assert [o.body_md for o in first.options] == ["2.", "4.", "8.", "16.", "32."]
+    assert second.statement_md.startswith(
+        "Uma pesquisa revelou que 45% dos policiais militares de Santa Catarina haviam"
+    )
+    assert "\n\n" not in second.statement_md  # o recuo de parágrafo não é centralização
+
+
+def test_bold_sentence_after_item_stays_in_the_item() -> None:
+    """PRF 2021, item 26: a frase inteira em negrito que o item anuncia ("... conforme o exemplo a
+    seguir." | "**Assunto: Realização de concurso público.**") termina em ponto, não é título de
+    bloco: fica no item, em parágrafo próprio. Emenda (19) da 0020."""
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 50, x1=150),
+            _line("**26** O assunto das comunicações oficiais deve seguir as", 28, 70),
+            _line("orientações do MRPR, conforme o exemplo a seguir.", 46, 82, x1=200),
+            _line("**Assunto: Realização de concurso público.**", 46, 100, x1=230),
+            _line("**27** Outro item.", 28, 120, x1=100),
+        ]
+    )
+    first, second = cebraspe.segment([page], first=26).questions
+    assert first.statement_md.endswith(
+        "conforme o exemplo a seguir.\n\n**Assunto: Realização de concurso público.**"
+    )
+    assert second.statement_md.endswith("Outro item.")

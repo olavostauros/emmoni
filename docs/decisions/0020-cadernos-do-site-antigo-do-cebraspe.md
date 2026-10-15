@@ -623,3 +623,39 @@ comando engolia o item IV.
 o novo, a partir do mesmo `pages.exam.json`, e comparadas. Mudam só: PF 2012 agente (g83 passa a
 ter a introdução e os itens I a IV, cada um em seu parágrafo, com o II inteiro; q83 e q84 começam
 no comando "À luz ...") e PM/DF 2025 P2 (g80: "b) ...;" e "c) ..." passam a parágrafos separados).
+
+## Emenda de 2026-10-15 (19) — linha centralizada na múltipla escolha; frase inteira em negrito no item; estilo no PRF 2021
+
+**Contexto.** Reprovação do minos (semente r30) no PM/SC 2023 oficial, questão 66: a fórmula
+centralizada em linha própria ("((P ˄ S) → (Q ˅ R)) → ((~R ˅ P) → (~Q ˅ ~S)") saía no mesmo
+parágrafo do comando "O número de linhas da tabela-verdade...". Ela não termina em ponto, sobra
+34 pt à direita (menos que `SHORT_LINE`) e o enunciado tem linhas de menos para medir o
+entrelinha: nenhuma regra de `_choice_paragraphs` abria parágrafo. A questão 67, com a citação
+recuada e a última linha curta, já saía certa. Na preparação da reamostragem do PRF 2021 policial
+(estilo ligado), o exemplo em negrito do item 26 ("... conforme o exemplo a seguir." |
+"**Assunto: Realização de concurso público.**") encerrava o item como título de bloco e ia para o
+começo do texto-base seguinte.
+
+**Decisão.**
+
+1. Linha **centralizada** na coluna — recuo da esquerda e sobra da direita maiores que o recuo de
+   parágrafo (15 pt) e iguais até 3 pt — é um parágrafo próprio no enunciado da múltipla escolha:
+   a linha seguinte, na margem e em maiúscula, abre outro. A primeira linha de parágrafo (só o
+   recuo da esquerda) não é centralizada.
+2. Linha só em negrito que termina em ponto não é título de bloco e não encerra o item (título de
+   bloco não tem ponto final, como em `_bold_heading`). No item, a linha inteira em negrito depois
+   de linha curta de frase terminada é parágrafo próprio, e a linha seguinte abre outro, como a
+   linha só de código (emenda (5)).
+3. `infer_font_styles: true` no PRF 2021 policial e língua inglesa. Nas outras provas do lote de
+   reamostragem (PF 2021 agente, escrivão e papiloscopista; PM/TO 2020 QPPM) a opção não muda nada:
+   as fontes "TT…o00" desses cadernos só aparecem na prova discursiva, e o estilo da objetiva já vem
+   das fontes com nome; os manifestos ficam como estão.
+
+**Verificação.** As 135 provas do `data/staging/` segmentadas com o código do HEAD (1684ce2) e com
+o novo, a partir do mesmo `pages.exam.json`, e comparadas. A regra 1 muda só: PM/SC 2023 oficial
+(q66), PC/PB 2021 específicos cargo 13 (q62, equação química centralizada antes de "Do ponto de
+vista termodinâmico...") e PC/RO 2022 específicos cargos 1 e 4 (q57, a última linha da tabela
+centralizada antes do comando). A regra 2 não muda nenhuma prova já com estilo. Com o estilo, o
+PRF 2021 policial muda só marcação em q15, q18, q19, q22–q30, q32–q39, q64, q80, q97, q102, q120 e
+nos textos 1A18-I, g27, g43 e g100, mais o parágrafo próprio do "**Assunto: ...**" no item 26; a
+língua inglesa, só q7 ("**Even so**").
