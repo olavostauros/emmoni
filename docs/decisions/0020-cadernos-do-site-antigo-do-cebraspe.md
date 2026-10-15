@@ -703,3 +703,38 @@ marcação em q51 (*shopping*), q55 (*habeas corpus*), q89 (**Situação hipoté
 "-- CONHECIMENTOS COMPLEMENTARES --" deixa de ser o texto-base g81 das q81–q82. Páginas conferidas
 renderizadas: DEPEN 2020 págs. 5, 7 e 8; CBM/TO 2021 soldado pág. 6; CBM/AL 2021 oficial págs. 3
 e 6 e soldado págs. 4 e 8; PM/SC 2023 soldado pág. 7. Fixture `pmsc-2023-soldado-p7.pdf`.
+
+## Emenda de 2026-10-15 (21) — proposições rotuladas no item; corpo do crédito no OCR
+
+**Contexto.** Reprovações do minos (semente r32). No CBM/AL 2021 soldado, item 86 (pág. 7), o
+item traz "Considere as seguintes sentenças." | "S1: ..." | "S2: ..." (partida em duas linhas) |
+"Sendo as sentenças S1 e S2 verdadeiras, ..." e saía num parágrafo só: o enunciado do item
+certo/errado só abria parágrafo por linha de código, linha em negrito e correspondência; a regra
+de linhas com rótulo da emenda (8) (`_labeled_line_opens`) vale no texto-base e na múltipla
+escolha, não no item, e o `PROPOSITION` dela nem tinha "S1:". No PC/DF 2020 básicos (prova OCR),
+o crédito do texto da pág. 2 ("Raduan Nassar. **Aí pelas três da tarde**. *In*: ... **Os cem
+melhores**" | "**contos brasileiros do século**. ... (com adaptações).") saía em dois parágrafos:
+o corpo das duas linhas vem da altura da caixa do OCR (5,2 e 4,7; a de cima tem "Í" e negrito), e
+as regras de crédito pedem o mesmo corpo. O crédito do Harari, na mesma prova, tem 4,7 nas duas.
+
+**Decisão.**
+
+1. No item certo/errado, com duas ou mais linhas começando com proposição rotulada
+   (`ITEM_PROPOSITION`: "P:", "Q:", "S1:", "C:"...) na mesma margem (±2 pt), página e coluna,
+   a linha rotulada abre parágrafo depois de frase fechada ou de outra proposição, e a primeira
+   linha sem rótulo, em maiúscula, depois de proposição terminada em ".", "?" ou "!", também
+   abre — quando a anterior é curta, o corpo muda ou há espaço de bloco (`_proposition_breaks`).
+   Proposição solta ("... a seguinte proposição:" | "P: ...", PF 2018 papiloscopista) segue no
+   parágrafo.
+2. `PROPOSITION` (texto-base e múltipla escolha) aceita "Q1:", "R1:", "S1:" além de "P1:"; sem
+   índice continua de fora.
+3. Na página de OCR (`_Entry.ocr`), duas linhas miúdas são do mesmo corpo de crédito com até 20%
+   de diferença do corpo menor (`_same_credit_size`, em `_credit_line` e
+   `_credit_right_aligned`). No PDF com texto o corpo continua exato.
+
+**Verificação.** As 140 provas do `data/staging/` segmentadas com o código do HEAD (360d254) e com
+o novo, a partir do mesmo `pages.exam.json`, e comparadas. A regra 3 muda só o PC/DF 2020 básicos
+(texto g1: o crédito num parágrafo só, "**Os cem melhores contos brasileiros do século**"). A regra
+1 muda só: CBM/AL 2021 soldado (q86), CBM/AL 2017 básicos cargo 1 (q48: "P: ...", "Q: ..." e
+"Nesse caso, ..." em parágrafos próprios) e PF 2025 bloco I (q55: "P: “...”", "Q: “...”" e "Com
+base nessas proposições, ..."). A regra 2 não muda nenhuma prova.

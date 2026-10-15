@@ -1849,12 +1849,14 @@ def test_propositions_p_and_q_stay_in_the_item() -> None:
     assert [q.number for q in segmented.questions] == [45, 46, 47, 48, 49, 50]
     by_number = {q.number: q for q in segmented.questions}
     assert "orphan_text" not in by_number[48].flags
+    # Cada proposição e o texto depois delas em parágrafo próprio (emenda (21) da 0020).
     assert by_number[48].statement_md.endswith(
-        "degradar a vida no planeta. Q: A humanidade diminui a produção de material plástico e"
+        "degradar a vida no planeta.\n\nQ: A humanidade diminui a produção de material plástico e"
         " encontra uma solução para o problema do lixo desse material ou o acúmulo de plástico no"
-        " meio ambiente degradará a vida no planeta. Nesse caso, é correto afirmar que as"
+        " meio ambiente degradará a vida no planeta.\n\nNesse caso, é correto afirmar que as"
         " proposições P e Q são equivalentes."
     )
+    assert "proposições:\n\nP: Se a humanidade" in by_number[48].statement_md
     assert by_number[49].statement_md.startswith(
         "A respeito de proposições lógicas, julgue os itens a seguir.\n\nA sentença Soldado,"
     )
@@ -2060,3 +2062,79 @@ def test_bold_sentence_after_item_stays_in_the_item() -> None:
         "conforme o exemplo a seguir.\n\n**Assunto: Realização de concurso público.**"
     )
     assert second.statement_md.endswith("Outro item.")
+
+
+def _item_line(text: str, x0: float, y0: float, x1: float) -> Line:
+    """Linha de 10 pt da coluna 1 (margem 28,4; direita 294,4)."""
+    plain = text.replace("**", "")
+    return Line(text=text, plain=plain, x0=x0, y0=y0, x1=x1, y1=y0 + 11.1, column=1, size=10.0)
+
+
+def test_labeled_sentences_in_the_item_are_paragraphs() -> None:
+    """CBM/AL 2021 soldado, item 86 (pág. 7): "Considere as seguintes sentenças." | "S1: ..." |
+    "S2: ..." (partida em duas linhas) | "Sendo as sentenças S1 e S2 verdadeiras, ...". Cada
+    sentença rotulada e o texto seguinte em parágrafo próprio; antes saía tudo num parágrafo só
+    (o item não olhava rótulos). Emenda (21) da 0020."""
+    lines = [
+        _item_line("Considerando os conectivos lógicos usuais, julgue os itens a seguir.", 28.4, 700.0, 294.0),
+        _item_line("**86** Considere as seguintes sentenças.", 28.4, 739.7, 183.3),
+        _item_line("S1: Todo bombeiro tem bom condicionamento físico.", 46.4, 751.3, 263.1),
+        _item_line("S2: Toda pessoa que dorme bem tem bom condicionamento", 46.4, 762.9, 294.3),
+        _item_line("físico.", 46.4, 774.5, 73.6),
+        _item_line("Sendo as sentenças S1 e S2 verdadeiras, então se pode", 46.4, 786.1, 294.4),
+        _item_line("concluir que todo bombeiro dorme bem.", 46.4, 797.7, 210.0),
+    ]  # fmt: skip
+    question = cebraspe.segment([_page(lines)], first=86).questions[0]
+    assert question.number == 86
+    assert question.statement_md.split("\n\n")[1:] == [
+        "Considere as seguintes sentenças.",
+        "S1: Todo bombeiro tem bom condicionamento físico.",
+        "S2: Toda pessoa que dorme bem tem bom condicionamento físico.",
+        "Sendo as sentenças S1 e S2 verdadeiras, então se pode concluir que todo bombeiro dorme bem.",
+    ]
+
+
+def test_single_proposition_stays_in_the_item_paragraph() -> None:
+    """Proposição solta, sem outra rotulada alinhada no item ("... a seguinte proposição:" |
+    "P: ..."), não abre parágrafo: uma linha só com rótulo não é lista."""
+    lines = [
+        _item_line("Julgue os itens a seguir.", 28.4, 700.0, 140.0),
+        _item_line("**1** Considere a seguinte proposição:", 28.4, 720.0, 200.0),
+        _item_line("P: Se chove, então a rua fica molhada. Nesse caso, a", 46.4, 731.6, 294.4),
+        _item_line("negação de P é equivalente a chover e a rua não ficar molhada.", 46.4, 743.2, 290.0),
+    ]  # fmt: skip
+    statement = cebraspe.segment([_page(lines)]).questions[0].statement_md
+    assert statement.split("\n\n")[1].startswith("Considere a seguinte proposição: P: Se chove")
+
+
+def test_ocr_credit_with_jittering_size_is_one_paragraph() -> None:
+    """PC/DF 2020 básicos (OCR), crédito do texto da pág. 2: duas linhas miúdas no mesmo x, com
+    corpos 5,2 e 4,7 (o corpo vem da altura da caixa do OCR). No OCR é o mesmo corpo, e o crédito
+    é um parágrafo só, com o título em negrito inteiro. No PDF com texto, corpos diferentes
+    continuam separados. Emenda (21) da 0020."""
+
+    def entries(ocr: bool) -> list[cebraspe._Entry]:
+        found = [
+            _credit_entry("se sentir embalado pelo mundo.", 29.0, 602.9, 157.1, size=7.5),
+            _credit_entry(
+                "Raduan Nassar. **Aí pelas três da tarde**. *In*: Ítalo Moriconi (Org.). **Os cem melhores**",
+                71.3, 618.9, 292.8, size=5.2,
+            ),
+            _credit_entry(
+                "**contos brasileiros do século**. Rio de Janeiro: Objetiva, 2001 (com adaptações).",
+                71.3, 627.2, 263.7, size=4.7,
+            ),
+            _credit_entry("No que se refere às ideias e aos aspectos linguísticos do texto", 28.4, 641.2, 293.4, size=7.5),
+        ]  # fmt: skip
+        found[0].short = True
+        for entry in found:
+            entry.ocr = ocr
+        return found
+
+    assert cebraspe._paragraphs(entries(ocr=True)) == [
+        "se sentir embalado pelo mundo.",
+        "Raduan Nassar. **Aí pelas três da tarde**. *In*: Ítalo Moriconi (Org.). **Os cem melhores"
+        " contos brasileiros do século**. Rio de Janeiro: Objetiva, 2001 (com adaptações).",
+        "No que se refere às ideias e aos aspectos linguísticos do texto",
+    ]
+    assert len(cebraspe._paragraphs(entries(ocr=False))) == 4

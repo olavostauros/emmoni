@@ -237,6 +237,8 @@ class _Entry:
     below_figure: bool = False
     # Linha centralizada na coluna, com recuo dos dois lados (`_centered_line`).
     centered: bool = False
+    # Veio de página digitalizada (OCR): o corpo da linha sai da altura da caixa e oscila.
+    ocr: bool = False
 
 
 @dataclass
@@ -1101,6 +1103,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 after_justification=closed,
                 justification_color=justification_color is not None
                 and line.color == justification_color,
+                ocr=bool(page.ocr),
             )
             # Texto branco sem fundo desenhado é invisível: não está na página impressa (PC/SE
             # 2018: "Texto" em 5 pt acima de cada texto-base). Sai depois de as figuras serem
@@ -1538,7 +1541,11 @@ def _question(
         e.line.text for e in item.entries[1:]
     ]
     breaks = _letter_breaks(item.entries)
-    code_breaks = _code_line_breaks(text_lines) | _bold_line_breaks(item.entries, text_lines)
+    code_breaks = (
+        _code_line_breaks(text_lines)
+        | _bold_line_breaks(item.entries, text_lines)
+        | _proposition_breaks(item.entries)
+    )
     paragraphs: list[list[list[str]]] = [[[]]]
     for index, text in enumerate(text_lines):
         if index in code_breaks and paragraphs[-1] != [[]]:
@@ -1632,6 +1639,60 @@ def _bold_line_breaks(entries: list[_Entry], lines: list[str]) -> set[int]:
     return found
 
 
+def _proposition_breaks(entries: list[_Entry]) -> set[int]:
+    """Índices das linhas do item que abrem parágrafo por causa de uma lista de proposições
+    rotuladas ("S1: Todo bombeiro ..." | "S2: Toda pessoa ..." | "Sendo as sentenças ...", CBM/AL
+    2021 soldado, item 86; "P: ..." | "Q: ..." | "Nesse caso, ...", CBM/AL 2017 básicos cargo 1,
+    item 48). Só com duas linhas ou mais do item começando com rótulo (`ITEM_PROPOSITION`) na
+    mesma margem (±`LABEL_ALIGN`), na mesma página e coluna: proposição solta ("... acerca da
+    seguinte proposição:" | "P: ...", PF 2018 papiloscopista) continua no parágrafo. Abre
+    parágrafo a linha rotulada depois de frase fechada ou de outra proposição, e a primeira linha
+    sem rótulo, em maiúscula, depois de proposição de frase terminada, quando a anterior é curta,
+    o corpo muda ou há espaço de bloco entre as duas (`_block_gap`): o texto que segue a lista
+    ("Com base nessas proposições, ...", PF 2025 bloco I, item 55). Emenda (21) da 0020."""
+    labeled = [
+        index
+        for index, entry in enumerate(entries)
+        if index > 0 and ITEM_PROPOSITION.match(entry.line.plain)
+    ]
+    aligned = {
+        index
+        for index in labeled
+        if any(
+            other != index
+            and entries[other].page == entries[index].page
+            and entries[other].line.column == entries[index].line.column
+            and abs(entries[other].line.x0 - entries[index].line.x0) <= LABEL_ALIGN
+            for other in labeled
+        )
+    }
+    found: set[int] = set()
+    if not aligned:
+        return found
+    leading = _leading(entries)
+    in_proposition = False  # o parágrafo aberto é uma proposição da lista
+    for index in range(1, len(entries)):
+        previous, entry = entries[index - 1], entries[index]
+        stop = previous.line.plain.rstrip()
+        if index in aligned:
+            if in_proposition or stop.endswith(SENTENCE_STOP):
+                found.add(index)
+                in_proposition = True
+        elif (
+            in_proposition
+            and stop.endswith(SENTENCE_STOP_FULL)
+            and entry.line.plain[:1].isupper()
+            and (
+                previous.short
+                or abs(entry.line.size - previous.line.size) >= 1
+                or _block_gap(previous, entry, leading, command_rule=False)
+            )
+        ):
+            found.add(index)
+            in_proposition = False
+    return found
+
+
 def _letter_breaks(entries: list[_Entry]) -> set[int]:
     """Índices das linhas do item depois das quais vem quebra de linha: o vocativo ou o fecho de
     uma correspondência, curto e terminado em vírgula, e a linha curta terminada em ponto que
@@ -1677,7 +1738,10 @@ def _strip_line_numbers(entries: list[_Entry]) -> tuple[list[_Entry], bool]:
                     "x0": base,
                 }
             )
-            entry = _Entry(entry.page, line, entry.left, entry.short, entry.after_gap, entry.flags)
+            entry = _Entry(
+                entry.page, line, entry.left, entry.short, entry.after_gap, entry.flags,
+                ocr=entry.ocr,
+            )  # fmt: skip
             numbered = True
         stripped.append(entry)
     return stripped, numbered
@@ -1779,11 +1843,13 @@ def _next_list_item(opener: _Entry | None, previous: _Entry | None, entry: _Entr
     return previous.line.plain.rstrip().endswith(SENTENCE_STOP)
 
 
-# Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é...") ou a conclusão do
-# argumento ("C: Logo, ..."): abre parágrafo.
-PROPOSITION = re.compile(r"^(?:P\d{1,2}|C)\s?:\s")
-# Proposição rotulada dentro do item, também sem índice ("P: ..." | "Q: ...", CBM/AL 2017 básicos,
-# item 48): só para decidir se a linha continua o item (`_continues`), não abre parágrafo.
+# Proposição rotulada no começo da linha ("P1: Existe...", "P3: Ele é...", "S1: Todo ...") ou a
+# conclusão do argumento ("C: Logo, ..."): abre parágrafo no texto-base e na múltipla escolha.
+# Sem índice ("P: ...") fica de fora: "P:" solto é comum demais para marcar lista ali.
+PROPOSITION = re.compile(r"^(?:[PQRS]\d{1,2}|C)\s?:\s")
+# Proposição rotulada dentro do item certo/errado, também sem índice ("P: ..." | "Q: ...", CBM/AL
+# 2017 básicos, item 48): decide se a linha continua o item (`_continues`) e, com duas ou mais
+# alinhadas no item, abre parágrafo (`_proposition_breaks`).
 ITEM_PROPOSITION = re.compile(r"^(?:[PQRS]\d{0,2}|C)\s?:\s")
 LABEL_ALIGN = 2.0  # pt: proposições da mesma lista começam na mesma margem
 # Sentença aberta ou função definida no começo da linha ("c(x): a pessoa...", "P(x, y): ...").
@@ -1865,11 +1931,27 @@ def _block_gap(
 CREDIT_MAX_LINES = 6  # crédito mais longo que isso não é crédito
 
 
+# Na página digitalizada, o corpo de cada linha vem da altura da caixa do OCR: duas linhas do
+# mesmo crédito miúdo saem com 5,2 e 4,7 (a de cima tem "Í" e negrito; PC/DF 2020 básicos, texto
+# da pág. 2). Até esta fração do corpo menor, é o mesmo corpo. Emenda (21) da 0020.
+OCR_CREDIT_JITTER = 0.2
+
+
+def _same_credit_size(entry: _Entry, size: float) -> bool:
+    """A linha tem o corpo `size` do crédito: igual no PDF com texto; no OCR, com a oscilação de
+    até `OCR_CREDIT_JITTER` do corpo menor."""
+    if entry.line.size == size:
+        return True
+    return entry.ocr and abs(entry.line.size - size) <= OCR_CREDIT_JITTER * min(
+        entry.line.size, size
+    )
+
+
 def _credit_line(entry: _Entry, size: float) -> bool:
     """Linha de crédito: letra miúda, do mesmo tamanho das outras, alinhada à direita."""
     return (
         entry.line.size < CITATION_SIZE
-        and entry.line.size == size
+        and _same_credit_size(entry, size)
         and entry.line.x0 > entry.left + ODD_INDENT
     )
 
@@ -1985,7 +2067,7 @@ def _credit_right_aligned(previous: _Entry, entry: _Entry, before: _Entry | None
     opens = before is not None and before.line.size != size
     return (
         size < CITATION_SIZE
-        and entry.line.size == size
+        and _same_credit_size(entry, size)
         and gap is not None
         and gap <= size * CREDIT_RIGHT_GAP
         and (
