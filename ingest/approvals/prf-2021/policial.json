@@ -1,19 +1,22 @@
 {
  "exam": "prf-2021/policial",
+ "seed": "r31",
  "numbers": [
-  19,
-  20,
-  24,
-  70,
+  16,
+  17,
+  26,
+  38,
+  48,
+  54,
+  61,
+  68,
+  69,
   77,
-  83,
-  86,
-  100,
-  106,
-  116
+  102
  ],
- "sampled_at": "2026-10-08T17:35:00.105317+00:00",
- "approved_at": "2026-10-08T17:37:15.603396+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "de187d3410b8fcec3c536b23028814cabc70a2ee5bab7c79b8dec7009bb0ec78"
+ "sampled_at": "2026-10-15T03:27:46.258954+00:00",
+ "approved_at": "2026-10-15T03:28:24.493944+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "da7125d36fc86801b00dc32b7919dd17375bacb48cd5c60cba8012986f6c5941",
+ "fingerprint_version": 2
 }

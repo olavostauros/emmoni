@@ -1,19 +1,21 @@
 {
  "exam": "pf-2021/escrivao",
+ "seed": "r31",
  "numbers": [
+  8,
+  9,
   29,
-  33,
-  36,
-  53,
-  62,
-  67,
-  74,
+  49,
+  55,
+  69,
   76,
-  82,
-  118
+  79,
+  89,
+  114
  ],
- "sampled_at": "2026-10-08T18:06:08.040475+00:00",
- "approved_at": "2026-10-08T18:08:12.864769+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "3c25824db033d7761d57f4816c142fa96b2fca0fb6b998ccb677ace20edb8b70"
+ "sampled_at": "2026-10-15T03:30:29.042391+00:00",
+ "approved_at": "2026-10-15T03:30:59.684965+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "3a77cda5057b3484adfe56ef4b71d8c7e2b4d10d4519070ddfca46a34313e842",
+ "fingerprint_version": 2
 }

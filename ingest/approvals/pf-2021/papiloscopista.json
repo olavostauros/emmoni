@@ -1,19 +1,21 @@
 {
  "exam": "pf-2021/papiloscopista",
+ "seed": "r31",
  "numbers": [
   5,
-  7,
+  8,
   9,
-  10,
-  15,
-  16,
-  53,
-  88,
-  95,
-  110
+  29,
+  49,
+  55,
+  69,
+  76,
+  79,
+  89
  ],
- "sampled_at": "2026-10-08T18:06:08.876861+00:00",
- "approved_at": "2026-10-08T18:08:13.128021+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "45e4f43210cff46a2970e91f2785427f61e8d68b472440b2fe57d6c4a2934176"
+ "sampled_at": "2026-10-15T03:31:00.403586+00:00",
+ "approved_at": "2026-10-15T03:31:33.064369+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "b673cd0a7d01b4a2d57c53fcf9ef6fbf3baa98b67725f03d80649fad65dbdbe6",
+ "fingerprint_version": 2
 }
