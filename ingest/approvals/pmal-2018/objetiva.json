@@ -1,19 +1,32 @@
 {
  "exam": "pmal-2018/objetiva",
+ "seed": "r35",
  "numbers": [
   1,
+  2,
+  3,
+  4,
+  5,
   6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
   16,
+  18,
+  24,
+  28,
   40,
   41,
-  55,
-  65,
-  80,
-  89,
-  108
+  63,
+  64,
+  84
  ],
- "sampled_at": "2026-10-13T12:48:42.588472+00:00",
- "approved_at": "2026-10-13T12:53:13.182499+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "a0bf6b7782cb8d3cbec7b8472056c72edd1c98f893d044173489473c4fccb598"
+ "sampled_at": "2026-10-15T04:33:05.627713+00:00",
+ "approved_at": "2026-10-15T04:33:49.026236+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "d36905ffca9c190686b5827f4ac9f41556acd7ba874c4300eafb0e1f358769a9",
+ "fingerprint_version": 2
 }

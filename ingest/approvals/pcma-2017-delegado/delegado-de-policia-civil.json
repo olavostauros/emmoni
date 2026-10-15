@@ -1,25 +1,21 @@
 {
  "exam": "pcma-2017-delegado/delegado-de-policia-civil",
- "seed": "r9",
+ "seed": "r35",
  "numbers": [
-  15,
-  16,
+  10,
+  21,
+  23,
   29,
-  37,
-  42,
+  32,
   44,
-  55,
-  56,
-  66,
-  67,
+  50,
+  68,
   69,
-  73,
-  84,
-  92,
-  98
+  89
  ],
- "sampled_at": "2026-10-14T14:05:38.419322+00:00",
- "approved_at": "2026-10-14T14:06:48.321094+00:00",
+ "sampled_at": "2026-10-15T04:35:12.112293+00:00",
+ "approved_at": "2026-10-15T04:35:47.083284+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "85885f5052f8492ce4b0b8edaba62593f9116f7072ad88e9dc26c163b3450808"
+ "fingerprint": "61a018818fd2d600a045ec4e1ef0ac4268386d9f2d3f3d743ac8f24754ab4933",
+ "fingerprint_version": 2
 }
