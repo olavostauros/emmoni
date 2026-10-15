@@ -1,4 +1,5 @@
 # PRF 2021 — Banca: Cebraspe. Fonte: https://www.cebraspe.org.br/concursos/PRF_21 (API: eventos/PRF_21).
+# infer_font_styles ligado em 2026-10-14 (emenda (8) da decisão 0020): reprovação do minos (r29); só na lingua-espanhola.
 # A prova objetiva tem os itens 9 a 120 num caderno e os itens 1 a 8 em cadernos de língua
 # estrangeira (inglês ou espanhol, à escolha do candidato). Provas do curso de formação ficam fora.
 contest: prf-2021
@@ -43,6 +44,7 @@ exams:
     name: Policial Rodoviário Federal — língua espanhola (itens 1 a 8)
     positions: [policial-rodoviario-federal]
     canonical_booklet: "único"
+    infer_font_styles: true
     documents:
       exam: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/578_PRF_ESP_02.PDF
       answer_key_final: https://cdn.cebraspe.org.br/concursos/PRF_21/arquivos/GAB_DEFINITIVO_578_PRF_ESP_02.PDF

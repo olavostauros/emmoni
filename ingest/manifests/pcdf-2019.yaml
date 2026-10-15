@@ -1,4 +1,5 @@
 # PCDF 2019 — Escrivão. Caderno único ("boneca" com justificativas, itens 1–120) e dois gabaritos
+# infer_font_styles ligado em 2026-10-14 (emenda (8) da decisão 0020): reprovação do minos (r29).
 # definitivos: básicos (1–50) e específicos (51–120). Aprovado em 2026-10-07.
 contest: pcdf-2019
 name: POLÍCIA CIVIL DO DISTRITO FEDERAL
@@ -11,6 +12,7 @@ exams:
   name: Escrivão de Polícia — prova objetiva
   positions:
   - escrivao
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_DF_19_ESCRIVAO/arquivos/MATRIZ_519_PCDF_001_00_BONECA_COMJUSTIFICATIVA.PDF
     answer_key_final:
