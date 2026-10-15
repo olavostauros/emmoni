@@ -1,5 +1,6 @@
 {
  "exam": "prf-2021/lingua-espanhola",
+ "seed": "r30",
  "numbers": [
   1,
   2,
@@ -10,8 +11,9 @@
   7,
   8
  ],
- "sampled_at": "2026-10-08T17:34:59.216848+00:00",
- "approved_at": "2026-10-08T17:37:15.098117+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "a73804a66d6e9b9ddf5d0c046876979c32a183a03bbd52f81221843a03d985a4"
+ "sampled_at": "2026-10-15T00:13:08.029565+00:00",
+ "approved_at": "2026-10-15T00:13:27.054604+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "6e104b416532d8a9faa4640c5c10aca82dcb30070b26438ecc6869a4104e8720",
+ "fingerprint_version": 2
 }
