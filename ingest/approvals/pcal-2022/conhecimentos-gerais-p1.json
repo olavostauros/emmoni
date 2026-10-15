@@ -1,25 +1,21 @@
 {
  "exam": "pcal-2022/conhecimentos-gerais-p1",
+ "seed": "r37",
  "numbers": [
   1,
-  3,
-  5,
   7,
   8,
   10,
-  12,
-  14,
+  11,
+  13,
   15,
-  17,
-  19,
-  20,
-  22,
-  24,
+  16,
   25,
-  27
+  29
  ],
- "sampled_at": "2026-10-14T08:36:34.060589+00:00",
- "approved_at": "2026-10-14T08:40:12.585215+00:00",
+ "sampled_at": "2026-10-15T04:43:58.082837+00:00",
+ "approved_at": "2026-10-15T04:44:20.183801+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "74fc5cb2c8e7280af38832b1d60be60700b95dde18d56a29c2f8aa0f82836ccb"
+ "fingerprint": "c44f40295171d94dd7407bea287d846b70d013534567e90ad732ca109d76244a",
+ "fingerprint_version": 2
 }

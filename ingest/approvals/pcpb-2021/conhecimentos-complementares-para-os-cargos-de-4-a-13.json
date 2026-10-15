@@ -1,21 +1,21 @@
 {
  "exam": "pcpb-2021/conhecimentos-complementares-para-os-cargos-de-4-a-13",
- "seed": "minos-2026-10-14-r4",
+ "seed": "r37",
  "numbers": [
-  22,
-  24,
-  26,
+  21,
+  27,
   28,
-  29,
-  32,
+  30,
+  31,
+  33,
+  35,
   36,
-  37,
-  42,
-  43,
-  44
+  44,
+  50
  ],
- "sampled_at": "2026-10-14T09:24:08.743297+00:00",
- "approved_at": "2026-10-14T09:27:12.797776+00:00",
+ "sampled_at": "2026-10-15T04:46:19.137718+00:00",
+ "approved_at": "2026-10-15T04:46:37.644099+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "29b9cb22d9e0769de4ffca8db4d2270d58cd77f2467f0696aca4d52c4b39666f"
+ "fingerprint": "1fc61ee3a4e18169d7d5fd05049c4225ffa8281d2936a7d4df379e79123ee994",
+ "fingerprint_version": 2
 }

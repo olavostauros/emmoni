@@ -1,26 +1,21 @@
 {
  "exam": "pcpb-2021/conhecimentos-especificos-cargo-7",
- "seed": "minos-2026-10-14-r3",
+ "seed": "r37",
  "numbers": [
-  53,
-  55,
-  56,
-  57,
-  58,
-  62,
+  52,
+  59,
+  60,
   63,
-  65,
+  64,
   66,
+  68,
   69,
-  70,
-  72,
-  73,
-  74,
-  79,
+  77,
   80
  ],
- "sampled_at": "2026-10-14T09:09:06.259099+00:00",
- "approved_at": "2026-10-14T09:10:06.530523+00:00",
+ "sampled_at": "2026-10-15T04:44:37.281123+00:00",
+ "approved_at": "2026-10-15T04:45:09.339994+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "b4b2f10f9299ed8dc8ce92f4b40ac6a9d6d25af8cd8672d43f710688bfd57c9a"
+ "fingerprint": "3308e3a9a801bfee7478f0f692536bd1d7aa32bc6811d8d067a41d9d3c40dd1b",
+ "fingerprint_version": 2
 }

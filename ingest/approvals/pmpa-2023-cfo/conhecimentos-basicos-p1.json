@@ -1,27 +1,21 @@
 {
  "exam": "pmpa-2023-cfo/conhecimentos-basicos-p1",
+ "seed": "r37",
  "numbers": [
   1,
-  2,
-  3,
   4,
   5,
   6,
   7,
   8,
-  9,
-  10,
-  11,
-  12,
-  13,
   14,
   17,
   18,
-  19,
   20
  ],
- "sampled_at": "2026-10-14T08:36:33.570338+00:00",
- "approved_at": "2026-10-14T08:40:12.322461+00:00",
+ "sampled_at": "2026-10-15T04:42:40.407220+00:00",
+ "approved_at": "2026-10-15T04:43:49.865926+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "5c1a69076560657a23415a6e84bbeba2c06baa2237f9adc70c99626d19792376"
+ "fingerprint": "74bae49ad3e71da08afe9f6bd77b2fb055346d4baf0456edc73df4949454f981",
+ "fingerprint_version": 2
 }
