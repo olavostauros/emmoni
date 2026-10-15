@@ -1,4 +1,8 @@
 # pmal-2018: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles ligado em 2026-10-15 (varredura do estilo, emenda (20) da 0020): só marcação
+# muda — negrito dos títulos dos créditos, das palavras citadas e de "Situação hipotética"/
+# "Assertiva", itálico de *slide*, *worms*, *plug-ins*, *software*, "*In*:" e das variáveis das
+# q117–q120, código inline de `man` e `whatis` (q23); nenhum texto puro nem pendência muda.
 contest: pmal-2018
 name: POLÍCIA MILITAR DO ESTADO DE ALAGOAS
 agency: pmal
@@ -10,6 +14,7 @@ exams:
   name: PROVA OBJETIVA
   positions:
   - soldado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/MATRIZ_410_PMAL001__PAG_7.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/GAB_DEFINITIVO_410_PMAL001__PAG_7.PDF

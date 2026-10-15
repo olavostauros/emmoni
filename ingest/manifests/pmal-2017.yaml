@@ -1,4 +1,8 @@
 # pmal-2017: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles ligado em 2026-10-15 nas duas provas (varredura do estilo, emenda (20) da 0020):
+# só marcação muda — negrito dos títulos dos créditos, das palavras citadas (q8, q12) e de
+# "Situação hipotética"/"Assertiva" (q56–q60), itálico de *Aedes aegypti*, *downloads*, *root*,
+# *Firewalls* e "*In*:"; nenhum texto puro nem pendência muda.
 contest: pmal-2017
 name: Polícia Militar do Estado de Alagoas
 agency: pmal
@@ -11,6 +15,7 @@ exams:
   positions:
   - soldado
   first_number: 51
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/343_PMAL_001_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/Gab_Definitivo_343_PMAL_001_01.PDF
@@ -28,6 +33,7 @@ exams:
   name: Caderno de provas - Conhecimentos Básicos - soldado combatente
   positions:
   - soldado
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/343_PMAL_CB1_01.pdf
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/Gab_Definitivo_343_PMAL_CB1_01.PDF
