@@ -1520,6 +1520,8 @@ def _open_group(
     if prefix:  # texto antes do primeiro rótulo (raro): abre o enunciado
         command = "\n\n".join([*_paragraphs(prefix), command])
     flags = set().union(*(e.flags for e in last_entries)) if last_entries else set()
+    if _layout_only_verses(last_entries):
+        flags.discard("layout")  # versos de estrofe já em quebra de linha (emenda (26) da 0020)
 
     for label, entries in texts:
         if label and entries:
@@ -1571,6 +1573,8 @@ def _add_passage(
     passages: dict[str, RawPassage], key: str, paragraphs: list[str], entries: list[_Entry]
 ) -> None:
     flags = set().union(*(e.flags for e in entries))
+    if _layout_only_verses(entries):
+        flags.discard("layout")  # versos de estrofe já em quebra de linha (emenda (26) da 0020)
     if _code_block(entries):
         flags.add("layout")  # código em várias linhas: o recuo e as linhas em branco se perdem
     passages[key] = RawPassage(
@@ -2334,11 +2338,24 @@ def _verse_breaks(
     só com espaço vertical maior (`_block_gap`). Correspondência oficial fica de fora."""
     if leading is None:
         return set()
+    breaks: set[int] = set()
+    for stanza in _stanzas(entries, leading, bases):
+        breaks.update(i for i in range(stanza.start, stanza.stop - 1) if entries[i].short)
+    return breaks
+
+
+def _stanzas(
+    entries: list[_Entry], leading: float | None, bases: _Bases | None = None
+) -> list[range]:
+    """Os blocos de linhas reconhecidos como estrofe (`_verse_breaks`), cada um como o intervalo
+    de índices das suas linhas."""
+    if leading is None:
+        return []
     if any(LETTER_LINE.match(entry.line.plain.strip()) for entry in entries):
         # Correspondência oficial (vocativo ou fecho, "Senhora gerente,"): o cabeçalho centralizado
         # e o endereçamento têm regra própria, não são estrofe (PC/PB 2021 CG1A1-III).
-        return set()
-    breaks: set[int] = set()
+        return []
+    stanzas: list[range] = []
     start = 0
     for end in range(1, len(entries) + 1):
         if end < len(entries) and _verse_link(entries[end - 1], entries[end], leading, bases):
@@ -2352,9 +2369,33 @@ def _verse_breaks(
             and opened >= VERSE_MIN_OPEN
             and 2 * opened >= len(shorts)
         ):
-            breaks.update(shorts)
+            stanzas.append(range(start, end))
         start = end
-    return breaks
+    return stanzas
+
+
+def _layout_only_verses(entries: list[_Entry]) -> bool:
+    """Toda linha do texto com a marca `layout` (linha recuada e curta) é verso de estrofe
+    reconhecida (`_stanzas`): a estrofe já sai com um verso por linha, em quebra de linha, e as
+    estrofes separadas (emenda (9) da 0020), então a marca não diz nada que o texto perca (CBM/AL
+    2017 específicos cargo 2, "O Xote das meninas", g114: versos centralizados, recuados e
+    curtos). O título do poema, linha inteira em negrito logo acima da estrofe, também recuado e
+    curto, sai em parágrafo próprio e não impede. Texto com numeração de linhas na margem fica de
+    fora: o número do verso se perde (PF 2012 agente g12, papiloscopista g8). Emenda (26) da 0020."""
+    flagged = [i for i, entry in enumerate(entries) if "layout" in entry.flags]
+    if not flagged:
+        return False
+    stripped, numbered = _strip_line_numbers(entries)
+    if numbered or any(LINE_NUMBER.match(entry.line.text) for entry in entries):
+        return False
+    stanzas = _stanzas(stripped, _leading(stripped))
+    inside = {i for stanza in stanzas for i in stanza}
+    titles = {
+        stanza.start - 1
+        for stanza in stanzas
+        if stanza.start > 0 and _is_title(stripped[stanza.start - 1])
+    }
+    return all(i in inside or i in titles for i in flagged)
 
 
 def _join(lines: list[str]) -> str:

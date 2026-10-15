@@ -879,3 +879,29 @@ marca `figure` da faixa do título: bloco I item 6; bloco II itens 69–72; agen
 texto-base muda. Páginas 1 das cinco provas conferidas renderizadas: texto corrido abaixo da
 faixa, sem figura nem tabela nesses itens (a tabela do agente e o circuito do papiloscopista são
 dos itens 107 em diante, que não mudam).
+
+## Emenda de 2026-10-15 (26) — versos de estrofe reconhecida sem a marca de layout
+
+**Contexto.** No CBM/AL 2017 específicos cargo 2 (pág. 4, coluna direita), os itens 114 a 116
+estavam em `review` com "layout especial" por causa do texto-base "O Xote das meninas" (g114): os
+quatro versos e o título vêm centralizados, então cada linha é recuada e curta, e a regra da linha
+recuada e curta (`_stream`: código, tabela, fórmula) marca `layout`. Desde a emenda (9) a estrofe
+já é reconhecida e sai fiel ao caderno: título em negrito em parágrafo próprio, um verso por
+linha com quebra dura (`\`), o crédito à parte. A marca não apontava nada que o texto perdesse.
+
+**Decisão.** No texto-base (`_add_passage`) e na abertura do grupo do certo/errado
+(`_open_group`), a marca `layout` das linhas sai quando toda linha marcada está dentro de um
+bloco reconhecido como estrofe (`_stanzas`, as mesmas regras de `_verse_breaks`) ou é o título
+do poema — linha inteira em negrito logo acima da estrofe (`_layout_only_verses`). Não vale
+quando o texto tem numeração de linhas na margem (o número do verso se perde: PF 2012 agente g12,
+papiloscopista g8), nem quando sobra qualquer linha marcada fora da estrofe (tabela, fórmula,
+título sem negrito). As outras marcas (`figure`, `formula`) e o bloco de código (emenda (24))
+seguem como antes; o item e o enunciado da múltipla escolha não mudam.
+
+**Verificação.** As provas do `data/staging/` reextraídas com o código do HEAD (781c36c) e
+reprocessadas (segment → validate) com o HEAD e com o novo, e comparadas: muda só o CBM/AL 2017
+específicos cargo 2 — texto g114 sem a marca, itens 114–116 sem motivo de revisão. Nenhum
+enunciado, alternativa ou texto-base muda. Continuam com a marca o poema em duas colunas com
+números de verso do PF 2012 (agente g12, itens 12–16; papiloscopista g8, itens 8–12). Página 4
+do caderno conferida renderizada: título, uma estrofe de quatro versos e o crédito, como no
+texto-base.

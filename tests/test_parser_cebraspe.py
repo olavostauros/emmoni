@@ -1859,6 +1859,65 @@ def test_stanzas_split_only_on_vertical_space() -> None:
     assert cebraspe._paragraphs(centered) == ["\\\n".join(t for t, _, _ in xote)]
 
 
+def test_centered_stanza_drops_layout_mark() -> None:
+    """CBM/AL 2017 específicos cargo 2, pág. 4: "O Xote das meninas" (g114) são versos
+    centralizados, recuados e curtos, que a regra da linha recuada marcava como layout, e os itens
+    114–116 iam para revisão. A estrofe já sai com um verso por linha: sem a marca (emenda (26) da
+    0020). (A página sozinha não tem as outras para tirar o cabeçalho repetido.)"""
+    pages = extract(FIXTURES / "pdf/cebraspe/cbmal-2017-especificos-cargo-2-p4.pdf", styles=True)
+    segmented = cebraspe.segment(pages, first=107)
+    by_number = {q.number: q for q in segmented.questions}
+    for number in (114, 115, 116):
+        assert by_number[number].passage_key == "g114"
+        assert "layout" not in by_number[number].flags
+    xote = next(p for p in segmented.passages if p.key == "g114")
+    assert "layout" not in xote.flags
+    assert xote.body_md.endswith(
+        "**O Xote das meninas**\n\nMandacaru quando fulora na seca\\\n"
+        "É o siná que a chuva chega no sertão\\\nToda menina que enjoa da boneca\\\n"
+        "É siná que o amor já chegou no coração...\n\n"
+        "Luiz Gonzaga e Zé Dantas (fragmento da música)."
+    )
+
+
+def _centered(text: str, y0: float, x0: float, x1: float) -> cebraspe._Entry:
+    """Linha recuada e curta, com a marca de layout, como o `_stream` a marca."""
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x1, y1=y0 + 10, column=2, size=10.0)
+    return cebraspe._Entry(4, line, left=304.4, short=True, flags={"layout"})
+
+
+def test_layout_mark_stays_outside_recognized_stanza() -> None:
+    """A marca só sai quando toda linha marcada é verso de estrofe reconhecida (ou o título em
+    negrito logo acima dela): linha recuada fora da estrofe (tabela, fórmula), estrofe curta demais
+    e versos com número de linha na margem continuam em revisão."""
+    verses = [
+        ("Mandacaru quando fulora na seca", 368.3, 502.9),
+        ("É o siná que a chuva chega no sertão", 362.3, 509.0),
+        ("Toda menina que enjoa da boneca", 367.4, 503.7),
+        ("É siná que o amor já chegou no coração...", 352.2, 518.9),
+    ]
+    title = _centered("**O Xote das meninas**", 60, 393.0, 478.0)
+    stanza = [_centered(t, 88 + 18.3 * i, x0, x1) for i, (t, x0, x1) in enumerate(verses)]
+    assert cebraspe._layout_only_verses([title, *stanza])
+    # linha recuada solta depois da estrofe, fora dela (espaço vertical maior)
+    loose = _centered("x = 2y + 1", 200, 400.0, 460.0)
+    assert not cebraspe._layout_only_verses([title, *stanza, loose])
+    # título que não é negrito não é título do poema
+    plain_title = _centered("O Xote das meninas", 60, 393.0, 478.0)
+    assert not cebraspe._layout_only_verses([plain_title, *stanza])
+    # três linhas não são estrofe
+    assert not cebraspe._layout_only_verses(stanza[:3])
+    # número de verso na margem (PF 2012 agente g12): fica em revisão
+    numbered = [
+        *stanza[:2],
+        _centered("5 Toda menina que enjoa da boneca", 88 + 18.3 * 2, 330.0, 503.7),
+        stanza[3],
+    ]
+    assert not cebraspe._layout_only_verses(numbered)
+    # sem marca nenhuma, nada a tirar
+    assert not cebraspe._layout_only_verses([_verse("Prosa curta.", 100)])
+
+
 def test_short_lines_that_are_not_verse_stay_paragraphs() -> None:
     """Não é verso: linhas curtas que fecham a frase (prosa), item de lista, linha de tabela que
     termina em número ou em letra solta (tabela-verdade), código e a correspondência oficial."""
