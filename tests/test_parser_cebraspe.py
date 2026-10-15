@@ -1567,6 +1567,28 @@ def test_subject_heading_rules_do_not_flag_the_question_above() -> None:
     assert questions[1].flags == ["figure"]
 
 
+def test_band_behind_a_title_is_not_a_figure_of_the_question_above() -> None:
+    """CBM/TO 2021 soldado, questão 30 (pág. 6): o título "Noções de Informática" em corpo de
+    título vem numa faixa cinza desenhada, logo depois da alternativa D. A faixa é fundo do título,
+    não figura da questão de cima (emenda (20) da 0020). Desenho que passa bem do título, ou atrás
+    de linha em corpo de texto, continua marcando."""
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        _line("**Noções de Informática**", 80, 102, x1=240, size=15),
+        *_choice(2, "Segunda questão.", 125),
+    ]
+    band = Figure(kind="drawing", x0=29, y0=100.0, x1=290, y1=115.5)
+    questions = {q.number: q for q in cebraspe.segment([_page(lines, [band])]).questions}
+    assert questions[1].flags == []
+    assert questions[2].flags == []
+    tall = Figure(kind="drawing", x0=29, y0=80.0, x1=290, y1=115.5)
+    questions = {q.number: q for q in cebraspe.segment([_page(lines, [tall])]).questions}
+    assert questions[1].flags == ["figure"]
+    small = [*lines[:7], _line("Noções de Informática", 80, 102, x1=240), *lines[8:]]
+    questions = {q.number: q for q in cebraspe.segment([_page(small, [band])]).questions}
+    assert "figure" in questions[1].flags
+
+
 def test_code_line_of_the_item_is_a_paragraph() -> None:
     """PM/AL 2021 oficial, item 37: o comando em fonte monoespaçada, numa linha à parte depois da
     frase terminada, é um parágrafo; código em várias linhas segue num bloco só."""

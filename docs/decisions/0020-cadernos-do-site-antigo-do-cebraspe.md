@@ -659,3 +659,47 @@ centralizada antes do comando). A regra 2 não muda nenhuma prova já com estilo
 PRF 2021 policial muda só marcação em q15, q18, q19, q22–q30, q32–q39, q64, q80, q97, q102, q120 e
 nos textos 1A18-I, g27, g43 e g100, mais o parágrafo próprio do "**Assunto: ...**" no item 26; a
 língua inglesa, só q7 ("**Even so**").
+
+## Emenda de 2026-10-15 (20) — faixa atrás do título de bloco; negrito pela tinta; estilo no DEPEN 2020
+
+**Contexto.** Itens do STATUS: no CBM/TO 2021 soldado, a questão 30 (pág. 6) ficava em `review`
+com "figura não extraída": o título "Noções de Informática" (corpo 15) vem numa faixa cinza
+desenhada logo depois da alternativa D, e a faixa contava como figura da questão de cima (o texto
+do título já não ia para a alternativa desde a emenda de 2026-10-14). No PM/SC 2023 soldado,
+texto 1A5-III (pág. 7), o ofício vem num Calibri convertido pelo Distiller ("TT…o00"): as
+larguras não são as do Times nem as da Helvetica, nenhuma face é deduzida, e "Assunto" e
+"Solicitação de senha.", em negrito no PDF, saíam sem negrito (a emenda (19) não tratava disso).
+Na preparação do lote 2 da reamostragem v1 → v2 (CBM/AL 2021 oficial, PC/AL 2021 agente, DEPEN
+2020 agente, PC/SE 2018 específicos, PC/DF 2026 P1, PC/DF 2020 básicos), o estilo ligado só muda
+o DEPEN 2020.
+
+**Decisão.**
+
+1. Desenho que contém inteira uma linha em corpo de título (`HEADING_MIN_SIZE`) sem pontuação
+   final e não passa dela mais que 4 pt em cima e embaixo é a faixa de fundo do título: não é
+   figura (`_title_band`, em `_with_figures`). Desenho mais alto, ou atrás de linha em corpo de
+   texto, segue marcando.
+2. Só com `styles`: fonte sem nome ainda sem estilo depois das regras anteriores é negrito quando,
+   contra uma face de texto (fonte sem nome com pelo menos 20 letras, normal ou sem estilo
+   deduzido), em pelo menos 4 letras em comum, desenha bem mais tinta — área do contorno do glifo
+   por corpo², mediana da razão ≥ 1,3 e cada letra ≥ 1,15 — e as larguras de cada letra ficam
+   entre 0,97 e 1,15 das da face de texto (mesma família; outra família sai da faixa). O itálico
+   desenha a mesma tinta e não casa; nada além do negrito se deduz assim (`_bold_by_ink`).
+3. `infer_font_styles: true` no DEPEN 2020 agente. Nas outras cinco provas do lote a opção não muda
+   nada (no PC/AL 2021 agente as fontes "TT…o00" só aparecem na prova discursiva, págs. 8 e 9;
+   CBM/AL 2021, PC/SE 2018 e PC/DF 2026 não têm fonte sem nome; o PC/DF 2020 básicos é OCR); os
+   manifestos ficam como estão.
+
+**Verificação.** As 135 provas do `data/staging/` reprocessadas (extract → validate) com o código
+do HEAD (317bf8f) e com o novo, e comparadas. A regra 1 muda: CBM/TO 2021 soldado (q30 sai de
+`review`), CBM/AL 2021 oficial (faixas de "Língua Estrangeira (Inglês)", "Noções de Informática",
+"Ética, Cidadania e Direitos Humanos" e "Legislação pertinente ao CBMAL": g16, q16–q21 e q56–q65
+perdem a marca de figura; q56–q65 saem de `review`) e soldado (g31, q31–q44, q100 e q110 perdem a
+marca; q110 sai de `review`); o resto das marcas dessas provas (fórmula, layout) fica. A regra 2
+muda só o PM/SC 2023 soldado (texto 1A5-III, "**Assunto**: **Solicitação de senha.**"), e com o
+estilo ligado em todas as 135 provas também só ela. Com a regra 3, o DEPEN 2020 agente muda
+marcação em q51 (*shopping*), q55 (*habeas corpus*), q89 (**Situação hipotética**), q117
+(*parquet*), q119–q120 (**Manual de Assistências do Sistema Penitenciário Federal**), e a faixa
+"-- CONHECIMENTOS COMPLEMENTARES --" deixa de ser o texto-base g81 das q81–q82. Páginas conferidas
+renderizadas: DEPEN 2020 págs. 5, 7 e 8; CBM/TO 2021 soldado pág. 6; CBM/AL 2021 oficial págs. 3
+e 6 e soldado págs. 4 e 8; PM/SC 2023 soldado pág. 7. Fixture `pmsc-2023-soldado-p7.pdf`.

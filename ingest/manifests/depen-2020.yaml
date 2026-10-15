@@ -1,6 +1,9 @@
 # depen-2020: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
 # O cargo 8 é de nível médio: complementares (81–120) no gabarito CG2, não no CG1 de nível
 # superior (91–120) — decisão 0016.
+# infer_font_styles ligado em 2026-10-15 (emenda (20) da 0020), antes da reamostragem v2: itálico e
+# negrito das fontes "TT…o00" (q51 *shopping*, q55 *habeas corpus*, q117 *parquet*, q89, q119–120)
+# e a faixa "CONHECIMENTOS COMPLEMENTARES" deixa de ser texto-base das q81–82.
 contest: depen-2020
 name: DEPEN 2020
 agency: depen
@@ -13,6 +16,7 @@ exams:
   positions:
   - agente
   first_number: 31
+  infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/DEPEN_20/arquivos/MATRIZ_541_DEPEN_008_00.PDF
     answer_key_final:   # específicos (31–80) e complementares de nível médio (81–120)

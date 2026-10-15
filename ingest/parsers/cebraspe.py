@@ -1282,6 +1282,7 @@ def _with_figures(
             or id(figure) in frames
             or any(_overlaps(figure, line) for line in titles)
             or _heading_rule(figure, skipped)
+            or _title_band(figure, entries)
         ):
             continue  # faixa de fundo de título ("BLOCO II", "Questão 7") ou régua de cabeçalho
         column = 1 if figure.x1 <= middle + 12 else 2 if figure.x0 >= middle - 12 else 0
@@ -1325,6 +1326,27 @@ def _heading_rule(figure: Figure, skipped: list[Line]) -> bool:
             or 0 <= figure.y0 - line.y1 <= HEADING_RULE_GAP
         )
         for line in skipped
+    )
+
+
+TITLE_BAND_SLACK = 4.0  # pt de faixa acima e abaixo da linha do título
+
+
+def _title_band(figure: Figure, entries: list[_Entry]) -> bool:
+    """Faixa desenhada atrás de um título de bloco em corpo de título (`HEADING_MIN_SIZE`, sem
+    pontuação final) que não é cabeçalho ignorado ("Noções de Informática" em faixa cinza, CBM/TO
+    2021 soldado, pág. 6, entre as questões 30 e 31): é fundo do título, não figura da questão de
+    cima. Só desenho que contém a linha inteira e não passa dela mais que `TITLE_BAND_SLACK` em
+    cima e embaixo (emenda (20) da 0020)."""
+    if figure.kind != "drawing":
+        return False
+    return any(
+        (e.line.size or 0) >= HEADING_MIN_SIZE
+        and not e.line.plain.rstrip().endswith((".", ":", "?", ",", ";"))
+        and _contains(figure, e.line)
+        and e.line.y0 - figure.y0 <= TITLE_BAND_SLACK
+        and figure.y1 - e.line.y1 <= TITLE_BAND_SLACK
+        for e in entries
     )
 
 

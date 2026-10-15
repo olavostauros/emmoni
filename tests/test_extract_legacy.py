@@ -219,6 +219,44 @@ def test_style_from_the_distiller_name() -> None:
     assert "*downloads*" not in _text(ex.extract(CBMTO_SOLDADO))  # desligado: como antes
 
 
+PMSC_SOLDADO = FIXTURE.with_name("pmsc-2023-soldado-p7.pdf")
+
+
+def test_bold_by_ink_against_the_text_face_of_the_same_family() -> None:
+    """PM/SC 2023 soldado, texto 1A5-III (pág. 7): o ofício vem num Calibri sem nome, e as larguras
+    não são as do Times nem as da Helvetica. "Assunto" e "Solicitação de senha." vêm noutra fonte
+    sem nome que desenha ~1,4 vez a tinta do Calibri do texto, com as mesmas larguras: negrito
+    (emenda (20) da 0020). Os dois-pontos, na fonte do texto, ficam fora. Só com `styles`."""
+    text = _text(ex.extract(PMSC_SOLDADO, styles=True))
+    assert "**Assunto**: **Solicitação de senha.**" in text
+    assert "Senhor Gerente," in text
+    assert "**Senhor Gerente" not in text and "**Ao Senhor" not in text
+    assert "**Assunto**" not in _text(ex.extract(PMSC_SOLDADO))
+
+
+def test_bold_by_ink_needs_more_ink_and_the_same_widths(monkeypatch: pytest.MonkeyPatch) -> None:
+    """Mesma tinta (itálico, outra face normal), larguras de outra família ou letras de menos:
+    nada."""
+    ink = {
+        "T": {c: 0.10 for c in "aeno"},
+        "B": {c: 0.14 for c in "aeno"},
+        "I": {c: 0.10 for c in "aeno"},
+        "W": {c: 0.14 for c in "aeno"},
+    }
+    widths = {
+        "T": [(c, 0.5) for c in "aeno"],
+        "B": [(c, 0.52) for c in "aeno"],
+        "I": [(c, 0.49) for c in "aeno"],
+        "W": [(c, 0.60) for c in "aeno"],
+    }
+    monkeypatch.setattr(ex, "_ink", lambda document, fonts: ink)
+    assert ex._bold_by_ink(None, {"B"}, {"T"}, widths) == {"B": ex.BOLD}
+    assert ex._bold_by_ink(None, {"I"}, {"T"}, widths) == {}
+    assert ex._bold_by_ink(None, {"W"}, {"T"}, widths) == {}  # larguras de outra família
+    few = {"T": widths["T"], "B": [("a", 0.52), ("e", 0.52), ("n", 0.52)]}
+    assert ex._bold_by_ink(None, {"B"}, {"T"}, few) == {}  # letras de menos
+
+
 PCPB_ESCRIVAO = FIXTURE.with_name("pcpb-2021-escrivao-p7.pdf")
 
 

@@ -23,6 +23,7 @@ from typing import Any
 import pymupdf
 import yaml
 from fontTools.cffLib import CFFFontSet  # type: ignore[import-untyped]
+from fontTools.pens.areaPen import AreaPen  # type: ignore[import-untyped]
 from fontTools.pens.recordingPen import RecordingPen  # type: ignore[import-untyped]
 from pydantic import BaseModel, ConfigDict
 
@@ -388,6 +389,19 @@ def _font_styles(document: Any, few_letters: bool = False) -> dict[str, int]:
             style = _few_letters_style(advances[font], references)
             if style:
                 styles[font] = style
+        # Fonte fora das larguras do Times e da Helvetica (Calibri), sem estilo deduzido: negrito
+        # se desenha bem mais tinta que a face de texto da mesma família (emenda (20) da 0020).
+        rest = still - styles.keys()
+        if rest:
+            texts = {
+                font
+                for font, chars in advances.items()
+                if len(chars) >= MIN_STYLE_CHARS
+                and styles.get(font, 0) == 0
+                and font not in credit_in
+                and not _name_style(font)
+            }
+            styles.update(_bold_by_ink(document, rest, texts, advances))
     # Estilo simulado pelo Distiller ("oI00"): soma-se ao da face de base, mesmo sem letras
     # bastantes para as larguras.
     for font in advances:
@@ -496,6 +510,106 @@ def _few_letters_style(chars: list[tuple[str, float]], references: dict[str, Any
     return style
 
 
+MIN_INK_LETTERS = 4  # letras distintas em comum com a face de texto
+INK_BOLD_RATIO = 1.3  # mediana da tinta por letra: negrito / face de texto
+INK_MIN_RATIO = 1.15  # nenhuma letra em comum abaixo disso
+# Larguras de cada letra em comum (negrito / texto): o negrito da mesma família é igual ou um pouco
+# mais largo (Times até 1,13; Calibri até 1,08). Outra família sai da faixa ("e" do Calibri é
+# 1,12 do Times, "a" da Arial negrito é 1,16 do Calibri).
+INK_WIDTH_BAND = (0.97, 1.15)
+
+
+def _bold_by_ink(
+    document: Any,
+    fonts: set[str],
+    texts: set[str],
+    advances: dict[str, list[tuple[str, float]]],
+) -> dict[str, int]:
+    """Negrito de fonte sem nome cujas larguras não são as do Times nem as da Helvetica (o Calibri
+    do ofício do PM/SC 2023 soldado, texto 1A5-III: "**Assunto**: **Solicitação de senha.**"). A
+    face de texto (`texts`: muitas letras, normal ou sem estilo deduzido) dá a medida: a fonte é
+    negrito quando, nas pelo menos `MIN_INK_LETTERS` letras em comum, desenha bem mais tinta (área
+    do contorno por corpo²: mediana ≥ `INK_BOLD_RATIO`, cada letra ≥ `INK_MIN_RATIO`) com as
+    larguras da mesma família (`INK_WIDTH_BAND`). O itálico desenha a mesma tinta e não casa;
+    nada além do negrito se deduz assim."""
+    ink = _ink(document, fonts | texts)
+    found: dict[str, int] = {}
+    for font in fonts:
+        mine = ink.get(font, {})
+        width = _mean_widths(advances.get(font, []))
+        for text in texts - {font}:
+            other = ink.get(text, {})
+            other_width = _mean_widths(advances.get(text, []))
+            shared = [
+                c for c in mine.keys() & other.keys() & width.keys() & other_width.keys()
+                if other[c] > 0 and other_width[c] > 0
+            ]  # fmt: skip
+            if len(shared) < MIN_INK_LETTERS:
+                continue
+            ratios = sorted(mine[c] / other[c] for c in shared)
+            low, high = INK_WIDTH_BAND
+            if (
+                ratios[len(ratios) // 2] >= INK_BOLD_RATIO
+                and ratios[0] >= INK_MIN_RATIO
+                and all(low <= width[c] / other_width[c] <= high for c in shared)
+            ):
+                found[font] = BOLD
+                break
+    return found
+
+
+def _mean_widths(chars: list[tuple[str, float]]) -> dict[str, float]:
+    sums: dict[str, list[float]] = {}
+    for c, w in chars:
+        sums.setdefault(c, []).append(w)
+    return {c: sum(ws) / len(ws) for c, ws in sums.items()}
+
+
+def _ink(document: Any, fonts: set[str]) -> dict[str, dict[str, float]]:
+    """Fonte → letra → área do contorno do glifo, em corpos², das fontes CFF embutidas. O glifo de
+    cada letra vem do traço do texto (`get_texttrace`: o índice do glifo no subconjunto)."""
+    tops = _cff_fonts(document, fonts)
+    found: dict[str, dict[str, float]] = {}
+    for page in document:
+        for span in page.get_texttrace():
+            top = tops.get(span["font"])
+            if top is None:
+                continue
+            scale = abs(top.FontMatrix[0] * top.FontMatrix[3])
+            letters = found.setdefault(span["font"], {})
+            for code, gid, *_ in span["chars"]:
+                c = chr(code) if code >= 0 else ""
+                if not (c.isascii() and c.isalpha()) or c in letters:
+                    continue
+                try:
+                    pen = AreaPen()
+                    top.CharStrings[top.charset[gid]].draw(pen)
+                except Exception:  # glifo fora do subconjunto: sem medida
+                    continue
+                letters[c] = abs(pen.value) * scale
+    return found
+
+
+def _cff_fonts(document: Any, fonts: set[str]) -> dict[str, Any]:
+    """Fonte → `TopDict` do CFF embutido. Fonte que não é CFF ou não se deixa ler fica de fora."""
+    found: dict[str, Any] = {}
+    for number in range(len(document)):
+        for entry in document.get_page_fonts(number):
+            xref, name = entry[0], str(entry[3]).split("+")[-1]
+            if name not in fonts or name in found:
+                continue
+            try:
+                _, ext, _, content = document.extract_font(xref)
+                if ext != "cff" or not content:
+                    continue
+                cff = CFFFontSet()
+                cff.decompile(io.BytesIO(content), None)
+                found[name] = cff[cff.fontNames[0]]
+            except Exception:  # fonte que o fontTools não lê: sem desenho, sem estilo deduzido
+                continue
+    return found
+
+
 def _styles_by_outline(document: Any, fonts: set[str], anchors: dict[str, int]) -> dict[str, int]:
     """Fonte sem estilo deduzido que desenha os glifos exatamente como uma fonte já deduzida pelas
     larguras é a mesma fonte, em outro subconjunto: herda o estilo dela (PM/PA 2023: "*chip*" numa
@@ -531,30 +645,19 @@ def _outlines(
     """Fonte → (FontMatrix, glifo → desenho), só dos glifos com desenho, das fontes CFF embutidas.
     Fonte que não é CFF ou que não se deixa ler fica de fora (sem estilo)."""
     found: dict[str, tuple[tuple[float, ...], dict[str, tuple[Any, ...]]]] = {}
-    for number in range(len(document)):
-        for entry in document.get_page_fonts(number):
-            xref, name = entry[0], str(entry[3]).split("+")[-1]
-            if name not in fonts or name in found:
-                continue
-            try:
-                _, ext, _, content = document.extract_font(xref)
-                if ext != "cff" or not content:
-                    continue
-                cff = CFFFontSet()
-                cff.decompile(io.BytesIO(content), None)
-                top = cff[cff.fontNames[0]]
-                glyphs: dict[str, tuple[Any, ...]] = {}
-                for glyph in top.charset:
-                    pen = RecordingPen()
-                    top.CharStrings[glyph].draw(pen)
-                    if pen.value:
-                        glyphs[glyph] = tuple(
-                            (op, tuple(tuple(point) for point in points))
-                            for op, points in pen.value
-                        )
-                found[name] = (tuple(top.FontMatrix), glyphs)
-            except Exception:  # fonte que o fontTools não lê: sem desenho, sem estilo deduzido
-                continue
+    for name, top in _cff_fonts(document, fonts).items():
+        try:
+            glyphs: dict[str, tuple[Any, ...]] = {}
+            for glyph in top.charset:
+                pen = RecordingPen()
+                top.CharStrings[glyph].draw(pen)
+                if pen.value:
+                    glyphs[glyph] = tuple(
+                        (op, tuple(tuple(point) for point in points)) for op, points in pen.value
+                    )
+            found[name] = (tuple(top.FontMatrix), glyphs)
+        except Exception:  # fonte que o fontTools não lê: sem desenho, sem estilo deduzido
+            continue
     return found
 
 
