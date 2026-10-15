@@ -1,21 +1,21 @@
 {
  "exam": "pmto-2020-qpe/objetiva",
- "seed": "r14",
+ "seed": "r34",
  "numbers": [
+  1,
+  3,
   5,
-  6,
-  10,
-  12,
-  16,
-  34,
-  35,
-  36,
-  40,
-  44,
-  45
+  7,
+  15,
+  19,
+  37,
+  43,
+  47,
+  49
  ],
- "sampled_at": "2026-10-14T18:19:08.684189+00:00",
- "approved_at": "2026-10-14T18:19:26.711897+00:00",
+ "sampled_at": "2026-10-15T04:10:49.439179+00:00",
+ "approved_at": "2026-10-15T04:11:35.786812+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "7a912a80274c147cc2790651bd8662f2278cb4ef220f680bba16bc936eb4c68f"
+ "fingerprint": "4f1608f3fa506addbaee1df263695a0312fea465830767c021cc5c0b852c7f7b",
+ "fingerprint_version": 2
 }
