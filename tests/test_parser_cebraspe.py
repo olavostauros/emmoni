@@ -2073,6 +2073,46 @@ def test_hanging_labeled_item_in_passage_is_one_paragraph() -> None:
     assert len(cebraspe._paragraphs(table)) == 2
 
 
+def _pcpb2021_entry(text: str, y0: float, x0: float, x1: float) -> cebraspe._Entry:
+    """Linha de 10 pt da coluna 2 do PC/PB 2021 gerais escrivão, pág. 2 (geometria do caderno)."""
+    line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x1, y1=y0 + 10, column=2, size=10.0)
+    return cebraspe._Entry(2, line, left=304.3, right=569.5, short=x1 < 569.5 - cebraspe.SHORT_LINE)
+
+
+def test_letter_address_and_indented_number_in_passage() -> None:
+    """PC/PB 2021 gerais escrivão, texto CG1A1-III (emenda (27) da 0020): o ofício. A linha de
+    endereço terminada em " – PB" sem ir até a margem fecha o parágrafo, mesmo sem ser curta; no
+    bloco recuado, a frase partida antes do número ("matrícula n.º" | "1.234-56") continua, e a
+    linha curta seguinte abre parágrafo. Legenda recuada que não chega à margem e termina em letra
+    continua separada da linha seguinte que começa por número (PF 2021, texto g77)."""
+    entries = [
+        _pcpb2021_entry("FULANA DE TAL", 253.0, 310.3, 393.7),
+        _pcpb2021_entry("Gerência de Recursos Humanos da Polícia Civil – PB", 265.6, 310.3, 530.3),
+        _pcpb2021_entry("João Pessoa – PB", 278.4, 310.3, 385.6),
+        _pcpb2021_entry("Encaminho a essa Gerência solicitação de gozo de", 366.9, 352.9, 563.5),
+        _pcpb2021_entry("férias da servidora abaixo discriminada:", 379.5, 310.3, 472.7),
+        _pcpb2021_entry("Beltrana de Tal – Escrivã de Polícia, matrícula n.º", 404.8, 345.7, 563.5),
+        _pcpb2021_entry("1.234-56", 417.4, 345.7, 382.4),
+        _pcpb2021_entry("Período de gozo: 01/02/2022 – 02/03/2022", 430.2, 345.7, 519.5),
+    ]
+    assert cebraspe._paragraphs(entries) == [
+        "FULANA DE TAL",
+        "Gerência de Recursos Humanos da Polícia Civil – PB",
+        "João Pessoa – PB",
+        "Encaminho a essa Gerência solicitação de gozo de férias da servidora abaixo discriminada:",
+        "Beltrana de Tal – Escrivã de Polícia, matrícula n.º 1.234-56",
+        "Período de gozo: 01/02/2022 – 02/03/2022",
+    ]
+    legend = [
+        _pcpb2021_entry(
+            "O texto corrido da coluna vai até a margem direita do texto", 100.0, 310.3, 563.5
+        ),
+        _pcpb2021_entry("40 a 49 anos", 120.0, 345.7, 540.0),
+        _pcpb2021_entry("50 a 59 anos", 132.6, 345.7, 391.7),
+    ]
+    assert len(cebraspe._paragraphs(legend)) == 3
+
+
 def _pf2012_entry(text: str, y0: float, x0: float = 28.3, x1: float = 290.8) -> cebraspe._Entry:
     """Linha de 10 pt da coluna 1 do PF 2012 agente, página 8 (geometria do caderno)."""
     line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x1, y1=y0 + 10, column=1, size=10.0)

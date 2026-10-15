@@ -905,3 +905,33 @@ enunciado, alternativa ou texto-base muda. Continuam com a marca o poema em duas
 números de verso do PF 2012 (agente g12, itens 12–16; papiloscopista g8, itens 8–12). Página 4
 do caderno conferida renderizada: título, uma estrofe de quatro versos e o crédito, como no
 texto-base.
+
+## Emenda de 2026-10-15 (27) — linha de endereço e número partido no bloco recuado
+
+**Contexto.** No PC/PB 2021 gerais escrivão (pág. 2, coluna direita), o texto CG1A1-III é um
+ofício e saía com dois defeitos (próximos passos, item 17). (a) O destinatário,
+"Gerência de Recursos Humanos da Polícia Civil – PB" | "João Pessoa – PB", saía num parágrafo
+só: a primeira linha termina 33 pt antes da margem, menos que a linha curta (`SHORT_LINE`, 40 pt),
+e a seguinte está na margem. (b) No bloco recuado inteiro (x0 345,7, contra 310,3 da coluna),
+"Beltrana de Tal – Escrivã de Polícia, matrícula n.º" vai até a margem direita e o número
+"1.234-56" segue na linha de baixo, no mesmo recuo: o recuo abria parágrafo novo e o número saía
+solto. Só a prova do escrivão traz esse texto: nas outras provas do PC/PB 2021 do `data/staging/`
+não há texto CG1A1-III nem o ofício.
+
+**Decisão.** No texto-base (`_paragraphs`, sem numeração de linhas na margem): (a) a linha
+anterior terminada em travessão ou hífen e sigla de UF (" – PB"), sem ir até a margem direita do
+texto do trecho, fecha o parágrafo quando a linha começa por maiúscula (`_address_line_ends`);
+(b) a linha recuada que começa por algarismo continua a anterior quando o parágrafo abriu no
+mesmo recuo, a anterior está nesse recuo, vai até a margem direita do texto do trecho (até 2 pt,
+`_full_line`) e termina em letra (`_indented_number_goes_on`), como a emenda (18) faz no item de
+recuo pendente. A margem direita do texto é a maior x1 das linhas do trecho na mesma página e
+coluna (`_text_rights`): a da coluna fica alguns pt além (569,5 contra 563,5 aqui). A linha
+"Período de gozo: ..." continua em parágrafo próprio (a anterior, "1.234-56", é curta).
+
+**Verificação.** O `segment` e o `validate` de todas as provas do `data/staging/` com manifesto
+(135) rodados com o código do HEAD (3f51ba9) e com o novo, sobre o mesmo `pages.exam.json`, e
+comparados: muda só o texto CG1A1-III do PC/PB 2021 gerais escrivão. Uma primeira versão de (b)
+que só pedia a linha anterior não curta juntava a legenda do gráfico do PF 2021 (texto g77, "40 a
+49 anos" | "50 a 59 anos") e foi descartada pela exigência de linha cheia. A questão 7, a única
+que usa o texto, segue em `review` pela marca `layout` do texto (linhas recuadas e curtas). Página 2 do
+caderno conferida renderizada.

@@ -1896,6 +1896,7 @@ def _paragraphs(entries: list[_Entry], bases: _Bases | None = None) -> list[str]
     opener: _Entry | None = None  # primeira linha do parágrafo aberto
     leading = _leading(entries)
     verses = _verse_breaks(entries, leading, bases)
+    text_rights = _text_rights(entries)
     for index, entry in enumerate(entries):
         base = _base_of(bases, entry)
         if index - 1 in verses:  # verso seguinte da mesma estrofe: quebra de linha
@@ -1909,7 +1910,12 @@ def _paragraphs(entries: list[_Entry], bases: _Bases | None = None) -> list[str]
         # 41 a 44). Só dentro de item rotulado: tabela e título recuados seguem separados. Com
         # numeração de linhas (`base`) a margem é outra, e a regra não vale.
         indented = entry.line.x0 > (base or entry.left) + PARAGRAPH_INDENT and not (
-            base is None and previous is not None and _hanging_item_goes_on(opener, previous, entry)
+            base is None
+            and previous is not None
+            and (
+                _hanging_item_goes_on(opener, previous, entry)
+                or _indented_number_goes_on(opener, previous, entry, text_rights)
+            )
         )
         title_goes_on = previous is not None and _is_title(previous) and _is_title(entry)
         # Crédito do texto em letra miúda, alinhado à direita e quebrado em duas linhas ou mais
@@ -1927,6 +1933,11 @@ def _paragraphs(entries: list[_Entry], bases: _Bases | None = None) -> list[str]
             or (not title_goes_on and _block_gap(previous, entry, leading))
             or _labeled_line_opens(opener, previous, entry)
             or _next_list_item(opener, previous, entry)
+            or (
+                base is None
+                and previous is not None
+                and _address_line_ends(previous, entry, text_rights)
+            )
         )
         if new:
             paragraphs.append([[]])
@@ -1934,6 +1945,78 @@ def _paragraphs(entries: list[_Entry], bases: _Bases | None = None) -> list[str]
         paragraphs[-1][-1].append(entry.line.text)
         previous = entry
     return [_join_verses(pieces) for pieces in paragraphs]
+
+
+FULL_LINE_SLACK = 2.0  # pt: linha justificada vai até a margem direita do texto
+
+
+def _text_rights(entries: list[_Entry]) -> dict[tuple[int, int], float]:
+    """Margem direita do texto em cada (página, coluna) do trecho: onde terminam as linhas mais
+    longas. A da coluna (`_Entry.right`) fica alguns pt além (PC/PB 2021: 569,5 contra 563,5)."""
+    rights: dict[tuple[int, int], float] = {}
+    for entry in entries:
+        key = (entry.page, entry.line.column)
+        rights[key] = max(rights.get(key, 0.0), entry.line.x1)
+    return rights
+
+
+def _full_line(entry: _Entry, text_rights: dict[tuple[int, int], float]) -> bool:
+    """A linha vai até a margem direita do texto do trecho (até `FULL_LINE_SLACK`)."""
+    right = text_rights.get((entry.page, entry.line.column))
+    return right is not None and right - entry.line.x1 <= FULL_LINE_SLACK
+
+
+def _indented_number_goes_on(
+    opener: _Entry | None,
+    previous: _Entry,
+    entry: _Entry,
+    text_rights: dict[tuple[int, int], float],
+) -> bool:
+    """No texto-base, a linha recuada que começa por número continua a anterior dentro de um bloco
+    recuado inteiro: o parágrafo abre no mesmo recuo (além do de parágrafo), a anterior é a
+    primeira ou segue nesse recuo, vai até a margem direita do texto e termina em letra — a frase
+    partida antes de um número (PC/PB 2021 gerais escrivão, texto CG1A1-III: "Beltrana de Tal –
+    Escrivã de Polícia, matrícula n.º" | "1.234-56"). Linha de legenda ou tabela que não chega à
+    margem continua separada (PF 2021, gráfico do texto g77: "40 a 49 anos" | "50 a 59 anos").
+    Emenda (27) da 0020."""
+    if opener is None or previous.short:
+        return False
+    if not (opener.page == previous.page == entry.page):
+        return False
+    if not (opener.line.column == previous.line.column == entry.line.column):
+        return False
+    if entry.line.x0 - entry.left <= PARAGRAPH_INDENT:
+        return False
+    if abs(entry.line.x0 - previous.line.x0) > BLOCK_INDENT_TOLERANCE:
+        return False
+    if abs(opener.line.x0 - previous.line.x0) > BLOCK_INDENT_TOLERANCE:
+        return False
+    if not _full_line(previous, text_rights):
+        return False
+    last = previous.line.plain.rstrip()[-1:]
+    first = entry.line.plain.lstrip()[:1]
+    return last.isalpha() and first.isdigit()
+
+
+# Sigla de unidade da federação depois de travessão no fim da linha: fecho de linha de endereço
+# ("Gerência de Recursos Humanos da Polícia Civil – PB" | "João Pessoa – PB").
+UF = r"AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO"
+ADDRESS_END = re.compile(rf"\s[–-]\s(?:{UF})$")
+
+
+def _address_line_ends(
+    previous: _Entry, entry: _Entry, text_rights: dict[tuple[int, int], float]
+) -> bool:
+    """A linha anterior fecha uma linha de endereço — termina em " – UF" sem ir até a margem
+    direita do texto — e a linha começa por maiúscula: quebra de propósito, mesmo que a anterior
+    não seja curta (`SHORT_LINE`). Sem isso, o destinatário do ofício do PC/PB 2021 gerais
+    escrivão (texto CG1A1-III) saía "... Polícia Civil – PB João Pessoa – PB". Emenda (27) da
+    0020."""
+    if previous.page != entry.page or previous.line.column != entry.line.column:
+        return False
+    if _full_line(previous, text_rights):
+        return False
+    return bool(ADDRESS_END.search(previous.line.plain.rstrip())) and entry.line.plain[:1].isupper()
 
 
 ROMAN_VALUES = {"I": 1, "V": 5, "X": 10}
