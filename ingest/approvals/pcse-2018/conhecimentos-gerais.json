@@ -1,21 +1,21 @@
 {
  "exam": "pcse-2018/conhecimentos-gerais",
- "seed": "r34",
+ "seed": "r49",
  "numbers": [
   1,
-  2,
-  3,
-  5,
-  12,
-  19,
-  23,
-  26,
-  28,
-  29
+  7,
+  9,
+  13,
+  15,
+  20,
+  22,
+  25,
+  27,
+  28
  ],
- "sampled_at": "2026-10-15T04:09:59.984725+00:00",
- "approved_at": "2026-10-15T04:10:48.473840+00:00",
+ "sampled_at": "2026-10-15T16:43:28.906623+00:00",
+ "approved_at": "2026-10-15T16:43:41.217167+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "aff8448087f600fe23762f2bbf0ff34fb4c7bd7b8a49b8ab9aa100a00d2f7c67",
+ "fingerprint": "4ce908f05a43751b5c3b4c884e7cd7c5c340bbbb089b6f775b7a3852cc2ecc41",
  "fingerprint_version": 2
 }
