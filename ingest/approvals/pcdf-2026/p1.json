@@ -1,29 +1,21 @@
 {
  "exam": "pcdf-2026/p1",
+ "seed": "r32",
  "numbers": [
-  8,
-  40,
-  43,
-  46,
-  55,
-  56,
-  57,
+  11,
+  27,
+  36,
+  38,
+  47,
   58,
-  59,
-  60,
   61,
-  66,
-  67,
-  69,
-  77,
-  96,
-  102,
-  105,
-  119,
-  120
+  63,
+  97,
+  109
  ],
- "sampled_at": "2026-10-08T18:06:04.371183+00:00",
- "approved_at": "2026-10-08T18:09:16.449108+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "25406a7ee965ca5e4853dd4099715dbeaedc4dcdc36fc9bd868f8869f01a05a8"
+ "sampled_at": "2026-10-15T03:48:23.243304+00:00",
+ "approved_at": "2026-10-15T03:49:09.435986+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "92d24d0e0626b98226557760c3b1b6e89635daf2a2201edfe755cace797d26f1",
+ "fingerprint_version": 2
 }

@@ -1,21 +1,21 @@
 {
  "exam": "pcal-2021/agente",
+ "seed": "r32",
  "numbers": [
-  51,
   52,
-  53,
-  54,
   59,
-  79,
-  81,
+  65,
+  68,
+  77,
   88,
-  96,
-  97,
   99,
-  102
+  102,
+  104,
+  117
  ],
- "sampled_at": "2026-10-08T18:06:03.157745+00:00",
- "approved_at": "2026-10-08T18:08:24.919130+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "421d60f078ac5777b084c1feb096c3601d1f9dc22ef124ed78e7814432915155"
+ "sampled_at": "2026-10-15T03:47:25.407335+00:00",
+ "approved_at": "2026-10-15T03:47:45.357972+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "e056c979d766d378661301f8899479a27378a2d2da5c31a32736b8362d2e1bb2",
+ "fingerprint_version": 2
 }

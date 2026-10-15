@@ -1,19 +1,30 @@
 {
  "exam": "cbmal-2021/oficial",
+ "seed": "r32",
  "numbers": [
-  10,
-  44,
-  49,
-  53,
+  4,
+  25,
+  26,
+  46,
+  48,
+  56,
+  57,
+  58,
+  59,
+  60,
+  61,
+  62,
+  63,
+  64,
+  65,
   88,
-  98,
-  101,
-  103,
-  104,
-  109
+  91,
+  93,
+  117
  ],
- "sampled_at": "2026-10-08T18:06:01.007133+00:00",
- "approved_at": "2026-10-08T18:08:24.361443+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "b6de7648d02dffe2a59c954abe18d12d3518198dac112405bd037185c33939c6"
+ "sampled_at": "2026-10-15T03:45:11.336888+00:00",
+ "approved_at": "2026-10-15T03:46:01.263462+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "73f53c539fc8872a341326c3b1ffe5b5d64ed9e58084a0fe0e4bdd6bf276325e",
+ "fingerprint_version": 2
 }

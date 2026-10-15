@@ -1,19 +1,27 @@
 {
  "exam": "depen-2020/agente",
+ "seed": "r32",
  "numbers": [
-  41,
+  34,
+  47,
   48,
   51,
+  55,
+  57,
   59,
-  70,
-  85,
-  86,
+  68,
+  79,
+  81,
+  82,
+  84,
   89,
-  97,
-  106
+  117,
+  119,
+  120
  ],
- "sampled_at": "2026-10-08T18:07:58.992943+00:00",
- "approved_at": "2026-10-08T18:08:40.195962+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "70c20acdcd8bc4cc0682472e5da7c0a32e4c0f7b2e5f06638bc29856fd0cdfe6"
+ "sampled_at": "2026-10-15T03:44:24.232056+00:00",
+ "approved_at": "2026-10-15T03:45:06.017574+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "c9c33d6f93aa18ed04953025150d7ea2fed9899a427ca26a34999be3fa38246b",
+ "fingerprint_version": 2
 }

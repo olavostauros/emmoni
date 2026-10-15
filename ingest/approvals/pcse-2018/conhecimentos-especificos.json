@@ -1,19 +1,21 @@
 {
  "exam": "pcse-2018/conhecimentos-especificos",
+ "seed": "r32",
  "numbers": [
   48,
-  53,
-  70,
-  74,
-  75,
-  77,
+  57,
+  59,
+  68,
+  79,
   82,
-  94,
-  120,
-  136
+  84,
+  121,
+  133,
+  150
  ],
- "sampled_at": "2026-10-08T18:06:06.590765+00:00",
- "approved_at": "2026-10-08T18:09:07.633228+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "70e6a87c5d69bb84305a40a11fb8852fca1618804e14c59284f073a9a3cadf69"
+ "sampled_at": "2026-10-15T03:47:46.100402+00:00",
+ "approved_at": "2026-10-15T03:48:22.080542+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "f83fe03fe1e078f9ce7c97504a83b5c20e687979e106394fa5ddb488f5f42b9f",
+ "fingerprint_version": 2
 }
