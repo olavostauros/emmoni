@@ -1069,3 +1069,40 @@ prova objetiva além da pág. 4 do PC/DF 2013 agente (as outras com a faixa muit
 páginas da discursiva). Testes sintéticos em `tests/test_parser_cebraspe.py`
 (`test_glyph_font_translated_by_outline`, `test_list_marker_is_markdown_list`,
 `test_single_column_page_keeps_middle`).
+
+## Emenda de 2026-10-15 (33) — faixa "Texto para os itens de X a Y"; título, nome e autor; premissas uma por linha
+
+**Contexto.** Reprovação do minos (semente r52) do PC/DF 2013 agente e do PF 2009 escrivão: o
+texto-base anunciado por "Texto para os itens de 1 a 10" (PC/DF 2013 agente, pág. 2) e "Texto
+para os itens de 74 a 81" (PF 2009 escrivão, pág. 7) só chegava aos itens do primeiro comando; os
+do comando seguinte ("Acerca de aspectos linguísticos do texto, julgue…", itens 6–10; "Ainda com
+relação ao texto, julgue os itens de 77 a 81.", itens 77–81) ficavam publicáveis sem o texto. No
+PC/DF, o nome do poema saía colado ao título ("**Texto para os itens de 1 a 10 Pavio do
+destino**") e o autor ao primeiro verso. No PF 2009 escrivão, itens 80 e 81, as premissas (uma
+por linha no PDF) saíam num parágrafo só.
+
+**Decisão.**
+1. No `segment` do certo/errado, o texto-base cujo título declara a faixa (`RANGE_TITLE`: "Texto
+   para os itens de X a Y", "itens X a Y", "itens de X e Y", também "Gráfico/Figura/Tabela/Quadro
+   para…") vale para todo item da faixa, também os de comandos seguintes sem texto-base próprio. A
+   faixa acaba no último item dela ou quando outro texto-base começa dentro dela; o grupo que
+   herdou o texto não o leva além do último item da faixa.
+2. Rede de segurança: item certo/errado sem texto-base cujo comando remete a "o texto" fechando a
+   oração ("do texto,", "ao texto,", `COMMAND_TEXT`) ganha `missing_passage` e vai para `review`
+   ("o texto da CF", "o formato do texto às correspondências" não contam).
+3. No texto que abre com a linha que é só o título "Texto para…", até três linhas logo abaixo,
+   recuadas, curtas (ou começando depois do meio da coluna), sem pontuação final e sem número de
+   linha — o nome do texto e o autor — são cada uma um parágrafo (`_range_header`). Não vale para
+   "Gráfico para…" (as linhas são do gráfico).
+4. No item, três ou mais linhas seguidas, cada uma uma frase inteira (maiúscula, ponto final), na
+   mesma margem, todas curtas menos uma no máximo, logo depois de linha curta que fecha frase, são
+   uma lista: a lista abre parágrafo, cada frase fica na sua linha (`\`) e a linha depois dela abre
+   outro parágrafo (`_sentence_list_breaks`).
+
+**Verificação.** O `segment` das 142 provas do `data/staging/` com manifesto, antes (1621e07) e
+depois: mudam o texto g1 e os itens 6–10 do PC/DF 2013 agente (ganham o texto), os itens 77–81 do
+PF 2009 escrivão (ganham o texto; 80–81 com as premissas uma por linha) e o item 74 do PF 2009
+agente (a mesma lista de premissas; já em `review` por fórmula). A rede do item 2 não marca
+nenhuma outra questão. Nenhuma outra prova, do site antigo ou da API nova, tem título com faixa
+de itens além do "Gráfico para os itens de 18 a 22" do PRF 2013, que não muda (os itens 21–22 têm
+texto próprio). Testes sintéticos em `tests/test_parser_pf_2012_site_antigo.py`.

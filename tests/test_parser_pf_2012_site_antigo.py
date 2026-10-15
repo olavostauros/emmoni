@@ -464,3 +464,126 @@ def test_prose_comma_leaves_the_code() -> None:
     )
     assert prose == "em formato `.gif`, para então"
     assert text(_span("id_tabela INT, ", "TT55o00", 9.0)) == "`id_tabela INT,`"
+
+
+def test_declared_range_reaches_every_item_across_commands() -> None:
+    """O "Texto para os itens de 1 a 3" (PC/DF 2013 agente, PF 2009 escrivão): o texto vale para os
+    itens da faixa também depois de um comando novo; o item 4, fora da faixa, fica sem ele e, como
+    o comando remete a "o texto", vai para revisão. Emenda (33) da 0020."""
+    page = _page(
+        [
+            _line("**Texto para os itens de 1 a 3**", 28, 40, x1=150),
+            _line("A prisão fabrica delinquentes pelo tipo de existência que", 43, 55),
+            _line("impõe aos detentos.", 28, 67, x1=120),
+            _line("Com base no texto, julgue os itens seguintes.", 28, 85),
+            _line("**1** O texto é argumentativo.", 28, 100, x1=180),
+            _line("**2** O texto é narrativo.", 28, 115, x1=170),
+            _line("Acerca de aspectos linguísticos do texto, julgue os itens a", 28, 130),
+            _line("seguir.", 28, 142, x1=60),
+            _line("**3** O termo “prisão” é sujeito.", 28, 157, x1=190),
+            _line("**4** O termo “detentos” é objeto.", 28, 172, x1=190),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    keys = [q.passage_key for q in segmented.questions]
+    assert keys == ["g1", "g1", "g1", None]
+    assert segmented.questions[2].statement_md.startswith("Acerca de aspectos linguísticos")
+    assert "missing_passage" in segmented.questions[3].flags
+    assert "missing_passage" not in segmented.questions[2].flags
+
+
+def test_declared_range_ends_where_another_passage_starts() -> None:
+    """Outro texto-base que começa dentro da faixa encerra a faixa: os itens seguintes ficam com
+    o texto novo."""
+    page = _page(
+        [
+            _line("**Texto para os itens de 1 a 3**", 28, 40, x1=150),
+            _line("A prisão fabrica delinquentes pelo tipo de existência que", 43, 55),
+            _line("impõe aos detentos.", 28, 67, x1=120),
+            _line("Com base no texto, julgue os itens seguintes.", 28, 85),
+            _line("**1** O texto é argumentativo.", 28, 100, x1=180),
+            _line("Um policial apreendeu um veículo sem documentos.", 28, 115),
+            _line("Considerando essa situação, julgue os itens a seguir.", 28, 130),
+            _line("**2** A apreensão foi legal.", 28, 145, x1=170),
+            _line("**3** O veículo deve ser devolvido.", 28, 160, x1=190),
+        ]
+    )
+    keys = [q.passage_key for q in cebraspe.segment([page]).questions]
+    assert keys == ["g1", "g2", "g2"]
+
+
+def test_range_title_name_and_author_get_their_own_paragraphs() -> None:
+    """PC/DF 2013 agente, p. 2: "**Texto para os itens de 1 a 10**" | "**Pavio do destino**"
+    (centrado) | "Sérgio Sampaio" (à direita) | versos numerados. O nome não se junta ao título nem
+    o autor ao primeiro verso. Emenda (33) da 0020."""
+    page = _page(
+        [
+            _line("**Texto para os itens de 1 a 2**", 28, 40, x1=150),
+            _line("**Pavio do destino**", 99, 55, x1=169),
+            _line("Sérgio Sampaio", 169, 70, x1=233),
+            _line("1 O bandido e o mocinho", 40, 85, x1=157),
+            _line("São os dois do mesmo ninho", 64, 97, x1=178),
+            _line("Correm nos estreitos trilhos", 64, 109, x1=174),
+            _line("4 Lá no morro dos aflitos", 40, 121, x1=170),
+            _line("Na Favela do Esqueleto", 64, 133, x1=160),
+            _line("São filhos do primo pobre", 64, 145, x1=170),
+            _line("7 A parcela do silêncio", 40, 157, x1=150),
+            _line("A respeito do texto, julgue os itens seguintes.", 28, 175, x1=233),
+            _line("**1** O texto é poético.", 28, 190, x1=150),
+            _line("**2** O texto é narrativo.", 28, 205, x1=150),
+        ]
+    )
+    body = cebraspe.segment([page]).passages[0].body_md
+    assert body.startswith(
+        "**Texto para os itens de 1 a 2**\n\n**Pavio do destino**\n\nSérgio Sampaio\n\n"
+        "O bandido e o mocinho"
+    )
+
+
+def test_premises_one_per_line() -> None:
+    """PF 2009 escrivão, itens 80 e 81: as premissas, uma por linha no PDF, ficam uma por linha;
+    a frase que vem depois da lista abre outro parágrafo. Emenda (33) da 0020."""
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 40),
+            _line("**1** Considere que as proposições da sequência a seguir sejam", 28, 55),
+            _line("verdadeiras.", 46, 67, x1=95),
+            _line("Se Fred é policial, então ele tem porte de arma.", 46, 79, x1=240),
+            _line("Fred mora em São Paulo ou ele é engenheiro.", 46, 91, x1=230),
+            _line("Se Fred mora em São Paulo, então ele é policial.", 46, 103, x1=290),
+            _line("Fred não tem porte de arma.", 46, 115, x1=170),
+            _line("Nesse caso, é correto inferir que Fred não mora em São", 46, 127),
+            _line("Paulo.", 46, 139, x1=80),
+            _line("**2** Uma frase só. Outra frase que continua na linha de", 28, 155),
+            _line("baixo. E mais uma frase inteira que termina aqui.", 46, 167),
+            _line("Fim.", 46, 179, x1=70),
+        ]
+    )
+    questions = cebraspe.segment([page]).questions
+    assert questions[0].statement_md == (
+        "Julgue os itens a seguir.\n\n"
+        "Considere que as proposições da sequência a seguir sejam verdadeiras.\n\n"
+        "Se Fred é policial, então ele tem porte de arma.\\\n"
+        "Fred mora em São Paulo ou ele é engenheiro.\\\n"
+        "Se Fred mora em São Paulo, então ele é policial.\\\n"
+        "Fred não tem porte de arma.\n\n"
+        "Nesse caso, é correto inferir que Fred não mora em São Paulo."
+    )
+    assert "\\\n" not in questions[1].statement_md
+
+
+def test_command_about_the_text_without_passage_goes_to_review() -> None:
+    """Comando "Ainda com relação ao texto, julgue" sem texto-base: o texto ficou de fora. "O formato do
+    texto às correspondências oficiais" é o gênero e não conta. Emenda (33) da 0020."""
+    page = _page(
+        [
+            _line("Ainda com relação ao texto, julgue os itens seguintes.", 28, 40),
+            _line("**1** A proposição é verdadeira.", 28, 55, x1=190),
+            _line("Julgue os itens a seguir, referentes à adequação do formato do", 28, 70),
+            _line("texto às correspondências oficiais.", 28, 82, x1=200),
+            _line("**2** O aviso é expedido por ministro.", 28, 97, x1=220),
+        ]
+    )
+    questions = cebraspe.segment([page]).questions
+    assert "missing_passage" in questions[0].flags
+    assert "missing_passage" not in questions[1].flags

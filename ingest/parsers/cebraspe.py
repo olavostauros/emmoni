@@ -162,6 +162,15 @@ BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extr
 # (emenda (32) da 0020) e sai como lista Markdown (`_markdown_lists`); o "•" fica como no original.
 LIST_MARKS = ("• ", "▸ ")
 TEXT_REF = re.compile(rf"\btexto?\s+{_LABEL}", re.I)  # "texto CG1A1-I", "text 1A2-II"
+# Título de texto-base do site antigo que declara a faixa de itens ("Texto para os itens de 1 a 10",
+# PC/DF 2013 agente; "Gráfico para os itens de 18 a 22", PRF 2013). O texto vale para todos os itens
+# da faixa, também os de comandos seguintes ("Acerca de aspectos linguísticos do texto, julgue..."),
+# até outro texto-base começar dentro dela (emenda (33) da 0020).
+RANGE_TITLE = re.compile(
+    r"^\W*(?:Textos?|Gr[áa]ficos?|Figuras?|Tabelas?|Quadros?)\s+para\s+(?:[oa]s?\s+)?"
+    r"(?:ite(?:ns|m)|quest(?:ões|ão))\s+(?:de\s+)?(\d{1,3})\s*(?:a|e|[–-])\s*(\d{1,3})\b",
+    re.I,
+)
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
 # No corte entre texto-base e comando, "julgador" e "julgamento" são substantivos do texto, não o
 # comando (PF 2012 papiloscopista, itens 111–113: "... para auxiliar o julgador.").
@@ -281,16 +290,21 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     group_command_page: int | None = None
     group_passage: str | None = None
     group_flags: set[str] = set()
+    # Texto-base com faixa declarada no título (`RANGE_TITLE`): chave e último item da faixa.
+    range_passage: str | None = None
+    range_end = 0
+    inherited = False  # o grupo aberto herdou o texto-base da faixa
     skipped_items = 0  # itens anteriores a `first` (PC/AL 2021: os básicos no mesmo PDF)
     skipped: _Unit | None = None  # o último deles, para descartar também as linhas de continuação
 
     def close_item() -> None:
         if item is None:
             return
+        number = expected - 1
+        # O grupo que herdou o texto da faixa não o leva além do último item dela.
+        passage = None if inherited and number > range_end else group_passage
         questions.append(
-            _question(
-                expected - 1, item, group_command, group_passage, group_flags, group_command_page
-            )
+            _question(number, item, group_command, passage, group_flags, group_command_page)
         )
 
     for entry in stream:
@@ -318,6 +332,19 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
                 group_command, group_passage, group_flags = _open_group(lead, expected, passages)
                 group_command_page = _command_page(lead) if group_command else None
                 lead = _Unit()
+                inherited = False
+                if group_passage is None:
+                    if range_passage is not None and expected <= range_end:
+                        group_passage, inherited = range_passage, True
+                elif group_passage != range_passage:
+                    # Outro texto-base começa: a faixa anterior acaba aqui; este pode abrir outra.
+                    opened = passages.get(group_passage)
+                    span = _declared_range(opened) if opened is not None else None
+                    range_passage, range_end = (
+                        (group_passage, span[1])
+                        if span is not None and span[0] <= expected <= span[1]
+                        else (None, 0)
+                    )
             item = _Unit([entry])
             expected += 1
         elif item is not None and _continues(item, entry):
@@ -859,6 +886,15 @@ BLOCK_LINE_BREAKS = (",", "-", "–", "—")
 DASHES = ("—", "–")
 
 
+def _declared_range(passage: RawPassage) -> tuple[int, int] | None:
+    """A faixa de itens que o título do texto-base declara ("Texto para os itens de 74 a 81")."""
+    match = RANGE_TITLE.match(passage.body_md.replace("*", ""))
+    if match is None:
+        return None
+    low, high = int(match.group(1)), int(match.group(2))
+    return (low, high) if low <= high else None
+
+
 def _passage_labels(passage: RawPassage) -> list[str]:
     """Rótulos pelos quais as questões citam o texto-base: a chave (quando é rótulo da banca) e o
     título da primeira linha ("Figura 5A2" num texto anônimo)."""
@@ -896,9 +932,27 @@ def _reference_flags(question: RawQuestion, labels: dict[str, str]) -> set[str]:
         flags.add("missing_passage")
     if FIGURE_REF.search(text) or FIGURE_REF_WIDE.search(text) or DEPICTED.search(text):
         flags.add("figure")
-    elif question.passage_key is None and _command_points_back(question):
+    elif question.passage_key is None and (
+        _command_points_back(question) or _command_cites_text(question)
+    ):
         flags.add("missing_passage")
     return flags
+
+
+# Comando que fala "do texto" sem rótulo, fechando a oração ("Acerca de aspectos linguísticos do
+# texto, julgue", "Ainda com relação ao texto, julgue"): há um texto-base. "O texto da CF", "o
+# formato do texto às correspondências" e "texto 1A1-I" (remissão por rótulo) não contam.
+COMMAND_TEXT = re.compile(r"\b(?:a|d|n|pel)?o\s+texto\s*[,;.]", re.I)
+
+
+def _command_cites_text(question: RawQuestion) -> bool:
+    """Item certo/errado sem texto-base cujo comando remete a "o texto": o texto ficou de fora
+    (a faixa "Texto para os itens..." que o parser não estendeu, por exemplo). Emenda (33) da
+    0020: vai para revisão em vez de sair publicável sem o texto."""
+    if question.type != "true_false" or "\n\n" not in question.statement_md:
+        return False
+    command = question.statement_md.split("\n\n")[0].replace("*", "")
+    return COMMAND_TEXT.search(command) is not None
 
 
 def _command_points_back(question: RawQuestion) -> bool:
@@ -1688,11 +1742,13 @@ def _question(
     text_lines = [ITEM_MD.sub("", first.line.text, count=1)] + [
         e.line.text for e in item.entries[1:]
     ]
-    breaks = _letter_breaks(item.entries)
+    sentence_paragraphs, sentence_lines = _sentence_list_breaks(item.entries)
+    breaks = _letter_breaks(item.entries) | sentence_lines
     code_breaks = (
         _code_line_breaks(text_lines)
         | _bold_line_breaks(item.entries, text_lines)
         | _proposition_breaks(item.entries)
+        | sentence_paragraphs
     )
     paragraphs: list[list[list[str]]] = [[[]]]
     for index, text in enumerate(text_lines):
@@ -1857,6 +1913,55 @@ def _proposition_breaks(entries: list[_Entry]) -> set[int]:
     return found
 
 
+SENTENCE_LIST_MIN = 3  # frases, uma por linha, para ser lista
+
+
+def _sentence_list_breaks(entries: list[_Entry]) -> tuple[set[int], set[int]]:
+    """Premissas uma por linha: depois de uma linha curta que fecha frase ("... constitui uma
+    dedução" | "correta."), três linhas ou mais seguidas, cada uma uma frase inteira (maiúscula no
+    começo, ponto no fim), na mesma margem, página e coluna, todas curtas menos uma no máximo ("Se
+    Carlos não estudou, então ele fracassou na prova de Física." | "Se Carlos jogou futebol, então
+    ele não estudou." | ..., PF 2009 escrivão, itens 80 e 81). Devolve (linhas que abrem parágrafo,
+    linhas depois das quais vem quebra de linha): a lista abre parágrafo, cada frase fica na sua
+    linha e a primeira linha depois da lista ("Nesse caso, é correto inferir...") abre outro
+    parágrafo. Emenda (33) da 0020."""
+    paragraphs: set[int] = set()
+    lines: set[int] = set()
+
+    def sentence(entry: _Entry) -> bool:
+        plain = entry.line.plain.strip()
+        return plain[:1].isupper() and plain.endswith(SENTENCE_STOP_FULL)
+
+    index = 1
+    while index < len(entries):
+        previous = entries[index - 1]
+        if not (
+            previous.short
+            and previous.line.plain.rstrip().endswith(SENTENCE_STOP_FULL)
+            and sentence(entries[index])
+        ):
+            index += 1
+            continue
+        start = entries[index]
+        end = index
+        while (
+            end + 1 < len(entries)
+            and sentence(entries[end + 1])
+            and entries[end + 1].page == start.page
+            and entries[end + 1].line.column == start.line.column
+            and abs(entries[end + 1].line.x0 - start.line.x0) <= LABEL_ALIGN
+        ):
+            end += 1
+        run = entries[index : end + 1]
+        if len(run) >= SENTENCE_LIST_MIN and sum(not e.short for e in run) <= 1:
+            paragraphs.add(index)
+            lines.update(range(index, end))
+            if end + 1 < len(entries):
+                paragraphs.add(end + 1)
+        index = end + 1
+    return paragraphs, lines
+
+
 def _letter_breaks(entries: list[_Entry]) -> set[int]:
     """Índices das linhas do item depois das quais vem quebra de linha: o vocativo ou o fecho de
     uma correspondência, curto e terminado em vírgula, e a linha curta terminada em ponto que
@@ -1884,8 +1989,50 @@ _Bases = dict[tuple[int, int], float]
 
 def _text_paragraphs(entries: list[_Entry]) -> list[str]:
     """Parágrafos de um texto rotulado, sem a numeração de linhas da margem."""
+    header = _range_header(entries)
+    if header:
+        return [e.line.text.strip() for e in entries[:header]] + _text_paragraphs(entries[header:])
     stripped, numbered = _strip_line_numbers(entries)
     return _paragraphs(stripped, bases=_column_bases(stripped, numbered) if numbered else None)
+
+
+RANGE_HEADER_LINES = 3  # nome do texto e autor depois do título com faixa
+
+
+def _range_header(entries: list[_Entry]) -> int:
+    """Quantas linhas do começo do texto são o cabeçalho de um título com faixa: a linha que é só
+    o título ("**Texto para os itens de 1 a 10**") e, logo abaixo, até três linhas curtas (ou que
+    começam depois do meio da coluna), recuadas (centradas ou à direita), sem pontuação de fim de frase e sem número de linha: o nome do texto
+    e o autor ("**Pavio do destino**" | "Sérgio Sampaio", PC/DF 2013 agente). Cada uma vira um
+    parágrafo; sem isso, o nome se juntava ao título e o autor ao primeiro verso. Emenda (33) da
+    0020. Só para "Texto para...": "Gráfico para..." abre uma figura, cujas linhas não são
+    cabeçalho. Devolve 0 quando o texto não abre com título de faixa."""
+    if not entries:
+        return 0
+    first = entries[0]
+    match = RANGE_TITLE.match(first.line.plain)
+    if (
+        match is None
+        or not first.line.plain.lstrip(" *").lower().startswith("texto")  # gráfico: é figura
+        or first.line.plain.strip()[match.end() :].strip(" *")
+    ):
+        return 0  # o título tem de ser a linha inteira
+    count = 1
+    for entry in entries[1 : 1 + RANGE_HEADER_LINES]:
+        plain = entry.line.plain.strip()
+        if (
+            entry.page != first.page
+            or entry.line.column != first.line.column
+            # curta, ou começando depois do meio da coluna: o autor alinhado à direita fixa a
+            # margem direita da coluna estreita do poema e não fica "curto"
+            or not (entry.short or entry.line.x0 - entry.left > (entry.right - entry.left) / 2)
+            or entry.line.x0 - entry.left < PARAGRAPH_INDENT_AT
+            or plain.endswith(SENTENCE_STOP)
+            or LINE_NUMBER.match(entry.line.text)
+        ):
+            break
+        count += 1
+    return count
 
 
 def _column_bases(entries: list[_Entry], numbered: set[tuple[int, int]]) -> _Bases:
