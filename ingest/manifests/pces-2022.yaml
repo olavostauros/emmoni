@@ -35,6 +35,10 @@ exams:
   infer_font_styles: true
   documents:
     exam: https://cdn.cebraspe.org.br/concursos/PC_ES_22_DELEGADO/arquivos/729_PC_ES_CG1_01.PDF   # o crawler tinha pegado o gabarito preliminar (nome GAB_PRELIMINAR_*)
+    # Documento novo do crawl de 2026-10-14 (operations.md, passo 5): publicado em 19/09/2022 com a
+    # descrição "PROVA OBJETIVA - CONHECIMENTOS GERAIS", mas é o gabarito preliminar. O dos
+    # conhecimentos específicos não está na página do concurso.
+    answer_key_preliminary: https://cdn.cebraspe.org.br/concursos/PC_ES_22_DELEGADO/arquivos/GAB_PRELIMINAR_729_PC_ES_CG1_01.PDF
     answer_key_final: https://cdn.cebraspe.org.br/concursos/PC_ES_22_DELEGADO/arquivos/GAB_DEFINITIVO_729_PC_ES_CG1_01.PDF
   subjects_by_range:
   - {from: 1, to: 9, subject: lingua-portuguesa}
