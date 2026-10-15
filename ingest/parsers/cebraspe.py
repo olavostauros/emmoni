@@ -170,6 +170,10 @@ JUSTIFICATION = re.compile(r"JUSTIFICATIVAS?\b|\bITEM ANULADO\b")  # sempre em m
 # Justificativa sem o prefixo ("ERRADO. O Hyper-V dá suporte...", PCDF 2020 item 84): só é
 # reconhecida pela cor das justificativas do caderno (azul), nunca pelo texto sozinho.
 VERDICT = re.compile(r"^(?:CERTO|ERRADO)\b")
+# Justificativa de alternativa sem o cabeçalho "JUSTIFICATIVAS" ("||A|| - Incorreta. Conforme o
+# artigo 10...", PMDF 2025 P2 q79: a justificativa passou para a página seguinte, depois da
+# alternativa E, sem o cabeçalho). Como o VERDICT, só vale na cor das justificativas do caderno.
+OPTION_JUSTIFICATION = re.compile(r"^\|\|[A-E]\|\|\s*[-–]")
 BARE_NUMBER = re.compile(r"^\d{1,3}$")
 WHITE = 0xFFFFFF  # texto invisível
 # Inclui a crase maiúscula ("... R$ 5.700,00. À luz do regime de caixa, julgue ...", PF 2012 agente,
@@ -227,6 +231,8 @@ class _Entry:
     # linha não o continua (PCDF 2020: o texto-base com recuo de parágrafo de 15 grudava no item).
     after_justification: bool = False
     invisible: bool = False  # texto branco sem fundo (`_visible`)
+    # Na cor das justificativas do caderno (`_justification_color`); falso sem cor (OCR, preto).
+    justification_color: bool = False
     # Primeira linha da coluna logo abaixo de uma figura que abre a coluna (`_with_figures`).
     below_figure: bool = False
 
@@ -423,7 +429,10 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
         elif skipping:
             skipping = False  # título de texto-base (PC/PE 2023): abre o grupo seguinte
             block.append(entry)
-        elif number and JUSTIFICATION.match(entry.line.plain.lstrip("|* ")):
+        elif number and (
+            JUSTIFICATION.match(entry.line.plain.lstrip("|* "))
+            or (entry.justification_color and OPTION_JUSTIFICATION.match(entry.line.plain))
+        ):
             skipping = True
         elif number:
             block.append(entry)
@@ -1079,6 +1088,8 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 short=line.x1 < rights[line.column] - SHORT_LINE,
                 after_gap=gap,
                 after_justification=closed,
+                justification_color=justification_color is not None
+                and line.color == justification_color,
             )
             # Texto branco sem fundo desenhado é invisível: não está na página impressa (PC/SE
             # 2018: "Texto" em 5 pt acima de cada texto-base). Sai depois de as figuras serem

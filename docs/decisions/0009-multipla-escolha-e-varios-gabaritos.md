@@ -89,3 +89,19 @@ Decisão:
 Consequências: muda só o PCDF 2020 específicos (q84 e g85; q89, q99 e q111 perdem pedaços de
 justificativa em azul; a tabela das contas passa da q111 para o g112) e o PRF 2018 (q26 e g27).
 Nas demais 133 provas reprocessadas, nada muda.
+
+## Emenda (2) de 2026-10-14 — justificativa de alternativa sem cabeçalho
+
+Contexto: no PMDF 2025 P2, a justificativa da q79 passou para o topo da página 13, depois das
+alternativas C–E, sem o cabeçalho "JUSTIFICATIVAS" ("||A|| - Incorreta. Conforme o artigo 10...").
+A múltipla escolha só pulava justificativas a partir do cabeçalho; o bloco ficou depois da
+alternativa E e virou o texto-base g80 da q80, que não tem texto-base (questão publicada com
+conteúdo errado).
+
+Decisão: na múltipla escolha, a linha na cor das justificativas do caderno (item 2 da emenda
+anterior) que começa com o rótulo de alternativa da tabela ("||A|| -", "||E|| –") também abre
+uma justificativa, pulada até o próximo título de questão ou de texto-base, como a do cabeçalho.
+Só pelo texto, sem a cor, nunca.
+
+Consequências: das 140 provas do staging, muda só o PMDF 2025 P2 (some o g80; a q80 fica sem
+texto-base).

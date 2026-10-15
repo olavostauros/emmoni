@@ -396,6 +396,31 @@ def test_choice_passage_only_for_the_first_question_or_who_cites_it() -> None:
     assert [p.key for p in segmented.passages] == ["1A1-I", "g5"]
 
 
+def test_choice_option_justification_without_header_is_not_a_passage() -> None:
+    """Justificativa de alternativa sem o cabeçalho "JUSTIFICATIVAS" depois da alternativa E (PMDF
+    2025 P2 q79: passou para a página seguinte) não vira texto-base da questão seguinte; na cor
+    das justificativas é pulada até o próximo título de questão."""
+    red = 0x993300
+
+    def colored(line: Line) -> Line:
+        return line.model_copy(update={"color": red})
+
+    lines = [
+        *_choice(1, "Primeira questão.", 20),
+        colored(_line("||JUSTIFICATIVAS||", 28, 100, x1=120)),
+        colored(_line("||A|| - Correta. Conforme o artigo 1.*/", 28, 112)),
+        *_choice(2, "Segunda questão.", 140),
+        colored(_line("||A|| - Incorreta. Conforme o artigo 10, alínea a, do CPPM, a", 28, 220)),
+        colored(_line("forma descrita na opção é das formas legítimas.*/", 28, 232)),
+        colored(_line("||E|| - Correta. O STM pode determinar a instauração.*/", 28, 244)),
+        *_choice(3, "Terceira questão.", 270),
+    ]
+    segmented = cebraspe.segment([_page(lines)])
+    assert [q.passage_key for q in segmented.questions] == [None, None, None]
+    assert segmented.passages == []
+    assert not any("CPPM" in q.statement_md for q in segmented.questions)
+
+
 def test_choice_labels_bullets_and_unresolved_references() -> None:
     """Rótulo de texto um pouco fora da margem encerra a última alternativa; "Proposição X" é
     rótulo; "C" como marcador de lista no enunciado vira "•"; remissão não resolvida e figura da
