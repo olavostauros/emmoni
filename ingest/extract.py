@@ -1349,6 +1349,8 @@ def _clean(text: str) -> str:
 
 ITEM_NUMBER_ONLY = re.compile(r"^\d{1,3}$")
 ITEM_NUMBER_GAP = 25.0  # pt entre o número na margem e o começo do texto do item
+SPLIT_REST = re.compile(r"^[,;]")  # resto de linha partida por ícone (emenda (31) da 0020)
+SPLIT_ALONE = 3.0  # corpos sem outra linha da coluna 2 em volta do resto da linha partida
 
 
 def _attach_item_numbers(lines: list[Line]) -> list[Line]:
@@ -1387,6 +1389,44 @@ def _attach_item_numbers(lines: list[Line]) -> list[Line]:
             }
         )
         dropped.add(id(number))
+    # Linha do item partida por um ícone no meio ("Ao se clicar o botão [ícone] , será exibida…"):
+    # o resto, à direita do ícone, cruza o vão e vira linha de largura total; o começo e o número
+    # do item (1 pt mais baixo, em fonte menor) ficam na coluna 1. A linha de largura total fechava
+    # a banda antes do número, que caía depois do texto, e o enunciado ia para o texto-base (PC/DF
+    # 2013 agente, itens 25, 28 e 29; decisão 0020, emenda (31)). Os pedaços da coluna 1 na mesma
+    # altura e todos à esquerda dela voltam a ser uma linha só, de largura total.
+    # O resto que começa por vírgula (", esse trecho será excluído…") e não chega a cruzar o vão
+    # fica na coluna 2; sozinho na coluna (nenhuma outra linha dela a menos de três corpos acima ou
+    # abaixo: o trecho é de uma coluna só), também é o resto da linha. Na página de duas colunas,
+    # a vírgula depois de ícone no começo da linha da coluna 2 fica onde está (PF 2009 agente).
+    rests = [
+        line
+        for line in lines
+        if line.column == 2
+        and SPLIT_REST.match(line.plain)
+        and not any(
+            other is not line
+            and other.column == 2
+            and abs(other.y0 - line.y0) < SPLIT_ALONE * line.size
+            for other in lines
+        )
+    ]
+    for line in [*wide, *rests]:
+        if id(line) in attached:
+            continue
+        pieces = [
+            other
+            for other in lines
+            if other.column == 1
+            and id(other) not in dropped
+            and other.x1 <= line.x0
+            and _same_row(line, other)
+        ]
+        if all(ITEM_NUMBER_ONLY.match(other.plain.strip()) for other in pieces):
+            continue  # sem o começo da linha, o número sozinho é da numeração de linhas
+        row = _merge([*pieces, line])
+        attached[id(line)] = row.model_copy(update={"column": 0})
+        dropped.update(id(other) for other in pieces)
     return [attached.get(id(line), line) for line in lines if id(line) not in dropped]
 
 

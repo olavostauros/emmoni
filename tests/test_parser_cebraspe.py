@@ -2497,3 +2497,50 @@ def test_stacked_fraction_flags_formula() -> None:
     flags = {q.number: q.flags for q in cebraspe.segment([page]).questions}
     assert flags[1] == []
     assert "formula" in flags[2]
+
+
+def test_line_split_by_icon_is_one_line() -> None:
+    """PC/DF 2013 agente, itens 26, 28 e 29 (págs. 5 e 6): o ícone do botão parte a linha do item;
+    o resto, à direita, cruza o vão (linha de largura total) ou, numa faixa de uma coluna só,
+    começa por vírgula na coluna 2, e o número do item vem 1 pt abaixo, em fonte menor. Na ordem
+    de leitura o número caía depois do texto, e o enunciado ia para o texto-base (emenda (31) da
+    0020). Na página de duas colunas, a linha da coluna 2 que começa por vírgula fica onde está."""
+
+    def piece(text: str, x0: float, y0: float, x1: float, column: int, size: float = 10.0) -> Line:
+        return _line(text, x0, y0, x1=x1, size=size).model_copy(
+            update={"column": column, "y1": y0 + (8.0 if size < 10 else 10.0)}
+        )
+
+    lines = [
+        piece("Com relação ao navegador, julgue o seguinte item.", 28.3, 40, 300, 1),
+        piece("Ao se clicar o botão", 46.7, 60, 129.2, 1),
+        piece(", será exibida uma lista de opções, entre as quais", 157.5, 60, 552.9, 0),
+        piece("29", 28.3, 61.2, 36.0, 1, size=8.1),
+        piece("uma que permitirá imprimir a página.", 46.7, 73, 250, 1),
+        piece("Julgue o item a seguir.", 28.3, 100, 200, 1),
+        piece("30 Ao se selecionar o trecho e clicar no botão", 28.3, 120, 289.9, 1),
+        piece(", esse trecho será excluído. O mesmo efeito ocorreria", 310, 120.3, 566.7, 2),
+        piece("se fosse pressionada a tecla Delete.", 46.7, 135, 260, 1),
+    ]
+    ordered = extract_module._reading_order(extract_module._attach_item_numbers(lines))
+    assert [line.plain for line in ordered][1:4] == [
+        "29 Ao se clicar o botão , será exibida uma lista de opções, entre as quais",
+        "uma que permitirá imprimir a página.",
+        "Julgue o item a seguir.",
+    ]
+    page = _page(ordered)
+    questions = {q.number: q for q in cebraspe.segment([page], first=29).questions}
+    assert questions[29].statement_md.endswith(
+        "Ao se clicar o botão , será exibida uma lista de opções, entre as quais uma que permitirá"
+        " imprimir a página."
+    )
+    assert questions[30].statement_md.endswith(
+        "clicar no botão , esse trecho será excluído. O mesmo efeito ocorreria se fosse pressionada"
+        " a tecla Delete."
+    )
+    two_columns = [
+        piece("Texto da coluna 1 na mesma altura", 28.3, 200, 289, 1),
+        piece(", é o resto da linha de cima da coluna 2", 310, 200, 566, 2),
+        piece("Outra linha da coluna 2", 310, 212, 566, 2),
+    ]
+    assert extract_module._attach_item_numbers(two_columns) == two_columns

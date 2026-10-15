@@ -997,3 +997,31 @@ sobre o mesmo `pages.exam.json` com o código do HEAD (a23304f) e com o novo, e 
 o PRF 2013 (a nota sai do texto-base g51; o item 17 ganha `formula`). Páginas 3 e 6 do caderno
 conferidas renderizadas. Testes sintéticos em `tests/test_parser_cebraspe.py`
 (`test_note_below_section_title_is_not_passage`, `test_stacked_fraction_flags_formula`).
+
+## Emenda de 2026-10-15 (31) — linha partida por ícone é uma linha só
+
+**Contexto.** No PC/DF 2013 agente, o ícone de botão desenhado no meio da linha do item (págs. 5 e
+6, itens 24 a 29: "Ao se clicar o botão [ícone] , será exibida…") parte a linha em dois pedaços. O
+resto, à direita do ícone, cruza o vão entre as colunas e vira linha de largura total; o começo e
+o número do item (1 pt mais baixo, em fonte menor) ficam na coluna 1. A linha de largura total
+fechava a banda da ordem de leitura antes do número, que caía depois do texto: o começo do item ia
+para o texto-base e a q29 ficava com o enunciado vazio (`question_statement_md_check` no `load`).
+No item 26, o resto não chega a cruzar o vão e cai na coluna 2, começando por vírgula.
+
+**Decisão.** No `extract`, só nos cadernos do site antigo (`_attach_item_numbers`): a linha de
+largura total com pedaços da coluna 1 na mesma altura (`_same_row`), todos à esquerda dela, vira
+uma linha só de largura total com eles (número do item incluído, juntados como no `_rows`),
+desde que haja ao menos um pedaço além do número (sozinho, o número é da numeração de linhas). Vale
+o mesmo para a linha da coluna 2 que começa por vírgula ou ponto e vírgula (`SPLIT_REST`) sem
+outra linha da coluna 2 a menos de três corpos acima ou abaixo (`SPLIT_ALONE`): a faixa é de uma
+coluna só. Na página de duas colunas, a vírgula no começo da linha da coluna 2 (depois de um
+ícone, PF 2009 agente) fica onde está — a primeira versão, sem a condição de linha sozinha,
+desmontava o PF 2009 agente (120 → 37 itens) e foi descartada.
+
+**Verificação.** O `segment` das 141 provas do `data/staging/` com manifesto, com o código do HEAD
+(156b139) e o novo — as 11 do site antigo reextraídas do PDF, as outras sobre o mesmo
+`pages.exam.json` (o código novo só roda com `legacy`) — e comparado: mudam só o PC/DF 2013 agente
+(itens 24, 25, 26, 28 e 29 inteiros, textos-base g25, g28 e g29 desfeitos, o resto do item 26 sai
+do texto-base g27) e o PRF 2013 (o resto ", todos os arquivos com extensão .doc…" sai do fim do
+item 49 e volta ao item 50, no lugar do ícone). Teste sintético em `tests/test_parser_cebraspe.py`
+(`test_line_split_by_icon_is_one_line`).
