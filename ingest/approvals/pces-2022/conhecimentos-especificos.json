@@ -1,20 +1,21 @@
 {
  "exam": "pces-2022/conhecimentos-especificos",
- "seed": "minos-2026-10-14-r4",
+ "seed": "r38",
  "numbers": [
-  23,
-  27,
-  35,
-  44,
+  24,
+  28,
+  29,
+  33,
+  37,
+  47,
+  48,
   51,
-  53,
-  62,
-  68,
-  69,
-  71
+  59,
+  63
  ],
- "sampled_at": "2026-10-14T09:24:10.606866+00:00",
- "approved_at": "2026-10-14T09:28:28.886347+00:00",
+ "sampled_at": "2026-10-15T04:48:36.004478+00:00",
+ "approved_at": "2026-10-15T04:49:06.536919+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "1ceb7c3e48f6e03267e1e76cd32654d337cf767da7b2e71bde9e910414bfc4b6"
+ "fingerprint": "81c885dd16678e6149ec72ac0193f1add89071696da2a25cc2dca7aec5113f41",
+ "fingerprint_version": 2
 }

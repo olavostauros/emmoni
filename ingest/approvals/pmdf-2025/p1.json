@@ -1,21 +1,21 @@
 {
  "exam": "pmdf-2025/p1",
- "seed": "minos-2026-10-14-r4",
+ "seed": "r38",
  "numbers": [
-  3,
-  6,
-  7,
+  4,
+  8,
   9,
-  14,
-  15,
-  24,
+  13,
+  21,
+  26,
+  27,
   28,
   31,
-  33,
-  35
+  34
  ],
- "sampled_at": "2026-10-14T09:24:14.039062+00:00",
- "approved_at": "2026-10-14T09:29:51.066863+00:00",
+ "sampled_at": "2026-10-15T04:48:37.136505+00:00",
+ "approved_at": "2026-10-15T04:49:40.687047+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "c3032d98ee6d3fd58e96e57b7c643e860d579466e92985c926e7e05eabfc2638"
+ "fingerprint": "9cb6acc36cf5220da4a22cdb89753e42b1d6f6172ae3e15663409675d2d7ca5a",
+ "fingerprint_version": 2
 }

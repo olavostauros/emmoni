@@ -1,21 +1,21 @@
 {
  "exam": "pcrj-2021/objetiva",
- "seed": "r8",
+ "seed": "r38",
  "numbers": [
-  2,
-  39,
-  50,
-  53,
-  56,
-  65,
-  69,
-  70,
-  91,
-  92,
-  95
+  7,
+  16,
+  17,
+  25,
+  34,
+  54,
+  55,
+  61,
+  75,
+  84
  ],
- "sampled_at": "2026-10-14T13:47:12.341453+00:00",
- "approved_at": "2026-10-14T13:48:15.561196+00:00",
+ "sampled_at": "2026-10-15T04:48:38.791116+00:00",
+ "approved_at": "2026-10-15T04:50:31.279443+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "0b680c1ad23102100372cc91846aa218767dad0692ca83c15e21d6620208f0cf"
+ "fingerprint": "6420dafb88ad097a0a372dce4fc28c6c27926c3b7aeeecc78d4dff1b44362477",
+ "fingerprint_version": 2
 }
