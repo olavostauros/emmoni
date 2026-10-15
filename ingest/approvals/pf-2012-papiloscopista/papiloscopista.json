@@ -1,19 +1,21 @@
 {
  "exam": "pf-2012-papiloscopista/papiloscopista",
+ "seed": "r36",
  "numbers": [
-  1,
-  7,
-  18,
-  47,
-  49,
+  13,
+  48,
   52,
-  76,
-  81,
-  90,
-  117
+  55,
+  67,
+  69,
+  82,
+  87,
+  114,
+  119
  ],
- "sampled_at": "2026-10-13T17:29:35.610034+00:00",
- "approved_at": "2026-10-13T17:32:54.874551+00:00",
+ "sampled_at": "2026-10-15T04:36:28.131250+00:00",
+ "approved_at": "2026-10-15T04:37:53.780139+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "88448dae4960e6237481c8c1df71ffdfc677e2ebcc6b6adacbecd7c3a47ceca0"
+ "fingerprint": "561cb6d83eff99cb460a509600366af356b52aebbe8f2696e0ba81fe0ac36dc4",
+ "fingerprint_version": 2
 }

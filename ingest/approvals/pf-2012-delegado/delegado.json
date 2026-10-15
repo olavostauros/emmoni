@@ -1,20 +1,21 @@
 {
  "exam": "pf-2012-delegado/delegado",
+ "seed": "r36",
  "numbers": [
-  7,
-  9,
-  33,
-  46,
-  58,
-  61,
-  74,
-  80,
-  82,
+  8,
+  57,
+  70,
+  75,
+  92,
+  94,
   97,
-  106
+  99,
+  103,
+  115
  ],
- "sampled_at": "2026-10-13T20:53:03.977672+00:00",
- "approved_at": "2026-10-13T20:55:32.223268+00:00",
+ "sampled_at": "2026-10-15T04:37:58.355398+00:00",
+ "approved_at": "2026-10-15T04:38:36.649128+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "3579165c987c603aa3e51f896d4ec47dfde1a1398d722894b06f2e0e7a84f071"
+ "fingerprint": "d08281fe916975da0b6d41c37f0d5ff1267e8d6e164ca91ef921fd001db9990a",
+ "fingerprint_version": 2
 }

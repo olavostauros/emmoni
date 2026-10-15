@@ -1,22 +1,21 @@
 {
  "exam": "pmpa-2023-cfo/conhecimentos-especificos-p2",
+ "seed": "r36",
  "numbers": [
-  22,
-  25,
-  26,
-  30,
-  33,
-  38,
-  42,
+  24,
+  29,
+  39,
+  41,
+  43,
   44,
-  46,
-  50,
-  52,
+  48,
+  49,
   55,
-  59
+  58
  ],
- "sampled_at": "2026-10-14T05:10:42.558654+00:00",
- "approved_at": "2026-10-14T05:16:34.944580+00:00",
+ "sampled_at": "2026-10-15T04:40:14.527514+00:00",
+ "approved_at": "2026-10-15T04:40:46.918520+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "99846064e04e758161888f63b4718ddf3fcbcc35ced8d04955b525497f08f569"
+ "fingerprint": "a478b780ad3971824325830821827d8e34c9c8f621e8bfb88a561890c4ce3c61",
+ "fingerprint_version": 2
 }
