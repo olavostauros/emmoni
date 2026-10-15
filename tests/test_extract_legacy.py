@@ -326,3 +326,33 @@ def test_few_letters_style_needs_margin_from_upright() -> None:
     assert ex._few_letters_style(widths("blitz", "tiit"), refs) == ex.ITALIC
     assert ex._few_letters_style(widths("blitz", "tiro"), refs) == 0
     assert ex._few_letters_style(widths("zzt", "tiit"), refs) == 0
+
+
+def test_short_italic_run_with_tied_widths_takes_style_from_slant() -> None:
+    """PC/PB 2021 específicos cargo 4, q70 E (pág. 4): " code" numa fonte própria ("TT37B42o00")
+    sem estilo no nome. As larguras de "c", "o", "d", "e" são as mesmas no Times normal, itálico e
+    negrito itálico, e nenhuma regra de larguras decide; o desenho inclina 0,2 a 0,3 a mais que o
+    das mesmas letras da face normal da página: itálico (emenda (23) da 0020). Só com `styles`; o
+    resto da página não ganha itálico."""
+    pdf = CEBRASPE / "pcpb-2021-especificos-cargo-4-p4.pdf"
+    styled = _text(ex.extract(pdf, styles=True))
+    assert "bidimensional, no padrão QR *code*, gerado a partir de" in styled
+    assert styled.count("*code*") == 1
+    assert "*code*" not in _text(ex.extract(pdf))
+
+
+def test_italic_by_slant_needs_a_leaning_outline() -> None:
+    """A face normal contra ela mesma não inclina a mais: nada se deduz. Sem face normal: nada."""
+    with pymupdf.open(CEBRASPE / "pcpb-2021-especificos-cargo-4-p4.pdf") as document:  # type: ignore[no-untyped-call]
+        styles = ex._font_styles(document, few_letters=True)
+        normal = {font for font, style in styles.items() if style == 0}
+        refs = {name: pymupdf.Font(name) for name in ex.STYLE_FONTS}  # type: ignore[no-untyped-call]
+        advances = {"TT37A82o00": [("c", 0.444), ("o", 0.5), ("d", 0.5), ("e", 0.444)]}
+        upright = {font: 0 for font in normal - {"TT37A82o00"}}
+        assert "TT37A82o00" in normal
+        assert ex._italic_by_slant(document, {"TT37A82o00"}, upright, advances, refs) == {}
+        leaning = {"TT37B42o00": [("c", 0.444), ("o", 0.504), ("d", 0.504), ("e", 0.444)]}
+        assert ex._italic_by_slant(document, {"TT37B42o00"}, {}, leaning, refs) == {}
+        assert ex._italic_by_slant(
+            document, {"TT37B42o00"}, {f: 0 for f in normal}, leaning, refs
+        ) == {"TT37B42o00": ex.ITALIC}

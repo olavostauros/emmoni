@@ -2225,3 +2225,46 @@ def test_number_out_of_sequence_in_another_column_stays() -> None:
         "Primeira", "segunda", "terceira", "quarta", "e", "quinta", "sexta", "sétima", "2020",
     ]  # fmt: skip
     assert numbered == {(1, 1), (1, 2)}
+
+
+def test_choice_option_made_of_loose_lines_keeps_line_breaks() -> None:
+    """PC/PE 2023 P2 cargo 1, questão 50 (pág. 13): cada alternativa traz quatro lançamentos, um
+    por linha, que terminam bem antes da margem direita, sem pontuação, e a primeira palavra da
+    linha seguinte caberia na sobra. As linhas viram quebras de linha (`\\`). A alternativa de
+    texto corrido, que quebra por falta de espaço, e a de duas linhas seguem juntas com espaço
+    (emenda (23) da 0020)."""
+    page = _page(
+        [
+            _line("Nas questões a seguir, marque a única opção correta.", 28, 8),
+            _line("Questão 1", 51, 20),
+            _line("Assinale a opção que apresenta corretamente a contabilização", 28, 32),
+            _line("da referida operação.", 28, 44, x1=120),
+            _line("A débito – despesas bancárias", 28, 56, x1=150),
+            _line("débito – despesa de juros", 42, 68, x1=140),
+            _line("débito – conta-corrente bancária", 42, 80, x1=170),
+            _line("crédito – títulos a receber", 42, 92, x1=145),
+            # texto corrido: a linha de cima vai até a margem
+            _line("B débito na conta de despesas bancárias e crédito na conta", 28, 104),
+            _line("de títulos descontados, pelo valor líquido da operação", 42, 116),
+            _line("com o banco", 42, 128, x1=100),
+            # duas linhas só: fica como está
+            _line("C débito – bancos", 28, 140, x1=110),
+            _line("crédito – empréstimos a pagar", 42, 152, x1=160),
+            # a palavra seguinte não caberia na sobra da linha de cima
+            _line("D débito – encargos financeiros a transcorrer no", 28, 164, x1=262),
+            _line("transcurso do tempo da operação", 42, 176, x1=200),
+            _line("crédito – títulos descontados", 42, 188, x1=160),
+            # linha de cima termina a frase
+            _line("E débito – bancos.", 28, 200, x1=110),
+            _line("Débito – despesas bancárias.", 42, 212, x1=160),
+            _line("Crédito – títulos descontados.", 42, 224, x1=160),
+        ]
+    )
+    (question,) = cebraspe.segment([page]).questions
+    bodies = [option.body_md for option in question.options]
+    assert bodies[0] == (
+        "débito – despesas bancárias\\\ndébito – despesa de juros\\\n"
+        "débito – conta-corrente bancária\\\ncrédito – títulos a receber"
+    )
+    assert "\\\n" not in "".join(bodies[1:])
+    assert bodies[2] == "débito – bancos crédito – empréstimos a pagar"

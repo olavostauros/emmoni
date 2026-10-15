@@ -782,3 +782,49 @@ mundo não renunciou à guerra." (linha 10) em parágrafo próprio; prova não i
 conferidas renderizadas: PM/AL 2018, PM/AL 2017 básicos, PC/MA 2017 delegado e PC Científica/PE
 2016 gerais, pág. 1. Fixtures `pmal-2018-p1.pdf`, `pmal-2017-basicos-soldado-p1.pdf` e
 `pcma-2017-delegado-p1.pdf`.
+
+## Emenda de 2026-10-15 (23) — alternativa de linhas soltas; itálico pela inclinação do desenho
+
+**Contexto.** Reprovações do minos (semente r39). No PC/PE 2023 P2 cargo 1, questão 50 (pág. 13,
+coluna direita), cada alternativa traz quatro lançamentos, um por linha ("débito – despesas
+bancárias" | "débito – despesa de juros" | "débito – conta-corrente bancária" | "crédito – títulos
+a receber"), e as linhas saíam coladas com espaço: `_join` junta as linhas da alternativa como
+texto corrido. No PC/PB 2021 específicos cargo 4, questão 70, alternativa E (pág. 4, coluna
+esquerda), " code" de "QR *code*" vem numa fonte "TT…o00" própria (`TT37B42o00`, sem estilo no
+nome nem `ItalicAngle`), com o estilo ligado: a regra da emenda (17) já via que a fonte desenha
+"c", "o", "d", "e" de outro jeito que a face normal (`_not_upright`), mas as larguras dessas
+letras são as mesmas no Times normal, itálico e negrito itálico, e `_few_letters_style` não
+decidia (falta a margem para a face normal).
+
+**Decisão.**
+
+1. Alternativa da múltipla escolha com três ou mais linhas, na mesma página e coluna, sem marca
+   (figura, fórmula, layout) nem texto invisível, em que cada linha menos a última termina antes
+   de `SHORT_LINE` da margem direita da coluna, sem ".", "?", "!", ",", ";" ou ":" no fim, e a
+   primeira palavra da linha seguinte, mais um espaço, caberia na sobra (largura estimada pela
+   média por caractere da linha seguinte): as linhas são de propósito e saem com quebra de linha
+   dura (`\` no fim, docs/content-format.md), como os versos (`_option_line_list`). Texto corrido
+   (linha de cima até a margem), alternativa de duas linhas e linha que fecha frase não mudam.
+2. Só com `styles`: fonte que não é a normal (`_not_upright`) e que as larguras não resolvem é
+   itálica quando, contra cada face normal já deduzida com a mesma `FontMatrix` (sem inclinação na
+   matriz) e pelo menos 3 letras desenhadas em comum (mesmo glifo, mesma letra pelo traço do
+   texto), toda letra em comum inclina pelo menos 0,12 a mais (`StatisticsPen.slant` do contorno;
+   no PC/PB o itálico do Times fica 0,2 a 0,3 acima da normal), e as larguras ficam até
+   `SMALL_MAX_STYLE_DISTANCE` de uma referência itálica do Times ou da Helvetica
+   (`_italic_by_slant`). Só o itálico se deduz assim: o negrito itálico sai itálico.
+
+**Verificação.** As 135 provas do `data/staging/` reprocessadas (extract → segment → answer-key →
+validate) com o código do HEAD (f1008a3) e com o novo, e comparadas. A regra 1 muda só: PC/PE 2023
+P2 cargo 1 (q50, as cinco alternativas) e PC/PB 2021 específicos cargo 3 (q73, os lançamentos
+"D – Fornecedores" | "C – Bancos conta movimento" | ... das cinco alternativas). A regra 2 muda só:
+PC/PB 2021 específicos cargo 4 (q70 E, "QR *code*"), PC/PB 2021 específicos cargo 12 (q80,
+"**Amostras** *loci*", negrito itálico no PDF), CBM/PA 2023 CFO P1 (q44, cabeçalho da tabela
+"*n l m*l *m*s", negrito itálico no PDF) e PF 2018 escrivão (texto g41 e q43, "*N*", "*n*", "*P*",
+"*P*pop", negrito itálico no PDF). Com o estilo ligado em todas as 132 provas fora do site antigo,
+a regra 2 dá itálico também a fontes de variáveis e estados físicos no PF 2018 papiloscopista
+("Ba(*s*)", "O2(*g*)", "Δ*H*") e na PC Científica/PE 2016 cargos 7, 8, 13 e 14 ("λMAX", "*i*",
+"*j*", "*x*", "(*aq*)"), todas itálicas no PDF (os vetores "*i*", "*j*", "d*a*", em negrito
+itálico); nenhuma dessas provas tem o estilo ligado. Páginas
+conferidas renderizadas: PC/PE 2023 P2 cargo 1 pág. 13; PC/PB 2021 específicos cargo 4 pág. 4,
+cargo 3 pág. 7 e cargo 12 pág. 8; CBM/PA 2023 CFO P1 pág. 9; PF 2018 escrivão pág. 4 e
+papiloscopista pág. 9; PC Científica/PE 2016 cargos 7 (pág. 13), 8 (pág. 3), 13 (pág. 2) e 14 (pág. 6). Fixture `pcpb-2021-especificos-cargo-4-p4.pdf`.

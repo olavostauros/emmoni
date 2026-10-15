@@ -239,6 +239,8 @@ class _Entry:
     centered: bool = False
     # Veio de página digitalizada (OCR): o corpo da linha sai da altura da caixa e oscila.
     ocr: bool = False
+    # Margem direita da coluna desta linha (`_stream`); 0 quando desconhecida.
+    right: float = 0.0
 
 
 @dataclass
@@ -515,7 +517,12 @@ def _choice_question(
                 e.line.text for e in block[start + 1 : stop]
             ]
             letter = cast(Literal["A", "B", "C", "D", "E"], chr(ord("A") + letter_index))
-            options.append(RawOption(letter=letter, body_md=_join(lines)))
+            body = (
+                _join_verses([[line] for line in lines])
+                if _option_line_list(block[start:stop])
+                else _join(lines)
+            )
+            options.append(RawOption(letter=letter, body_md=body))
             flags |= set().union(*(e.flags for e in block[start:stop]))
     flags |= set().union(*(e.flags for e in statement_entries)) if statement_entries else set()
     statement_entries = _bullets(statement_entries)
@@ -591,6 +598,45 @@ def _own_situation(block: list[_Entry]) -> bool:
     return statement[0].line.x0 - statement[0].left > HANGING_MAX or any(
         "figure" in e.flags for e in statement
     )
+
+
+def _option_line_list(entries: list[_Entry]) -> bool:
+    """Alternativa composta de linhas soltas, uma por lançamento ("débito – despesas bancárias" |
+    "débito – despesa de juros" | ..., PC/PE 2023 P2 cargo 1, questão 50): cada linha, menos a
+    última, termina bem antes da margem direita (`short`) e sem pontuação de fim de frase, e a
+    primeira palavra da linha seguinte caberia na sobra — a linha não quebrou por falta de espaço.
+    Vale só com três linhas ou mais, na mesma página e coluna, sem figura nem marca de layout;
+    as linhas viram quebras de linha (`\\`, docs/content-format.md). A alternativa que só
+    continua na linha de baixo (texto corrido) não muda."""
+    if len(entries) < OPTION_LIST_MIN_LINES:
+        return False
+    first = entries[0]
+    if any(
+        e.page != first.page
+        or e.line.column != first.line.column
+        or not e.right
+        or e.flags
+        or e.invisible
+        for e in entries
+    ):
+        return False
+    for previous, entry in zip(entries, entries[1:], strict=False):
+        plain = previous.line.plain.rstrip()
+        if not previous.short or not plain or plain.endswith((*SENTENCE_STOP_FULL, ",", ";", ":")):
+            return False
+        words = entry.line.plain.split()
+        if not words:
+            return False
+        width = entry.line.x1 - entry.line.x0
+        per_char = width / max(len(entry.line.plain), 1)
+        # A primeira palavra da linha de baixo, mais um espaço, cabia na sobra da linha de cima.
+        if (len(words[0]) + 1) * per_char >= previous.right - previous.line.x1:
+            return False
+    return True
+
+
+# Linhas, no mínimo, para tomar a alternativa como lista de linhas soltas (`_option_line_list`).
+OPTION_LIST_MIN_LINES = 3
 
 
 def _paragraph_after_option(previous: _Entry, entry: _Entry) -> bool:
@@ -1098,6 +1144,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 line,
                 lefts[line.column],
                 short=line.x1 < rights[line.column] - SHORT_LINE,
+                right=rights[line.column],
                 centered=_centered_line(line, lefts[line.column], rights[line.column]),
                 after_gap=gap,
                 after_justification=closed,
@@ -1781,7 +1828,7 @@ def _strip_line_numbers(entries: list[_Entry]) -> tuple[list[_Entry], set[tuple[
             )
             entry = _Entry(
                 entry.page, line, entry.left, entry.short, entry.after_gap, entry.flags,
-                ocr=entry.ocr,
+                ocr=entry.ocr, right=entry.right,
             )  # fmt: skip
             numbered.add(key)
         stripped.append(entry)

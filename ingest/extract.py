@@ -25,6 +25,7 @@ import yaml
 from fontTools.cffLib import CFFFontSet  # type: ignore[import-untyped]
 from fontTools.pens.areaPen import AreaPen  # type: ignore[import-untyped]
 from fontTools.pens.recordingPen import RecordingPen  # type: ignore[import-untyped]
+from fontTools.pens.statisticsPen import StatisticsPen  # type: ignore[import-untyped]
 from pydantic import BaseModel, ConfigDict
 
 from ingest.content import escape_md
@@ -389,10 +390,17 @@ def _font_styles(document: Any, few_letters: bool = False) -> dict[str, int]:
             for font, style in styles.items()
             if style == 0 and font not in credit_in and not _name_style(font)
         }
-        for font in _not_upright(document, still, normal_faces):
+        leaning = _not_upright(document, still, normal_faces)
+        for font in leaning:
             style = _few_letters_style(advances[font], references)
             if style:
                 styles[font] = style
+        # As larguras empatam ("code": c, o, d, e medem igual no Times normal e no itálico): o
+        # itálico vem da inclinação do desenho contra a face normal (PC/PB 2021 específicos cargo
+        # 4, q70 E, "QR *code*"; emenda (23) da 0020).
+        styles.update(
+            _italic_by_slant(document, leaning - styles.keys(), normal_faces, advances, references)
+        )
         # Fonte fora das larguras do Times e da Helvetica (Calibri), sem estilo deduzido: negrito
         # se desenha bem mais tinta que a face de texto da mesma família (emenda (20) da 0020).
         rest = still - styles.keys()
@@ -512,6 +520,97 @@ def _few_letters_style(chars: list[tuple[str, float]], references: dict[str, Any
         if value - best < SMALL_STYLE_MARGIN:
             style &= STYLE_FONTS[name]
     return style
+
+
+ITALIC_SLANT = 0.12  # inclinação a mais que a da face normal, em cada letra em comum
+ITALIC_REFERENCES = ("tiit", "tibi", "heit", "hebi")
+
+
+def _italic_by_slant(
+    document: Any,
+    fonts: set[str],
+    upright: dict[str, int],
+    advances: dict[str, list[tuple[str, float]]],
+    references: dict[str, Any],
+) -> dict[str, int]:
+    """Itálico de fonte que não é a normal (`_not_upright`) quando as larguras não decidem: as
+    letras de "code" medem igual no Times normal, itálico e negrito itálico. O desenho decide:
+    contra cada face normal já deduzida com a mesma `FontMatrix` (sem inclinação na matriz) e pelo
+    menos `MIN_SHARED_GLYPHS` letras desenhadas em comum, toda letra em comum inclina pelo menos
+    `ITALIC_SLANT` a mais (inclinação do contorno, `StatisticsPen.slant`: o itálico do Times fica
+    0,2 a 0,3 acima da normal; negrito e outra face reta, perto de zero). As larguras ainda têm de
+    caber numa referência itálica (`SMALL_MAX_STYLE_DISTANCE`). Só o itálico se deduz assim."""
+    if not fonts or not upright:
+        return {}
+    tops = _cff_fonts(document, fonts | upright.keys())
+    letters = _letter_glyphs(document, fonts | upright.keys())
+    found: dict[str, int] = {}
+    for font in fonts:
+        top = tops.get(font)
+        chars = advances.get(font, [])
+        if top is None or not chars or _skewed(top):
+            continue
+        distance = min(
+            sum(abs(width - references[name].glyph_advance(ord(c))) for c, width in chars)
+            / len(chars)
+            for name in ITALIC_REFERENCES
+        )
+        if distance > SMALL_MAX_STYLE_DISTANCE:
+            continue
+        mine = letters.get(font, {})
+        verdicts = []
+        for anchor in upright:
+            other = tops.get(anchor)
+            if other is None or tuple(other.FontMatrix) != tuple(top.FontMatrix):
+                continue
+            theirs = letters.get(anchor, {})
+            shared = [g for g in mine.keys() & theirs.keys() if mine[g] == theirs[g]]
+            slants = [(_slant(top, g), _slant(other, g)) for g in shared]
+            pairs = [(a, b) for a, b in slants if a is not None and b is not None]
+            if len(pairs) < MIN_SHARED_GLYPHS:
+                continue
+            verdicts.append(all(a - b >= ITALIC_SLANT for a, b in pairs))
+        if verdicts and all(verdicts):
+            found[font] = ITALIC
+    return found
+
+
+def _skewed(top: Any) -> bool:
+    matrix = top.FontMatrix
+    return bool(matrix[1] or matrix[2])
+
+
+def _slant(top: Any, glyph: str) -> float | None:
+    """Inclinação do contorno do glifo (`StatisticsPen.slant`); `None` sem contorno legível."""
+    try:
+        pen = StatisticsPen()
+        top.CharStrings[glyph].draw(pen)
+        if not pen.area:
+            return None
+        return float(pen.slant)
+    except Exception:  # glifo fora do subconjunto ou que não se deixa ler: sem medida
+        return None
+
+
+def _letter_glyphs(document: Any, fonts: set[str]) -> dict[str, dict[str, str]]:
+    """Fonte → nome do glifo → letra (ASCII), pelo traço do texto (`get_texttrace`)."""
+    tops = _cff_fonts(document, fonts)
+    found: dict[str, dict[str, str]] = {}
+    for page in document:
+        for span in page.get_texttrace():
+            top = tops.get(span["font"])
+            if top is None:
+                continue
+            glyphs = found.setdefault(span["font"], {})
+            for code, gid, *_ in span["chars"]:
+                c = chr(code) if code >= 0 else ""
+                if not (c.isascii() and c.isalpha()):
+                    continue
+                try:
+                    glyphs[top.charset[gid]] = c
+                except (IndexError, TypeError):
+                    continue
+    return found
 
 
 MIN_INK_LETTERS = 4  # letras distintas em comum com a face de texto

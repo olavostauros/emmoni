@@ -23,6 +23,7 @@ Trechos de documentos oficiais do Cebraspe, usados só para testar o parser. A p
 | `pmal-2018-p1.pdf` | Página 1 de `MATRIZ_410_PMAL001__PAG_7.PDF` — PM/AL 2018, Soldado (texto 1A1-I: a linha 13, numerada, abre parágrafo com recuo depois de linha cheia). https://cdn.cebraspe.org.br/concursos/PM_AL_18_SOLDADO/arquivos/MATRIZ_410_PMAL001__PAG_7.PDF |
 | `pmal-2017-basicos-soldado-p1.pdf` | Página 1 de `343_PMAL_CB1_01.pdf` — PM/AL 2017, Conhecimentos Básicos (comando do texto CB1A1AAA no alto da coluna da direita, partido em duas linhas). https://cdn.cebraspe.org.br/concursos/PM_AL_17_SOLDADO/arquivos/343_PMAL_CB1_01.pdf |
 | `pcma-2017-delegado-p1.pdf` | Página 1 de `372_PCMADELEGADO_001_01.PDF` — PC/MA 2017, Delegado (texto CG1A1AAA numerado que continua na coluna da direita, com margem própria). https://cdn.cebraspe.org.br/concursos/PC_MA_17_DELEGADO/arquivos/372_PCMADELEGADO_001_01.PDF |
+| `pcpb-2021-especificos-cargo-4-p4.pdf` | Página 4 de `627_PCPB_004_01.PDF` — PC/PB 2021, Conhecimentos Específicos, cargo 4 (" code" de "QR *code*" numa fonte "TT…o00" itálica sem estilo no nome, com as larguras do Times normal). https://cdn.cebraspe.org.br/concursos/PC_PB_21/arquivos/627_PCPB_004_01.PDF |
 | `pf-2021-agente-gabarito-definitivo.pdf` | `GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF` — gabarito definitivo, PF 2021, Agente. https://cdn.cebraspe.org.br/concursos/PF_21/arquivos/GAB_DEFINITIVO_MATRIZ_577_PF_002_00.PDF |
 
 ## `expected/`
