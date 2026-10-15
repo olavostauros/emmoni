@@ -1,20 +1,21 @@
 {
  "exam": "pmpa-2023-cfp/conhecimentos-basicos",
- "seed": "r13",
+ "seed": "r42",
  "numbers": [
+  8,
   9,
   10,
   11,
   12,
   14,
-  16,
+  15,
   17,
   18,
-  19,
   20
  ],
- "sampled_at": "2026-10-14T18:04:21.012449+00:00",
- "approved_at": "2026-10-14T18:06:26.025889+00:00",
+ "sampled_at": "2026-10-15T12:24:02.144258+00:00",
+ "approved_at": "2026-10-15T12:24:23.079660+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "dd5c1567d4dc8882bc633434ecd81107b21c2f3dfa62f0a4ba556ebfbe8103b5"
+ "fingerprint": "6654369bd122d2b8bef231bcef5924a23a32248b5e745f18ef06a04ff3870517",
+ "fingerprint_version": 2
 }

@@ -1,20 +1,21 @@
 {
  "exam": "pcma-2017-apc/conhecimentos-gerais-cargo-2-investigador-de-policia",
- "seed": "r13",
+ "seed": "r42",
  "numbers": [
-  3,
-  4,
+  1,
+  2,
   6,
   7,
-  8,
+  9,
   10,
+  11,
   12,
-  18,
-  19,
+  17,
   20
  ],
- "sampled_at": "2026-10-14T18:04:19.392328+00:00",
- "approved_at": "2026-10-14T18:05:50.517930+00:00",
+ "sampled_at": "2026-10-15T12:22:21.966948+00:00",
+ "approved_at": "2026-10-15T12:23:00.015072+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "d234e910f9ea85e98b7b15750bd5ef849bf016deef3f6c41f07e6b0240b3ed67"
+ "fingerprint": "e879454468d8d51ee00eef1af85b7d57fad40fee99d059f549110a7232a1f13e",
+ "fingerprint_version": 2
 }

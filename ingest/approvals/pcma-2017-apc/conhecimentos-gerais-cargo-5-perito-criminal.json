@@ -1,20 +1,21 @@
 {
  "exam": "pcma-2017-apc/conhecimentos-gerais-cargo-5-perito-criminal",
- "seed": "r13",
+ "seed": "r42",
  "numbers": [
+  1,
   2,
+  3,
   4,
-  6,
+  5,
   7,
   8,
-  11,
-  12,
-  13,
-  14,
-  15
+  9,
+  10,
+  12
  ],
- "sampled_at": "2026-10-14T18:04:19.885869+00:00",
- "approved_at": "2026-10-14T18:06:01.685776+00:00",
+ "sampled_at": "2026-10-15T12:23:00.525463+00:00",
+ "approved_at": "2026-10-15T12:23:14.381261+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "0a37b1e330e7da4a4ef154c2cf66db5d6f127796abbbdbe4bc1687b2dd856572"
+ "fingerprint": "8f37b429bda816a1e2285317c43996d73ebda2322bc10468ba13e6204741b95d",
+ "fingerprint_version": 2
 }

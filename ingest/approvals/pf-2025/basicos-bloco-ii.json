@@ -1,25 +1,21 @@
 {
  "exam": "pf-2025/basicos-bloco-ii",
- "seed": "r12",
+ "seed": "r42",
  "numbers": [
-  61,
+  62,
   64,
-  65,
   66,
   67,
-  75,
-  79,
-  80,
-  81,
-  85,
-  89,
-  91,
-  92,
-  94,
-  95
+  78,
+  82,
+  86,
+  87,
+  88,
+  93
  ],
- "sampled_at": "2026-10-14T14:48:47.840216+00:00",
- "approved_at": "2026-10-14T14:49:17.009509+00:00",
+ "sampled_at": "2026-10-15T12:21:12.943911+00:00",
+ "approved_at": "2026-10-15T12:21:49.620372+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "f8cfa426dff73cc6aaa42c8b7f9977b98d0ababddfd1d987c448a61360ec6608"
+ "fingerprint": "184e1e5e2816ef1d3fa9cd0b61e78f27dc39d62cb1cc74326b93cd348a713dae",
+ "fingerprint_version": 2
 }

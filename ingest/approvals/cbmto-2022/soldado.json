@@ -1,21 +1,21 @@
 {
  "exam": "cbmto-2022/soldado",
- "seed": "r14",
+ "seed": "r42",
  "numbers": [
-  3,
-  5,
+  2,
+  4,
   6,
+  16,
   17,
-  18,
-  19,
-  20,
   21,
-  25,
-  46,
-  49
+  39,
+  40,
+  41,
+  47
  ],
- "sampled_at": "2026-10-14T18:18:17.402566+00:00",
- "approved_at": "2026-10-14T18:18:40.563334+00:00",
+ "sampled_at": "2026-10-15T12:23:46.627136+00:00",
+ "approved_at": "2026-10-15T12:24:01.665097+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "3247bb67ee6a286fa1439ce997a0627a1dc70cdea00e7d871995307794809086"
+ "fingerprint": "c52f9d07fafb1f25fbfab457c731241adbd62db0d2fbc1a5df8054865cefefc8",
+ "fingerprint_version": 2
 }

@@ -1,20 +1,21 @@
 {
  "exam": "cbmto-2022/oficial",
- "seed": "r13",
+ "seed": "r42",
  "numbers": [
-  7,
-  8,
-  21,
-  29,
-  32,
-  33,
+  4,
+  16,
+  18,
+  25,
   34,
-  35,
-  43,
-  46
+  36,
+  38,
+  39,
+  47,
+  48
  ],
- "sampled_at": "2026-10-14T18:04:20.556008+00:00",
- "approved_at": "2026-10-14T18:06:15.169764+00:00",
+ "sampled_at": "2026-10-15T12:23:15.125524+00:00",
+ "approved_at": "2026-10-15T12:23:45.971152+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "ec23ddf4fb73602b8b043833e7562e2ba4b9dafc142755b42eac407a3efdbcdc"
+ "fingerprint": "658b3e8e38c156c612ca3c74030089adb42a334746ce6736578161bb3cabde92",
+ "fingerprint_version": 2
 }
