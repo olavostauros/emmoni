@@ -1,20 +1,21 @@
 {
  "exam": "pcgo-2016/conhecimentos-basicos-cargo-1-agente-de-policia-substituto",
- "seed": "r13",
+ "seed": "r41",
  "numbers": [
-  4,
+  1,
+  3,
+  5,
   8,
   9,
   11,
-  13,
-  14,
+  12,
+  15,
   16,
-  18,
-  19,
-  20
+  19
  ],
- "sampled_at": "2026-10-14T18:04:17.804239+00:00",
- "approved_at": "2026-10-14T18:04:35.890962+00:00",
+ "sampled_at": "2026-10-15T12:09:21.746747+00:00",
+ "approved_at": "2026-10-15T12:12:49.695910+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "b424df2f6923dc89b531d3e20a98620d7b46bc8e564749db37d72af09bb72f16"
+ "fingerprint": "7c0f4800f40cb3e6772db689834728204960d289316f6002a63459a763a68178",
+ "fingerprint_version": 2
 }

@@ -1,25 +1,21 @@
 {
  "exam": "pf-2025/basicos-bloco-i",
- "seed": "r12",
+ "seed": "r41",
  "numbers": [
   1,
-  2,
-  4,
-  7,
-  8,
-  9,
-  10,
-  11,
-  15,
+  12,
+  16,
   18,
   23,
-  31,
-  43,
-  57,
+  28,
+  37,
+  40,
+  44,
   58
  ],
- "sampled_at": "2026-10-14T14:47:34.222104+00:00",
- "approved_at": "2026-10-14T14:48:47.408568+00:00",
+ "sampled_at": "2026-10-15T12:09:19.672943+00:00",
+ "approved_at": "2026-10-15T12:11:06.347824+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "fe4755166fee44621198301246cc931a0ba755645fd02cef983ca84e4f4929a0"
+ "fingerprint": "1dc5b718b5d987164ad89255cd57790f02b62e8fa4bcc9a79121a9ed223f441e",
+ "fingerprint_version": 2
 }
