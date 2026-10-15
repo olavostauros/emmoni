@@ -1714,37 +1714,94 @@ def _letter_breaks(entries: list[_Entry]) -> set[int]:
     return breaks
 
 
+# Margem do corpo do texto numerado em cada (página, coluna) onde há linha numerada.
+_Bases = dict[tuple[int, int], float]
+
+
 def _text_paragraphs(entries: list[_Entry]) -> list[str]:
     """Parágrafos de um texto rotulado, sem a numeração de linhas da margem."""
     stripped, numbered = _strip_line_numbers(entries)
-    return _paragraphs(stripped, base=_base_x(stripped) if numbered else None)
+    return _paragraphs(stripped, bases=_column_bases(stripped, numbered) if numbered else None)
 
 
-def _strip_line_numbers(entries: list[_Entry]) -> tuple[list[_Entry], bool]:
-    """Tira a numeração de linhas da margem dos textos-base (1, 4, 7...).
+def _column_bases(entries: list[_Entry], numbered: set[tuple[int, int]]) -> _Bases:
+    """Margem do corpo do texto em cada (página, coluna) com linha numerada: o x0 mais comum ali
+    (no empate, o menor, que é a margem; recuos ficam à direita). A coluna sem numeração usa a
+    própria margem: o comando no alto da coluna seguinte ao texto (PM/AL 2017, "Com relação às
+    ideias do texto CB1A1AAA, julgue os itens que se" | "seguem.") ficava inteiro "recuado" contra
+    a margem do texto da outra coluna, e cada linha virava um parágrafo."""
+    bases: _Bases = {}
+    for key in numbered:
+        counts = Counter(
+            round(entry.line.x0) for entry in entries if (entry.page, entry.line.column) == key
+        )
+        bases[key] = float(_mode_min(counts))
+    return bases
+
+
+LINE_NUMBER_STEP = 10  # a numeração da margem avança de 3 em 3 ou de 5 em 5
+
+
+def _strip_line_numbers(entries: list[_Entry]) -> tuple[list[_Entry], set[tuple[int, int]]]:
+    """Tira a numeração de linhas da margem dos textos-base (1, 4, 7...); devolve também as
+    (página, coluna) onde havia numeração.
 
     Só quando o corpo do texto fica recuado em relação à margem da coluna e o número está à
-    esquerda dele; um parágrafo que começa com número ("2020 foi...") fica intacto."""
+    esquerda dele; um parágrafo que começa com número ("2020 foi...") fica intacto. A margem é a
+    do texto inteiro; texto já numerado que continua noutra coluna ou página, com margem própria,
+    tem o número tirado contra a margem dali, se ele segue a numeração (PC/MA 2017 delegado, texto
+    CG1A1AAA: "46", "49" e "52" na coluna da direita ficavam no texto)."""
     base = _base_x(entries)
+    local = _plain_margins(entries)
     stripped = []
-    numbered = False
+    numbered: set[tuple[int, int]] = set()
+    last = 0  # último número de linha tirado
     for entry in entries:
+        key = (entry.page, entry.line.column)
         match = LINE_NUMBER.match(entry.line.text)
+        margin: float | None = None
         if match and entry.line.x0 < base - LINE_NUMBER_GAP:
+            margin = base
+        elif match and last and key in local and entry.line.x0 < local[key] - LINE_NUMBER_GAP:
+            value = int(re.findall(r"\d+", match.group())[0])
+            if last < value <= last + LINE_NUMBER_STEP:
+                margin = local[key]
+        if match and margin is not None:
+            last = int(re.findall(r"\d+", match.group())[0])
+            # O texto fica onde está na página (`body_x0`): o recuo de primeira linha de parágrafo
+            # numa linha numerada abre o parágrafo como nas outras, mesmo depois de linha cheia
+            # (PM/AL 2018, texto 1A1-I, linha 13). Sem a posição (OCR, staging antigo), a margem.
+            body = entry.line.body_x0
             line = entry.line.model_copy(
                 update={
                     "text": entry.line.text[match.end() :],
                     "plain": LINE_NUMBER.sub("", entry.line.plain, count=1),
-                    "x0": base,
+                    "x0": body if body is not None and body > margin - LINE_NUMBER_GAP else margin,
                 }
             )
             entry = _Entry(
                 entry.page, line, entry.left, entry.short, entry.after_gap, entry.flags,
                 ocr=entry.ocr,
             )  # fmt: skip
-            numbered = True
+            numbered.add(key)
         stripped.append(entry)
     return stripped, numbered
+
+
+def _plain_margins(entries: list[_Entry]) -> _Bases:
+    """Margem de cada (página, coluna) pelas linhas sem número na frente: o x0 mais comum (no
+    empate, o menor)."""
+    groups: dict[tuple[int, int], Counter[int]] = {}
+    for entry in entries:
+        if not LINE_NUMBER.match(entry.line.text):
+            key = (entry.page, entry.line.column)
+            groups.setdefault(key, Counter())[round(entry.line.x0)] += 1
+    return {key: float(_mode_min(counts)) for key, counts in groups.items()}
+
+
+def _mode_min(counts: Counter[int]) -> int:
+    top = max(counts.values())
+    return min(x for x, count in counts.items() if count == top)
 
 
 def _base_x(entries: list[_Entry]) -> float:
@@ -1753,15 +1810,21 @@ def _base_x(entries: list[_Entry]) -> float:
     return float(counts.most_common(1)[0][0]) if counts else 0.0
 
 
-def _paragraphs(entries: list[_Entry], base: float | None = None) -> list[str]:
-    """Junta linhas em parágrafos. `base` é a margem do corpo do texto quando ela não coincide
-    com a da coluna (textos com numeração de linhas)."""
+def _base_of(bases: _Bases | None, entry: _Entry) -> float | None:
+    """Margem do corpo do texto numerado na coluna da linha; None: a margem da coluna."""
+    return bases.get((entry.page, entry.line.column)) if bases else None
+
+
+def _paragraphs(entries: list[_Entry], bases: _Bases | None = None) -> list[str]:
+    """Junta linhas em parágrafos. `bases` é a margem do corpo do texto, por página e coluna,
+    quando ela não coincide com a da coluna (textos com numeração de linhas)."""
     paragraphs: list[list[list[str]]] = []
     previous: _Entry | None = None
     opener: _Entry | None = None  # primeira linha do parágrafo aberto
     leading = _leading(entries)
-    verses = _verse_breaks(entries, leading, base)
+    verses = _verse_breaks(entries, leading, bases)
     for index, entry in enumerate(entries):
+        base = _base_of(bases, entry)
         if index - 1 in verses:  # verso seguinte da mesma estrofe: quebra de linha
             paragraphs[-1].append([entry.line.text])
             previous = entry
@@ -2154,7 +2217,9 @@ def _verse_open(entry: _Entry) -> bool:
     return VERSE_OPEN_END.search(entry.line.plain.rstrip()) is not None
 
 
-def _verse_link(previous: _Entry, entry: _Entry, leading: float, base: float | None) -> bool:
+def _verse_link(
+    previous: _Entry, entry: _Entry, leading: float, bases: _Bases | None = None
+) -> bool:
     """As duas linhas seguem uma à outra no mesmo bloco de linhas alinhadas: mesma página, coluna,
     corpo e margem sem recuo (ou o mesmo meio, recuadas: versos centralizados), sem espaço vertical
     maior que o entrelinha, nenhuma delas título, item de lista, linha com rótulo ou código."""
@@ -2163,7 +2228,7 @@ def _verse_link(previous: _Entry, entry: _Entry, leading: float, base: float | N
         return False
     if abs(entry.line.size - previous.line.size) >= 1 or entry.line.size < CITATION_SIZE:
         return False
-    margin = (base or entry.left) + PARAGRAPH_INDENT
+    margin = (_base_of(bases, entry) or entry.left) + PARAGRAPH_INDENT
     aligned = abs(entry.line.x0 - previous.line.x0) <= BLOCK_INDENT_TOLERANCE
     # Versos centralizados (CBM/AL 2017 soldado específicos, "O Xote das meninas", g114): o meio
     # das linhas coincide, todas recuadas.
@@ -2186,7 +2251,7 @@ def _center(entry: _Entry) -> float:
 
 
 def _verse_breaks(
-    entries: list[_Entry], leading: float | None, base: float | None = None
+    entries: list[_Entry], leading: float | None, bases: _Bases | None = None
 ) -> set[int]:
     """Índices das linhas de verso depois das quais vem quebra de linha, não parágrafo novo
     (PM/AL 2021 soldado, "À procura da infância": uma estrofe de 21 versos, cada um virava um
@@ -2207,7 +2272,7 @@ def _verse_breaks(
     breaks: set[int] = set()
     start = 0
     for end in range(1, len(entries) + 1):
-        if end < len(entries) and _verse_link(entries[end - 1], entries[end], leading, base):
+        if end < len(entries) and _verse_link(entries[end - 1], entries[end], leading, bases):
             continue
         run = range(start, end - 1)  # quebras entre as linhas do bloco [start, end)
         shorts = [i for i in run if entries[i].short]

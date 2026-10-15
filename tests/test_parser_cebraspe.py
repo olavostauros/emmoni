@@ -2138,3 +2138,90 @@ def test_ocr_credit_with_jittering_size_is_one_paragraph() -> None:
         "No que se refere às ideias e aos aspectos linguísticos do texto",
     ]
     assert len(cebraspe._paragraphs(entries(ocr=False))) == 4
+
+
+def _passage(segmented: Segmented, key: str) -> list[str]:
+    return next(p for p in segmented.passages if p.key == key).body_md.split("\n\n")
+
+
+def test_first_line_indent_on_numbered_line_opens_paragraph() -> None:
+    """PM/AL 2018, texto 1A1-I (reprovação do minos, semente r34): a linha 13 ("Há que
+    experimentar...") tem o número na margem e o texto com recuo de primeira linha, depois de uma
+    linha que vai até a margem direita. O número levava o x0 da linha para a margem e o recuo se
+    perdia: o 2.º e o 3.º parágrafos saíam juntos. O x0 do texto (`body_x0`) guarda o recuo."""
+    pages = extract(FIXTURES / "pdf/cebraspe/pmal-2018-p1.pdf", styles=True)
+    numbered = next(line for line in pages[0].lines if line.plain.startswith("13 Há que"))
+    assert numbered.x0 < 40 and numbered.body_x0 is not None and numbered.body_x0 > 80
+    paragraphs = _passage(cebraspe.segment(pages), "1A1-I")
+    assert [p[:20] for p in paragraphs[:4]] == [
+        "Dói. Dói muito. Dói ",
+        "No princípio, se um ",
+        "Há que experimentar ",
+        "Sem a mãe, a casa ve",
+    ]
+    assert paragraphs[1].endswith("mãe, beija aqui!")
+    assert len(paragraphs) == 5  # 4 parágrafos + o crédito
+
+
+def test_command_atop_next_column_after_numbered_text() -> None:
+    """PM/AL 2017 básicos, texto CB1A1AAA: o comando "Com relação às ideias do texto CB1A1AAA,
+    julgue os itens que se" | "seguem." abre a coluna da direita. Medidas contra a margem do texto
+    numerado da coluna da esquerda, as duas linhas pareciam recuadas e viravam parágrafos
+    separados; o comando ficava no texto-base, e os itens 1 a 6 sem comando (`no_command`)."""
+    segmented = cebraspe.segment(
+        extract(FIXTURES / "pdf/cebraspe/pmal-2017-basicos-soldado-p1.pdf", styles=True)
+    )
+    paragraphs = _passage(segmented, "CB1A1AAA")
+    assert not any("julgue" in p for p in paragraphs)
+    assert paragraphs[2].startswith("Lançadas com o intuito")  # linha 13, recuada
+    assert paragraphs[3].startswith("O mito da criminalidade")  # linha 22, recuada
+    first = segmented.questions[0]
+    assert first.statement_md.split("\n\n")[0] == (
+        "Com relação às ideias do texto CB1A1AAA, julgue os itens que se seguem."
+    )
+    assert not next(p for p in segmented.passages if p.key == "CB1A1AAA").flags
+
+
+def test_line_numbers_in_the_next_column_are_stripped() -> None:
+    """PC/MA 2017 delegado, texto CG1A1AAA: o texto numerado continua no alto da coluna da
+    direita, com margem própria. Contra a margem da coluna da esquerda os números 46, 49 e 52
+    não saíam, e cada linha virava um parágrafo; contra a margem dali, seguindo a numeração (45 <
+    46), saem, e o texto fica em dois parágrafos."""
+    segmented = cebraspe.segment(
+        extract(FIXTURES / "pdf/cebraspe/pcma-2017-delegado-p1.pdf", styles=True)
+    )
+    paragraphs = _passage(segmented, "CG1A1AAA")
+    assert paragraphs[-3].startswith("Outro passo é tentar erradicar a pobreza")
+    assert paragraphs[-3].endswith("preservando a diversidade cultural e o ambiente.")
+    assert paragraphs[-2] == (
+        "É, então, no entrelaçamento “paz — desenvolvimento — direitos humanos — democracia” que"
+        " podemos vislumbrar a educação para a paz."
+    )
+    assert not any(p[:3].strip().isdigit() for p in paragraphs)
+
+
+def test_number_out_of_sequence_in_another_column_stays() -> None:
+    """Na coluna com margem própria, só o número que segue a numeração já tirada sai: um "2020"
+    que abre a linha fica no texto."""
+
+    def entry(text: str, x0: float, y0: float, column: int) -> cebraspe._Entry:
+        line = Line(text=text, plain=text, x0=x0, y0=y0, x1=x0 + 240, y1=y0 + 10, column=column,
+                    size=10.0)  # fmt: skip
+        return cebraspe._Entry(1, line, 28.3 if column == 1 else 304.4)
+
+    entries = [
+        entry("1 Primeira linha do texto que vai até a margem", 34.0, 100, 1),
+        entry("segunda linha do texto que vai até a margem", 46.0, 112, 1),
+        entry("terceira linha do texto que vai até a margem", 46.0, 124, 1),
+        entry("4 quarta linha do texto que vai até a margem", 34.0, 136, 1),
+        entry("e outra linha do texto que vai até a margem", 46.0, 148, 1),
+        entry("quinta linha do texto que vai até a margem", 322.1, 100, 2),
+        entry("sexta linha do texto que vai até a margem", 322.1, 112, 2),
+        entry("7 sétima linha do texto que vai até a margem", 307.9, 124, 2),
+        entry("2020 foi o ano em que a linha começa por número", 307.9, 136, 2),
+    ]
+    stripped, numbered = cebraspe._strip_line_numbers(entries)
+    assert [e.line.plain.split()[0] for e in stripped] == [
+        "Primeira", "segunda", "terceira", "quarta", "e", "quinta", "sexta", "sétima", "2020",
+    ]  # fmt: skip
+    assert numbered == {(1, 1), (1, 2)}

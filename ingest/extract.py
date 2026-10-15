@@ -82,6 +82,10 @@ class Line(BaseModel):
     # 2019/2020/2026) trazem a justificativa do gabarito em azul, às vezes sem o prefixo
     # "JUSTIFICATIVA -" (PCDF 2020, item 84): a cor separa a justificativa do item.
     color: int = 0
+    # x0 do texto quando a linha foi unida ao número de linha da margem ("13" | "Há que..."): o
+    # número leva o x0 da linha para a margem, e o recuo de primeira linha do parágrafo se perdia
+    # (PM/AL 2018, texto 1A1-I, linha 13). None quando a linha não começa por número separado.
+    body_x0: float | None = None
 
 
 class Figure(BaseModel):
@@ -1300,6 +1304,7 @@ def _merge(row: list[Line]) -> Line:
         return row[0]
     row = sorted(row, key=lambda line: line.x0)
     main = max(row, key=lambda line: line.size)
+    numbered = any(c.isdigit() for c in row[0].plain) and LEADING_MARK.match(row[0].plain.strip())
     return Line(
         text=" ".join(line.text for line in row),
         plain=" ".join(line.plain for line in row),
@@ -1316,6 +1321,7 @@ def _merge(row: list[Line]) -> Line:
             for line in row
         ),
         color=_row_color(row),
+        body_x0=row[1].x0 if numbered else None,
     )
 
 

@@ -738,3 +738,47 @@ o novo, a partir do mesmo `pages.exam.json`, e comparadas. A regra 3 muda só o 
 1 muda só: CBM/AL 2021 soldado (q86), CBM/AL 2017 básicos cargo 1 (q48: "P: ...", "Q: ..." e
 "Nesse caso, ..." em parágrafos próprios) e PF 2025 bloco I (q55: "P: “...”", "Q: “...”" e "Com
 base nessas proposições, ..."). A regra 2 não muda nenhuma prova.
+
+## Emenda de 2026-10-15 (22) — recuo na linha numerada; margem do texto numerado por coluna
+
+**Contexto.** Reprovação do minos (semente r34) no PM/AL 2018, texto 1A1-I ("Dói. Dói muito…",
+pág. 1): o texto tem 4 parágrafos, e o 2.º e o 3.º saíam juntos. A linha 13 ("Há que experimentar
+o prazer…") abre parágrafo com recuo de primeira linha (x≈81 contra 46), depois de uma linha que
+vai até a margem direita; o item 2 cita o "terceiro parágrafo". O número de linha da margem vem
+numa linha própria do PDF e `_merge` o une ao texto: a linha unida começa no x do número, e
+`_strip_line_numbers` a punha na margem do corpo, perdendo o recuo. A regra do recuo já existia
+(`indented` em `_paragraphs`); faltava a posição. Na mesma varredura, duas falhas vizinhas da
+margem do texto numerado, que era uma só para o texto inteiro: (a) no PM/AL 2017 básicos, o
+comando "Com relação às ideias do texto CB1A1AAA, julgue os itens que se" | "seguem." abre a coluna
+da direita; contra a margem do texto da coluna da esquerda as duas linhas pareciam recuadas,
+viravam dois parágrafos, e `_split_command` só via o "seguem.": o comando ficava no texto-base,
+marcado `no_command`, os itens 1 a 6 ficavam sem ele no enunciado e os 14 itens do texto iam para
+`review` ("grupo de itens sem comando reconhecido"); (b) no PC/MA 2017 delegado,
+texto CG1A1AAA, o texto numerado continua no alto da coluna da direita, com margem própria
+(x≈322): os números 46, 49 e 52 não eram tirados e cada linha virava um parágrafo.
+
+**Decisão.**
+
+1. `Line.body_x0` (extração): quando `_merge` une à linha um número sozinho na frente (número de
+   linha ou de item), guarda o x0 do texto depois dele. `_strip_line_numbers` põe a linha no
+   `body_x0` em vez da margem (se ele não fica à esquerda da margem), e o recuo de primeira linha
+   abre parágrafo como nas linhas sem número, mesmo depois de linha cheia. Sem `body_x0` (OCR,
+   `pages.json` antigo), a margem, como antes.
+2. A margem do corpo do texto numerado vale por página e coluna (`_column_bases`: o x0 mais comum
+   ali, no empate o menor). A coluna sem linha numerada usa a própria margem, como texto sem
+   numeração.
+3. Texto já numerado que continua noutra coluna ou página com margem própria: o número na frente
+   da linha sai contra a margem dali (linhas sem número), se seguir a numeração já tirada (maior
+   que o último, até 10 adiante). Fora da sequência ("2020 foi…") fica no texto.
+
+**Verificação.** As 135 provas do `data/staging/` reprocessadas (extract → segment) com o código do
+HEAD (92a1330) e com o novo, e comparadas. Mudam só: PM/AL 2018 (texto 1A1-I: 4 parágrafos e o
+crédito, o 3.º começando em "Há que experimentar"), PM/AL 2017 básicos (texto CB1A1AAA: "Lançadas
+com o intuito…" (linha 13) e "O mito da criminalidade…" (linha 22) em parágrafos próprios; o
+comando sai do texto e abre o enunciado dos itens 1 a 6; os itens 1 a 14 saem de `review`), PC/MA 2017
+delegado (texto CG1A1AAA: os números 46, 49 e 52 saem e as oito linhas da coluna da direita viram
+dois parágrafos, "Outro passo…" e "É, então…") e PC Científica/PE 2016 gerais (texto CG1A1AAA: "O
+mundo não renunciou à guerra." (linha 10) em parágrafo próprio; prova não ingerida). Páginas
+conferidas renderizadas: PM/AL 2018, PM/AL 2017 básicos, PC/MA 2017 delegado e PC Científica/PE
+2016 gerais, pág. 1. Fixtures `pmal-2018-p1.pdf`, `pmal-2017-basicos-soldado-p1.pdf` e
+`pcma-2017-delegado-p1.pdf`.
