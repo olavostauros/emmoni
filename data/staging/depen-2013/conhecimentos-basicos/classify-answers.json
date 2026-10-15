@@ -1,0 +1,520 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.ortografia.grafia_de_palavras",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.ortografia.acentuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
+   },
+   {
+    "path": "redacao_oficial.padrao_oficio",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.9
+   },
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
+   },
+   {
+    "path": "redacao_oficial.padrao_oficio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
+   },
+   {
+    "path": "redacao_oficial.padrao_oficio",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.ferramentas_de_busca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "informatica.sistemas_operacionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.navegadores",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.golpes_e_ataques",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "ética e cidadania"
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "ética e cidadania"
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.problemas_aritmeticos",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.principio_da_casa_dos_pombos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.proposicoes_e_conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.logica_proposicional.quantificadores",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.tautologia_e_contradicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "atualidades.seguranca_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "atualidades.seguranca_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "atualidades.seguranca_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "atualidades.meio_ambiente",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.sociedade_e_cultura",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "atualidades.sociedade_e_cultura",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.educacao_e_direitos",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "atualidades.sociedade_e_cultura",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.politica_e_economia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

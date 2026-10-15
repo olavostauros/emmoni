@@ -1,0 +1,1262 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.pronomes",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.crase",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.artigo_e_numeral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.redacao_oficial.atributos_do_texto_oficial",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.preposicao_e_conjuncao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
+   },
+   {
+    "path": "redacao_oficial.padrao_oficio",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.seguranca_publica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.seguranca_publica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.politica_e_economia.economia_brasileira",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.politica_e_economia.economia_brasileira",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.navegadores",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.ferramentas_de_busca",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "informatica.conceitos_basicos.hardware",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.conceitos_basicos.unidades_e_representacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas.formulas_e_funcoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.probabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.analise_combinatoria",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.probabilidade",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.associacao_logica",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.negacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "raciocinio_logico.logica_proposicional.quantificadores",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.lesao_corporal",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.dolo_e_culpa",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.fato_tipico",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.conceito_e_classificacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.concurso_de_pessoas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.corrupcao_passiva",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.contrabando_e_descaminho",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.outros_crimes_de_funcionario",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_em_flagrante",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.reconhecimento_e_acareacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.prazos_e_arquivamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.instauracao_e_diligencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.inquerito_policial.prazos_e_arquivamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.interrogatorio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.prisao.prisao_temporaria",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_tortura",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas.lideranca_e_motivacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "administracao_geral.gestao_de_pessoas.lideranca_e_motivacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "direito_financeiro.orcamento_publico.leis_orcamentarias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "direito_financeiro.execucao_financeira",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "direito_financeiro.divida_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_financeiro.orcamento_publico",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "direito_financeiro.receita_e_despesa",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_financeiro.execucao_financeira",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "direito_financeiro.execucao_financeira",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": "conta única do Tesouro"
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_disciplinar",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.poderes_administrativos.poder_de_policia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.atributos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.empresas_estatais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.acumulacao_e_remuneracao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "direito_constitucional.ordem_social.indigenas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.remedios_constitucionais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.nacionalidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "direito_constitucional.defesa_do_estado.estado_de_defesa_e_de_sitio",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "direito_constitucional.seguranca_publica.orgaos_policiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.termos_da_oracao",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.argumentacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.preposicao_e_conjuncao",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.concordancia.verbal",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.pontuacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.regencia",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "redacao_oficial.comunicacoes_oficiais",
+    "confidence": 0.9
+   },
+   {
+    "path": "redacao_oficial.pronomes_de_tratamento",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "atualidades.relacoes_internacionais",
+    "confidence": 0.9
+   },
+   {
+    "path": "atualidades.politica_e_economia.economia_brasileira",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.correio_eletronico",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.redes_e_internet.protocolos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.conceitos_de_redes",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "informatica.banco_de_dados.modelagem",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "informatica.dados_e_informacao",
+    "confidence": 0.7
+   },
+   {
+    "path": "informatica.sistemas_de_informacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.seguranca_da_informacao.mecanismos_de_protecao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "arquivologia.conceitos_fundamentais",
+    "confidence": 0.9
+   },
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.9
+   },
+   {
+    "path": "arquivologia.conceitos_fundamentais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "arquivologia.conceitos_fundamentais",
+    "confidence": 0.9
+   },
+   {
+    "path": "arquivologia.principios_arquivisticos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "arquivologia.conceitos_fundamentais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "arquivologia.conceitos_fundamentais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "arquivologia.avaliacao_e_temporalidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.9
+   },
+   {
+    "path": "arquivologia.classificacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "arquivologia.avaliacao_e_temporalidade",
+    "confidence": 0.9
+   },
+   {
+    "path": "arquivologia.gestao_de_documentos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "arquivologia.protocolo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "arquivologia.acesso_a_informacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "arquivologia.tipologia_e_diplomatica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "arquivologia.tipologia_e_diplomatica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "arquivologia.preservacao_e_conservacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "arquivologia.documentos_digitais",
+    "confidence": 0.9
+   },
+   {
+    "path": "arquivologia.conceitos_fundamentais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "arquivologia.preservacao_e_conservacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.equivalencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_proposicional.tautologia_e_contradicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "raciocinio_logico.logica_de_argumentacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.extorsao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.estelionato",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

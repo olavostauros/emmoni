@@ -1,0 +1,15 @@
+# Revisão de linhas sem mapeamento Unicode (decisões 0018 e 0020): PC/DF 2013, Agente, caderno Tipo I.
+# O PDF tem texto (capa e última página digitalizadas, sem itens), mas as teclas desenhadas (p. 5)
+# estão em fonte sem ToUnicode e saem como "�". Conferidas contra a imagem da página (2026-10-15).
+document: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/PCDF13_001_01.pdf
+proofread_by: claude-opus-5-5
+lines:
+- page: 5
+  ocr: seleção desse trecho, fosse pressionada a tecla �.
+  text: seleção desse trecho, fosse pressionada a tecla `Delete`.
+- page: 5
+  ocr: 'sequência de ações: clicar a célula D2; digitar =B2*C2 e, em seguida, teclar �; clicar a célula D2 com o botão direito do mouse'
+  text: 'sequência de ações: clicar a célula D2; digitar =B2\*C2 e, em seguida, teclar `Enter`; clicar a célula D2 com o botão direito do *mouse*'
+- page: 5
+  ocr: a tecla � e, em seguida, acionar a tecla �.
+  text: a tecla `Ctrl` e, em seguida, acionar a tecla `V`.

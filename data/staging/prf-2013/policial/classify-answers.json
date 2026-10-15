@@ -1,0 +1,1258 @@
+{
+ "1": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.verbos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "2": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "3": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "4": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.tipologia_e_generos",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.ideias_do_texto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "5": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.periodo_composto",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "6": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.argumentacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.semantica.conotacao_e_figuras",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "7": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.ortografia.acentuacao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "8": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.semantica.polissemia_e_ambiguidade",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.referenciacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "9": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "10": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "11": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.morfologia.preposicao_e_conjuncao",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.coesao_e_coerencia.conectivos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "12": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.colocacao_pronominal",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "13": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.reescrita",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "14": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.sintaxe.funcoes_do_se_e_do_que",
+    "confidence": 0.9
+   },
+   {
+    "path": "lingua_portuguesa.morfologia.pronomes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "15": {
+  "topics": [
+   {
+    "path": "lingua_portuguesa.interpretacao_de_texto.inferencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "16": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.problemas_aritmeticos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "17": {
+  "topics": [
+   {
+    "path": "matematica.razao_e_proporcao",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.problemas_aritmeticos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "18": {
+  "topics": [
+   {
+    "path": "matematica.estatistica_basica.media",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.estatistica_basica.graficos_e_tabelas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "19": {
+  "topics": [
+   {
+    "path": "matematica.sequencias_e_progressoes",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.estatistica_basica.graficos_e_tabelas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "20": {
+  "topics": [
+   {
+    "path": "matematica.porcentagem",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.estatistica_basica.graficos_e_tabelas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "21": {
+  "topics": [
+   {
+    "path": "matematica.funcoes.afim",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.estatistica_basica.graficos_e_tabelas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "22": {
+  "topics": [
+   {
+    "path": "matematica.funcoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "23": {
+  "topics": [
+   {
+    "path": "matematica.funcoes.quadratica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "24": {
+  "topics": [
+   {
+    "path": "matematica.funcoes.quadratica",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.equacoes_e_inequacoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "25": {
+  "topics": [
+   {
+    "path": "matematica.funcoes.quadratica",
+    "confidence": 0.9
+   },
+   {
+    "path": "matematica.equacoes_e_inequacoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "26": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.principios_fundamentais",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "27": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.eficacia_das_normas",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "28": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.principios_fundamentais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "29": {
+  "topics": [
+   {
+    "path": "direito_constitucional.teoria_da_constituicao.principios_fundamentais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "30": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.nacionalidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "31": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "32": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "33": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "34": {
+  "topics": [
+   {
+    "path": "direito_constitucional.direitos_e_garantias_fundamentais.direitos_individuais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "35": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.federacao_e_entes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "36": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "37": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.administracao_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "38": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_do_estado.reparticao_de_competencias",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "39": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_judiciario",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "40": {
+  "topics": [
+   {
+    "path": "direito_constitucional.organizacao_dos_poderes.poder_executivo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "41": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "42": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.etica_e_funcao_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "etica_no_servico_publico.etica_e_moral",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "43": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "44": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "45": {
+  "topics": [
+   {
+    "path": "etica_no_servico_publico.codigo_de_etica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "46": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "47": {
+  "topics": [
+   {
+    "path": "informatica.editores_de_texto",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "48": {
+  "topics": [
+   {
+    "path": "informatica.planilhas_eletronicas.formulas_e_funcoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "49": {
+  "topics": [
+   {
+    "path": "informatica.seguranca_da_informacao.malware",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "50": {
+  "topics": [
+   {
+    "path": "informatica.redes_e_internet.computacao_em_nuvem",
+    "confidence": 0.9
+   },
+   {
+    "path": "informatica.sistemas_operacionais.windows",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "51": {
+  "topics": [
+   {
+    "path": "direito_administrativo.responsabilidade_civil_do_estado",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.responsabilidade_dos_agentes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "52": {
+  "topics": [
+   {
+    "path": "direito_administrativo.processo_administrativo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "53": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.responsabilidade_dos_agentes",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "54": {
+  "topics": [
+   {
+    "path": "direito_administrativo.atos_administrativos.extincao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "55": {
+  "topics": [
+   {
+    "path": "direito_administrativo.organizacao_administrativa.administracao_direta_e_indireta",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "56": {
+  "topics": [
+   {
+    "path": "direito_administrativo.controle_da_administracao.controle_interno_e_externo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "57": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "58": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "59": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.processo_administrativo_disciplinar",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "60": {
+  "topics": [
+   {
+    "path": "direito_administrativo.agentes_publicos.lei_8112",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.agentes_publicos.cargo_emprego_e_funcao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "61": {
+  "topics": [
+   {
+    "path": "direito_administrativo.improbidade_administrativa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "62": {
+  "topics": [
+   {
+    "path": "direito_administrativo.principios",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_administrativo.atos_administrativos.atributos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "63": {
+  "topics": [
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "conflito aparente de normas"
+ },
+ "64": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.iter_criminis",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_pessoa.homicidio",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "65": {
+  "topics": [
+   {
+    "path": "direito_penal.principios",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "66": {
+  "topics": [
+   {
+    "path": "direito_penal.aplicacao_da_lei_penal.lei_penal_no_tempo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "67": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "68": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.excludentes_de_ilicitude",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.teoria_do_crime.culpabilidade",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "69": {
+  "topics": [
+   {
+    "path": "direito_penal.teoria_do_crime.concurso_de_pessoas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "70": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.roubo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "71": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.peculato",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "72": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.concussao_e_excesso_de_exacao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_a_administracao_publica.corrupcao_passiva",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "73": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.estelionato",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_penal.crimes_contra_o_patrimonio.furto",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "74": {
+  "topics": [
+   {
+    "path": "direito_penal.crimes_hediondos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "75": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.aplicacao_da_lei_processual",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "76": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.principios",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "77": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.condicoes_da_acao_e_denuncia",
+    "confidence": 0.9
+   },
+   {
+    "path": "direito_processual_penal.inquerito_policial.natureza_e_caracteristicas",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "78": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.acao_penal.acao_penal_publica",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "79": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.habeas_corpus_e_revisao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "80": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_preventiva",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "81": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.prisao.prisao_temporaria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "82": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.provas.provas_ilicitas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "83": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.procedimentos.procedimentos_especiais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "84": {
+  "topics": [
+   {
+    "path": "direito_processual_penal.jurisdicao_e_competencia.competencia_material",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "85": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_desarmamento",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "86": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.abuso_de_autoridade",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "87": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_drogas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "88": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.contravencoes_penais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "89": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.racismo",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "90": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.organizacao_criminosa",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "91": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.juizados_especiais_criminais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "92": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.estatuto_do_idoso",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "93": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.crimes_ambientais",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "94": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_maria_da_penha",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "95": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.trafico_de_pessoas",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "96": {
+  "topics": [
+   {
+    "path": "legislacao_penal_especial.lei_de_tortura",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "97": {
+  "topics": [
+   {
+    "path": "direitos_humanos.policia_e_direitos_humanos",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.uso_da_forca",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "98": {
+  "topics": [
+   {
+    "path": "direitos_humanos.uso_da_forca",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.policia_e_direitos_humanos",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "99": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "pluralismo jurídico e cidadania"
+ },
+ "100": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": "pluralismo jurídico e cidadania"
+ },
+ "101": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "102": {
+  "topics": [
+   {
+    "path": "direitos_humanos.direitos_humanos_na_constituicao",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.tratados_internacionais",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "103": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "104": {
+  "topics": [
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "105": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.teoria_geral",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "106": {
+  "topics": [
+   {
+    "path": "direitos_humanos.politicas_de_direitos_humanos",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "107": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.9
+   },
+   {
+    "path": "direitos_humanos.sistema_interamericano",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "108": {
+  "topics": [
+   {
+    "path": "direitos_humanos.sistema_global",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "109": {
+  "topics": [
+   {
+    "path": "historia_da_prf.estrutura_e_atribuicoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "110": {
+  "topics": [
+   {
+    "path": "historia_da_prf.estrutura_e_atribuicoes",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "111": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_de_transito.ctb.normas_de_circulacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "112": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_de_transito.ctb.normas_de_circulacao",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "113": {
+  "topics": [
+   {
+    "path": "legislacao_de_transito.infracoes_e_penalidades",
+    "confidence": 0.9
+   },
+   {
+    "path": "legislacao_de_transito.ctb.habilitacao",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "114": {
+  "topics": [
+   {
+    "path": "historia_da_prf.estrutura_e_atribuicoes",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "115": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "116": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "117": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.impulso_e_quantidade_de_movimento",
+    "confidence": 0.9
+   },
+   {
+    "path": "fisica.mecanica.trabalho_e_energia",
+    "confidence": 0.7
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "118": {
+  "topics": [
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.9
+   },
+   {
+    "path": "fisica.ondulatoria",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "119": {
+  "topics": [
+   {
+    "path": "fisica.ondulatoria",
+    "confidence": 0.9
+   },
+   {
+    "path": "fisica.mecanica.dinamica",
+    "confidence": 0.6
+   }
+  ],
+  "suggested_topic": ""
+ },
+ "120": {
+  "topics": [
+   {
+    "path": "fisica.ondulatoria",
+    "confidence": 0.9
+   }
+  ],
+  "suggested_topic": ""
+ }
+}

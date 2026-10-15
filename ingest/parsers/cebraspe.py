@@ -179,6 +179,15 @@ VERDICT = re.compile(r"^(?:CERTO|ERRADO)\b")
 OPTION_JUSTIFICATION = re.compile(r"^\|\|[A-E]\|\|\s*[-–]")
 BARE_NUMBER = re.compile(r"^\d{1,3}$")
 WHITE = 0xFFFFFF  # texto invisível
+# Nota de largura inteira logo abaixo do título "CONHECIMENTOS ESPECÍFICOS" no meio do caderno
+# ("Nos itens que avaliam **conhecimentos específicos**, a sigla PRF [...]", PRF 2013): instrução da
+# prova, como a mesma nota na página de instruções; não é texto-base nem enunciado (decisão 0020,
+# emenda (29)).
+SECTION_NOTE = re.compile(r"^Nos itens que (?:avaliam|avaliarem|demandarem)\b")
+# Numerador e denominador de fração empilhada, cada um numa linha própria de uma a três letras ou
+# algarismos, alinhados, ao lado de uma linha de texto ("em menos de 1/5 do tempo", PRF 2013 q17):
+# o texto puro os achata em "da 1 equipe" e "de 5 do"; vira `formula` (decisão 0020, emenda (30)).
+FRACTION_PART = re.compile(r"^[0-9A-Za-z]{1,3}$")
 # Inclui a crase maiúscula ("... R$ 5.700,00. À luz do regime de caixa, julgue ...", PF 2012 agente,
 # itens 83 e 84): sem ela, a frase do comando engolia o item IV da lista que vem antes.
 SENTENCE_END = re.compile(r"(?<=[.!?:])\s+(?=[A-ZÀÁÉÍÓÚÂÊÔÃÕÇ“])")
@@ -1082,6 +1091,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
         images = [f for f in page.figures if f.kind == "image"]
         entries: list[_Entry] = []
         skipped: list[Line] = []
+        notes: list[Line] = []  # linhas da nota abaixo do título de seção (`_section_note`)
         start_y = 0.0  # figuras acima do marcador são cabeçalho da prova
         for line in page.lines:
             if not started:
@@ -1099,6 +1109,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
                 SKIP.match(line.plain)
                 or _subject_heading(line)
                 or (skipped and _heading_continuation(skipped[-1], line))
+                or (skipped and _section_note(skipped[-1], line, notes))
             ):
                 skipped.append(line)
                 gap = True
@@ -1171,6 +1182,7 @@ def _stream(pages: list[Page]) -> list[_Entry]:
             if line.scripts:
                 entry.flags.add("formula")  # índices/expoentes que o texto puro achata
             entries.append(entry)
+        _flag_stacked_fractions(entries)
         stream.extend(_visible(_with_figures(page, entries, skipped, start_y)))
     return stream
 
@@ -1266,6 +1278,60 @@ def _subject_heading(line: Line) -> bool:
     return not plain.endswith((".", ":", "?")) and any(
         plain == name or plain.startswith(name + " ") for name in SUBJECT_NAMES
     )
+
+
+def _section_note(previous: Line, line: Line, notes: list[Line]) -> bool:
+    """Nota de largura inteira logo abaixo do título de seção ("CONHECIMENTOS ESPECÍFICOS"), e as
+    linhas que a continuam até o ponto final (decisão 0020, emenda (29)). `notes` guarda as linhas
+    já reconhecidas como nota nesta página."""
+    size = line.size or 0
+    below = 0 <= line.y0 - previous.y1 < 2 * size
+    if notes and previous is notes[-1]:
+        if previous.plain.rstrip().endswith(".") or not below:
+            return False
+        notes.append(line)
+        return True
+    title = previous.plain.strip()
+    if (
+        line.column == 0
+        and below
+        and SECTION_NOTE.match(line.plain)
+        and (SECTION_START.match(title) or KNOWLEDGE_TITLE.match(title))
+    ):
+        notes.append(line)
+        return True
+    return False
+
+
+def _flag_stacked_fractions(entries: list[_Entry]) -> None:
+    """Fração empilhada: duas linhas curtas (`FRACTION_PART`) na mesma coluna, com o mesmo x0, uma
+    logo abaixo da outra, e ao menos uma delas na altura de uma linha de texto que termina antes
+    dela. As duas e as linhas de texto ao lado ganham `formula` (decisão 0020, emenda (30))."""
+    parts = [e for e in entries if FRACTION_PART.match(e.line.plain.strip())]
+    for top in parts:
+        for bottom in parts:
+            a, b = top.line, bottom.line
+            size = a.size or 0
+            if (
+                bottom is top
+                or a.column != b.column
+                or abs(a.x0 - b.x0) > 1.5
+                or not 0 <= b.y0 - a.y1 < size
+            ):
+                continue
+            beside = [
+                e
+                for e in entries
+                if e is not top
+                and e is not bottom
+                and e.line.column == a.column
+                and e.line.x1 <= a.x0 + 1
+                and any(e.line.y0 < p.y1 and e.line.y1 > p.y0 for p in (a, b))
+            ]
+            if not beside:
+                continue
+            for e in (top, bottom, *beside):
+                e.flags.add("formula")
 
 
 def _heading_continuation(heading: Line, line: Line) -> bool:

@@ -964,3 +964,36 @@ QPPM). Cada página dessas questões conferida renderizada, com os brancos desca
 e as figuras que ficam em azul: os brancos estão todos atrás de texto, e as figuras reais da
 página (ECG do PM/MA médico, gráficos e plano inclinado do PM/MA gerais, mapas do PC/RO, figuras
 do CBM/PA) continuam. Na PM/MA gerais q53–56 fica a marca `formula`.
+
+## Emenda de 2026-10-15 (29) — nota abaixo do título de seção não é texto-base
+
+**Contexto.** No PRF 2013 (pág. 6), logo abaixo da faixa "CONHECIMENTOS ESPECÍFICOS" vem uma nota
+de largura inteira, em duas linhas: "Nos itens que avaliam **conhecimentos específicos**, a sigla
+PRF, sempre que empregada, refere-se à Polícia Rodoviária Federal ou a policial rodoviário
+federal, conforme o contexto." Ela abria o texto-base da situação hipotética dos itens 51–53. A
+mesma espécie de nota ("Nos itens que avaliam/avaliarem/demandarem conhecimentos de
+informática…") nos outros cadernos fica na página de instruções, antes da primeira questão, e já
+sai do fluxo.
+
+**Decisão.** No `segment` (`_section_note`), a linha da coluna de largura inteira que começa com
+"Nos itens que avaliam/avaliarem/demandarem", logo abaixo (até dois corpos) de um título de seção
+ignorado ("CONHECIMENTOS ESPECÍFICOS", "Conhecimentos …"), é instrução da prova e sai do fluxo,
+com as linhas coladas que a continuam até a que termina em ponto.
+
+## Emenda de 2026-10-15 (30) — fração empilhada marca `formula`
+
+**Contexto.** No PRF 2013, item 17 (pág. 3), "em menos de 1/5 do tempo" tem o 1 e o 5 empilhados
+à direita das linhas do texto, cada um numa linha própria; o texto puro saía "operários da 1
+equipe inicial … em menos de 5 do tempo" sem nenhuma marca, e o item iria para a API errado.
+
+**Decisão.** No `segment` (`_flag_stacked_fractions`), duas linhas de uma a três letras ou
+algarismos (`FRACTION_PART`), na mesma coluna, com o mesmo x0 (até 1,5 pt), a de baixo começando
+menos de um corpo abaixo do fim da de cima, e ao menos uma delas na altura de uma linha de texto
+que termina antes dela, marcam `formula` nelas e nas linhas ao lado: o item vai para `review`
+até o Markdown ter fração.
+
+**Verificação (29 e 30).** O `segment` das 142 provas do `data/staging/` com manifesto, rodado
+sobre o mesmo `pages.exam.json` com o código do HEAD (a23304f) e com o novo, e comparado: muda só
+o PRF 2013 (a nota sai do texto-base g51; o item 17 ganha `formula`). Páginas 3 e 6 do caderno
+conferidas renderizadas. Testes sintéticos em `tests/test_parser_cebraspe.py`
+(`test_note_below_section_title_is_not_passage`, `test_stacked_fraction_flags_formula`).

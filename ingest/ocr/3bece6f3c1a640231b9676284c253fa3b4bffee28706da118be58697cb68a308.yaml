@@ -1,0 +1,15 @@
+# Revisão de linhas sem mapeamento Unicode (decisões 0018 e 0020): PF 2009, Escrivão, caderno 1.
+# O PDF tem texto (só a capa é digitalizada), mas as teclas desenhadas (p. 4) estão em fonte sem
+# ToUnicode e saem como "�". Conferidas contra a imagem da página (2026-10-15).
+document: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_001_1_prova.pdf
+proofread_by: claude-opus-5-5
+lines:
+- page: 4
+  ocr: pressionada a tecla �; acionar a tecla �, pressionando-a
+  text: pressionada a tecla `Ctrl`; acionar a tecla `C`, pressionando-a
+- page: 4
+  ocr: e liberando-a; liberar a tecla �.
+  text: e liberando-a; liberar a tecla `Ctrl`.
+- page: 4
+  ocr: em seguida, teclar �.
+  text: em seguida, teclar `Enter`.

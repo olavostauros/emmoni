@@ -19,6 +19,23 @@ exams:
   documents:
     exam: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/PCDF13_001_01.pdf
     answer_key_final: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/Gab_definitivo_PCDF13_001_01.PDF
+  subjects_by_range:  # faixas conferidas lendo os comandos e os itens do caderno (2026-10-15, hefesto); o caderno não tem títulos de disciplina
+  - {from: 1, to: 20, subject: lingua-portuguesa}
+  - {from: 21, to: 23, subject: redacao-oficial}
+  - {from: 24, to: 38, subject: informatica}
+  - {from: 39, to: 53, subject: raciocinio-logico}
+  - {from: 54, to: 60, subject: atualidades}
+  - {from: 61, to: 70, subject: direito-constitucional}
+  - {from: 71, to: 80, subject: direito-administrativo}
+  - {from: 81, to: 85, subject: direito-penal}
+  - {from: 86, to: 89, subject: legislacao-penal-especial}
+  - {from: 90, to: 92, subject: direito-penal}
+  - {from: 93, to: 100, subject: direito-processual-penal}
+  - {from: 101, to: 108, subject: legislacao-estadual}
+  - {from: 109, to: 114, subject: legislacao-penal-especial}
+  - {from: 115, to: 117, subject: execucao-penal}
+  - {from: 118, to: 118, subject: direitos-humanos}
+  - {from: 119, to: 120, subject: legislacao-penal-especial}
 evidence:
   source: cespe-unb
   method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'

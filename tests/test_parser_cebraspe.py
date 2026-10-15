@@ -2429,3 +2429,71 @@ def test_choice_option_made_of_loose_lines_keeps_line_breaks() -> None:
     )
     assert "\\\n" not in "".join(bodies[1:])
     assert bodies[2] == "débito – bancos crédito – empréstimos a pagar"
+
+
+def test_note_below_section_title_is_not_passage() -> None:
+    """PRF 2013, pág. 6: a nota de largura inteira logo abaixo de "CONHECIMENTOS ESPECÍFICOS"
+    ("Nos itens que avaliam **conhecimentos específicos**, a sigla PRF [...]"), em duas linhas, é
+    instrução da prova e grudava no texto-base da situação hipotética dos itens 51–53 (emenda (29)
+    da 0020). O texto-base e o comando seguem iguais; a mesma frase sem o título acima fica."""
+
+    def full(line: Line) -> Line:
+        return line.model_copy(update={"column": 0, "x1": 567.0})
+
+    def lines(title: str) -> list[Line]:
+        return [
+            _line("Julgue os itens a seguir.", 28, 40),
+            _line("**1** Item da parte de conhecimentos básicos.", 28, 52),
+            full(_line(title, 179, 80, x1=416, size=15).model_copy(update={"y1": 96.0})),
+            full(
+                _line(
+                    "Nos itens que avaliam **conhecimentos específicos**, a sigla PRF, sempre que"
+                    " empregada, refere-se à Polícia Rodoviária Federal ou a policial",
+                    28,
+                    97,
+                )
+            ),
+            _line("rodoviário federal, conforme o contexto.", 28, 111, x1=190),
+            _line("Um PRF, ao desviar de um cachorro que surgiu", 64, 134),
+            _line("inesperadamente na pista, colidiu com outro veículo.", 28, 146),
+            _line("Com base nessa situação hipotética, julgue os itens a seguir.", 28, 170),
+            _line("**2** Primeiro item da parte de conhecimentos específicos.", 28, 194),
+        ]
+
+    segmented = cebraspe.segment([_page(lines("**CONHECIMENTOS ESPECÍFICOS**"))])
+    assert [p.body_md for p in segmented.passages] == [
+        "Um PRF, ao desviar de um cachorro que surgiu inesperadamente na pista, colidiu com outro"
+        " veículo."
+    ]
+    assert all("Nos itens" not in q.statement_md for q in segmented.questions)
+    other = cebraspe.segment([_page(lines("**QUADRO DE APOIO**"))])
+    assert any("Nos itens" in p.body_md for p in other.passages) or any(
+        "Nos itens" in q.statement_md for q in other.questions
+    )
+
+
+def test_stacked_fraction_flags_formula() -> None:
+    """PRF 2013, item 17 (pág. 3): "em menos de 1/5 do tempo", com o 1 e o 5 empilhados à direita
+    das linhas do texto; o texto puro saía "da 1 equipe" e "de 5 do" sem marca. Numerador e
+    denominador alinhados, um logo abaixo do outro e ao lado de linha de texto: `formula` (emenda
+    (30) da 0020). Uma linha curta solta (sem par alinhado) não marca."""
+
+    def digit(text: str, y0: float) -> Line:
+        return _line(text, 283, y0, x1=288, size=9.8).model_copy(update={"y1": y0 + 9.7})
+
+    page = _page(
+        [
+            _line("Julgue os itens a seguir.", 28, 40),
+            _line("**1** Item sem fração, com número no fim da linha:", 28, 52),
+            _line("o prazo será de 10 dias.", 46, 64, x1=150),
+            _line("**2** Se a equipe receber reforço, com desempenho igual ao", 28, 196),
+            _line("dos operários da equipe inicial, a estrada será concluída", 46, 213, x1=280),
+            digit("1", 221),
+            _line("em menos de", 46, 229, x1=281),
+            digit("5", 238),
+            _line("do tempo inicialmente previsto.", 46, 246, x1=180),
+        ]
+    )
+    flags = {q.number: q.flags for q in cebraspe.segment([page]).questions}
+    assert flags[1] == []
+    assert "formula" in flags[2]

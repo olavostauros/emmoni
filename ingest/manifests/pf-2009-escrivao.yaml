@@ -18,6 +18,20 @@ exams:
   documents:
     exam: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_001_1_prova.pdf
     answer_key_final: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_Gab_Definitivo_001_1.PDF
+  subjects_by_range:  # faixas conferidas lendo os comandos e os itens do caderno (2026-10-15, hefesto); o caderno não tem títulos de disciplina
+  - {from: 1, to: 24, subject: lingua-portuguesa}
+  - {from: 25, to: 26, subject: redacao-oficial}
+  - {from: 27, to: 33, subject: atualidades}
+  - {from: 34, to: 53, subject: informatica}
+  - {from: 54, to: 69, subject: arquivologia}
+  - {from: 70, to: 81, subject: raciocinio-logico}
+  - {from: 82, to: 90, subject: direito-penal}
+  - {from: 91, to: 98, subject: direito-processual-penal}
+  - {from: 99, to: 103, subject: legislacao-penal-especial}
+  - {from: 104, to: 105, subject: administracao-geral}
+  - {from: 106, to: 110, subject: direito-financeiro}
+  - {from: 111, to: 115, subject: direito-administrativo}
+  - {from: 116, to: 120, subject: direito-constitucional}
 evidence:
   source: cespe-unb
   method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'

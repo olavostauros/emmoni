@@ -21,6 +21,13 @@ exams:
   documents:
     exam: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_CBNM1_01.pdf
     answer_key_final: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_CBNM1_01.PDF
+  subjects_by_range:  # faixas conferidas lendo os comandos e os itens do caderno (2026-10-15, hefesto); o caderno não tem títulos de disciplina
+  - {from: 1, to: 11, subject: lingua-portuguesa}
+  - {from: 12, to: 18, subject: redacao-oficial}
+  - {from: 19, to: 25, subject: informatica}
+  - {from: 26, to: 35, subject: etica-no-servico-publico}
+  - {from: 36, to: 44, subject: raciocinio-logico}
+  - {from: 45, to: 50, subject: atualidades}
 - slug: conhecimentos-especificos
   name: Agente Penitenciário Federal — conhecimentos específicos
   positions:
@@ -31,6 +38,18 @@ exams:
   documents:
     exam: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_010_18.pdf
     answer_key_final: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_010_18.PDF
+  subjects_by_range:  # faixas conferidas lendo os comandos e os itens do caderno (2026-10-15, hefesto); o caderno não tem títulos de disciplina
+  - {from: 51, to: 65, subject: direito-constitucional}
+  - {from: 66, to: 66, subject: direito-administrativo}
+  - {from: 67, to: 68, subject: execucao-penal}  # itens de LEP sob o comando de controle da administração
+  - {from: 69, to: 80, subject: direito-administrativo}
+  - {from: 81, to: 82, subject: direito-penal}
+  - {from: 83, to: 90, subject: legislacao-penal-especial}  # 83–86: abuso de autoridade e tortura na custódia
+  - {from: 91, to: 95, subject: direito-penal}
+  - {from: 96, to: 100, subject: direito-processual-penal}
+  - {from: 101, to: 104, subject: legislacao-institucional}
+  - {from: 105, to: 110, subject: direito-processual-penal}
+  - {from: 111, to: 120, subject: direitos-humanos}
 evidence:
   source: cespe-unb
   method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'

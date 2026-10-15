@@ -19,6 +19,21 @@ exams:
   documents:
     exam: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF13_001_01.pdf
     answer_key_final: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_definitivo_DPRF13_001_01.PDF
+  subjects_by_range:  # faixas conferidas lendo os comandos do caderno (2026-10-15, hefesto); o caderno não tem títulos de disciplina
+  - {from: 1, to: 15, subject: lingua-portuguesa}
+  - {from: 16, to: 25, subject: matematica}
+  - {from: 26, to: 40, subject: direito-constitucional}
+  - {from: 41, to: 45, subject: etica-no-servico-publico}
+  - {from: 46, to: 50, subject: informatica}
+  - {from: 51, to: 62, subject: direito-administrativo}
+  - {from: 63, to: 74, subject: direito-penal}
+  - {from: 75, to: 84, subject: direito-processual-penal}
+  - {from: 85, to: 96, subject: legislacao-penal-especial}
+  - {from: 97, to: 108, subject: direitos-humanos}
+  - {from: 109, to: 110, subject: historia-da-prf}  # atribuições da PRF (flagrante, rodovias concedidas)
+  - {from: 111, to: 113, subject: legislacao-de-transito}
+  - {from: 114, to: 114, subject: historia-da-prf}  # porte de arma do PRF
+  - {from: 115, to: 120, subject: fisica}
 evidence:
   source: cespe-unb
   method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
