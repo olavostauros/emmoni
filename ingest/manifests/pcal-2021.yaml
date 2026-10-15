@@ -1,4 +1,7 @@
 # pcal-2021: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles não ligado (conferido em 2026-10-15, extract→validate com e sem a opção:
+# mesmo resultado em todas as questões e textos-base): as fontes sem nome ("TT…o00") só aparecem nas
+# págs. 8–9 (prova discursiva e rascunho); na objetiva o estilo vem das fontes com nome e já sai marcado.
 contest: pcal-2021
 name: POLÍCIA CIVIL DO ESTADO DE ALAGOAS
 agency: pcal

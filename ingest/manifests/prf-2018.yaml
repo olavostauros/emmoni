@@ -1,5 +1,8 @@
 # PRF 2018 (provas em 2019) — Banca: Cebraspe. Fonte: https://www.cebraspe.org.br/concursos/PRF_18.
 # Provas do curso de formação ficam fora.
+# infer_font_styles não ligado (conferido em 2026-10-15, extract→validate com e sem a opção:
+# mesmo resultado em todas as questões e textos-base): o caderno não tem fonte sem nome ("TT…o00");
+# o negrito e o itálico vêm das fontes com nome (TimesNewRomanPS-BoldMT/ItalicMT) e já saem marcados.
 contest: prf-2018
 name: PRF 2018
 agency: prf

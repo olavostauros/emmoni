@@ -3,6 +3,9 @@
 # 2026-10-13 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
 # `emmoni manifests approve pf-2012-escrivao` e ajuste o manifesto aprovado (disciplinas por faixa)
 # antes de ingerir.
+# infer_font_styles não ligado (conferido em 2026-10-15, extract→validate com e sem a opção:
+# mesmo resultado em todas as questões e textos-base): a fonte é a `cespe-unb` (decisão 0020): o extract já deduz
+# negrito, itálico, "ℓ" e código das fontes sem nome em todo o caderno, e a opção não é lida nesse caminho.
 contest: pf-2012-escrivao
 name: PF 2012 — Escrivão
 agency: pf

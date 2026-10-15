@@ -1,4 +1,7 @@
 # PCDF 2020 — Agente. Proposta do crawler aprovada em 2026-10-07; cadernos "com justificativa".
+# infer_font_styles não ligado (conferido em 2026-10-15, extract→validate com e sem a opção:
+# mesmo resultado em todas as questões e textos-base): os específicos não têm fonte sem nome ("TT…o00") e o
+# estilo vem das fontes com nome; os básicos são OCR (sem fontes).
 contest: pcdf-2020
 name: POLÍCIA CIVIL DO DISTRITO FEDERAL
 agency: pcdf

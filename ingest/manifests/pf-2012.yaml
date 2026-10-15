@@ -1,6 +1,9 @@
 # PF 2012 — Agente. Banca: Cebraspe (então CESPE/UnB). Fonte: site antigo, sem crawler
 # (decisão 0017): http://www.cespe.unb.br/concursos/DPF_12_AGENTE/ — página guardada em
 # data/crawl/cespe-unb/. Caderno "Tipo I" e gabarito definitivo do mesmo tipo.
+# infer_font_styles não ligado (conferido em 2026-10-15, extract→validate com e sem a opção:
+# mesmo resultado em todas as questões e textos-base): a fonte é a `cespe-unb` (decisão 0020): o extract já deduz
+# negrito, itálico, "ℓ" e código das fontes sem nome em todo o caderno, e a opção não é lida nesse caminho.
 contest: pf-2012
 name: PF 2012 — Agente
 agency: pf

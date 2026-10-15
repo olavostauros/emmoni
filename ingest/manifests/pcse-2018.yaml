@@ -1,4 +1,7 @@
 # pcse-2018: proposta do crawler aprovada em 2026-10-07; first_number pelo gabarito.
+# infer_font_styles não ligado (conferido em 2026-10-15, extract→validate com e sem a opção:
+# mesmo resultado em todas as questões e textos-base): os cadernos não têm fonte sem nome ("TT…o00");
+# o negrito e o itálico vêm das fontes com nome (Times New Roman,Bold/Italic) e já saem marcados.
 contest: pcse-2018
 name: Polícia Civil do estado de Sergipe
 agency: pcse
