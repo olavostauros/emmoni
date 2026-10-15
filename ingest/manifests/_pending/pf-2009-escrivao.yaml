@@ -1,0 +1,92 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-15 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve pf-2009-escrivao` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: pf-2009-escrivao
+name: PF 2009 — Escrivão
+agency: pf
+exam_board: cebraspe
+year: 2009
+source_url: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/
+exams:
+- slug: escrivao
+  name: Escrivão de Polícia Federal — prova objetiva
+  positions:
+  - escrivao
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_001_1_prova.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_Gab_Definitivo_001_1.PDF
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
+  contest:
+    url: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: DPF ESCRIVÃO 2009
+    cached: data/crawl/cespe-unb/concursos__DPFESCRIVAO2009__
+    agency:
+      value: pf
+      rule: prefixo DPF da URL do evento (alias do catálogo)
+    year:
+      value: 2009
+      rule: token 2009 da URL do evento e do texto do link no índice; edital nº 14/2009-DGP/DPF de 24/7/2009 na
+        página do concurso
+    slug:
+      value: pf-2009-escrivao
+      rule: 'pf-2009 colide entre os dois eventos de 2009 (agente e escrivão): sufixo do resto da URL (decisão 0007,
+        item 8)'
+  exams:
+    escrivao:
+      position:
+        value: escrivao
+        rule: '''Cargo: Escrivão de Polícia Federal'' no rodapé das páginas e ''CARGO: ESCRIVÃO DE POLÍCIA FEDERAL''
+          no gabarito'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; o gabarito de 2009 não traz o código do caderno'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_001_1_prova.pdf
+          cached: data/crawl/cespe-unb/concursos__DPFESCRIVAO2009__arquivos__DPF09ESCRIVAO_001_1_prova.pdf
+          sha256: 3bece6f3c1a640231b9676284c253fa3b4bffee28706da118be58697cb68a308
+          pages: 12
+          link_text: Caderno de Prova - Tipo I
+          kind: exam
+          cover: 'capa (imagem): MINISTÉRIO DA JUSTIÇA · DEPARTAMENTO DE POLÍCIA FEDERAL · CARGO ESCRIVÃO DE POLÍCIA
+            FEDERAL · Provas Objetiva e Discursiva'
+          page_header: 'rodapé ''Cargo: Escrivão de Polícia Federal'' nas páginas; itens 1–120 (segment com legacy:
+            120 de 120, sem buraco)'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/DPF09ESCRIVAO_Gab_Definitivo_001_1.PDF
+          cached: data/crawl/cespe-unb/concursos__DPFESCRIVAO2009__arquivos__DPF09ESCRIVAO_Gab_Definitivo_001_1.PDF
+          sha256: 6e694c4c04e87d6d132a6d6aa6004ce3a4e4f1fe4855e04f67a31be2c332d2e7
+          pages: 1
+          link_text: Gabarito Oficial Definitivo - Tipo I
+          kind: answer_key_final
+          header:
+          - MINISTÉRIO DA JUSTIÇA (MJ)
+          - DEPARTAMENTO DE POLÍCIA FEDERAL (DPF)
+          - DIRETORIA DE GESTÃO DE PESSOAL (DGP)
+          - COORDENAÇÃO DE RECRUTAMENTO E SELEÇÃO
+          - 'CARGO: ESCRIVÃO DE POLÍCIA FEDERAL'
+          - GABARITOS OFICIAIS DEFINITIVOS DA PROVA OBJETIVA
+          items: 1–120 (120)
+          annulled:
+          - 31
+          - 41
+          - 44
+          - 48
+          - 73
+          - 82
+          - 88
+          - 99
+          - 103
+          - 109
+          - 119
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/DPFESCRIVAO2009/arquivos/ESCRIV__O_JUSTIFICATIVAS_DE_ANULA____O_E_DE_MANUTEN____O_DE_GABARITO.PDF
+    link_text: Justificativas de alteração/anulação de gabarito
+    reason: 'justificativas: não é prova nem gabarito'

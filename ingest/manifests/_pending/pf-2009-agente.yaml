@@ -1,0 +1,90 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/DPFAGENTE2009/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-15 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve pf-2009-agente` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: pf-2009-agente
+name: PF 2009 — Agente
+agency: pf
+exam_board: cebraspe
+year: 2009
+source_url: http://www.cespe.unb.br/concursos/DPFAGENTE2009/
+exams:
+- slug: agente
+  name: Agente de Polícia Federal — prova objetiva
+  positions:
+  - agente
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DPFAGENTE2009/arquivos/DPF09AGENTE_001_1_prova.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DPFAGENTE2009/arquivos/DPF09AGENTE_Gab_Definitivo_001_1.PDF
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
+  contest:
+    url: http://www.cespe.unb.br/concursos/DPFAGENTE2009/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: DPF AGENTE 2009
+    cached: data/crawl/cespe-unb/concursos__DPFAGENTE2009__
+    agency:
+      value: pf
+      rule: prefixo DPF da URL do evento (alias do catálogo)
+    year:
+      value: 2009
+      rule: token 2009 da URL do evento e do texto do link no índice; edital nº 15/2009-DGP/DPF de 24/7/2009 na
+        página do concurso
+    slug:
+      value: pf-2009-agente
+      rule: 'pf-2009 colide entre os dois eventos de 2009 (agente e escrivão): sufixo do resto da URL (decisão 0007,
+        item 8)'
+  exams:
+    agente:
+      position:
+        value: agente
+        rule: '''Cargo: Agente de Polícia Federal'' no rodapé das páginas e ''CARGO: AGENTE DE POLÍCIA FEDERAL''
+          no gabarito'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; o gabarito de 2009 não traz o código do caderno'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DPFAGENTE2009/arquivos/DPF09AGENTE_001_1_prova.pdf
+          cached: data/crawl/cespe-unb/concursos__DPFAGENTE2009__arquivos__DPF09AGENTE_001_1_prova.pdf
+          sha256: 93172f70278f51694592a363e825cf2c301d2b4a8103dc659d935ff7418e8be9
+          pages: 12
+          link_text: Caderno de Prova - Tipo I
+          kind: exam
+          cover: 'capa (imagem): MINISTÉRIO DA JUSTIÇA · DEPARTAMENTO DE POLÍCIA FEDERAL · CARGO AGENTE DE POLÍCIA
+            FEDERAL · Provas Objetiva e Discursiva'
+          page_header: 'rodapé ''Cargo: Agente de Polícia Federal'' nas páginas; itens 1–120 (segment com legacy:
+            120 de 120, sem buraco)'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DPFAGENTE2009/arquivos/DPF09AGENTE_Gab_Definitivo_001_1.PDF
+          cached: data/crawl/cespe-unb/concursos__DPFAGENTE2009__arquivos__DPF09AGENTE_Gab_Definitivo_001_1.PDF
+          sha256: 25aa893a53cb6df9fa085acae91ec0e7f601ef966116db1a804e810cc2d5c728
+          pages: 1
+          link_text: Gabarito Oficial Definitivo - Tipo I
+          kind: answer_key_final
+          header:
+          - MINISTÉRIO DA JUSTIÇA (MJ)
+          - DEPARTAMENTO DE POLÍCIA FEDERAL (DPF)
+          - DIRETORIA DE GESTÃO DE PESSOAL (DGP)
+          - COORDENAÇÃO DE RECRUTAMENTO E SELEÇÃO
+          - 'CARGO: AGENTE DE POLÍCIA FEDERAL'
+          - GABARITOS OFICIAIS DEFINITIVOS DA PROVA OBJETIVA
+          items: 1–120 (120)
+          annulled:
+          - 33
+          - 47
+          - 76
+          - 77
+          - 83
+          - 95
+          - 100
+          - 108
+          - 119
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/DPFAGENTE2009/arquivos/AGENTE_JUSTIFICATIVAS_DE_ANULA____O_E_DE_MANUTEN____O_DE_GABARITO_05.10.2009.PDF
+    link_text: Justificativas de anulação e de manutenção de gabarito.
+    reason: 'justificativas: não é prova nem gabarito'

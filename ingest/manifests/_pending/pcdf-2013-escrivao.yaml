@@ -1,0 +1,93 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-15 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve pcdf-2013-escrivao` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: pcdf-2013-escrivao
+name: PC/DF 2013 — Escrivão
+agency: pcdf
+exam_board: cebraspe
+year: 2013
+source_url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/
+exams:
+- slug: escrivao
+  name: Escrivão de Polícia — prova objetiva
+  positions:
+  - escrivao
+  applied_on: '2013-10-20'
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/PCDF13_001_01.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/Gab_Definitivo_PCDF13_001_01.PDF
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
+  contest:
+    url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: PC/DF ESCRIVAO 2013
+    cached: data/crawl/cespe-unb/concursos__PC_DF_13_ESCRIVAO__
+    agency:
+      value: pcdf
+      rule: prefixo PC_DF da URL do evento (alias do catálogo); 'ACADEMIA DE POLÍCIA CIVIL' no gabarito
+    year:
+      value: 2013
+      rule: 'token 13 da URL do evento; ''Aplicação: 20/10/2013'' no gabarito; ''CESPE/UnB – PCDF/2013'' no cabeçalho'
+    slug:
+      value: pcdf-2013-escrivao
+      rule: 'pcdf-2013 colide entre os dois eventos de 2013 (agente e escrivão): sufixo do resto da URL (decisão
+        0007, item 8)'
+  exams:
+    escrivao:
+      position:
+        value: escrivao
+        rule: '''CARGO: ESCRIVÃO DE POLÍCIA'' na capa e no gabarito'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/PCDF13_001_01.pdf
+          cached: data/crawl/cespe-unb/concursos__PC_DF_13_ESCRIVAO__arquivos__PCDF13_001_01.pdf
+          sha256: 0cfab5f04230aa0302b77c023adcac88e96094d028d64d586c30f4aebcdb9bc6
+          pages: 12
+          link_text: Caderno de questões - Tipo I
+          kind: exam
+          cover: 'capa (imagem): POLÍCIA CIVIL DO DISTRITO FEDERAL · CARGO: ESCRIVÃO DE POLÍCIA · CADERNO DE PROVAS
+            OBJETIVAS E DISCURSIVA · CONCURSO PÚBLICO 2013 · NÍVEL SUPERIOR · TURNO: TARDE'
+          page_header: '||PCDF13_001_01N387318|| · CESPE/UnB – PCDF/2013; itens 1–120 (segment com legacy: 120 de
+            120, sem buraco)'
+          same_name_as: o caderno do outro cargo tem o mesmo nome de arquivo (PCDF13_001_01.pdf), mas outro conteúdo
+            e outro sha256
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/Gab_Definitivo_PCDF13_001_01.PDF
+          cached: data/crawl/cespe-unb/concursos__PC_DF_13_ESCRIVAO__arquivos__Gab_Definitivo_PCDF13_001_01.PDF
+          sha256: 3242a96a71024ad311156f91746f462fa5f2c31c6c82edb3f6a12ee8111ace95
+          pages: 1
+          link_text: Gabarito definitivo - Tipo I
+          kind: answer_key_final
+          header:
+          - ACADEMIA DE POLÍCIA CIVIL
+          - CONCURSO PÚBLICO PARA PROVIMENTO DE VAGAS E FORMAÇÃO DE CADASTRO DE RESERVA
+          - NO CARGO DE ESCRIVÃO DE POLÍCIA
+          - 'Aplicação: 20/10/2013'
+          - 'CARGO: ESCRIVÃO DE POLÍCIA'
+          - PCDF13_001_01
+          - GABARITOS OFICIAIS DEFINITIVOS
+          items: 1–120 (120)
+          annulled:
+          - 80
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/098PCDF14_001_01.pdf
+    link_text: Caderno de questões - Curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/Gab_Preliminar_098PCDF14_001_01.PDF
+    link_text: Gabarito preliminar - Curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/PC_DF_13_ESCRIVAO_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativas de alteração do gabarito de itens
+    reason: 'justificativas: não é prova nem gabarito'
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_ESCRIVAO/arquivos/PCDF_JUSTIFICATIVAS_DE_ALTERA____O_DE_GABARITO_PARA_P__GINA_DO_CESPE_DOCX.PDF
+    link_text: Justificativas de alteração do gabarito de itens
+    reason: 'justificativas: não é prova nem gabarito'

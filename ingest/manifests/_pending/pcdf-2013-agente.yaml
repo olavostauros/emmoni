@@ -1,0 +1,95 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-15 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve pcdf-2013-agente` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: pcdf-2013-agente
+name: PC/DF 2013 — Agente
+agency: pcdf
+exam_board: cebraspe
+year: 2013
+source_url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/
+exams:
+- slug: agente
+  name: Agente de Polícia — prova objetiva
+  positions:
+  - agente
+  applied_on: '2013-11-10'
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/PCDF13_001_01.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/Gab_definitivo_PCDF13_001_01.PDF
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
+  contest:
+    url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: PC/DF AGENTE 2013
+    cached: data/crawl/cespe-unb/concursos__PC_DF_13_AGENTE__
+    agency:
+      value: pcdf
+      rule: prefixo PC_DF da URL do evento (alias do catálogo); 'ACADEMIA DE POLÍCIA CIVIL' no gabarito
+    year:
+      value: 2013
+      rule: 'token 13 da URL do evento; ''Aplicação: 10/11/2013'' no gabarito; ''CESPE/UnB – PCDF/2013'' no cabeçalho'
+    slug:
+      value: pcdf-2013-agente
+      rule: 'pcdf-2013 colide entre os dois eventos de 2013 (agente e escrivão): sufixo do resto da URL (decisão
+        0007, item 8)'
+  exams:
+    agente:
+      position:
+        value: agente
+        rule: '''CARGO: AGENTE DE POLÍCIA'' no gabarito; a capa e as páginas do caderno não trazem o cargo (só o
+          código), mas é o único caderno da prova objetiva na página do evento PC_DF_13_AGENTE'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/PCDF13_001_01.pdf
+          cached: data/crawl/cespe-unb/concursos__PC_DF_13_AGENTE__arquivos__PCDF13_001_01.pdf
+          sha256: 56b71b10e865d949e2a673d9646b52fcc4b8a6167c70e66315fe929aa5a034e8
+          pages: 16
+          link_text: Caderno de questões - Tipo I
+          kind: exam
+          cover: 'capa (imagem): POLÍCIA CIVIL DO DISTRITO FEDERAL · CADERNO DE PROVAS OBJETIVAS E DISCURSIVA ·
+            CONCURSO PÚBLICO 2013 · NÍVEL SUPERIOR · TURNO: TARDE (a capa não traz o nome do cargo)'
+          page_header: '||PCDF13_001_01N601989|| · CESPE/UnB – PCDF/2013; itens 1–120 (segment com legacy: 120 de
+            120, sem buraco)'
+          same_name_as: o caderno do outro cargo tem o mesmo nome de arquivo (PCDF13_001_01.pdf), mas outro conteúdo
+            e outro sha256
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/Gab_definitivo_PCDF13_001_01.PDF
+          cached: data/crawl/cespe-unb/concursos__PC_DF_13_AGENTE__arquivos__Gab_definitivo_PCDF13_001_01.PDF
+          sha256: acced492855f7644fd73d2756f4210224409fc92053a8e6ed9fbb7c7234dddc3
+          pages: 1
+          link_text: Gabarito definitivo - Tipo I
+          kind: answer_key_final
+          header:
+          - ACADEMIA DE POLÍCIA CIVIL
+          - CONCURSO PÚBLICO PARA PROVIMENTO DE VAGAS E FORMAÇÃO DE CADASTRO DE RESERVA
+          - NO CARGO DE AGENTE DE POLÍCIA
+          - 'Aplicação: 10/11/2013'
+          - 'CARGO: AGENTE DE POLÍCIA'
+          - PCDF13_001_01
+          - GABARITOS OFICIAIS DEFINITIVOS
+          items: 1–120 (120)
+          annulled:
+          - 32
+          - 33
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/094PCDF14_002_02.pdf
+    link_text: Caderno de questões - Curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/Gab_Preliminar_094PCDF14_002_02.PDF
+    link_text: Gabarito preliminar - Curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/PC_DF_13_AGENTE_CF_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativas de alteração do gabarito de itens
+    reason: 'justificativas: não é prova nem gabarito'
+  - url: http://www.cespe.unb.br/concursos/PC_DF_13_AGENTE/arquivos/JUSTIFICATIVAS_DE_ALTERA____O_DE_GABARITO_PARA_P__GINA_DO_CESPE_PCDF.PDF
+    link_text: Justificativas de alteração do gabarito de questões
+    reason: 'justificativas: não é prova nem gabarito'

@@ -1,0 +1,228 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/DEPEN_13/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-15 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve depen-2013` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+# Duas provas (cadernos separados de básicos e específicos), como no pces-2022. O caderno de
+# básicos tem a capa em imagem (OCR na ingestão, decisão 0018).
+contest: depen-2013
+name: DEPEN 2013
+agency: depen
+exam_board: cebraspe
+year: 2013
+source_url: http://www.cespe.unb.br/concursos/DEPEN_13/
+exams:
+- slug: conhecimentos-basicos
+  name: Agente Penitenciário Federal — conhecimentos básicos
+  positions:
+  - agente
+  applied_on: '2013-08-04'
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_CBNM1_01.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_CBNM1_01.PDF
+- slug: conhecimentos-especificos
+  name: Agente Penitenciário Federal — conhecimentos específicos
+  positions:
+  - agente
+  applied_on: '2013-08-04'
+  canonical_booklet: I
+  first_number: 51
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_010_18.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_010_18.PDF
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
+  contest:
+    url: http://www.cespe.unb.br/concursos/DEPEN_13/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: DEPEN 2013
+    cached: data/crawl/cespe-unb/concursos__DEPEN_13__
+    agency:
+      value: depen
+      rule: prefixo DEPEN da URL do evento (alias do catálogo); 'DEPARTAMENTO PENITENCIÁRIO NACIONAL' no gabarito
+    year:
+      value: 2013
+      rule: 'token 13 da URL do evento; ''EDITAL Nº 1 – DEPEN, DE 29 DE ABRIL DE 2013'' e ''Aplicação: 4/8/2013''
+        no gabarito'
+    slug:
+      value: depen-2013
+      rule: depen-2013 sem colisão (decisão 0007, item 8)
+  exams:
+    conhecimentos-basicos:
+      position:
+        value: agente
+        rule: '''Agente Penitenciário'' no link e no gabarito dos básicos (CBNM1); ''Cargo 10: Agente Penitenciário
+          Federal'' no link e no gabarito dos específicos; o catálogo tem o cargo com o nome atual, ''Agente Federal
+          de Execução Penal'' (nível médio, como o CBNM1 ''nível médio''): quem aprova confere se é o mesmo cargo'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_CBNM1_01.pdf
+          cached: data/crawl/cespe-unb/concursos__DEPEN_13__arquivos__DEPEN13_CBNM1_01.pdf
+          sha256: 084731e1289a85def283963be2f483748c877715753d88d81b07793b5d25c477
+          pages: 6
+          link_text: Caderno de questões - Tipo I - Conhecimentos Básicos para o Cargo de Agente Penitenciário
+          kind: exam
+          cover: 'capa (imagem): MINISTÉRIO DA JUSTIÇA · SECRETARIA NACIONAL DE JUSTIÇA · DEPARTAMENTO PENITENCIÁRIO
+            NACIONAL · CONCURSO PÚBLICO 2013 · CADERNO DE PROVAS OBJETIVAS E DISCURSIVA · NÍVEL MÉDIO; página 2
+            em branco'
+          page_header: '||DEPEN13_CBNM1_01N683010|| · CESPE/UnB – DEPEN/2013 · CONHECIMENTOS BÁSICOS; itens 1–50
+            (segment com legacy e OCR da capa: 50 de 50, sem buraco)'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_CBNM1_01.PDF
+          cached: data/crawl/cespe-unb/concursos__DEPEN_13__arquivos__Gab_definitivo_DEPEN13_CBNM1_01.PDF
+          sha256: 6763dc6c5ff47e8de4819a6514d830d65891252cf5577dc8ef49849d0e563b07
+          pages: 1
+          link_text: Gabarito definitivo - Tipo I - Conhecimentos Básicos para o Cargo de Agente Penitenciário
+          kind: answer_key_final
+          header:
+          - MINISTÉRIO DA JUSTIÇA
+          - SECRETARIA NACIONAL DE JUSTIÇA
+          - DEPARTAMENTO PENITENCIÁRIO NACIONAL
+          - CONCURSO PÚBLICO PARA PROVIMENTO DE VAGAS NOS CARGOS DE
+          - NÍVEL SUPERIOR E DE NÍVEL MÉDIO
+          - EDITAL Nº 1 – DEPEN, DE 29 DE ABRIL DE 2013
+          - 'Aplicação: 4/8/2013'
+          - Conhecimentos Básicos para o Cargo de Agente Penitenciário
+          - DEPEN13_CBNM1_01
+          - GABARITOS OFICIAIS DEFINITIVOS
+          items: 1–50 (50)
+          annulled:
+          - 36
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+    conhecimentos-especificos:
+      position:
+        value: agente
+        rule: '''Agente Penitenciário'' no link e no gabarito dos básicos (CBNM1); ''Cargo 10: Agente Penitenciário
+          Federal'' no link e no gabarito dos específicos; o catálogo tem o cargo com o nome atual, ''Agente Federal
+          de Execução Penal'' (nível médio, como o CBNM1 ''nível médio''): quem aprova confere se é o mesmo cargo'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      first_number:
+        value: 51
+        rule: o caderno e o gabarito começam no item 51 (básicos 1–50 no CBNM1)
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_010_18.pdf
+          cached: data/crawl/cespe-unb/concursos__DEPEN_13__arquivos__DEPEN13_010_18.pdf
+          sha256: b3dee03b48348fcd62a49877640cd847710b26c99858ea45ba563295397372e0
+          pages: 6
+          link_text: 'Caderno de questões - Tipo I - Cargo 10: Agente Penitenciário Federal'
+          kind: exam
+          cover: 'sem capa: a página 1 abre com ''CONHECIMENTOS ESPECÍFICOS''; página 6 é a contracapa (logotipo)'
+          page_header: '||DEPEN13_010_18N567549|| · CESPE/UnB – DEPEN/2013 · CONHECIMENTOS ESPECÍFICOS; itens 51–120
+            (segment com legacy: 70 de 70, sem buraco)'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_010_18.PDF
+          cached: data/crawl/cespe-unb/concursos__DEPEN_13__arquivos__Gab_definitivo_DEPEN13_010_18.PDF
+          sha256: 67007c8159172532707411ac509356863f00784c2270b557702e322f072c661a
+          pages: 1
+          link_text: 'Gabarito definitivo - Tipo I - Cargo 10: Agente Penitenciário Federal'
+          kind: answer_key_final
+          header:
+          - MINISTÉRIO DA JUSTIÇA
+          - SECRETARIA NACIONAL DE JUSTIÇA
+          - DEPARTAMENTO PENITENCIÁRIO NACIONAL
+          - CONCURSO PÚBLICO PARA PROVIMENTO DE VAGAS NOS CARGOS DE
+          - NÍVEL SUPERIOR E DE NÍVEL MÉDIO
+          - EDITAL Nº 1 – DEPEN, DE 29 DE ABRIL DE 2013
+          - 'Aplicação: 4/8/2013'
+          - 'Cargo 10: Agente Penitenciário Federal'
+          - DEPEN13_010_18
+          - GABARITOS OFICIAIS DEFINITIVOS
+          items: 51–120 (70)
+          annulled:
+          - 76
+          - 100
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/JUSTIFICATIVAS_DE_ALTERA____O_DO_GABARITO_DE_ITENS.PDF
+    link_text: Justificativas de alteração do gabarito de itens
+    reason: 'justificativas: não é prova nem gabarito'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_CBNS_01.pdf
+    link_text: Caderno de questões - Tipo I - Conhecimentos Básicos para o Cargo de Especialista Todas as Áreas
+    reason: 'cargo fora do catálogo (não policial): Especialista em Assistência Penitenciária'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_CBNS_01.PDF
+    link_text: Gabarito definitivo - Tipo I - Conhecimentos Básicos para o Cargo de Especialista Todas as Áreas
+    reason: 'cargo fora do catálogo (não policial): Especialista em Assistência Penitenciária'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_CBNM2_01.pdf
+    link_text: Caderno de questões - Tipo I - Conhecimentos Básicos para o Cargo de Técnico de Apoio à Assistência
+      Penitenciária
+    reason: 'cargo fora do catálogo (não policial): Técnico de Apoio à Assistência Penitenciária'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_CBNM2_01.PDF
+    link_text: Gabarito definitivo - Tipo I - Conhecimentos Básicos para o Cargo de Técnico de Apoio à Assistência
+      Penitenciária
+    reason: 'cargo fora do catálogo (não policial): Técnico de Apoio à Assistência Penitenciária'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_001_01.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 1: Especialista em Assistência Penitenciária - Área: Clínica
+      Geral'
+    reason: 'cargo fora do catálogo (não policial): cargo 1'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_001_01.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 1: Especialista em Assistência Penitenciária - Área: Clínica
+      Geral'
+    reason: 'cargo fora do catálogo (não policial): cargo 1'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_002_02.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 2: Especialista em Assistência Penitenciária - Área: Enfermagem'
+    reason: 'cargo fora do catálogo (não policial): cargo 2'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_002_02.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 2: Especialista em Assistência Penitenciária - Área: Enfermagem'
+    reason: 'cargo fora do catálogo (não policial): cargo 2'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_003_05.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 3: Especialista em Assistência Penitenciária - Área: Farmácia'
+    reason: 'cargo fora do catálogo (não policial): cargo 3'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_003_05.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 3: Especialista em Assistência Penitenciária - Área: Farmácia'
+    reason: 'cargo fora do catálogo (não policial): cargo 3'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_004_07.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 4: Especialista em Assistência Penitenciária - Área: Odontologia'
+    reason: 'cargo fora do catálogo (não policial): cargo 4'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_004_07.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 4: Especialista em Assistência Penitenciária - Área: Odontologia'
+    reason: 'cargo fora do catálogo (não policial): cargo 4'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_005_09.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 5: Especialista em Assistência Penitenciária - Área: Pedagogia'
+    reason: 'cargo fora do catálogo (não policial): cargo 5'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_005_09.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 5: Especialista em Assistência Penitenciária - Área: Pedagogia'
+    reason: 'cargo fora do catálogo (não policial): cargo 5'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_006_11.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 6: Especialista em Assistência Penitenciária - Área: Psicologia'
+    reason: 'cargo fora do catálogo (não policial): cargo 6'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_006_11.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 6: Especialista em Assistência Penitenciária - Área: Psicologia'
+    reason: 'cargo fora do catálogo (não policial): cargo 6'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_007_13.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 7: Especialista em Assistência Penitenciária - Área: Psiquiatria'
+    reason: 'cargo fora do catálogo (não policial): cargo 7'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_007_13.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 7: Especialista em Assistência Penitenciária - Área: Psiquiatria'
+    reason: 'cargo fora do catálogo (não policial): cargo 7'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_008_14.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 8: Especialista em Assistência Penitenciária - Área: Serviço
+      Social'
+    reason: 'cargo fora do catálogo (não policial): cargo 8'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_008_14.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 8: Especialista em Assistência Penitenciária - Área: Serviço
+      Social'
+    reason: 'cargo fora do catálogo (não policial): cargo 8'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_009_16.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 9: Especialista em Assistência Penitenciária - Área: Terapia
+      Ocupacional'
+    reason: 'cargo fora do catálogo (não policial): cargo 9'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_009_16.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 9: Especialista em Assistência Penitenciária - Área: Terapia
+      Ocupacional'
+    reason: 'cargo fora do catálogo (não policial): cargo 9'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/DEPEN13_011_33.pdf
+    link_text: 'Caderno de questões - Tipo I - Cargo 11: Técnico de Apoio à Assistência Penitenciária - Área: Técnico
+      em Enfermagem'
+    reason: 'cargo fora do catálogo (não policial): cargo 11'
+  - url: http://www.cespe.unb.br/concursos/DEPEN_13/arquivos/Gab_definitivo_DEPEN13_011_33.PDF
+    link_text: 'Gabarito definitivo - Tipo I - Cargo 11: Técnico de Apoio à Assistência Penitenciária - Área: Técnico
+      em Enfermagem'
+    reason: 'cargo fora do catálogo (não policial): cargo 11'

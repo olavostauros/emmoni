@@ -1,0 +1,137 @@
+# Proposta do hefesto para a fonte `cespe-unb`, a partir de http://www.cespe.unb.br/concursos/DPRF_13/.
+# A fonte não tem crawler (decisão 0017): páginas e PDFs buscados pelo cliente de cortesia em
+# 2026-10-15 e guardados em data/crawl/cespe-unb/ (caminhos em `evidence`). Aprove com
+# `emmoni manifests approve prf-2013` e ajuste o manifesto aprovado (disciplinas por faixa)
+# antes de ingerir.
+contest: prf-2013
+name: PRF 2013
+agency: prf
+exam_board: cebraspe
+year: 2013
+source_url: http://www.cespe.unb.br/concursos/DPRF_13/
+exams:
+- slug: policial
+  name: Policial Rodoviário Federal — prova objetiva
+  positions:
+  - policial-rodoviario-federal
+  applied_on: '2013-08-11'
+  canonical_booklet: I
+  documents:
+    exam: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF13_001_01.pdf
+    answer_key_final: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_definitivo_DPRF13_001_01.PDF
+evidence:
+  source: cespe-unb
+  method: 'sem crawler (decisão 0017): listagem e PDFs pelo cliente de cortesia, 2026-10-15'
+  contest:
+    url: http://www.cespe.unb.br/concursos/DPRF_13/
+    found_on_url: http://www.cespe.unb.br/concursos/_antigos/default.asp
+    link_text: DPRF 2013
+    cached: data/crawl/cespe-unb/concursos__DPRF_13__
+    agency:
+      value: prf
+      rule: 'prefixo DPRF da URL do evento: o catálogo tem só o alias PRF (o crawler do Cebraspe não reconheceria
+        DPRF); ''DEPARTAMENTO DE POLÍCIA RODOVIÁRIA FEDERAL'' no gabarito'
+    year:
+      value: 2013
+      rule: 'token 13 da URL do evento; ''Aplicação: 11/8/2013'' no gabarito; ''CESPE/UnB – PRF/2013'' no cabeçalho'
+    slug:
+      value: prf-2013
+      rule: prf-2013 sem colisão (decisão 0007, item 8)
+  exams:
+    policial:
+      position:
+        value: policial-rodoviario-federal
+        rule: '''Cargo: Policial Rodoviário Federal'' no rodapé das páginas e no gabarito'
+      booklet:
+        value: I
+        rule: '''Tipo I'' no texto do link do caderno e do gabarito; código do caderno igual ao do gabarito'
+      documents:
+        exam:
+          url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF13_001_01.pdf
+          cached: data/crawl/cespe-unb/concursos__DPRF_13__arquivos__DPRF13_001_01.pdf
+          sha256: a42670303e9e2a41f15587135fac322b7139b2c8d3c2161f2b99535bebf5de3e
+          pages: 12
+          link_text: Caderno de questões - Tipo I
+          kind: exam
+          cover: 'capa (imagem): DEPARTAMENTO DE POLÍCIA RODOVIÁRIA FEDERAL · CONCURSO PÚBLICO 2013 · CARGO: POLICIAL
+            RODOVIÁRIO FEDERAL · PROVAS OBJETIVAS E DISCURSIVA'
+          page_header: '||DPRF13_001_01N962067|| · CESPE/UnB – PRF/2013 · rodapé ''Cargo: Policial Rodoviário Federal'';
+            itens 1–120 (segment com legacy: 120 de 120, sem buraco)'
+        answer_key_final:
+          url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_definitivo_DPRF13_001_01.PDF
+          cached: data/crawl/cespe-unb/concursos__DPRF_13__arquivos__Gab_definitivo_DPRF13_001_01.PDF
+          sha256: 920ef0df637fd5c16cb3b96d87ae7afc2da95d413fddd2a53ac55d518d250e00
+          pages: 1
+          link_text: Gabarito definitivo - Tipo I
+          kind: answer_key_final
+          header:
+          - MINISTÉRIO DA JUSTIÇA
+          - DEPARTAMENTO DE POLÍCIA RODOVIÁRIA FEDERAL
+          - CONCURSO PÚBLICO PARA PROVIMENTO DE VAGAS E FORMAÇÃO DE CADASTRO DE RESERVA
+          - NO CARGO DE POLICIAL RODOVIÁRIO FEDERAL
+          - EDITAL Nº 1 – PRF – POLICIAL RODOVIÁRIO FEDERAL, DE 11 DE JUNHO DE 2013
+          - 'Aplicação: 11/8/2013'
+          - 'Cargo: Policial Rodoviário Federal'
+          - DPRF13_001_01
+          - GABARITOS OFICIAIS DEFINITIVOS
+          items: 1–120 (120)
+          annulled:
+          - 47
+          - 50
+      answer_key_preliminary: não publicado na página do concurso (só o definitivo)
+  skipped:
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF_JUSTIFICATIVAS_DE_ALTERA____O_DE_GABARITO_PARA_P__GINA_DO_CESPE.PDF
+    link_text: Justificativas de alteração do gabarito de itens
+    reason: 'justificativas: não é prova nem gabarito'
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF-CF14_001_01.PDF
+    link_text: Caderno de questões - 1ª prova do curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_Definitivo_DPRF-CF14_001_01.PDF
+    link_text: Gabarito Definitivo - 1ª prova do curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF-CF14_002_02.pdf
+    link_text: Caderno de questões - 1ª prova do curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso); o link diz 1ª prova,
+      o gabarito pareado diz 2ª
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_Definitivo_DPRF-CF14_002_02.PDF
+    link_text: Gabarito Definitivo - 2ª prova do curso de formação
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/180DPRFCF_001_01.pdf
+    link_text: Caderno de questões - 1ª prova do curso de formação (2ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_Preliminar_180DPRFCF_001_01.PDF
+    link_text: Gabarito Preliminar - 1ª prova do curso de formação (2ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/185DPRFCF_001_01.PDF
+    link_text: Caderno de questões - 2ª prova do curso de formação (2ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_Preliminar_185DPRFCF_001_01.PDF
+    link_text: Gabarito Preliminar - 2ª prova do curso de formação (2ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/246_DPRF_001_01.PDF
+    link_text: Caderno de questões - 1ª prova do curso de formação (3ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_Preliminar_246_DPRF_001_01.PDF
+    link_text: Gabarito Preliminar - 1ª prova do curso de formação (3ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/256DPRF_001.pdf
+    link_text: Caderno de questões - 2ª prova do curso de formação (3ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/Gab_Preliminar_256DPRF_001.PDF
+    link_text: Gabarito Preliminar - 2ª prova do curso de formação (3ª turma)
+    reason: prova do curso de formação (fase posterior, não é a prova objetiva do concurso)
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF_13_1_PROVA_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativa de alteração de gabarito de questões - Primeira prova
+    reason: 'justificativas: não é prova nem gabarito (curso de formação)'
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF_13_2_PROVA_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativa de alteração de gabarito de questões - Segunda Prova
+    reason: 'justificativas: não é prova nem gabarito (curso de formação)'
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF_13_CF_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativas de alterações de gabaritos de itens - Primeira prova
+    reason: 'justificativas: não é prova nem gabarito (curso de formação)'
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/DPRF_13_CF_2_PROVA2_JUSTIFICATIVAS_DE_ALTERA____ES_DE_GABARITO.PDF
+    link_text: Justificativas de alteração do gabarito de itens - Segunda prova
+    reason: 'justificativas: não é prova nem gabarito (curso de formação)'
+  - url: http://www.cespe.unb.br/concursos/DPRF_13/arquivos/JUSTIFICAT_ALTERA____O_1_E_2_PROVAS.PDF
+    link_text: Justificativas de alterações de gabaritos de itens
+    reason: 'justificativas: não é prova nem gabarito (curso de formação)'
