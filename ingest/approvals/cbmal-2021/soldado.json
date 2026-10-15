@@ -1,21 +1,22 @@
 {
  "exam": "cbmal-2021/soldado",
- "seed": "r29",
+ "seed": "r33",
  "numbers": [
-  1,
+  3,
   4,
-  5,
-  23,
+  10,
+  14,
+  15,
+  19,
   24,
-  49,
-  76,
-  85,
+  84,
+  86,
   93,
-  101
+  112
  ],
- "sampled_at": "2026-10-15T00:05:24.076242+00:00",
- "approved_at": "2026-10-15T00:05:47.274353+00:00",
+ "sampled_at": "2026-10-15T03:57:38.037158+00:00",
+ "approved_at": "2026-10-15T03:59:17.235517+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "51ef796b00e232a155f7f0d34068499ff3ce91115452607c21cb06866f8364fa",
+ "fingerprint": "ae9e0502d10f6f9cc4bdc691e2d16f211bd6009022030de83d462f79346355b0",
  "fingerprint_version": 2
 }
