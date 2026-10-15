@@ -1567,11 +1567,14 @@ def _command_page(lead: _Unit) -> int:
 def _add_passage(
     passages: dict[str, RawPassage], key: str, paragraphs: list[str], entries: list[_Entry]
 ) -> None:
+    flags = set().union(*(e.flags for e in entries))
+    if _code_block(entries):
+        flags.add("layout")  # código em várias linhas: o recuo e as linhas em branco se perdem
     passages[key] = RawPassage(
         key=key,
         body_md="\n\n".join(paragraphs),
         page=entries[0].page,
-        flags=sorted(set().union(*(e.flags for e in entries))),
+        flags=sorted(flags),
     )
 
 
@@ -1616,6 +1619,8 @@ def _question(
     else:
         statement = f"{command} {body}"  # o item completa a frase do comando
     flags = item.flags | group_flags
+    if _code_block(item.entries):
+        flags.add("layout")  # código em várias linhas: o recuo e as linhas em branco se perdem
     if empty:
         flags.add("empty_item")  # o item é só uma figura
     if any(
@@ -1641,6 +1646,20 @@ def _question(
 
 
 CODE_LINE = re.compile(r"^`[^`]+`$|^`` [^`].*[^`] ``$")
+
+
+def _code_block(entries: list[_Entry]) -> bool:
+    """Duas linhas seguidas, cada uma inteira em fonte monoespaçada (código inline da linha toda):
+    bloco de código em várias linhas (PF 2025 bloco II, texto da questão 91: `CREATE TABLE`,
+    `INSERT INTO`, `SELECT`). O Markdown ainda não tem bloco de código (docs/content-format.md):
+    a linha vira parágrafo ou se junta à vizinha e perde o recuo e as linhas em branco, então a
+    questão vai para revisão pelo motivo de layout. Uma linha só de código (o comando à parte,
+    `chmod 755 policial.pdf`, `_code_line_breaks`) não é bloco. Emenda (24) da 0020."""
+    lines = [e.line.text.strip() for e in entries if not e.invisible]
+    return any(
+        CODE_LINE.match(first) and CODE_LINE.match(second)
+        for first, second in zip(lines, lines[1:], strict=False)
+    )
 
 
 def _code_line_breaks(lines: list[str]) -> set[int]:

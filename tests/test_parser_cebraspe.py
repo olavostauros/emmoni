@@ -1615,6 +1615,36 @@ def test_code_line_of_the_item_is_a_paragraph() -> None:
     )
 
 
+def test_multiline_code_block_flags_layout() -> None:
+    """PF 2025 bloco II, questão 91: o texto-base é um bloco de código SQL (uma linha por
+    instrução, recuo e linha em branco entre os comandos). O Markdown não tem bloco de código, então
+    o texto e as questões dele vão para revisão (layout); o comando de uma linha só, à parte no
+    item (questão 81, `chmod 755 policial.pdf`), continua sem a marca. Emenda (24) da 0020."""
+    page = _page(
+        [
+            _line("Julgue o item a seguir.", 28, 40),
+            _line("**1** No ambiente Linux, o comando apresentado a seguir altera", 28, 52),
+            _line("as permissões do arquivo.", 46, 64, x1=150),
+            _line("`chmod 755 policial.pdf`", 46, 80, x1=150, size=8),
+            _line("`CREATE TABLE catalogo (`", 28, 110, x1=150, size=8),
+            _line("`id_tabela INT,`", 34, 120, x1=120, size=8),
+            _line("`);`", 28, 130, x1=40, size=8),
+            _line("`SELECT * FROM catalogo;`", 28, 146, x1=160, size=8),
+            _line("Com base nas informações do código precedente, julgue o", 28, 160),
+            _line("próximo item.", 28, 172, x1=100),
+            _line("**2** O comando `SELECT` lê a tabela `catalogo`.", 28, 184, x1=250),
+        ]
+    )
+    segmented = cebraspe.segment([page])
+    questions = {q.number: q for q in segmented.questions}
+    assert questions[1].statement_md.endswith("\n\n`chmod 755 policial.pdf`")
+    assert "layout" not in questions[1].flags
+    passages = {p.key: p for p in segmented.passages}
+    assert questions[2].passage_key == "g2"
+    assert passages["g2"].body_md.startswith("`CREATE TABLE catalogo (`")
+    assert "layout" in passages["g2"].flags
+
+
 def test_url_broken_across_lines_is_joined_without_space() -> None:
     """CBM/RO 2022, questões 38 e 40: o endereço partido no crédito da figura não ganha espaço na
     junção; a palavra comum depois do endereço continua separada."""

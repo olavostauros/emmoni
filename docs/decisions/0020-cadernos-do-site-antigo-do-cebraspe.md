@@ -828,3 +828,29 @@ itálico); nenhuma dessas provas tem o estilo ligado. Páginas
 conferidas renderizadas: PC/PE 2023 P2 cargo 1 pág. 13; PC/PB 2021 específicos cargo 4 pág. 4,
 cargo 3 pág. 7 e cargo 12 pág. 8; CBM/PA 2023 CFO P1 pág. 9; PF 2018 escrivão pág. 4 e
 papiloscopista pág. 9; PC Científica/PE 2016 cargos 7 (pág. 13), 8 (pág. 3), 13 (pág. 2) e 14 (pág. 6). Fixture `pcpb-2021-especificos-cargo-4-p4.pdf`.
+
+## Emenda de 2026-10-15 (24) — código em várias linhas vai para revisão
+
+**Contexto.** Reprovação do minos (semente r41) no PF 2025 bloco II, questões 91 e 92 (pág. 2,
+coluna direita): o texto-base é um bloco de código SQL em fonte monoespaçada (`CREATE TABLE`,
+linhas internas recuadas, `INSERT INTO`, `SELECT`, com linha em branco entre os comandos). Cada
+linha saía como um parágrafo de código inline (21 parágrafos), sem o recuo nem a separação entre
+os comandos, e as duas questões estavam publicadas sem motivo de revisão: a marca de layout da
+linha recuada e curta exige corpo de `CITATION_SIZE` ou mais, e o código vem em corpo menor; o
+texto-base não tem a regra de linhas curtas do item.
+
+**Decisão.** Duas linhas seguidas (visíveis), cada uma inteira em código inline (`CODE_LINE`), no
+texto-base ou no item, são um bloco de código em várias linhas: o texto-base ou a questão ganha a
+marca `layout` e vai para `review` (`_code_block`). Enquanto o Markdown não tiver bloco de código
+(docs/content-format.md; item "Código em várias linhas como bloco" dos próximos passos), essas
+questões não são publicadas. A linha só de código, à parte no item depois de frase terminada
+(emenda (5), `_code_line_breaks`), não é bloco e continua publicada: no PF 2025 bloco II, questão
+81, `chmod 755 policial.pdf` é uma linha só no PDF e sai certa como parágrafo próprio em código
+inline.
+
+**Verificação.** As provas do `data/staging/` reprocessadas (extract → segment → answer-key →
+validate) com o código do HEAD (53da63b) e com o novo (segment → validate), e comparadas. Mudam
+só: PF 2025 bloco II (texto g91, questões 91 e 92 para `review`) e PF 2018 escrivão (texto g93, a
+lista de campos `CPF` | `NOME` | ... | `NUMERO` em fonte monoespaçada, uma por linha, sem linha em
+branco entre elas, que saía como oito parágrafos de código; questões 93 a 96 para `review`).
+Páginas conferidas renderizadas: PF 2025 bloco II pág. 2 e PF 2018 escrivão pág. 7.
