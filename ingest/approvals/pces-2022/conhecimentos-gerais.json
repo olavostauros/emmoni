@@ -1,21 +1,21 @@
 {
  "exam": "pces-2022/conhecimentos-gerais",
- "seed": "r37",
+ "seed": "r47",
  "numbers": [
-  1,
+  3,
   4,
-  5,
-  6,
   7,
   8,
+  12,
+  14,
   15,
   17,
   18,
-  20
+  19
  ],
- "sampled_at": "2026-10-15T04:44:20.737299+00:00",
- "approved_at": "2026-10-15T04:44:36.717646+00:00",
+ "sampled_at": "2026-10-15T13:03:55.410046+00:00",
+ "approved_at": "2026-10-15T13:04:37.732365+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "9dce8c9586c73413819f20d443fdebf8ea93809005c0eb74ec977faee5855cbc",
+ "fingerprint": "0eb2ce9c18bd17cd06699dc74e8a253e9c823c85e0bd1fbfc7e20d81907d3cf5",
  "fingerprint_version": 2
 }
