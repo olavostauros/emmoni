@@ -1,23 +1,21 @@
 {
  "exam": "pcma-2017-apc/conhecimentos-gerais-cargo-1-escrivao-de-policia",
- "seed": "r9",
+ "seed": "r39",
  "numbers": [
   1,
-  3,
-  4,
+  2,
   5,
-  6,
-  8,
+  7,
+  9,
   10,
-  11,
   12,
   16,
-  17,
   18,
   19
  ],
- "sampled_at": "2026-10-14T14:09:19.150449+00:00",
- "approved_at": "2026-10-14T14:09:41.516215+00:00",
+ "sampled_at": "2026-10-15T11:44:13.758844+00:00",
+ "approved_at": "2026-10-15T11:47:19.216492+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "e7f46e92945874c20ab1a634bfa0856f4521bb27035a02bfd32eb7042b5e0612"
+ "fingerprint": "433ddf95394ab2eb3fec9cb934d4b3c9a4923ce304584f9da7d1f42b8f26d590",
+ "fingerprint_version": 2
 }
