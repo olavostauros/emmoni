@@ -38,8 +38,11 @@ STOP_TITLE_SIZE = 12.0
 SECTION_START = re.compile(r"^-* ?CONHECIMENTOS (B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS) ?-*$", re.I)
 SKIP = re.compile(  # títulos de bloco, rascunho, código do caderno, cabeçalho da banca
     r"^(BLOCO [IVX]+|Espaço livre|RASCUNHO|-+ ?PROVAS? OBJETIVAS? ?-+|\d+_[A-Z0-9_]+|CEBRASPE [–-] .*"
-    # título de seção no meio do caderno (PM/AL 2021, PCDF 2019), código da matriz, lixo "! !"
-    r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d)? ?-*|›* ?Matriz_\S*|P[áa]gina: ?\d+|[!\s]+)$",
+    # título de seção no meio do caderno (PM/AL 2021, PCDF 2019), também com o bloco ("-- CONHECIMENTOS
+    # BÁSICOS – BLOCO II --", PF 2025, sobre a faixa raster que não é figura; emenda (25) da 0020),
+    # código da matriz, lixo "! !"
+    r"|-* ?CONHECIMENTOS (?:B[ÁA]SICOS|GERAIS|ESPEC[ÍI]FICOS)(?: P\d| [–-] BLOCO [IVX]+ ?[–-]*)? ?-*"
+    r"|›* ?Matriz_\S*|P[áa]gina: ?\d+|[!\s]+)$",
     re.I,
 )
 # Nomes de disciplina (db/taxonomy): faixa de título de seção em negrito ("**Língua Portuguesa**",

@@ -1589,6 +1589,38 @@ def test_band_behind_a_title_is_not_a_figure_of_the_question_above() -> None:
     assert "figure" in questions[1].flags
 
 
+def test_block_title_over_raster_band_is_not_a_figure() -> None:
+    """PF 2025 bloco II, itens 69–72 (pág. 1): o título "-- CONHECIMENTOS BÁSICOS – BLOCO II --"
+    vem sobre uma faixa raster que cruza as duas colunas, logo acima dos dois comandos; o comando
+    da coluna 2 começa 1 pt acima do da coluna 1 e levava a marca de figura. O título com o bloco
+    é ignorado como os outros títulos de seção, e a faixa vira moldura dele (emenda (25) da 0020).
+    Texto que não é título de seção sobre a mesma faixa continua marcando."""
+
+    def right(line: Line) -> Line:
+        return line.model_copy(update={"x0": line.x0 + 275, "x1": line.x1 + 280, "column": 2})
+
+    def lines(title: str) -> list[Line]:
+        head = _line(title, 192, 51, x1=406)
+        return [
+            head.model_copy(update={"column": 0, "y1": 61.0}),
+            _line("Julgue os itens a seguir.", 28, 74),
+            _line("**1** Primeiro item da coluna um.", 28, 90),
+            right(_line("Julgue os itens subsequentes.", 28, 73)),
+            right(_line("**2** Primeiro item da coluna dois.", 28, 89)),
+        ]
+
+    band = Figure(kind="image", x0=28.2, y0=46.9, x1=567.2, y1=62.6)
+    for title in (
+        "-- CONHECIMENTOS BÁSICOS – BLOCO II --",
+        "-- CONHECIMENTOS ESPECÍFICOS – BLOCO III –",
+    ):
+        segmented = cebraspe.segment([_page(lines(title), [band])])
+        assert {q.number: q.flags for q in segmented.questions} == {1: [], 2: []}
+        assert all("BLOCO" not in q.statement_md for q in segmented.questions)
+    other = cebraspe.segment([_page(lines("-- QUADRO DE APOIO --"), [band])])
+    assert "figure" in {q.number: q for q in other.questions}[2].flags
+
+
 def test_code_line_of_the_item_is_a_paragraph() -> None:
     """PM/AL 2021 oficial, item 37: o comando em fonte monoespaçada, numa linha à parte depois da
     frase terminada, é um parágrafo; código em várias linhas segue num bloco só."""

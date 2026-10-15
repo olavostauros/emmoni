@@ -854,3 +854,28 @@ só: PF 2025 bloco II (texto g91, questões 91 e 92 para `review`) e PF 2018 esc
 lista de campos `CPF` | `NOME` | ... | `NUMERO` em fonte monoespaçada, uma por linha, sem linha em
 branco entre elas, que saía como oito parágrafos de código; questões 93 a 96 para `review`).
 Páginas conferidas renderizadas: PF 2025 bloco II pág. 2 e PF 2018 escrivão pág. 7.
+
+## Emenda de 2026-10-15 (25) — título de seção com o bloco sobre faixa raster
+
+**Contexto.** No PF 2025 bloco II, os itens 69 a 72 (pág. 1, coluna direita, "Julgue os itens
+subsequentes, relativos à teoria da informação e a banco de dados.") estavam em `review` com
+"figura ou tabela não extraída", mas são texto corrido. A página renderizada mostra a causa: o
+título "-- CONHECIMENTOS BÁSICOS – BLOCO II --" vem sobre uma faixa raster (imagem de 2246×66 px,
+de margem a margem). O `SKIP` só conhecia o título de seção sem o bloco, então a linha não era
+ignorada; como fica dentro da imagem, saía do fluxo como rótulo desenhado sobre ela, e a faixa,
+sem linha ignorada dentro (`_skipped_frames`) e sem ser desenho (`_title_band`), virava figura da
+primeira linha abaixo dela nas duas colunas: o comando da coluna 2, 1 pt acima do da coluna 1.
+
+**Decisão.** O título de seção do `SKIP` aceita o bloco depois de travessão ou hífen
+("– BLOCO II", "– BLOCO III –"), como os outros títulos de seção: a linha é ignorada e a faixa que
+a contém é a moldura dela, não figura. Texto que não é título de seção sobre uma imagem continua
+como antes (rótulo da imagem, e a imagem marca a linha vizinha).
+
+**Verificação.** O `segment` de todas as provas do `data/staging/` rodado com o código do HEAD
+(663fbd8) e com o novo, e comparado. Mudam só as cinco provas do PF 2025, todas por perder a
+marca `figure` da faixa do título: bloco I item 6; bloco II itens 69–72; agente específicos itens
+97–101; escrivão específicos itens 97–98 (seguem em `review` pela marca `layout` dos lançamentos
+"debite:/credite:"); papiloscopista específicos itens 97–98. Nenhum enunciado, alternativa ou
+texto-base muda. Páginas 1 das cinco provas conferidas renderizadas: texto corrido abaixo da
+faixa, sem figura nem tabela nesses itens (a tabela do agente e o circuito do papiloscopista são
+dos itens 107 em diante, que não mudam).
