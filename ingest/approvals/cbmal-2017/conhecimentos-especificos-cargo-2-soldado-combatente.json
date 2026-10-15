@@ -1,21 +1,24 @@
 {
  "exam": "cbmal-2017/conhecimentos-especificos-cargo-2-soldado-combatente",
- "seed": "r43",
+ "seed": "r46",
  "numbers": [
   57,
-  66,
+  61,
   90,
   92,
-  94,
-  96,
-  104,
-  113,
+  97,
+  100,
+  110,
+  114,
+  115,
+  116,
   117,
+  119,
   120
  ],
- "sampled_at": "2026-10-15T12:26:57.996405+00:00",
- "approved_at": "2026-10-15T12:27:13.197393+00:00",
+ "sampled_at": "2026-10-15T12:59:31.536699+00:00",
+ "approved_at": "2026-10-15T12:59:56.193102+00:00",
  "approved_by": "minos (claude-opus-5-5)",
- "fingerprint": "4a46e78d4185c1c04065a483e2afe4d8717c717ab83ec3738bbb1bb73dd32485",
+ "fingerprint": "df1cf7632d0140cdfbddf4d4ebd3bfdef1a608f6ba925a2d526b44748f895e27",
  "fingerprint_version": 2
 }
