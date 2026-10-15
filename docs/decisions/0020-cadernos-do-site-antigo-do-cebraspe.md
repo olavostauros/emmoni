@@ -1025,3 +1025,47 @@ desmontava o PF 2009 agente (120 → 37 itens) e foi descartada.
 do texto-base g27) e o PRF 2013 (o resto ", todos os arquivos com extensão .doc…" sai do fim do
 item 49 e volta ao item 50, no lugar do ícone). Teste sintético em `tests/test_parser_cebraspe.py`
 (`test_line_split_by_icon_is_one_line`).
+
+## Emenda de 2026-10-15 (32) — glifos da fonte de símbolos pelo desenho; lista "▸"; página de uma coluna
+
+**Contexto.** Reprovação do minos (semente r51) do PC/DF 2013 agente: (1) na pág. 7, a fonte de
+símbolos sem mapeamento entrega "A d V" por "A ⊂ V", "B c C" por "B ∪ C" e "(V\C) 1 A" por
+"(V\C) ∩ A"; só a linha do "1" caía em `review` (pela regra do "ℓ"), e os itens 40 e 41 iam para
+a API errados. (2) A lista do texto dos itens 39–41 tem marcador "▸", que saía "\<", com cada
+linha num parágrafo. (3) Na pág. 4, página de uma coluna, as linhas centralizadas mais curtas do
+cabeçalho do memorando do item 21 caíam na coluna 1 (o `_gutter` tomava por vão a faixa ao lado
+delas): o bloco saía partido entre o item 21 e um texto-base falso das 22–23.
+
+**Decisão.**
+1. No `extract` com `legacy` (`_glyph_fonts`), a fonte em que todo trecho do documento é um
+   caractere só é fonte de glifos soltos. O nome embutido é anônimo e o nome do glifo é o do
+   caractere errado, mas o desenho do glifo é o mesmo de um caderno para outro: cada glifo é
+   reconhecido pelo hash do desenho (`_glyph_digest`, sobre o `RecordingPen`) e traduzido pela
+   tabela `GLYPH_DIGESTS` (▸, •, ∨, ∧, →, ⇌, −, ·, Ω, ∩, ∪, ⊂, ∈, ¬ e os que desenham o próprio
+   caractere), conferida glifo a glifo contra as páginas renderizadas dos 11 cadernos do site
+   antigo. Desenho fora da tabela não tem tradução segura: a linha fica marcada (`formula`) e a
+   questão vai para `review`. O "R" do "ℓ" e os caracteres de controle (teclas desenhadas,
+   revisadas em `ingest/ocr/`) seguem com as regras deles; o símbolo traduzido deixa de contar como
+   "outro glifo da fonte do ℓ".
+2. No `segment`, a linha que começa por "▸ " abre parágrafo e é item de lista com recuo pendente
+   (como "•"; a continuação também depois de número ou sinal, "48%" | "cursaram"); no fim, o
+   parágrafo que começa por "▸ " vira item de lista Markdown (`- item`, `_markdown_lists`).
+3. No `_gutter`, se a faixa menos cruzada da página ainda é cruzada por 40% ou mais das linhas,
+   a página é de uma coluna e o vão fica no meio. Com isso o cabeçalho do memorando volta ao
+   item 21, inteiro e na ordem, e as 22–23 ficam sem o "Telefone…". As linhas centralizadas ainda
+   saem emendadas num parágrafo só; o item 21 fica em `review` por `layout` (já marcado pela
+   linha recuada e curta) até haver regra para bloco centralizado linha a linha.
+
+**Verificação.** O `segment` das 142 provas do `data/staging/` com manifesto, com o código do HEAD
+(a6b262b) e o novo — as do site antigo reextraídas do PDF, as outras sobre o mesmo
+`pages.exam.json` — e comparado: mudam só as 8 do site antigo com fonte de símbolos. Nenhuma questão
+que estava publicável tinha glifo trocado fora do PC/DF 2013 agente (todas as outras já caíam em
+`review` pela regra do "ℓ", por figura ou por fórmula); o texto delas fica certo ("A→B", "P∧Q",
+"g·mol", "⇌", "−0,008"). Saem de `review` por fórmula: DEPEN 2013 básicos item 44, PF 2009
+escrivão item 79, PC/DF 2013 escrivão item 47 continua por figura; PF 2012 papiloscopista e PRF 2013
+mudam só texto de questões em `review` (no PRF 2013, o item 119 e o texto g118 ganham `formula`
+pelos colchetes da fórmula, de desenho desconhecido). A regra do vão não muda nenhuma página de
+prova objetiva além da pág. 4 do PC/DF 2013 agente (as outras com a faixa muito cruzada são
+páginas da discursiva). Testes sintéticos em `tests/test_parser_cebraspe.py`
+(`test_glyph_font_translated_by_outline`, `test_list_marker_is_markdown_list`,
+`test_single_column_page_keeps_middle`).

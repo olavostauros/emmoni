@@ -11,17 +11,19 @@ linhas de OCR são revisadas pelo agente contra a imagem da página, e as corre�
 em `ingest/ocr/<sha256>.yaml`.
 """
 
+import hashlib
 import io
 import re
 import subprocess
 import sys
 from collections import Counter
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
 import pymupdf
 import yaml
+from fontTools import agl  # type: ignore[import-untyped]
 from fontTools.cffLib import CFFFontSet  # type: ignore[import-untyped]
 from fontTools.pens.areaPen import AreaPen  # type: ignore[import-untyped]
 from fontTools.pens.recordingPen import RecordingPen  # type: ignore[import-untyped]
@@ -222,6 +224,7 @@ def _read(pdf_path: Path, legacy: bool = False, styles: bool = False) -> list[Pa
                 styles=_font_styles(document),
                 ell=_ell_fonts([lines for _, lines, _ in raws]),
                 mono=_mono_fonts(document),
+                glyphs=_glyph_fonts(document, [lines for _, lines, _ in raws]),
             )
         elif styles:
             fonts = _Fonts(
@@ -268,6 +271,8 @@ class _Fonts:
     styles: dict[str, int]  # fonte → BOLD/ITALIC
     ell: frozenset[str] = frozenset()  # fontes de símbolos do "ℓ" de "(ℓ.12)"
     mono: frozenset[str] = frozenset()  # fontes monoespaçadas (caminhos, comandos): código inline
+    # fontes só de glifos soltos → caractere → tradução pelo desenho (None: desenho desconhecido)
+    glyphs: dict[str, dict[str, str | None]] = field(default_factory=dict)
     # False: só o estilo foi deduzido (`styles`); números de item, "ℓ", "*In*" e o dígito em negrito
     # seguem as regras de quem não é `legacy`.
     legacy: bool = True
@@ -812,6 +817,12 @@ def _gutter(boxes: list[Any], width: float) -> float:
     fewest = min(crossing.values(), default=0)
     if sum(1 for x0, _, x1, _ in boxes if x0 < middle < x1) == fewest:
         return middle
+    if 5 * fewest >= 2 * len(boxes):
+        # Página de uma coluna com linhas centralizadas mais curtas (o cabeçalho do memorando do
+        # PC/DF 2013 agente, item 21): a faixa menos cruzada ainda é cruzada por 40% ou mais das
+        # linhas e não é vão nenhum; ficava ao lado das linhas centralizadas, que caíam na coluna
+        # 1 e saíam da ordem de leitura. Emenda (32) da 0020.
+        return middle
     runs: list[list[int]] = []
     for x in xs:
         if crossing[x] != fewest:
@@ -1078,6 +1089,109 @@ SYMBOL_ASCII = frozenset(
 )  # "þ": reticências da mesma fonte (ver SYMBOL_PUA)
 
 
+# Fontes só de glifos soltos nos cadernos do site antigo (decisão 0020, emenda (32)): a fonte de
+# símbolos do Cebraspe sai com letras e pontuação no lugar do símbolo ("A d V" é "A ⊂ V", "B c C"
+# é "B ∪ C", "(V\\C) 1 A" é "(V\\C) ∩ A", "<" é o marcador "▸"). O nome embutido é anônimo
+# ("TT9E3o00") e o nome do glifo é o do caractere errado, mas o desenho é o mesmo de um caderno para
+# outro: o glifo é reconhecido pelo hash do desenho (`_glyph_digest`), e cada hash abaixo foi
+# conferido contra a página renderizada (PF 2009, PF 2012, PRF 2013, PC/DF 2013, DEPEN 2013). Glifo
+# de desenho fora da tabela não tem tradução segura: a linha fica marcada e a questão vai para
+# revisão. Os que desenham o próprio caractere (rótulos de figura, índices, a fração empilhada)
+# estão na tabela com ele mesmo.
+GLYPH_DIGESTS: dict[str, str] = {
+    # família de 2009/2012 (PF 2009 agente e escrivão, PF 2012 agente e papiloscopista)
+    "e373f31bd871": "▸",  # "<": marcador de lista
+    "cd8d38d65903": "•",  # "C"
+    "952766c3a75a": "∨",  # "w"
+    "4d967e5929e7": "∧",  # "v"
+    "0cc0eec66e7d": "→",  # "÷"
+    "16479b4a3eea": "→",  # "¸" de "AgCℓ(s) → Ag(s)"
+    "d9a081442bb0": "−",  # "!" de "10⁻⁵"
+    "d68e4a169c29": "·",  # "@" de "g·mol⁻¹"
+    "a81be43051c5": "⇌",  # "º"
+    "b0e9102a1852": "Ω",  # "S"
+    "e15ccd5bd504": ".",
+    "754ca2ccfcc0": "H",  # rótulos e eixo das figuras do PF 2012 papiloscopista
+    "be38f2364ee4": "N",
+    "2dfcbf2067b5": "2",
+    "575657a0a807": "0",
+    "ec6d2e0c8cac": "1",
+    "47157f37fa48": "2",
+    "5b77127692ba": "3",
+    "fe6838ef86c7": "4",
+    "32bb5f8c5c6f": "5",
+    # família de 2013 (PRF 2013, PC/DF 2013, DEPEN 2013, PF 2012 escrivão)
+    "260621b9135e": "▸",  # "<": marcador de lista
+    "0474459504ad": "∨",  # "w"
+    "e6d6964821cf": "∧",  # "v"
+    "5bebb99b1627": "→",  # "÷"
+    "a3b862567faf": "→",  # "6"
+    "a5cc07f8af8b": "∩",  # "1"
+    "95541d0f746e": "∪",  # "c"
+    "d179be83fde1": "⊂",  # "d"
+    "42fe3df31ed5": "⊂",  # "d", corpo maior
+    "650e3a9b4302": "∈",  # "0"
+    "672a5e6147c5": "−",  # "!"
+    "918f7729a865": "¬",
+    "4fb9287dd2a5": "a",  # ordinal de "33.ª"
+    "a6a6f2965e1b": "1",  # fração empilhada do PRF 2013 (marca `formula`, emenda (30))
+    "363d076297c5": "5",
+    "3dc98a0bc7bf": "t",  # variáveis e índices das figuras e fórmulas do PRF 2013
+    "ddd32f7c9b83": "t",
+    "1a61afa851aa": "x",
+    "2cec25c9ed9e": "h",
+    "d8d89e076366": "v",
+    "f5fa28c6486b": "0",
+    "9d58a72182d4": "1",
+    "159561f3c831": "2",
+    "af35cb94c263": "=",
+    "634fb13a3507": "+",
+    "5886430fa938": "π",
+}
+
+# Os símbolos que a tabela traduz (os que desenham o próprio caractere ASCII ficam de fora).
+GLYPH_SYMBOLS = frozenset(c for c in GLYPH_DIGESTS.values() if not c.isascii())
+
+
+def _glyph_digest(outline: tuple[Any, ...]) -> str:
+    """Hash do desenho de um glifo (operações e pontos do `RecordingPen`)."""
+    return hashlib.sha256(repr(outline).encode()).hexdigest()[:12]
+
+
+def _glyph_fonts(
+    document: Any, pages: list[list[dict[str, Any]]]
+) -> dict[str, dict[str, str | None]]:
+    """Fontes em que todo trecho do documento é um caractere só (fora espaços) → caractere →
+    tradução pelo desenho (`GLYPH_DIGESTS`), ou None quando o desenho não está na tabela. O "R" do
+    "ℓ" e os caracteres de controle (teclas desenhadas, revisadas em `ingest/ocr/`) ficam com as
+    regras deles."""
+    used: dict[str, set[str]] = {}
+    lone: dict[str, bool] = {}
+    for raws in pages:
+        for raw in raws:
+            for span in raw["spans"]:
+                text = span["text"].replace("\xa0", " ").strip()
+                font = span["font"]
+                lone[font] = lone.get(font, True) and len(text) <= 1
+                if text:
+                    used.setdefault(font, set()).add(text)
+    fonts = {font for font, ok in lone.items() if ok and used.get(font)}
+    outlines = _outlines(document, fonts)
+    found: dict[str, dict[str, str | None]] = {}
+    for font in fonts:
+        glyphs = outlines.get(font, (None, {}))[1]
+        by_char = {agl.toUnicode(name): outline for name, outline in glyphs.items()}
+        table: dict[str, str | None] = {}
+        for char in used[font]:
+            if char == "R" or not char.isprintable():
+                continue
+            outline = by_char.get(char)
+            table[char] = GLYPH_DIGESTS.get(_glyph_digest(outline)) if outline else None
+        if table:
+            found[font] = table
+    return found
+
+
 def _symbol_fonts(raws: list[dict[str, Any]]) -> frozenset[str]:
     """Fontes da página cujo texto inteiro é pontuação ASCII isolada: símbolos sem mapeamento."""
     chars: dict[str, set[str]] = {}
@@ -1095,14 +1209,26 @@ def _line(
     fonts: _Fonts | None = None,
     symbol_fonts: frozenset[str] = frozenset(),
 ) -> Line | None:
+    # Glifo solto de desenho desconhecido (emenda (32) da 0020): sem tradução segura, marca a linha.
+    unknown_glyph = bool(fonts) and any(
+        fonts.glyphs.get(s["font"], {}).get(c, "") is None  # type: ignore[union-attr]
+        for s in raw["spans"]
+        for c in s["text"]
+    )
     if fonts and any(
-        s["font"] in fonts.digits or s["font"] in fonts.styles or s["font"] in fonts.mono
+        s["font"] in fonts.digits
+        or s["font"] in fonts.styles
+        or s["font"] in fonts.mono
+        or s["font"] in fonts.glyphs
         for s in raw["spans"]
     ):
         decoded = []
         for s in raw["spans"]:
             if s["font"] in fonts.digits:
                 s = s | {"text": "".join(fonts.digits[s["font"]].get(c, c) for c in s["text"])}
+            if s["font"] in fonts.glyphs:
+                table = fonts.glyphs[s["font"]]
+                s = s | {"text": "".join(table.get(c) or c for c in s["text"])}
             if s["font"] in fonts.mono:
                 s = s | {"mono": True}
             elif s["font"] in fonts.styles and any(c.isalnum() for c in s["text"]):
@@ -1150,6 +1276,7 @@ def _line(
         )
         or any(s["font"] in symbol_fonts and s["text"].strip(" \xa0þ") for s in spans)
         or (fonts is not None and fonts.legacy and _odd_ell_glyph(spans, fonts.ell))
+        or unknown_glyph
     )
     return Line(
         text=markdown,
@@ -1246,7 +1373,13 @@ def _odd_ell_glyph(spans: list[dict[str, Any]], ell: frozenset[str]) -> bool:
     tecla Enter desenhada como "<") não é texto."""
     if not any(s["font"] not in ell for s in spans):
         return False
-    return any(s["font"] in ell and s["text"].strip(" \xa0") not in ("", "ℓ") for s in spans)
+    return any(
+        s["font"] in ell
+        and s["text"].strip(" \xa0") not in ("", "ℓ")
+        # símbolo já traduzido pelo desenho (emenda (32) da 0020)
+        and not set(s["text"].strip(" \xa0")) <= GLYPH_SYMBOLS
+        for s in spans
+    )
 
 
 def _line_refs(spans: list[dict[str, Any]], legacy: bool = False) -> list[dict[str, Any]]:

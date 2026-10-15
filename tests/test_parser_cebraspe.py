@@ -2544,3 +2544,82 @@ def test_line_split_by_icon_is_one_line() -> None:
         piece("Outra linha da coluna 2", 310, 212, 566, 2),
     ]
     assert extract_module._attach_item_numbers(two_columns) == two_columns
+
+
+def test_glyph_font_translated_by_outline() -> None:
+    """PC/DF 2013 agente, pág. 7: a fonte de símbolos do site antigo entrega "A d V" por "A ⊂ V" e
+    "B c C" por "B ∪ C", e só a linha com o "1" de "∩" caía em `review`. O glifo é traduzido pelo
+    hash do desenho (`GLYPH_DIGESTS`); desenho fora da tabela marca a linha (emenda (32) da 0020)."""
+
+    def span(text: str, font: str, x0: float, x1: float) -> dict[str, object]:
+        return {
+            "text": text, "font": font, "size": 10.0, "flags": 4, "color": 0,
+            "bbox": (x0, 245.0, x1, 255.0), "origin": (x0, 253.0),
+        }  # fmt: skip
+
+    def raw(*spans: dict[str, object]) -> dict[str, object]:
+        return {"spans": list(spans), "bbox": (304.0, 245.0, 567.0, 255.0)}
+
+    glyphs: dict[str, dict[str, str | None]] = {
+        "TT9E3o00": {"d": extract_module.GLYPH_DIGESTS["d179be83fde1"], "q": None}
+    }
+    fonts = extract_module._Fonts(digits={}, styles={}, glyphs=glyphs)
+    known = extract_module._line(
+        raw(span("IPEA; A ", "TT9CEo00", 304, 548), span("d", "TT9E3o00", 548, 555),
+            span(" V,", "TT9CEo00", 555, 567)),
+        297.5,
+        fonts,
+    )  # fmt: skip
+    assert known is not None
+    assert known.plain == "IPEA; A ⊂ V,"
+    assert not known.odd_glyph
+    unknown = extract_module._line(
+        raw(span("IPEA; A ", "TT9CEo00", 304, 548), span("q", "TT9E3o00", 548, 555),
+            span(" V,", "TT9CEo00", 555, 567)),
+        297.5,
+        fonts,
+    )  # fmt: skip
+    assert unknown is not None
+    assert unknown.odd_glyph
+
+
+def test_list_marker_is_markdown_list() -> None:
+    """PC/DF 2013 agente, pág. 7, texto dos itens 39 a 41: os itens com o marcador "▸" (que saía
+    "\\<") viram lista Markdown, com as linhas do recuo pendente emendadas, inclusive depois de
+    "48%" (emenda (32) da 0020)."""
+    lines = [
+        _line("O instituto apresentou uma estimativa de mulheres mortas em razão", 28.3, 100.5),
+        _line("Alguns dos dados apresentados nesse estudo são os seguintes:", 28.3, 113.1, x1=275),
+        _line("▸ mais da metade das vítimas eram mulheres jovens, ou seja,", 28.3, 132.8),
+        _line("mulheres com idade entre 20 e 39 anos;", 46.0, 145.6, x1=200),
+        _line("▸ 61% das vítimas eram mulheres negras;", 28.3, 165.3, x1=200),
+        _line("▸ grande parte das vítimas tinha baixa escolaridade: 48%", 28.3, 185.4),
+        _line("cursaram até o 8.º ano.", 46.0, 198.2, x1=140),
+        _line("Com base nessas informações, julgue os itens que se seguem.", 28.3, 218.2),
+        _line("**39** Primeiro item.", 28.3, 238.0, x1=140),
+    ]
+    lines = [line.model_copy(update={"y1": line.y0 + 10}) for line in lines]
+    segmented = cebraspe.segment([_page(lines)], first=39)
+    assert [p.body_md for p in segmented.passages] == [
+        "O instituto apresentou uma estimativa de mulheres mortas em razão Alguns dos dados"
+        " apresentados nesse estudo são os seguintes:\n\n"
+        "- mais da metade das vítimas eram mulheres jovens, ou seja, mulheres com idade entre 20"
+        " e 39 anos;\n\n"
+        "- 61% das vítimas eram mulheres negras;\n\n"
+        "- grande parte das vítimas tinha baixa escolaridade: 48% cursaram até o 8.º ano."
+    ]
+
+
+def test_single_column_page_keeps_middle() -> None:
+    """PC/DF 2013 agente, pág. 4, item 21: página de uma coluna com o cabeçalho do memorando
+    centralizado. A faixa menos cruzada, ao lado das linhas centralizadas mais curtas, virava o vão,
+    e elas caíam na coluna 1, fora da ordem de leitura (emenda (32) da 0020)."""
+    full = [(28.3, y, 566.8, y + 10) for y in (50, 110, 133, 156, 330, 354, 378, 408)]
+    centered = [(241.1, 184, 354.1, 194), (233.5, 207, 361.7, 217), (201.4, 231, 393.8, 241),
+                (141.4, 254, 453.7, 264), (235.6, 277, 359.6, 287), (178.2, 300, 417.1, 311)]  # fmt: skip
+    numbers = [(28.3, y, 36.0, y + 8) for y in (110, 330, 408)]
+    assert extract_module._gutter(full + centered + numbers, 595.0) == 297.5
+    # Duas colunas com o vão fora do meio (PF 2012) seguem com o vão achado.
+    left = [(28.3, y, 312.0, y + 10) for y in range(40, 400, 13)]
+    right = [(325.0, y, 567.0, y + 10) for y in range(40, 400, 13)]
+    assert extract_module._gutter(left + right, 595.0) != 297.5

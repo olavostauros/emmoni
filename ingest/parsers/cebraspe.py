@@ -158,6 +158,9 @@ CREDIT_ONLY = re.compile(
     re.I | re.S,
 )
 BULLET_C = re.compile(r"^C\s+(?=\S)")  # marcador "•" de fonte decorativa extraído como "C"
+# Marcadores de item de lista no começo da linha. O "▸" vem da fonte de símbolos do site antigo
+# (emenda (32) da 0020) e sai como lista Markdown (`_markdown_lists`); o "•" fica como no original.
+LIST_MARKS = ("• ", "▸ ")
 TEXT_REF = re.compile(rf"\btexto?\s+{_LABEL}", re.I)  # "texto CG1A1-I", "text 1A2-II"
 COMMAND = re.compile(r"\b(julg|jug|judge|juzg)", re.I)  # português, inglês, espanhol
 # No corte entre texto-base e comando, "julgador" e "julgamento" são substantivos do texto, não o
@@ -360,10 +363,25 @@ def segment(pages: list[Page], first: int = 1) -> Segmented:
     for question in questions:
         question.flags = sorted({*question.flags, *_reference_flags(question, labels)})
     _passage_flags(questions, passages)
-    return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
+    return _markdown_lists(
+        Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
+    )
 
 
 # --- múltipla escolha --------------------------------------------------------------------------
+
+
+# Parágrafo que começa pelo marcador "▸" (emenda (32) da 0020).
+LIST_PARAGRAPH = re.compile(r"(^|\n\n)▸ ")
+
+
+def _markdown_lists(segmented: Segmented) -> Segmented:
+    """Os itens marcados com "▸" viram lista Markdown (`- item`, docs/content-format.md)."""
+    for passage in segmented.passages:
+        passage.body_md = LIST_PARAGRAPH.sub(r"\1- ", passage.body_md)
+    for question in segmented.questions:
+        question.statement_md = LIST_PARAGRAPH.sub(r"\1- ", question.statement_md)
+    return segmented
 
 
 def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
@@ -460,7 +478,9 @@ def _segment_choice(stream: list[_Entry], first: int) -> Segmented:
     if lead.entries and questions:
         questions[-1].flags = sorted({*questions[-1].flags, "orphan_text"})
     _passage_flags(questions, passages)
-    return Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
+    return _markdown_lists(
+        Segmented(parser=PARSER, passages=list(passages.values()), questions=questions)
+    )
 
 
 def _at_margin(entry: _Entry) -> bool:
@@ -723,7 +743,8 @@ def _choice_paragraphs(entries: list[_Entry]) -> list[str]:
             previous is not None and _indented_block_goes_on(previous, entry)
         )
         enumerated = _at_margin(entry) and (
-            ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
+            ROMAN_ITEM.match(entry.line.plain) is not None
+            or entry.line.plain.startswith(LIST_MARKS)
         )
         credit_done = previous is not None and (
             _credit_closes(entries, index - 1) or _paren_credit_end(entries, index - 1)
@@ -764,7 +785,7 @@ def _hanging_item_goes_on(opener: _Entry | None, previous: _Entry | None, entry:
     if opener is None or previous is None or previous.short:
         return False
     plain = opener.line.plain
-    if not (ROMAN_ITEM.match(plain) or plain.startswith("• ")):
+    if not (ROMAN_ITEM.match(plain) or plain.startswith(LIST_MARKS)):
         return False
     if previous.page != entry.page or previous.line.column != entry.line.column:
         return False
@@ -777,6 +798,10 @@ def _hanging_item_goes_on(opener: _Entry | None, previous: _Entry | None, entry:
         return False
     last = previous.line.plain.rstrip()[-1:]
     first = entry.line.plain.lstrip()[:1]
+    if plain.startswith("▸ ") and last not in SENTENCE_STOP and first.isalnum():
+        # Item da lista "▸" partido depois de número ou sinal ("... baixa escolaridade: 48%" |
+        # "cursaram até o 8.º ano.", PC/DF 2013 agente, texto dos itens 39 a 41). Emenda (32).
+        return True
     if last.isalpha() and first.isdigit():
         # A frase partida antes de um número ("... relativos ao mês de abril de" | "2012, no valor
         # de R$ 1.800,00;", PF 2012 agente, item II do texto dos itens 83 e 84). Emenda (18) da 0020.
@@ -787,7 +812,7 @@ def _hanging_item_goes_on(opener: _Entry | None, previous: _Entry | None, entry:
 def _labeled_item_at_margin(entry: _Entry) -> bool:
     """Começo de item enumerado na margem (I, II; a), b); •)."""
     return _at_margin(entry) and (
-        ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith("• ")
+        ROMAN_ITEM.match(entry.line.plain) is not None or entry.line.plain.startswith(LIST_MARKS)
     )
 
 
@@ -2004,6 +2029,7 @@ def _paragraphs(entries: list[_Entry], bases: _Bases | None = None) -> list[str]
                 and previous is not None
                 and _address_line_ends(previous, entry, text_rights)
             )
+            or entry.line.plain.startswith("▸ ")  # item da lista "▸" (emenda (32) da 0020)
         )
         if new:
             paragraphs.append([[]])
@@ -2426,7 +2452,7 @@ def _join_verses(pieces: list[list[str]]) -> str:
 
 
 # Começo de linha que não é verso: item de lista (I, II; a), b); •; travessão; número), rótulo.
-NOT_VERSE_START = re.compile(r"^(?:[IVX]+\b|[a-e]\)|•|[–—-]|\d|\(|\[)")
+NOT_VERSE_START = re.compile(r"^(?:[IVX]+\b|[a-e]\)|[•▸]|[–—-]|\d|\(|\[)")
 VERSE_OPEN_END = re.compile(r"[^\W\d_]{2},?$")
 VERSE_MIN_LINES = 4  # estrofe mais curta que isso não se distingue de linhas curtas soltas
 VERSE_MIN_OPEN = 2  # versos que terminam sem fechar a frase (em palavra ou vírgula)
