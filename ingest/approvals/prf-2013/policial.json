@@ -1,0 +1,21 @@
+{
+ "exam": "prf-2013/policial",
+ "seed": "r50",
+ "numbers": [
+  3,
+  43,
+  54,
+  57,
+  87,
+  90,
+  100,
+  102,
+  108,
+  114
+ ],
+ "sampled_at": "2026-10-15T17:37:03.425942+00:00",
+ "approved_at": "2026-10-15T17:38:09.738926+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "28b7680000ccdc896b9ed74965e403f8a8efce83259d3108e87b45b667c1e0cf",
+ "fingerprint_version": 2
+}
