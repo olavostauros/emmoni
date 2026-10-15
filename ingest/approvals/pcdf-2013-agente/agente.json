@@ -1,0 +1,21 @@
+{
+ "exam": "pcdf-2013-agente/agente",
+ "seed": "r53",
+ "numbers": [
+  11,
+  31,
+  34,
+  54,
+  57,
+  59,
+  64,
+  77,
+  99,
+  112
+ ],
+ "sampled_at": "2026-10-15T18:20:46.798266+00:00",
+ "approved_at": "2026-10-15T18:21:16.329977+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "ac221a58a151c1605957e5d9a556efc90c726b7d55e793bb4010cbc7477c3c5b",
+ "fingerprint_version": 2
+}
