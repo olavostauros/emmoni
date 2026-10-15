@@ -541,7 +541,7 @@ de título ou em caixa alta quebrado em duas linhas não é texto-base (emenda d
 extraída ("o modelo ER precedente", "a estrutura mostrada anteriormente"), ou item certo/errado sem
 texto-base cujo comando remete ao que vem antes dele ("os dados acima"), vai para `review` com o
 motivo correspondente, até existir a etapa de imagens (decisão 0030); também a questão de múltipla escolha com
-imagem raster logo abaixo do título "Questão N" (emenda de 2026-10-14 da 0030); a régua desenhada logo acima ou abaixo de um cabeçalho de disciplina não é figura (emenda (2)). O `load` grava `review` quando há motivo de
+imagem raster logo abaixo do título "Questão N" (emenda de 2026-10-14 da 0030); a régua desenhada logo acima ou abaixo de um cabeçalho de disciplina não é figura (emenda (2)); o desenho só de preenchimento branco, sem traço, longe (mais de 2 pt) de qualquer outro desenho ou imagem é invisível e não é figura (decisão 0020, emenda (28)). O `load` grava `review` quando há motivo de
 revisão, `published` quando não há motivo e há assunto, e `draft` quando falta assunto. A prova só é
 publicada depois da amostragem (decisão 0005).
 

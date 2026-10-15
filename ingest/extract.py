@@ -62,6 +62,8 @@ ORDINAL = re.compile(r"^[oaº]s?\.?$")  # "n.os", "1.a": abreviatura sobrescrita
 FULL_WIDTH_SHARE = 0.8  # desenho mais largo que isso é moldura/faixa, não figura
 MIN_RULE = 40.0  # régua horizontal mais curta que isso costuma ser sublinhado
 SEPARATOR_SHARE = 0.4  # régua com ~ a largura da coluna
+BLANK_FILL = 0.99  # componentes RGB do preenchimento "branco" (cor do papel)
+BLANK_REACH = 2.0  # folga (pt) para o branco contar como parte de um desenho visível ao lado
 TABLE_ROW_GAP = 40.0  # réguas largas mais próximas que isso = linhas de tabela
 DOUBLE_RULE_GAP = 6.0  # réguas mais próximas que isso formam um separador duplo
 
@@ -1006,16 +1008,47 @@ def _page(
 def _figures(page: Any, width: float) -> list[Figure]:
     """Imagens e desenhos, menos as faixas de largura total (fundo de títulos, réguas)."""
     figures = [Figure(kind="image", **_box(info["bbox"])) for info in page.get_image_info()]
-    for drawing in page.get_drawings():
+    blanks: list[Figure] = []
+    drawings = page.get_drawings()
+    # Tudo o que se vê na página, de qualquer tamanho (traço fino, faixa larga, imagem).
+    visible = [Figure(kind="drawing", **_box(d["rect"])) for d in drawings if not _is_blank(d)]
+    visible += [f for f in figures if f.kind == "image"]
+    for drawing in drawings:
         box = _box(drawing["rect"])
         w, h = box["x1"] - box["x0"], box["y1"] - box["y0"]
         if w > FULL_WIDTH_SHARE * width:
             continue
         # Retângulos (células, barras) ou réguas horizontais longas (tabelas sem fundo).
         if (w > 3 and h > 3) or (h <= 3 and w > MIN_RULE):
-            figures.append(Figure(kind="drawing", **box))
+            figure = Figure(kind="drawing", **box)
+            (blanks if _is_blank(drawing) else figures).append(figure)
+    # Preenchimento branco sem traço só se vê junto de outro desenho ou imagem (célula de tabela de
+    # traços finos, recorte numa faixa); longe de tudo, é invisível (CBM/AL 2017 básicos cargo 1,
+    # item 48: decisão 0020, emenda (28)).
+    figures += [b for b in blanks if any(_overlaps(b, f, BLANK_REACH) for f in visible)]
     figures = [f for f in figures if f.x1 > 0 and f.x0 < width]
     return [f for f in figures if not _is_separator(f, figures, width)]
+
+
+def _is_blank(drawing: dict[str, Any]) -> bool:
+    """Desenho só de preenchimento branco (a cor do papel), sem traço."""
+    fill = drawing.get("fill")
+    return (
+        drawing.get("type") == "f"
+        and drawing.get("color") is None
+        and fill is not None
+        and min(fill) >= BLANK_FILL
+    )
+
+
+def _overlaps(a: Figure, b: Figure, reach: float = 0.0) -> bool:
+    """As caixas se tocam, com folga de `reach` pt."""
+    return (
+        a.x0 - reach <= b.x1
+        and b.x0 - reach <= a.x1
+        and a.y0 - reach <= b.y1
+        and b.y0 - reach <= a.y1
+    )
 
 
 def _is_separator(figure: Figure, figures: list[Figure], width: float) -> bool:

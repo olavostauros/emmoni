@@ -935,3 +935,32 @@ que só pedia a linha anterior não curta juntava a legenda do gráfico do PF 20
 49 anos" | "50 a 59 anos") e foi descartada pela exigência de linha cheia. A questão 7, a única
 que usa o texto, segue em `review` pela marca `layout` do texto (linhas recuadas e curtas). Página 2 do
 caderno conferida renderizada.
+
+## Emenda de 2026-10-15 (28) — preenchimento branco sem traço não é figura
+
+**Contexto.** No CBM/AL 2017 básicos cargo 1 (pág. 4, coluna direita), o item 48 (proposições P
+e Q) estava em `review` com "figura ou tabela não extraída" por causa de dois retângulos
+vetoriais só de preenchimento branco, sem traço (8 × 11 pt e 3 × 11 pt, atrás de "são" na linha
+"Nesse caso, é correto afirmar…"): no papel branco não aparecem. O item não tem figura nem
+fórmula; a página renderizada mostra só texto. Os cadernos mais novos do Cebraspe trazem muitos
+desses retângulos brancos atrás de trechos de texto (marcas de edição).
+
+**Decisão.** No `extract` (`_figures`), o desenho só de preenchimento (`type == "f"`), sem traço
+e com as três componentes da cor ≥ 0,99 (`_is_blank`, a cor do papel) só conta como figura quando
+toca, com folga de 2 pt (`BLANK_REACH`), algum desenho visível da página — de qualquer tamanho,
+inclusive o traço fino e a faixa larga que o filtro de figura descarta — ou uma imagem. A célula
+branca de tabela de traços finos, o branco recortado numa faixa ou sobre uma imagem seguem figura;
+o branco solto no texto sai. Uma primeira versão que pedia sobreposição a outra *figura* tirava
+as células brancas de tabelas desenhadas só com traços verticais finos e foi descartada.
+
+**Verificação.** O `segment` das 140 provas do `data/staging/` com parser do Cebraspe rodado
+sobre o mesmo `pages.exam.json`, com as figuras recalculadas do PDF pelo código do HEAD
+(b4f7840) e pelo novo, e comparado: nenhum enunciado, alternativa ou texto-base muda; só a marca
+`figure` sai de questões e textos-base de 20 provas (CBM/AL 2017 básicos cargo 1 q48; CBM/PA 2023
+CFO p1; CBM/TO 2021 e 2022 soldado; PC/DF 2019; PC/ES 2022 específicos; PC/PE 2023 p1 cargo 1;
+PC/RO 2022 específicos cargo 3 e gerais cargos 1 e 4; PC/SE 2018 gerais e específicos; PM/AL 2017
+específicos; PM/MA 2017 específicos cargo 2 e gerais cargos 1, 2, 3 e 5; PM/RO 2022; PM/TO 2020
+QPPM). Cada página dessas questões conferida renderizada, com os brancos descartados em vermelho
+e as figuras que ficam em azul: os brancos estão todos atrás de texto, e as figuras reais da
+página (ECG do PM/MA médico, gráficos e plano inclinado do PM/MA gerais, mapas do PC/RO, figuras
+do CBM/PA) continuam. Na PM/MA gerais q53–56 fica a marca `formula`.

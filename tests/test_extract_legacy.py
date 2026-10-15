@@ -356,3 +356,21 @@ def test_italic_by_slant_needs_a_leaning_outline() -> None:
         assert ex._italic_by_slant(
             document, {"TT37B42o00"}, {f: 0 for f in normal}, leaning, refs
         ) == {"TT37B42o00": ex.ITALIC}
+
+
+def test_blank_drawing_alone_is_not_a_figure() -> None:
+    """Preenchimento branco sem traço longe de tudo é invisível (CBM/AL 2017 básicos cargo 1,
+    item 48); junto de um traço fino, com traço próprio ou em outra cor, segue figura (decisão
+    0020, emenda (28))."""
+    document = pymupdf.open()  # type: ignore[no-untyped-call]
+    page = document.new_page()  # type: ignore[no-untyped-call]
+    white = (1, 1, 1)
+    page.draw_rect(pymupdf.Rect(60, 60, 120, 80), color=None, fill=white)  # sozinho: some
+    page.draw_rect(pymupdf.Rect(60, 200, 120, 220), color=None, fill=white)  # célula de tabela
+    page.draw_line((121, 195), (121, 225), color=(0, 0, 0), width=0.5)  # traço fino ao lado
+    page.draw_rect(pymupdf.Rect(60, 300, 120, 320), color=(0, 0, 0), fill=white)  # com traço
+    page.draw_rect(pymupdf.Rect(60, 400, 120, 420), color=None, fill=(0.8, 0.8, 0.8))  # cinza
+    figures = ex._figures(page, page.rect.width)
+    tops = sorted(round(f.y0) for f in figures if f.x1 - f.x0 > 50)
+    assert 60 not in tops
+    assert {200, 300, 400} <= set(tops)
