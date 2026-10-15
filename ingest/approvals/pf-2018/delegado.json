@@ -1,19 +1,21 @@
 {
  "exam": "pf-2018/delegado",
+ "seed": "r29",
  "numbers": [
-  1,
-  2,
-  21,
-  46,
-  56,
-  76,
-  78,
-  88,
-  98,
-  103
+  4,
+  5,
+  23,
+  24,
+  57,
+  60,
+  91,
+  99,
+  104,
+  109
  ],
- "sampled_at": "2026-10-08T17:34:51.252642+00:00",
- "approved_at": "2026-10-08T17:37:12.131191+00:00",
- "approved_by": "claude-opus-5-5",
- "fingerprint": "c84588398a8339850100984cd1eea92ceca05aeeef132eb22b1aa066c6cedb8f"
+ "sampled_at": "2026-10-15T00:06:08.956012+00:00",
+ "approved_at": "2026-10-15T00:06:24.591403+00:00",
+ "approved_by": "minos (claude-opus-5-5)",
+ "fingerprint": "e95d856830ae6cf99251bc91786617f46b3bf28434fc154b3b0f1b75482693a3",
+ "fingerprint_version": 2
 }
