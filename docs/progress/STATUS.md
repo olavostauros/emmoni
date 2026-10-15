@@ -1,101 +1,58 @@
-# Status — atualizado em 2026-10-14 (ciclo das 19:32)
+# Status — atualizado em 2026-10-15 (ciclo das 13:41)
 
 **Marco atual:** M5 — Mais bancas (SPECIFICATION.md §10). M0–M4 prontos (M4 em 2026-10-08).
 Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui ampliou o Cebraspe.
 
 ## Feito neste marco
-- HTTP do `www.cespe.unb.br` (decisão 0017); OCR com revisão do agente (decisão 0018); `CREDIT_END`
-  e reprocessamento das 16 provas; sessões paralelas (decisão 0019).
-- Site antigo do Cebraspe: `extract` com `legacy`, PF 2012 publicado (decisão 0020).
-- API HTTP local por PostgREST (decisão 0021, contrato v1.3); deploy preparado (decisão 0022).
-- Capa do PM/AL 2021, fonte de símbolos, escape do `$` (decisão 0023, contrato v1.4), "(ℓ.N)".
-- Trava do banco (decisão 0025), ciclo autônomo (decisão 0026), lab `oficina` (decisão 0029).
-- Ciclo das 17:44 (`2026-10-13-ciclo-pf-2012-pf-2021.md`): deploy passo 2 feito; E-009/E-010
-  corrigidos no plano; PF 2012 delegado q106 e escrivão q57 publicados, parágrafo por espaço e
-  código inline; `infer_font_styles` por prova (emenda da 0020); PF 2012 delegado/escrivão,
-  PF 2021 delegado e PF 2018 papiloscopista reaprovados por minos.
-- Ciclo das 22:40 (`2026-10-13-ciclo-pf-2018-agente-estilos.md`): PF 2018 agente publicado
-  (crédito inteiro; merge do branch do crédito e o útil do `stash@{0}`); deploy passo 3 parcial
-  (tópico); 6 assuntos novos (917); `infer_font_styles` lote 1 (PC/AL e PC/ES 2022) aprovado.
-- Ciclos de 2026-10-14 02:05 e 05:28 (`2026-10-14-ciclo-estilo-hifen-normalizacao.md`): auditoria
-  E-011; estilo de fonte pequena e código inline (emendas da 0020); figura citada sem imagem vai
-  para `review` (0030); `review sample --seed` (0031); justificativa pela cor (emenda da 0009);
-  hífen de fim de linha é do original (0032); NFC e strip na gravação (check 080); estilo ligado em
-  pcgo-2016, pmpa-2023, pcpb-2021, pcrj-2021, pcro-2022, cbmto-2022 oficial e pmro-2022. Cerca de
-  30 provas reaprovadas por minos (sementes r2–r6).
-- Ciclo de 2026-10-14 10:01 (`2026-10-14-ciclo-paragrafo-multipla-escolha.md`): crawl sem
-  propostas; parágrafo por espaço na múltipla escolha; citação/item recuados, referência à
-  direita, travessão, foto abaixo do título (`figure`), linha de código, URL partida, régua de
-  cabeçalho; estilo em pcce-2025, pcpe-2023, pcro-2022 cargo 3, pcma-2017, pmal-2021 oficial,
-  cbmro-2022 oficial e pf-2025. 27 aprovações de minos (sementes r7–r12); `pmro-2022` e
-  `pmdf-2025/p2` saíram de `review`.
-- Ciclo de 2026-10-14 14:53 (`2026-10-14-ciclo-texto-base-estilo-impressao-v2.md`): texto-base
-  sem rótulo depois da alternativa E (emenda da 0013); linhas com rótulo, versos em estrofe,
-  rótulo colado, texto branco invisível, 2ª língua estrangeira, fonte simulada do Distiller
-  (emendas (8)–(13) da 0020); check 090; impressão digital v2 (decisão 0033); estilo em pmsc-2023
-  soldado, pcse-2021, pmal-2021 soldado, cbmto-2022 soldado, cbmal-2017, cbmto-2021, cbmpa-2023-cfp.
-  39 aprovações de minos (r13–r22); nenhuma prova real em `review`.
-- Ciclo de 2026-10-14 19:32 (`2026-10-14-ciclo-ordinal-estilo-reamostragem.md`): ordinal
-  sobrescrito "º"/"ª" pelo glifo; monoespaçada com poucas letras; proposições P:/Q: no item;
-  crédito partido em duas linhas; figura que abre a coluna; item com recuo pendente; próximo
-  rótulo da lista abre parágrafo (emendas (14)–(18) da 0020); justificativa sem cabeçalho não vira
-  texto-base (emenda (2) da 0009, PM/DF 2025 P2 q80). Estilo em pmma-2017, cbmpa-2023-cfo p1,
-  pmsc-2023-oficial, pcdf-2019, prf-2021 espanhol. CBM/AL 2017 básicos cargo 1 publicada pela
-  primeira vez. 27 aprovações de minos (r23–r30).
+- HTTP do `www.cespe.unb.br` (0017); OCR com revisão do agente (0018); sessões paralelas (0019);
+  site antigo do Cebraspe com `legacy` (0020, emendas até a (33)); API local por PostgREST
+  (0021, contrato v1.4); deploy preparado (0022); trava do banco (0025); ciclo autônomo (0026);
+  lab `oficina` (0029); figura citada sem imagem vai para `review` (0030); `review sample --seed`
+  (0031); hífen de fim de linha (0032); impressão digital v2 (0033).
+- Ciclos de 2026-10-13 e 2026-10-14: ver os registros `2026-10-13-*` e `2026-10-14-*`.
+- Ciclos de 2026-10-15 00:16 e 08:41 (pararam no limite de sessão, sem registro próprio):
+  emendas (19)–(28) da 0020, reaprovações r31–r48; todas as aprovações estão na impressão v2.
+- Ciclo de 2026-10-15 13:41 (`2026-10-15-ciclo-site-antigo-2009-2013.md`): reamostragem r49 de
+  8 provas; estilo conferido nas 12 provas sem `infer_font_styles` (fica desligado); 7 provas novas
+  do site antigo publicadas — PRF 2013, PF 2009 agente e escrivão, PC/DF 2013 agente e escrivão,
+  DEPEN 2013 básicos e específicos (emendas (29)–(33): nota de seção, fração empilhada, linha
+  partida por ícone, glifos pelo desenho, lista ▸, faixa "Texto para os itens de X a Y").
 
 ## Em andamento
-- Estilo por prova ligado em: pcal-2022, pces-2022, pcgo-2016, pmpa-2023-cfp/cfo, pcpb-2021,
-  pcrj-2021, pcro-2022, cbmto-2021, cbmto-2022, pmro-2022, pf-2018, pf-2021 delegado, pcce-2025,
-  pcpe-2023, pcma-2017-apc, pcma-2017-delegado, pmal-2021, cbmro-2022 oficial, pf-2025,
-  pmsc-2023-soldado, pcse-2021, cbmal-2017, cbmpa-2023-cfp, pmma-2017, cbmpa-2023-cfo p1,
-  pmsc-2023-oficial, pcdf-2019, prf-2021 espanhol.
-- Impressão digital v2 (decisão 0033): 43 das 116 aprovações já estão na v2; as outras 73 (v1) não
-  voltam a `review` quando só a marcação ou o parágrafo muda — por isso a reamostragem do item 3.
 - Plantão: contrato v1.4; dados reais só pela API (decisão 0028).
 - Deploy: passos 0–2 feitos; passo 3 parcial (tópico `emmoni-budget`; budget na fila do dono).
   Passo 8: sim do dono dado em 2026-10-13, depois do 7, só pela API (decisão 0028).
+- PDFs do site antigo copiados de `data/crawl/cespe-unb/` para `data/raw/` só no checkout
+  principal (sha256 conferido); outro checkout repete a cópia ou o `fetch` vai à rede.
 
 ## Próximos passos
-1. Hefesto: reprovação r30 de `pmsc-2023-oficial/objetiva` (em `review`, fora da API): q66
-   (pág. 10), fórmula centralizada em linha própria sai colada ao comando "O número de linhas…"
-   no mesmo parágrafo (a q67, mesmo desenho, sai certa). Depois minos com semente nova (≠ r2–r30).
-2. Reamostrar (minos, semente nova) as aprovações v1 mais antigas, em lotes de ~6, para passá-las à
-   v2: `prf-2021` inglesa e policial, `pmto-2020-qppm`, `pf-2021` agente, escrivão,
-   papiloscopista ... (lista: `grep -L fingerprint_version -r ingest/approvals`, ordenada por
-   `approved_at`). Os lotes r25 e r29 reprovaram 7 de 12 por estilo não inferido: conferir antes
-   se o manifesto tem `infer_font_styles` e ligar em lote (hefesto) antes de amostrar.
-3. Estilo nas provas restantes sem `infer_font_styles` (lotes, hefesto → minos); `pmdf-2025` não
-   precisa. Título colado na alternativa E: cbmto-2021 soldado q30. `pmsc-2023-soldado` 1A5-III:
-   "Assunto:" sem negrito.
-4. `pf-2012/agente` q84: tabela das q85–86 colada no enunciado (bloco recuado em minúscula não
-   fecha o item); regra estreita por bloco de mesmo x0/x1 terminando em número, sem quebrar os
+1. Textos em `review` das provas novas: PC/DF 2013 agente g1 (poema "Pavio do destino", Q1–10,
+   marca `layout`) e PF 2009 escrivão g74 (Q74–81, marca `formula`): tirar a marca se o texto
+   estiver certo (hefesto) e o minos conferir. PC/DF 2013 agente Q21: cabeçalho de memorando de
+   6 linhas centralizadas sai num parágrafo só (em `review`).
+2. Amostra de assuntos dirigida às provas novas (itens de baixa confiança: PRF 2013 q63, q99–100;
+   PF 2009 AFO; PC/DF 2013 informática forense) e às 6 do PF 2012 com assunto novo; curadoria
+   `comunicacao_e_equipes` × `cultura_organizacional`.
+3. Outros concursos do índice antigo do `cespe-unb` (só policiais): conferir DPRF 2008 e o que mais
+   houver de cargo policial; DPF 2013/DPRF 2012 administrativos ficam fora (decisão 0009).
+4. `pf-2012/agente` q84: tabela das q85–86 colada no enunciado; regra estreita sem quebrar os
    rótulos do circuito do PF 2012 papiloscopista q104–106.
-5. Tirar a marca "layout" de versos já reconhecidos como estrofe (cbmal-2017 específicos cargo 2
-   q114–116, "O Xote das meninas").
-6. `pcma-2017-apc` gerais (cargos 1/2 q13–14, cargo 5 q16–17) e `pcpb-2021` gerais 4 a 13 q12:
-   teclas desenhadas sem mapeamento (U+FFFD), revisão em `ingest/ocr/` contra a imagem; seguem em
-   `review`.
-7. Manifestos aprovados com documentos novos fora do manifesto: `pces-2022` (gabarito preliminar
-   CG1_01) e `pmma-2017` (359_PMMA_001–003): incorporar ou registrar por que não entram.
-8. Deploy passo 4 (caronte) depois que o budget existir.
-9. Código em várias linhas como bloco (PF 2018 agente q93–96, PF 2025 bloco II g91); tabelas GFM
-   (PF 2025 agente g107, q107–110); LaTeX das fórmulas (PF 2025 papiloscopista q105/q110, CBM/AL
-   2017 q50); expoente perdido ("k2", "m2", "*mv*2", "105 Pa").
-10. PF 2012 agente g12 e papiloscopista g8: poema em duas colunas e números de verso.
-    cbmpa-2023-cfo/p1 1A6: subscrito de CH4/CS2. PF 2018 escrivão g97: "•" lido como "C".
-11. Figura: ignorar desenho de preenchimento branco sem traço (CBM/AL 2017 q48); ângulos "30o"
-    (CBM/TO 2021 soldado) pedem decisão "°" × "º".
-12. Amostra de assuntos dirigida para as 6 questões do PF 2012 com assunto novo; curadoria de
-    `comunicacao_e_equipes` × `cultura_organizacional`.
-13. Manifestos dos demais concursos policiais do `cespe-unb`: DPF 2009, DPRF 2013, PC/DF 2013,
-    DEPEN 2013.
-14. Começar o crawler e o parser de outra banca.
-15. `pcpe-2016` e `pcientifica-pe-2016`: calibrar o parser e ingerir (staging do pcientifica fora
-    de sincronia).
-16. Etapa `structure` e imagens para as questões em `review` por figura, fórmula e layout.
-17. PC/PB 2021 CG1A1-III: "matrícula n.º" | "1.234-56" partido e endereço juntado.
+5. `pcma-2017-apc` gerais (cargos 1/2 q13–14, cargo 5 q16–17) e `pcpb-2021` gerais 4 a 13 q12:
+   teclas desenhadas sem mapeamento (U+FFFD); talvez a tabela de glifos da emenda (32) sirva.
+6. Deploy passo 4 (caronte) depois que o budget existir.
+7. Código em várias linhas como bloco; tabelas GFM (PF 2025 agente q107–110); LaTeX das fórmulas;
+   expoente perdido ("k2", "m2", "105 Pa"); colchetes de fórmula do PRF 2013 p. 10.
+8. PF 2012 agente g12 e papiloscopista g8: poema em duas colunas. cbmpa-2023-cfo/p1 1A6: subscrito
+   de CH4/CS2. PF 2018 escrivão g97: "•" lido como "C". Ângulos "30o" (CBM/TO 2021 soldado) pedem
+   decisão "°" × "º".
+9. Começar o crawler e o parser de outra banca.
+10. `pcpe-2016` e `pcientifica-pe-2016`: calibrar o parser e ingerir.
+11. Etapa `structure` e imagens para as questões em `review` por figura, fórmula e layout.
 
 ## Bloqueios e perguntas em aberto
+- **Ciclos parando no limite de sessão (dono)**: em 2026-10-15 os ciclos das 00:16, 05:40 e 08:41
+  bateram no limite do plano ("You've hit your session limit"); o das 05:40 nem começou. As sobras
+  foram para stash e este ciclo as recuperou. Espaçar o `emmoni-ciclo.timer` ou aceitar a perda.
 - **Budget do passo 3 do deploy (dono, R$ 0)**: o tópico `emmoni-budget` já existe; o
   `gcloud billing budgets create` (e o `list`) foi negado pela permissão da sessão em 2026-10-13.
   O deploy para aqui (o corte do passo 4 depende do budget). Rodar à mão, ou liberar o comando:
@@ -107,10 +64,11 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
   - E-009 (depois do passo 6): tirar `emmoniIngressCap` da `emmoni-budget-cap` no projeto.
   Os comandos completos estão no `DEPLOY.md`, passo 2. E-009 e E-010 são pré-condição do passo 7.
 - Stashes (descartar é do dono; nada deles falta no `main`):
-  - `stash@{0}` ("ciclo 2026-10-14-0227: sobra"): o trabalho do hefesto interrompido, já
-    aplicado e commitado em `9c5715b`;
-  - `stash@{1}` ("ciclo 2026-10-13-2304: sobra"): o lote 1 do estilo, já em `976607e`;
-  - `stash@{2}` ("ciclo 2026-10-13-1443: sobra"): o que o PF 2018 precisava já está em `2d970a3`.
+  - `stash@{0}` ("ciclo 2026-10-15-1040: sobra"): as nove aprovações r48, commitadas em `9f645dd`;
+  - `stash@{1}` ("ciclo 2026-10-15-0240: sobra"): aprovações já no `main` pelo r38 (`c7474e4`);
+  - `stash@{2}` ("ciclo 2026-10-14-0227: sobra"): já em `9c5715b`;
+  - `stash@{3}` ("ciclo 2026-10-13-2304: sobra"): o lote 1 do estilo, já em `976607e`;
+  - `stash@{4}` ("ciclo 2026-10-13-1443: sobra"): o que o PF 2018 precisava já está em `2d970a3`.
 - Plantão lendo a API em vez do snapshot real (decisão 0028): pedido enviado à sessão do Plantão
   em 2026-10-13; a escolha é de lá.
 - DPF 2012 perito: o cargo não está em `db/catalog.yaml`.
@@ -118,10 +76,10 @@ Ainda não há crawler nem parser de outra banca; o trabalho do M5 até aqui amp
 - DPF 2014 e DEPEN 2015: API do Cebraspe dá erro 500 (tentar pelo site antigo).
 
 ## Números
-- Questões visíveis no esquema `api`: 5.506 (com o seed)
-- Reais: 6.974 carregadas · 5.881 `published` · 1.093 `review` · 0 `draft`; provas: 115
-  publicadas, 1 em `review` (`pmsc-2023-oficial/objetiva`), mais 5 do seed
-- Registros de aprovação em `ingest/approvals/`: 116 (43 na impressão v2)
-- Propostas do crawler pendentes: 0 · rejeitados: 1 · último crawl: 2026-10-14 10:25
+- Questões visíveis no esquema `api`: 6.259 (com o seed)
+- Reais: 7.694 carregadas · 6.616 `published` · 1.078 `review` · 0 `draft`; provas: 123
+  publicadas, nenhuma em `review`, mais 5 do seed
+- Registros de aprovação em `ingest/approvals/`: 123 (todos na impressão v2)
+- Propostas do crawler pendentes: 0 · rejeitados: 1 · último crawl: 2026-10-15 08:43
 - Taxonomia: 57 disciplinas, 917 assuntos
 - Contrato do front-end: **v1.4**
